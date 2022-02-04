@@ -1,2 +1,3 @@
 # stat4arch
-Teaching materials for a stats course for archaeologists.
+
+A repository for teaching materials, presentations etc. for archaeological data analysis and quantitative methods course using R programming language and environment.
