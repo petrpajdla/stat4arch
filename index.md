@@ -1,34 +1,60 @@
-## Statistics seminar for archaeology students
+## Analysing archaeological data in R
 
 Welcome to Statistics seminar for archaeology students at
 [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
 
+- Taught by Petr Pajdla and Peter Tkáč
 - Spring semester 2022
-- Odd Thursdays, 14:00 -- 17:30
+- Odd Thursdays, 14:00 -- 17:40 (will include breaks)
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
-- 3 ECTS credits, i.e.  ca. 80 h. of work, seminars take up approx. 22 h.
+- 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
 
 ## Schedule
 
-### Seminar 17. 2.
-    - Introduction to quantitative methods in archaeology
+### 1. Seminar (17. 2.)
 
-    [ ] Fuu bar
-    [x] fuu bar
+    - Intro on quantitative methods in archaeology
+    - Intro to [R](https://cran.r-project.org/) programming language and environment
+    - *Tidy* data
 
-### Seminar 3. 3.
+### 2. Seminar (3. 3.)
 
-### Seminar 17. 3.
+### 3. Seminar (17. 3.)
 
-### Seminar 31. 3.
+### 4. Seminar (31. 3.)
 
-### Seminar 14. 4.
+### 5. Seminar (14. 4.)
 
-### Seminar 28. 4.
+### 6. Seminar (28. 4.)
 
-### Seminar 12. 5.
+### 7. Seminar (12. 5.)
 
-# Topics
+## Topics
+
+### Intro
+#### Data
+
+#### Variable types
+
+### Descriptive statistics
+#### Characterizing central tendency and spread of data
+
+- Plots for one variable
+- Numerical methods
+
+#### Relationship between two variables
+
+- Scatterplots
+- Correlation
+
+### Data manipulation
+#### Transforming data
+
+### Multivariate methods
+#### Dimensionality reduction
+#### Clustering
+
+## Sources
 
 ### Markdown
 
