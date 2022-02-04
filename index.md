@@ -1,4 +1,4 @@
-## stat4arch
+## Statistics seminar for archaeology students
 
 Welcome to Statistics seminar for archaeology students at
 [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
@@ -8,22 +8,25 @@ Welcome to Statistics seminar for archaeology students at
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
 - 3 ECTS credits, i.e.  ca. 80 h. of work, seminars take up approx. 22 h.
 
-# Schedule
+## Schedule
 
-1. Seminar 17. 2.
+### Seminar 17. 2.
     - Introduction to quantitative methods in archaeology
 
-2. Seminar 3. 3.
+    [ ] Fuu bar
+    [x] fuu bar
 
-3. Seminar 17. 3.
+### Seminar 3. 3.
 
-4. Seminar 31. 3.
+### Seminar 17. 3.
 
-5. Seminar 14. 4.
+### Seminar 31. 3.
 
-6. Seminar 28. 4.
+### Seminar 14. 4.
 
-7. Seminar 12. 5.
+### Seminar 28. 4.
+
+### Seminar 12. 5.
 
 # Topics
 
