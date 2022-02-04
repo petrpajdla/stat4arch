@@ -1,37 +1,50 @@
 ## Analysing archaeological data in R
 
-Welcome to Statistics seminar for archaeology students at
-[Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
+Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar for archaeology students at [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
+The course is taught by Petr Pajdla and Peter Tkáč.
 
-- Taught by Petr Pajdla and Peter Tkáč
-- Spring semester 2022
+Information given here applies to spring semester 2022.
+
 - Odd Thursdays, 14:00 -- 17:40 (will include breaks)
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
+- Computers are provided in the room, you can use your own laptop though.
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
 
 ## Schedule
 
-### 1. Seminar (17. 2.)
+### Seminar 1
+**17. 2.**
 
-    - Intro on quantitative methods in archaeology
-    - Intro to [R](https://cran.r-project.org/) programming language and environment
-    - *Tidy* data
+Outline:
+- Intro on quantitative methods in archaeology
+- Intro to [R](https://cran.r-project.org/) programming language and environment
+- *Tidy* data
 
-### 2. Seminar (3. 3.)
+Reading:
 
-### 3. Seminar (17. 3.)
 
-### 4. Seminar (31. 3.)
+### Seminar 2
+**3. 3.**
 
-### 5. Seminar (14. 4.)
-    - Markdown
-### 6. Seminar (28. 4.)
+### Seminar 3
+**17. 3.**
 
-### 7. Seminar (12. 5.)
+### Seminar 4
+**31. 3.**
 
-## Topics
+### Seminar 5
+**14. 4.**
 
-### Intro
+- Markdown
+
+### Seminar 6
+**28. 4.**
+
+### Seminar 7
+**12. 5.**
+
+## Topics covered
+
 #### Data
 
 #### Variable types
@@ -54,7 +67,19 @@ Welcome to Statistics seminar for archaeology students at
 #### Dimensionality reduction
 #### Clustering
 
-## Sources
+## Recommended readings and resources
+
+### Quantitative archaeology
+- Carlson, David L. 2017: *Quantitative Methods in Archaeology Using R.* Cambridge: Cambridge University Press
+- Drennan, Robert D. 2010: *Statistics for archaeologists: A common sense approach.* New York: Springer
+- Shennan, Stephen 1988: *Quantifying archaeology.* Edinburgh: Edinburgh University Press
+
+### R
+- [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garet Grolemund
+- [Data Visualization. A practical introduction](https://socviz.co/) by Kieran Healy
+
+
+---
 
 ### Markdown
 
@@ -83,7 +108,3 @@ For more details see [Basic writing and formatting syntax](https://docs.github.c
 ### Jekyll Themes
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/petrpajdla/stat4arch/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
