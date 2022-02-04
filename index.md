@@ -1,8 +1,31 @@
-## Welcome to GitHub Pages
+## stat4arch
 
-You can use the [editor on GitHub](https://github.com/petrpajdla/stat4arch/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Welcome to Statistics seminar for archaeology students at
+[Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Spring semester 2022
+- Odd Thursdays, 14:00 -- 17:30
+- Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
+- 3 ECTS credits, i.e.  ca. 80 h. of work, seminars take up approx. 22 h.
+
+# Schedule
+
+1. Seminar 17. 2.
+    - Introduction to quantitative methods in archaeology
+
+2. Seminar 3. 3.
+
+3. Seminar 17. 3.
+
+4. Seminar 31. 3.
+
+5. Seminar 14. 4.
+
+6. Seminar 28. 4.
+
+7. Seminar 12. 5.
+
+# Topics
 
 ### Markdown
 
