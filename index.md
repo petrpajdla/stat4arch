@@ -31,18 +31,26 @@ This session will be focused on getting to know how to code in R and do common o
 - Reading data into R (`readr` package).
 - R data manipulation basics (`dplyr` package?).
 
+#### Assignment
+- Go through [this](https://rstudio.cloud/learn/primers/1.2) short interactive course on basic programming in R.
+
 ### Seminar 3 (17. 3. 2022)
 Third session is focused on reading and creating basic types of plots and understanding basic summaries of quantitative variables.
 - Types of variables (qualitative, quantitative)
 - Data visualization, plots for one variable
 - Descriptive stats (mean, sd, median, IQR etc.)
 
+#### Assignment
+- Complete [this](https://rstudio.cloud/learn/primers/1.1) interactive course on data visualization.
+- `optional` Flick through [Make a plot](https://socviz.co/makeplot.html#makeplot) chapter from *Data Visualization* book by K. J. Healy. It explains how plotting with `ggplot2` package works in a simple way.
+
 ### Seminar 4 (31. 3. 2022)
 - Intro on Reproducibility.
 - Using [RMarkdown](https://rmarkdown.rstudio.com/).
 
 #### Assignment
-- Read [Chapter 2](https://socviz.co/gettingstarted.html#gettingstarted) from *Data Visualization* book by K. J. Healy after the lecture. This chapter explains writing in plain text using RMarkdown and wraps up basics of RStudio IDE and R including reading data and plotting.
+- Read [Get started](https://socviz.co/gettingstarted.html#gettingstarted) chapter from *Data Visualization* book by K. J. Healy after the lecture. This chapter explains writing in plain text using RMarkdown and wraps up basics of RStudio IDE and R including reading data and plotting.
+- `optional` If you still have problems understanding how RMarkdown works or simply want to learn more, go through [this](https://rmarkdown.rstudio.com/lesson-1.html) short interactive course by RStudio.
 
 ### Seminar 5 (14. 4. 2022)
 
@@ -112,7 +120,7 @@ The *stats* topics covered are listed here.
 
 #### Where to look for help
 
-- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/), especially data visualization, transformation, tidying and import cheatsheets will come in useful.
 - Search through [Stack Overflow](https://stackoverflow.com/questions/tagged/r). Find some tips on asking good questions and providing minimal reproducible examples in this [thread](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) and in [Advanced R](http://adv-r.had.co.nz/Reproducibility.html) book by Hadley Wickham.
 
 ### Reproducibility
