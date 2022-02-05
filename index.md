@@ -38,7 +38,11 @@ Third session is focused on reading and creating basic types of plots and unders
 - Descriptive stats (mean, sd, median, IQR etc.)
 
 ### Seminar 4 (31. 3. 2022)
-- Intro on Reproducibility, using [RMarkdown](https://rmarkdown.rstudio.com/).
+- Intro on Reproducibility.
+- Using [RMarkdown](https://rmarkdown.rstudio.com/).
+
+#### Assignment
+- Read [Chapter 2](https://socviz.co/gettingstarted.html#gettingstarted) from *Data Visualization* book by K. J. Healy after the lecture. This chapter explains writing in plain text using RMarkdown and wraps up basics of RStudio IDE and R including reading data and plotting.
 
 ### Seminar 5 (14. 4. 2022)
 
@@ -50,7 +54,7 @@ Third session is focused on reading and creating basic types of plots and unders
 
 ## Project assignment
 
-To pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit his/her own project *protocol*. There are two options, you can choose to work either on your own dataset or use an existing published dataset. 
+To pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit his/her own project *protocol*. There are two options, you can choose to work either on your own dataset or use an existing published dataset.
 
 ### (A) Working with your own dataset
 
@@ -68,12 +72,12 @@ The *stats* topics covered are listed here.
 #### Descriptive statistics
 - Characterizing central tendency and spread of data
   - Plots for one variable
-    (Bar charts, histogram and density plots)
+    (bar chart, histogram and density plot)
   - Numerical summaries
-    (Mean & standard deviation, median & interquartile range)
+    (mean & standard deviation, median & interquartile range)
 - Characterizing relationships between variables
   - Plots for comparing variables
-    (Boxplots, Scatterplots)
+    (boxplot, scatterplot)
   - Correlation
 
 #### Data distributions
@@ -126,7 +130,7 @@ The *stats* topics covered are listed here.
 
 ### Note on special characters and the Czech keyboard
 
-| character |   |
+| Character | Shortcut |
 |---|-----------|
 | # | Alt + 35  |
 | $ | Alt + 36  |
