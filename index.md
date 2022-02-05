@@ -15,14 +15,11 @@ Information given here applies to spring semester 2022, the page will be continu
 
 ### Seminar 1
 **17. 2.**
-
-Outline:
 - Intro on quantitative methods in archaeology
 - Intro to [R](https://www.r-project.org/) programming language and environment
-- Organizing data
+- Basics on data organization
 
 Readings:
-
 -
 
 
@@ -34,11 +31,10 @@ Readings:
 
 ### Seminar 4
 **31. 3.**
+- Reproducibility
 
 ### Seminar 5
 **14. 4.**
-
-- Markdown
 
 ### Seminar 6
 **28. 4.**
@@ -56,12 +52,10 @@ Readings:
 
 ### Descriptive statistics
 #### Characterizing central tendency and spread of data
-
 - Plots for one variable
 - Numerical methods
 
 #### Relationship between two variables
-
 - Scatterplots
 - Correlation
 
@@ -76,21 +70,31 @@ Readings:
 
 ## Recommended readings and resources
 
-### Quantitative archaeology
-- Carlson, David L. 2017: *Quantitative Methods in Archaeology Using R.* Cambridge: Cambridge University Press
-- Drennan, Robert D. 2010: *Statistics for archaeologists: A common sense approach.* New York: Springer
-- Shennan, Stephen 1988: *Quantifying archaeology.* Edinburgh: Edinburgh University Press
+### Quantitative and digital archaeology
+- Carlson, D. L. 2017: *Quantitative Methods in Archaeology Using R.* Cambridge: Cambridge University Press.
+- Drennan, R. D. 2010: *Statistics for archaeologists: A common sense approach.* New York: Springer.
+- Shennan, S. 1988: *Quantifying archaeology.* Edinburgh: Edinburgh University Press.
 
-### R
-- [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garet Grolemund
-- [Data Visualization. A practical introduction](https://socviz.co/) by Kieran Healy
+- [Open Digital Archaeology Textbook](https://o-date.github.io/)
+
+### Statistics
+- [An Introduction to Statistical Learning](https://www.statlearning.com/) by Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani.
+
+### R programming language and environment
+- [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garret Grolemund.
+- [Data Visualization. A practical introduction](https://socviz.co/) by Kieran Healy.
 
 #### Where to look for help
 
 - [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/r)
 
-### Useful links
+### Reproducibility
+- Marwick, B. 2017: Computational Reproducibility in Archaeological Research: Basic Principles and a Case Study of Their Implementation. *Journal of Archaeological Method and Theory* 24(2): 424–450. DOI: [10.1007/s10816-015-9272-9](https://doi.org/10.1007/s10816-015-9272-9).
+- Marwick, B., Boettiger, C. and Mullen, L. 2018: Packaging Data Analytical Work Reproducibly Using R (and Friends). *The American Statistician* 72(1): 80–88. DOI: [10.1080/00031305.2017.1375986](https://doi.org/10.1080/00031305.2017.1375986).
+- [The Plain Person’s Guide to Plain Text Social Science](https://plain-text.co/) by Kieran Healy
+
+### Useful links and tools
 
 - [open-archaeo](https://open-archaeo.info/) is a list of open source archaeological software and resources
 
@@ -98,40 +102,19 @@ Readings:
 
 ## Footnotes
 
-### Note on special characters and Czech keyboard
+### Note on special characters and the Czech keyboard
 
-| character | |
----------------
-| `#` | Alt + 35 |
-| $ | Alt + 36 |
-| & | Alt + 38 |
-| ^ | Alt + 94 |
+| character |   |
+|---|-----------|
+| # | Alt + 35  |
+| $ | Alt + 36  |
+| & | Alt + 38  |
+| ^ | Alt + 94  |
 | ~ | Alt + 126 |
 
-In RStudio, use Alt + - to write `<-`
-
---------------------------------------------------------------------------------
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+Basic RStudio keyboard shortcuts
+| Shortcut |   |
+|---------|-----------|
+| Alt + - | `<-` |
+| Ctrl + Enter | evaluates the given line |
+| Ctrl + Shift + c | comments the line (#) |
