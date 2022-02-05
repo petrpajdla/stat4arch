@@ -24,23 +24,18 @@ Introductory session, we will go through basic concepts and have a first look at
 ### Seminar 2 (3. 3. 2022)
 This session will be focused on getting to know how to code in R and do common operations on data. We will do a lot of coding to get to know R well.
 - R data types.
-  - Missing values
-- R objects (vector, matrix, data frame)
-  - Sub-setting various objects.
+- Missing values
+- R objects (vector, matrix, data frame) and sub-setting
 - Getting help in R.
 - Notion of packages in R.
 - Reading data into R (`readr` package).
 - R data manipulation basics (`dplyr` package?).
 
-
-
 ### Seminar 3 (17. 3. 2022)
 Third session is focused on reading and creating basic types of plots and understanding basic summaries of quantitative variables.
 - Types of variables (qualitative, quantitative)
-- Data visualization
-  - Plots for one variable
+- Data visualization, plots for one variable
 - Descriptive stats (mean, sd, median, IQR etc.)
-
 
 ### Seminar 4 (31. 3. 2022)
 - Intro on Reproducibility, using [RMarkdown](https://rmarkdown.rstudio.com/).
@@ -55,7 +50,7 @@ Third session is focused on reading and creating basic types of plots and unders
 
 ## Project assignment
 
-To pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit his/her own project *protocol*.
+To pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit his/her own project *protocol*. There are two options, you can choose to work either on your own dataset or use an existing published dataset. 
 
 ### (A) Working with your own dataset
 
@@ -73,16 +68,12 @@ The *stats* topics covered are listed here.
 #### Descriptive statistics
 - Characterizing central tendency and spread of data
   - Plots for one variable
-    - Bar charts
-    - Histogram and density plots
-    - Boxplot
+    (Bar charts, histogram and density plots)
   - Numerical summaries
-    - Mean & standard deviation
-    - Median & interquartile range
+    (Mean & standard deviation, median & interquartile range)
 - Characterizing relationships between variables
   - Plots for comparing variables
-    - Boxplots
-    - Scatterplots
+    (Boxplots, Scatterplots)
   - Correlation
 
 #### Data distributions
@@ -92,7 +83,7 @@ The *stats* topics covered are listed here.
 #### Multivariate methods
 - Dimensionality reduction
   - PCA
-    - Biplot
+  - Biplot
 - Clustering
   - Hierarchical clustering
   - K-means clustering
@@ -144,6 +135,7 @@ The *stats* topics covered are listed here.
 | ~ | Alt + 126 |
 
 Basic RStudio keyboard shortcuts
+
 | Shortcut |   |
 |---------|-----------|
 | Alt + - | `<-` |
