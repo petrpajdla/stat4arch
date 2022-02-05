@@ -3,68 +3,99 @@
 Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar for archaeology students at [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
 The course is taught by Petr Pajdla and Peter Tkáč.
 
-Information given here applies to spring semester 2022, the page will be continuously updated throughout the semester.
+Information given here applies to spring semester 2022, the page will be continuously updated throughout the semester. The course was taught also in 2020.
 
-- Odd Thursdays, 14:00 -- 17:40 (will include breaks)
-- Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397) (computers are provided in the room, you can use your own laptop though)
+- Odd Thursdays, 14:00 -- 17:40 (will include breaks).
+- Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397) (computers are provided in the room, you can use your own laptop though).
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
 
 --------------------------------------------------------------------------------
 
-## Schedule
+## Syllabus
+Here is a brief outline of topics covered each session with suggested readings, assignments etc.
 
-### Seminar 1
-**17. 2.**
-- Intro on quantitative methods in archaeology
-- Intro to [R](https://www.r-project.org/) programming language and environment
-- Basics on data organization
+### Seminar 1 (17. 2. 2022)
+Introductory session, we will go through basic concepts and have a first look at R.
+- Intro on quantitative methods in archaeology.
+- Intro to [R](https://www.r-project.org/) programming language and environment and navigating [RStudio](https://www.rstudio.com/) IDE. Math operations in R, basic notion of functions and objects.
+- Basics on *tidy* data organization.
+- Brief code-along project demonstrating the basics(?).
 
-Readings:
--
+### Seminar 2 (3. 3. 2022)
+This session will be focused on getting to know how to code in R and do common operations on data. We will do a lot of coding to get to know R well.
+- R data types.
+  - Missing values
+- R objects (vector, matrix, data frame)
+  - Sub-setting various objects.
+- Getting help in R.
+- Notion of packages in R.
+- Reading data into R (`readr` package).
+- R data manipulation basics (`dplyr` package?).
 
 
-### Seminar 2
-**3. 3.**
 
-### Seminar 3
-**17. 3.**
+### Seminar 3 (17. 3. 2022)
+Third session is focused on reading and creating basic types of plots and understanding basic summaries of quantitative variables.
+- Types of variables (qualitative, quantitative)
+- Data visualization
+  - Plots for one variable
+- Descriptive stats (mean, sd, median, IQR etc.)
 
-### Seminar 4
-**31. 3.**
-- Reproducibility
 
-### Seminar 5
-**14. 4.**
+### Seminar 4 (31. 3. 2022)
+- Intro on Reproducibility, using [RMarkdown](https://rmarkdown.rstudio.com/).
 
-### Seminar 6
-**28. 4.**
+### Seminar 5 (14. 4. 2022)
 
-### Seminar 7
-**12. 5.**
+### Seminar 6 (28. 4. 2022)
+
+### Seminar 7 (12. 5. 2022)
+
+--------------------------------------------------------------------------------
+
+## Project assignment
+
+To pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit his/her own project *protocol*.
+
+### (A) Working with your own dataset
+
+### (B) Using an existing dataset
 
 --------------------------------------------------------------------------------
 
 ## Topics covered
+The *stats* topics covered are listed here.
 
 #### Data
-
 #### Variable types
 
-### Descriptive statistics
-#### Characterizing central tendency and spread of data
-- Plots for one variable
-- Numerical methods
+### Statistics
+#### Descriptive statistics
+- Characterizing central tendency and spread of data
+  - Plots for one variable
+    - Bar charts
+    - Histogram and density plots
+    - Boxplot
+  - Numerical summaries
+    - Mean & standard deviation
+    - Median & interquartile range
+- Characterizing relationships between variables
+  - Plots for comparing variables
+    - Boxplots
+    - Scatterplots
+  - Correlation
 
-#### Relationship between two variables
-- Scatterplots
-- Correlation
+#### Data distributions
+- Normal distribution
+  - Z-score and data transformations
 
-### Data manipulation
-#### Transforming data
-
-### Multivariate methods
-#### Dimensionality reduction
-#### Clustering
+#### Multivariate methods
+- Dimensionality reduction
+  - PCA
+    - Biplot
+- Clustering
+  - Hierarchical clustering
+  - K-means clustering
 
 --------------------------------------------------------------------------------
 
@@ -87,7 +118,7 @@ Readings:
 #### Where to look for help
 
 - [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/r)
+- Search through [Stack Overflow](https://stackoverflow.com/questions/tagged/r). Find some tips on asking good questions and providing minimal reproducible examples in this [thread](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) and in [Advanced R](http://adv-r.had.co.nz/Reproducibility.html) book by Hadley Wickham.
 
 ### Reproducibility
 - Marwick, B. 2017: Computational Reproducibility in Archaeological Research: Basic Principles and a Case Study of Their Implementation. *Journal of Archaeological Method and Theory* 24(2): 424–450. DOI: [10.1007/s10816-015-9272-9](https://doi.org/10.1007/s10816-015-9272-9).
