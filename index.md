@@ -3,12 +3,13 @@
 Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar for archaeology students at [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
 The course is taught by Petr Pajdla and Peter Tkáč.
 
-Information given here applies to spring semester 2022.
+Information given here applies to spring semester 2022, the page will be continuously updated throughout the semester.
 
 - Odd Thursdays, 14:00 -- 17:40 (will include breaks)
-- Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
-- Computers are provided in the room, you can use your own laptop though.
+- Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397) (computers are provided in the room, you can use your own laptop though)
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
+
+--------------------------------------------------------------------------------
 
 ## Schedule
 
@@ -17,10 +18,12 @@ Information given here applies to spring semester 2022.
 
 Outline:
 - Intro on quantitative methods in archaeology
-- Intro to [R](https://cran.r-project.org/) programming language and environment
-- *Tidy* data
+- Intro to [R](https://www.r-project.org/) programming language and environment
+- Organizing data
 
-Reading:
+Readings:
+
+-
 
 
 ### Seminar 2
@@ -42,6 +45,8 @@ Reading:
 
 ### Seminar 7
 **12. 5.**
+
+--------------------------------------------------------------------------------
 
 ## Topics covered
 
@@ -67,6 +72,8 @@ Reading:
 #### Dimensionality reduction
 #### Clustering
 
+--------------------------------------------------------------------------------
+
 ## Recommended readings and resources
 
 ### Quantitative archaeology
@@ -78,8 +85,32 @@ Reading:
 - [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garet Grolemund
 - [Data Visualization. A practical introduction](https://socviz.co/) by Kieran Healy
 
+#### Where to look for help
 
----
+- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/r)
+
+### Useful links
+
+- [open-archaeo](https://open-archaeo.info/) is a list of open source archaeological software and resources
+
+--------------------------------------------------------------------------------
+
+## Footnotes
+
+### Note on special characters and Czech keyboard
+
+| character | |
+---------------
+| `#` | Alt + 35 |
+| $ | Alt + 36 |
+| & | Alt + 38 |
+| ^ | Alt + 94 |
+| ~ | Alt + 126 |
+
+In RStudio, use Alt + - to write `<-`
+
+--------------------------------------------------------------------------------
 
 ### Markdown
 
@@ -104,7 +135,3 @@ Syntax highlighted code block
 ```
 
 For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/petrpajdla/stat4arch/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
