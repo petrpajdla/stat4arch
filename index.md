@@ -13,7 +13,7 @@ The course was taught also in 2020.
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
   (computers are provided in the room, you can use your own laptop though).
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
-- You will have to work on a [project](#Project) of your own to complete the
+- You will have to work on a [project](#project) of your own to complete the
   course.
 
 --------------------------------------------------------------------------------
@@ -36,14 +36,14 @@ Introductory session, we will go through basic concepts and have a first look at
 - Brief code-along project demonstrating the basics(?).
 
 #### Assignment
-- Think about a dataset you will use for the [project](#Project) assignment.
+- Think about a dataset you will use for the [project](#project) assignment.
   This could be your own data you are collecting for a different project of your
   own (e.g. your thesis) or a random published dataset you find online, check the
-  [project](#Project) section below for some more information. Have a sample of
+  [project](#project) section below for some more information. Have a sample of
   data prepared for the next session.
 - `[extra]` Read introductory chapters in *Quantifying archaeology* book by
   Stephen Shennan and *Quantitative Methods in Archaeology* book by David L.
-  Carlson (see [Resources](#Resources)). These give a general introduction on
+  Carlson (see [Resources](#resources)). These give a general introduction on
   why to use quantitative and/or computational methods in archaeology.
 
 ### Seminar 2 (3. 3. 2022)
@@ -88,7 +88,7 @@ understanding basic summaries of quantitative variables.
   simply want to learn more, go through [this](https://rmarkdown.rstudio.com/lesson-1.html)
   short interactive course by RStudio.
 - `[extra]` Have a look at articles on reproducibility in archaeology by Ben Marwick
-  (see [resources](#Resources) section).
+  (see [resources](#resources) section).
 
 ### Seminar 5 (14. 4. 2022)
 
