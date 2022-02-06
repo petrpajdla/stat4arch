@@ -1,6 +1,6 @@
 ## Analyzing archaeological data in R
 
-[Syllabus](#syllabus) | [Project](#project) | [Topics](#topics) | [Resources](#resources) | [Notes](#notes)
+[Syllabus](#syllabus) `|` [Project](#project) `|` [Topics](#topics) `|` [Resources](#resources) `|` [Notes](#notes)
 
 Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar
 for archaeology students at [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/),
@@ -22,9 +22,9 @@ The course was taught also in 2020.
 
 ## Syllabus
 
-[Seminar 1](#seminar-1) | [Seminar 2](#seminar-2) | [Seminar 3](#seminar-3) |
-[Seminar 4](#seminar-4) | [Seminar 5](#seminar-5) | [Seminar 6](#seminar-6) |
-[Seminar 7](#seminar-7)
+[Week 1](#seminar-1) | [Week 2](#seminar-2) | [Week 3](#seminar-3) |
+[Week 4](#seminar-4) | [Week 5](#seminar-5) | [Week 6](#seminar-6) |
+[Week 7](#seminar-7)
 
 Here is a brief outline of topics covered each session with suggested readings
 and assignments, complete these after each session. Some are labeled as `[optional]`,
@@ -32,6 +32,8 @@ these contain materials useful if you struggle with the topic and want to go
 through everything once again and do some practice. Some materials are labeled
 as `[extra]`, these are entirely optional and cover mostly advanced topics and
 extra work.
+
+--------------------------------------------------------------------------------
 
 ### Seminar 1
 (17. 2. 2022)
@@ -54,6 +56,8 @@ Introductory session, we will go through basic concepts and have a first look at
   Carlson (see [Resources](#resources)). These give a general introduction on
   why to use quantitative and/or computational methods in archaeology.
 
+--------------------------------------------------------------------------------
+
 ### Seminar 2
 (3. 3. 2022)
 
@@ -71,6 +75,8 @@ operations on data. We will do a lot of coding to get to know R well.
 - Go through [this](https://rstudio.cloud/learn/primers/1.2) short interactive
   course on basic programming in R.
 
+--------------------------------------------------------------------------------
+
 ### Seminar 3
 (17. 3. 2022)
 
@@ -86,6 +92,8 @@ understanding basic summaries of quantitative variables.
 - `[optional]` Flick through [Make a plot](https://socviz.co/makeplot.html#makeplot)
   chapter from *Data Visualization* book by K. J. Healy. It explains how plotting
   with `ggplot2` package works in a simple way.
+
+--------------------------------------------------------------------------------
 
 ### Seminar 4
 (31. 3. 2022)
@@ -104,14 +112,33 @@ understanding basic summaries of quantitative variables.
 - `[extra]` Have a look at articles on reproducibility in archaeology by Ben Marwick
   (see [resources](#resources) section).
 
+--------------------------------------------------------------------------------
+
 ### Seminar 5
 (14. 4. 2022)
+
+- Intro on multivariate stats.
+- Methods of dimensionality reduction (PCA).
+
+#### Assignment
+
+--------------------------------------------------------------------------------
 
 ### Seminar 6
 (28. 4. 2022)
 
+- Clustering (hierarchical, k-means)
+
+#### Assignment
+
+--------------------------------------------------------------------------------
+
 ### Seminar 7
 (12. 5. 2022)
+
+Advanced topics?
+
+#### Assignment
 
 --------------------------------------------------------------------------------
 
