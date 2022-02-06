@@ -1,7 +1,6 @@
 ## Analyzing archaeological data in R
 
-[Syllabus](#syllabus) | [Project](#project) | [Topics](#topics) |
-[Resources](#resources) | [Notes](#notes)
+[Syllabus](#syllabus) | [Project](#project) | [Topics](#topics) | [Resources](#resources) | [Notes](#notes)
 
 Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar
 for archaeology students at [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/),
@@ -22,15 +21,17 @@ The course was taught also in 2020.
 --------------------------------------------------------------------------------
 
 ## Syllabus
+
+[Seminar 1](#seminar-1) | [Seminar 2](#seminar-2) | [Seminar 3](#seminar-3) |
+[Seminar 4](#seminar-4) | [Seminar 5](#seminar-5) | [Seminar 6](#seminar-6) |
+[Seminar 7](#seminar-7)
+
 Here is a brief outline of topics covered each session with suggested readings
 and assignments, complete these after each session. Some are labeled as `[optional]`,
 these contain materials useful if you struggle with the topic and want to go
 through everything once again and do some practice. Some materials are labeled
 as `[extra]`, these are entirely optional and cover mostly advanced topics and
 extra work.
-
-[Seminar 1](#seminar-1) | [Seminar 2](#seminar-2) | [Seminar 3](#seminar-3) |
-[Seminar 4](#seminar-4)
 
 ### Seminar 1
 (17. 2. 2022)
@@ -47,8 +48,7 @@ Introductory session, we will go through basic concepts and have a first look at
 - Think about a dataset you will use for the [project](#project) assignment.
   This could be your own data you are collecting for a different project of your
   own (e.g. your thesis) or a random published dataset you find online, check the
-  [project](#project) section below for some more information. Have a sample of
-  data prepared for the next session.
+  [Get the data](#get-the-data) section below for some more information.
 - `[extra]` Read introductory chapters in *Quantifying archaeology* book by
   Stephen Shennan and *Quantitative Methods in Archaeology* book by David L.
   Carlson (see [Resources](#resources)). These give a general introduction on
@@ -122,9 +122,6 @@ is possible, but each student has to submit his/her own report on the analysis.
 There are two options, you can choose to work either on your own dataset or use
 an existing published data.
 
-[fuu](#get-the-data)
-[bar](#get-to-know-the-data)
-
 ### Get the data
 #### (A) Working with your own dataset
 - You can choose to use your own data. This is especially useful if you are
@@ -152,17 +149,19 @@ an existing published data.
 - Make sure you know what each variable means, what type of data does it contain etc.
 - The dataset should contain at least several quantitative and qualitative variables.
 
+### Report template
 
+RMarkdown template for the project report will be provided.
 
 --------------------------------------------------------------------------------
 
 ## Topics
-The *stats* topics covered are listed here.
+Various topics covered in the course are listed here.
 
-#### Data
+### Data
 #### Variable types
 
-### Statistics
+### Stats
 #### Descriptive statistics
 - Characterizing central tendency and spread of data
   - Plots for one variable
@@ -228,7 +227,11 @@ The *stats* topics covered are listed here.
 
 ### Useful links and tools
 - [Open-archaeo](https://open-archaeo.info/) is a list of open source archaeological
-  software and resources.
+  software and resources maintained by Zack Batist.
+- [CRAN Task View](https://github.com/benmarwick/ctv-archaeology) is a list of
+  R packages useful in archaeology maintained by Ben Marwick.
+  There is also a list of articles using R in the analysis with data and code
+  published (mostly).
 
 --------------------------------------------------------------------------------
 
