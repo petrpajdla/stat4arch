@@ -3,8 +3,7 @@
 Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar
 for archaeology students at [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/),
 Masaryk University.
-The course is taught by Petr Pajdla [:envelope:](mailto:petr.pajdla@protonmail.com)
-and Peter Tkáč [:envelope:](mailto:peter.tkac@ibot.cas.cz).
+The course is taught by Petr Pajdla and Peter Tkáč.
 
 Information given here applies to spring semester 2022, the page will be
 continuously updated throughout the semester.
@@ -14,12 +13,12 @@ The course was taught also in 2020.
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
   (computers are provided in the room, you can use your own laptop though).
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
-- You will have to work on a [project](#project) of your own to complete the
+- You will have to work on a [project](#Project) of your own to complete the
   course.
 
 --------------------------------------------------------------------------------
 
-## Syllabus (#syllabus)
+## Syllabus
 Here is a brief outline of topics covered each session with suggested readings
 and assignments, complete these after each session. Some are labeled as `[optional]`,
 these contain materials useful if you struggle with the topic and want to go
@@ -37,14 +36,14 @@ Introductory session, we will go through basic concepts and have a first look at
 - Brief code-along project demonstrating the basics(?).
 
 #### Assignment
-- Think about a dataset you will use for the [project](#project) assignment.
+- Think about a dataset you will use for the [project](#Project) assignment.
   This could be your own data you are collecting for a different project of your
   own (e.g. your thesis) or a random published dataset you find online, check the
-  [project](#project) section below for some more information. Have a sample of
+  [project](#Project) section below for some more information. Have a sample of
   data prepared for the next session.
 - `[extra]` Read introductory chapters in *Quantifying archaeology* book by
   Stephen Shennan and *Quantitative Methods in Archaeology* book by David L.
-  Carlson (see [Resources](#resources)). These give a general introduction on
+  Carlson (see [Resources](#Resources)). These give a general introduction on
   why to use quantitative and/or computational methods in archaeology.
 
 ### Seminar 2 (3. 3. 2022)
@@ -89,7 +88,7 @@ understanding basic summaries of quantitative variables.
   simply want to learn more, go through [this](https://rmarkdown.rstudio.com/lesson-1.html)
   short interactive course by RStudio.
 - `[extra]` Have a look at articles on reproducibility in archaeology by Ben Marwick
-  (see [resources](#resources) section).
+  (see [resources](#Resources) section).
 
 ### Seminar 5 (14. 4. 2022)
 
@@ -99,7 +98,7 @@ understanding basic summaries of quantitative variables.
 
 --------------------------------------------------------------------------------
 
-## Project assignment (#project)
+## Project
 
 To pass the course you will have to work on a small project. Group/pair cooperation
 is possible, but each student has to submit his/her own report on the analysis.
@@ -136,7 +135,7 @@ an existing published data.
 
 --------------------------------------------------------------------------------
 
-## Topics covered
+## Topics
 The *stats* topics covered are listed here.
 
 #### Data
@@ -168,7 +167,7 @@ The *stats* topics covered are listed here.
 
 --------------------------------------------------------------------------------
 
-## Resources (#resources)
+## Resources
 
 ### Quantitative and digital archaeology
 - Carlson, D. L. 2017: *Quantitative Methods in Archaeology Using R.*
