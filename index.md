@@ -1,4 +1,7 @@
-## Analysing archaeological data in R
+## Analyzing archaeological data in R
+
+[Syllabus](#syllabus) | [Project](#project) | [Topics](#topics) |
+[Resources](#resources) | [Notes](#notes)
 
 Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar
 for archaeology students at [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/),
@@ -26,7 +29,12 @@ through everything once again and do some practice. Some materials are labeled
 as `[extra]`, these are entirely optional and cover mostly advanced topics and
 extra work.
 
-### Seminar 1 (17. 2. 2022)
+[Seminar 1](#seminar-1) | [Seminar 2](#seminar-2) | [Seminar 3](#seminar-3) |
+[Seminar 4](#seminar-4)
+
+### Seminar 1
+(17. 2. 2022)
+
 Introductory session, we will go through basic concepts and have a first look at R.
 - Intro on quantitative methods in archaeology.
 - Intro to [R](https://www.r-project.org/) programming language, navigating
@@ -46,7 +54,9 @@ Introductory session, we will go through basic concepts and have a first look at
   Carlson (see [Resources](#resources)). These give a general introduction on
   why to use quantitative and/or computational methods in archaeology.
 
-### Seminar 2 (3. 3. 2022)
+### Seminar 2
+(3. 3. 2022)
+
 This session will be focused on getting to know how to code in R and do common
 operations on data. We will do a lot of coding to get to know R well.
 - R data types.
@@ -61,7 +71,9 @@ operations on data. We will do a lot of coding to get to know R well.
 - Go through [this](https://rstudio.cloud/learn/primers/1.2) short interactive
   course on basic programming in R.
 
-### Seminar 3 (17. 3. 2022)
+### Seminar 3
+(17. 3. 2022)
+
 Third session is focused on reading and creating basic types of plots and
 understanding basic summaries of quantitative variables.
 - Types of variables (qualitative, quantitative)
@@ -75,7 +87,9 @@ understanding basic summaries of quantitative variables.
   chapter from *Data Visualization* book by K. J. Healy. It explains how plotting
   with `ggplot2` package works in a simple way.
 
-### Seminar 4 (31. 3. 2022)
+### Seminar 4
+(31. 3. 2022)
+
 - Intro on Reproducibility.
 - Using [RMarkdown](https://rmarkdown.rstudio.com/).
 
@@ -90,11 +104,14 @@ understanding basic summaries of quantitative variables.
 - `[extra]` Have a look at articles on reproducibility in archaeology by Ben Marwick
   (see [resources](#resources) section).
 
-### Seminar 5 (14. 4. 2022)
+### Seminar 5
+(14. 4. 2022)
 
-### Seminar 6 (28. 4. 2022)
+### Seminar 6
+(28. 4. 2022)
 
-### Seminar 7 (12. 5. 2022)
+### Seminar 7
+(12. 5. 2022)
 
 --------------------------------------------------------------------------------
 
@@ -105,14 +122,18 @@ is possible, but each student has to submit his/her own report on the analysis.
 There are two options, you can choose to work either on your own dataset or use
 an existing published data.
 
-#### `(A)` Working with your own dataset
+[fuu](#get-the-data)
+[bar](#get-to-know-the-data)
+
+### Get the data
+#### (A) Working with your own dataset
 - You can choose to use your own data. This is especially useful if you are
   working on your BA/MA/PhD thesis, an article or so and want to analyze the
   data collected for the given work.
 - This option is easier because you probably know what your dataset contains and
   what each variable means, how it was collected etc.
 
-#### `(B)` Using an existing dataset
+#### (B) Using an existing dataset
 - Find a suitable dataset online, scrape a website, get it in a book,
   anything that comes to mind, be creative.
   Bear in mind that the dataset needs to contain a mixture of
@@ -187,7 +208,6 @@ The *stats* topics covered are listed here.
 - [Data Visualization. A practical introduction](https://socviz.co/) by Kieran Healy.
 
 #### Where to look for help
-
 - [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/), especially
   data visualization, transformation, tidying and import cheatsheets will come in useful.
 - Search through [Stack Overflow](https://stackoverflow.com/questions/tagged/r).
@@ -207,7 +227,6 @@ The *stats* topics covered are listed here.
   by Kieran Healy.
 
 ### Useful links and tools
-
 - [Open-archaeo](https://open-archaeo.info/) is a list of open source archaeological
   software and resources.
 
