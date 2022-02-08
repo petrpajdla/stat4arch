@@ -221,6 +221,14 @@ Various topics covered in the course are listed here.
 --------------------------------------------------------------------------------
 
 ## Resources
+Here is a non exhaustive list of resources and links we find useful.
+These cover various topics and most are openly available online.
+We expect you to be creative and search (not only) through these resources if
+you get stuck with your project or find any topics difficult to understand.
+If you find it hard to get access to any of the articles or books mentioned here,
+do not hesitate contacting us. Definitely do not use websites like Sci-Hub or
+Library Genesis that seem to provide scientific knowledge to all. The King of
+the Potato People prohibits this.
 
 ### Quantitative and digital archaeology
 - Carlson, D. L. 2017: *Quantitative Methods in Archaeology Using R.*
