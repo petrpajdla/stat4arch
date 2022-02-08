@@ -15,23 +15,22 @@ The course was taught also in 2020.
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
   (computers are provided in the room, you can use your own laptop though).
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
-- You will have to work on a [project](#project) of your own to complete the
+- You will work on a [project](#project) of your own to complete the
   course.
 
 --------------------------------------------------------------------------------
 
 ## Syllabus
 
-[Week 1](#seminar-1) | [Week 2](#seminar-2) | [Week 3](#seminar-3) |
-[Week 4](#seminar-4) | [Week 5](#seminar-5) | [Week 6](#seminar-6) |
+[Week 1](#seminar-1) `|` [Week 2](#seminar-2) `|` [Week 3](#seminar-3) `|`
+[Week 4](#seminar-4) `|` [Week 5](#seminar-5) `|` [Week 6](#seminar-6) `|`
 [Week 7](#seminar-7)
 
 Here is a brief outline of topics covered each session with suggested readings
-and assignments, complete these after each session. Some are labeled as `[optional]`,
-these contain materials useful if you struggle with the topic and want to go
-through everything once again and do some practice. Some materials are labeled
-as `[extra]`, these are entirely optional and cover mostly advanced topics and
-extra work.
+and assignments. The assignments are to be completed after each session if not
+stated otherwise. Some are labeled `[optional]`, these contain either materials
+useful if you are struggling with the topic and want to do some more practice or
+cover mostly advanced topics and build up on what was explained in the lecture.
 
 --------------------------------------------------------------------------------
 
@@ -51,9 +50,9 @@ Introductory session, we will go through basic concepts and have a first look at
   This could be your own data you are collecting for a different project of your
   own (e.g. your thesis) or a random published dataset you find online, check the
   [Get the data](#get-the-data) section below for some more information.
-- `[extra]` Read introductory chapters in *Quantifying archaeology* book by
+- `[optional]` Read introductory chapters in *Quantifying archaeology* book by
   Stephen Shennan and *Quantitative Methods in Archaeology* book by David L.
-  Carlson (see [Resources](#resources)). These give a general introduction on
+  Carlson (see [Resources](#resources)). These give a general overview on
   why to use quantitative and/or computational methods in archaeology.
 
 --------------------------------------------------------------------------------
@@ -64,8 +63,8 @@ Introductory session, we will go through basic concepts and have a first look at
 This session will be focused on getting to know how to code in R and do common
 operations on data. We will do a lot of coding to get to know R well.
 - R data types.
-- Missing values
-- R objects (vector, matrix, data frame) and sub-setting
+- Missing values.
+- R objects (vector, matrix, data frame) and sub-setting.
 - Getting help in R.
 - Notion of packages in R.
 - Reading data into R (`readr` package).
@@ -82,8 +81,8 @@ operations on data. We will do a lot of coding to get to know R well.
 
 Third session is focused on reading and creating basic types of plots and
 understanding basic summaries of quantitative variables.
-- Types of variables (qualitative, quantitative)
-- Data visualization, plots for one variable
+- Types of variables (qualitative, quantitative).
+- Data visualization, plots for one variable.
 - Descriptive stats (mean, sd, median, IQR etc.)
 
 #### Assignment
@@ -91,13 +90,16 @@ understanding basic summaries of quantitative variables.
   data visualization.
 - `[optional]` Flick through [Make a plot](https://socviz.co/makeplot.html#makeplot)
   chapter from *Data Visualization* book by K. J. Healy. It explains how plotting
-  with `ggplot2` package works in a simple way.
+  with `ggplot2` package works.
 
 --------------------------------------------------------------------------------
 
 ### Seminar 4
 (31. 3. 2022)
 
+In this session we will focus on explaining reproducibility, good practice
+regarding data and code management and how to use RMarkdown markup language to
+create documents combining text, code etc.
 - Intro on Reproducibility.
 - Using [RMarkdown](https://rmarkdown.rstudio.com/).
 
@@ -109,14 +111,18 @@ understanding basic summaries of quantitative variables.
 - `[optional]` If you still have problems understanding how RMarkdown works or
   simply want to learn more, go through [this](https://rmarkdown.rstudio.com/lesson-1.html)
   short interactive course by RStudio.
-- `[extra]` Have a look at articles on reproducibility in archaeology by Ben Marwick
-  (see [resources](#resources) section).
+- `[optional]` Have a look at articles on reproducibility in archaeology by
+  Ben Marwick (see [resources](#resources) section).
+- `[optional]` To get a bigger picture, read British Ecological Society
+  *Guide to Better Science* on [Reproducible Code](https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Reproducible-Code-2019.pdf?utm_source=web&utm_medium=web&utm_campaign=better_science)
+  (more in [resources](#resources)).
 
 --------------------------------------------------------------------------------
 
 ### Seminar 5
 (14. 4. 2022)
 
+- We probably need to cover hypothesis testing, t-test etc. here.
 - Intro on multivariate stats.
 - Methods of dimensionality reduction (PCA).
 
@@ -223,15 +229,21 @@ Various topics covered in the course are listed here.
   New York: Springer.
 - Shennan, S. 1988: *Quantifying archaeology.* Edinburgh: Edinburgh University Press.
 
-- [Open Digital Archaeology Textbook](https://o-date.github.io/)
+- [Open Digital Archaeology Textbook](https://o-date.github.io/) by Shawn Graham et al.
 
 ### Statistics
 - [An Introduction to Statistical Learning](https://www.statlearning.com/) by
   Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani.
+  Great resource to learn more, way advanced than how the subject is explained in
+  this course though.
 
 ### R programming language and environment
 - [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garret Grolemund.
 - [Data Visualization. A practical introduction](https://socviz.co/) by Kieran Healy.
+- [CRAN Task View](https://github.com/benmarwick/ctv-archaeology) is a list of
+  R packages useful in archaeology maintained by Ben Marwick.
+  There is also a list of articles using R in the analysis with data and code
+  published (mostly).
 
 #### Where to look for help
 - [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/), especially
@@ -249,22 +261,28 @@ Various topics covered in the course are listed here.
 - Marwick, B., Boettiger, C. and Mullen, L. 2018: Packaging Data Analytical Work
   Reproducibly Using R (and Friends). *The American Statistician* 72(1): 80–88.
   DOI: [10.1080/00031305.2017.1375986](https://doi.org/10.1080/00031305.2017.1375986).
+
+#### Data management
+
+#### RMarkdown and scientific writing
+- *British Ecological Society* has a nice series of [Guides to Better Science](https://www.britishecologicalsociety.org/publications/guides-to/)
+  covering various topics including [Reproducible Code](https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Reproducible-Code-2019.pdf?utm_source=web&utm_medium=web&utm_campaign=better_science)
+  and [Data Management](https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Data-Management-2019.pdf?utm_source=web&utm_medium=web&utm_campaign=better_science).
+- A short [guide](https://github.com/benmarwick/atom-for-scholarly-writing-with-markdown)
+  by Ben Marwick on how to setup Atom (this could be any text editor) and Zotero
+  (citation management software).
 - [The Plain Person’s Guide to Plain Text Social Science](https://plain-text.co/)
   by Kieran Healy.
 
-### Useful links and tools
+### Other links and tools
 - [Open-archaeo](https://open-archaeo.info/) is a list of open source archaeological
   software and resources maintained by Zack Batist.
-- [CRAN Task View](https://github.com/benmarwick/ctv-archaeology) is a list of
-  R packages useful in archaeology maintained by Ben Marwick.
-  There is also a list of articles using R in the analysis with data and code
-  published (mostly).
 
 --------------------------------------------------------------------------------
 
 ## Notes
 
-### Special characters and keyboard shortcuts
+#### Special characters and keyboard shortcuts
 
 | Character | Shortcut |
 |---|-----------|
@@ -274,7 +292,7 @@ Various topics covered in the course are listed here.
 | ^ | Alt + 94  |
 | ~ | Alt + 126 |
 
-Basic RStudio keyboard shortcuts
+#### Basic RStudio keyboard shortcuts
 
 | Shortcut |   |
 |---------|-----------|
