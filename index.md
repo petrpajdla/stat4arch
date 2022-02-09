@@ -271,6 +271,11 @@ the Potato People prohibits this.
   DOI: [10.1080/00031305.2017.1375986](https://doi.org/10.1080/00031305.2017.1375986).
 
 #### Data management
+- Karl Broman's [guide](https://kbroman.org/dataorg/) on how to organize data in
+  spreadsheets. The same as an article, DOI: [https://doi.org/gdz6cm](https://doi.org/gdz6cm).
+- Jenny Bryan's [slides](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf)
+  on naming things.
+- Hadley Wickham's paper on tidy data, DOI: [https://doi.org/10.18637/jss.v059.i10](https://doi.org/10.18637/jss.v059.i10).
 
 #### RMarkdown and scientific writing
 - *British Ecological Society* has a nice series of [Guides to Better Science](https://www.britishecologicalsociety.org/publications/guides-to/)
