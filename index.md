@@ -42,8 +42,9 @@ Introductory session, we will go through basic concepts and have a first look at
 - Intro to [R](https://www.r-project.org/) programming language, navigating
   [RStudio](https://www.rstudio.com/) IDE.
 - Math operations in R, basic notion of functions and objects.
-- Organizing your data.
-- Brief code-along project demonstrating the basics(?).
+- Organizing your data and tidy data.
+- Databases and types of variables (quantitative, qualitative).
+- Brief code-along project demonstrating the basics.
 
 #### Assignment
 - Think about a dataset you will use for the [project](#project) assignment.
@@ -67,12 +68,14 @@ operations on data. We will do a lot of coding to get to know R well.
 - R objects (vector, matrix, data frame) and sub-setting.
 - Getting help in R.
 - Notion of packages in R.
+- Organizing projects in R.
 - Reading data into R (`readr` package).
 - R data manipulation basics (`dplyr` package?).
 
 #### Assignment
 - Go through [this](https://rstudio.cloud/learn/primers/1.2) short interactive
   course on basic programming in R.
+- UKOL: POSLAT DATA
 
 --------------------------------------------------------------------------------
 
@@ -81,9 +84,9 @@ operations on data. We will do a lot of coding to get to know R well.
 
 Third session is focused on reading and creating basic types of plots and
 understanding basic summaries of quantitative variables.
-- Types of variables (qualitative, quantitative).
 - Data visualization, plots for one variable.
 - Descriptive stats (mean, sd, median, IQR etc.)
+- Plotting in `ggplot2`.
 
 #### Assignment
 - Complete [this](https://rstudio.cloud/learn/primers/1.1) interactive course on
@@ -113,9 +116,6 @@ create documents combining text, code etc.
   short interactive course by RStudio.
 - `[optional]` Have a look at articles on reproducibility in archaeology by
   Ben Marwick (see [resources](#resources) section).
-- `[optional]` To get a bigger picture, read British Ecological Society
-  *Guide to Better Science* on [Reproducible Code](https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Reproducible-Code-2019.pdf?utm_source=web&utm_medium=web&utm_campaign=better_science)
-  (more in [resources](#resources)).
 
 --------------------------------------------------------------------------------
 
