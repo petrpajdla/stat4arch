@@ -31,6 +31,7 @@ and assignments. The assignments are to be completed after each session if not
 stated otherwise. Some are labeled `[optional]`, these contain either materials
 useful if you are struggling with the topic and want to do some more practice or
 cover mostly advanced topics and build up on what was explained in the lecture.
+Assignments labeled with `[project]` are related with the semestral [project](#project).
 
 --------------------------------------------------------------------------------
 
@@ -47,14 +48,14 @@ Introductory session, we will go through basic concepts and have a first look at
 - Brief code-along project demonstrating the basics.
 
 #### Assignment
-- Think about a dataset you will use for the [project](#project) assignment.
+- `[project]` Think about a dataset you will use for the [project](#project) assignment.
   This could be your own data you are collecting for a different project of your
   own (e.g. your thesis) or a random published dataset you find online, check the
   [Get the data](#get-the-data) section below for some more information.
 - `[optional]` Read introductory chapters in *Quantifying archaeology* book by
-  Stephen Shennan and *Quantitative Methods in Archaeology* book by David L.
+  Stephen Shennan and/or *Quantitative Methods in Archaeology* book by David L.
   Carlson (see [Resources](#resources)). These give a general overview on
-  why to use quantitative and/or computational methods in archaeology.
+  why to use quantitative/computational methods in archaeology.
 
 --------------------------------------------------------------------------------
 
@@ -62,7 +63,7 @@ Introductory session, we will go through basic concepts and have a first look at
 (3. 3. 2022)
 
 This session will be focused on getting to know how to code in R and do common
-operations on data. We will do a lot of coding to get to know R well.
+operations on data. We will practice a lot to get to know R well.
 - R data types.
 - Missing values.
 - R objects (vector, matrix, data frame) and sub-setting.
@@ -75,7 +76,10 @@ operations on data. We will do a lot of coding to get to know R well.
 #### Assignment
 - Go through [this](https://rstudio.cloud/learn/primers/1.2) short interactive
   course on basic programming in R.
-- UKOL: POSLAT DATA
+- `[project]` Have the data ready for the next lecture, we will do a short
+  show-and-tell session to get to know all the datasets. Also please send us
+  either the whole dataset or at least a sample so we can check what kind
+  of data you will be using.
 
 --------------------------------------------------------------------------------
 
@@ -118,7 +122,7 @@ create documents combining text, code etc.
   Ben Marwick (see [resources](#resources) section).
 
 --------------------------------------------------------------------------------
-
+<!--
 ### Seminar 5
 (14. 4. 2022)
 
@@ -147,6 +151,7 @@ Advanced topics?
 #### Assignment
 
 --------------------------------------------------------------------------------
+-->
 
 ## Project
 
@@ -156,6 +161,10 @@ There are two options, you can choose to work either on your own dataset or use
 an existing published data.
 
 ### Get the data
+Although the first step in most of the analysis would be creating the research
+question(s), we assume our questions and goals are already set and skip to the step
+where we get the data suitable to answer our questions...
+
 #### (A) Working with your own dataset
 - You can choose to use your own data. This is especially useful if you are
   working on your BA/MA/PhD thesis, an article or so and want to analyze the
