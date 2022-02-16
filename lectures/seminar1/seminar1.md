@@ -281,7 +281,7 @@ round(x = pi, digits = Inf)
 
 <!-- =============================================== -->
 
-Data organization
+Data, databases and data organization
 ========================================================
 type: section
 
@@ -290,6 +290,61 @@ type: section
 <!-- místo pre Peťa -->
 
 <!-- =============================================== -->
+
+What is database?
+========================================================
+type: prompt
+(Brainstorming)
+<!-- ----------------------------------------------- -->
+
+Relational database - basic terms
+========================================================
+<img src="./fig/database_example.png" style='width:100%;'>
+
+- __variable__ (_proměnná_ / _atribut_) - napr. hmotnost keramického fragmentu
+- __observation__ / __object__ (_entita_ / _záznam_) - napr. konkrétny keramický fragment
+- __value__ (_hodnota_)
+- __primary key__ / __unique ID__ (_primární klíč_)
+
+<!-- ---------------------------------------------------- -->
+
+Types of variables
+========================================================
+- __dichotomies__ (_dichotomická_) - prítomnosť alebo neprítomnosť nejakého javu
+- __categorical__ / __nominal__ (_nominální_) - 
+- __ordinal__ / __rank__ (_ordinální, pořadová_)
+- __numeric__
+	- discrete (_diskrétní_)
+	- continuous (_spojité / metrické_)
+
+	- interval (_intervalové_)
+	- ratio (_poměrové_)
+	
+<!-- --------------------------------------------- -->
+
+Tidy data
+========================================================
+type: prompt
+What's wrong?
+<img src="./fig/database_fails.png" style='width:100%;'>
+
+<!-- -------------------------------------------- -->
+
+Tidy data
+=========================================================
+- one variable in one column
+- one observation in one row
+- one value in one cell
+
+https://kbroman.org/dataorg/ 
+
+
+
+Prompt slide
+========================================================
+type: prompt
+
+<!-- ----------------------------------------------- -->
 
 Homework assignment
 ========================================================
