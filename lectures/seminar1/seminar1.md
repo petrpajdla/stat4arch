@@ -58,6 +58,13 @@ type: section
 
 <!-- =============================================== -->
 
+Maths and archaeology? Why?
+========================================================
+type: prompt
+(brainstorming)
+
+<!-- ------------------------------------------- -->
+
 R programming language
 ========================================================
 type: section
@@ -299,9 +306,10 @@ type: prompt
 
 Relational database - basic terms
 ========================================================
+incremental: true
 <img src="./fig/database_example.png" style='width:100%;'>
 
-- __variable__ (_proměnná_ / _atribut_) - napr. hmotnost keramického fragmentu
+- __variable__ (_proměnná_ / _atribut_) - napr. hmotnosť keramického fragmentu
 - __observation__ / __object__ (_entita_ / _záznam_) - napr. konkrétny keramický fragment
 - __value__ (_hodnota_)
 - __primary key__ / __unique ID__ (_primární klíč_)
@@ -310,35 +318,37 @@ Relational database - basic terms
 
 Types of variables
 ========================================================
-- __dichotomies__ (_dichotomická_) - prítomnosť alebo neprítomnosť nejakého javu
-- __categorical__ / __nominal__ (_nominální_) - 
-- __ordinal__ / __rank__ (_ordinální, pořadová_)
-- __numeric__
-	- discrete (_diskrétní_)
-	- continuous (_spojité / metrické_)
+## Categorical
+- __dichotomies__ (_dichotomická_) - prítomnosť alebo neprítomnosť nejakého javu ("Y/N")
+- __nominal__ (_nominální_) - archeologické datovanie ("neolit"), číslo objektu, keramický typ
+- __ordinal__ / __rank__ (_ordinální, pořadová_) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál  
 
-	- interval (_intervalové_)
-	- ratio (_poměrové_)
+## Numeric
+- __discrete__ (_diskrétní_) - môžu byť len _celé_ čísla - napr. počet lokalít, počet bronzových spôn
+- __continuous__ (_spojité / metrické_) - môže byť akékoľvek _reálne_ číslo - hmotnosť ker. fragmentu, dĺžka železného meča
+
+- __interval__ (_intervalové_) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD   )
+- __ratio__ (_poměrové_) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča,...)
 	
 <!-- --------------------------------------------- -->
 
 Tidy data
 ========================================================
-type: prompt
-What's wrong?
+incremental: true
+## What's wrong?
 <img src="./fig/database_fails.png" style='width:100%;'>
 
-<!-- -------------------------------------------- -->
-
-Tidy data
-=========================================================
+## Basic tidy data principles:
 - one variable in one column
 - one observation in one row
 - one value in one cell
+- backup your data!
+- be consistent!
 
 https://kbroman.org/dataorg/ 
 
 
+<!-- -------------------------------------------- -->
 
 Prompt slide
 ========================================================
