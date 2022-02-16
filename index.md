@@ -242,17 +242,24 @@ the Potato People prohibits this.
 ### Quantitative and digital archaeology
 - Carlson, D. L. 2017: *Quantitative Methods in Archaeology Using R.*
   Cambridge: Cambridge University Press.
-- Drennan, R. D. 2010: *Statistics for archaeologists: A common sense approach.*
+- Drennan, R. D. 2010: *Statistics for Archaeologists: A common sense approach.*
   New York: Springer.
-- Shennan, S. 1988: *Quantifying archaeology.* Edinburgh: Edinburgh University Press.
+- Baxter, M. 2003: *Statistics in Archaeology*. London: Wiley.
+- Fletcher, M., Lock, G. R. 1994: *Digging Numbers: Elementary statistics for archaeologists.*
+  Oxford: Oxbow.
+- Shennan, S. 1988: *Quantifying Archaeology.* Edinburgh: Edinburgh University Press.
 
+<!--
 - [Open Digital Archaeology Textbook](https://o-date.github.io/) by Shawn Graham et al.
+-->
 
+<!--
 ### Statistics
 - [An Introduction to Statistical Learning](https://www.statlearning.com/) by
   Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani.
   Great resource to learn more, way advanced than how the subject is explained in
   this course though.
+-->
 
 ### R programming language and environment
 - [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garret Grolemund.
@@ -260,7 +267,7 @@ the Potato People prohibits this.
 - [CRAN Task View](https://github.com/benmarwick/ctv-archaeology) is a list of
   R packages useful in archaeology maintained by Ben Marwick.
   There is also a list of articles using R in the analysis with data and code
-  published (mostly).
+  published.
 
 #### Where to look for help
 - [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/), especially
