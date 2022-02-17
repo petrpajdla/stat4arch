@@ -313,22 +313,4 @@ Basic tidy data principles
 
 <!-- ----------------------------------------------- -->
 
-Homework assignment
-========================================================
-type: prompt
-right: 20%
-
-See <https://petrpajdla.github.io/stat4arch/#seminar-1> for details.  
-
-- Find a dataset you will use for the project assignment.
-- Read introductory chapters in one of:
-    - *Quantitative analysis in Archaeology* book by Todd L. VanPool & Robert D. Leonard;
-    - *Quantifying archaeology* book by Stephen Shennan;
-    - *Quantitative Methods in Archaeology* book by David L. Carlson.
-
-***
-
-<img src="./fig/shennan.jpeg" style='height:8em;'>
-<img src="./fig/carlson.jpg" style='height:8em;'>
-
 <!-- =============================================== -->
