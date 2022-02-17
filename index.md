@@ -45,17 +45,23 @@ Introductory session, we will go through basic concepts and have a first look at
 - Math operations in R, basic notion of functions and objects.
 - Organizing your data and tidy data.
 - Databases and types of variables (quantitative, qualitative).
-- Brief code-along project demonstrating the basics.
+
+Slides are [here](https://rpubs.com/knytt/stat4arch_2022-02-17).
 
 #### Assignment
+- Read chapters **1 Quantifying Archaeology** and **2 Data** in 
+  *Quantitative analysis in archaeology* book by VanPool and Leonard (2011).
 - `[project]` Think about a dataset you will use for the [project](#project) assignment.
   This could be your own data you are collecting for a different project of your
   own (e.g. your thesis) or a random published dataset you find online, check the
   [Get the data](#get-the-data) section below for some more information.
-- `[optional]` Read introductory chapters in *Quantifying archaeology* book by
-  Stephen Shennan and/or *Quantitative Methods in Archaeology* book by David L.
-  Carlson (see [Resources](#resources)). These give a general overview on
-  why to use quantitative/computational methods in archaeology.
+- `[optional]` Read chapter _*One* Introduction_ in 
+  *Quantifying archaeology* book by Stephen Shennan and/or 
+  chapter **1. Introduction** in 
+  *Quantitative Methods in Archaeology* book by David L.
+  Carlson (see [Resources](#resources) for details). 
+  These give a general overview on why to use 
+  quantitative/computational methods in archaeology.
 
 --------------------------------------------------------------------------------
 
@@ -242,6 +248,7 @@ the Potato People prohibits this.
 ### Quantitative and digital archaeology
 - Carlson, D. L. 2017: *Quantitative Methods in Archaeology Using R.*
   Cambridge: Cambridge University Press.
+- VanPool, TL and Leonard, RD. 2011. *Quantitative analysis in archaeology.* Chichester:   Wiley-Blackwell.
 - Drennan, R. D. 2010: *Statistics for Archaeologists: A common sense approach.*
   New York: Springer.
 - Baxter, M. 2003: *Statistics in Archaeology*. London: Wiley.
