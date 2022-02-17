@@ -20,6 +20,7 @@
 # RStudio files
 .Rproj.user/
 *.Rproj
+lectures/*/rsconnect/*
 
 # produced vignettes
 vignettes/*.html
