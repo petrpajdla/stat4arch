@@ -294,10 +294,6 @@ type: section
 
 <!-- ----------------------------------------------- -->
 
-<!-- místo pre Peťa -->
-
-<!-- =============================================== -->
-
 What is database?
 ========================================================
 type: prompt
@@ -322,6 +318,11 @@ incremental: true
 
 <!-- ---------------------------------------------------- -->
 
+Tidy data
+========================================================
+
+<img src="fig/tidy_data.png">
+
 Types of variables
 ========================================================
 ## Categorical
@@ -344,21 +345,16 @@ incremental: true
 ## What's wrong?
 <img src="./fig/database_fails.png" style='width:100%;'>
 
-## Basic tidy data principles:
+Basic tidy data principles
+========================================================
+
 - one variable in one column
 - one observation in one row
 - one value in one cell
 - backup your data!
 - be consistent!
 
-https://kbroman.org/dataorg/ 
-
-
-<!-- -------------------------------------------- -->
-
-Prompt slide
-========================================================
-type: prompt
+<https://kbroman.org/dataorg/>
 
 <!-- ----------------------------------------------- -->
 
@@ -370,7 +366,8 @@ right: 20%
 See <https://petrpajdla.github.io/stat4arch/#seminar-1> for details.  
 
 - Find a dataset you will use for the project assignment.
-- Read introductory chapters in one or both of:
+- Read introductory chapters in one of:
+    - *Quantitative analysis in Archaeology* book by Todd L. VanPool & Robert D. Leonard;
     - *Quantifying archaeology* book by Stephen Shennan;
     - *Quantitative Methods in Archaeology* book by David L. Carlson.
 
@@ -380,58 +377,3 @@ See <https://petrpajdla.github.io/stat4arch/#seminar-1> for details.
 <img src="./fig/carlson.jpg" style='height:8em;'>
 
 <!-- =============================================== -->
-
-<!-- TEMPLATE FOR SLIDES -->
-
-Title
-========================================================
-
-First column.
-
-***
-
-Second column.
-
-<!-- ----------------------------------------------- -->
-
-Some basics
-========================================================
-
-- Two **spaces** at the end of the line break the line.
-- HTML can be used to achieve practically anything.
-
-```
-<!-- comment -->
-*italics*
-**bold**
-# Header 1 to #### Header 4
-![alt  text](fix/path) - inserts figure
-<url link> or (alt text)[url link]
-`single line/word code`
-```
-
-<!-- ----------------------------------------------- -->
-
-Section slide
-========================================================
-type: section
-
-<!-- ----------------------------------------------- -->
-
-Sub-section slide
-========================================================
-type: sub-section
-
-<!-- ----------------------------------------------- -->
-
-Prompt slide
-========================================================
-type: prompt
-
-<!-- ----------------------------------------------- -->
-
-Alert slide
-========================================================
-type: alert
-<!-- ----------------------------------------------- -->
-
