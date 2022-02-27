@@ -29,17 +29,13 @@ type: section
 
 Today:
 <ul style='color:white;'>
-<li>R
-<li>Topic 2
-<li>etc.
+<li>R data types.
+<li>R objects and sub setting.
+<li>Packages in R.
+<li>How to organize your projects.
+<li>Reading data into R.
 </ul>
 
-
-<!-- R objects (vector, matrix, data frame) and sub-setting. -->
-<!-- Getting help in R. -->
-<!-- Notion of packages in R. -->
-<!-- Organizing projects in R. -->
-<!-- Reading data into R (readr package). -->
 <!-- R data manipulation basics (dplyr package?). -->
 
 <!-- =============================================== -->
@@ -119,7 +115,7 @@ object_name <- 1
 ```
 
 - **<-** is an assignment operator 
-- Use Alt + - shortcut in RStudio
+- Use *Alt + -* shortcut in RStudio
 
 <!-- ----------------------------------------------- -->
 
@@ -177,12 +173,12 @@ object1
 
 - R is **case sensitive**.
 - Be consistent in naming things:
-- snake-case: `my_first_object`,
-- camel-case: `myFirstObject`.
+  - snake-case: `my_first_object`,
+  - camel-case: `myFirstObject`.
 - Object names must **not** start with:
-- numbers,
-- special characters.
-- Do not overwrite things that already exist.
+  - numbers,
+  - special characters.
+- Do not overwrite things that already exist in `R`.
 - Choose sensible names for objects.
 
 ```r
@@ -222,10 +218,10 @@ class: small-code
 - Official packages are deposited at [CRAN](https://mirrors.nic.cz/R/) repository.
 - As of 2022, there are > 18000 packages.
 
-- To install packages from CRAN:  
+- To **install** packages from CRAN:  
   `install.packages("package_name")`
   
-- To be able to use a package, we need to load it from our package *library*:  
+- To be able to use a package, we need to **load** it from our package **library**:  
   `library("package_name")` also `library(package_name)`
 
 <!-- =============================================== -->
@@ -280,7 +276,7 @@ TRUE == FALSE
 ***
 
 ### Numbers
-- Integers (whole numbers).
+#### Integers (whole numbers).
 - **Integer** data type.
 
 ```r
@@ -291,7 +287,7 @@ TRUE == FALSE
 [1] 42
 ```
 
-- Floating point numbers (decimal point numbers).
+#### Floating point numbers (decimal point numbers).
 - **Double** data type.
 
 ```r
@@ -307,7 +303,6 @@ TRUE == FALSE
 ### Special values
 
 - Empty *value* as `NA`, i.e. *not available*.
-<!-- - Not a number as `NaN`, i.e. *not a number*. -->
 - Infinities as `Inf` and `-Inf`.
 
 
@@ -360,6 +355,14 @@ is.double(42)
 
 ```
 [1] TRUE
+```
+
+```r
+is.na(1)
+```
+
+```
+[1] FALSE
 ```
 
 ***
@@ -468,9 +471,6 @@ x >= y
 [1] FALSE
 ```
 
-***
-
-
 ```r
 y == 100
 ```
@@ -478,6 +478,9 @@ y == 100
 ```
 [1] TRUE
 ```
+
+***
+
 
 ```r
 x != y
@@ -504,12 +507,29 @@ x == NA
 ```
 
 ```r
+is.na(x)
+```
+
+```
+[1] FALSE
+```
+
+```r
 "apple" == "banana"
 ```
 
 ```
 [1] FALSE
 ```
+
+```r
+"pineapple" == "pineapple"
+```
+
+```
+[1] TRUE
+```
+
 
 <!-- =============================================== -->
 
@@ -526,7 +546,6 @@ incremental: true
 
 - Basic data structure.
 - Contains a single type of data.
-
 - Created using function `c()` (combine, concatenate)
 
 
@@ -909,6 +928,7 @@ incremental: true
 
 - A special kind of a list.
 - All list items have same number of rows.
+- Rectangular structure.
 
 
 ```r
@@ -1026,7 +1046,7 @@ dfr
 ```
 
 ```r
-nrow(dfr) # nr. of columns
+nrow(dfr) # nr. of rows
 ```
 
 ```
@@ -1065,7 +1085,7 @@ str(dfr) # structure
 ```
 
 ```r
-colnames(dfr) # column names, also 
+colnames(dfr) # column names
 ```
 
 ```
@@ -1081,7 +1101,7 @@ rownames(dfr) # row names
 ```
 
 ```r
-head(dfr) # returns first 6 rows of a data frame, also tail()
+head(dfr) # returns top rows of a data frame, also tail()
 ```
 
 ```
@@ -1096,7 +1116,7 @@ head(dfr) # returns first 6 rows of a data frame, also tail()
 
 <!-- =============================================== -->
 
-Practice!
+Let's practice!
 ========================================================
 type: prompt
 incremental: true
@@ -1104,12 +1124,15 @@ incremental: true
 1. Start **RStudio**.
 2. In the **Console**, install `archdata` package.
 3. Create a new script *(Ctrl + Shift + n)*.
+4. Load the `archdata` package from the **library**.
 4. Load a **DartPoints** data set from the **archdata** package:
    `data("DartPoints", package = "archdata")`
 5. Notice the object `DartPoints` is loaded in the **Environment** panel.
 6. What class is the `DartPoints` object?
-7. How large is the data set?
+7. How large (number of rows and columns) is the data set?
+8. What columns does it have?
 8. Explore the contents of the object...
+9. Read details about the data set using `help(DartPoints)` nebo `?DartPoints`
 
 ***
 
@@ -1118,6 +1141,10 @@ incremental: true
 
 ```r
 install.packages("archdata")
+```
+
+```r
+library(archdata)
 ```
 
 ```r
@@ -1138,6 +1165,16 @@ dim(DartPoints) # also nrow()/ncol()
 
 ```
 [1] 91 17
+```
+
+```r
+colnames(DartPoints)
+```
+
+```
+ [1] "Name"      "Catalog"   "TARL"      "Quad"      "Length"    "Width"    
+ [7] "Thickness" "B.Width"   "J.Width"   "H.Length"  "Weight"    "Blade.Sh" 
+[13] "Base.Sh"   "Should.Sh" "Should.Or" "Haft.Sh"   "Haft.Or"  
 ```
 
 <!-- ----------------------------------------------- -->
@@ -1220,8 +1257,13 @@ str(DartPoints)
 
 <!-- ----------------------------------------------- -->
 
-Some basics
+Small code-along project
 ========================================================
+type: section
+
+<img src='fig/dartpoints.png' alt='Dart points.' style='box-shadow:none; background:none; width:60%;'>  
+
+<p class=small-text>Dart points, adapted from Carlson 2011.</p>
 
 <!-- ----------------------------------------------- -->
 
