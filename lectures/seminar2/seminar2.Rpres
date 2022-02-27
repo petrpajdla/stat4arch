@@ -1,3 +1,13 @@
+<style>
+.small-code pre code {
+font-size: 1.2em;
+}
+
+p.small-text {
+font-size: 0.8em;
+}
+</style>
+
 stat4arch
 ========================================================
 author: Petr Pajdla & Peter Tkáč
@@ -11,47 +21,661 @@ AES_707: *Statistics seminar for archaeologists*
 
 <!-- =============================================== -->
 
-Seminar 1
+Seminar 2
 ========================================================
 type: section
 
-`17. 2. 2022`
+`3. 3. 2022`
 
 Today:
 <ul style='color:white;'>
-  <li>Topic1
-  <li>Topic 2
-  <li>etc.
+<li>R
+<li>Topic 2
+<li>etc.
 </ul>
+
+
+<!-- R objects (vector, matrix, data frame) and sub-setting. -->
+<!-- Getting help in R. -->
+<!-- Notion of packages in R. -->
+<!-- Organizing projects in R. -->
+<!-- Reading data into R (readr package). -->
+<!-- R data manipulation basics (dplyr package?). -->
 
 <!-- =============================================== -->
 
-Title
+R basics
 ========================================================
+type: section
 
-First column.
+<!-- ----------------------------------------------- -->
+
+Functions and objects
+========================================================
+incremental: true
+class: small-code
+
+### Function
+- Ends with parentheses.  
+`function-name(args...)`
+- **Arguments** go in the parentheses.
+- Does something.
+```{r}
+sqrt(x = 1764)
+```
+
+- Agruments of a function:
+```{r}
+args(sqrt)
+```
+
+- Getting help on functions:
+```{r}
+help(sqrt)
+```
+```{r}
+?sqrt
+```
 
 ***
 
-Second column.
+### Object
+- *Anything* is an object.
+- Contains data.
+```{r}
+pi
+```
+```{r}
+pi + 1
+```
+
+- Create object by assigning data to it
+```{r}
+object_name <- 1
+```
+
+- **<-** is an assignment operator 
+- Use Alt + - shortcut in RStudio
+
+<!-- ----------------------------------------------- -->
+
+Objects
+========================================================
+incremental: true
+class: small-code
+
+```{r}
+object1 <- 1
+```
+```{r}
+object1
+```
+```{r}
+object1 + 1
+```
+```{r}
+object2 <- object1 / 2
+```
+```{r}
+object2
+```
+```{r}
+object1 <- object1 + object2
+```
+```{r}
+object1
+```
+
+***
+
+- R is **case sensitive**.
+- Be consistent in naming things:
+- snake-case: `my_first_object`,
+- camel-case: `myFirstObject`.
+- Object names must **not** start with:
+- numbers,
+- special characters.
+- Do not overwrite things that already exist.
+- Choose sensible names for objects.
+```{r}
+S1 <- pi * 4^2 # for r = 4
+```
+```{r}
+pi <- 10
+```
+```{r}
+S2 <- pi * 4^2
+```
+```{r}
+S1 == S2
+```
+
+<!-- =============================================== -->
+
+Packages
+========================================================
+type: sub-section
+
+<!-- ----------------------------------------------- -->
+
+Packages
+========================================================
+class: small-code
+
+- R has many functions out of the box.
+- There are many **packages** that offer many other, often very specific, functions.
+- Official packages are deposited at [CRAN](https://mirrors.nic.cz/R/) repository.
+- As of 2022, there are > 18000 packages.
+
+- To install packages from CRAN:  
+  `install.packages("package_name")`
+  
+- To be able to use a package, we need to load it from our package *library*:  
+  `library("package_name")` also `library(package_name)`
+
+<!-- =============================================== -->
+
+Types of data and objects
+========================================================
+type: section
+
+<!-- ----------------------------------------------- -->
+
+Data types
+========================================================
+class: small-code
+incremental: true
+
+### Text strings
+- Any kind of text.
+- **Character** data type.
+- Always in quotation marks (double or single).
+
+```{r}
+"This is a text string."
+'This is also a text.'
+```
+
+### Dichotomies
+- Boolean/binary values (true/false).
+- **Logical** data type.
+- As `TRUE` and `FALSE` in `R`.
+
+```{r}
+TRUE == FALSE
+```
+
+***
+
+### Numbers
+- Integers (whole numbers).
+- **Integer** data type.
+```{r}
+42L
+```
+
+- Floating point numbers (decimal point numbers).
+- **Double** data type.
+```{r}
+4.2
+```
+
+- All numbers fall under class **numeric**.
+
+### Special values
+
+- Empty *value* as `NA`, i.e. *not available*.
+<!-- - Not a number as `NaN`, i.e. *not a number*. -->
+- Infinities as `Inf` and `-Inf`.
+
+
+<!-- ----------------------------------------------- -->
+
+Identifying data types
+========================================================
+class: small-code
+incremental: true
+
+- There is a set of functions starting with `is.` prefix.
+- These functions return `TRUE`/`FALSE`.
+
+```{r}
+is.character("How are you?")
+```
+```{r}
+is.numeric(c(4, 4L, 4.2))
+```
+```{r}
+is.integer(4)
+```
+```{r}
+is.integer(4L)
+```
+```{r}
+is.double(42)
+```
+
+***
+
+```{r}
+is.numeric(pi)
+```
+```{r}
+is.double(pi)
+```
+```{r}
+is.logical(1)
+```
+```{r}
+is.logical(TRUE)
+```
+```{r}
+is.logical(FALSE)
+```
+```{r}
+is.character(mean)
+```
+```{r}
+is.character("mean")
+```
+
+<!-- ----------------------------------------------- -->
+
+Comparing values
+========================================================
+class: small-code
+incremental: true
+
+`<, <=, ==, >=, >, !=`
+
+```{r}
+x <- 1
+y <- 100
+```
+```{r}
+x
+```
+```{r}
+y
+```
+```{r}
+x < 10
+```
+```{r}
+x >= y
+```
+
+***
+
+```{r}
+y == 100
+```
+```{r}
+x != y
+```
+```{r}
+y < Inf
+```
+```{r}
+x == NA
+```
+```{r}
+"apple" == "banana"
+```
+
+<!-- =============================================== -->
+
+Types of objects
+========================================================
+type: sub-section
+
+<!-- ----------------------------------------------- -->
+
+Vector
+========================================================
+class: small-code
+incremental: true
+
+- Basic data structure.
+- Contains a single type of data.
+
+- Created using function `c()` (combine, concatenate)
+
+```{r}
+c("Fuu", "Bar")
+```
+```{r}
+x <- c(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144)
+x
+```
+```{r}
+is.vector(x)
+```
+
+***
+
+### Subsetting vectors
+- Subset vectors using square brackets `[]`  
+
+```{r}
+x[2]
+```
+```{r}
+x[c(2, 4)]
+```
+```{r}
+x[-1]
+```
+```{r}
+x[42]
+```
+```{r}
+x[2:5]
+```
+
+<!-- ----------------------------------------------- -->
+
+Maths with vectors
+========================================================
+class: small-code
+incremental: true
+
+```{r}
+x <- c(3, 6, 9, 12)
+y <- 4:1
+```
+```{r}
+x
+```
+```{r}
+y
+```
+```{r}
+x + y
+```
+```{r}
+(2 * x) / y
+```
+```{r}
+y^2
+```
+```{r}
+y >= x
+```
+
+***
+
+### Some useful functions
+
+- Return length of a vector with `length()`.
+```{r}
+length(x)
+```
+
+- Data type of a vector:
+```{r}
+typeof(x)
+```
+```{r}
+is.character(x)
+```
+
+```{r}
+z <- c(1, 2, "fuu", 4, 5)
+z
+```
+```{r}
+typeof(z)
+```
+
+<!-- ----------------------------------------------- -->
+
+Matrix
+========================================================
+class: small-code
+incremental: true
+
+- Has rows and columns, rectangular in shape.
+- Contains data of a same type, typically numbers.
+
+```{r}
+m <- matrix(data = 1L:20L, ncol = 5, byrow = TRUE)
+```
+```{r}
+m
+```
+```{r}
+typeof(m)
+```
+```{r}
+is.matrix(m)
+```
+
+***
+
+### Subsetting matrices
+
+- Give `x` and `y` *coordinates* for row and column.  
+`matrix[x, y]`
+
+```{r}
+m[2, 1]
+```
+```{r}
+m[3, c(2, 4)]
+```
+```{r}
+m[c(3, 4), 2:3]
+```
+```{r}
+m[1, ]
+```
+```{r}
+m[, c(2, 4)]
+```
+
+<!-- ----------------------------------------------- -->
+
+List
+========================================================
+class: small-code
+incremental: true
+
+- Can contain a combination of anything.
+- Can have names.
+
+```{r}
+l <- list(
+  characters = c("fuu", "bar"), 
+  numbers = 1:5,
+  logicals = c(TRUE, FALSE, TRUE)
+)
+```
+```{r}
+l
+```
+```{r}
+length(l)
+```
+```{r}
+is.list(l)
+```
+
+***
+
+### Subsetting lists
+- By position (remains a list).
+```{r}
+l[2]
+```
+
+- By names using `$` operator.
+- Returns a vector.
+```{r}
+l$logicals
+```
+```{r}
+l[[1]] # or double brackets
+```
+```{r}
+l[[1]][2]
+```
+
+<!-- ----------------------------------------------- -->
+
+Data frame
+========================================================
+class: small-code
+incremental: true
+
+- A special kind of a list.
+- All list items have same number of rows.
+
+```{r}
+dfr <- data.frame(
+  x = 95:98, 
+  y = c("a", "b", "c", "d"),
+  z = c(T, F, F, T),
+  w = seq(4.2, 4.8, by = 0.2) # sequence
+)
+```
+```{r}
+dfr
+```
+```{r}
+is.data.frame(dfr)
+```
+```{r}
+typeof(dfr)
+```
+
+***
+
+### Subsetting data frames
+
+```{r}
+dfr[2, 1]
+```
+
+```{r}
+dfr[2, c(1, 3)]
+```
+```{r}
+dfr[, 1]
+```
+```{r}
+dfr$x
+```
+```{r}
+dfr[, "y"]
+```
+```{r}
+dfr[-c(1, 2), ]
+```
+
+<!-- =============================================== -->
+
+Exploring the structure of an object
+========================================================
+class: small-code
+incremental: true
+
+```{r}
+dfr
+```
+```{r}
+nrow(dfr) # nr. of columns
+```
+```{r}
+ncol(dfr) # nr. of columns
+```
+```{r}
+dim(dfr) # dimensions
+```
+
+***
+
+```{r}
+str(dfr) # structure
+```
+```{r}
+colnames(dfr) # column names, also 
+```
+```{r}
+rownames(dfr) # row names
+```
+```{r}
+head(dfr) # returns first 6 rows of a data frame, also tail()
+```
+
+<!-- ----------------------------------------------- -->
+
+<!-- =============================================== -->
+
+Practice!
+========================================================
+type: prompt
+incremental: true
+
+1. Start **RStudio**.
+2. In the **Console**, install `archdata` package.
+3. Create a new script *(Ctrl + Shift + n)*.
+4. Load a **DartPoints** data set from the **archdata** package:
+   `data("DartPoints", package = "archdata")`
+5. Notice the object `DartPoints` is loaded in the **Environment** panel.
+6. What class is the `DartPoints` object?
+7. How large is the data set?
+8. Explore the contents of the object...
+
+***
+
+### Solution
+
+```{r eval=FALSE}
+install.packages("archdata")
+```
+```{r}
+data("DartPoints", package = "archdata")
+```
+```{r}
+class(DartPoints)
+```
+```{r}
+dim(DartPoints) # also nrow()/ncol()
+```
+
+<!-- ----------------------------------------------- -->
+
+Explore the object I
+========================================================
+title: false
+type: prompt
+class: small-code
+incremental: true
+
+```{r}
+head(DartPoints, n = 4)
+```
+```{r}
+tail(DartPoints, n = 4)
+```
+
+<!-- ----------------------------------------------- -->
+
+Explore the object II
+========================================================
+title: false
+type: prompt
+class: small-code
+
+```{r}
+str(DartPoints)
+```
 
 <!-- ----------------------------------------------- -->
 
 Some basics
 ========================================================
-
-- Two **spaces** at the end of the line break the line.
-- HTML can be used to achieve practically anything.
-
-```
-<!-- comment -->
-*italics*
-**bold**
-# Header 1 to #### Header 4
-![alt  text](fix/path) - inserts figure
-<url link> or (alt text)[url link]
-`single line/word code`
-```
 
 <!-- ----------------------------------------------- -->
 
