@@ -224,6 +224,8 @@ class: small-code
 - To be able to use a package, we need to **load** it from our package **library**:  
   `library("package_name")` also `library(package_name)`
 
+- Packages with relation to archaeology are loosely organized [here](https://github.com/benmarwick/ctv-archaeology).
+
 <!-- =============================================== -->
 
 Types of data and objects
@@ -1112,11 +1114,36 @@ head(dfr) # returns top rows of a data frame, also tail()
 4 98 d  TRUE 4.8
 ```
 
-<!-- ----------------------------------------------- -->
-
 <!-- =============================================== -->
 
-Let's practice!
+Let's practice: Dart points project
+========================================================
+type: section
+
+<img src='fig/dartpoints.png' alt='Dart points.' style='box-shadow:none; background:none; width:50%;'>  
+
+<p class=small-text>Dart points, adapted from Carlson 2011.</p>
+
+<!-- ----------------------------------------------- -->
+
+Goal
+========================================================
+title: false
+right: 16%
+
+<img src="fig/dartpoints_scatter.png" alt="Scatterplot of dart points sizes." style='width:100%; box-shadow:none;'>
+
+***
+
+### Let's explore the dart points data set!
+
+<p class=small-text>
+Measurements on five types of dart points from Fort Hood in central Texas (Darl, Ensor, Pedernales, Travis, and Wells). The points were recovered during 10 different pedestrian survey projects during the 1980's and were classified and measured by H. Blaine Ensor...
+</p>
+
+<!-- ----------------------------------------------- -->
+
+Task
 ========================================================
 type: prompt
 incremental: true
@@ -1132,7 +1159,7 @@ incremental: true
 7. How large (number of rows and columns) is the data set?
 8. What columns does it have?
 8. Explore the contents of the object...
-9. Read details about the data set using `help(DartPoints)` nebo `?DartPoints`
+9. Read details about the data set using `help(DartPoints)` or `?DartPoints`
 
 ***
 
@@ -1255,32 +1282,217 @@ str(DartPoints)
  $ Haft.Or  : Factor w/ 5 levels "C","E","P","T",..: 2 2 2 2 2 1 2 2 2 3 ...
 ```
 
-<!-- ----------------------------------------------- -->
+<!-- =============================================== -->
 
-Small code-along project
-========================================================
-type: section
-
-<img src='fig/dartpoints.png' alt='Dart points.' style='box-shadow:none; background:none; width:60%;'>  
-
-<p class=small-text>Dart points, adapted from Carlson 2011.</p>
-
-<!-- ----------------------------------------------- -->
-
-Section slide
+Reading data into R
 ========================================================
 type: section
 
 <!-- ----------------------------------------------- -->
 
-Prompt slide
+Brainstorming
 ========================================================
 type: prompt
+incremental: true
+
+### How do you organize your data?
+
+- How do you **collect** your data?
+- How do you **save** your data?
+- What **formats** are you using?
+- **Why** do you do it the way you do it?
 
 <!-- ----------------------------------------------- -->
 
-Alert slide
+Reading data into R
 ========================================================
-type: alert
+incremental: true
+
+- There are built-in functions to read data into `R`.
+- There are many useful packages.
+
+### Most common cases
+- **CSV** file (comma separated values) &#x2714;
+  - Europe: semicolon (;) as a separator, comma (,) as a decimal mark.
+  - America: comma (,) as a separator, period (.) as a decimal mark.
+- **Spreadsheet** (Excel, LibreOffice etc.) &#x2714;
+  - Export as a CSV.
+  - Use a dedicated package.
+  - Google spreadsheet: use a dedicated package.
+- **Database** &#x2714;
+  - Export as a CSV.
+  - Use a dedicated package.
+  
+***
+
+### The process
+- Identify where and how is your data stored.
+  - What type of a file is it?
+- Is it a plain text?
+  - What is used as a separator (*delimiter*)?
+  - What is the encoding of the file?
+  - How are empty values represented?
+- Is it a spreadsheet?
+- Is it a database?
+  - Is it a local database?
+  - Is it a (SQL) server?
+- Is it a table on a website?
+
+<!-- ----------------------------------------------- -->
+
+Comma separated values
+========================================================
+
+- **CSV** is a plain text document.
+- Great for **small** to **medium** size data sets.
+- Suitable for **long-term storage** and data archiving.
+
+```
+dataset,x,y
+dino,55.3846,97.1795
+dino,,96.0256
+dino,46.1538,94.4872
+```
+
+```
+id,date_from,date_to,date_accurate,url,parent_id,leaf,name_cs,name_en,name_de
+1,,,,1-teorie-a-pristupy,,f,1) Teorie a přístupy,1) Theory and approaches,1) Theorie (e) und Ansätze (e)
+2,,,,1-teorie-a-pristupy/archeologie,1,f,archeologie,archaeology,Archäologie (e)
+3,,,,1-teorie-a-pristupy/archeologie/dejiny-archeologie,2,f,dějiny archeologie,history of archaeology,Geschichte der Archäologie (e)
+```
+
+<!-- ----------------------------------------------- -->
+
+Comma separated values
+========================================================
+incremental: true
+
+### R base functions
+#### Comma as a separator (Europe)
+
+```r
+read.csv(file = "file path")
+```
+#### Semicolon as a separator (America)
+
+```r
+read.csv2(file = "file path")
+```
+
+- These function are directly available in base R.
+
+***
+
+### Package readr
+#### Comma as a separator (Europe)
+
+```r
+read_csv(file = "file path")
+```
+#### Semicolon as a separator (America)
+
+```r
+read_csv2(file = "file path")
+```
+- These functions come from the `readr` package.
+- This package must be installed first.
+
+```r
+install.packages("readr")
+```
+- And loaded from the library prior to being used.
+
+```r
+library(readr)
+```
+
+<!-- ----------------------------------------------- -->
+
+Files with different separators
+========================================================
+incremental: true
+
+### TSV
+- *Tab* (tabulator) separated values (\t)
+
+```r
+read.delim(file = "file path") # decimal mark ,
+read.delim2(file = "file path") # decimal mark .
+```
+- Using `readr` package:
+
+```r
+library(readr)
+read_tsv(file = "file path")
+```
+
+### Other delimiter
+- Sometimes other symbols are used to separate columns in files.
+
+```r
+read.table(file = "file path", sep = "separator")
+```
+- Using `readr` package:
+
+```r
+read_delim(file = "file path", delim = "separator")
+```
+
+<!-- ----------------------------------------------- -->
+
+Spreadsheets
+========================================================
+incremental: true
+
+### Excel
+- To read Excel files, there is a package `readxl`.
+
+```r
+# remember to install it first
+install.packages("readxl")
+# and load it when you want to use it
+library(readxl)
+```
+
+- You can list the sheets in the Excel file:
+
+```r
+excel_sheets(path = "file path")
+```
+- And read a selected sheet into R:
+
+```r
+read_excel(path = "file path", sheet = "sheet name")
+```
+
+***
+
+### Google sheets
+
+- There is a package `googlesheets4`.
+- For more details see here: <https://googlesheets4.tidyverse.org/>.
+
+
+```r
+# install the package
+install.packages("googlesheets4")
+
+# attach it from the library
+library(googlesheets4)
+
+# read a sheet based on its URl etc.
+read_sheet("sheet URL")
+```
+
+
+<!-- ----------------------------------------------- -->
+
+
+<!-- =============================================== -->
+
+Organizing work in projects
+========================================================
+type: section
+
 <!-- ----------------------------------------------- -->
 
