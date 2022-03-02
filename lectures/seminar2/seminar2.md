@@ -30,7 +30,7 @@ type: section
 Today:
 <ul style='color:white;'>
 <li>R data types.
-<li>R objects and sub setting.
+<li>R objects and subsetting.
 <li>Packages in R.
 <li>How to organize your projects.
 <li>Reading data into R.
@@ -211,20 +211,33 @@ type: sub-section
 
 Packages
 ========================================================
-class: small-code
 
 - R has many functions out of the box.
 - There are many **packages** that offer many other, often very specific, functions.
 - Official packages are deposited at [CRAN](https://mirrors.nic.cz/R/) repository.
 - As of 2022, there are > 18000 packages.
 
-- To **install** packages from CRAN:  
-  `install.packages("package_name")`
-  
-- To be able to use a package, we need to **load** it from our package **library**:  
-  `library("package_name")` also `library(package_name)`
+- Packages with relation to archaeology are loosely organized in the [CRAN Task View](https://github.com/benmarwick/ctv-archaeology) maintained by Ben Marwick.
 
-- Packages with relation to archaeology are loosely organized [here](https://github.com/benmarwick/ctv-archaeology).
+***
+
+### Install a package
+- To **install** packages from CRAN:
+
+```r
+install.packages("package_name")
+```
+
+### Load (Attach) a package
+- To be able to use a package, we need to **attach** it from our package **library**:  
+
+```r
+library("package_name") # or
+```
+
+```r
+library(package_name)
+```
 
 <!-- =============================================== -->
 
@@ -278,7 +291,7 @@ TRUE == FALSE
 ***
 
 ### Numbers
-#### Integers (whole numbers).
+#### Integers (whole numbers)
 - **Integer** data type.
 
 ```r
@@ -289,7 +302,7 @@ TRUE == FALSE
 [1] 42
 ```
 
-#### Floating point numbers (decimal point numbers).
+#### Floating point numbers (decimal point numbers)
 - **Double** data type.
 
 ```r
@@ -1368,12 +1381,12 @@ Comma separated values
 incremental: true
 
 ### R base functions
-#### Comma as a separator (Europe)
+#### Comma as a separator
 
 ```r
 read.csv(file = "file path")
 ```
-#### Semicolon as a separator (America)
+#### Semicolon as a separator
 
 ```r
 read.csv2(file = "file path")
@@ -1384,12 +1397,12 @@ read.csv2(file = "file path")
 ***
 
 ### Package readr
-#### Comma as a separator (Europe)
+#### Comma as a separator
 
 ```r
 read_csv(file = "file path")
 ```
-#### Semicolon as a separator (America)
+#### Semicolon as a separator
 
 ```r
 read_csv2(file = "file path")
@@ -1437,6 +1450,10 @@ read.table(file = "file path", sep = "separator")
 ```r
 read_delim(file = "file path", delim = "separator")
 ```
+
+<p class=small-text>
+Tip: When you do not know what is the file encoding, use `readr` function `guess_encoding("file")`.
+</p>
 
 <!-- ----------------------------------------------- -->
 
@@ -1490,9 +1507,249 @@ read_sheet("sheet URL")
 
 <!-- =============================================== -->
 
-Organizing work in projects
+Workflows
 ========================================================
 type: section
 
 <!-- ----------------------------------------------- -->
 
+Organize your work in scripts
+========================================================
+left: 40%
+class: small-code
+incremental: true
+
+<img src='fig/script.png' style='width:100%;'>
+
+- Execute the current line with *Ctrl + Enter*.
+- Source the whole script with *Ctrl + Shift + Enter*.
+
+***
+
+### In RStudio
+- Create new script with *Ctrl + Shift + n*.
+- Put some basic info at the top of a script.
+  - Use a comment `#`, also *Ctrl + Shift + c*. 
+
+```r
+# Dart points dataset is analyzed in this script.
+# (...)
+```
+- Load the packages you will use at the top of the script.
+
+```r
+library(readr)
+```
+- Comment your code to be able to know what you are doing.
+  - In general, comment on the **why** each step is taken...
+- Structure the script using sections with *Ctrl + Shift + r*.
+
+```r
+# data -----------------------------------------
+obj <- read_csv("path to a file")
+
+# explore structure of data
+str(obj)
+```
+
+<!-- ----------------------------------------------- -->
+
+Organize your work in projects
+========================================================
+left: 40%
+class: small-code
+incremental: true
+
+- Each project is in a separate directory.
+- There are sub-folders for different parts of the project.
+
+```
+~/Documents/
+  MyProject/
+    code/
+      script1.R
+      script2.R
+    data/
+      raw/
+        input_dataset.xlsx
+      processed/
+        settlements.csv
+        set_locations.geojson
+    figures/
+      plot1.png
+      plot1.pdf
+    MyProject.Rproj
+```
+
+- In RStudio, create a new project in the top right corner:  
+*Projects -> New Project -> New Directory -> New Project*.
+
+***
+
+### File paths
+#### Absolute file path
+- The file path is specific to a given user.  
+`C:/Documents/MyProject/data/raw/input_dataset.xlsx`
+
+#### Relative file path
+- If I am currently in `MyProject/` folder:  
+`./data/raw/input_dataset.xlsx`
+
+#### Package `here` is here to save the day!
+- Do not forget to install the package first.
+- Load it at the top of your script.
+
+```r
+library(here)
+library(readr)
+```
+
+- `here` will know where the *top* directory is.
+
+```r
+# read data --------------------------------------------
+settlements <- read_csv(here("data/processed/settlements.csv"))
+```
+
+<!-- =============================================== -->
+
+Let's practice!
+========================================================
+type: prompt
+incremental: true
+class: small-code
+
+### Tasks
+- In the console, install packages **here** and **readr**.
+- **Create a project** with a sensible name and location.
+- Create sub-folders `data/` and `code/`.
+- Create a new script and save it in the `code/` folder.
+- Load **readr** and **here** packages.
+- Download some example data from 
+<https://1url.cz/@stat4arch01>.
+
+```r
+url <- "https://1url.cz/@stat4arch01"
+download.file(url, destfile = here("data/exData.zip"))
+unzip(here("data/exData.zip"), exdir = here("data/"))
+```
+- Explore the files you downloaded one by one and try to load them into R.
+
+***
+
+### Solutions
+
+```r
+install.packages(c("readr", "here"))
+```
+
+```r
+dir.create("./data/")
+dir.create("./code/")
+```
+
+```r
+library(here)
+library(readr)
+```
+
+```r
+url <- "https://1url.cz/@stat4arch01"
+download.file(url, destfile = here("data/exData.zip"))
+unzip(here("data/exData.zip"), exdir = here("data/"))
+```
+- The Excel file, if we had `readxl` package installed:
+
+```r
+library(readxl)
+```
+
+```r
+excel_sheets(here("data/dartPoints00.xlsx"))
+```
+
+```r
+read_excel(here("data/dartPoints00.xlsx"),
+           sheet = "dartPoints00")
+```
+
+<!-- ----------------------------------------------- -->
+
+Solutions
+========================================================
+type: prompt
+incremental: true
+class: small-code
+
+- We will use functions from the `readr` package.
+
+#### dartPoints01.csv
+- CSV file with semicolon (;) separators.
+
+```r
+dartPoints01 <- read_csv2(here("data/dartPoints01.csv"))
+```
+#### dartPoints02.txt
+- Tab separated file (TSV).
+
+```r
+dartPoints02 <- read_tsv(here("data/dartPoints02.txt"))
+```
+#### dartPoints03.csv
+- CSV file with comma (,) separators.
+
+```r
+dartPoints03 <- read_csv(here("data/dartPoints03.csv"))
+```
+
+***
+
+#### dartPoints04.txt
+- File with custom separators (#).
+
+```r
+dartPoints04 <- read_delim(here("data/dartPoints04.txt"), 
+                           delim = "#")
+```
+
+#### dartPoints05.csv
+- CSV file separated by commas (,).
+- `NA` values represented by en-dash (-). 
+
+```r
+dartPoints05 <- read_csv(here("data/dartPoints05.csv"), 
+                         na = "-")
+```
+
+<!-- =============================================== -->
+
+Summing up
+========================================================
+incremental: true
+type: prompt
+
+- Why would one want to use `R`?
+- Why is it good to use **scripts**?
+- Where to look for **help**?
+- What is the difference between a **function** and an **object**?
+- What are the basic **objects** in `R`?
+- What **data types** are there in `R`?
+- What is `NA`?
+- What are the **tidy data** principles?
+- Do you remember any **functions**?
+
+<!-- ----------------------------------------------- -->
+
+Homework assignments
+========================================================
+type: prompt
+
+### Interactive practice
+- Go through this short interactive course on basic programming in R:  
+  <https://rstudio.cloud/learn/primers/1.2>.
+  
+### Project
+- Prepare the **data** you will use for your project.
+- Next time, we will have a short **show-and-tell session** where we will have a quick look at the data sets.
+- You can prepare one slide with some details about your data set, show us a map with the extent of your data set, an image illustrating what you are doing etc.
+- **Send us** either the whole data set or at least a sample so we can check what kind of data you will be using.
