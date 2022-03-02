@@ -55,7 +55,7 @@ Slides are [here](https://rpubs.com/knytt/stat4arch_2022-02-17).
   This could be your own data you are collecting for a different project of your
   own (e.g. your thesis) or a random published dataset you find online, check the
   [Get the data](#get-the-data) section below for some more information.
-- `[optional]` Read chapter **One Introduction** in 
+- `[optional]` Read chapter **One Introduction** in
   *Quantifying archaeology* book by Stephen Shennan and/or
   chapter **1. Introduction** in
   *Quantitative Methods in Archaeology* book by David L.
@@ -78,6 +78,8 @@ operations on data. We will practice a lot to get to know R well.
 - Organizing projects in R.
 - Reading data into R (`readr` package).
 - R data manipulation basics (`dplyr` package?).
+
+Example data: <https://1url.cz/@stat4arch01>.
 
 #### Assignment
 - Go through [this](https://rstudio.cloud/learn/primers/1.2) short interactive
