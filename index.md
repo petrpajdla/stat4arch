@@ -77,9 +77,9 @@ operations on data. We will practice a lot to get to know R well.
 - Notion of packages in R.
 - Organizing projects in R.
 - Reading data into R (`readr` package).
-- R data manipulation basics (`dplyr` package?).
 
-Example data: <https://1url.cz/@stat4arch01>.
+Slides are [here](https://rpubs.com/knytt/stat4arch_2022-03-03) and example files
+for reading data into R exercise are [here](https://1url.cz/@stat4arch01).  
 
 #### Assignment
 - Go through [this](https://rstudio.cloud/learn/primers/1.2) short interactive
@@ -98,6 +98,7 @@ Third session is focused on reading and creating basic types of plots and
 understanding basic summaries of quantitative variables.
 - Data visualization, plots for one variable.
 - Descriptive stats (mean, sd, median, IQR etc.)
+- Data manipulation basics (base R and `dplyr` package).
 - Plotting in `ggplot2`.
 
 #### Assignment
@@ -337,3 +338,4 @@ the Potato People prohibits this.
 | Alt + - | `<-` |
 | Ctrl + Enter | evaluates the given line |
 | Ctrl + Shift + c | comments the line (#) |
+| Ctrl + Shift + r | adds a section |
