@@ -11,7 +11,7 @@ Information given here applies to spring semester 2022, the page will be
 continuously updated throughout the semester.
 The course was taught also in 2020.
 
-- Odd Thursdays, 14:00 -- 17:40 (will include breaks).
+- Each odd Thursday, 14:00 -- 17:40 (will include breaks).
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
   (computers are provided in the room, you can use your own laptop though).
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
@@ -75,8 +75,6 @@ operations on data. We will practice a lot to get to know R well.
 - R objects (vector, matrix, data frame) and sub-setting.
 - Getting help in R.
 - Notion of packages in R.
-- Organizing projects in R.
-- Reading data into R (`readr` package).
 
 Slides are [here](https://rpubs.com/knytt/stat4arch_2022-03-03) and example files
 for reading data into R exercise are [here](https://1url.cz/@stat4arch01).  
@@ -96,6 +94,8 @@ for reading data into R exercise are [here](https://1url.cz/@stat4arch01).
 
 Third session is focused on reading and creating basic types of plots and
 understanding basic summaries of quantitative variables.
+- Organizing projects in R (moved from previous session).
+- Reading data into R (`readr` package, moved from previous session).
 - Data visualization, plots for one variable.
 - Descriptive stats (mean, sd, median, IQR etc.)
 - Data manipulation basics (base R and `dplyr` package).
@@ -322,6 +322,8 @@ the Potato People prohibits this.
 ## Notes
 
 #### Special characters and keyboard shortcuts
+Writing special characters on a Czech keyboard can be difficult sometimes.
+Here is a short cheat sheet with the most frequent ones.
 
 | Character | Shortcut |
 |---|-----------|
