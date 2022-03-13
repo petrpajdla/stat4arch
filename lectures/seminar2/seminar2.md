@@ -48,7 +48,7 @@ type: section
 
 Functions and objects
 ========================================================
-incremental: true
+incremental: false
 class: small-code
 
 ### Function
@@ -121,7 +121,7 @@ object_name <- 1
 
 Objects
 ========================================================
-incremental: true
+incremental: false
 class: small-code
 
 
@@ -250,7 +250,7 @@ type: section
 Data types
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 ### Text strings
 - Any kind of text.
@@ -326,7 +326,7 @@ TRUE == FALSE
 Identifying data types
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 - There is a set of functions starting with `is.` prefix.
 - These functions return `TRUE`/`FALSE`.
@@ -444,7 +444,7 @@ is.character("mean")
 Comparing values
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 `<, <=, ==, >=, >, !=`
 
@@ -557,7 +557,7 @@ type: sub-section
 Vector
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 - Basic data structure.
 - Contains a single type of data.
@@ -640,7 +640,7 @@ x[2:5]
 Maths with vectors
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 
 ```r
@@ -751,7 +751,7 @@ typeof(z)
 Matrix
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 - Has rows and columns, rectangular in shape.
 - Contains data of a same type, typically numbers.
@@ -848,7 +848,7 @@ m[, c(2, 4)]
 List
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 - Can contain a combination of anything.
 - Can have names.
@@ -939,7 +939,7 @@ l[[1]][2]
 Data frame
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 - A special kind of a list.
 - All list items have same number of rows.
@@ -1027,7 +1027,8 @@ dfr[, "y"]
 ```
 
 ```
-[1] "a" "b" "c" "d"
+[1] a b c d
+Levels: a b c d
 ```
 
 ```r
@@ -1045,7 +1046,7 @@ dfr[-c(1, 2), ]
 Exploring the structure of an object
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 
 ```r
@@ -1094,7 +1095,7 @@ str(dfr) # structure
 ```
 'data.frame':	4 obs. of  4 variables:
  $ x: int  95 96 97 98
- $ y: chr  "a" "b" "c" "d"
+ $ y: Factor w/ 4 levels "a","b","c","d": 1 2 3 4
  $ z: logi  TRUE FALSE FALSE TRUE
  $ w: num  4.2 4.4 4.6 4.8
 ```
@@ -1159,7 +1160,7 @@ Measurements on five types of dart points from Fort Hood in central Texas (Darl,
 Task
 ========================================================
 type: prompt
-incremental: true
+incremental: false
 
 1. Start **RStudio**.
 2. In the **Console**, install `archdata` package.
@@ -1224,7 +1225,7 @@ Explore the object I
 title: false
 type: prompt
 class: small-code
-incremental: true
+incremental: false
 
 
 ```r
@@ -1306,7 +1307,7 @@ type: section
 Brainstorming
 ========================================================
 type: prompt
-incremental: true
+incremental: false
 
 ### How do you organize your data?
 
@@ -1319,7 +1320,7 @@ incremental: true
 
 Reading data into R
 ========================================================
-incremental: true
+incremental: false
 
 - There are built-in functions to read data into `R`.
 - There are many useful packages.
@@ -1378,7 +1379,7 @@ id,date_from,date_to,date_accurate,url,parent_id,leaf,name_cs,name_en,name_de
 
 Comma separated values
 ========================================================
-incremental: true
+incremental: false
 
 ### R base functions
 #### Comma as a separator
@@ -1423,7 +1424,7 @@ library(readr)
 
 Files with different separators
 ========================================================
-incremental: true
+incremental: false
 
 ### TSV
 - *Tab* (tabulator) separated values (\t)
@@ -1459,7 +1460,7 @@ Tip: When you do not know what is the file encoding, use `readr` function `guess
 
 Spreadsheets
 ========================================================
-incremental: true
+incremental: false
 
 ### Excel
 - To read Excel files, there is a package `readxl`.
@@ -1517,7 +1518,7 @@ Organize your work in scripts
 ========================================================
 left: 40%
 class: small-code
-incremental: true
+incremental: false
 
 <img src='fig/script.png' style='width:100%;'>
 
@@ -1558,7 +1559,7 @@ Organize your work in projects
 ========================================================
 left: 40%
 class: small-code
-incremental: true
+incremental: false
 
 - Each project is in a separate directory.
 - There are sub-folders for different parts of the project.
@@ -1616,7 +1617,7 @@ settlements <- read_csv(here("data/processed/settlements.csv"))
 Let's practice!
 ========================================================
 type: prompt
-incremental: true
+incremental: false
 class: small-code
 
 ### Tasks
@@ -1678,7 +1679,7 @@ read_excel(here("data/dartPoints00.xlsx"),
 Solutions
 ========================================================
 type: prompt
-incremental: true
+incremental: false
 class: small-code
 
 - We will use functions from the `readr` package.
@@ -1725,7 +1726,7 @@ dartPoints05 <- read_csv(here("data/dartPoints05.csv"),
 
 Summing up
 ========================================================
-incremental: true
+incremental: false
 type: prompt
 
 - Why would one want to use `R`?

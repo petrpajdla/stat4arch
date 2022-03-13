@@ -19,12 +19,38 @@ type: section
 
 Today:
 <ul style='color:white;'>
-  <li>Topic1
-  <li>Topic 2
-  <li>etc.
+  <li>Organizing projects in R (moved from previous session).
+  <li>Reading data into R (readr package, moved from previous session).
+  <li>Data visualization, plots for one variable.
+  <li>Descriptive stats (mean, sd, median, IQR etc.)
+  <li>Data manipulation basics (base R and dplyr package).
+  <li>Plotting in ggplot2.
 </ul>
 
 <!-- =============================================== -->
+
+Deskriptivní statistika
+========================================================
+type: section
+
+<!-- ----------------------------------------------- -->
+
+Characterizing centrality
+=====================================================
+(charakteristika centrální polohy dat)  
+
+**Mean** (průměr)  
+   `mean(x)`  
+   $$\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i)$$
+
+**Median** (medián)  
+   `median(x)`  
+    *robustní vůči odlehlým hodnotám*  
+    Pro lichý počet hodnot je medián prostřední hodnota, pro sudý počet je medián průměr dvou středních hodnot.
+
+<!-- ----------------------------------------------------------------------- -->
+
+
 
 Title
 ========================================================

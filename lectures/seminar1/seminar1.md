@@ -155,7 +155,7 @@ Type 'q()' to quit R.
 R is a smart calculator
 ========================================================
 class: small-code
-incremental: true
+incremental: false
 
 
 ```r
@@ -232,7 +232,7 @@ title: false
 
 Notion of functions and objects
 ========================================================
-incremental: true
+incremental: false
 
 ### Object
 
@@ -302,13 +302,13 @@ type: prompt
 
 Relational database - basic terms
 ========================================================
-incremental: true
+incremental: false
 <img src="./fig/database_example_1.png" style='width:100%;'>
 <!-- ----------------------------------------------- -->
 
 Relational database - basic terms
 ========================================================
-incremental: true
+incremental: false
 <img src="./fig/database_example.png" style='width:100%;'>
 
 - __variable__ (_proměnná_ / _atribut_) - napr. hmotnosť keramického fragmentu
@@ -341,7 +341,7 @@ Types of variables
 
 Tidy data
 ========================================================
-incremental: true
+incremental: false
 ## What's wrong?
 <img src="./fig/database_fails.png" style='width:100%;'>
 
