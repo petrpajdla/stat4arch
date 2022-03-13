@@ -192,7 +192,7 @@ type: section
 Data types
 ========================================================
 class: small-code
-incremental: false
+
 
 ### Text strings
 - Any kind of text.

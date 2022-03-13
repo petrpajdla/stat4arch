@@ -11,13 +11,23 @@ AES_707: *Statistics seminar for archaeologists*
 
 <!-- =============================================== -->
 
-Seminar 1
+Seminar 3
 ========================================================
 type: section
 
-`17. 2. 2022`
+```{r include = FALSE}
+library(dplyr)
+library(magrittr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(tidyverse)
+library(archdata)
+```
 
-Today:
+`17. 3. 2022`
+
+## Today:
 <ul style='color:white;'>
   <li>Organizing projects in R (moved from previous session).
   <li>Reading data into R (readr package, moved from previous session).
@@ -40,17 +50,235 @@ Characterizing centrality
 (charakteristika centrální polohy dat)  
 
 **Mean** (průměr)  
-   `mean(x)`  
+   
+  > mean(x)
+  
    $$\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i)$$
 
 **Median** (medián)  
-   `median(x)`  
-    *robustní vůči odlehlým hodnotám*  
-    Pro lichý počet hodnot je medián prostřední hodnota, pro sudý počet je medián průměr dvou středních hodnot.
+  
+   > median(x)  
+    
+- *robustní vůči odlehlým hodnotám*  
+- Pro lichý počet hodnot je medián prostřední hodnota, pro sudý počet je medián průměr dvou středních hodnot.
+
+***
+
+<img src="./fig/mean_median.png" style='width:80%;'>
+
+<!-- ----------------------------------------------------------------------- -->
+Characterizing dispersion or spread
+===================================================
+(charakteristika variability dat)  
+
+**Range** (rozpětí)  
+   `max(x) - min(x)` nebo `range(x)`
+
+Variance (rozptyl) and **Standard deviation** (směrodatná odchylka)  
+   `sd(x)`  
+   $$s = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}$$
+
+**Interquartile range** (midspread, IQR)  
+   `IQR(x)`  
+   *robustní vůči odlehlým hodnotám*
+
+<!------------------------------------------------------------------------- -->
+
+Why look at data then?
+=======================================================
+*Anscombe's quartet*
+```{r echo=FALSE}
+anscombe_quartet <- anscombe %>% mutate(order = 1:nrow(.)) %>% 
+  gather(key = "key", value = "value", -order) %>% 
+  mutate(set = paste("set ", str_extract(key, ".$")),
+         axe = str_extract(key, "^.")) %>%
+  select(-key) %>% 
+  spread(key = axe, value = value)
+```
+
+```{r echo=FALSE}
+anscombe_quartet %>% 
+  group_by(set) %>% 
+  summarise(mean(x),  sd(x),
+            mean(y), sd(y),
+            cor(x, y))
+```
+
+Čtyři sety dat, kdy všechny mají téměř totožné hodnoty popisné statistiky a korelace.
+
+<!------------------------------------------------------------>
+
+Why look at data then?
+======================================================
+```{r, echo=FALSE}
+ggplot(anscombe_quartet, aes(x, y)) +
+  stat_smooth(method = "lm", se = FALSE) +
+  geom_point() +
+  facet_wrap(~set)
+```
+
+<!------------------------------------------------------------------>
+
+Let's practice?!
+========================================================
+type: section
+
+<!-- ----------------------------------------------- -->
+
+Practice
+=======================================================
+- Ukliďte si v Rstudiu
+- Stáhněte si dataset ze studijních materiálů (`sem2_datasaurus.csv`);  
+   (příp. zde: <https://tinyurl.com/sj5khba>).  
+- Vytvořte si nový skript pro následující cvičení.
+- Z knihovny načtěte package `tidyverse`.
+- Mrkněte na dokumentaci funkce `read_csv()`.
+- Jak načíst csv soubor do R?
+
+```{r, include = FALSE}
+# mne toto cvičenie nedáva zmyslel keďže sme ešte nepreberali ani ggplot ani nejakú manipuláciu s dátami (čo predpokladám že je to group by a summarize). Takže študenti len budú opisovať kód písmeno od písmena. Efektívnejšie je podľa mňa to len proste ukázať hotové ako ďalší príklad 
+```
+
 
 <!-- ----------------------------------------------------------------------- -->
 
+Visualizing data
+========================================================
+type: section
 
+<!-- ----------------------------------------------- -->
+
+Data viz
+=======================================================
+
+<img src="./fig/minard.png", style='width:80%;'>
+
+(Minard)
+
+<!-- ------------------------------------------------------------------------- -->
+
+Data viz
+=======================================================
+
+<img src="./fig/snow.jpg", style='width:40%;'>
+
+(Snow)
+
+Data viz
+=======================================================
+
+<img src="./fig/pay_gap.jpg", style='width:40%;'>
+
+(Paygap)
+
+Types of graphs
+===========================================================
+type: section
+<!-- ----------------------------------------------------------------------- -->
+
+Bar chart (sloupcový graf)
+===============================================================
+Distribuce počtu hodnot kvalitativní proměnné,  
+případně diskrétní kvantitativní proměnné.
+
+```{r, echo=FALSE}
+data("DartPoints")
+darts <- DartPoints %>% select(name = Name, 
+                      length = Length) %>% 
+  mutate(name = as.character(name), 
+         width_category = if_else(DartPoints$Width < 15, "narrow", 
+                        if_else(DartPoints$Width >= 25, "wide", 
+                                "normal width")),
+         hafting_traces = if_else(DartPoints$H.Length < 12, "no", 
+                                  "yes"),
+         nr_fragments = if_else(DartPoints$Base.Sh == "I", 1L,
+                                if_else(DartPoints$Base.Sh %in% c("E", "R"), 2L, 3L))) %>% 
+  as_tibble()
+
+ggplot(darts, aes(name, fill = name)) +
+  geom_bar(alpha = 0.6, color = "gray20")
+```
+
+<!-- ----------------------------------------------------------------------- -->
+
+Histogram
+=================================================================================
+Distribuce hodnot kvantitativní proměnné.
+
+```{r, echo=FALSE, message=FALSE}
+ggplot(darts, aes(length)) +
+  geom_histogram(alpha = 0.6, color = "gray20")
+```
+
+<!-- ----------------------------------------------------------------------- -->
+
+Density plot
+=================================================================
+
+Podobnost s histogramem, vhodný pro porovnávání.
+
+```{r echo=FALSE}
+ggplot(darts, aes(length, color = name, fill = name)) +
+  geom_density(alpha = 0.2)
+```
+
+<!-- ----------------------------------------------------------------------- -->
+
+Boxplot (krabicový graf)
+==================================================================
+Porovnávání dvou a více kvantitativních proměnných  
+
+<img src="./fig/boxplot.png" height="420">
+
+<!-- ----------------------------------------------------------------------- -->
+
+Boxplot (krabicový graf)
+==================================================================
+
+```{r, echo=FALSE}
+ggplot(darts, aes(name, length, color = name)) +
+  geom_boxplot()
+```
+
+<!-- ------------------------------------------------------------------------ -->
+ggplot
+===================================================================
+type: section
+
+<!-- ------------------------------------------------------------------------- -->
+
+ggplot - syntax
+=============================================================
+
+<!-- ----------------------------------------------------- -->
+
+Barplot - použité dáta
+============================================
+incremental: false
+```{r}
+library(archdata)
+data(EWBurials)
+hroby<-data.frame(EWBurials)
+head(hroby)
+```
+
+## Otázky
+- aký je pomer mužských a ženských hrobov?
+- aké je zastúpenie vekových kategórií medzi pohlaviami?
+- líšila sa prítommosť milodarov (1) v závislosti na pohlaví alebo (2) v závislosti na veku?
+- sú rozdiely medzi skupinami?
+
+<!-- ----------------------------------- -->
+
+Grafy
+===============================================================
+incremental: false
+```{r}
+p <- ggplot(hroby, aes(x=Sex))
+p + geom_bar()
+```
+
+<!-- --------------------------------------- -->
 
 Title
 ========================================================
