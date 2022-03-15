@@ -241,11 +241,38 @@ ggplot(darts, aes(name, length, color = name)) +
 ```
 
 <!-- ------------------------------------------------------------------------ -->
-ggplot
+Tvorba grafov v R
 ===================================================================
 type: section
+<ul style='color:white;'>
+  <li>`plot`
+  <li>`ggplot2`
+</ul>
 
 <!-- ------------------------------------------------------------------------- -->
+plot, barplot,...
+==============================================================
+cvičná databáza `df2`
+```{r, echo = FALSE}
+lokalita <- c("Vedrovice", "Kyjovice", "Pohansko", "Mikulčice", "Znojmo")
+objekty_ks <- c (27, 13, 55, 29, 20)
+df2<-data.frame(lokalita,objekty_ks)
+df2
+```
+
+```{r}
+plot(df2)
+```
+
+***
+
+
+```{r}
+barplot(df2$objekty_ks, names.arg = df2$lokalita, col="lightblue")
+```
+
+<!-- -------------------------------------------------------------------- -->
+
 
 ggplot - syntax
 =============================================================

@@ -197,11 +197,47 @@ Boxplot (krabicový graf)
 ![plot of chunk unnamed-chunk-9](seminar3-figure/unnamed-chunk-9-1.png)
 
 <!-- ------------------------------------------------------------------------ -->
-ggplot
+Tvorba grafov v R
 ===================================================================
 type: section
+<ul style='color:white;'>
+  <li>`plot`
+  <li>`ggplot2`
+</ul>
 
 <!-- ------------------------------------------------------------------------- -->
+plot, barplot,...
+==============================================================
+cvičná databáza `df2`
+
+```
+   lokalita objekty_ks
+1 Vedrovice         27
+2  Kyjovice         13
+3  Pohansko         55
+4 Mikulčice         29
+5    Znojmo         20
+```
+
+
+```r
+plot(df2)
+```
+
+![plot of chunk unnamed-chunk-11](seminar3-figure/unnamed-chunk-11-1.png)
+
+***
+
+
+
+```r
+barplot(df2$objekty_ks, names.arg = df2$lokalita, col="lightblue")
+```
+
+![plot of chunk unnamed-chunk-12](seminar3-figure/unnamed-chunk-12-1.png)
+
+<!-- -------------------------------------------------------------------- -->
+
 
 ggplot - syntax
 =============================================================
@@ -246,7 +282,7 @@ p <- ggplot(hroby, aes(x=Sex))
 p + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-11](seminar3-figure/unnamed-chunk-11-1.png)
+![plot of chunk unnamed-chunk-14](seminar3-figure/unnamed-chunk-14-1.png)
 
 <!-- --------------------------------------- -->
 
