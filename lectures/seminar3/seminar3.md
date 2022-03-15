@@ -21,107 +21,15 @@ type: section
 
 ## Today:
 <ul style='color:white;'>
-  <li>Organizing projects in R (moved from previous session).
-  <li>Reading data into R (readr package, moved from previous session).
+  <li>Organizing projects in R.
+  <li>Reading data into R.
   <li>Data visualization, plots for one variable.
-  <li>Descriptive stats (mean, sd, median, IQR etc.)
+  <li>Descriptive stats.
   <li>Data manipulation basics (base R and dplyr package).
   <li>Plotting in ggplot2.
 </ul>
 
 <!-- =============================================== -->
-
-Deskriptivní statistika
-========================================================
-type: section
-
-<!-- ----------------------------------------------- -->
-
-Characterizing centrality
-=====================================================
-(charakteristika centrální polohy dat)  
-
-**Mean** (průměr)  
-   
-  > mean(x)
-  
-   $$\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i)$$
-
-**Median** (medián)  
-  
-   > median(x)  
-    
-- *robustní vůči odlehlým hodnotám*  
-- Pro lichý počet hodnot je medián prostřední hodnota, pro sudý počet je medián průměr dvou středních hodnot.
-
-***
-
-<img src="./fig/mean_median.png" style='width:80%;'>
-
-<!-- ----------------------------------------------------------------------- -->
-Characterizing dispersion or spread
-===================================================
-(charakteristika variability dat)  
-
-**Range** (rozpětí)  
-   `max(x) - min(x)` nebo `range(x)`
-
-Variance (rozptyl) and **Standard deviation** (směrodatná odchylka)  
-   `sd(x)`  
-   $$s = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}$$
-
-**Interquartile range** (midspread, IQR)  
-   `IQR(x)`  
-   *robustní vůči odlehlým hodnotám*
-
-<!------------------------------------------------------------------------- -->
-
-Why look at data then?
-=======================================================
-*Anscombe's quartet*
-
-
-
-```
-# A tibble: 4 × 6
-  set    `mean(x)` `sd(x)` `mean(y)` `sd(y)` `cor(x, y)`
-  <chr>      <dbl>   <dbl>     <dbl>   <dbl>       <dbl>
-1 set  1         9    3.32      7.50    2.03       0.816
-2 set  2         9    3.32      7.50    2.03       0.816
-3 set  3         9    3.32      7.5     2.03       0.816
-4 set  4         9    3.32      7.50    2.03       0.817
-```
-
-Čtyři sety dat, kdy všechny mají téměř totožné hodnoty popisné statistiky a korelace.
-
-<!------------------------------------------------------------>
-
-Why look at data then?
-======================================================
-![plot of chunk unnamed-chunk-4](seminar3-figure/unnamed-chunk-4-1.png)
-
-<!------------------------------------------------------------------>
-
-Let's practice?!
-========================================================
-type: section
-
-<!-- ----------------------------------------------- -->
-
-Practice
-=======================================================
-- Ukliďte si v Rstudiu
-- Stáhněte si dataset ze studijních materiálů (`sem2_datasaurus.csv`);  
-   (příp. zde: <https://tinyurl.com/sj5khba>).  
-- Vytvořte si nový skript pro následující cvičení.
-- Z knihovny načtěte package `tidyverse`.
-- Mrkněte na dokumentaci funkce `read_csv()`.
-- Jak načíst csv soubor do R?
-
-
-
-
-<!-- ----------------------------------------------------------------------- -->
 
 Visualizing data
 ========================================================
@@ -162,7 +70,7 @@ Bar chart (sloupcový graf)
 Distribuce počtu hodnot kvalitativní proměnné,  
 případně diskrétní kvantitativní proměnné.
 
-![plot of chunk unnamed-chunk-6](seminar3-figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-2](seminar3-figure/unnamed-chunk-2-1.png)
 
 <!-- ----------------------------------------------------------------------- -->
 
@@ -170,7 +78,7 @@ Histogram
 =================================================================================
 Distribuce hodnot kvantitativní proměnné.
 
-![plot of chunk unnamed-chunk-7](seminar3-figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-3](seminar3-figure/unnamed-chunk-3-1.png)
 
 <!-- ----------------------------------------------------------------------- -->
 
@@ -179,7 +87,7 @@ Density plot
 
 Podobnost s histogramem, vhodný pro porovnávání.
 
-![plot of chunk unnamed-chunk-8](seminar3-figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-4](seminar3-figure/unnamed-chunk-4-1.png)
 
 <!-- ----------------------------------------------------------------------- -->
 
@@ -194,7 +102,7 @@ Porovnávání dvou a více kvantitativních proměnných
 Boxplot (krabicový graf)
 ==================================================================
 
-![plot of chunk unnamed-chunk-9](seminar3-figure/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-5](seminar3-figure/unnamed-chunk-5-1.png)
 
 <!-- ------------------------------------------------------------------------ -->
 Tvorba grafov v R
@@ -208,7 +116,10 @@ type: section
 <!-- ------------------------------------------------------------------------- -->
 plot, barplot,...
 ==============================================================
-cvičná databáza `df2`
+incremental: true
+
+## cvičenie s databázou `df2`
+
 
 ```
    lokalita objekty_ks
@@ -224,7 +135,7 @@ cvičná databáza `df2`
 plot(df2)
 ```
 
-![plot of chunk unnamed-chunk-11](seminar3-figure/unnamed-chunk-11-1.png)
+![plot of chunk unnamed-chunk-7](seminar3-figure/unnamed-chunk-7-1.png)
 
 ***
 
@@ -234,19 +145,36 @@ plot(df2)
 barplot(df2$objekty_ks, names.arg = df2$lokalita, col="lightblue")
 ```
 
-![plot of chunk unnamed-chunk-12](seminar3-figure/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-8](seminar3-figure/unnamed-chunk-8-1.png)
 
 <!-- -------------------------------------------------------------------- -->
 
 
-ggplot - syntax
+ggplot
 =============================================================
+incremental: true
+
+## Syntax
+
+<img src="./fig/ggplot_syntax.png", style='width:60%;'> 
+
+
+```r
+ggplot(data=df2, aes(x=lokalita, y = objekty_ks))+
+  geom_bar(stat="identity")
+```
+
+![plot of chunk unnamed-chunk-9](seminar3-figure/unnamed-chunk-9-1.png)
 
 <!-- ----------------------------------------------------- -->
 
-Barplot - použité dáta
+
+Barplot
 ============================================
-incremental: false
+incremental: true
+
+## Cvičenie s databázou `EWBurials`
+
 
 ```r
 library(archdata)
@@ -273,18 +201,275 @@ head(hroby)
 
 <!-- ----------------------------------- -->
 
-Grafy
+1. Aký je pomer mužských a ženských hrobov?
 ===============================================================
-incremental: false
+incremental: true
+
 
 ```r
 p <- ggplot(hroby, aes(x=Sex))
+```
+
+```r
+p + geom_bar()
+```
+
+![plot of chunk unnamed-chunk-12](seminar3-figure/unnamed-chunk-12-1.png)
+***
+Ako by ste spravili podobný graf, zobrazujúci rozdelenie hrobov podľa veku?
+
+
+```r
+p <- ggplot(hroby, aes(x=Age))
+```
+
+```r
 p + geom_bar()
 ```
 
 ![plot of chunk unnamed-chunk-14](seminar3-figure/unnamed-chunk-14-1.png)
 
-<!-- --------------------------------------- -->
+<!-- ------------------------------------------------- -->
+
+1. Aký je pomer mužských a ženských hrobov?
+===============================================================
+incremental: true
+
+## Drobné úpravy grafu
+### Farba
+`geom_bar(fill =, color=)`
+
+```r
+p <- ggplot(hroby, aes(x=Sex))
+```
+
+```r
+p + geom_bar(fill = "pink", color= "black")
+```
+
+![plot of chunk unnamed-chunk-16](seminar3-figure/unnamed-chunk-16-1.png)
+<!-- ---------------------------------- -->
+
+========================================
+### Popisky
+`labs(x=, y=, title=, caption=)`
+
+```r
+p <- ggplot(hroby, aes(x=Sex))
+```
+
+```r
+p + geom_bar(fill = "pink", color= "black") +
+  labs(x = "pohlaví", 
+       y = "počet", 
+       title = "Počet hrobů podle pohlaví", 
+       caption="Archdata::EWBurials")
+```
+
+![plot of chunk unnamed-chunk-18](seminar3-figure/unnamed-chunk-18-1.png)
+
+<!-- ----------------------------------- -->
+
+2. aké je zastúpenie vekových kategórií medzi pohlaviami?
+===================================================================
+incremental: true
+
+## "stacked bar"
+
+
+```r
+p <- ggplot(hroby, aes(x=Sex, fill=Age))
+```
+
+```r
+p + geom_bar()
+```
+
+![plot of chunk unnamed-chunk-20](seminar3-figure/unnamed-chunk-20-1.png)
+<!--------------------------------------------- -->
+2. aké je zastúpenie vekových kategórií medzi pohlaviami?
+===================================================
+## "dodged bar"
+`geom_bar(position = "dodge")`
+
+```r
+p <- ggplot(hroby, aes(x=Sex, fill=Age))
+```
+
+```r
+p + geom_bar(position = "dodge")
+```
+
+![plot of chunk unnamed-chunk-22](seminar3-figure/unnamed-chunk-22-1.png)
+
+<!-- =============================================== -->
+
+3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
+=======================================================================
+incremental: true
+
+## `fill`
+
+
+```r
+p <- ggplot(hroby, aes(x=Sex, fill=Goods))
+```
+
+```r
+p + geom_bar()
+```
+
+![plot of chunk unnamed-chunk-24](seminar3-figure/unnamed-chunk-24-1.png)
+<!-- --------------------------------------------- -->
+3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
+=======================================================================
+incremental: true
+## Vlastné farby
+`scale_fill_manual(values = )`
+
+```r
+my_colors <- c("red", "black")
+```
+
+
+```r
+p <- ggplot(hroby, aes(x=Sex, fill=Goods))
+```
+
+```r
+p + geom_bar() +
+  scale_fill_manual(values = my_colors)
+```
+
+![plot of chunk unnamed-chunk-27](seminar3-figure/unnamed-chunk-27-1.png)
+<!-- ----------------------------------------------- -->
+
+3b. líšila sa prítommosť milodarov v závislosti na veku?
+==========================================================
+incremental: true
+
+## Absolútne čísla
+
+
+```r
+p <- ggplot(hroby, aes(x=Age, fill=Goods))
+```
+
+```r
+p + geom_bar()
+```
+
+![plot of chunk unnamed-chunk-29](seminar3-figure/unnamed-chunk-29-1.png)
+<!-- --------------------------- -->
+
+3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
+=======================================================================
+incremental: true
+## Relatívny pomer
+`geom_bar(position = "fill")`
+
+```r
+p <- ggplot(hroby, aes(x=Age, fill=Goods))
+```
+
+```r
+p + geom_bar(position = "fill")
+```
+
+![plot of chunk unnamed-chunk-31](seminar3-figure/unnamed-chunk-31-1.png)
+
+<!-- ------------------------------------------------------ -->
+
+Descriptive statistics
+========================================================
+type: section
+
+<!-- ----------------------------------------------- -->
+
+Characterizing centrality
+=====================================================
+
+### Mean
+`mean(x)`  
+$\begin{aligned}
+\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i)
+\end{aligned}$
+
+### Median 
+`median(x)`  
+**Robust**, minimizes influence of outliers.
+
+***
+
+<img src="./fig/mean_median.png" style='width:80%;'>
+
+<!-- ----------------------------------------------- -->
+
+Characterizing dispersion and/or spread
+===================================================
+
+### Range
+(*rozpětí*)  
+`max(x) - min(x)` or `range(x)`
+
+### Variance and Standard deviation
+(*rozptyl* a *směrodatná odchylka*)  
+`sd(x)`  
+$\begin{aligned}
+s = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}
+\end{aligned}$
+
+### Interquartile range
+(midspread, IQR)  
+`IQR(x)`  
+**Robust**, minimizes influence of outliers.
+
+<!-------------------------------------------------- -->
+
+Why look at data then?
+=======================================================
+*Anscombe's quartet*
+
+
+
+
+```
+# A tibble: 4 × 6
+    set `mean(x)` `sd(x)` `mean(y)` `sd(y)` `cor(x, y)`
+  <int>     <dbl>   <dbl>     <dbl>   <dbl>       <dbl>
+1     1         9    3.32      7.50    2.03       0.816
+2     2         9    3.32      7.50    2.03       0.816
+3     3         9    3.32      7.5     2.03       0.816
+4     4         9    3.32      7.50    2.03       0.817
+```
+
+Four sets of numerical data, all have almost identical 
+values of descriptive statistics...
+
+<!------------------------------------------------------------>
+
+Why look at data then?
+======================================================
+![plot of chunk unnamed-chunk-34](seminar3-figure/unnamed-chunk-34-1.png)
+
+<!-- ----------------------------------------------- -->
+
+Let's practice
+=======================================================
+type: prompt
+incremental: false
+
+- Clean your working environment.
+- Download data:
+
+```r
+url <- "https://1url.cz/@stat4arch02"
+download.file(url, here::here("datasaurus.csv"))
+```
+- Create a new script.
+- Read the data.
+
+<!-- =============================================== -->
 
 Title
 ========================================================

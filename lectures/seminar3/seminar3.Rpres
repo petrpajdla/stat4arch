@@ -17,11 +17,7 @@ type: section
 
 ```{r include = FALSE}
 library(dplyr)
-library(magrittr)
-library(tidyr)
-library(stringr)
 library(ggplot2)
-library(tidyverse)
 library(archdata)
 ```
 
@@ -29,118 +25,15 @@ library(archdata)
 
 ## Today:
 <ul style='color:white;'>
-  <li>Organizing projects in R (moved from previous session).
-  <li>Reading data into R (readr package, moved from previous session).
+  <li>Organizing projects in R.
+  <li>Reading data into R.
   <li>Data visualization, plots for one variable.
-  <li>Descriptive stats (mean, sd, median, IQR etc.)
+  <li>Descriptive stats.
   <li>Data manipulation basics (base R and dplyr package).
   <li>Plotting in ggplot2.
 </ul>
 
 <!-- =============================================== -->
-
-Deskriptivní statistika
-========================================================
-type: section
-
-<!-- ----------------------------------------------- -->
-
-Characterizing centrality
-=====================================================
-(charakteristika centrální polohy dat)  
-
-**Mean** (průměr)  
-   
-  > mean(x)
-  
-   $$\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i)$$
-
-**Median** (medián)  
-  
-   > median(x)  
-    
-- *robustní vůči odlehlým hodnotám*  
-- Pro lichý počet hodnot je medián prostřední hodnota, pro sudý počet je medián průměr dvou středních hodnot.
-
-***
-
-<img src="./fig/mean_median.png" style='width:80%;'>
-
-<!-- ----------------------------------------------------------------------- -->
-Characterizing dispersion or spread
-===================================================
-(charakteristika variability dat)  
-
-**Range** (rozpětí)  
-   `max(x) - min(x)` nebo `range(x)`
-
-Variance (rozptyl) and **Standard deviation** (směrodatná odchylka)  
-   `sd(x)`  
-   $$s = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}$$
-
-**Interquartile range** (midspread, IQR)  
-   `IQR(x)`  
-   *robustní vůči odlehlým hodnotám*
-
-<!------------------------------------------------------------------------- -->
-
-Why look at data then?
-=======================================================
-*Anscombe's quartet*
-```{r echo=FALSE}
-anscombe_quartet <- anscombe %>% mutate(order = 1:nrow(.)) %>% 
-  gather(key = "key", value = "value", -order) %>% 
-  mutate(set = paste("set ", str_extract(key, ".$")),
-         axe = str_extract(key, "^.")) %>%
-  select(-key) %>% 
-  spread(key = axe, value = value)
-```
-
-```{r echo=FALSE}
-anscombe_quartet %>% 
-  group_by(set) %>% 
-  summarise(mean(x),  sd(x),
-            mean(y), sd(y),
-            cor(x, y))
-```
-
-Čtyři sety dat, kdy všechny mají téměř totožné hodnoty popisné statistiky a korelace.
-
-<!------------------------------------------------------------>
-
-Why look at data then?
-======================================================
-```{r, echo=FALSE}
-ggplot(anscombe_quartet, aes(x, y)) +
-  stat_smooth(method = "lm", se = FALSE) +
-  geom_point() +
-  facet_wrap(~set)
-```
-
-<!------------------------------------------------------------------>
-
-Let's practice?!
-========================================================
-type: section
-
-<!-- ----------------------------------------------- -->
-
-Practice
-=======================================================
-- Ukliďte si v Rstudiu
-- Stáhněte si dataset ze studijních materiálů (`sem2_datasaurus.csv`);  
-   (příp. zde: <https://tinyurl.com/sj5khba>).  
-- Vytvořte si nový skript pro následující cvičení.
-- Z knihovny načtěte package `tidyverse`.
-- Mrkněte na dokumentaci funkce `read_csv()`.
-- Jak načíst csv soubor do R?
-
-```{r, include = FALSE}
-# mne toto cvičenie nedáva zmyslel keďže sme ešte nepreberali ani ggplot ani nejakú manipuláciu s dátami (čo predpokladám že je to group by a summarize). Takže študenti len budú opisovať kód písmeno od písmena. Efektívnejšie je podľa mňa to len proste ukázať hotové ako ďalší príklad 
-```
-
-
-<!-- ----------------------------------------------------------------------- -->
 
 Visualizing data
 ========================================================
@@ -252,7 +145,10 @@ type: section
 <!-- ------------------------------------------------------------------------- -->
 plot, barplot,...
 ==============================================================
-cvičná databáza `df2`
+incremental: true
+
+## cvičenie s databázou `df2`
+
 ```{r, echo = FALSE}
 lokalita <- c("Vedrovice", "Kyjovice", "Pohansko", "Mikulčice", "Znojmo")
 objekty_ks <- c (27, 13, 55, 29, 20)
@@ -274,14 +170,28 @@ barplot(df2$objekty_ks, names.arg = df2$lokalita, col="lightblue")
 <!-- -------------------------------------------------------------------- -->
 
 
-ggplot - syntax
+ggplot
 =============================================================
+incremental: true
+
+## Syntax
+
+<img src="./fig/ggplot_syntax.png", style='width:60%;'> 
+
+```{r}
+ggplot(data=df2, aes(x=lokalita, y = objekty_ks))+
+  geom_bar(stat="identity")
+```
 
 <!-- ----------------------------------------------------- -->
 
-Barplot - použité dáta
+
+Barplot
 ============================================
-incremental: false
+incremental: true
+
+## Cvičenie s databázou `EWBurials`
+
 ```{r}
 library(archdata)
 data(EWBurials)
@@ -297,15 +207,243 @@ head(hroby)
 
 <!-- ----------------------------------- -->
 
-Grafy
+1. Aký je pomer mužských a ženských hrobov?
 ===============================================================
-incremental: false
+incremental: true
+
 ```{r}
 p <- ggplot(hroby, aes(x=Sex))
+```
+```{r}
+p + geom_bar()
+```
+***
+Ako by ste spravili podobný graf, zobrazujúci rozdelenie hrobov podľa veku?
+
+```{r}
+p <- ggplot(hroby, aes(x=Age))
+```
+```{r}
 p + geom_bar()
 ```
 
-<!-- --------------------------------------- -->
+<!-- ------------------------------------------------- -->
+
+1. Aký je pomer mužských a ženských hrobov?
+===============================================================
+incremental: true
+
+## Drobné úpravy grafu
+### Farba
+`geom_bar(fill =, color=)`
+```{r}
+p <- ggplot(hroby, aes(x=Sex))
+```
+```{r}
+p + geom_bar(fill = "pink", color= "black")
+```
+<!-- ---------------------------------- -->
+
+========================================
+### Popisky
+`labs(x=, y=, title=, caption=)`
+```{r}
+p <- ggplot(hroby, aes(x=Sex))
+```
+```{r}
+p + geom_bar(fill = "pink", color= "black") +
+  labs(x = "pohlaví", 
+       y = "počet", 
+       title = "Počet hrobů podle pohlaví", 
+       caption="Archdata::EWBurials")
+```
+
+<!-- ----------------------------------- -->
+
+2. aké je zastúpenie vekových kategórií medzi pohlaviami?
+===================================================================
+incremental: true
+
+## "stacked bar"
+
+```{r}
+p <- ggplot(hroby, aes(x=Sex, fill=Age))
+```
+```{r}
+p + geom_bar()
+```
+<!--------------------------------------------- -->
+2. aké je zastúpenie vekových kategórií medzi pohlaviami?
+===================================================
+## "dodged bar"
+`geom_bar(position = "dodge")`
+```{r}
+p <- ggplot(hroby, aes(x=Sex, fill=Age))
+```
+```{r}
+p + geom_bar(position = "dodge")
+```
+
+<!-- =============================================== -->
+
+3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
+=======================================================================
+incremental: true
+
+## `fill`
+
+```{r}
+p <- ggplot(hroby, aes(x=Sex, fill=Goods))
+```
+```{r}
+p + geom_bar()
+```
+<!-- --------------------------------------------- -->
+3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
+=======================================================================
+incremental: true
+## Vlastné farby
+`scale_fill_manual(values = )`
+```{r}
+my_colors <- c("red", "black")
+```
+
+```{r}
+p <- ggplot(hroby, aes(x=Sex, fill=Goods))
+```
+```{r}
+p + geom_bar() +
+  scale_fill_manual(values = my_colors)
+```
+<!-- ----------------------------------------------- -->
+
+3b. líšila sa prítommosť milodarov v závislosti na veku?
+==========================================================
+incremental: true
+
+## Absolútne čísla
+
+```{r}
+p <- ggplot(hroby, aes(x=Age, fill=Goods))
+```
+```{r}
+p + geom_bar()
+```
+<!-- --------------------------- -->
+
+3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
+=======================================================================
+incremental: true
+## Relatívny pomer
+`geom_bar(position = "fill")`
+```{r}
+p <- ggplot(hroby, aes(x=Age, fill=Goods))
+```
+```{r}
+p + geom_bar(position = "fill")
+```
+
+<!-- ------------------------------------------------------ -->
+
+Descriptive statistics
+========================================================
+type: section
+
+<!-- ----------------------------------------------- -->
+
+Characterizing centrality
+=====================================================
+
+### Mean
+`mean(x)`  
+$\begin{aligned}
+\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i)
+\end{aligned}$
+
+### Median 
+`median(x)`  
+**Robust**, minimizes influence of outliers.
+
+***
+
+<img src="./fig/mean_median.png" style='width:80%;'>
+
+<!-- ----------------------------------------------- -->
+
+Characterizing dispersion and/or spread
+===================================================
+
+### Range
+(*rozpětí*)  
+`max(x) - min(x)` or `range(x)`
+
+### Variance and Standard deviation
+(*rozptyl* a *směrodatná odchylka*)  
+`sd(x)`  
+$\begin{aligned}
+s = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}
+\end{aligned}$
+
+### Interquartile range
+(midspread, IQR)  
+`IQR(x)`  
+**Robust**, minimizes influence of outliers.
+
+<!-------------------------------------------------- -->
+
+Why look at data then?
+=======================================================
+*Anscombe's quartet*
+
+```{r echo=FALSE}
+anscombe_quartet <- anscombe %>% 
+  mutate(order = 1:nrow(.)) %>% 
+  tidyr::pivot_longer(cols = -order) %>% 
+  mutate(set = rep(1:4, 22),
+         axe = rep(c(rep("x", 4), rep("y", 4)), 11)) %>% 
+  select(-name) %>% 
+  tidyr::pivot_wider(names_from = axe, values_from = value)
+```
+
+```{r echo=FALSE}
+anscombe_quartet %>% 
+  group_by(set) %>% 
+  summarise(mean(x),  sd(x),
+            mean(y), sd(y),
+            cor(x, y))
+```
+
+Four sets of numerical data, all have almost identical 
+values of descriptive statistics...
+
+<!------------------------------------------------------------>
+
+Why look at data then?
+======================================================
+```{r, echo=FALSE, fig.width=20, fig.height=10}
+ggplot(anscombe_quartet, aes(x, y)) +
+  stat_smooth(method = "lm", se = FALSE) +
+  geom_point() +
+  facet_wrap(~set)
+```
+
+<!-- ----------------------------------------------- -->
+
+Let's practice
+=======================================================
+type: prompt
+incremental: false
+
+- Clean your working environment.
+- Download data:
+```{r eval=FALSE}
+url <- "https://1url.cz/@stat4arch02"
+download.file(url, here::here("datasaurus.csv"))
+```
+- Create a new script.
+- Read the data.
+
+<!-- =============================================== -->
 
 Title
 ========================================================
