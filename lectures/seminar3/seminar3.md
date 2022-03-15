@@ -21,107 +21,15 @@ type: section
 
 ## Today:
 <ul style='color:white;'>
-  <li>Organizing projects in R (moved from previous session).
-  <li>Reading data into R (readr package, moved from previous session).
+  <li>Organizing projects in R.
+  <li>Reading data into R.
   <li>Data visualization, plots for one variable.
-  <li>Descriptive stats (mean, sd, median, IQR etc.)
+  <li>Descriptive stats.
   <li>Data manipulation basics (base R and dplyr package).
   <li>Plotting in ggplot2.
 </ul>
 
 <!-- =============================================== -->
-
-Deskriptivní statistika
-========================================================
-type: section
-
-<!-- ----------------------------------------------- -->
-
-Characterizing centrality
-=====================================================
-(charakteristika centrální polohy dat)  
-
-**Mean** (průměr)  
-   
-  > mean(x)
-  
-   $$\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i)$$
-
-**Median** (medián)  
-  
-   > median(x)  
-    
-- *robustní vůči odlehlým hodnotám*  
-- Pro lichý počet hodnot je medián prostřední hodnota, pro sudý počet je medián průměr dvou středních hodnot.
-
-***
-
-<img src="./fig/mean_median.png" style='width:80%;'>
-
-<!-- ----------------------------------------------------------------------- -->
-Characterizing dispersion or spread
-===================================================
-(charakteristika variability dat)  
-
-**Range** (rozpětí)  
-   `max(x) - min(x)` nebo `range(x)`
-
-Variance (rozptyl) and **Standard deviation** (směrodatná odchylka)  
-   `sd(x)`  
-   $$s = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}$$
-
-**Interquartile range** (midspread, IQR)  
-   `IQR(x)`  
-   *robustní vůči odlehlým hodnotám*
-
-<!------------------------------------------------------------------------- -->
-
-Why look at data then?
-=======================================================
-*Anscombe's quartet*
-
-
-
-```
-# A tibble: 4 × 6
-  set    `mean(x)` `sd(x)` `mean(y)` `sd(y)` `cor(x, y)`
-  <chr>      <dbl>   <dbl>     <dbl>   <dbl>       <dbl>
-1 set  1         9    3.32      7.50    2.03       0.816
-2 set  2         9    3.32      7.50    2.03       0.816
-3 set  3         9    3.32      7.5     2.03       0.816
-4 set  4         9    3.32      7.50    2.03       0.817
-```
-
-Čtyři sety dat, kdy všechny mají téměř totožné hodnoty popisné statistiky a korelace.
-
-<!------------------------------------------------------------>
-
-Why look at data then?
-======================================================
-![plot of chunk unnamed-chunk-4](seminar3-figure/unnamed-chunk-4-1.png)
-
-<!------------------------------------------------------------------>
-
-Let's practice?!
-========================================================
-type: section
-
-<!-- ----------------------------------------------- -->
-
-Practice
-=======================================================
-- Ukliďte si v Rstudiu
-- Stáhněte si dataset ze studijních materiálů (`sem2_datasaurus.csv`);  
-   (příp. zde: <https://tinyurl.com/sj5khba>).  
-- Vytvořte si nový skript pro následující cvičení.
-- Z knihovny načtěte package `tidyverse`.
-- Mrkněte na dokumentaci funkce `read_csv()`.
-- Jak načíst csv soubor do R?
-
-
-
-
-<!-- ----------------------------------------------------------------------- -->
 
 Visualizing data
 ========================================================
@@ -162,7 +70,7 @@ Bar chart (sloupcový graf)
 Distribuce počtu hodnot kvalitativní proměnné,  
 případně diskrétní kvantitativní proměnné.
 
-![plot of chunk unnamed-chunk-6](seminar3-figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-2](seminar3-figure/unnamed-chunk-2-1.png)
 
 <!-- ----------------------------------------------------------------------- -->
 
@@ -170,7 +78,7 @@ Histogram
 =================================================================================
 Distribuce hodnot kvantitativní proměnné.
 
-![plot of chunk unnamed-chunk-7](seminar3-figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-3](seminar3-figure/unnamed-chunk-3-1.png)
 
 <!-- ----------------------------------------------------------------------- -->
 
@@ -179,7 +87,7 @@ Density plot
 
 Podobnost s histogramem, vhodný pro porovnávání.
 
-![plot of chunk unnamed-chunk-8](seminar3-figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-4](seminar3-figure/unnamed-chunk-4-1.png)
 
 <!-- ----------------------------------------------------------------------- -->
 
@@ -194,7 +102,7 @@ Porovnávání dvou a více kvantitativních proměnných
 Boxplot (krabicový graf)
 ==================================================================
 
-![plot of chunk unnamed-chunk-9](seminar3-figure/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-5](seminar3-figure/unnamed-chunk-5-1.png)
 
 <!-- ------------------------------------------------------------------------ -->
 ggplot
@@ -246,9 +154,100 @@ p <- ggplot(hroby, aes(x=Sex))
 p + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-11](seminar3-figure/unnamed-chunk-11-1.png)
+![plot of chunk unnamed-chunk-7](seminar3-figure/unnamed-chunk-7-1.png)
 
-<!-- --------------------------------------- -->
+<!-- =============================================== -->
+
+Descriptive statistics
+========================================================
+type: section
+
+<!-- ----------------------------------------------- -->
+
+Characterizing centrality
+=====================================================
+
+### Mean
+`mean(x)`  
+$\begin{aligned}
+\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i)
+\end{aligned}$
+
+### Median 
+`median(x)`  
+**Robust**, minimizes influence of outliers.
+
+***
+
+<img src="./fig/mean_median.png" style='width:80%;'>
+
+<!-- ----------------------------------------------- -->
+
+Characterizing dispersion and/or spread
+===================================================
+
+### Range
+(*rozpětí*)  
+`max(x) - min(x)` or `range(x)`
+
+### Variance and Standard deviation
+(*rozptyl* a *směrodatná odchylka*)  
+`sd(x)`  
+$\begin{aligned}
+s = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}
+\end{aligned}$
+
+### Interquartile range
+(midspread, IQR)  
+`IQR(x)`  
+**Robust**, minimizes influence of outliers.
+
+<!-------------------------------------------------- -->
+
+Why look at data then?
+=======================================================
+*Anscombe's quartet*
+
+
+
+
+```
+# A tibble: 4 × 6
+    set `mean(x)` `sd(x)` `mean(y)` `sd(y)` `cor(x, y)`
+  <int>     <dbl>   <dbl>     <dbl>   <dbl>       <dbl>
+1     1         9    3.32      7.50    2.03       0.816
+2     2         9    3.32      7.50    2.03       0.816
+3     3         9    3.32      7.5     2.03       0.816
+4     4         9    3.32      7.50    2.03       0.817
+```
+
+Four sets of numerical data, all have almost identical 
+values of descriptive statistics...
+
+<!------------------------------------------------------------>
+
+Why look at data then?
+======================================================
+![plot of chunk unnamed-chunk-10](seminar3-figure/unnamed-chunk-10-1.png)
+
+<!-- ----------------------------------------------- -->
+
+Let's practice
+=======================================================
+type: prompt
+incremental: false
+
+- Clean your working environment.
+- Download data:
+
+```r
+url <- "https://1url.cz/@stat4arch02"
+download.file(url, here::here("datasaurus.csv"))
+```
+- Create a new script.
+- Read the data.
+
+<!-- =============================================== -->
 
 Title
 ========================================================
