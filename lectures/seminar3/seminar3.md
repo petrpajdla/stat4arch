@@ -35,6 +35,22 @@ Visualizing data
 ========================================================
 type: section
 
+
+<!-- ----------------------------------------------- -->
+
+Brainstorming
+========================================================
+type: prompt
+incremental: true
+
+<ul style='color:white;'>
+  <li> Prečo potrebujeme vizualizovať data?
+  <li> Aké vlastnosti má mať dobrý graf?
+  <li> Aké prvky vieme na grafe pomenovať?
+</ul>
+
+<img src="./fig/boxplot_carlson.png", style='width:60%;'>
+
 <!-- ----------------------------------------------- -->
 
 Data viz
@@ -150,12 +166,9 @@ barplot(df2$objekty_ks, names.arg = df2$lokalita, col="lightblue")
 <!-- -------------------------------------------------------------------- -->
 
 
-ggplot
+ggplot - syntax
 =============================================================
 incremental: true
-
-## Syntax
-
 <img src="./fig/ggplot_syntax.png", style='width:60%;'> 
 
 
@@ -167,7 +180,27 @@ ggplot(data=df2, aes(x=lokalita, y = objekty_ks))+
 ![plot of chunk unnamed-chunk-9](seminar3-figure/unnamed-chunk-9-1.png)
 
 <!-- ----------------------------------------------------- -->
+ggplot - syntax
+=============================================================
+Dlhý zápis:
 
+```r
+ggplot(data = df2, mapping = aes(x=lokalita, y = objekty_ks))+
+  geom_bar(stat="identity")
+```
+
+![plot of chunk unnamed-chunk-10](seminar3-figure/unnamed-chunk-10-1.png)
+***
+Krátky zápis:
+
+```r
+ggplot(df2, aes(x=lokalita, y = objekty_ks))+
+  geom_bar(stat="identity")
+```
+
+![plot of chunk unnamed-chunk-11](seminar3-figure/unnamed-chunk-11-1.png)
+
+<!-- ------------------------------ -->
 
 Barplot
 ============================================
@@ -197,7 +230,7 @@ head(hroby)
 - aký je pomer mužských a ženských hrobov?
 - aké je zastúpenie vekových kategórií medzi pohlaviami?
 - líšila sa prítommosť milodarov (1) v závislosti na pohlaví alebo (2) v závislosti na veku?
-- sú rozdiely medzi skupinami?
+- aké sú rozdiely medzi skupinami?
 
 <!-- ----------------------------------- -->
 
@@ -214,7 +247,7 @@ p <- ggplot(hroby, aes(x=Sex))
 p + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-12](seminar3-figure/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-14](seminar3-figure/unnamed-chunk-14-1.png)
 ***
 Ako by ste spravili podobný graf, zobrazujúci rozdelenie hrobov podľa veku?
 
@@ -227,7 +260,7 @@ p <- ggplot(hroby, aes(x=Age))
 p + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-14](seminar3-figure/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-16](seminar3-figure/unnamed-chunk-16-1.png)
 
 <!-- ------------------------------------------------- -->
 
@@ -247,10 +280,11 @@ p <- ggplot(hroby, aes(x=Sex))
 p + geom_bar(fill = "pink", color= "black")
 ```
 
-![plot of chunk unnamed-chunk-16](seminar3-figure/unnamed-chunk-16-1.png)
+![plot of chunk unnamed-chunk-18](seminar3-figure/unnamed-chunk-18-1.png)
 <!-- ---------------------------------- -->
 
 ========================================
+incremental: true
 ### Popisky
 `labs(x=, y=, title=, caption=)`
 
@@ -266,7 +300,7 @@ p + geom_bar(fill = "pink", color= "black") +
        caption="Archdata::EWBurials")
 ```
 
-![plot of chunk unnamed-chunk-18](seminar3-figure/unnamed-chunk-18-1.png)
+![plot of chunk unnamed-chunk-20](seminar3-figure/unnamed-chunk-20-1.png)
 
 <!-- ----------------------------------- -->
 
@@ -285,7 +319,7 @@ p <- ggplot(hroby, aes(x=Sex, fill=Age))
 p + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-20](seminar3-figure/unnamed-chunk-20-1.png)
+![plot of chunk unnamed-chunk-22](seminar3-figure/unnamed-chunk-22-1.png)
 <!--------------------------------------------- -->
 2. aké je zastúpenie vekových kategórií medzi pohlaviami?
 ===================================================
@@ -300,7 +334,7 @@ p <- ggplot(hroby, aes(x=Sex, fill=Age))
 p + geom_bar(position = "dodge")
 ```
 
-![plot of chunk unnamed-chunk-22](seminar3-figure/unnamed-chunk-22-1.png)
+![plot of chunk unnamed-chunk-24](seminar3-figure/unnamed-chunk-24-1.png)
 
 <!-- =============================================== -->
 
@@ -319,7 +353,7 @@ p <- ggplot(hroby, aes(x=Sex, fill=Goods))
 p + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-24](seminar3-figure/unnamed-chunk-24-1.png)
+![plot of chunk unnamed-chunk-26](seminar3-figure/unnamed-chunk-26-1.png)
 <!-- --------------------------------------------- -->
 3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
 =======================================================================
@@ -341,7 +375,7 @@ p + geom_bar() +
   scale_fill_manual(values = my_colors)
 ```
 
-![plot of chunk unnamed-chunk-27](seminar3-figure/unnamed-chunk-27-1.png)
+![plot of chunk unnamed-chunk-29](seminar3-figure/unnamed-chunk-29-1.png)
 <!-- ----------------------------------------------- -->
 
 3b. líšila sa prítommosť milodarov v závislosti na veku?
@@ -359,10 +393,10 @@ p <- ggplot(hroby, aes(x=Age, fill=Goods))
 p + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-29](seminar3-figure/unnamed-chunk-29-1.png)
+![plot of chunk unnamed-chunk-31](seminar3-figure/unnamed-chunk-31-1.png)
 <!-- --------------------------- -->
 
-3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
+3b. líšila sa prítommosť milodarov v závislosti na veku?
 =======================================================================
 incremental: true
 ## Relatívny pomer
@@ -376,9 +410,82 @@ p <- ggplot(hroby, aes(x=Age, fill=Goods))
 p + geom_bar(position = "fill")
 ```
 
-![plot of chunk unnamed-chunk-31](seminar3-figure/unnamed-chunk-31-1.png)
+![plot of chunk unnamed-chunk-33](seminar3-figure/unnamed-chunk-33-1.png)
 
 <!-- ------------------------------------------------------ -->
+
+4. aké sú rozdiely medzi skupinami?
+==========================================================
+incremental: true
+
+
+```r
+p <- ggplot(hroby, aes(x=Age))
+```
+
+```r
+p + geom_bar() +
+  facet_grid(Sex ~ Group)
+```
+
+![plot of chunk unnamed-chunk-35](seminar3-figure/unnamed-chunk-35-1.png)
+***
+
+```r
+p + geom_bar() +
+  facet_grid(Sex ~ Group) + 
+  theme (axis.text.x = element_text(angle=60, hjust=1))
+```
+
+![plot of chunk unnamed-chunk-36](seminar3-figure/unnamed-chunk-36-1.png)
+
+<!--- ------------------- -->
+
+Aby to nebolo tak jednoduché...
+========================================================
+type: prompt
+## Aký je rozdiel medzi týmito datasetmi?
+`hroby`
+
+```
+     Group  North  West         Age  Sex Direction Looking   Goods
+011      2  96.96 90.32 Young Adult Male        42     283 Present
+014      2 100.20 90.61 Young Adult Male        28     272 Present
+015      2 101.74 91.62   Old Adult Male       350     219 Present
+016a     2 101.00 90.47 Young Adult Male       335      60  Absent
+018      2 101.65 90.46   Old Adult Male         3      86 Present
+020      1  95.17 90.53 Young Adult Male       142      21  Absent
+```
+`df2`
+
+```
+   lokalita objekty_ks
+1 Vedrovice         27
+2  Kyjovice         13
+3  Pohansko         55
+4 Mikulčice         29
+5    Znojmo         20
+```
+
+<!-- ----------------------------------------------- -->
+
+======================================================
+
+```r
+p<-ggplot(df2, aes(x=lokalita, y=objekty_ks))
+p+geom_bar(stat="identity")
+```
+
+![plot of chunk unnamed-chunk-39](seminar3-figure/unnamed-chunk-39-1.png)
+***
+
+```r
+p <- ggplot(hroby, aes(x=Age))
+p + geom_bar()
+```
+
+![plot of chunk unnamed-chunk-40](seminar3-figure/unnamed-chunk-40-1.png)
+<!-- --------------------------------- -->
 
 Descriptive statistics
 ========================================================
@@ -450,7 +557,7 @@ values of descriptive statistics...
 
 Why look at data then?
 ======================================================
-![plot of chunk unnamed-chunk-34](seminar3-figure/unnamed-chunk-34-1.png)
+![plot of chunk unnamed-chunk-43](seminar3-figure/unnamed-chunk-43-1.png)
 
 <!-- ----------------------------------------------- -->
 

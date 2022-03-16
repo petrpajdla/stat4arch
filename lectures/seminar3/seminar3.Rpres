@@ -39,6 +39,22 @@ Visualizing data
 ========================================================
 type: section
 
+
+<!-- ----------------------------------------------- -->
+
+Brainstorming
+========================================================
+type: prompt
+incremental: true
+
+<ul style='color:white;'>
+  <li> Prečo potrebujeme vizualizovať data?
+  <li> Aké vlastnosti má mať dobrý graf?
+  <li> Aké prvky vieme na grafe pomenovať?
+</ul>
+
+<img src="./fig/boxplot_carlson.png", style='width:60%;'>
+
 <!-- ----------------------------------------------- -->
 
 Data viz
@@ -170,12 +186,9 @@ barplot(df2$objekty_ks, names.arg = df2$lokalita, col="lightblue")
 <!-- -------------------------------------------------------------------- -->
 
 
-ggplot
+ggplot - syntax
 =============================================================
 incremental: true
-
-## Syntax
-
 <img src="./fig/ggplot_syntax.png", style='width:60%;'> 
 
 ```{r}
@@ -184,7 +197,21 @@ ggplot(data=df2, aes(x=lokalita, y = objekty_ks))+
 ```
 
 <!-- ----------------------------------------------------- -->
+ggplot - syntax
+=============================================================
+Dlhý zápis:
+```{r}
+ggplot(data = df2, mapping = aes(x=lokalita, y = objekty_ks))+
+  geom_bar(stat="identity")
+```
+***
+Krátky zápis:
+```{r}
+ggplot(df2, aes(x=lokalita, y = objekty_ks))+
+  geom_bar(stat="identity")
+```
 
+<!-- ------------------------------ -->
 
 Barplot
 ============================================
@@ -203,7 +230,7 @@ head(hroby)
 - aký je pomer mužských a ženských hrobov?
 - aké je zastúpenie vekových kategórií medzi pohlaviami?
 - líšila sa prítommosť milodarov (1) v závislosti na pohlaví alebo (2) v závislosti na veku?
-- sú rozdiely medzi skupinami?
+- aké sú rozdiely medzi skupinami?
 
 <!-- ----------------------------------- -->
 
@@ -245,6 +272,7 @@ p + geom_bar(fill = "pink", color= "black")
 <!-- ---------------------------------- -->
 
 ========================================
+incremental: true
 ### Popisky
 `labs(x=, y=, title=, caption=)`
 ```{r}
@@ -331,7 +359,7 @@ p + geom_bar()
 ```
 <!-- --------------------------- -->
 
-3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
+3b. líšila sa prítommosť milodarov v závislosti na veku?
 =======================================================================
 incremental: true
 ## Relatívny pomer
@@ -344,6 +372,56 @@ p + geom_bar(position = "fill")
 ```
 
 <!-- ------------------------------------------------------ -->
+
+4. aké sú rozdiely medzi skupinami?
+==========================================================
+incremental: true
+
+```{r}
+p <- ggplot(hroby, aes(x=Age))
+```
+```{r}
+p + geom_bar() +
+  facet_grid(Sex ~ Group)
+```
+***
+```{r}
+p + geom_bar() +
+  facet_grid(Sex ~ Group) + 
+  theme (axis.text.x = element_text(angle=60, hjust=1))
+```
+
+<!--- ------------------- -->
+
+Aby to nebolo tak jednoduché...
+========================================================
+type: prompt
+## Aký je rozdiel medzi týmito datasetmi?
+`hroby`
+```{r, echo=F}
+library(archdata)
+data(EWBurials)
+hroby<-data.frame(EWBurials)
+head(hroby)
+```
+`df2`
+```{r, echo=F}
+head(df2)
+```
+
+<!-- ----------------------------------------------- -->
+
+======================================================
+```{r}
+p<-ggplot(df2, aes(x=lokalita, y=objekty_ks))
+p+geom_bar(stat="identity")
+```
+***
+```{r}
+p <- ggplot(hroby, aes(x=Age))
+p + geom_bar()
+```
+<!-- --------------------------------- -->
 
 Descriptive statistics
 ========================================================
