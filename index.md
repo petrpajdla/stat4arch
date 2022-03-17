@@ -98,12 +98,13 @@ understanding basic summaries of quantitative variables.
 - Reading data into R (`readr` package, moved from previous session).
 - Data visualization, plots for one variable.
 - Descriptive stats (mean, sd, median, IQR etc.)
-- Data manipulation basics (base R and `dplyr` package).
 - Plotting in `ggplot2`.
 
 #### Assignment
 - Complete [this](https://rstudio.cloud/learn/primers/1.1) interactive course on
   data visualization.
+- `[project]` Have your data sets ready. Be sure what part you want to use and how.
+  If you are using a database, export the part you want to analyze as a flat file.
 - `[optional]` Flick through [Make a plot](https://socviz.co/makeplot.html#makeplot)
   chapter from *Data Visualization* book by K. J. Healy. It explains how plotting
   with `ggplot2` package works.
