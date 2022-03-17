@@ -15,413 +15,28 @@ Seminar 3
 ========================================================
 type: section
 
-```{r include = FALSE}
+```{r include=FALSE}
 library(dplyr)
 library(ggplot2)
 library(archdata)
 ```
 
+```{r include=FALSE}
+data("DartPoints")
+```
+
+
 `17. 3. 2022`
 
 ## Today:
 <ul style='color:white;'>
-  <li>Organizing projects in R.
-  <li>Reading data into R.
-  <li>Data visualization, plots for one variable.
-  <li>Descriptive stats.
-  <li>Data manipulation basics (base R and dplyr package).
-  <li>Plotting in ggplot2.
+<li>Data visualization, plots for one variable.
+<li>Descriptive stats.
+<li>Data manipulation basics (base R and dplyr package).
+<li>Plotting in ggplot2.
 </ul>
 
 <!-- =============================================== -->
-
-Visualizing data
-========================================================
-type: section
-
-
-<!-- ----------------------------------------------- -->
-
-Brainstorming
-========================================================
-type: prompt
-incremental: true
-
-<ul style='color:white;'>
-  <li> Prečo potrebujeme vizualizovať data?
-  <li> Aké vlastnosti má mať dobrý graf?
-  <li> Aké prvky vieme na grafe pomenovať?
-</ul>
-
-<img src="./fig/boxplot_carlson.png", style='width:60%;'>
-
-<!-- ----------------------------------------------- -->
-
-Data viz
-=======================================================
-
-<img src="./fig/minard.png", style='width:80%;'>
-
-(Minard)
-
-<!-- ------------------------------------------------------------------------- -->
-
-Data viz
-=======================================================
-
-<img src="./fig/snow.jpg", style='width:40%;'>
-
-(Snow)
-
-Data viz
-=======================================================
-
-<img src="./fig/pay_gap.jpg", style='width:40%;'>
-
-(Paygap)
-
-Types of graphs
-===========================================================
-type: section
-<!-- ----------------------------------------------------------------------- -->
-
-Bar chart (sloupcový graf)
-===============================================================
-Distribuce počtu hodnot kvalitativní proměnné,  
-případně diskrétní kvantitativní proměnné.
-
-```{r, echo=FALSE}
-data("DartPoints")
-darts <- DartPoints %>% select(name = Name, 
-                      length = Length) %>% 
-  mutate(name = as.character(name), 
-         width_category = if_else(DartPoints$Width < 15, "narrow", 
-                        if_else(DartPoints$Width >= 25, "wide", 
-                                "normal width")),
-         hafting_traces = if_else(DartPoints$H.Length < 12, "no", 
-                                  "yes"),
-         nr_fragments = if_else(DartPoints$Base.Sh == "I", 1L,
-                                if_else(DartPoints$Base.Sh %in% c("E", "R"), 2L, 3L))) %>% 
-  as_tibble()
-
-ggplot(darts, aes(name, fill = name)) +
-  geom_bar(alpha = 0.6, color = "gray20")
-```
-
-<!-- ----------------------------------------------------------------------- -->
-
-Histogram
-=================================================================================
-Distribuce hodnot kvantitativní proměnné.
-
-```{r, echo=FALSE, message=FALSE}
-ggplot(darts, aes(length)) +
-  geom_histogram(alpha = 0.6, color = "gray20")
-```
-
-<!-- ----------------------------------------------------------------------- -->
-
-Density plot
-=================================================================
-
-Podobnost s histogramem, vhodný pro porovnávání.
-
-```{r echo=FALSE}
-ggplot(darts, aes(length, color = name, fill = name)) +
-  geom_density(alpha = 0.2)
-```
-
-<!-- ----------------------------------------------------------------------- -->
-
-Boxplot (krabicový graf)
-==================================================================
-Porovnávání dvou a více kvantitativních proměnných  
-
-<img src="./fig/boxplot.png" height="420">
-
-<!-- ----------------------------------------------------------------------- -->
-
-Boxplot (krabicový graf)
-==================================================================
-
-```{r, echo=FALSE}
-ggplot(darts, aes(name, length, color = name)) +
-  geom_boxplot()
-```
-
-<!-- ------------------------------------------------------------------------ -->
-Tvorba grafov v R
-===================================================================
-type: section
-<ul style='color:white;'>
-  <li>`plot`
-  <li>`ggplot2`
-</ul>
-
-<!-- ------------------------------------------------------------------------- -->
-plot, barplot,...
-==============================================================
-incremental: true
-
-## cvičenie s databázou `df2`
-
-```{r, echo = FALSE}
-lokalita <- c("Vedrovice", "Kyjovice", "Pohansko", "Mikulčice", "Znojmo")
-objekty_ks <- c (27, 13, 55, 29, 20)
-df2<-data.frame(lokalita,objekty_ks)
-df2
-```
-
-```{r}
-plot(df2)
-```
-
-***
-
-
-```{r}
-barplot(df2$objekty_ks, names.arg = df2$lokalita, col="lightblue")
-```
-
-<!-- -------------------------------------------------------------------- -->
-
-
-ggplot - syntax
-=============================================================
-incremental: true
-<img src="./fig/ggplot_syntax.png", style='width:60%;'> 
-
-```{r}
-ggplot(data=df2, aes(x=lokalita, y = objekty_ks))+
-  geom_bar(stat="identity")
-```
-
-<!-- ----------------------------------------------------- -->
-ggplot - syntax
-=============================================================
-Dlhý zápis:
-```{r}
-ggplot(data = df2, mapping = aes(x=lokalita, y = objekty_ks))+
-  geom_bar(stat="identity")
-```
-***
-Krátky zápis:
-```{r}
-ggplot(df2, aes(x=lokalita, y = objekty_ks))+
-  geom_bar(stat="identity")
-```
-
-<!-- ------------------------------ -->
-
-Barplot
-============================================
-incremental: true
-
-## Cvičenie s databázou `EWBurials`
-
-```{r}
-library(archdata)
-data(EWBurials)
-hroby<-data.frame(EWBurials)
-head(hroby)
-```
-
-## Otázky
-- aký je pomer mužských a ženských hrobov?
-- aké je zastúpenie vekových kategórií medzi pohlaviami?
-- líšila sa prítommosť milodarov (1) v závislosti na pohlaví alebo (2) v závislosti na veku?
-- aké sú rozdiely medzi skupinami?
-
-<!-- ----------------------------------- -->
-
-1. Aký je pomer mužských a ženských hrobov?
-===============================================================
-incremental: true
-
-```{r}
-p <- ggplot(hroby, aes(x=Sex))
-```
-```{r}
-p + geom_bar()
-```
-***
-Ako by ste spravili podobný graf, zobrazujúci rozdelenie hrobov podľa veku?
-
-```{r}
-p <- ggplot(hroby, aes(x=Age))
-```
-```{r}
-p + geom_bar()
-```
-
-<!-- ------------------------------------------------- -->
-
-1. Aký je pomer mužských a ženských hrobov?
-===============================================================
-incremental: true
-
-## Drobné úpravy grafu
-### Farba
-`geom_bar(fill =, color=)`
-```{r}
-p <- ggplot(hroby, aes(x=Sex))
-```
-```{r}
-p + geom_bar(fill = "pink", color= "black")
-```
-<!-- ---------------------------------- -->
-
-========================================
-incremental: true
-### Popisky
-`labs(x=, y=, title=, caption=)`
-```{r}
-p <- ggplot(hroby, aes(x=Sex))
-```
-```{r}
-p + geom_bar(fill = "pink", color= "black") +
-  labs(x = "pohlaví", 
-       y = "počet", 
-       title = "Počet hrobů podle pohlaví", 
-       caption="Archdata::EWBurials")
-```
-
-<!-- ----------------------------------- -->
-
-2. aké je zastúpenie vekových kategórií medzi pohlaviami?
-===================================================================
-incremental: true
-
-## "stacked bar"
-
-```{r}
-p <- ggplot(hroby, aes(x=Sex, fill=Age))
-```
-```{r}
-p + geom_bar()
-```
-<!--------------------------------------------- -->
-2. aké je zastúpenie vekových kategórií medzi pohlaviami?
-===================================================
-## "dodged bar"
-`geom_bar(position = "dodge")`
-```{r}
-p <- ggplot(hroby, aes(x=Sex, fill=Age))
-```
-```{r}
-p + geom_bar(position = "dodge")
-```
-
-<!-- =============================================== -->
-
-3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
-=======================================================================
-incremental: true
-
-## `fill`
-
-```{r}
-p <- ggplot(hroby, aes(x=Sex, fill=Goods))
-```
-```{r}
-p + geom_bar()
-```
-<!-- --------------------------------------------- -->
-3a. líšila sa prítommosť milodarov v závislosti na pohlaví?
-=======================================================================
-incremental: true
-## Vlastné farby
-`scale_fill_manual(values = )`
-```{r}
-my_colors <- c("red", "black")
-```
-
-```{r}
-p <- ggplot(hroby, aes(x=Sex, fill=Goods))
-```
-```{r}
-p + geom_bar() +
-  scale_fill_manual(values = my_colors)
-```
-<!-- ----------------------------------------------- -->
-
-3b. líšila sa prítommosť milodarov v závislosti na veku?
-==========================================================
-incremental: true
-
-## Absolútne čísla
-
-```{r}
-p <- ggplot(hroby, aes(x=Age, fill=Goods))
-```
-```{r}
-p + geom_bar()
-```
-<!-- --------------------------- -->
-
-3b. líšila sa prítommosť milodarov v závislosti na veku?
-=======================================================================
-incremental: true
-## Relatívny pomer
-`geom_bar(position = "fill")`
-```{r}
-p <- ggplot(hroby, aes(x=Age, fill=Goods))
-```
-```{r}
-p + geom_bar(position = "fill")
-```
-
-<!-- ------------------------------------------------------ -->
-
-4. aké sú rozdiely medzi skupinami?
-==========================================================
-incremental: true
-
-```{r}
-p <- ggplot(hroby, aes(x=Age))
-```
-```{r}
-p + geom_bar() +
-  facet_grid(Sex ~ Group)
-```
-***
-```{r}
-p + geom_bar() +
-  facet_grid(Sex ~ Group) + 
-  theme (axis.text.x = element_text(angle=60, hjust=1))
-```
-
-<!--- ------------------- -->
-
-Aby to nebolo tak jednoduché...
-========================================================
-type: prompt
-## Aký je rozdiel medzi týmito datasetmi?
-`hroby`
-```{r, echo=F}
-library(archdata)
-data(EWBurials)
-hroby<-data.frame(EWBurials)
-head(hroby)
-```
-`df2`
-```{r, echo=F}
-head(df2)
-```
-
-<!-- ----------------------------------------------- -->
-
-======================================================
-```{r}
-p<-ggplot(df2, aes(x=lokalita, y=objekty_ks))
-p+geom_bar(stat="identity")
-```
-***
-```{r}
-p <- ggplot(hroby, aes(x=Age))
-p + geom_bar()
-```
-<!-- --------------------------------- -->
 
 Descriptive statistics
 ========================================================
@@ -430,7 +45,8 @@ type: section
 <!-- ----------------------------------------------- -->
 
 Characterizing centrality
-=====================================================
+========================================================
+incremental: false
 
 ### Mean
 `mean(x)`  
@@ -449,7 +65,8 @@ $\begin{aligned}
 <!-- ----------------------------------------------- -->
 
 Characterizing dispersion and/or spread
-===================================================
+========================================================
+incremental: false
 
 ### Range
 (*rozpětí*)  
@@ -459,18 +76,26 @@ Characterizing dispersion and/or spread
 (*rozptyl* a *směrodatná odchylka*)  
 `sd(x)`  
 $\begin{aligned}
-s = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}
+\sigma = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}}
 \end{aligned}$
 
 ### Interquartile range
-(midspread, IQR)  
+(midspread, IQR, *kvantil*, *mezikvartilové rozpětí*)  
 `IQR(x)`  
 **Robust**, minimizes influence of outliers.
 
 <!-------------------------------------------------- -->
 
+Fuu
+========================================================
+title: false
+
+<img src="./fig/normal_distribution.png", style='width:80%;'>
+
+<!-------------------------------------------------- -->
+
 Why look at data then?
-=======================================================
+========================================================
 *Anscombe's quartet*
 
 ```{r echo=FALSE}
@@ -494,10 +119,10 @@ anscombe_quartet %>%
 Four sets of numerical data, all have almost identical 
 values of descriptive statistics...
 
-<!------------------------------------------------------------>
+<!-------------------------------------------------- -->
 
 Why look at data then?
-======================================================
+========================================================
 ```{r, echo=FALSE, fig.width=20, fig.height=10}
 ggplot(anscombe_quartet, aes(x, y)) +
   stat_smooth(method = "lm", se = FALSE) +
@@ -505,67 +130,450 @@ ggplot(anscombe_quartet, aes(x, y)) +
   facet_wrap(~set)
 ```
 
-<!-- ----------------------------------------------- -->
-
-Let's practice
-=======================================================
-type: prompt
-incremental: false
-
-- Clean your working environment.
-- Download data:
-```{r eval=FALSE}
-url <- "https://1url.cz/@stat4arch02"
-download.file(url, here::here("datasaurus.csv"))
-```
-- Create a new script.
-- Read the data.
-
 <!-- =============================================== -->
 
-Title
-========================================================
-
-First column.
-
-***
-
-Second column.
-
-<!-- ----------------------------------------------- -->
-
-Some basics
-========================================================
-
-- Two **spaces** at the end of the line break the line.
-- HTML can be used to achieve practically anything.
-
-```
-<!-- comment -->
-*italics*
-**bold**
-# Header 1 to #### Header 4
-![alt  text](fix/path) - inserts figure
-<url link> or (alt text)[url link]
-`single line/word code`
-```
-
-<!-- ----------------------------------------------- -->
-
-Section slide
+Visualizing data
 ========================================================
 type: section
 
 <!-- ----------------------------------------------- -->
 
-Prompt slide
+Brainstorming
+========================================================
+type: prompt
+incremental: true
+
+- Prečo potrebujeme vizualizovať data?
+- Aké vlastnosti má mať dobrý graf?
+- Aké prvky vieme na grafe pomenovať?
+
+<img src="./fig/boxplot_carlson.png", style='width:60%;'>
+
+<!-- ----------------------------------------------- -->
+
+Data viz
+========================================================
+
+<img src="./fig/minard.png", style='width:80%;'>
+
+*(Minard 1869)*
+
+<!-- ----------------------------------------------- -->
+
+Data viz
+========================================================
+
+<img src="./fig/snow.jpg", style='width:40%;'>
+
+*(Snow 1854)*
+
+<!-- ----------------------------------------------- -->
+
+<!-- Data viz -->
+<!-- ======================================================= -->
+
+<!-- <img src="./fig/pay_gap.jpg", style='width:40%;'> -->
+
+<!-- (Paygap) -->
+
+<!-- ----------------------------------------------- -->
+
+Types of graphs
+========================================================
+type: section
+
+<!-- ----------------------------------------------- -->
+
+Bar chart
+========================================================
+*(Sloupcový graf)*  
+Distribution of values of a **qualitative** variable.
+
+```{r, echo=FALSE}
+darts <- DartPoints %>% select(name = Name, 
+                               length = Length) %>% 
+  mutate(name = as.character(name), 
+         width_category = if_else(DartPoints$Width < 15, "narrow", 
+                                  if_else(DartPoints$Width >= 25, "wide", 
+                                          "normal width")),
+         hafting_traces = if_else(DartPoints$H.Length < 12, "no", 
+                                  "yes"),
+         nr_fragments = if_else(DartPoints$Base.Sh == "I", 1L,
+                                if_else(DartPoints$Base.Sh %in% c("E", "R"), 2L, 3L))) %>% 
+  as_tibble()
+
+ggplot(darts, aes(name, fill = name)) +
+  geom_bar(alpha = 0.6, color = "gray20")
+```
+
+<!-- ----------------------------------------------- -->
+
+Histogram
+========================================================
+Distribution of values of a **quantitative** variable.
+
+```{r, echo=FALSE, message=FALSE}
+ggplot(darts, aes(length)) +
+  geom_histogram(alpha = 0.6, color = "gray20")
+```
+
+<!-- ----------------------------------------------- -->
+
+Density plot
+========================================================
+Similar to histogram, great for comparison.
+
+```{r echo=FALSE}
+ggplot(darts, aes(length, color = name, fill = name)) +
+  geom_density(alpha = 0.2)
+```
+
+<!-- ----------------------------------------------- -->
+
+Boxplot 
+========================================================
+*(Krabicový graf)*   
+**Comparison** of two and more **quantitative** variables. 
+
+<img src="./fig/boxplot.png" height="600">
+
+<!-- ----------------------------------------------- -->
+
+Boxplot
+========================================================
+
+```{r, echo=FALSE}
+ggplot(darts, aes(name, length, color = name)) +
+  geom_boxplot()
+```
+
+<!-- =============================================== -->
+
+Plotting in R
+========================================================
+type: section
+
+<ul style='color:white;'>
+<li>Base graphics with `plot`
+<li>Package `ggplot2`
+</ul>
+
+<!-- ----------------------------------------------- -->
+
+Base graphics
+========================================================
+incremental: false
+right: 60%
+
+Cvičenie s tabulkou `lokality`.
+
+```{r, echo = FALSE}
+lokalita <- c("Vedrovice", "Kyjovice", "Pohansko", "Mikulčice", "Znojmo")
+objekty_ks <- c (27, 13, 55, 29, 20)
+lokality <- data.frame(lokalita, objekty_ks)
+lokality
+```
+
+***
+
+```{r}
+barplot(lokality$objekty_ks, 
+        names.arg = lokality$lokalita, 
+        col = "lightblue")
+```
+
+<!-- ----------------------------------------------- -->
+
+Package ggplot2
+========================================================
+incremental: false
+
+```{r eval=FALSE}
+install.packages("ggplot2")
+```
+```{r eval=FALSE}
+library(ggplot2)
+```
+
+## Syntax
+
+<img src="./fig/ggplot_syntax.png", style='width:100%;'> 
+
+<!-- ----------------------------------------------- -->
+
+ggplot2: syntax
+========================================================
+title: false
+
+```{r}
+ggplot(data = lokality, aes(x = lokalita, y = objekty_ks)) +
+  geom_bar(stat = "identity")
+```
+
+<!-- ----------------------------------------------- -->
+
+ggplot2: syntax
+========================================================
+title: false
+
+Dlhý zápis:
+```{r eval=FALSE}
+ggplot(data = lokality, mapping = aes(x = lokalita, y = objekty_ks)) +
+  geom_bar(stat = "identity")
+```
+
+Krátky zápis:
+```{r}
+ggplot(lokality, aes(lokalita, objekty_ks)) +
+  geom_bar(stat = "identity")
+```
+
+<!-- ----------------------------------------------- -->
+
+Barplot
+========================================================
+incremental: true
+
+Cvičenie s databázou `EWBurials`.
+
+```{r}
+library(archdata) # ?EWBurials
+data(EWBurials)
+hroby <- data.frame(EWBurials)
+head(hroby, 4)
+```
+
+## Otázky
+- aký je pomer mužských a ženských hrobov?
+- aké je zastúpenie vekových kategórií medzi pohlaviami?
+- líšila sa prítommosť milodarov (1) v závislosti na pohlaví alebo (2) v závislosti na veku?
+- aké sú rozdiely medzi skupinami?
+
+<!-- ----------------------------------------------- -->
+
+1. Aký je pomer mužských a ženských hrobov?
+========================================================
+incremental: true
+
+```{r}
+p <- ggplot(hroby, aes(x = Sex))
+```
+```{r}
+p + geom_bar()
+```
+
+***
+
+Ako by ste spravili podobný graf, zobrazujúci rozdelenie hrobov podľa veku?
+
+```{r}
+p <- ggplot(hroby, aes(x = Age))
+```
+```{r}
+p + geom_bar()
+```
+
+<!-- ----------------------------------------------- -->
+
+<!-- 1. Aký je pomer mužských a ženských hrobov? -->
+<!-- ======================================================== -->
+<!-- incremental: true -->
+
+<!-- ## Drobné úpravy grafu -->
+<!-- ### Farba -->
+<!-- `geom_bar(fill =, color=)` -->
+<!-- ```{r} -->
+<!-- p <- ggplot(hroby, aes(x=Sex)) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- p + geom_bar(fill = "pink", color= "black") -->
+<!-- ``` -->
+
+<!-- ----------------------------------------------- -->
+
+Labels
+========================================================
+incremental: true
+
+```{r}
+p <- ggplot(hroby, aes(x = Sex)) +
+  geom_bar()
+```
+```{r}
+p + labs(x = "pohlaví", 
+         y = "počet", 
+         title = "Počet hrobů podle pohlaví", 
+         caption = "Archdata::EWBurials")
+```
+
+<!-- ----------------------------------------------- -->
+
+2. Aké je zastúpenie vekových kategórií medzi pohlaviami?
+========================================================
+incremental: false
+
+Stacked bar chart: `geom_bar()`.
+
+```{r}
+p <- ggplot(hroby, aes(x = Sex, fill = Age))
+```
+```{r}
+p + geom_bar()
+```
+
+<!-- ----------------------------------------------- -->
+
+2. Aké je zastúpenie vekových kategórií medzi pohlaviami?
+========================================================
+
+Dodged bar chart: `geom_bar(position = "dodge")`.
+
+```{r}
+p <- ggplot(hroby, aes(x = Sex, fill = Age))
+```
+```{r}
+p + geom_bar(position = "dodge")
+```
+
+<!-- ----------------------------------------------- -->
+
+3a. Líšila sa prítommosť milodarov v závislosti na pohlaví?
+========================================================
+
+```{r}
+p <- ggplot(hroby, aes(x = Sex, fill = Goods))
+```
+```{r}
+p + geom_bar()
+```
+
+<!-- ----------------------------------------------- -->
+
+<!-- 3a. líšila sa prítommosť milodarov v závislosti na pohlaví? -->
+<!-- ======================================================================= -->
+<!-- incremental: true -->
+
+<!-- ## Vlastné farby -->
+<!-- `scale_fill_manual(values = )` -->
+<!-- ```{r} -->
+<!-- my_colors <- c("red", "black") -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- p <- ggplot(hroby, aes(x = Sex, fill = Goods)) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- p + geom_bar() + -->
+<!--   scale_fill_manual(values = my_colors) -->
+<!-- ``` -->
+
+<!-- ----------------------------------------------- -->
+
+3b. Líšila sa prítommosť milodarov v závislosti na veku?
+========================================================
+incremental: true
+
+## Absolútne čísla
+
+```{r}
+p <- ggplot(hroby, aes(x = Age, fill = Goods))
+```
+```{r}
+p + geom_bar()
+```
+<!-- ----------------------------------------------- -->
+
+3b. Líšila sa prítommosť milodarov v závislosti na veku?
+========================================================
+incremental: true
+
+## Relatívny pomer
+`geom_bar(position = "fill")`
+```{r}
+p <- ggplot(hroby, aes(x = Age, fill = Goods))
+```
+```{r}
+p + geom_bar(position = "fill")
+```
+
+<!-- ----------------------------------------------- -->
+
+4. Aké sú rozdiely medzi skupinami?
+========================================================
+incremental: true
+
+```{r}
+p <- ggplot(hroby, aes(x = Age))
+```
+```{r}
+p + geom_bar() +
+  facet_grid(Sex ~ Group)
+```
+
+<!-- *** -->
+
+<!-- ```{r} -->
+<!-- p + geom_bar() + -->
+<!--   facet_grid(Sex ~ Group) + -->
+<!--   theme (axis.text.x = element_text(angle = 60, hjust = 1)) -->
+<!-- ``` -->
+
+<!-- ----------------------------------------------- -->
+
+Aby to nebolo tak jednoduché...
 ========================================================
 type: prompt
 
+Aký je rozdiel medzi týmito datasetmi?
+
+`hroby`
+```{r, echo=F}
+library(archdata)
+data(EWBurials)
+hroby<-data.frame(EWBurials)
+head(hroby)
+```
+
+`lokality`
+```{r, echo=F}
+head(lokality)
+```
+
 <!-- ----------------------------------------------- -->
 
-Alert slide
+Fuu
 ========================================================
-type: alert
-<!-- ----------------------------------------------- -->
+title: false
+
+```{r}
+p <- ggplot(hroby, aes(x = Age))
+p + geom_bar()
+```
+
+***
+
+```{r}
+p <- ggplot(lokality, 
+            aes(x = lokalita, 
+                y = objekty_ks))
+p + geom_bar(stat="identity")
+```
+
+<!-- =============================================== -->
+
+Project assignment
+========================================================
+type: prompt
+
+## Where to look for data sets?
+
+- **Journal of Open Archaeology Data**  
+<https://openarchaeologydata.metajnl.com/>
+
+- Book **Qunatitative Methods in Archaeology Using R** by D. L. Carlson and associated R package `archdata`
+    
+```{r eval=FALSE}
+library(archdata)
+?archdata # list of data sets in the package
+```
 
