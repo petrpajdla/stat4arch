@@ -45,3 +45,9 @@ lectures/*/*.html
 
 # data
 lectures/seminar2/data/
+
+# auto generated figures
+lectures/seminar3/seminar3-figure/*
+
+# backups
+*.bckp
