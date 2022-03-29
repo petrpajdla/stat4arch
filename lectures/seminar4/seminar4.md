@@ -11,18 +11,24 @@ AES_707: *Statistics seminar for archaeologists*
 
 <!-- =============================================== -->
 
-Seminar 1
+Seminar 4
 ========================================================
 type: section
 
-`17. 2. 2022`
+`31. 3. 2022`
 
 Today:
 <ul style='color:white;'>
-  <li>Topic1
-  <li>Topic 2
-  <li>etc.
+  <li>Data manipulation basics (base R and dplyr package)
+  <li>Intro on Reproducibility
+  <li>Using RMarkdown
+  <li>`ggplot2`
+  <li>Distribution
+  <li>Your datasets for the project
 </ul>
+
+<!-- Neni toho už moc? -->
+
 
 <!-- =============================================== -->
 
