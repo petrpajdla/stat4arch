@@ -98,7 +98,10 @@ understanding basic summaries of quantitative variables.
 - Reading data into R (`readr` package, moved from previous session).
 - Data visualization, plots for one variable.
 - Descriptive stats (mean, sd, median, IQR etc.)
-- Plotting in `ggplot2`.
+- Plotting in `ggplot2`: plots for one variable.
+
+Script with code for the analysis of one continuous variable is
+[here](https://github.com/petrpajdla/stat4arch/blob/main/lectures/seminar3/plots_quantitative_vars.R).
 
 #### Assignment
 - Complete [this](https://rstudio.cloud/learn/primers/1.1) interactive course on
@@ -114,11 +117,32 @@ understanding basic summaries of quantitative variables.
 ### Seminar 4
 (31. 3. 2022)
 
+This lecture we will look back at what we learned so far and we will build
+upon that and learn various ways of how to clean and manipulate data.
+- Data manipulation with `dplyr` package.
+- Relationship of two variables: scatter plot and correlation.
+- Normal distribution
+
+#### Assignment
+- If you did not read [Make a plot](https://socviz.co/makeplot.html#makeplot)
+  chapter from *Data Visualization* book by K. J. Healy yet, do so now to review
+  how to create plots with `ggplot2`.
+
+
+--------------------------------------------------------------------------------
+
+### Seminar 5
+(14. 4. 2022)
+
 In this session we will focus on explaining reproducibility, good practice
 regarding data and code management and how to use RMarkdown markup language to
 create documents combining text, code etc.
 - Intro on Reproducibility.
 - Using [RMarkdown](https://rmarkdown.rstudio.com/).
+
+- We probably need to cover hypothesis testing, t-test etc. here.
+- Intro on multivariate stats.
+- Methods of dimensionality reduction (PCA).
 
 #### Assignment
 - Read [Get started](https://socviz.co/gettingstarted.html#gettingstarted) chapter
@@ -131,17 +155,8 @@ create documents combining text, code etc.
 - `[optional]` Have a look at articles on reproducibility in archaeology by
   Ben Marwick (see [resources](#resources) section).
 
---------------------------------------------------------------------------------
+
 <!--
-### Seminar 5
-(14. 4. 2022)
-
-- We probably need to cover hypothesis testing, t-test etc. here.
-- Intro on multivariate stats.
-- Methods of dimensionality reduction (PCA).
-
-#### Assignment
-
 --------------------------------------------------------------------------------
 
 ### Seminar 6
