@@ -147,13 +147,99 @@ Guess the correlation game...
 
 <!-- =============================================== -->
 
-Scatterplots
+Plots for 2 continuous variables
 ========================================================
-type: sub-section
+type: section
 
-<!-- ----------------------------------------------- -->
+## Packages
+```{r}
+library(archdata)
+library(ggplot2)
+```
 
-<!-- =============================================== -->
+## Data
+```{r}
+data(DartPoints)
+sipky <- data.frame(DartPoints)
+head(sipky,4)
+```
+
+
+Distribution
+=========================================================
+
+## Length
+```{r}
+p <- ggplot(sipky, aes(Length))
+p + geom_histogram(binwidth=5)
+```
+***
+## Width
+```{r}
+p <- ggplot(sipky, aes(Width))
+p + geom_histogram(binwidth=5)
+```
+
+Correlation - 2 variables
+===============================================================
+Correlation between length and width
+```{r}
+p <- ggplot(sipky, aes(Length, Width))
+p + geom_point()
+```
+
+Correlation - 3 variables
+=================================================================
+Adding 3th variable (weight) and adjusting size
+```{r}
+p <- ggplot(sipky, aes(Length, Width, color=Weight))
+p + geom_point(size=3)
+```
+
+Observing trend
+=======================================================
+```{r}
+p <- ggplot(sipky, aes(Length, Width, color=Weight))
+p + geom_point(size=3) +
+  geom_smooth()
+```
+
+Correlation - different models
+=====================================
+`method = "loess"`
+```{r}
+p <- ggplot(sipky, aes(Length, Width, color=Weight))
+p + geom_point(size=3) + 
+  geom_smooth(method = "loess")
+```
+
+***
+`method = "lm"`
+```{r}
+p <- ggplot(sipky, aes(Length, Width, color=Weight))
+p + geom_point(size=3) + 
+  geom_smooth(method = "lm")
+```
+<!-- --------------------------------
+Correlation - logarithmic scale
+======================================================
+```{r}
+p <- ggplot(sipky, aes(Length, Width, color=Weight))
+p + geom_point(size=3) +
+  geom_smooth() +
+  scale_x_log10()+
+  scale_y_log10()
+```
+----------------------------------------------->
+
+Small multiples - 4th variable
+====================================================
+
+```{r}
+p <- ggplot(sipky, aes(Length, Width, color=Weight))
+p + geom_point(size=3) +
+    facet_wrap(~Name, nrow=1)
+```
 
 Manipulating data
 ========================================================
