@@ -79,7 +79,7 @@ cor(x, y = rnorm(100))
 ```
 
 ```
-[1] -0.1134987
+[1] -0.1651106
 ```
 
 
@@ -259,195 +259,82 @@ p + geom_point(size=3) +
 
 ![plot of chunk unnamed-chunk-19](seminar4-figure/unnamed-chunk-19-1.png)
 
-Manipulating data
-========================================================
+Data transformation
+===========================
 type: section
 
-<!-- ----------------------------------------------- -->
+## Package
+- `dplyr`
 
-<!-- =============================================== -->
+## Functions
+- `select`
+- `arrange`
+- `filter`
+- `summarise`
+- `%>%`
+- `mutate`
 
-Normal distribution
-========================================================
-type: section
+Select
+====================================
+Lets create a smaller dataframes from _selected_ variables
 
-
-
-<!-- ----------------------------------------------- -->
-
-Normal distribution
-========================================================
-
-(*bell-shaped curve, Gaussian distribution*)
-
-<img src="./fig/nd_ideal.jpg" height="600">
-
-<!-- ----------------------------------------------------------------------- -->
-
-One sigma
-========================================================
-<img src="./fig/nd_1sigma.png" height="700">
-
-<!-- ----------------------------------------------------------------------- -->
-
-Two sigma
-========================================================
-<img src="./fig/nd_2sigma.png" height="700">
-
-<!-- ----------------------------------------------------------------------- -->
-
-Tree sigma
-========================================================
-<img src="./fig/nd_3sigma.png" height="700">
-
-<!-- ----------------------------------------------------------------------- -->
-
-Normal distribution in different plots
-========================================================
-
-![plot of chunk unnamed-chunk-21](seminar4-figure/unnamed-chunk-21-1.png)
-
-<!-- ----------------------------------------------------------------------- -->
-
-Mean and median in normal distribution
-========================================================
-left: 40%
-
-![plot of chunk unnamed-chunk-22](seminar4-figure/unnamed-chunk-22-1.png)
-
-***
-
-![plot of chunk unnamed-chunk-23](seminar4-figure/unnamed-chunk-23-1.png)
-
-<!-- =============================================== -->
-
-Is my distribution normal?
-========================================================
-type: sub-section
-
-<!-- ----------------------------------------------------------------------- -->
-
-Is my distribution normal?
-========================================================
-
-## Visual aids
-
-- Density plot
-- Q-Q plot (quantile-quantile plot)  
-   `qqnorm(x)` nebo  
-   `ggplot(data, aes(sample = x)) + geom_qq()`
-   
-## Statistical hypothesis test
-
-- Shapiro-Wilk test  
-   `shapiro.test()`
-- Kolmogorov-Smirnov normality test
-
-<!-- ----------------------------------------------------------------------- -->
-
-Q-Q plot
-========================================================
+`select`
 
 
-```r
-ggplot(nd, aes(x)) + 
-  geom_density()
-```
-
-![plot of chunk unnamed-chunk-24](seminar4-figure/unnamed-chunk-24-1.png)
-
-***
 
 
-```r
-ggplot(nd, aes(sample = x)) + 
-  geom_qq(alpha = 0.4)
-```
-
-![plot of chunk unnamed-chunk-25](seminar4-figure/unnamed-chunk-25-1.png)
-
-<!-- ----------------------------------------------------------------------- -->
-
-Shapiro-Wilk normality test
-========================================================
-
-- $H_0$ (null hypothesis): *Values fit normal distribution.*  
-- $H_A$ (alternative hypothesis): *Values do not fit normal distribution.*
-
-- **p-value**: *probability* of the event that observed values fit normal distribution 
-- p > 0.05: Fail to reject null hypothesis.  
-- *Significance level* = 0.05 -- Event occurs in less than 5% of cases
 
 
-```r
-shapiro.test(nd$x)
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```
-
-	Shapiro-Wilk normality test
-
-data:  nd$x
-W = 0.99922, p-value = 0.9598
+Error in select(sipky, Name, Catalog, Length, Width, Weight) : 
+  could not find function "select"
 ```
-
-<!-- ----------------------------------------------------------------------- -->
-
-Data distribution shapes
-========================================================
-
-<img src="fig/distributions2.png" height=700>
-
-<!-- ----------------------------------------------- -->
-
-Transforming data
-========================================================
-incremental: false
-
-- Many (!) statistical methods suppose the distribution of data is normal.
-- **Parametric** vs **non-parametric** statistical methods.
-- Most of (our) real world data is not normal.
-- Data are transformed using various methods...
-
-- Natural/Base 10 logarithms: `log10(x)`
-- Square root: `sqrt(x)`
-
-- Multimodal distributions?
-
-<!-- ----------------------------------------------- -->
-
-Transformations
-========================================================
-title: false
-
-<img src="fig/transformations3.png" height=800>
-
-<!-- ----------------------------------------------- -->
-
-Relative position of a data point in a data set
-========================================================
-type: sub-section
-
-<!-- ----------------------------------------------- -->
-
-Z--Score
-========================================================
-incremental: false
-
-- Recall what is standard deviation?
-- How many **standard deviations** is the data point from the **mean**?
-
-$$z-score = \frac{x_i-\overline{x}}{s}$$
-
-- Why is this useful?
-- What if we count z-scores for the whole dataset?
-
-<!-- ----------------------------------------------- -->
-
-Z--Score
-========================================================
-title: false
-
-<img src="fig/normal_dist.png" height=1000>
-
-<!-- ----------------------------------------------- -->

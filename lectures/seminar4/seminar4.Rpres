@@ -241,13 +241,194 @@ p + geom_point(size=3) +
     facet_wrap(~Name, nrow=1)
 ```
 
-Manipulating data
-========================================================
+Data transformation
+===========================
 type: section
 
-<!-- ----------------------------------------------- -->
+## Package
+- `dplyr`
 
-<!-- =============================================== -->
+## Functions
+- `select`
+- `arrange`
+- `filter`
+- `summarise`
+- `%>%`
+- `mutate`
+
+Select
+====================================
+Lets create a smaller dataframes from _selected_ variables
+
+`select`
+```{r}
+select(sipky, Name, Catalog, Length, Width, Weight)
+```
+
+Select
+==========================================
+And lets create a new dataframe `sipky_sel` from the selection
+```{r}
+sipky_sel <- select(sipky, Name, Catalog, Length, Width, Weight)
+head(sipky_sel, 4)
+```
+
+
+
+How to identify and filter out an outlier?
+=======================================
+
+```{r, echo = FALSE}
+library(dplyr)
+p <- ggplot(sipky, aes(Length, Width))
+p + geom_point()+
+  annotate(geom = "point",x=109.5, y=49.3, color="red", alpha=0.2, size=10)
+```
+
+Arrange
+==========================================
+Lets _arrange_ data from lowest to highest value
+
+```{r}
+arrange(sipky_sel, Length)
+```
+
+Arrange
+=============================================
+```{r}
+head(arrange(sipky_sel, Length),4)
+```
+
+
+Arrange - descent
+=============================================
+And now from highest to lowest value!
+
+
+```{r}
+head(arrange(sipky_sel, desc(Length)),4)
+```
+
+Filter
+===========================================
+Lets _filter_ some data
+
+```{r}
+filter(sipky_sel, Length > 90)
+```
+
+```{r}
+sipky_90 <- filter(sipky_sel, Length < 90)
+head(arrange(sipky_90, desc(Length)),4)
+```
+
+
+Summarise
+=======================================
+```{r}
+mean(sipky_sel$Length)
+```
+
+```{r}
+summarise(sipky_sel, dlzka_prum = mean(Length))
+```
+
+```{r}
+summarise(sipky_sel, dlzka_prum = mean(Length),
+          dlzka_sd = sd(Length),
+          dlzka_min = min(Length),
+          dlzka_max = max(Length),
+          ks = n())
+```
+
+
+Grouping
+==============================================
+```{r}
+group_by(sipky_sel, Name)
+```
+
+
+
+Pipe operator
+========================================
+<!-- doplnit ilustraci -->
+
+Summarizing data
+===========================================
+```{r}
+sipky_group <- sipky_sel %>%
+  group_by(Name) %>%
+  summarise (dlzka_prum = mean(Length),
+             ks = n())
+
+sipky_group
+```
+
+Mutate
+==============================================
+```{r}
+mutate(sipky_group, frekvence = ks/sum(ks), 
+       procento = round((frekvence*100),0))
+```
+
+
+Summarizing once again
+=======================================
+```{r}
+sipky_group<-sipky_sel %>%
+  group_by(Name)%>%
+  summarise (dlzka_prum = mean(Length),
+             dlzka_sd = sd(Length),
+             ks = n()) %>%
+  mutate(frekvence = ks / sum(ks),
+         procento = round((frekvence*100),0))
+
+head(sipky_group)
+```
+
+Point plots (Cleveland dotplot)
+==================================
+type: section
+
+Ploting new dataframe
+====================================
+```{r}
+p <- ggplot(sipky_group, aes(Name, dlzka_prum))
+p + geom_bar(stat="identity")
+```
+
+Cleveland dotplot
+========================================
+```{r}
+p <- ggplot(sipky_group, aes(Name, dlzka_prum))
+p + geom_point()
+```
+
+
+```{r}
+p <- ggplot(sipky_group, aes(Name, dlzka_prum))
+p + geom_point(size=3)+
+  coord_flip()
+```
+Adjusting dotplot
+===============================================
+```{r}
+p <- ggplot(sipky_group, aes(reorder(Name, dlzka_prum), dlzka_prum))
+p + geom_point(size=4)+
+  coord_flip()
+```
+
+Adding standart deviation
+==================================================
+```{r}
+p <- ggplot(sipky_group, aes(reorder(Name, dlzka_prum), dlzka_prum))
+p + geom_pointrange(aes(ymin = dlzka_prum - dlzka_sd, ymax = dlzka_prum + dlzka_sd))+
+  coord_flip()+
+  labs(x = "", 
+       y = "Prumerna dlouzka",
+       title = "Pekný graf")
+```
 
 Normal distribution
 ========================================================
