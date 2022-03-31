@@ -30,6 +30,7 @@ library(archdata)
 library(ggplot2)
 library(tibble)
 library(dplyr)
+library(here)
 ```
 
 <!-- =============================================== -->
@@ -151,6 +152,36 @@ Guess the correlation game...
 
 <!-- =============================================== -->
 
+Task - syntax elements
+========================================================
+type:prompt
+incremental: true
+<img src="./fig/fig_1.png" style='width:80%'>
+
+## Try to identify the syntax elements of the code above:
+- what is `ggplot2`?
+- what is the name of the dataset?
+- what is the name of the variable plotted on axis y?
+- how many variables are plotted here?
+- what is the type of the plot? (what is the type of geometry?)
+- is there any way how to change the size of the dots / points?
+
+Result
+===========================
+type: prompt
+
+```{r}
+library(ggplot2)
+p <- ggplot(mtcars, aes(mpg, wt, color=hp))
+p+geom_point(size=3)+
+  labs(title = "Porovnanie spotreby paliva s hmotnosťou vozidla",
+       x="počet prejdených míl na 1 galón bezínu",
+       y="hmotnosť",
+       color="výkon motora (v konských silách)")
+```
+
+
+
 Plots for 2 continuous variables
 ========================================================
 type: section
@@ -184,17 +215,17 @@ p <- ggplot(sipky, aes(Width))
 p + geom_histogram(binwidth=5)
 ```
 
-Correlation - 2 variables
+Plotting 2 variables
 ===============================================================
-Correlation between length and width
+Correlation between __length__ and __width__
 ```{r}
 p <- ggplot(sipky, aes(Length, Width))
 p + geom_point()
 ```
 
-Correlation - 3 variables
+Plotting 3 variables
 =================================================================
-Adding 3th variable (weight) and adjusting size
+Adding 3th variable (__weight__) and adjusting size of the dots
 ```{r}
 p <- ggplot(sipky, aes(Length, Width, color=Weight))
 p + geom_point(size=3)
@@ -208,7 +239,7 @@ p + geom_point(size=3) +
   geom_smooth()
 ```
 
-Correlation - different models
+Different models
 =====================================
 `method = "loess"`
 ```{r}
@@ -224,20 +255,11 @@ p <- ggplot(sipky, aes(Length, Width, color=Weight))
 p + geom_point(size=3) + 
   geom_smooth(method = "lm")
 ```
-<!-- --------------------------------
-Correlation - logarithmic scale
-======================================================
-```{r}
-p <- ggplot(sipky, aes(Length, Width, color=Weight))
-p + geom_point(size=3) +
-  geom_smooth() +
-  scale_x_log10()+
-  scale_y_log10()
-```
------------------------------------------------>
+
 
 Small multiples - 4th variable
 ====================================================
+Grouping the darts by categorical variable __Name__
 
 ```{r}
 p <- ggplot(sipky, aes(Length, Width, color=Weight))
@@ -324,6 +346,30 @@ filter(sipky_sel, Length > 90)
 ```{r}
 sipky_90 <- filter(sipky_sel, Length < 90)
 head(arrange(sipky_90, desc(Length)),4)
+```
+
+Filter
+========================================
+You can also filter rows with specific value, e.g. here we filter all darts called "Darl"
+```{r}
+sipky_darl<-filter(sipky_sel, Name=="Darl")
+head(sipky_darl)
+```
+
+Task - filtering more than one value
+==========================================
+type: prompt
+incremental: true
+
+Create a dataframe with darts named "Darl" or "Ensor"
+
+```{r}
+vyber<-c("Darl","Ensor")
+darl_ensor<-filter(sipky_sel, Name==vyber)
+```
+
+```{r}
+summary(darl_ensor$Name)
 ```
 
 

@@ -81,7 +81,7 @@ cor(x, y = rnorm(100))
 ```
 
 ```
-[1] -0.1264563
+[1] 0.05927238
 ```
 
 
@@ -123,6 +123,39 @@ Guess the correlation game...
 <http://guessthecorrelation.com/>
 
 <!-- =============================================== -->
+
+Task - syntax elements
+========================================================
+type:prompt
+incremental: true
+<img src="./fig/fig_1.png" style='width:80%'>
+
+## Try to identify the syntax elements of the code above:
+- what is `ggplot2`?
+- what is the name of the dataset?
+- what is the name of the variable plotted on axis y?
+- how many variables are plotted here?
+- what is the type of the plot? (what is the type of geometry?)
+- is there any way how to change the size of the dots / points?
+
+Result
+===========================
+type: prompt
+
+
+```r
+library(ggplot2)
+p <- ggplot(mtcars, aes(mpg, wt, color=hp))
+p+geom_point(size=3)+
+  labs(title = "Porovnanie spotreby paliva s hmotnosťou vozidla",
+       x="počet prejdených míl na 1 galón bezínu",
+       y="hmotnosť",
+       color="výkon motora (v konských silách)")
+```
+
+![plot of chunk unnamed-chunk-9](seminar4-figure/unnamed-chunk-9-1.png)
+
+
 
 Plots for 2 continuous variables
 ========================================================
@@ -167,7 +200,7 @@ p <- ggplot(sipky, aes(Length))
 p + geom_histogram(binwidth=5)
 ```
 
-![plot of chunk unnamed-chunk-11](seminar4-figure/unnamed-chunk-11-1.png)
+![plot of chunk unnamed-chunk-12](seminar4-figure/unnamed-chunk-12-1.png)
 ***
 ## Width
 
@@ -176,29 +209,29 @@ p <- ggplot(sipky, aes(Width))
 p + geom_histogram(binwidth=5)
 ```
 
-![plot of chunk unnamed-chunk-12](seminar4-figure/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-13](seminar4-figure/unnamed-chunk-13-1.png)
 
-Correlation - 2 variables
+Plotting 2 variables
 ===============================================================
-Correlation between length and width
+Correlation between __length__ and __width__
 
 ```r
 p <- ggplot(sipky, aes(Length, Width))
 p + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-13](seminar4-figure/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-14](seminar4-figure/unnamed-chunk-14-1.png)
 
-Correlation - 3 variables
+Plotting 3 variables
 =================================================================
-Adding 3th variable (weight) and adjusting size
+Adding 3th variable (__weight__) and adjusting size of the dots
 
 ```r
 p <- ggplot(sipky, aes(Length, Width, color=Weight))
 p + geom_point(size=3)
 ```
 
-![plot of chunk unnamed-chunk-14](seminar4-figure/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-15](seminar4-figure/unnamed-chunk-15-1.png)
 
 Observing trend
 =======================================================
@@ -209,9 +242,9 @@ p + geom_point(size=3) +
   geom_smooth()
 ```
 
-![plot of chunk unnamed-chunk-15](seminar4-figure/unnamed-chunk-15-1.png)
+![plot of chunk unnamed-chunk-16](seminar4-figure/unnamed-chunk-16-1.png)
 
-Correlation - different models
+Different models
 =====================================
 `method = "loess"`
 
@@ -221,7 +254,7 @@ p + geom_point(size=3) +
   geom_smooth(method = "loess")
 ```
 
-![plot of chunk unnamed-chunk-16](seminar4-figure/unnamed-chunk-16-1.png)
+![plot of chunk unnamed-chunk-17](seminar4-figure/unnamed-chunk-17-1.png)
 
 ***
 `method = "lm"`
@@ -232,24 +265,12 @@ p + geom_point(size=3) +
   geom_smooth(method = "lm")
 ```
 
-![plot of chunk unnamed-chunk-17](seminar4-figure/unnamed-chunk-17-1.png)
-<!-- --------------------------------
-Correlation - logarithmic scale
-======================================================
-
-```r
-p <- ggplot(sipky, aes(Length, Width, color=Weight))
-p + geom_point(size=3) +
-  geom_smooth() +
-  scale_x_log10()+
-  scale_y_log10()
-```
-
 ![plot of chunk unnamed-chunk-18](seminar4-figure/unnamed-chunk-18-1.png)
------------------------------------------------>
+
 
 Small multiples - 4th variable
 ====================================================
+Grouping the darts by categorical variable __Name__
 
 
 ```r
@@ -570,6 +591,48 @@ head(arrange(sipky_90, desc(Length)),4)
 4     Travis 43-0112   69.0  20.9   11.4
 ```
 
+Filter
+========================================
+You can also filter rows with specific value, e.g. here we filter all darts called "Darl"
+
+```r
+sipky_darl<-filter(sipky_sel, Name=="Darl")
+head(sipky_darl)
+```
+
+```
+  Name Catalog Length Width Weight
+1 Darl 41-0322   42.8  15.8    3.6
+2 Darl 35-2946   40.5  17.4    4.5
+3 Darl 35-2921   37.5  16.3    3.6
+4 Darl 36-3487   40.3  16.1    4.0
+5 Darl 36-3321   30.6  17.1    2.3
+6 Darl 35-2959   41.8  16.8    3.0
+```
+
+Task - filtering more than one value
+==========================================
+type: prompt
+incremental: true
+
+Create a dataframe with darts named "Darl" or "Ensor"
+
+
+```r
+vyber<-c("Darl","Ensor")
+darl_ensor<-filter(sipky_sel, Name==vyber)
+```
+
+
+```r
+summary(darl_ensor$Name)
+```
+
+```
+      Darl      Ensor Pedernales     Travis      Wells 
+        14          5          0          0          0 
+```
+
 
 Summarise
 =======================================
@@ -719,7 +782,7 @@ p <- ggplot(sipky_group, aes(Name, dlzka_prum))
 p + geom_bar(stat="identity")
 ```
 
-![plot of chunk unnamed-chunk-35](seminar4-figure/unnamed-chunk-35-1.png)
+![plot of chunk unnamed-chunk-38](seminar4-figure/unnamed-chunk-38-1.png)
 
 Cleveland dotplot
 ========================================
@@ -729,7 +792,7 @@ p <- ggplot(sipky_group, aes(Name, dlzka_prum))
 p + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-36](seminar4-figure/unnamed-chunk-36-1.png)
+![plot of chunk unnamed-chunk-39](seminar4-figure/unnamed-chunk-39-1.png)
 
 
 
@@ -739,7 +802,7 @@ p + geom_point(size=3)+
   coord_flip()
 ```
 
-![plot of chunk unnamed-chunk-37](seminar4-figure/unnamed-chunk-37-1.png)
+![plot of chunk unnamed-chunk-40](seminar4-figure/unnamed-chunk-40-1.png)
 Adjusting dotplot
 ===============================================
 
@@ -749,7 +812,7 @@ p + geom_point(size=4)+
   coord_flip()
 ```
 
-![plot of chunk unnamed-chunk-38](seminar4-figure/unnamed-chunk-38-1.png)
+![plot of chunk unnamed-chunk-41](seminar4-figure/unnamed-chunk-41-1.png)
 
 Adding standart deviation
 ==================================================
@@ -763,7 +826,7 @@ p + geom_pointrange(aes(ymin = dlzka_prum - dlzka_sd, ymax = dlzka_prum + dlzka_
        title = "Pekný graf")
 ```
 
-![plot of chunk unnamed-chunk-39](seminar4-figure/unnamed-chunk-39-1.png)
+![plot of chunk unnamed-chunk-42](seminar4-figure/unnamed-chunk-42-1.png)
 
 Normal distribution
 ========================================================
@@ -801,7 +864,7 @@ Tree sigma
 Normal distribution in different plots
 ========================================================
 
-![plot of chunk unnamed-chunk-40](seminar4-figure/unnamed-chunk-40-1.png)
+![plot of chunk unnamed-chunk-43](seminar4-figure/unnamed-chunk-43-1.png)
 
 <!-- ----------------------------------------------------------------------- -->
 
@@ -809,11 +872,11 @@ Mean and median in normal distribution
 ========================================================
 left: 40%
 
-![plot of chunk unnamed-chunk-41](seminar4-figure/unnamed-chunk-41-1.png)
+![plot of chunk unnamed-chunk-44](seminar4-figure/unnamed-chunk-44-1.png)
 
 ***
 
-![plot of chunk unnamed-chunk-42](seminar4-figure/unnamed-chunk-42-1.png)
+![plot of chunk unnamed-chunk-45](seminar4-figure/unnamed-chunk-45-1.png)
 
 <!-- =============================================== -->
 
@@ -850,7 +913,7 @@ ggplot(nd, aes(x)) +
   geom_density()
 ```
 
-![plot of chunk unnamed-chunk-43](seminar4-figure/unnamed-chunk-43-1.png)
+![plot of chunk unnamed-chunk-46](seminar4-figure/unnamed-chunk-46-1.png)
 
 ***
 
@@ -860,7 +923,7 @@ ggplot(nd, aes(sample = x)) +
   geom_qq(alpha = 0.4)
 ```
 
-![plot of chunk unnamed-chunk-44](seminar4-figure/unnamed-chunk-44-1.png)
+![plot of chunk unnamed-chunk-47](seminar4-figure/unnamed-chunk-47-1.png)
 
 <!-- ----------------------------------------------------------------------- -->
 
@@ -884,7 +947,7 @@ shapiro.test(nd$x)
 	Shapiro-Wilk normality test
 
 data:  nd$x
-W = 0.99881, p-value = 0.7586
+W = 0.9986, p-value = 0.6185
 ```
 
 <!-- ----------------------------------------------------------------------- -->
