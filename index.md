@@ -101,7 +101,8 @@ understanding basic summaries of quantitative variables.
 - Plotting in `ggplot2`: plots for one variable.
 
 Script with code for the analysis of one continuous variable is
-[here](https://github.com/petrpajdla/stat4arch/blob/main/lectures/seminar3/plots_quantitative_vars.R).
+[here](https://github.com/petrpajdla/stat4arch/blob/main/lectures/seminar3/plots_quantitative_vars.R)
+and slides are [here](https://rpubs.com/knytt/stat4arch_2022-03-17).
 
 #### Assignment
 - Complete [this](https://rstudio.cloud/learn/primers/1.1) interactive course on
