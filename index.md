@@ -128,6 +128,7 @@ upon that and learn various ways of how to clean and manipulate data.
   chapter from *Data Visualization* book by K. J. Healy yet, do so now to review
   how to create plots with `ggplot2`.
 
+Slides are [here](https://rpubs.com/knytt/stat4arch_2022-03-31).
 
 --------------------------------------------------------------------------------
 
