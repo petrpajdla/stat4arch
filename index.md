@@ -218,7 +218,16 @@ where we get the data suitable to answer our questions...
 
 ### Report template
 
-RMarkdown template for the project report will be provided.
+RMarkdown template for the project report is [here](https://github.com/petrpajdla/stat4arch/blob/7e6d4d67b6e13a5208512951f92751287f22495e/project/project_template.Rmd).
+Create a new RMarkdown file (`.Rmd`), copy and paste the contents of the template
+in your file, do your changes, write your report and push the `Knit` button.
+Follow the instructions in the template to work on your project.
+
+### How to submit the report
+
+Feel free to contact us if you need any help or assistance during the work on
+your project. Simply send us both the source `.Rmd` file and the `HTML` output
+with your questions and we will address the problem either directly or in class.
 
 --------------------------------------------------------------------------------
 
