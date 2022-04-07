@@ -122,7 +122,7 @@ This lecture we will look back at what we learned so far and we will build
 upon that and learn various ways of how to clean and manipulate data.
 - Data manipulation with `dplyr` package.
 - Relationship of two variables: scatter plot and correlation.
-- Normal distribution
+- Normal distribution.
 
 #### Assignment
 - If you did not read [Make a plot](https://socviz.co/makeplot.html#makeplot)
@@ -141,7 +141,7 @@ regarding data and code management and how to use RMarkdown markup language to
 create documents combining text, code etc.
 - Intro on Reproducibility.
 - Using [RMarkdown](https://rmarkdown.rstudio.com/).
-- Intro on multivariate stats.
+- **Your data** for projects presentations.
 
 #### Assignment
 - Read [Get started](https://socviz.co/gettingstarted.html#gettingstarted) chapter
@@ -157,10 +157,12 @@ create documents combining text, code etc.
 
 --------------------------------------------------------------------------------
 
+
 <!--
 ### Seminar 6
 (28. 4. 2022)
 
+- Intro on multivariate stats.
 - Methods of dimensionality reduction (PCA).
 - Clustering (hierarchical, k-means)
 
