@@ -141,10 +141,7 @@ regarding data and code management and how to use RMarkdown markup language to
 create documents combining text, code etc.
 - Intro on Reproducibility.
 - Using [RMarkdown](https://rmarkdown.rstudio.com/).
-
-- We probably need to cover hypothesis testing, t-test etc. here.
 - Intro on multivariate stats.
-- Methods of dimensionality reduction (PCA).
 
 #### Assignment
 - Read [Get started](https://socviz.co/gettingstarted.html#gettingstarted) chapter
@@ -158,12 +155,13 @@ create documents combining text, code etc.
   Ben Marwick (see [resources](#resources) section).
 
 
-<!--
 --------------------------------------------------------------------------------
 
+<!--
 ### Seminar 6
 (28. 4. 2022)
 
+- Methods of dimensionality reduction (PCA).
 - Clustering (hierarchical, k-means)
 
 #### Assignment
