@@ -1,0 +1,133 @@
+---
+title: "Title of your project"
+author: "Put your name here"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is a template for a report on your project. 
+As you already know, we expect you to work on an analysis of 
+a data set of your choice and hand in a report similar to 
+this one. Delete the following examples as soon as you will 
+be sure what you are doing. 
+The suggested structure of a report is below.
+Delete anything you do not need, feel free to edit the document.
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+### Abstract
+
+Write a short and comprehensive abstract for your project 
+(one paragraph of text). 
+
+#### Keywords
+
+Include several relevant keywords.
+
+## Introduction
+
+Write what data set you are analyzing and why, what is your goal and so on (one paragraph).
+
+Also load all the packages you will be using in 
+your analysis here.
+
+```{r packages}
+# put your library calls in here
+library(ggplot2)
+```
+
+### Data
+
+Briefly introduce your data set. Where does it come from?
+What does it contain? 
+Load your data here and use any handy functions you learned to
+show what the variable names are, how big your data are,
+what data types does it contain etc.
+
+```{r data}
+# read your data set here
+# remember, this # is a comment (ctrl+shift+c)
+# data <- read.csv("")
+```
+
+Try to answer following questions using code:
+
+- How many variables are there?
+- How many rows does the data set have?
+- What are the names of the variables?
+- What data types are there in the data set?
+
+```{r structure}
+# str(data) and other functions you learned...
+```
+
+## Exploratory analysis
+
+### Qualitative variables
+
+Are there any qualitative variables in your data set?
+Choose at least one and answer these questions if possible:
+
+- How many values does your qualitative variable has?
+- Show the count of values of the chosen qualitative variable in a suitable plot.
+
+```{r bar-plot}
+#  show us some plots...
+# ggplot(data, aes(...)) +
+#   geom_bar()
+```
+
+### Quantitative variables
+
+Explore your quantitative variables.
+Plot the distribution of the variables.
+Show us a histogram or a density plot. 
+Try to compare the quantities in several groups using a box plot...
+
+Give us numeric summaries of the chosen quantitative variable:
+
+- What is the mean and standard deviation?
+- What is the median and IQR?
+
+How does the distribution of the quantitative variable look?
+Is it a normal distribution? Is it right/left-skewed? Is it multimodal?
+Try to prove these points with both the graphs and a hypothesis test.
+
+### Data transformation challenge
+
+Use at least **three** functions 
+(`filter`, `select`, `group_by`, `summarise`, `arrange`, `mutate`) 
+from the `dplyr` package to 
+transform your data and again show some summary statistics, plots and so on.
+Be creative!
+
+## Multivariate exploration
+
+> Will be added...
+
+
+
+
+
