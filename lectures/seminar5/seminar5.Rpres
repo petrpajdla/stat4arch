@@ -11,20 +11,135 @@ AES_707: *Statistics seminar for archaeologists*
 
 <!-- =============================================== -->
 
-Seminar 1
+Seminar 5
 ========================================================
 type: section
 
-`17. 2. 2022`
+`14. 4. 2022`
 
 Today:
 <ul style='color:white;'>
-  <li>Topic1
-  <li>Topic 2
-  <li>etc.
+  <li>Reproducibility
+  <li>Rmarkdown
+  <li>Your datasets
 </ul>
 
+```{r, include = FALSE}
+library(ggplot2)
+library(rmarkdown)
+library(here)
+library(knitr)
+library(archdata)
+here()
+```
 <!-- =============================================== -->
+
+RMarkdown
+=========================================================
+type: section
+
+Balíky / Packages
+========================================================
+```{r}
+install.packages("rmarkdown")
+library(rmarkdown)
+
+install.packages("knitr")
+library(knitr)
+
+```
+<!-- je potreba tam dávať ten knitr? --> 
+
+Rmarkdown - what is it?
+================================================
+
+<img src<img src="./fig/fig1.png" style='width:100%;'>
+
+
+Rmarkdown - what is it?
+================================================
+
+<img src="./fig/fig2.png" style='width:100%;'>
+
+
+
+Types of content
+======================================================
+- __YAML__ header separated by: `---` and bearing info about author, date, type of output,...
+
+<img src="./fig/fig6.png" style='width:30%;'>
+
+- __code "chunk"__ separated by: ` ```{r}` and ` ``` ` 
+
+<img src="./fig/fig7.png" style='width:30%;'>
+
+- __plain text__
+
+<img src="./fig/fig8.png" style='width:30%;'>
+
+<!-- nefunguje vyznačenie chunku --> 
+
+Chunks - place for your code
+========================================================
+key shortcut: `ctrl + left alt + i`
+
+## imput:
+<img src ="./fig/fig3.png" style='width:50%'>
+
+## output:
+```{r}
+a <- 10+5
+a
+```
+
+Chunks - options I.
+==================================================
+- deauflty, both code and result are shown in the result file. You can change this by adding options into the chunk -  `{r, <option>}`
+
+## Options (examples):
+- `echo = FALSE` 
+  - __result is shown__ but the __code is not shown__ in the result file
+  - suitable for e.g. codes of graphs, when you just want to show the graph,...
+
+- `include = FALSE`
+  - __neither result nor code are shown__ in result file
+  - suitable for e.g. loading packages, basic manipulation of the data,...
+
+Chunks - options II.
+====================================================
+- `fig.cap = "..."` adds caption to the graphics 
+
+- see the rest of the options at https://rmarkdown.rstudio.com/lesson-3.html
+
+Inline codes
+============================================================
+## input:
+<img src ="./fig/fig4.png" style='width:70%'>
+
+##  output:
+<img src ="./fig/fig5.png" style='width:70%'>
+
+Tables using `knitr::kable`
+=========================================
+```{r, include = FALSE}
+library(archdata)
+data("DartPoints")
+sipky <- data.frame(DartPoints)
+```
+
+
+```{r, results = 'asis'}
+library(knitr)
+kable(sipky[1:5,1:10], caption = "DartPoints dataset")
+```
+
+
+Markdown syntax
+=========================================
+- presented during live coding
+- see for https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf futher details
+
+
 
 Title
 ========================================================
