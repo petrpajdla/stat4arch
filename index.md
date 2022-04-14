@@ -124,12 +124,12 @@ upon that and learn various ways of how to clean and manipulate data.
 - Relationship of two variables: scatter plot and correlation.
 - Normal distribution.
 
+Slides are [here](https://rpubs.com/knytt/stat4arch_2022-03-31).
+
 #### Assignment
 - If you did not read [Make a plot](https://socviz.co/makeplot.html#makeplot)
   chapter from *Data Visualization* book by K. J. Healy yet, do so now to review
   how to create plots with `ggplot2`.
-
-Slides are [here](https://rpubs.com/knytt/stat4arch_2022-03-31).
 
 --------------------------------------------------------------------------------
 
@@ -142,6 +142,8 @@ create documents combining text, code etc.
 - Intro on Reproducibility.
 - Using [RMarkdown](https://rmarkdown.rstudio.com/).
 - **Your data** for projects presentations.
+
+Slides are [here](https://rpubs.com/knytt/stat4arch_2022-04-14).
 
 #### Assignment
 - Read [Get started](https://socviz.co/gettingstarted.html#gettingstarted) chapter
@@ -156,7 +158,6 @@ create documents combining text, code etc.
 
 
 --------------------------------------------------------------------------------
-
 
 <!--
 ### Seminar 6
@@ -339,6 +340,10 @@ the Potato People prohibits this.
   (citation management software).
 - [The Plain Person’s Guide to Plain Text Social Science](https://plain-text.co/)
   by Kieran Healy.
+
+### R as a GIS and spatial analysis
+
+- [Geocomputation with R](https://geocompr.robinlovelace.net/index.html) book by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow.
 
 ### Other links and tools
 - [Open-archaeo](https://open-archaeo.info/) is a list of open source archaeological
