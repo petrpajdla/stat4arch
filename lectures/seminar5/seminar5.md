@@ -28,6 +28,72 @@ Today:
 
 <!-- =============================================== -->
 
+Packages
+========================================================
+
+
+```r
+library(ggplot2)
+library(rmarkdown)
+library(here)
+library(knitr)
+library(archdata)
+library(dplyr)
+```
+
+
+Exercise
+========================================================
+type: prompt 
+
+# Playing with Binford's dataset
+<img src="./fig/fig_binford.png" style='width:30%;'>
+
+
+```r
+# install.packages("binford")
+library(binford)
+data(LRB)
+data(LRBkey)
+```
+
+
+Task 1 - observe the data
+==========================================================
+1. how many variables are in dataset `LRB`?
+2. how many observations?
+3. what is Binford's dataset `LRB` describing? In other words, what are it's observations / objects? 
+4. what is the purpose of `LRBkey` dataset?
+
+
+
+
+```r
+ncol(LRB)
+```
+
+```
+[1] 507
+```
+
+```r
+nrow(LRB)
+```
+
+```
+[1] 339
+```
+
+Task 2
+========================================================
+
+1. is the any corelation between mean size of a family (`famsz`) and a size of a single family dwelling (`sz1fam`)
+2. how does the size of dwellings (`sz1fam`) vary in different continents (`wldsec`)
+3. is there any diference in density of population (`density`) and the primary source of food (`subsp.1` - categorical!)
+
+
+Consider which type of plot (histogram, density, boxplot, scatterplot,...) will best help you answer the questions. For some questions, there are more possible plots.
+
 Reproducible research
 =========================================================
 type: section
