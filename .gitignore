@@ -42,6 +42,7 @@ vignettes/*.pdf
 
 # produced slides
 lectures/*/*.html
+project/project_template.html
 
 # data
 lectures/seminar2/data/
