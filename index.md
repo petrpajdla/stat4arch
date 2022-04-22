@@ -156,21 +156,24 @@ Slides are [here](https://rpubs.com/knytt/stat4arch_2022-04-14).
 - `[optional]` Have a look at articles on reproducibility in archaeology by
   Ben Marwick (see [resources](#resources) section).
 
+--------------------------------------------------------------------------------
+
+### Seminar 6
+(28. 4. 2022)
+
+Sixth session is aimed at introducing multivariate statistics, especially
+methods of dimensionality reduction and clustering.
+- Intro on multivariate stats.
+- Methods of dimensionality reduction (principal components analysis, PCA).
+- Clustering (hierarchical, k-means).
+
+#### Assignment
+- Go through chapters 12 (PCA) and 14 to 15 (Distances and Clustering) in the
+  *Quantitative Methods in Archaeology Using R* book by D. L. Carlson.
 
 --------------------------------------------------------------------------------
 
 <!--
-### Seminar 6
-(28. 4. 2022)
-
-- Intro on multivariate stats.
-- Methods of dimensionality reduction (PCA).
-- Clustering (hierarchical, k-means)
-
-#### Assignment
-
---------------------------------------------------------------------------------
-
 ### Seminar 7
 (12. 5. 2022)
 
