@@ -28,25 +28,12 @@ Today:
 
 <!-- =============================================== -->
 
-Packages
-========================================================
-
-
-```r
-library(ggplot2)
-library(rmarkdown)
-library(here)
-library(knitr)
-library(archdata)
-library(dplyr)
-```
-
-
 Exercise
 ========================================================
 type: prompt 
 
-# Playing with Binford's dataset
+## Binford's dataset
+
 <img src="./fig/fig_binford.png" style='width:30%;'>
 
 
@@ -58,41 +45,20 @@ data(LRBkey)
 ```
 
 
-Task 1 - observe the data
+Explore the data
 ==========================================================
-1. how many variables are in dataset `LRB`?
-2. how many observations?
-3. what is Binford's dataset `LRB` describing? In other words, what are it's observations / objects? 
-4. what is the purpose of `LRBkey` dataset?
 
+1. How many **variables** are in dataset `LRB`?
+2. How many **observations**?
+3. What is Binford's data set `LRB` describing? In other words, what are the **observations** and **variables**? 
+4. What is the **purpose** of `LRBkey` data set?
+1. Is the any **correlation** between mean size of a family (`famsz`) and a size of a single family dwelling (`sz1fam`)?  
+   **Hint:** in the `cor()` function, use only complete observations (argument `use = "complete.obs"`)
+2. How does the **size of dwellings** (`sz1fam`) vary in different continents (`wldsec`)?
+3. Is there any **difference in the density of population** (`density`) and the primary source of food (`subsp.1`)?
 
+Consider which type of plot (histogram, density, boxplot, scatterplot) will best help you answer the questions. For some questions, there are more possible options.
 
-
-```r
-ncol(LRB)
-```
-
-```
-[1] 507
-```
-
-```r
-nrow(LRB)
-```
-
-```
-[1] 339
-```
-
-Task 2
-========================================================
-
-1. is the any corelation between mean size of a family (`famsz`) and a size of a single family dwelling (`sz1fam`)
-2. how does the size of dwellings (`sz1fam`) vary in different continents (`wldsec`)
-3. is there any diference in density of population (`density`) and the primary source of food (`subsp.1` - categorical!)
-
-
-Consider which type of plot (histogram, density, boxplot, scatterplot,...) will best help you answer the questions. For some questions, there are more possible plots.
 
 Reproducible research
 =========================================================
@@ -168,10 +134,10 @@ Packages
 ========================================================
 
 ```r
-install.packages("rmarkdown")
-library(rmarkdown)
+# install.packages("rmarkdown")
+# install.packages("knitr")
 
-install.packages("knitr")
+library(rmarkdown)
 library(knitr)
 ```
 <!-- je potreba tam dávať ten knitr? --> 
@@ -179,13 +145,13 @@ library(knitr)
 Rmarkdown - what is it?
 ================================================
 
-<img src="./fig/fig1.png" style='width:100%;'>
+<img src="./fig/fig1.png" style='width:90%;'>
 
 
 Rmarkdown - what is it?
 ================================================
 
-<img src="./fig/fig2.png" style='width:100%;'>
+<img src="./fig/fig2.png" style='width:90%;'>
 
 
 Types of content
@@ -236,7 +202,7 @@ a
 [1] 15
 ```
 
-Chunks - options I.
+Code chunks - options I.
 ==================================================
 - by default, both code and result are shown in the result file. You can change this by adding options into the chunk -  `{r, <option>}`
 
@@ -249,7 +215,7 @@ Chunks - options I.
   - **neither result nor code are shown** in result file
   - suitable for e.g. loading packages, basic manipulation of the data,...
 
-Chunks - options II.
+Code chunks - options II.
 ====================================================
 - `fig.cap = "..."` adds caption to the graphics 
 
