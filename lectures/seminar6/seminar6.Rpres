@@ -66,6 +66,7 @@ The curse of higher dimensions
 ========================================================
 title: false
 left: 60%
+incremental: true
 
 <img src="fig/curse.png" style="width:100%; box-shadow:none;">
 
@@ -88,6 +89,7 @@ Principal components analysis
 
 - First principal component is a direction that maximizes the 
 variance of the projected data.
+- Second PC is orthogonal to the previous one.
 
 <img src='fig/pca.png' style="width:100%; box-shadow:none;">
 
@@ -96,20 +98,24 @@ variance of the projected data.
 PCA I: Data
 ========================================================
 left: 60%
+incremental: true
 
 ### Data preparation
 - Works with numeric data only.
 - Format the input as a **matrix**...
 
 ```{r pca1}
-# load data set
 data("DartPoints", package = "archdata")
+```
+```{r pca1-1}
 dp <- DartPoints %>% 
   select(Length, Width) %>% # select columns
   as.matrix() # format as a matrix
+```
+```{r pca1-2}
 # set row names with IDs
 rownames(dp) <- DartPoints$Catalog
-head(dp)
+head(dp, 4)
 ```
 
 ***
@@ -124,6 +130,7 @@ plot(dp)
 PCA II
 ========================================================
 left: 60%
+incremental: true
 
 ### Do the PCA
 
@@ -162,6 +169,7 @@ ggbiplot::ggbiplot(dp_pca)
 
 PCA IV: The details
 ========================================================
+incremental: true
 
 ```{r pca7}
 # structure of the prcomp object
@@ -228,13 +236,18 @@ dp_pca_x %>%
 
 Clustering
 ========================================================
-type: section
+type: sub-section
+
+***
+
+<img src="fig/clustering.jpeg" style="width:60%;">
 
 <!-- ----------------------------------------------- -->
 
 Clustering
 ========================================================
 left: 76%
+incremental: true
 
 - Broad set of techniques for finding **subgroups**.
 - Observations **within groups are quite similar to each other** and observations **in different groups quite different from each other**.
@@ -242,7 +255,7 @@ left: 76%
 ### Clustering methods
 
 - Partitioning: **k-means clustering**
-- Agglomerative: **herarchical clustering**
+- Agglomerative/divisive: **herarchical clustering**
 - Model-based: mixture models
 
 ***
@@ -255,6 +268,10 @@ left: 76%
 K-means partitioning
 ========================================================
 type: sub-section
+
+***
+
+<img src="fig/kebab_kiosks.jpg">
 
 <!-- ----------------------------------------------- -->
 
@@ -274,6 +291,7 @@ K-means algorithm
 ========================================================
 left: 42%
 title: false
+incremental: true
 
 ## K-means algorithm
 
@@ -285,7 +303,7 @@ title: false
 2. For each of *K* clusters, derive its **centroid** (midpoint);
 3. **Reassign** each observation into a cluster whose centroid is 
 the **closest**;
-4. Iterate until stability in cluster assignments is reached (*local optima*).
+4. Iterate until stability in cluster assignments is reached (*local vs global optima*).
 
 ***
 
@@ -297,24 +315,36 @@ the **closest**;
 Some properties of k-means
 ========================================================
 
-- The need to determine the **number of clusters** beforehand.
+- Standard algorithm for k-means clustering is using 
+  **Euclidean distance**.
 - Different **local optima** (stability) can be reached.
 
 <img src="fig/kmeans_optima.png" style="box-shadow:none;">
+
+***
+
+- **Number of clusters** *K* must be specified beforehand.
+    - Elbow method;
+    - Silhouette method etc.
+    
+<img src="fig/elbow.png" style="width:50%;">
 
 <!-- ----------------------------------------------- -->
 
 K-means I: Data
 ========================================================
+incremental: true
 
 ```{r km1}
-# load data
 data(Fibulae, package = "archdata")
+```
+```{r km1-1}
 # create matrix
 fib <- Fibulae %>% 
   select(
     tot.len = Length, 
-    bow.hei = BH
+    bow.hei = BH,
+    foot.len = FL
   ) %>% 
   as.matrix()
 head(fib)
@@ -328,10 +358,14 @@ plot(fib)
 
 K-means II: Reduce dimensions (PCA)
 ========================================================
+incremental: true
+left: 60%
 
 ```{r km3}
 # scale + PCA
 fib_pca <- prcomp(scale(fib))
+```
+```{r km3-1}
 # summary of a PCA
 summary(fib_pca)
 ```
@@ -344,23 +378,37 @@ plot(fib_pca$x)
 
 <!-- ----------------------------------------------- -->
 
-K-means III
+K-means III: Find optimal K
 ========================================================
 
+- Package `factoextra`.
+
+```{r km5-0, fig.width=12}
+factoextra::fviz_nbclust(fib_pca$x, kmeans)
+```
+
+K-means IV
+========================================================
+incremental: true
+
 ```{r km5}
-fib_km <- kmeans(fib_pca$x, centers = 3)
+fib_km <- kmeans(fib_pca$x, centers = 2)
 fib_km
 ```
 
 <!-- ----------------------------------------------- -->
 
-K-means IV:
+K-means V
 ========================================================
+incremental: true
+left: 60%
 
 ```{r km6}
 # cluster assignment
 fib_km$cluster
+```
 
+```{r km6-1}
 # create a data frame with clusters
 fib_df <- fib_pca$x %>% 
   as.data.frame() %>% 
@@ -383,23 +431,23 @@ fib_df %>%
 
 <!-- ----------------------------------------------- -->
 
-K-means IV:
+K-means VI
 ========================================================
 title: false
 
 ```{r eval=FALSE, echo=FALSE}
-# centers <- as_tibble(fib_km$centers, rownames = "clust")
-# 
-# fib_df %>% 
-#   ggplot(
-#     aes(PC1, PC2, 
-#         color = factor(clust))) +
-#   geom_point(size = 4) +
-#   theme_minimal() +
-#   geom_point(data = centers, size = 4, shape = 4) +
-#   labs(color = "cluster")
-# 
-# ggsave(here::here("lectures/seminar6/fig/kmeans_out.png"))
+centers <- as_tibble(fib_km$centers, rownames = "clust")
+
+fib_df %>%
+  ggplot(
+    aes(PC1, PC2,
+        color = factor(clust))) +
+  geom_point(size = 4) +
+  theme_minimal() +
+  geom_point(data = centers, size = 4, shape = 4) +
+  labs(color = "cluster")
+
+ggsave(here::here("lectures/seminar6/fig/kmeans_out.png"))
 ```
 
 <img src="fig/kmeans_out.png">
@@ -412,6 +460,289 @@ type: sub-section
 
 <!-- ----------------------------------------------- -->
 
-<!-- ----------------------------------------------- -->
+Hierarchical clustering
+========================================================
+incremental: true
+
+- The number of clusters is not specified beforehand.
+- Output is a **dendrogram** - a hierarchical structure 
+  visualizing the cluster growth.
+  
+- Starts with a distance matrix.
+
+### Agglomerative algorithm:
+1. Put each object in its own cluster;
+2. Join the clusters that are the closest;
+3. Iterate until a single cluster encompassing all objects is reached.
+
+***
+
+#### Agglomerative:
+- Builds the hierarchy of clusters from **bottom-up** until
+  a single cluster is reached.
+
+#### Divisive:
+- Divides a single large cluster into individual objects (**top-down**).
+  
+  
+<img src="fig/hierarchical_clust2.png" style="width:80%;">
 
 <!-- ----------------------------------------------- -->
+
+Hierarchical clustering algorithms
+========================================================
+title: false
+
+<img src="fig/hierarchical_algorithm.png" style="width:90%; box-sahdow:none;">
+
+<!-- ----------------------------------------------- -->
+
+Hierarchical clustering I: Data
+========================================================
+left: 40%
+incremental: true
+
+```{r hclust1}
+# data set same as in k-means
+head(fib)
+```
+```{r hclust2}
+# create distance matrix
+fib_dist <- dist(fib) 
+class(fib_dist)
+```
+
+***
+
+```{r hclust3}
+as.matrix(fib_dist)[1:6, 1:4]
+```
+
+- Matrix with *n* rows and *n* columns.
+- Pair-wise distances between the objects.
+- Notice the 0 on diagonal, ie. distance to itself is 0.
+
+<!-- ----------------------------------------------- -->
+
+Hierarchical clustering II: Dendrogram
+========================================================
+
+```{r hclust4}
+fib_hclust <- hclust(fib_dist)
+fib_hclust
+```
+
+***
+
+```{r hclust5, fig.width=10}
+plot(fib_hclust)
+```
+
+<!-- ----------------------------------------------- -->
+
+Hierarchical clustering III: Clusters
+========================================================
+incremental: true
+
+- Different options where to *cut* the dendrogram...
+
+```{r hclust6, echo=FALSE, fig.width=10}
+plot(fib_hclust)
+abline(h = 45, col = "red", add = TRUE)
+abline(h = 80, col = "green", add = TRUE)
+abline(h = 35, col = "blue", add = TRUE) 
+```
+
+***
+
+- `cutree(x, k, h)` function:
+  - specify **k** - number of cluster;
+  - specify **h** - height where to cut.
+
+```{r hclust7}
+h35 <- cutree(fib_hclust, h = 35)
+h35
+```
+
+```{r hclust8}
+k3 <- cutree(fib_hclust, k = 3)
+k3
+```
+
+<!-- ----------------------------------------------- -->
+
+Hierarchical clustering IV
+========================================================
+
+```{r hclust9, fig.width=10}
+plot(fib, col = h35)
+```
+
+***
+
+```{r hclust10, fig.width=10}
+plot(fib, col = k3)
+```
+
+<!-- ----------------------------------------------- -->
+
+Cluster linkage methods I
+========================================================
+
+```{r link0, echo=FALSE}
+plot_linkage <- function(m) {
+  plot(hclust(fib_dist, method = m))
+}
+
+```
+
+
+### Complete (maximum) linkage
+- Largest distance between clusters.
+- `method = "complete"`
+
+```{r link1, echo=FALSE}
+plot_linkage("complete")
+```
+
+***
+
+### Single (minimum) linkage
+- Smallest distance between clusters.
+- `method = "single"`
+
+```{r link2, echo=FALSE}
+plot_linkage("single")
+```
+
+<!-- ----------------------------------------------- -->
+
+Cluster linkage methods II
+========================================================
+
+### Mean (average) linkage
+- Mean distance between clusters.
+- `method = "average"`
+
+```{r link3, echo=FALSE}
+plot_linkage("average")
+```
+
+***
+
+### Wards method
+- Minimizes total within cluster variance.
+- `method = "ward.D2"`
+
+```{r link4, echo=FALSE}
+plot_linkage("ward.D2")
+```
+
+<!-- ----------------------------------------------- -->
+
+Differences
+========================================================
+title: false
+type: prompt
+
+## K-means partitioning
+
+- Pre-specified number of clusters.
+- Clusters may vary (different *local optima*).
+- Best when groups in data are *hyper*-spheres.
+
+<img src="fig/kmeans.jpeg">  
+
+***
+
+## Hierarchical clustering
+
+- Variable cluster numbers.
+- Clusters are stable.
+- Any shape of data distribution.
+
+<img src="fig/hierarchical_clust.png" style="width:60%;">
+
+<!-- ----------------------------------------------- -->
+
+Comparison of k-means vs hclust for k = 2
+========================================================
+type: prompt
+
+```{r echo=FALSE}
+clust_for_k <- function(k) {
+  fib %>% 
+  as.data.frame() %>% 
+  bind_cols(km = kmeans(fib, k)$cluster,
+            hc = cutree(fib_hclust, k))
+}
+```
+
+### K-means clustering
+```{r echo=FALSE, fig.width=10}
+clust_for_k(2) %>% 
+  ggplot(aes(tot.len, bow.hei, color = factor(km))) +
+  geom_point(size = 6) +
+  theme_minimal()
+```
+
+***
+
+### Hierarchical clustering
+```{r echo=FALSE, fig.width=10}
+clust_for_k(2) %>% 
+  ggplot(aes(tot.len, bow.hei, color = factor(hc))) +
+  geom_point(size = 6) +
+  theme_minimal()
+```
+
+<!-- ----------------------------------------------- -->
+
+Comparison of k-means vs hclust for k = 3
+========================================================
+type: prompt
+
+### K-means clustering
+```{r echo=FALSE, fig.width=10}
+clust_for_k(3) %>% 
+  ggplot(aes(tot.len, bow.hei, color = factor(km))) +
+  geom_point(size = 6) +
+  theme_minimal()
+```
+
+***
+
+### Hierarchical clustering
+```{r echo=FALSE, fig.width=10}
+clust_for_k(3) %>% 
+  ggplot(aes(tot.len, bow.hei, color = factor(hc))) +
+  geom_point(size = 6) +
+  theme_minimal()
+```
+
+<!-- ----------------------------------------------- -->
+
+Comparison of k-means vs hclust for k = 4
+========================================================
+type: prompt
+
+### K-means clustering
+```{r echo=FALSE, fig.width=10}
+clust_for_k(4) %>% 
+  ggplot(aes(tot.len, bow.hei, color = factor(km))) +
+  geom_point(size = 6) +
+  theme_minimal()
+```
+
+***
+
+### Hierarchical clustering
+```{r echo=FALSE, fig.width=10}
+clust_for_k(4) %>% 
+  ggplot(aes(tot.len, bow.hei, color = factor(hc))) +
+  geom_point(size = 6) +
+  theme_minimal()
+```
+
+<!-- ----------------------------------------------- -->
+
