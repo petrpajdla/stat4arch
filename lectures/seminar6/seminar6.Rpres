@@ -32,6 +32,46 @@ library(ggplot2)
 
 <!-- =============================================== -->
 
+But first...an exercise!
+==========================================================
+type: section
+Imagine you have radiocarbon data from the whole Czech republic and you want to know from which regions are most of the neolithic data comming. In other words, which districts have most neolithic dates.
+
+<img src="./fig/map_14C.png", style='width:60%;'>
+
+Instructions I.
+========================================================
+
+1. Download dataset `Lasoles_14C_database.csv` from ZENODO depositary (https://doi.org/10.5281/zenodo.5728242) 
+2. Open the dataset in Rstudio (`read.csv`)
+3. Observe the dataset. Find out how many observations and variables the dataset has
+4. Try to identify the variable which represents uncalibrated radiocarbon dates
+
+## Hints:
+- you can find describtion of the dataset and variables in the article bellow:
+
+> "Tkáč, P. and Kolář, J., 2021. Towards New Demography Proxies and Regional Chronologies: Radiocarbon Dates from Archaeological Contexts Located in the Czech Republic Covering the Period Between 10,000 BC and AD 1250. Journal of Open Archaeology Data, 9, p.9. DOI: http://doi.org/10.5334/joad.85
+
+- usefull functions: `here::here()`, `ncol`, `nrow`, `head()`, `str()`
+
+Instructions II.
+=============================================================
+3. With the help of the `dplyr` package, filter data from the Neolithic period and then count number of observation per district. Put the districts in order, from highest to lowest number of the observations. 
+
+## Hints:
+- with the use of `str()` check the __numeric variables__ in your dataframe. If they are a __factor__, you have to change it to numeric by:
+
+`
+dataframe$variable <- as.numeric(as.character(dataframe$variable))
+`
+
+- in this exercise, __Neolithic__ is defined as a period between __6500__ and __5500__ of uncalibred radiocarbon dates
+- useful functions: `here::here()`, `names()`, `str()`, `head()`, `filter()`, `summarise()`, ` %>%`, `arrange()`, `group_by()`
+
+## Additional task:
+- select three districts with the most of the dates and compare how their numbers differ in activity areas (variable: `Activity_CZ`). In other words, is there any difference between number of dates coming from graveyards (`poh`) and from settlements (`sid`)? 
+
+
 Multivariate data & methods
 ========================================================
 type: section
