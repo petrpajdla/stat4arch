@@ -167,6 +167,8 @@ methods of dimensionality reduction and clustering.
 - Methods of dimensionality reduction (principal components analysis, PCA).
 - Clustering (hierarchical, k-means).
 
+Slides are [here](https://rpubs.com/knytt/stat4arch_2022-04-28).
+
 #### Assignment
 - Go through chapters 12 (PCA) and 14 to 15 (Distances and Clustering) in the
   *Quantitative Methods in Archaeology Using R* book by D. L. Carlson.
