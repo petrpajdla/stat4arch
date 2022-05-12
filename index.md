@@ -25,6 +25,7 @@ There are four assessment dates:
 - **16th June**,
 - **30th June**,
 - 8th September - corrections only!
+
 By the given date, please send us your project report.
 We will go through the reports and either **return it to you with notes** what to
 correct etc. or find it good enough to pass the course.
