@@ -18,6 +18,18 @@ The course was taught also in 2020.
 - You will work on a [project](#project) of your own to complete the
   course.
 
+### Information on assessment
+To pass the course, you have to finish and submit a report on your [project](#project).
+There are four assessment dates:
+- **2nd June**,
+- **16th June**,
+- **30th June**,
+- 8th September - corrections only!
+By the given date, please send us your project report.
+We will go through the reports and either **return it to you with notes** what to
+correct etc. or find it good enough to pass the course.
+If you need any help, please let us know in advance!
+
 --------------------------------------------------------------------------------
 
 ## Syllabus
@@ -175,16 +187,16 @@ Slides are [here](https://rpubs.com/knytt/stat4arch_2022-04-28).
 
 --------------------------------------------------------------------------------
 
-<!--
 ### Seminar 7
 (12. 5. 2022)
 
-Advanced topics?
-
-#### Assignment
+The last session is dedicated to any questions you might have (Q&A) and to
+cover any topics you requested during the course and we did not manage to
+include them yet.
+- Measuring distances and similarity with different kinds of data.
+- Visualizing distances/similarity (heat maps).
 
 --------------------------------------------------------------------------------
--->
 
 ## Project
 
@@ -234,7 +246,7 @@ Follow the instructions in the template to work on your project.
 ### How to submit the report
 
 Feel free to contact us if you need any help or assistance during the work on
-your project. Simply send us both the source `.Rmd` file and the `HTML` output
+your project. Simply send us both the source `Rmd` file and the `HTML` output
 with your questions and we will address the problem either directly or in class.
 
 --------------------------------------------------------------------------------
