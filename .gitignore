@@ -53,3 +53,4 @@ lectures/seminar*/seminar*-figure/
 
 # backups
 *.bckp
+/.quarto/

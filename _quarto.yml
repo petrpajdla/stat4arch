@@ -1,0 +1,39 @@
+project:
+  type: website
+
+website:
+  title: "stat4arch"
+  navbar:
+    background: "#8D81FD"
+    foreground: "#F2F3F4"
+    left:
+      - href: index.qmd
+        text: "Course overview"
+        icon: house-heart
+      - href: schedule.qmd
+        text: "Schedule"
+        icon: calendar4
+      - text: "Lectures"
+        icon: book
+      - href: project.qmd
+        text: "Project"
+        icon: file-earmark-code
+      - href: resources.qmd
+        text: "Resources"
+        icon: gear
+  page-footer: 
+    left: 
+       - href: https://quarto.org/
+         text: "Build with quarto."
+    right: 
+       - icon: github
+         href: https://github.com/petrpajdla/stat4arch/
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+
+
+
