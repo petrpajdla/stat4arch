@@ -1,0 +1,324 @@
+[
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Each Wednesday 12:00 – 13:40 in L11, except 17. 4. (?), 1. 5. and 8. 5. (holidays).\n\n\n\n\n\n\n\n\n\n\nLecture\nDate\nTopics\nAssignments\n\n\n\n\n1.\n21. 2.\nIntroduction, Tidy data\n–\n\n\n2.\n28. 2.\n\n\n\n\n3.\n6. 3.\n\n\n\n\n4.\n13. 3.\n\n\n\n\n5.\n20. 3.\n\n\n\n\n6.\n27. 3.\n\n\n\n\n7.\n3. 4.\n\n\n\n\n8.\n10. 4.\n\n\n\n\n9.\n24. 4.\n\n\n\n\n10.\n15. 5.\n\n\n\n\n11.\n22. 5."
+  },
+  {
+    "objectID": "lectures/seminar3/seminar3.html",
+    "href": "lectures/seminar3/seminar3.html",
+    "title": "stat4arch",
+    "section": "",
+    "text": "author: Petr Pajdla & Peter Tkáč autosize: true width: 1920 height: 1080\nAES_707: Statistics seminar for archaeologists"
+  },
+  {
+    "objectID": "lectures/seminar3/seminar3.html#today",
+    "href": "lectures/seminar3/seminar3.html#today",
+    "title": "stat4arch",
+    "section": "Today:",
+    "text": "Today:\n\n\nData visualization, plots for one variable.\n\nDescriptive stats.\n\nData manipulation basics (base R and dplyr package).\n\nPlotting in ggplot2."
+  },
+  {
+    "objectID": "lectures/seminar3/seminar3.html#syntax",
+    "href": "lectures/seminar3/seminar3.html#syntax",
+    "title": "stat4arch",
+    "section": "Syntax",
+    "text": "Syntax\n&lt;img src=“./fig/ggplot_syntax.png”, style=‘width:100%;’&gt;"
+  },
+  {
+    "objectID": "lectures/seminar3/seminar3.html#otázky",
+    "href": "lectures/seminar3/seminar3.html#otázky",
+    "title": "stat4arch",
+    "section": "Otázky",
+    "text": "Otázky\n\naký je pomer mužských a ženských hrobov?\naké je zastúpenie vekových kategórií medzi pohlaviami?\nlíšila sa prítommosť milodarov (1) v závislosti na pohlaví alebo (2) v závislosti na veku?\naké sú rozdiely medzi skupinami?"
+  },
+  {
+    "objectID": "lectures/seminar3/seminar3.html#absolútne-čísla",
+    "href": "lectures/seminar3/seminar3.html#absolútne-čísla",
+    "title": "stat4arch",
+    "section": "Absolútne čísla",
+    "text": "Absolútne čísla\np &lt;- ggplot(hroby, aes(x = Age, fill = Goods))\np + geom_bar()"
+  },
+  {
+    "objectID": "lectures/seminar3/seminar3.html#relatívny-pomer",
+    "href": "lectures/seminar3/seminar3.html#relatívny-pomer",
+    "title": "stat4arch",
+    "section": "Relatívny pomer",
+    "text": "Relatívny pomer\ngeom_bar(position = \"fill\")\np &lt;- ggplot(hroby, aes(x = Age, fill = Goods))\np + geom_bar(position = \"fill\")\n\n\n\nplot of chunk unnamed-chunk-33"
+  },
+  {
+    "objectID": "lectures/seminar3/seminar3.html#where-to-look-for-data-sets",
+    "href": "lectures/seminar3/seminar3.html#where-to-look-for-data-sets",
+    "title": "stat4arch",
+    "section": "Where to look for data sets?",
+    "text": "Where to look for data sets?\n\nJournal of Open Archaeology Data\nhttps://openarchaeologydata.metajnl.com/\nBook Qunatitative Methods in Archaeology Using R by D. L. Carlson and associated R package archdata\n\nlibrary(archdata)\n?archdata # list of data sets in the package"
+  },
+  {
+    "objectID": "lectures/template/template.html",
+    "href": "lectures/template/template.html",
+    "title": "stat4arch",
+    "section": "",
+    "text": "stat4arch\nauthor: Petr Pajdla & Peter Tkáč autosize: true width: 1920 height: 1080\nAES_707: Statistics seminar for archaeologists\n\n\n\n\nSeminar 1\ntype: section\n17. 2. 2022\nToday:\n\n\nTopic1\n\nTopic 2\n\netc.\n\n\n\n\nTitle\nFirst column.\n\nSecond column.\n\n\n\nSome basics\n\nTwo spaces at the end of the line break the line.\nHTML can be used to achieve practically anything.\n\n&lt;!-- comment --&gt;\n*italics*\n**bold**\n# Header 1 to #### Header 4\n![alt  text](fix/path) - inserts figure\n&lt;url link&gt; or (alt text)[url link]\n`single line/word code`\n\n\n\nSection slide\ntype: section\n\n\n\nPrompt slide\ntype: prompt\n\n\n\nAlert slide\ntype: alert"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html",
+    "href": "lectures/seminar4/seminar4.html",
+    "title": "stat4arch",
+    "section": "",
+    "text": "author: Petr Pajdla & Peter Tkáč autosize: true width: 1920 height: 1080\nAES_707: Statistics seminar for archaeologists"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html#try-to-identify-the-syntax-elements-of-the-code-above",
+    "href": "lectures/seminar4/seminar4.html#try-to-identify-the-syntax-elements-of-the-code-above",
+    "title": "stat4arch",
+    "section": "Try to identify the syntax elements of the code above:",
+    "text": "Try to identify the syntax elements of the code above:\n\nwhat is ggplot2?\nwhat is the name of the dataset?\nwhat is the name of the variable plotted on axis y?\nhow many variables are plotted here?\nwhat is the type of the plot? (what is the type of geometry?)\nis there any way how to change the size of the dots / points?"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html#packages",
+    "href": "lectures/seminar4/seminar4.html#packages",
+    "title": "stat4arch",
+    "section": "Packages",
+    "text": "Packages\nlibrary(archdata)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html#data",
+    "href": "lectures/seminar4/seminar4.html#data",
+    "title": "stat4arch",
+    "section": "Data",
+    "text": "Data\ndata(DartPoints)\nsipky &lt;- data.frame(DartPoints)\nhead(sipky,4)\n  Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n1 Darl 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6\n2 Darl 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9\n3 Darl 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2\n4 Darl 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3\n  Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    3.6        S       I         S         T       S       E\n2    4.5        S       I         S         T       S       E\n3    3.6        S       I         S         T       S       E\n4    4.0        S       I         S         T       S       E"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html#length",
+    "href": "lectures/seminar4/seminar4.html#length",
+    "title": "stat4arch",
+    "section": "Length",
+    "text": "Length\np &lt;- ggplot(sipky, aes(Length))\np + geom_histogram(binwidth=5)\n *** ## Width\np &lt;- ggplot(sipky, aes(Width))\np + geom_histogram(binwidth=5)\n\n\n\nplot of chunk unnamed-chunk-13"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html#package",
+    "href": "lectures/seminar4/seminar4.html#package",
+    "title": "stat4arch",
+    "section": "Package",
+    "text": "Package\n\ndplyr"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html#functions",
+    "href": "lectures/seminar4/seminar4.html#functions",
+    "title": "stat4arch",
+    "section": "Functions",
+    "text": "Functions\n\nselect\narrange\nfilter\nsummarise\n%&gt;%\nmutate"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html#visual-aids",
+    "href": "lectures/seminar4/seminar4.html#visual-aids",
+    "title": "stat4arch",
+    "section": "Visual aids",
+    "text": "Visual aids\n\nDensity plot\nQ-Q plot (quantile-quantile plot)\nqqnorm(x) nebo\nggplot(data, aes(sample = x)) + geom_qq()"
+  },
+  {
+    "objectID": "lectures/seminar4/seminar4.html#statistical-hypothesis-test",
+    "href": "lectures/seminar4/seminar4.html#statistical-hypothesis-test",
+    "title": "stat4arch",
+    "section": "Statistical hypothesis test",
+    "text": "Statistical hypothesis test\n\nShapiro-Wilk test\nshapiro.test()\nKolmogorov-Smirnov normality test"
+  },
+  {
+    "objectID": "lectures/seminar2/seminar2.html",
+    "href": "lectures/seminar2/seminar2.html",
+    "title": "stat4arch",
+    "section": "",
+    "text": "stat4arch\nauthor: Petr Pajdla & Peter Tkáč autosize: true width: 1920 height: 1080\nAES_707: Statistics seminar for archaeologists\n\n\n\n\nSeminar 2\ntype: section\n3. 3. 2022\nToday:\n\n\nR data types.\n\nR objects and subsetting.\n\nPackages in R.\n\nHow to organize your projects.\n\nReading data into R.\n\n\n\n\n\nR basics\ntype: section\n\n\n\nFunctions and objects\nincremental: false class: small-code\n\nFunction\n\nEnds with parentheses.\nfunction-name(args...)\nArguments go in the parentheses.\nDoes something.\n\nsqrt(x = 1764)\n[1] 42\n\nAgruments of a function:\n\nargs(sqrt)\nfunction (x) \nNULL\n\nGetting help on functions:\n\nhelp(sqrt)\n?sqrt\n\n\n\nObject\n\nAnything is an object.\nContains data.\n\npi\n[1] 3.141593\npi + 1\n[1] 4.141593\n\nCreate object by assigning data to it\n\nobject_name &lt;- 1\n\n&lt;- is an assignment operator\nUse Alt + - shortcut in RStudio\n\n\n\n\n\nObjects\nincremental: false class: small-code\nobject1 &lt;- 1\nobject1\n[1] 1\nobject1 + 1\n[1] 2\nobject2 &lt;- object1 / 2\nobject2\n[1] 0.5\nobject1 &lt;- object1 + object2\nobject1\n[1] 1.5\n\n\nR is case sensitive.\nBe consistent in naming things:\n\nsnake-case: my_first_object,\ncamel-case: myFirstObject.\n\nObject names must not start with:\n\nnumbers,\nspecial characters.\n\nDo not overwrite things that already exist in R.\nChoose sensible names for objects.\n\nS1 &lt;- pi * 4^2 # for r = 4\npi &lt;- 10\nS2 &lt;- pi * 4^2\nS1 == S2\n[1] FALSE\n\n\n\nPackages\ntype: sub-section\n\n\n\nPackages\n\nR has many functions out of the box.\nThere are many packages that offer many other, often very specific, functions.\nOfficial packages are deposited at CRAN repository.\nAs of 2022, there are &gt; 18000 packages.\nPackages with relation to archaeology are loosely organized in the CRAN Task View maintained by Ben Marwick.\n\n\n\nInstall a package\n\nTo install packages from CRAN:\n\ninstall.packages(\"package_name\")\n\n\nLoad (Attach) a package\n\nTo be able to use a package, we need to attach it from our package library:\n\nlibrary(\"package_name\") # or\nlibrary(package_name)\n\n\n\n\nTypes of data and objects\ntype: section\n\n\n\nData types\nclass: small-code incremental: false\n\nText strings\n\nAny kind of text.\nCharacter data type.\nAlways in quotation marks (double or single).\n\n\"This is a text string.\"\n[1] \"This is a text string.\"\n'This is also a text.'\n[1] \"This is also a text.\"\n\n\nDichotomies\n\nBoolean/binary values (true/false).\nLogical data type.\nAs TRUE and FALSE in R.\n\nTRUE == FALSE\n[1] FALSE\n\n\n\nNumbers\n\nIntegers (whole numbers)\n\nInteger data type.\n\n42L\n[1] 42\n\n\nFloating point numbers (decimal point numbers)\n\nDouble data type.\n\n4.2\n[1] 4.2\n\nAll numbers fall under class numeric.\n\n\n\n\nSpecial values\n\nEmpty value as NA, i.e. not available.\nInfinities as Inf and -Inf.\n\n\n\n\n\nIdentifying data types\nclass: small-code incremental: false\n\nThere is a set of functions starting with is. prefix.\nThese functions return TRUE/FALSE.\n\nis.character(\"How are you?\")\n[1] TRUE\nis.numeric(c(4, 4L, 4.2))\n[1] TRUE\nis.integer(4)\n[1] FALSE\nis.integer(4L)\n[1] TRUE\nis.double(42)\n[1] TRUE\nis.na(1)\n[1] FALSE\n\nis.numeric(pi)\n[1] TRUE\nis.double(pi)\n[1] TRUE\nis.logical(1)\n[1] FALSE\nis.logical(TRUE)\n[1] TRUE\nis.logical(FALSE)\n[1] TRUE\nis.character(mean)\n[1] FALSE\nis.character(\"mean\")\n[1] TRUE\n\n\n\nComparing values\nclass: small-code incremental: false\n&lt;, &lt;=, ==, &gt;=, &gt;, !=\nx &lt;- 1\ny &lt;- 100\nx\n[1] 1\ny\n[1] 100\nx &lt; 10\n[1] TRUE\nx &gt;= y\n[1] FALSE\ny == 100\n[1] TRUE\n\nx != y\n[1] TRUE\ny &lt; Inf\n[1] TRUE\nx == NA\n[1] NA\nis.na(x)\n[1] FALSE\n\"apple\" == \"banana\"\n[1] FALSE\n\"pineapple\" == \"pineapple\"\n[1] TRUE\n\n\n\nTypes of objects\ntype: sub-section\n\n\n\nVector\nclass: small-code incremental: false\n\nBasic data structure.\nContains a single type of data.\nCreated using function c() (combine, concatenate)\n\nc(\"Fuu\", \"Bar\")\n[1] \"Fuu\" \"Bar\"\nx &lt;- c(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144)\nx\n [1]   0   1   1   2   3   5   8  13  21  34  55  89 144\nis.vector(x)\n[1] TRUE\n\n\nSubsetting vectors\n\nSubset vectors using square brackets []\n\nx[2]\n[1] 1\nx[c(2, 4)]\n[1] 1 2\nx[-1]\n [1]   1   1   2   3   5   8  13  21  34  55  89 144\nx[42]\n[1] NA\nx[2:5]\n[1] 1 1 2 3\n\n\n\n\nMaths with vectors\nclass: small-code incremental: false\nx &lt;- c(3, 6, 9, 12)\ny &lt;- 4:1\nx\n[1]  3  6  9 12\ny\n[1] 4 3 2 1\nx + y\n[1]  7  9 11 13\n(2 * x) / y\n[1]  1.5  4.0  9.0 24.0\ny^2\n[1] 16  9  4  1\ny &gt;= x\n[1]  TRUE FALSE FALSE FALSE\n\n\nSome useful functions\n\nReturn length of a vector with length().\n\nlength(x)\n[1] 4\n\nData type of a vector:\n\ntypeof(x)\n[1] \"double\"\nis.character(x)\n[1] FALSE\nz &lt;- c(1, 2, \"fuu\", 4, 5)\nz\n[1] \"1\"   \"2\"   \"fuu\" \"4\"   \"5\"  \ntypeof(z)\n[1] \"character\"\n\n\n\n\nMatrix\nclass: small-code incremental: false\n\nHas rows and columns, rectangular in shape.\nContains data of a same type, typically numbers.\n\nm &lt;- matrix(data = 1L:20L, ncol = 5, byrow = TRUE)\nm\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    2    3    4    5\n[2,]    6    7    8    9   10\n[3,]   11   12   13   14   15\n[4,]   16   17   18   19   20\ntypeof(m)\n[1] \"integer\"\nis.matrix(m)\n[1] TRUE\n\n\nSubsetting matrices\n\nGive x and y coordinates for row and column.\nmatrix[x, y]\n\nm[2, 1]\n[1] 6\nm[3, c(2, 4)]\n[1] 12 14\nm[c(3, 4), 2:3]\n     [,1] [,2]\n[1,]   12   13\n[2,]   17   18\nm[1, ]\n[1] 1 2 3 4 5\nm[, c(2, 4)]\n     [,1] [,2]\n[1,]    2    4\n[2,]    7    9\n[3,]   12   14\n[4,]   17   19\n\n\n\n\nList\nclass: small-code incremental: false\n\nCan contain a combination of anything.\nCan have names.\n\nl &lt;- list(\n  characters = c(\"fuu\", \"bar\"), \n  numbers = 1:5,\n  logicals = c(TRUE, FALSE, TRUE)\n)\nl\n$characters\n[1] \"fuu\" \"bar\"\n\n$numbers\n[1] 1 2 3 4 5\n\n$logicals\n[1]  TRUE FALSE  TRUE\nlength(l)\n[1] 3\nis.list(l)\n[1] TRUE\n\n\nSubsetting lists\n\nBy position (remains a list).\n\nl[2]\n$numbers\n[1] 1 2 3 4 5\n\nBy names using $ operator.\nReturns a vector.\n\nl$logicals\n[1]  TRUE FALSE  TRUE\nl[[1]] # or double brackets\n[1] \"fuu\" \"bar\"\nl[[1]][2]\n[1] \"bar\"\n\n\n\n\nData frame\nclass: small-code incremental: false\n\nA special kind of a list.\nAll list items have same number of rows.\nRectangular structure.\n\ndfr &lt;- data.frame(\n  x = 95:98, \n  y = c(\"a\", \"b\", \"c\", \"d\"),\n  z = c(T, F, F, T),\n  w = seq(4.2, 4.8, by = 0.2) # sequence\n)\ndfr\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\nis.data.frame(dfr)\n[1] TRUE\ntypeof(dfr)\n[1] \"list\"\n\n\nSubsetting data frames\ndfr[2, 1]\n[1] 96\ndfr[2, c(1, 3)]\n   x     z\n2 96 FALSE\ndfr[, 1]\n[1] 95 96 97 98\ndfr$x\n[1] 95 96 97 98\ndfr[, \"y\"]\n[1] a b c d\nLevels: a b c d\ndfr[-c(1, 2), ]\n   x y     z   w\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\n\n\n\n\nExploring the structure of an object\nclass: small-code incremental: false\ndfr\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\nnrow(dfr) # nr. of rows\n[1] 4\nncol(dfr) # nr. of columns\n[1] 4\ndim(dfr) # dimensions\n[1] 4 4\n\nstr(dfr) # structure\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: Factor w/ 4 levels \"a\",\"b\",\"c\",\"d\": 1 2 3 4\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8\ncolnames(dfr) # column names\n[1] \"x\" \"y\" \"z\" \"w\"\nrownames(dfr) # row names\n[1] \"1\" \"2\" \"3\" \"4\"\nhead(dfr) # returns top rows of a data frame, also tail()\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\n\n\n\nLet’s practice: Dart points project\ntype: section\n\n\nDart points, adapted from Carlson 2011.\n\n\n\n\nGoal\ntitle: false right: 16%\n\n\n\nLet’s explore the dart points data set!\n\nMeasurements on five types of dart points from Fort Hood in central Texas (Darl, Ensor, Pedernales, Travis, and Wells). The points were recovered during 10 different pedestrian survey projects during the 1980’s and were classified and measured by H. Blaine Ensor…\n\n\n\n\n\nTask\ntype: prompt incremental: false\n\nStart RStudio.\nIn the Console, install archdata package.\nCreate a new script (Ctrl + Shift + n).\nLoad the archdata package from the library.\nLoad a DartPoints data set from the archdata package: data(\"DartPoints\", package = \"archdata\")\nNotice the object DartPoints is loaded in the Environment panel.\nWhat class is the DartPoints object?\nHow large (number of rows and columns) is the data set?\nWhat columns does it have?\nExplore the contents of the object…\nRead details about the data set using help(DartPoints) or ?DartPoints\n\n\n\nSolution\ninstall.packages(\"archdata\")\nlibrary(archdata)\ndata(\"DartPoints\", package = \"archdata\")\nclass(DartPoints)\n[1] \"data.frame\"\ndim(DartPoints) # also nrow()/ncol()\n[1] 91 17\ncolnames(DartPoints)\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\n\n\n\nExplore the object I\ntitle: false type: prompt class: small-code incremental: false\nhead(DartPoints, n = 4)\n  Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n1 Darl 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6\n2 Darl 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9\n3 Darl 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2\n4 Darl 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3\n  Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    3.6        S       I         S         T       S       E\n2    4.5        S       I         S         T       S       E\n3    3.6        S       I         S         T       S       E\n4    4.0        S       I         S         T       S       E\ntail(DartPoints, n = 4)\n    Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n88 Wells 35-2898 41CV0876 21/66   55.4  19.3       5.3    11.3    15.6     15.2\n89 Wells 35-2458 41CV0810 23/62   45.8  18.9       6.5    12.1    12.2     10.9\n90 Wells 35-3012 41CV0270 24/62   49.1  21.1       6.3    14.8    15.2     16.6\n91 Wells 44-0732 41BL0239 39/55   63.1  24.7       5.4    10.3    12.1     21.1\n   Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n88    5.6        E       S         I         T       S       T\n89    4.9        S       E         S         T       S       P\n90    5.2        S       E         S         T       S       P\n91   16.3        S       E         S         T       S       T\n\n\n\nExplore the object II\ntitle: false type: prompt class: small-code\nstr(DartPoints)\n'data.frame':   91 obs. of  17 variables:\n $ Name     : Factor w/ 5 levels \"Darl\",\"Ensor\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ Catalog  : chr  \"41-0322\" \"35-2946\" \"35-2921\" \"36-3487\" ...\n $ TARL     : chr  \"41CV0536\" \"41CV0235\" \"41CV0132\" \"41CV0594\" ...\n $ Quad     : chr  \"26/59\" \"21/63\" \"20/63\" \"10/54\" ...\n $ Length   : num  42.8 40.5 37.5 40.3 30.6 41.8 40.3 48.5 47.7 33.6 ...\n $ Width    : num  15.8 17.4 16.3 16.1 17.1 16.8 20.7 18.7 17.5 15.8 ...\n $ Thickness: num  5.8 5.8 6.1 6.3 4 4.1 5.9 6.9 7.2 5.1 ...\n $ B.Width  : num  11.3 NA 12.1 13.5 12.6 12.7 11.7 14.7 14.3 NA ...\n $ J.Width  : num  10.6 13.7 11.3 11.7 11.2 11.5 11.4 13.4 11.8 12.5 ...\n $ H.Length : num  11.6 12.9 8.2 8.3 8.9 11 7.6 9.2 8.9 11.5 ...\n $ Weight   : num  3.6 4.5 3.6 4 2.3 3 3.9 6.2 5.1 2.8 ...\n $ Blade.Sh : Factor w/ 4 levels \"E\",\"I\",\"R\",\"S\": 4 4 4 4 4 4 2 1 1 1 ...\n $ Base.Sh  : Factor w/ 4 levels \"E\",\"I\",\"R\",\"S\": 2 2 2 2 2 1 2 2 4 2 ...\n $ Should.Sh: Factor w/ 4 levels \"E\",\"I\",\"S\",\"X\": 3 3 3 3 3 2 3 2 2 3 ...\n $ Should.Or: Factor w/ 4 levels \"B\",\"H\",\"T\",\"X\": 3 3 3 3 3 3 3 3 2 3 ...\n $ Haft.Sh  : Factor w/ 5 levels \"A\",\"E\",\"I\",\"R\",..: 5 5 5 5 5 3 3 5 5 5 ...\n $ Haft.Or  : Factor w/ 5 levels \"C\",\"E\",\"P\",\"T\",..: 2 2 2 2 2 1 2 2 2 3 ...\n\n\n\nReading data into R\ntype: section\n\n\n\nBrainstorming\ntype: prompt incremental: false\n\nHow do you organize your data?\n\nHow do you collect your data?\nHow do you save your data?\nWhat formats are you using?\nWhy do you do it the way you do it?\n\n\n\n\n\nReading data into R\nincremental: false\n\nThere are built-in functions to read data into R.\nThere are many useful packages.\n\n\nMost common cases\n\nCSV file (comma separated values) ✔\n\nEurope: semicolon (;) as a separator, comma (,) as a decimal mark.\nAmerica: comma (,) as a separator, period (.) as a decimal mark.\n\nSpreadsheet (Excel, LibreOffice etc.) ✔\n\nExport as a CSV.\nUse a dedicated package.\nGoogle spreadsheet: use a dedicated package.\n\nDatabase ✔\n\nExport as a CSV.\nUse a dedicated package.\n\n\n\n\n\nThe process\n\nIdentify where and how is your data stored.\n\nWhat type of a file is it?\n\nIs it a plain text?\n\nWhat is used as a separator (delimiter)?\nWhat is the encoding of the file?\nHow are empty values represented?\n\nIs it a spreadsheet?\nIs it a database?\n\nIs it a local database?\nIs it a (SQL) server?\n\nIs it a table on a website?\n\n\n\n\n\nComma separated values\n\nCSV is a plain text document.\nGreat for small to medium size data sets.\nSuitable for long-term storage and data archiving.\n\ndataset,x,y\ndino,55.3846,97.1795\ndino,,96.0256\ndino,46.1538,94.4872\nid,date_from,date_to,date_accurate,url,parent_id,leaf,name_cs,name_en,name_de\n1,,,,1-teorie-a-pristupy,,f,1) Teorie a přístupy,1) Theory and approaches,1) Theorie (e) und Ansätze (e)\n2,,,,1-teorie-a-pristupy/archeologie,1,f,archeologie,archaeology,Archäologie (e)\n3,,,,1-teorie-a-pristupy/archeologie/dejiny-archeologie,2,f,dějiny archeologie,history of archaeology,Geschichte der Archäologie (e)\n\n\n\nComma separated values\nincremental: false\n\nR base functions\n\nComma as a separator\nread.csv(file = \"file path\")\n\n\nSemicolon as a separator\nread.csv2(file = \"file path\")\n\nThese function are directly available in base R.\n\n\n\n\n\nPackage readr\n\nComma as a separator\nread_csv(file = \"file path\")\n\n\nSemicolon as a separator\nread_csv2(file = \"file path\")\n\nThese functions come from the readr package.\nThis package must be installed first.\n\ninstall.packages(\"readr\")\n\nAnd loaded from the library prior to being used.\n\nlibrary(readr)\n\n\n\n\n\nFiles with different separators\nincremental: false\n\nTSV\n\nTab (tabulator) separated values (\n\nread.delim(file = \"file path\") # decimal mark ,\nread.delim2(file = \"file path\") # decimal mark .\n\nUsing readr package:\n\nlibrary(readr)\nread_tsv(file = \"file path\")\n\n\nOther delimiter\n\nSometimes other symbols are used to separate columns in files.\n\nread.table(file = \"file path\", sep = \"separator\")\n\nUsing readr package:\n\nread_delim(file = \"file path\", delim = \"separator\")\n\nTip: When you do not know what is the file encoding, use readr function guess_encoding(\"file\").\n\n\n\n\n\nSpreadsheets\nincremental: false\n\nExcel\n\nTo read Excel files, there is a package readxl.\n\n# remember to install it first\ninstall.packages(\"readxl\")\n# and load it when you want to use it\nlibrary(readxl)\n\nYou can list the sheets in the Excel file:\n\nexcel_sheets(path = \"file path\")\n\nAnd read a selected sheet into R:\n\nread_excel(path = \"file path\", sheet = \"sheet name\")\n\n\n\nGoogle sheets\n\nThere is a package googlesheets4.\nFor more details see here: https://googlesheets4.tidyverse.org/.\n\n# install the package\ninstall.packages(\"googlesheets4\")\n\n# attach it from the library\nlibrary(googlesheets4)\n\n# read a sheet based on its URl etc.\nread_sheet(\"sheet URL\")\n\n\n\n\n\nWorkflows\ntype: section\n\n\n\nOrganize your work in scripts\nleft: 40% class: small-code incremental: false\n\n\nExecute the current line with Ctrl + Enter.\nSource the whole script with Ctrl + Shift + Enter.\n\n\n\nIn RStudio\n\nCreate new script with Ctrl + Shift + n.\nPut some basic info at the top of a script.\n\nUse a comment #, also Ctrl + Shift + c.\n\n\n# Dart points dataset is analyzed in this script.\n# (...)\n\nLoad the packages you will use at the top of the script.\n\nlibrary(readr)\n\nComment your code to be able to know what you are doing.\n\nIn general, comment on the why each step is taken…\n\nStructure the script using sections with Ctrl + Shift + r.\n\n# data -----------------------------------------\nobj &lt;- read_csv(\"path to a file\")\n\n# explore structure of data\nstr(obj)\n\n\n\n\nOrganize your work in projects\nleft: 40% class: small-code incremental: false\n\nEach project is in a separate directory.\nThere are sub-folders for different parts of the project.\n\n~/Documents/\n  MyProject/\n    code/\n      script1.R\n      script2.R\n    data/\n      raw/\n        input_dataset.xlsx\n      processed/\n        settlements.csv\n        set_locations.geojson\n    figures/\n      plot1.png\n      plot1.pdf\n    MyProject.Rproj\n\nIn RStudio, create a new project in the top right corner:\nProjects -&gt; New Project -&gt; New Directory -&gt; New Project.\n\n\n\nFile paths\n\nAbsolute file path\n\nThe file path is specific to a given user.\nC:/Documents/MyProject/data/raw/input_dataset.xlsx\n\n\n\nRelative file path\n\nIf I am currently in MyProject/ folder:\n./data/raw/input_dataset.xlsx\n\n\n\nPackage here is here to save the day!\n\nDo not forget to install the package first.\nLoad it at the top of your script.\n\nlibrary(here)\nlibrary(readr)\n\nhere will know where the top directory is.\n\n# read data --------------------------------------------\nsettlements &lt;- read_csv(here(\"data/processed/settlements.csv\"))\n\n\n\n\n\nLet’s practice!\ntype: prompt incremental: false class: small-code\n\nTasks\n\nIn the console, install packages here and readr.\nCreate a project with a sensible name and location.\nCreate sub-folders data/ and code/.\nCreate a new script and save it in the code/ folder.\nLoad readr and here packages.\nDownload some example data from https://1url.cz/@stat4arch01.\n\nurl &lt;- \"https://1url.cz/@stat4arch01\"\ndownload.file(url, destfile = here(\"data/exData.zip\"))\nunzip(here(\"data/exData.zip\"), exdir = here(\"data/\"))\n\nExplore the files you downloaded one by one and try to load them into R.\n\n\n\n\nSolutions\ninstall.packages(c(\"readr\", \"here\"))\ndir.create(\"./data/\")\ndir.create(\"./code/\")\nlibrary(here)\nlibrary(readr)\nurl &lt;- \"https://1url.cz/@stat4arch01\"\ndownload.file(url, destfile = here(\"data/exData.zip\"))\nunzip(here(\"data/exData.zip\"), exdir = here(\"data/\"))\n\nThe Excel file, if we had readxl package installed:\n\nlibrary(readxl)\nexcel_sheets(here(\"data/dartPoints00.xlsx\"))\nread_excel(here(\"data/dartPoints00.xlsx\"),\n           sheet = \"dartPoints00\")\n\n\n\n\nSolutions\ntype: prompt incremental: false class: small-code\n\nWe will use functions from the readr package.\n\n\ndartPoints01.csv\n\nCSV file with semicolon (;) separators.\n\ndartPoints01 &lt;- read_csv2(here(\"data/dartPoints01.csv\"))\n\n\ndartPoints02.txt\n\nTab separated file (TSV).\n\ndartPoints02 &lt;- read_tsv(here(\"data/dartPoints02.txt\"))\n\n\ndartPoints03.csv\n\nCSV file with comma (,) separators.\n\ndartPoints03 &lt;- read_csv(here(\"data/dartPoints03.csv\"))\n\n\n\ndartPoints04.txt\n\nFile with custom separators (#).\n\ndartPoints04 &lt;- read_delim(here(\"data/dartPoints04.txt\"), \n                           delim = \"#\")\n\n\ndartPoints05.csv\n\nCSV file separated by commas (,).\nNA values represented by en-dash (-).\n\ndartPoints05 &lt;- read_csv(here(\"data/dartPoints05.csv\"), \n                         na = \"-\")\n\n\n\n\nSumming up\nincremental: false type: prompt\n\nWhy would one want to use R?\nWhy is it good to use scripts?\nWhere to look for help?\nWhat is the difference between a function and an object?\nWhat are the basic objects in R?\nWhat data types are there in R?\nWhat is NA?\nWhat are the tidy data principles?\nDo you remember any functions?\n\n\n\n\nHomework assignments\ntype: prompt\n\nInteractive practice\n\nGo through this short interactive course on basic programming in R:\nhttps://rstudio.cloud/learn/primers/1.2.\n\n\n\nProject\n\nPrepare the data you will use for your project.\nNext time, we will have a short show-and-tell session where we will have a quick look at the data sets.\nYou can prepare one slide with some details about your data set, show us a map with the extent of your data set, an image illustrating what you are doing etc.\nSend us either the whole data set or at least a sample so we can check what kind of data you will be using."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Analyzing archaeological data using R",
+    "section": "",
+    "text": "Welcome to AES_707 Statistics seminar for archaeology students at the Department of Archaeology and Museology, Masaryk University. The course is taught by Petr Pajdla and Peter Tkáč.\nInformation given here applies to spring semester 2024, the page will be continuously updated throughout the semester. The course was taught also in 2022 and 2020.\n\nEach Wednesday, 12:00 – 13:40 (except 17th April – why?).\nRoom L11 (computers are provided in the room, you can use your own laptop though).\n3 ECTS credits, i.e. approx. 75 h. of workload, seminars take up approx. 25 h.\nYou will work on a project of your own to complete the course.\n\n\nInformation on assessment\nTo pass the course, you have to finish and submit a report on your project. There are four assessment dates: - 2nd June, - 16th June, - 30th June, - 8th September - corrections only!\nBy the given date, please send us your project report. We will go through the reports and either return it to you with notes what to correct etc. or find it good enough to pass the course. If you need any help, please let us know in advance!"
+  },
+  {
+    "objectID": "project/project_template.html",
+    "href": "project/project_template.html",
+    "title": "Title of your project",
+    "section": "",
+    "text": "This is a template for a report on your project. As you already know, we expect you to work on an analysis of a data set of your choice and hand in a report similar to this one. Delete the following examples as soon as you will be sure what you are doing. The suggested structure of a report is below. Delete anything you do not need, feel free to edit the document."
+  },
+  {
+    "objectID": "project/project_template.html#r-markdown",
+    "href": "project/project_template.html#r-markdown",
+    "title": "Title of your project",
+    "section": "R Markdown",
+    "text": "R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+  },
+  {
+    "objectID": "project/project_template.html#including-plots",
+    "href": "project/project_template.html#including-plots",
+    "title": "Title of your project",
+    "section": "Including Plots",
+    "text": "Including Plots\nYou can also embed plots, for example:\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n\nAbstract\nWrite a short and comprehensive abstract for your project (one paragraph of text).\n\nKeywords\nInclude several relevant keywords."
+  },
+  {
+    "objectID": "project/project_template.html#introduction",
+    "href": "project/project_template.html#introduction",
+    "title": "Title of your project",
+    "section": "Introduction",
+    "text": "Introduction\nWrite what data set you are analyzing and why, what is your goal and so on (one paragraph).\nAlso load all the packages you will be using in your analysis here.\n\n# put your library calls in here\nlibrary(ggplot2)\n\n\nData\nBriefly introduce your data set. Where does it come from? What does it contain? Load your data here and use any handy functions you learned to show what the variable names are, how big your data are, what data types does it contain etc.\n\n# read your data set here\n# remember, this # is a comment (ctrl+shift+c)\n# data &lt;- read.csv(\"\")\n\nTry to answer following questions using code:\n\nHow many variables are there?\nHow many rows does the data set have?\nWhat are the names of the variables?\nWhat data types are there in the data set?\n\n\n# str(data) and other functions you learned..."
+  },
+  {
+    "objectID": "project/project_template.html#exploratory-analysis",
+    "href": "project/project_template.html#exploratory-analysis",
+    "title": "Title of your project",
+    "section": "Exploratory analysis",
+    "text": "Exploratory analysis\n\nQualitative variables\nAre there any qualitative variables in your data set? Choose at least one and answer these questions if possible:\n\nHow many values does your qualitative variable has?\nShow the count of values of the chosen qualitative variable in a suitable plot.\n\n\n#  show us some plots...\n# ggplot(data, aes(...)) +\n#   geom_bar()\n\n\n\nQuantitative variables\nExplore your quantitative variables. Plot the distribution of the variables. Show us a histogram or a density plot. Try to compare the quantities in several groups using a box plot…\nGive us numeric summaries of the chosen quantitative variable:\n\nWhat is the mean and standard deviation?\nWhat is the median and IQR?\n\nHow does the distribution of the quantitative variable look? Is it a normal distribution? Is it right/left-skewed? Is it multimodal? Try to prove these points with both the graphs and a hypothesis test.\n\n\nData transformation challenge\nUse at least three functions (filter, select, group_by, summarise, arrange, mutate) from the dplyr package to transform your data and again show some summary statistics, plots and so on. Be creative!"
+  },
+  {
+    "objectID": "project/project_template.html#multivariate-exploration",
+    "href": "project/project_template.html#multivariate-exploration",
+    "title": "Title of your project",
+    "section": "Multivariate exploration",
+    "text": "Multivariate exploration\n\nWill be added…"
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project",
+    "section": "",
+    "text": "To pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit his/her own report on the analysis. There are two options, you can choose to work either on your own dataset or use an existing published data.\n\nGet the data\nAlthough the first step in most of the analysis would be creating the research question(s), we assume our questions and goals are already set and skip to the step where we get the data suitable to answer our questions…\n\n(A) Working with your own dataset\n\nYou can choose to use your own data. This is especially useful if you are working on your BA/MA/PhD thesis, an article or so and want to analyze the data collected for the given work.\nThis option is easier because you probably know what your dataset contains and what each variable means, how it was collected etc.\n\n\n\n(B) Using an existing dataset\n\nFind a suitable dataset online, scrape a website, get it in a book, anything that comes to mind, be creative. Bear in mind that the dataset needs to contain a mixture of quantitative and qualitative variables. It can be organized as a table, then the work is easier for you. If it is a database, we can give you a hand with data prep.\nWe recommend to look in the Journal of Open Archaeology Data. Datasets published here have clear use conditions (license), are deposited in a suitable repository and should be well documented.\nIf you choose to use a dataset you found anywhere else (or web scraped etc.) please make sure that it is easily accessible and suitable for the analysis.\n\n\n\n\nGet to know the data\n\nMake sure you know where your data is and how is it stored.\nMake sure you know what each variable means, what type of data does it contain etc.\nThe dataset should contain at least several quantitative and qualitative variables.\n\n\n\nReport template\nRMarkdown template for the project report is here. Create a new RMarkdown file (.Rmd), copy and paste the contents of the template in your file, do your changes, write your report and push the Knit button. Follow the instructions in the template to work on your project.\n\n\nHow to submit the report\nFeel free to contact us if you need any help or assistance during the work on your project. Simply send us both the source Rmd file and the HTML output with your questions and we will address the problem either directly or in class."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Here is a non exhaustive list of resources and links we find useful. These cover various topics and most are openly available online. We expect you to be creative and search (not only) through these resources if you get stuck with your project or find any topics difficult to understand. If you find it hard to get access to any of the articles or books mentioned here, do not hesitate contacting us. Definitely do not use websites like Sci-Hub or Library Genesis that seem to provide scientific knowledge to all. The King of the Potato People prohibits this.\n\nQuantitative and digital archaeology\n\nCarlson, D. L. 2017: Quantitative Methods in Archaeology Using R. Cambridge: Cambridge University Press.\nVanPool, TL and Leonard, RD. 2011. Quantitative analysis in archaeology. Chichester: Wiley-Blackwell.\nDrennan, R. D. 2010: Statistics for Archaeologists: A common sense approach. New York: Springer.\nBaxter, M. 2003: Statistics in Archaeology. London: Wiley.\nFletcher, M., Lock, G. R. 1994: Digging Numbers: Elementary statistics for archaeologists. Oxford: Oxbow.\nShennan, S. 1988: Quantifying Archaeology. Edinburgh: Edinburgh University Press.\n\n\n\n\n\nR programming language and environment\n\nR for Data Science by Hadley Wickham and Garret Grolemund.\nData Visualization. A practical introduction by Kieran Healy.\nCRAN Task View is a list of R packages useful in archaeology maintained by Ben Marwick. There is also a list of articles using R in the analysis with data and code published.\n\n\nWhere to look for help\n\nRStudio cheatsheets, especially data visualization, transformation, tidying and import cheatsheets will come in useful.\nSearch through Stack Overflow. Find some tips on asking good questions and providing minimal reproducible examples in this thread and in Advanced R book by Hadley Wickham.\n\n\n\n\nReproducibility\n\nMarwick, B. 2017: Computational Reproducibility in Archaeological Research: Basic Principles and a Case Study of Their Implementation. Journal of Archaeological Method and Theory 24(2): 424–450. DOI: 10.1007/s10816-015-9272-9.\nMarwick, B., Boettiger, C. and Mullen, L. 2018: Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician 72(1): 80–88. DOI: 10.1080/00031305.2017.1375986.\n\n\nData management\n\nKarl Broman’s guide on how to organize data in spreadsheets. The same as an article, DOI: https://doi.org/gdz6cm.\nJenny Bryan’s slides on naming things.\nHadley Wickham’s paper on tidy data, DOI: https://doi.org/10.18637/jss.v059.i10.\n\n\n\nRMarkdown and scientific writing\n\nBritish Ecological Society has a nice series of Guides to Better Science covering various topics including Reproducible Code and Data Management.\nA short guide by Ben Marwick on how to setup Atom (this could be any text editor) and Zotero (citation management software).\nThe Plain Person’s Guide to Plain Text Social Science by Kieran Healy.\n\n\n\n\nR as a GIS and spatial analysis\n\nGeocomputation with R book by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow.\n\n\n\nOther links and tools\n\nOpen-archaeo is a list of open source archaeological software and resources maintained by Zack Batist."
+  },
+  {
+    "objectID": "lectures/seminar7/seminar7.html",
+    "href": "lectures/seminar7/seminar7.html",
+    "title": "stat4arch",
+    "section": "",
+    "text": "stat4arch\nauthor: Petr Pajdla & Peter Tkáč autosize: true width: 1920 height: 1080\nAES_707: Statistics seminar for archaeologists\n\n\n\n\nSeminar 1\ntype: section\n17. 2. 2022\nToday:\n\n\nTopic1\n\nTopic 2\n\netc.\n\n\n\n\nTitle\nFirst column.\n\nSecond column.\n\n\n\nSome basics\n\nTwo spaces at the end of the line break the line.\nHTML can be used to achieve practically anything.\n\n&lt;!-- comment --&gt;\n*italics*\n**bold**\n# Header 1 to #### Header 4\n![alt  text](fix/path) - inserts figure\n&lt;url link&gt; or (alt text)[url link]\n`single line/word code`\n\n\n\nSection slide\ntype: section\n\n\n\nPrompt slide\ntype: prompt\n\n\n\nAlert slide\ntype: alert \n\n\nDistances and similarity\ntype: section\n\n\n\nDistances and similarity\nincremental: true\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372. (direct link to a HTML file is here, download it and open in the browser…)\n\nThere are many ways to measure distance/similarity.\nThe most common one is Euclidean distance for numeric data.\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem."
+  },
+  {
+    "objectID": "lectures/seminar1/seminar1.html",
+    "href": "lectures/seminar1/seminar1.html",
+    "title": "stat4arch",
+    "section": "",
+    "text": "author: Petr Pajdla & Peter Tkáč autosize: true width: 1920 height: 1080\nAES_707: Statistics seminar for archaeologists"
+  },
+  {
+    "objectID": "lectures/seminar1/seminar1.html#categorical",
+    "href": "lectures/seminar1/seminar1.html#categorical",
+    "title": "stat4arch",
+    "section": "Categorical",
+    "text": "Categorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál"
+  },
+  {
+    "objectID": "lectures/seminar1/seminar1.html#numeric",
+    "href": "lectures/seminar1/seminar1.html#numeric",
+    "title": "stat4arch",
+    "section": "Numeric",
+    "text": "Numeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD )\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča,…)"
+  },
+  {
+    "objectID": "lectures/seminar6/seminar6.html",
+    "href": "lectures/seminar6/seminar6.html",
+    "title": "stat4arch",
+    "section": "",
+    "text": "author: Petr Pajdla & Peter Tkáč autosize: true width: 1920 height: 1080\nAES_707: Statistics seminar for archaeologists"
+  },
+  {
+    "objectID": "lectures/seminar6/seminar6.html#hints",
+    "href": "lectures/seminar6/seminar6.html#hints",
+    "title": "stat4arch",
+    "section": "Hints:",
+    "text": "Hints:\n\nYou can find describtion of the dataset and variables in the article bellow:\n\n\nTkáč, P. and Kolář, J., 2021. Towards New Demography Proxies and Regional Chronologies: Radiocarbon Dates from Archaeological Contexts Located in the Czech Republic Covering the Period Between 10,000 BC and AD 1250. Journal of Open Archaeology Data, 9, p.9. DOI: http://doi.org/10.5334/joad.85\n\n\nUsefull functions: here::here(), ncol(), nrow(), head(), str()."
+  },
+  {
+    "objectID": "lectures/seminar6/seminar6.html#hints-1",
+    "href": "lectures/seminar6/seminar6.html#hints-1",
+    "title": "stat4arch",
+    "section": "Hints:",
+    "text": "Hints:\n\nWith the use of str() check the numeric variables in your dataframe. If they are a factor, you have to change it to numeric by:\n\ndataframe$variable &lt;- as.numeric(as.character(dataframe$variable))\n\nTo define Neolithic use a period between 6500 and 5500 of uncalibred radiocarbon dates.\nUseful functions: names(), str(), head(), filter(), summarise(), %&gt;%, arrange(), group_by()."
+  },
+  {
+    "objectID": "lectures/seminar6/seminar6.html#additional-task",
+    "href": "lectures/seminar6/seminar6.html#additional-task",
+    "title": "stat4arch",
+    "section": "Additional task:",
+    "text": "Additional task:\n\nSelect three districts with the most of the dates and compare how their numbers differ in activity areas (variable: Activity_CZ). In other words, is there any difference between number of dates coming from graveyards (poh) and from settlements (sid)?"
+  },
+  {
+    "objectID": "lectures/seminar6/seminar6.html#k-means-algorithm-1",
+    "href": "lectures/seminar6/seminar6.html#k-means-algorithm-1",
+    "title": "stat4arch",
+    "section": "K-means algorithm",
+    "text": "K-means algorithm\n\nK … number of clusters.\n\n\nThe process:\n\nRandomly assign each observation to groups 1 to K;\nFor each of K clusters, derive its centroid (midpoint);\nReassign each observation into a cluster whose centroid is the closest;\nIterate until stability in cluster assignments is reached (local vs global optima).\n\n\n\n\n\n(James et al. 2013)"
+  },
+  {
+    "objectID": "lectures/seminar6/seminar6.html#k-means-partitioning-2",
+    "href": "lectures/seminar6/seminar6.html#k-means-partitioning-2",
+    "title": "stat4arch",
+    "section": "K-means partitioning",
+    "text": "K-means partitioning\n\nPre-specified number of clusters.\nClusters may vary (different local optima).\nBest when groups in data are hyper-spheres."
+  },
+  {
+    "objectID": "lectures/seminar6/seminar6.html#hierarchical-clustering-2",
+    "href": "lectures/seminar6/seminar6.html#hierarchical-clustering-2",
+    "title": "stat4arch",
+    "section": "Hierarchical clustering",
+    "text": "Hierarchical clustering\n\nVariable cluster numbers.\nClusters are stable.\nAny shape of data distribution."
+  },
+  {
+    "objectID": "lectures/seminar5/seminar5.html",
+    "href": "lectures/seminar5/seminar5.html",
+    "title": "stat4arch",
+    "section": "",
+    "text": "author: Petr Pajdla & Peter Tkáč autosize: true width: 1920 height: 1080\nAES_707: Statistics seminar for archaeologists"
+  },
+  {
+    "objectID": "lectures/seminar5/seminar5.html#binfords-dataset",
+    "href": "lectures/seminar5/seminar5.html#binfords-dataset",
+    "title": "stat4arch",
+    "section": "Binford’s dataset",
+    "text": "Binford’s dataset\n\n# install.packages(\"binford\")\nlibrary(binford)\ndata(LRB)\ndata(LRBkey)"
+  },
+  {
+    "objectID": "lectures/seminar5/seminar5.html#input",
+    "href": "lectures/seminar5/seminar5.html#input",
+    "title": "stat4arch",
+    "section": "input:",
+    "text": "input:"
+  },
+  {
+    "objectID": "lectures/seminar5/seminar5.html#output",
+    "href": "lectures/seminar5/seminar5.html#output",
+    "title": "stat4arch",
+    "section": "output:",
+    "text": "output:\na &lt;- 10+5\na\n[1] 15"
+  },
+  {
+    "objectID": "lectures/seminar5/seminar5.html#options-examples",
+    "href": "lectures/seminar5/seminar5.html#options-examples",
+    "title": "stat4arch",
+    "section": "Options (examples):",
+    "text": "Options (examples):\n\necho = FALSE\n\nresult is shown but the code is not shown in the result file\nsuitable for e.g. codes of graphs, when you just want to show the graph,…\n\ninclude = FALSE\n\nneither result nor code are shown in result file\nsuitable for e.g. loading packages, basic manipulation of the data,…"
+  },
+  {
+    "objectID": "lectures/seminar5/seminar5.html#input-1",
+    "href": "lectures/seminar5/seminar5.html#input-1",
+    "title": "stat4arch",
+    "section": "input:",
+    "text": "input:"
+  },
+  {
+    "objectID": "lectures/seminar5/seminar5.html#output-1",
+    "href": "lectures/seminar5/seminar5.html#output-1",
+    "title": "stat4arch",
+    "section": "output:",
+    "text": "output:"
+  }
+]

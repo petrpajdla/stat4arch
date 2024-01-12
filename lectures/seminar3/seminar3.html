@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>stat4arch – seminar3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">stat4arch</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target=""><i class="bi bi-house-heart" role="img">
+</i> 
+ <span class="menu-text">Course overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html" rel="" target=""><i class="bi bi-calendar4" role="img">
+</i> 
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="dropdown-header"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Lectures</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../project.html" rel="" target=""><i class="bi bi-file-earmark-code" role="img">
+</i> 
+ <span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html" rel="" target=""><i class="bi bi-gear" role="img">
+</i> 
+ <span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#stat4arch" id="toc-stat4arch" class="nav-link active" data-scroll-target="#stat4arch">stat4arch</a></li>
+  <li><a href="#seminar-3" id="toc-seminar-3" class="nav-link" data-scroll-target="#seminar-3">Seminar 3</a>
+  <ul class="collapse">
+  <li><a href="#today" id="toc-today" class="nav-link" data-scroll-target="#today">Today:</a></li>
+  </ul></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive statistics</a></li>
+  <li><a href="#characterizing-centrality" id="toc-characterizing-centrality" class="nav-link" data-scroll-target="#characterizing-centrality">Characterizing centrality</a>
+  <ul class="collapse">
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
+  </ul></li>
+  <li><a href="#characterizing-dispersion-andor-spread" id="toc-characterizing-dispersion-andor-spread" class="nav-link" data-scroll-target="#characterizing-dispersion-andor-spread">Characterizing dispersion and/or spread</a>
+  <ul class="collapse">
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range">Range</a></li>
+  <li><a href="#variance-and-standard-deviation" id="toc-variance-and-standard-deviation" class="nav-link" data-scroll-target="#variance-and-standard-deviation">Variance and Standard deviation</a></li>
+  <li><a href="#interquartile-range" id="toc-interquartile-range" class="nav-link" data-scroll-target="#interquartile-range">Interquartile range</a></li>
+  </ul></li>
+  <li><a href="#fuu" id="toc-fuu" class="nav-link" data-scroll-target="#fuu">Fuu</a></li>
+  <li><a href="#why-look-at-data-then" id="toc-why-look-at-data-then" class="nav-link" data-scroll-target="#why-look-at-data-then">Why look at data then?</a></li>
+  <li><a href="#why-look-at-data-then-1" id="toc-why-look-at-data-then-1" class="nav-link" data-scroll-target="#why-look-at-data-then-1">Why look at data then?</a></li>
+  <li><a href="#visualizing-data" id="toc-visualizing-data" class="nav-link" data-scroll-target="#visualizing-data">Visualizing data</a></li>
+  <li><a href="#brainstorming" id="toc-brainstorming" class="nav-link" data-scroll-target="#brainstorming">Brainstorming</a></li>
+  <li><a href="#data-viz" id="toc-data-viz" class="nav-link" data-scroll-target="#data-viz">Data viz</a></li>
+  <li><a href="#data-viz-1" id="toc-data-viz-1" class="nav-link" data-scroll-target="#data-viz-1">Data viz</a></li>
+  <li><a href="#types-of-graphs" id="toc-types-of-graphs" class="nav-link" data-scroll-target="#types-of-graphs">Types of graphs</a></li>
+  <li><a href="#bar-chart" id="toc-bar-chart" class="nav-link" data-scroll-target="#bar-chart">Bar chart</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#density-plot" id="toc-density-plot" class="nav-link" data-scroll-target="#density-plot">Density plot</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
+  <li><a href="#boxplot-1" id="toc-boxplot-1" class="nav-link" data-scroll-target="#boxplot-1">Boxplot</a></li>
+  <li><a href="#plotting-in-r" id="toc-plotting-in-r" class="nav-link" data-scroll-target="#plotting-in-r">Plotting in R</a></li>
+  <li><a href="#base-graphics" id="toc-base-graphics" class="nav-link" data-scroll-target="#base-graphics">Base graphics</a></li>
+  <li><a href="#package-ggplot2" id="toc-package-ggplot2" class="nav-link" data-scroll-target="#package-ggplot2">Package ggplot2</a>
+  <ul class="collapse">
+  <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">Syntax</a></li>
+  </ul></li>
+  <li><a href="#ggplot2-syntax" id="toc-ggplot2-syntax" class="nav-link" data-scroll-target="#ggplot2-syntax">ggplot2: syntax</a></li>
+  <li><a href="#ggplot2-syntax-1" id="toc-ggplot2-syntax-1" class="nav-link" data-scroll-target="#ggplot2-syntax-1">ggplot2: syntax</a></li>
+  <li><a href="#barplot" id="toc-barplot" class="nav-link" data-scroll-target="#barplot">Barplot</a>
+  <ul class="collapse">
+  <li><a href="#otázky" id="toc-otázky" class="nav-link" data-scroll-target="#otázky">Otázky</a></li>
+  </ul></li>
+  <li><a href="#aký-je-pomer-mužských-a-ženských-hrobov" id="toc-aký-je-pomer-mužských-a-ženských-hrobov" class="nav-link" data-scroll-target="#aký-je-pomer-mužských-a-ženských-hrobov">1. Aký je pomer mužských a ženských hrobov?</a></li>
+  <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels">Labels</a></li>
+  <li><a href="#aké-je-zastúpenie-vekových-kategórií-medzi-pohlaviami" id="toc-aké-je-zastúpenie-vekových-kategórií-medzi-pohlaviami" class="nav-link" data-scroll-target="#aké-je-zastúpenie-vekových-kategórií-medzi-pohlaviami">2. Aké je zastúpenie vekových kategórií medzi pohlaviami?</a></li>
+  <li><a href="#aké-je-zastúpenie-vekových-kategórií-medzi-pohlaviami-1" id="toc-aké-je-zastúpenie-vekových-kategórií-medzi-pohlaviami-1" class="nav-link" data-scroll-target="#aké-je-zastúpenie-vekových-kategórií-medzi-pohlaviami-1">2. Aké je zastúpenie vekových kategórií medzi pohlaviami?</a></li>
+  <li><a href="#a.-líšila-sa-prítommosť-milodarov-v-závislosti-na-pohlaví" id="toc-a.-líšila-sa-prítommosť-milodarov-v-závislosti-na-pohlaví" class="nav-link" data-scroll-target="#a.-líšila-sa-prítommosť-milodarov-v-závislosti-na-pohlaví">3a. Líšila sa prítommosť milodarov v závislosti na pohlaví?</a></li>
+  <li><a href="#b.-líšila-sa-prítommosť-milodarov-v-závislosti-na-veku" id="toc-b.-líšila-sa-prítommosť-milodarov-v-závislosti-na-veku" class="nav-link" data-scroll-target="#b.-líšila-sa-prítommosť-milodarov-v-závislosti-na-veku">3b. Líšila sa prítommosť milodarov v závislosti na veku?</a>
+  <ul class="collapse">
+  <li><a href="#absolútne-čísla" id="toc-absolútne-čísla" class="nav-link" data-scroll-target="#absolútne-čísla">Absolútne čísla</a></li>
+  </ul></li>
+  <li><a href="#b.-líšila-sa-prítommosť-milodarov-v-závislosti-na-veku-1" id="toc-b.-líšila-sa-prítommosť-milodarov-v-závislosti-na-veku-1" class="nav-link" data-scroll-target="#b.-líšila-sa-prítommosť-milodarov-v-závislosti-na-veku-1">3b. Líšila sa prítommosť milodarov v závislosti na veku?</a>
+  <ul class="collapse">
+  <li><a href="#relatívny-pomer" id="toc-relatívny-pomer" class="nav-link" data-scroll-target="#relatívny-pomer">Relatívny pomer</a></li>
+  </ul></li>
+  <li><a href="#aké-sú-rozdiely-medzi-skupinami" id="toc-aké-sú-rozdiely-medzi-skupinami" class="nav-link" data-scroll-target="#aké-sú-rozdiely-medzi-skupinami">4. Aké sú rozdiely medzi skupinami?</a></li>
+  <li><a href="#aby-to-nebolo-tak-jednoduché" id="toc-aby-to-nebolo-tak-jednoduché" class="nav-link" data-scroll-target="#aby-to-nebolo-tak-jednoduché">Aby to nebolo tak jednoduché…</a></li>
+  <li><a href="#fuu-1" id="toc-fuu-1" class="nav-link" data-scroll-target="#fuu-1">Fuu</a></li>
+  <li><a href="#project-assignment" id="toc-project-assignment" class="nav-link" data-scroll-target="#project-assignment">Project assignment</a>
+  <ul class="collapse">
+  <li><a href="#where-to-look-for-data-sets" id="toc-where-to-look-for-data-sets" class="nav-link" data-scroll-target="#where-to-look-for-data-sets">Where to look for data sets?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="stat4arch" class="level1">
+<h1>stat4arch</h1>
+<p>author: Petr Pajdla &amp; Peter Tkáč autosize: true width: 1920 height: 1080</p>
+<p>AES_707: <em>Statistics seminar for archaeologists</em></p>
+<!-- <https://support.rstudio.com/hc/en-us/articles/200486468> -->
+<!-- =============================================== -->
+</section>
+<section id="seminar-3" class="level1">
+<h1>Seminar 3</h1>
+<p>type: section</p>
+<p><code>17. 3. 2022</code></p>
+<section id="today" class="level2">
+<h2 class="anchored" data-anchor-id="today">Today:</h2>
+<ul style="color:white;">
+<li>
+Data visualization, plots for one variable.
+</li><li>
+Descriptive stats.
+</li><li>
+Data manipulation basics (base R and dplyr package).
+</li><li>
+Plotting in ggplot2.
+</li></ul>
+<!-- =============================================== -->
+</section>
+</section>
+<section id="descriptive-statistics" class="level1">
+<h1>Descriptive statistics</h1>
+<p>type: section</p>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="characterizing-centrality" class="level1">
+<h1>Characterizing centrality</h1>
+<p>incremental: false</p>
+<section id="mean" class="level3">
+<h3 class="anchored" data-anchor-id="mean">Mean</h3>
+<p><code>mean(x)</code><br>
+<span class="math inline">\(\begin{aligned} \overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i) \end{aligned}\)</span></p>
+</section>
+<section id="median" class="level3">
+<h3 class="anchored" data-anchor-id="median">Median</h3>
+<p><code>median(x)</code><br>
+<strong>Robust</strong>, minimizes influence of outliers.</p>
+<hr>
+<p><img src="./fig/mean_median.png" style="width:80%;"></p>
+<!-- ----------------------------------------------- -->
+</section>
+</section>
+<section id="characterizing-dispersion-andor-spread" class="level1">
+<h1>Characterizing dispersion and/or spread</h1>
+<p>incremental: false</p>
+<section id="range" class="level3">
+<h3 class="anchored" data-anchor-id="range">Range</h3>
+<p>(<em>rozpětí</em>)<br>
+<code>max(x) - min(x)</code> or <code>range(x)</code></p>
+</section>
+<section id="variance-and-standard-deviation" class="level3">
+<h3 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and Standard deviation</h3>
+<p>(<em>rozptyl</em> a <em>směrodatná odchylka</em>)<br>
+<code>sd(x)</code><br>
+<span class="math inline">\(\begin{aligned} \sigma = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}} \end{aligned}\)</span></p>
+</section>
+<section id="interquartile-range" class="level3">
+<h3 class="anchored" data-anchor-id="interquartile-range">Interquartile range</h3>
+<p>(midspread, IQR, <em>kvantil</em>, <em>mezikvartilové rozpětí</em>)<br>
+<code>IQR(x)</code><br>
+<strong>Robust</strong>, minimizes influence of outliers.</p>
+<!-------------------------------------------------- -->
+</section>
+</section>
+<section id="fuu" class="level1">
+<h1>Fuu</h1>
+<p>title: false</p>
+<p>&lt;img src=“./fig/normal_distribution.png”, style=‘width:80%;’&gt;</p>
+<!-------------------------------------------------- -->
+</section>
+<section id="why-look-at-data-then" class="level1">
+<h1>Why look at data then?</h1>
+<p><em>Anscombe’s quartet</em></p>
+<pre><code># A tibble: 4 × 6
+    set `mean(x)` `sd(x)` `mean(y)` `sd(y)` `cor(x, y)`
+  &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+1     1         9    3.32      7.50    2.03       0.816
+2     2         9    3.32      7.50    2.03       0.816
+3     3         9    3.32      7.5     2.03       0.816
+4     4         9    3.32      7.50    2.03       0.817</code></pre>
+<p>Four sets of numerical data, all have almost identical values of descriptive statistics…</p>
+<!-------------------------------------------------- -->
+</section>
+<section id="why-look-at-data-then-1" class="level1">
+<h1>Why look at data then?</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-5-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-5</figcaption>
+</figure>
+</div>
+<!-- =============================================== -->
+</section>
+<section id="visualizing-data" class="level1">
+<h1>Visualizing data</h1>
+<p>type: section</p>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="brainstorming" class="level1">
+<h1>Brainstorming</h1>
+<p>type: prompt incremental: true</p>
+<ul>
+<li>Prečo potrebujeme vizualizovať data?</li>
+<li>Aké vlastnosti má mať dobrý graf?</li>
+<li>Aké prvky vieme na grafe pomenovať?</li>
+</ul>
+<p>&lt;img src=“./fig/boxplot_carlson.png”, style=‘width:60%;’&gt;</p>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="data-viz" class="level1">
+<h1>Data viz</h1>
+<p>&lt;img src=“./fig/minard.png”, style=‘width:80%;’&gt;</p>
+<p><em>(Minard 1869)</em></p>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="data-viz-1" class="level1">
+<h1>Data viz</h1>
+<p>&lt;img src=“./fig/snow.jpg”, style=‘width:40%;’&gt;</p>
+<p><em>(Snow 1854)</em></p>
+<!-- ----------------------------------------------- -->
+<!-- Data viz -->
+<!-- ======================================================= -->
+<!-- <img src="./fig/pay_gap.jpg", style='width:40%;'> -->
+<!-- (Paygap) -->
+<!-- ----------------------------------------------- -->
+</section>
+<section id="types-of-graphs" class="level1">
+<h1>Types of graphs</h1>
+<p>type: section</p>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="bar-chart" class="level1">
+<h1>Bar chart</h1>
+<p><em>(Sloupcový graf)</em><br>
+Distribution of values of a <strong>qualitative</strong> variable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-6-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-6</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="histogram" class="level1">
+<h1>Histogram</h1>
+<p>Distribution of values of a <strong>quantitative</strong> variable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-7</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="density-plot" class="level1">
+<h1>Density plot</h1>
+<p>Similar to histogram, great for comparison.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-8-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-8</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="boxplot" class="level1">
+<h1>Boxplot</h1>
+<p><em>(Krabicový graf)</em><br>
+<strong>Comparison</strong> of two and more <strong>quantitative</strong> variables.</p>
+<p><img src="./fig/boxplot.png" height="600"></p>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="boxplot-1" class="level1">
+<h1>Boxplot</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-9-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-9</figcaption>
+</figure>
+</div>
+<!-- =============================================== -->
+</section>
+<section id="plotting-in-r" class="level1">
+<h1>Plotting in R</h1>
+<p>type: section</p>
+<ul style="color:white;">
+<li>
+Base graphics with <code>plot</code>
+</li><li>
+Package <code>ggplot2</code>
+</li></ul>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="base-graphics" class="level1">
+<h1>Base graphics</h1>
+<p>incremental: false right: 60%</p>
+<p>Cvičenie s tabulkou <code>lokality</code>.</p>
+<pre><code>   lokalita objekty_ks
+1 Vedrovice         27
+2  Kyjovice         13
+3  Pohansko         55
+4 Mikulčice         29
+5    Znojmo         20</code></pre>
+<hr>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(lokality<span class="sc">$</span>objekty_ks, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg =</span> lokality<span class="sc">$</span>lokalita, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-11-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-11</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="package-ggplot2" class="level1">
+<h1>Package ggplot2</h1>
+<p>incremental: false</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="syntax" class="level2">
+<h2 class="anchored" data-anchor-id="syntax">Syntax</h2>
+<p>&lt;img src=“./fig/ggplot_syntax.png”, style=‘width:100%;’&gt;</p>
+<!-- ----------------------------------------------- -->
+</section>
+</section>
+<section id="ggplot2-syntax" class="level1">
+<h1>ggplot2: syntax</h1>
+<p>title: false</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lokality, <span class="fu">aes</span>(<span class="at">x =</span> lokalita, <span class="at">y =</span> objekty_ks)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-14-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-14</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="ggplot2-syntax-1" class="level1">
+<h1>ggplot2: syntax</h1>
+<p>title: false</p>
+<p>Dlhý zápis:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lokality, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lokalita, <span class="at">y =</span> objekty_ks)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Krátky zápis:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lokality, <span class="fu">aes</span>(lokalita, objekty_ks)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-16-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-16</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="barplot" class="level1">
+<h1>Barplot</h1>
+<p>incremental: true</p>
+<p>Cvičenie s databázou <code>EWBurials</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata) <span class="co"># ?EWBurials</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(EWBurials)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>hroby <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(EWBurials)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hroby, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>     Group  North  West         Age  Sex Direction Looking   Goods
+011      2  96.96 90.32 Young Adult Male        42     283 Present
+014      2 100.20 90.61 Young Adult Male        28     272 Present
+015      2 101.74 91.62   Old Adult Male       350     219 Present
+016a     2 101.00 90.47 Young Adult Male       335      60  Absent</code></pre>
+<section id="otázky" class="level2">
+<h2 class="anchored" data-anchor-id="otázky">Otázky</h2>
+<ul>
+<li>aký je pomer mužských a ženských hrobov?</li>
+<li>aké je zastúpenie vekových kategórií medzi pohlaviami?</li>
+<li>líšila sa prítommosť milodarov (1) v závislosti na pohlaví alebo (2) v závislosti na veku?</li>
+<li>aké sú rozdiely medzi skupinami?</li>
+</ul>
+<!-- ----------------------------------------------- -->
+</section>
+</section>
+<section id="aký-je-pomer-mužských-a-ženských-hrobov" class="level1">
+<h1>1. Aký je pomer mužských a ženských hrobov?</h1>
+<p>incremental: true</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-19-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-19</figcaption>
+</figure>
+</div>
+<hr>
+<p>Ako by ste spravili podobný graf, zobrazujúci rozdelenie hrobov podľa veku?</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-21-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-21</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+<!-- 1. Aký je pomer mužských a ženských hrobov? -->
+<!-- ======================================================== -->
+<!-- incremental: true -->
+<!-- ## Drobné úpravy grafu -->
+<!-- ### Farba -->
+<!-- `geom_bar(fill =, color=)` -->
+<!-- ```{r} -->
+<!-- p <- ggplot(hroby, aes(x=Sex)) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- p + geom_bar(fill = "pink", color= "black") -->
+<!-- ``` -->
+<!-- ----------------------------------------------- -->
+</section>
+<section id="labels" class="level1">
+<h1>Labels</h1>
+<p>incremental: true</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Sex)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"pohlaví"</span>, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"počet"</span>, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Počet hrobů podle pohlaví"</span>, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">caption =</span> <span class="st">"Archdata::EWBurials"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-23-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-23</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="aké-je-zastúpenie-vekových-kategórií-medzi-pohlaviami" class="level1">
+<h1>2. Aké je zastúpenie vekových kategórií medzi pohlaviami?</h1>
+<p>incremental: false</p>
+<p>Stacked bar chart: <code>geom_bar()</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">fill =</span> Age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-25-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-25</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="aké-je-zastúpenie-vekových-kategórií-medzi-pohlaviami-1" class="level1">
+<h1>2. Aké je zastúpenie vekových kategórií medzi pohlaviami?</h1>
+<p>Dodged bar chart: <code>geom_bar(position = "dodge")</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">fill =</span> Age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-27-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-27</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="a.-líšila-sa-prítommosť-milodarov-v-závislosti-na-pohlaví" class="level1">
+<h1>3a. Líšila sa prítommosť milodarov v závislosti na pohlaví?</h1>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">fill =</span> Goods))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-29-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-29</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+<!-- 3a. líšila sa prítommosť milodarov v závislosti na pohlaví? -->
+<!-- ======================================================================= -->
+<!-- incremental: true -->
+<!-- ## Vlastné farby -->
+<!-- `scale_fill_manual(values = )` -->
+<!-- ```{r} -->
+<!-- my_colors <- c("red", "black") -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- p <- ggplot(hroby, aes(x = Sex, fill = Goods)) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- p + geom_bar() + -->
+<!--   scale_fill_manual(values = my_colors) -->
+<!-- ``` -->
+<!-- ----------------------------------------------- -->
+</section>
+<section id="b.-líšila-sa-prítommosť-milodarov-v-závislosti-na-veku" class="level1">
+<h1>3b. Líšila sa prítommosť milodarov v závislosti na veku?</h1>
+<p>incremental: true</p>
+<section id="absolútne-čísla" class="level2">
+<h2 class="anchored" data-anchor-id="absolútne-čísla">Absolútne čísla</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">fill =</span> Goods))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="seminar3-figure/unnamed-chunk-31-1.png" class="img-fluid" alt="plot of chunk unnamed-chunk-31"> <!-- ----------------------------------------------- --></p>
+</section>
+</section>
+<section id="b.-líšila-sa-prítommosť-milodarov-v-závislosti-na-veku-1" class="level1">
+<h1>3b. Líšila sa prítommosť milodarov v závislosti na veku?</h1>
+<p>incremental: true</p>
+<section id="relatívny-pomer" class="level2">
+<h2 class="anchored" data-anchor-id="relatívny-pomer">Relatívny pomer</h2>
+<p><code>geom_bar(position = "fill")</code></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">fill =</span> Goods))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-33-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-33</figcaption>
+</figure>
+</div>
+<!-- ----------------------------------------------- -->
+</section>
+</section>
+<section id="aké-sú-rozdiely-medzi-skupinami" class="level1">
+<h1>4. Aké sú rozdiely medzi skupinami?</h1>
+<p>incremental: true</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Sex <span class="sc">~</span> Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-35-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-35</figcaption>
+</figure>
+</div>
+<!-- *** -->
+<!-- ```{r} -->
+<!-- p + geom_bar() + -->
+<!--   facet_grid(Sex ~ Group) + -->
+<!--   theme (axis.text.x = element_text(angle = 60, hjust = 1)) -->
+<!-- ``` -->
+<!-- ----------------------------------------------- -->
+</section>
+<section id="aby-to-nebolo-tak-jednoduché" class="level1">
+<h1>Aby to nebolo tak jednoduché…</h1>
+<p>type: prompt</p>
+<p>Aký je rozdiel medzi týmito datasetmi?</p>
+<p><code>hroby</code></p>
+<pre><code>     Group  North  West         Age  Sex Direction Looking   Goods
+011      2  96.96 90.32 Young Adult Male        42     283 Present
+014      2 100.20 90.61 Young Adult Male        28     272 Present
+015      2 101.74 91.62   Old Adult Male       350     219 Present
+016a     2 101.00 90.47 Young Adult Male       335      60  Absent
+018      2 101.65 90.46   Old Adult Male         3      86 Present
+020      1  95.17 90.53 Young Adult Male       142      21  Absent</code></pre>
+<p><code>lokality</code></p>
+<pre><code>   lokalita objekty_ks
+1 Vedrovice         27
+2  Kyjovice         13
+3  Pohansko         55
+4 Mikulčice         29
+5    Znojmo         20</code></pre>
+<!-- ----------------------------------------------- -->
+</section>
+<section id="fuu-1" class="level1">
+<h1>Fuu</h1>
+<p>title: false</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hroby, <span class="fu">aes</span>(<span class="at">x =</span> Age))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-38-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-38</figcaption>
+</figure>
+</div>
+<hr>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lokality, </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> lokalita, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> objekty_ks))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seminar3-figure/unnamed-chunk-39-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">plot of chunk unnamed-chunk-39</figcaption>
+</figure>
+</div>
+<!-- =============================================== -->
+</section>
+<section id="project-assignment" class="level1">
+<h1>Project assignment</h1>
+<p>type: prompt</p>
+<section id="where-to-look-for-data-sets" class="level2">
+<h2 class="anchored" data-anchor-id="where-to-look-for-data-sets">Where to look for data sets?</h2>
+<ul>
+<li><p><strong>Journal of Open Archaeology Data</strong><br>
+<a href="https://openarchaeologydata.metajnl.com/" class="uri">https://openarchaeologydata.metajnl.com/</a></p></li>
+<li><p>Book <strong>Qunatitative Methods in Archaeology Using R</strong> by D. L. Carlson and associated R package <code>archdata</code></p></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(archdata)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>?archdata <span class="co"># list of data sets in the package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">Build with quarto.</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/petrpajdla/stat4arch/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
