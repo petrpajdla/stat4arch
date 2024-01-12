@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target=""><i class="bi bi-house-heart" role="img">
+    <a class="nav-link" href="./index.html" rel="" target=""><i class="bi bi-book" role="img">
 </i> 
  <span class="menu-text">Course overview</span></a>
   </li>  
@@ -91,9 +91,21 @@ ul.task-list li input[type="checkbox"] {
 </i> 
  <span class="menu-text">Schedule</span></a>
   </li>  
-  <li class="dropdown-header"><i class="bi bi-book" role="img">
-</i> 
- <span class="menu-text">Lectures</span></li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Lectures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+        <li>
+    <a class="dropdown-item" href="./lect/w01/intro.html" rel="" target="">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lect/w01/tidy.html" rel="" target="">
+ <span class="dropdown-text">Tidy data</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./project.html" rel="" target=""><i class="bi bi-file-earmark-code" role="img">
 </i> 
@@ -119,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -141,18 +153,14 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Each <strong>Wednesday 12:00 – 13:40 in L11</strong>, except 17. 4. (?), 1. 5. and 8. 5. (holidays).</li>
 </ul>
+<div class="column-screen-inset">
 <table class="table">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 11%">
-<col style="width: 35%">
-<col style="width: 39%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Lecture</th>
 <th>Date</th>
 <th>Topics</th>
+<th>Prerequisites</th>
 <th>Assignments</th>
 </tr>
 </thead>
@@ -160,30 +168,35 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>1.</td>
 <td>21. 2.</td>
-<td>Introduction, Tidy data</td>
+<td><a href="./lect/w01/intro.html">Introduction</a>, <a href="./lect/w01/tidy.html">Tidy data</a></td>
 <td>–</td>
+<td>Read chapters <em>Quantifying Archaeology</em> and <em>Data</em> in <em>Quantitative analysis in archaeology</em> book by VanPool and Leonard (2011).</td>
 </tr>
 <tr class="even">
 <td>2.</td>
 <td>28. 2.</td>
-<td></td>
-<td></td>
+<td>Basic coding in R</td>
+<td>Go through <em>R Basics</em> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</td>
+<td>Find a suitable dataset for your <strong>Project</strong>.</td>
 </tr>
 <tr class="odd">
 <td>3.</td>
 <td>6. 3.</td>
-<td></td>
-<td></td>
+<td>Visualization and summary of distributions</td>
+<td>Go through <em>Visualize data</em> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</td>
+<td>Read <a href="https://socviz.co/makeplot.html#makeplot">Make a plot</a> chapter from <em>Data Visualization</em> book by K. J. Healy.</td>
 </tr>
 <tr class="even">
 <td>4.</td>
 <td>13. 3.</td>
+<td>Visualization and summary of relationships</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>5.</td>
 <td>20. 3.</td>
+<td>Reproducibility</td>
 <td></td>
 <td></td>
 </tr>
@@ -192,10 +205,12 @@ ul.task-list li input[type="checkbox"] {
 <td>27. 3.</td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>7.</td>
 <td>3. 4.</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -204,10 +219,12 @@ ul.task-list li input[type="checkbox"] {
 <td>10. 4.</td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>9.</td>
 <td>24. 4.</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -216,15 +233,18 @@ ul.task-list li input[type="checkbox"] {
 <td>15. 5.</td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>11.</td>
 <td>22. 5.</td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
+</div>
 
 
 

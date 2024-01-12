@@ -2,54 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/schedule.html</loc>
-    <lastmod>2024-01-12T10:04:56.650Z</lastmod>
-  </url>
-  <url>
-    <loc>https://petrpajdla.github.io/stat4arch/lectures/seminar3/seminar3.html</loc>
-    <lastmod>2024-01-12T10:04:55.633Z</lastmod>
-  </url>
-  <url>
-    <loc>https://petrpajdla.github.io/stat4arch/lectures/template/template.html</loc>
-    <lastmod>2024-01-12T10:04:53.876Z</lastmod>
-  </url>
-  <url>
-    <loc>https://petrpajdla.github.io/stat4arch/lectures/seminar4/seminar4.html</loc>
-    <lastmod>2024-01-12T10:04:52.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://petrpajdla.github.io/stat4arch/lectures/seminar2/seminar2.html</loc>
-    <lastmod>2024-01-12T10:04:51.710Z</lastmod>
+    <lastmod>2024-01-12T14:56:50.520Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/index.html</loc>
-    <lastmod>2024-01-12T10:04:49.943Z</lastmod>
+    <lastmod>2024-01-12T14:56:49.736Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/project/project_template.html</loc>
-    <lastmod>2024-01-12T10:04:49.166Z</lastmod>
+    <lastmod>2024-01-12T14:56:48.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w01/intro.html</loc>
+    <lastmod>2024-01-12T14:56:45.816Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w01/tidy.html</loc>
+    <lastmod>2024-01-12T14:56:46.273Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/project.html</loc>
-    <lastmod>2024-01-12T10:04:49.560Z</lastmod>
+    <lastmod>2024-01-12T14:56:49.343Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/resources.html</loc>
-    <lastmod>2024-01-12T10:04:50.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://petrpajdla.github.io/stat4arch/lectures/seminar7/seminar7.html</loc>
-    <lastmod>2024-01-12T10:04:52.050Z</lastmod>
-  </url>
-  <url>
-    <loc>https://petrpajdla.github.io/stat4arch/lectures/seminar1/seminar1.html</loc>
-    <lastmod>2024-01-12T10:04:53.570Z</lastmod>
-  </url>
-  <url>
-    <loc>https://petrpajdla.github.io/stat4arch/lectures/seminar6/seminar6.html</loc>
-    <lastmod>2024-01-12T10:04:54.843Z</lastmod>
-  </url>
-  <url>
-    <loc>https://petrpajdla.github.io/stat4arch/lectures/seminar5/seminar5.html</loc>
-    <lastmod>2024-01-12T10:04:56.320Z</lastmod>
+    <lastmod>2024-01-12T14:56:50.183Z</lastmod>
   </url>
 </urlset>
