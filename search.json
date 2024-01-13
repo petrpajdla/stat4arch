@@ -4,14 +4,21 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Each Wednesday 12:00 – 13:40 in L11, except 17. 4. (?), 1. 5. and 8. 5. (holidays).\n\n\n\n\n\nLecture\nDate\nTopics\nPrerequisites\nAssignments\n\n\n\n\n1.\n21. 2.\nIntroduction, Tidy data\n–\nRead chapters Quantifying Archaeology and Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).\n\n\n2.\n28. 2.\nBasic coding in R\nGo through R Basics tutorials here.\nFind a suitable dataset for your Project.\n\n\n3.\n6. 3.\nVisualization and summary of distributions\nGo through Visualize data tutorials here.\nRead Make a plot chapter from Data Visualization book by K. J. Healy.\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n\n\n5.\n20. 3.\nReproducibility\n\n\n\n\n6.\n27. 3.\n\n\n\n\n\n7.\n3. 4.\n\n\n\n\n\n8.\n10. 4.\n\n\n\n\n\n9.\n24. 4.\n\n\n\n\n\n10.\n15. 5.\n\n\n\n\n\n11.\n22. 5."
+    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (?), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n\n\n2.\n28. 2.\nBasic coding in R\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n5.\n20. 3.\nReproducibility\n\n\n6.\n27. 3.\nPractice?\n\n\n7.\n3. 4.\nConsidering space\n\n\n8.\n10. 4.\nConsidering time\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n10.\n15. 5.\n\n\n\n11.\n22. 5."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Analyzing archaeological data using R",
     "section": "",
-    "text": "Welcome to AES_707 Statistics seminar for archaeology students at the Department of Archaeology and Museology, Masaryk University. The course is taught by Petr Pajdla and Peter Tkáč.\nInformation given here applies to spring semester 2024, the page will be continuously updated throughout the semester. The course was taught also in 2022 and 2020.\n\nEach Wednesday, 12:00 – 13:40 (except 17th April – why?).\nRoom L11 (computers are provided in the room, you can use your own laptop though).\n3 ECTS credits, i.e. approx. 75 h. of workload, seminars take up approx. 25 h.\nYou will work on a project of your own to complete the course.\n\n\nInformation on assessment\nTo pass the course, you have to finish and submit a report on your project. There are four assessment dates: - 2nd June, - 16th June, - 30th June, - 8th September - corrections only!\nBy the given date, please send us your project report. We will go through the reports and either return it to you with notes what to correct etc. or find it good enough to pass the course. If you need any help, please let us know in advance!"
+    "text": "Welcome to AES_707 Statistics seminar for archaeology students at the Department of Archaeology and Museology, Masaryk University. The course is taught by Petr Pajdla and Peter Tkáč.\nInformation given here applies to spring semester 2024, the page will be continuously updated throughout the semester. The course was taught also in 2022 and 2020."
+  },
+  {
+    "objectID": "index.html#information-on-assessment",
+    "href": "index.html#information-on-assessment",
+    "title": "Analyzing archaeological data using R",
+    "section": "Information on assessment",
+    "text": "Information on assessment\nTo pass the course, you have to finish and submit a report on your project."
   },
   {
     "objectID": "project/project_template.html",
@@ -56,17 +63,157 @@
     "text": "Multivariate exploration\n\nWill be added…"
   },
   {
+    "objectID": "lect/w01/tidy.html#prerequisites",
+    "href": "lect/w01/tidy.html#prerequisites",
+    "title": "Organizing data",
+    "section": "Prerequisites",
+    "text": "Prerequisites"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#exercises",
+    "href": "lect/w01/tidy.html#exercises",
+    "title": "Organizing data",
+    "section": "Exercises",
+    "text": "Exercises"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#assignments",
+    "href": "lect/w01/tidy.html#assignments",
+    "title": "Organizing data",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets.\nAs an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011)."
+  },
+  {
+    "objectID": "lect/w01/tidy_reveal.html#objectives",
+    "href": "lect/w01/tidy_reveal.html#objectives",
+    "title": "Organizing data",
+    "section": "Objectives",
+    "text": "Objectives"
+  },
+  {
+    "objectID": "lect/w01/tidy_reveal.html#prerequisites",
+    "href": "lect/w01/tidy_reveal.html#prerequisites",
+    "title": "Organizing data",
+    "section": "Prerequisites",
+    "text": "Prerequisites"
+  },
+  {
+    "objectID": "lect/w01/tidy_reveal.html#exercises",
+    "href": "lect/w01/tidy_reveal.html#exercises",
+    "title": "Organizing data",
+    "section": "Exercises",
+    "text": "Exercises"
+  },
+  {
+    "objectID": "lect/w01/tidy_reveal.html#assignments",
+    "href": "lect/w01/tidy_reveal.html#assignments",
+    "title": "Organizing data",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets.\nAs an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011)."
+  },
+  {
+    "objectID": "lect/w01/intro.html#prerequisites",
+    "href": "lect/w01/intro.html#prerequisites",
+    "title": "Course introduction",
+    "section": "Prerequisites",
+    "text": "Prerequisites"
+  },
+  {
+    "objectID": "lect/w01/intro.html#exercises",
+    "href": "lect/w01/intro.html#exercises",
+    "title": "Course introduction",
+    "section": "Exercises",
+    "text": "Exercises"
+  },
+  {
+    "objectID": "lect/w01/intro.html#assignments",
+    "href": "lect/w01/intro.html#assignments",
+    "title": "Course introduction",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson (see Resources for details). These give a general overview on why to use quantitative/computational methods in archaeology."
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#prerequisites",
+    "href": "lect/w02/intro2r.html#prerequisites",
+    "title": "Coding in R",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nGo through R Basics tutorials here."
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#exercises",
+    "href": "lect/w02/intro2r.html#exercises",
+    "title": "Coding in R",
+    "section": "Exercises",
+    "text": "Exercises"
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#assignments",
+    "href": "lect/w02/intro2r.html#assignments",
+    "title": "Coding in R",
+    "section": "Assignments",
+    "text": "Assignments\n\nFind a suitable dataset for your Project."
+  },
+  {
     "objectID": "project.html",
     "href": "project.html",
     "title": "Project",
     "section": "",
-    "text": "To pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit his/her own report on the analysis. There are two options, you can choose to work either on your own dataset or use an existing published data.\n\nGet the data\nAlthough the first step in most of the analysis would be creating the research question(s), we assume our questions and goals are already set and skip to the step where we get the data suitable to answer our questions…\n\n(A) Working with your own dataset\n\nYou can choose to use your own data. This is especially useful if you are working on your BA/MA/PhD thesis, an article or so and want to analyze the data collected for the given work.\nThis option is easier because you probably know what your dataset contains and what each variable means, how it was collected etc.\n\n\n\n(B) Using an existing dataset\n\nFind a suitable dataset online, scrape a website, get it in a book, anything that comes to mind, be creative. Bear in mind that the dataset needs to contain a mixture of quantitative and qualitative variables. It can be organized as a table, then the work is easier for you. If it is a database, we can give you a hand with data prep.\nWe recommend to look in the Journal of Open Archaeology Data. Datasets published here have clear use conditions (license), are deposited in a suitable repository and should be well documented.\nIf you choose to use a dataset you found anywhere else (or web scraped etc.) please make sure that it is easily accessible and suitable for the analysis.\n\n\n\n\nGet to know the data\n\nMake sure you know where your data is and how is it stored.\nMake sure you know what each variable means, what type of data does it contain etc.\nThe dataset should contain at least several quantitative and qualitative variables.\n\n\n\nReport template\nRMarkdown template for the project report is here. Create a new RMarkdown file (.Rmd), copy and paste the contents of the template in your file, do your changes, write your report and push the Knit button. Follow the instructions in the template to work on your project.\n\n\nHow to submit the report\nFeel free to contact us if you need any help or assistance during the work on your project. Simply send us both the source Rmd file and the HTML output with your questions and we will address the problem either directly or in class."
+    "text": "To pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit their own report on the analysis. There are two options, you can choose to work either on your own dataset or use an existing published data."
+  },
+  {
+    "objectID": "project.html#get-the-data",
+    "href": "project.html#get-the-data",
+    "title": "Project",
+    "section": "Get the data",
+    "text": "Get the data\nAlthough the first step in most of the analysis would be creating the research question(s), we assume our questions and goals are already set and skip to the step where we get the data suitable to answer our questions…\n\nWorking with your own dataset\n\nYou can choose to use your own data. This is especially useful if you are working on your BA/MA/PhD thesis or an article and want to analyze the data collected for the given work.\nThis option is easier because you probably know what your dataset contains and what each variable means, how it was collected etc.\n\n\n\nUsing an existing dataset\n\nFind a suitable dataset online, scrape a website, get it in a book, anything that comes to mind, be creative. Bear in mind that the dataset needs to contain a mixture of quantitative and qualitative variables. It can be organized as a table, then the work is easier for you. If it is a database, we can give you a hand with data preparation etc.\nWe recommend to look in the Journal of Open Archaeology Data. Datasets published here have clear use conditions (license), are deposited in a suitable repository and should be well documented.\nIf you choose to use a dataset you found anywhere else (or web scraped etc.) please make sure that it is easily accessible and suitable for the analysis."
+  },
+  {
+    "objectID": "project.html#get-to-know-the-data",
+    "href": "project.html#get-to-know-the-data",
+    "title": "Project",
+    "section": "Get to know the data",
+    "text": "Get to know the data\n\nMake sure you know where your data is and how is it stored (format and how to read it into R).\nMake sure you know what each variable means, what type of data does it contain etc.\nThe dataset should contain at least several quantitative and qualitative variables in order for you to be able to practice creating visualizations.\n\n\nReport template\nRMarkdown template for the project report is here. Create a new RMarkdown file (.Rmd), copy and paste the contents of the template in your file, do your changes, write your report and push the Knit button. Follow the instructions in the template to work on your project.\n\n\nHow to submit the report\nFeel free to contact us if you need any help or assistance during the work on your project. Simply send us both the source Rmd file and the HTML output with your questions and we will address the problem either directly or in class."
   },
   {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "Here is a non exhaustive list of resources and links we find useful. These cover various topics and most are openly available online. We expect you to be creative and search (not only) through these resources if you get stuck with your project or find any topics difficult to understand. If you find it hard to get access to any of the articles or books mentioned here, do not hesitate contacting us. Definitely do not use websites like Sci-Hub or Library Genesis that seem to provide scientific knowledge to all. The King of the Potato People prohibits this.\n\nQuantitative and digital archaeology\n\nCarlson, D. L. 2017: Quantitative Methods in Archaeology Using R. Cambridge: Cambridge University Press.\nVanPool, TL and Leonard, RD. 2011. Quantitative analysis in archaeology. Chichester: Wiley-Blackwell.\nDrennan, R. D. 2010: Statistics for Archaeologists: A common sense approach. New York: Springer.\nBaxter, M. 2003: Statistics in Archaeology. London: Wiley.\nFletcher, M., Lock, G. R. 1994: Digging Numbers: Elementary statistics for archaeologists. Oxford: Oxbow.\nShennan, S. 1988: Quantifying Archaeology. Edinburgh: Edinburgh University Press.\n\n\n\n\n\nR programming language and environment\n\nR for Data Science by Hadley Wickham and Garret Grolemund.\nData Visualization. A practical introduction by Kieran Healy.\nCRAN Task View is a list of R packages useful in archaeology maintained by Ben Marwick. There is also a list of articles using R in the analysis with data and code published.\n\n\nWhere to look for help\n\nRStudio cheatsheets, especially data visualization, transformation, tidying and import cheatsheets will come in useful.\nSearch through Stack Overflow. Find some tips on asking good questions and providing minimal reproducible examples in this thread and in Advanced R book by Hadley Wickham.\n\n\n\n\nReproducibility\n\nMarwick, B. 2017: Computational Reproducibility in Archaeological Research: Basic Principles and a Case Study of Their Implementation. Journal of Archaeological Method and Theory 24(2): 424–450. DOI: 10.1007/s10816-015-9272-9.\nMarwick, B., Boettiger, C. and Mullen, L. 2018: Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician 72(1): 80–88. DOI: 10.1080/00031305.2017.1375986.\n\n\nData management\n\nKarl Broman’s guide on how to organize data in spreadsheets. The same as an article, DOI: https://doi.org/gdz6cm.\nJenny Bryan’s slides on naming things.\nHadley Wickham’s paper on tidy data, DOI: https://doi.org/10.18637/jss.v059.i10.\n\n\n\nRMarkdown and scientific writing\n\nBritish Ecological Society has a nice series of Guides to Better Science covering various topics including Reproducible Code and Data Management.\nA short guide by Ben Marwick on how to setup Atom (this could be any text editor) and Zotero (citation management software).\nThe Plain Person’s Guide to Plain Text Social Science by Kieran Healy.\n\n\n\n\nR as a GIS and spatial analysis\n\nGeocomputation with R book by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow.\n\n\n\nOther links and tools\n\nOpen-archaeo is a list of open source archaeological software and resources maintained by Zack Batist."
+    "text": "Here is a non exhaustive list of resources and links we find useful. These cover various topics and most are openly available online. We expect you to be creative and search (not only) through these resources if you get stuck with your project or find any topics difficult to understand. If you find it hard to get access to any of the articles or books mentioned here, do not hesitate contacting us. Definitely do not use websites like Sci-Hub or Library Genesis that seem to provide scientific knowledge to all. The King of the Potato People prohibits this."
+  },
+  {
+    "objectID": "resources.html#quantitative-and-digital-archaeology",
+    "href": "resources.html#quantitative-and-digital-archaeology",
+    "title": "Resources",
+    "section": "Quantitative and digital archaeology",
+    "text": "Quantitative and digital archaeology\n\nCarlson, D. L. 2017: Quantitative Methods in Archaeology Using R. Cambridge: Cambridge University Press.\nVanPool, TL and Leonard, RD. 2011. Quantitative analysis in archaeology. Chichester: Wiley-Blackwell.\nDrennan, R. D. 2010: Statistics for Archaeologists: A common sense approach. New York: Springer.\nBaxter, M. 2003: Statistics in Archaeology. London: Wiley.\nFletcher, M., Lock, G. R. 1994: Digging Numbers: Elementary statistics for archaeologists. Oxford: Oxbow.\nShennan, S. 1988: Quantifying Archaeology. Edinburgh: Edinburgh University Press."
+  },
+  {
+    "objectID": "resources.html#r-programming-language-and-environment",
+    "href": "resources.html#r-programming-language-and-environment",
+    "title": "Resources",
+    "section": "R programming language and environment",
+    "text": "R programming language and environment\n\nR for Data Science by Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund (2nd Ed.).\nData Visualization. A practical introduction by Kieran Healy.\nCRAN Task View is a list of R packages useful in archaeology maintained by Ben Marwick. There is also a list of articles using R in the analysis with data and code published.\n\n\nWhere to look for help\n\nPosit/RStudio cheatsheets, especially data visualization, transformation, tidying and import cheatsheets will come in useful.\nSearch through Stack Overflow. Find some tips on asking good questions and providing minimal reproducible examples in this thread."
+  },
+  {
+    "objectID": "resources.html#reproducibility",
+    "href": "resources.html#reproducibility",
+    "title": "Resources",
+    "section": "Reproducibility",
+    "text": "Reproducibility\n\nMarwick, B. 2017: Computational Reproducibility in Archaeological Research: Basic Principles and a Case Study of Their Implementation. Journal of Archaeological Method and Theory 24(2): 424–450. DOI: 10.1007/s10816-015-9272-9.\nMarwick, B., Boettiger, C. and Mullen, L. 2018: Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician 72(1): 80–88. DOI: 10.1080/00031305.2017.1375986.\n\n\nData management\n\nKarl Broman’s guide on how to organize data in spreadsheets. The same as an article, DOI: https://doi.org/gdz6cm.\nJenny Bryan’s slides on naming things.\nHadley Wickham’s paper on tidy data, DOI: https://doi.org/10.18637/jss.v059.i10.\n\n\n\nRMarkdown/Quarto and scientific writing\n\nBritish Ecological Society has a nice series of Guides to Better Science covering various topics including Reproducible Code and Data Management.\nA short guide by Ben Marwick on how to setup Atom (this could be any text editor) and Zotero (citation management software).\nThe Plain Person’s Guide to Plain Text Social Science by Kieran Healy."
+  },
+  {
+    "objectID": "resources.html#r-as-a-gis-and-spatial-analysis",
+    "href": "resources.html#r-as-a-gis-and-spatial-analysis",
+    "title": "Resources",
+    "section": "R as a GIS and spatial analysis",
+    "text": "R as a GIS and spatial analysis\n\nGeocomputation with R book by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow."
+  },
+  {
+    "objectID": "resources.html#other-links-and-tools",
+    "href": "resources.html#other-links-and-tools",
+    "title": "Resources",
+    "section": "Other links and tools",
+    "text": "Other links and tools\n\nOpen-archaeo is a list of open source archaeological software and resources maintained by Zack Batist."
   }
 ]
