@@ -11,7 +11,8 @@ do not hesitate contacting us. Definitely do not use websites like Sci-Hub or
 Library Genesis that seem to provide scientific knowledge to all. The King of
 the Potato People prohibits this.
 
-### Quantitative and digital archaeology
+## Quantitative and digital archaeology
+
 - Carlson, D. L. 2017: *Quantitative Methods in Archaeology Using R.*
   Cambridge: Cambridge University Press.
 - VanPool, TL and Leonard, RD. 2011. *Quantitative analysis in archaeology.* Chichester:   Wiley-Blackwell.
@@ -34,23 +35,25 @@ the Potato People prohibits this.
   this course though.
 -->
 
-### R programming language and environment
-- [R for Data Science](https://r4ds.had.co.nz) by Hadley Wickham and Garret Grolemund.
+## R programming language and environment
+
+- [R for Data Science](https://r4ds.hadley.nz/) by Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund (2nd Ed.).
 - [Data Visualization. A practical introduction](https://socviz.co/) by Kieran Healy.
 - [CRAN Task View](https://github.com/benmarwick/ctv-archaeology) is a list of
   R packages useful in archaeology maintained by Ben Marwick.
   There is also a list of articles using R in the analysis with data and code
   published.
 
-#### Where to look for help
-- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/), especially
+### Where to look for help
+
+- [Posit/RStudio cheatsheets](https://posit.co/resources/cheatsheets/), especially
   data visualization, transformation, tidying and import cheatsheets will come in useful.
 - Search through [Stack Overflow](https://stackoverflow.com/questions/tagged/r).
   Find some tips on asking good questions and providing minimal reproducible examples
-  in this [thread](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example)
-  and in [Advanced R](http://adv-r.had.co.nz/Reproducibility.html) book by Hadley Wickham.
+  in this [thread](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example).
 
-### Reproducibility
+## Reproducibility
+
 - Marwick, B. 2017: Computational Reproducibility in Archaeological Research:
   Basic Principles and a Case Study of Their Implementation.
   *Journal of Archaeological Method and Theory* 24(2): 424–450.
@@ -59,14 +62,15 @@ the Potato People prohibits this.
   Reproducibly Using R (and Friends). *The American Statistician* 72(1): 80–88.
   DOI: [10.1080/00031305.2017.1375986](https://doi.org/10.1080/00031305.2017.1375986).
 
-#### Data management
+### Data management
+
 - Karl Broman's [guide](https://kbroman.org/dataorg/) on how to organize data in
   spreadsheets. The same as an article, DOI: [https://doi.org/gdz6cm](https://doi.org/gdz6cm).
-- Jenny Bryan's [slides](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf)
-  on naming things.
+- Jenny Bryan's [slides](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf) on naming things.
 - Hadley Wickham's paper on tidy data, DOI: [https://doi.org/10.18637/jss.v059.i10](https://doi.org/10.18637/jss.v059.i10).
 
-#### RMarkdown and scientific writing
+### RMarkdown/Quarto and scientific writing
+
 - *British Ecological Society* has a nice series of [Guides to Better Science](https://www.britishecologicalsociety.org/publications/guides-to/)
   covering various topics including [Reproducible Code](https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Reproducible-Code-2019.pdf?utm_source=web&utm_medium=web&utm_campaign=better_science)
   and [Data Management](https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Data-Management-2019.pdf?utm_source=web&utm_medium=web&utm_campaign=better_science).
@@ -76,10 +80,12 @@ the Potato People prohibits this.
 - [The Plain Person’s Guide to Plain Text Social Science](https://plain-text.co/)
   by Kieran Healy.
 
-### R as a GIS and spatial analysis
+## R as a GIS and spatial analysis
 
 - [Geocomputation with R](https://geocompr.robinlovelace.net/index.html) book by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow.
 
-### Other links and tools
+## Other links and tools
+
 - [Open-archaeo](https://open-archaeo.info/) is a list of open source archaeological
   software and resources maintained by Zack Batist.
+  

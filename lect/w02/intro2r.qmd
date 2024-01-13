@@ -1,0 +1,16 @@
+---
+title: "Coding in R"
+---
+
+## Objectives
+
+## Prerequisites
+
+- Go through **R Basics** tutorials [here](https://posit.cloud/learn/recipes).
+
+## Exercises
+
+## Assignments
+
+- Find a suitable dataset for your [Project](../../project.qmd).
+

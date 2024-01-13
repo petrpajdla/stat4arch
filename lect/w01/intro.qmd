@@ -1,4 +1,20 @@
 ---
-title: "Introduction"
+title: "Course introduction"
 ---
 
+## Objectives
+
+## Prerequisites
+
+## Exercises
+
+## Assignments
+
+- Read chapters **Quantifying Archaeology** in *Quantitative Analysis in Archaeology* book by VanPool, T. L. and Leonard, R. D. (2011).
+- Optionally, read **Introductions** in:
+
+  - *Quantifying archaeology* book by Stephen Shennan, and/or
+  - *Quantitative Methods in Archaeology* book by David L.
+  Carlson (see [Resources](../../resources.qmd) for details).
+  These give a general overview on why to use
+  quantitative/computational methods in archaeology.

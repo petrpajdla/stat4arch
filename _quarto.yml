@@ -27,7 +27,7 @@ website:
       contents:
         - lect/w01/intro.qmd
         - lect/w01/tidy.qmd
-        # - intro2r.qmd
+        - lect/w02/intro2r.qmd
         # - distributions.qmd
         # - relationships.qmd
         # - reproducibility.qmd
@@ -40,8 +40,6 @@ website:
     right: 
        - icon: github
          href: https://github.com/petrpajdla/stat4arch/
-         
-
 
 format:
   html:
