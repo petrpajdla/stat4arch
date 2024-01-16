@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (?), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n\n\n2.\n28. 2.\nBasic coding in R\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n5.\n20. 3.\nReproducibility\n\n\n6.\n27. 3.\nPractice?\n\n\n7.\n3. 4.\nConsidering space\n\n\n8.\n10. 4.\nConsidering time\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n10.\n15. 5.\n\n\n\n11.\n22. 5."
+    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (?), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n\n\n2.\n28. 2.\nBasic coding in R & Workflows\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n5.\n20. 3.\nReproducibility\n\n\n6.\n27. 3.\nPractice?\n\n\n7.\n3. 4.\nConsidering space\n\n\n8.\n10. 4.\nConsidering time\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n10.\n15. 5.\nPractice\n\n\n11.\n22. 5."
   },
   {
     "objectID": "index.html",
@@ -65,49 +65,49 @@
   {
     "objectID": "lect/w01/tidy.html#prerequisites",
     "href": "lect/w01/tidy.html#prerequisites",
-    "title": "Organizing data",
+    "title": "Tidy data",
     "section": "Prerequisites",
     "text": "Prerequisites"
   },
   {
     "objectID": "lect/w01/tidy.html#exercises",
     "href": "lect/w01/tidy.html#exercises",
-    "title": "Organizing data",
+    "title": "Tidy data",
     "section": "Exercises",
     "text": "Exercises"
   },
   {
     "objectID": "lect/w01/tidy.html#assignments",
     "href": "lect/w01/tidy.html#assignments",
-    "title": "Organizing data",
+    "title": "Tidy data",
     "section": "Assignments",
     "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets.\nAs an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011)."
   },
   {
     "objectID": "lect/w01/tidy_reveal.html#objectives",
     "href": "lect/w01/tidy_reveal.html#objectives",
-    "title": "Organizing data",
+    "title": "Tidy data",
     "section": "Objectives",
     "text": "Objectives"
   },
   {
     "objectID": "lect/w01/tidy_reveal.html#prerequisites",
     "href": "lect/w01/tidy_reveal.html#prerequisites",
-    "title": "Organizing data",
+    "title": "Tidy data",
     "section": "Prerequisites",
     "text": "Prerequisites"
   },
   {
     "objectID": "lect/w01/tidy_reveal.html#exercises",
     "href": "lect/w01/tidy_reveal.html#exercises",
-    "title": "Organizing data",
+    "title": "Tidy data",
     "section": "Exercises",
     "text": "Exercises"
   },
   {
     "objectID": "lect/w01/tidy_reveal.html#assignments",
     "href": "lect/w01/tidy_reveal.html#assignments",
-    "title": "Organizing data",
+    "title": "Tidy data",
     "section": "Assignments",
     "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets.\nAs an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011)."
   },
