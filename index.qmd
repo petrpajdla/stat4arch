@@ -17,7 +17,7 @@ Information given here applies to spring semester 2024, the page will be
 continuously updated throughout the semester.
 The course was taught also in 2022 and 2020.
 
-- Each Wednesday, 12:00 -- 13:40 (except 17th April -- why?).
+- Each Wednesday, 12:00 -- 13:40.
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
   (computers are provided in the room, you can use your own laptop though).
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.

@@ -6,7 +6,10 @@ A repository for teaching materials, presentations etc. for archaeological data 
 
 TODO
 
-- [ ] Zadat aktualizaci R, RStudio a RTools (https://cran.r-project.org/) v L11
+- [x] Zadat aktualizaci R, RStudio a RTools (https://cran.r-project.org/) v L11
 - [ ] Najít nebo motivovat studenty*ky, aby si náš kurz zapsali :)
 - [ ] **PT** Přečíst co o tom píšeme v isu a případně navrhnout úpravy
+- [ ] **PP** Uploadnout knížky do isu
+
+<https://docs.google.com/document/d/1vnHCVebmezwyqrPmIYhQqTcb4EVaVS8xFF9K_8OJzjo/edit?usp=sharing>
 

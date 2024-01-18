@@ -7,14 +7,14 @@ The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (
 | Lecture | Date   | Topics                                                    |
 |---------|--------|-----------------------------------------------------------|
 | 1.      | 21. 2. | [Introduction](lect/w01/intro.qmd) and [Tidy data](lect/w01/tidy.qmd) |
-| 2.      | 28. 2. | [Basic coding in R](lect/w2/intro2r.qmd)                  |
+| 2.      | 28. 2. | [Basic coding in R](lect/w02/intro2r.qmd) & Workflows      |
 | 3.      | 6. 3.  | Visualization and summary of distributions | Go through *Visualize data* tutorials [here](https://posit.cloud/learn/recipes). | Read [Make a plot](https://socviz.co/makeplot.html#makeplot) chapter from *Data Visualization* book by K. J. Healy. |
-| 4.      | 13. 3. | Visualization and summary of relationships |  |  |
-| 5.      | 20. 3. | Reproducibility |  |  |
-| 6.      | 27. 3. | Practice? |  |  |
-| 7.      | 3. 4.  | Considering space |  |  |
-| 8.      | 10. 4. | Considering time |  |  |
-| 9.      | 24. 4. | Multivariate analysis |  |  |
-| 10.     | 15. 5. |  |  |  |
-| 11.     | 22. 5. |  |  |  |
+| 4.      | 13. 3. | Visualization and summary of relationships |
+| 5.      | 20. 3. | Reproducibility |
+| 6.      | 27. 3. | Practice |
+| 7.      | 3. 4.  | Considering space |
+| 8.      | 10. 4. | Considering time |
+| 9.      | 24. 4. | Multivariate analysis |
+| 10.     | 15. 5. | Practice |
+| 11.     | 22. 5. |  |
 

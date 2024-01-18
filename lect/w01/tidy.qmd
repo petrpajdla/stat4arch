@@ -1,6 +1,6 @@
 ---
-title: "Organizing data"
-subtitle: "Tidy data"
+title: "Tidy data"
+subtitle: "Organizing data"
 format:
   html: default
   revealjs: 

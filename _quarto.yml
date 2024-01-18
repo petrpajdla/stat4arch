@@ -12,7 +12,7 @@ website:
       - file: schedule.qmd
         text: "Schedule"
         icon: calendar4
-      - sidebar:lectures
+      - sidebar:topics
       - file: project.qmd
         text: "Project"
         icon: file-earmark-code
@@ -22,8 +22,8 @@ website:
         
   sidebar:
     - title: "Home"
-    - id: lectures
-      title: "Lectures"
+    - id: topics
+      title: "Topics"
       contents:
         - lect/w01/intro.qmd
         - lect/w01/tidy.qmd
