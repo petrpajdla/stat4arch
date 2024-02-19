@@ -4,15 +4,75 @@ subtitle: "Organizing data"
 format:
   html: default
   revealjs:
+    fontsize: 24px
     output-file: slides_tidydata.html
+    footer: AES_707 *Statistics seminar for archaeologists* | Tidy data
   pdf: default
 ---
 
 ## Objectives
 
 
-## Prerequisites
+## What is a database?
 
+(Brainstorming)
+
+
+## Relational database - basic terms
+
+![](./figs/database_example_1.png)
+<!-- <img src="./figs/database_example_1.png" style='width:100%;'> -->
+
+
+## Relational database - basic terms
+
+![](./figs/database_example.png)
+<!-- <img src="./figs/database_example.png" style='width:100%;'> -->
+
+- **variable** (*proměnná* / *atribut*) - napr. hmotnosť keramického fragmentu
+- **observation** / **object** (*entita* / *záznam*) - napr. konkrétny keramický fragment
+- **value** (*hodnota*)
+- **primary key** / **unique ID** (*primární klíč*)
+
+
+## Tidy data
+
+![](./figs/tidy_data.png)
+<!-- <img src="figs/tidy_data.png" style='width:100%;'> -->
+
+
+## Types of variables
+
+### Categorical
+
+- **dichotomies** (*dichotomická*) - prítomnosť alebo neprítomnosť nejakého javu ("Y/N")
+- **nominal** (*nominální*) - archeologické datovanie ("neolit"), číslo objektu, keramický typ
+- **ordinal** / **rank** (*ordinální, pořadová*) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál
+
+### Numeric
+
+- **discrete** (*diskrétní*) - môžu byť len *celé* čísla - napr. počet lokalít, počet bronzových spôn
+- **continuous** (*spojité / metrické*) - môže byť akékoľvek *reálne* číslo - hmotnosť ker. fragmentu, dĺžka železného meča
+- **interval** (*intervalové*) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)
+- **ratio** (*poměrové*) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)
+
+
+## Tidy data
+
+What's wrong?
+
+![](./figs/database_fails.png)
+<!-- <img src="./figs/database_fails.png" style='width:100%;'> -->
+
+
+## Basic tidy data principles
+
+- One variable in one column.
+- One observation in one row.
+- One value in one cell.
+- Do not use color codes.
+- Backup your data!
+- Be consistent!
 
 
 ## Exercises
