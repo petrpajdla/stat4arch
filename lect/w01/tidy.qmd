@@ -3,8 +3,8 @@ title: "Tidy data"
 subtitle: "Organizing data"
 format:
   html: default
-  revealjs: 
-    output-file: tidy_reveal.html
+  revealjs:
+    output-file: slides_tidydata.html
   pdf: default
 ---
 
@@ -21,11 +21,6 @@ format:
 
 ## Assignments
 
-- Read Karl Broman’s [guide](https://kbroman.org/dataorg/) on how to organize data in spreadsheets.   
+- Read Karl Broman’s [guide](https://kbroman.org/dataorg/) on how to organize data in spreadsheets.
   As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. *The American Statistician* 72(1): 2–10, DOI: <https://doi.org/gdz6cm>.
 - Read chapter **Data** in *Quantitative analysis in archaeology* book by VanPool and Leonard (2011).
-
-
-
-
-

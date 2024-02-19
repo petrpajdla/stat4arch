@@ -1,10 +1,33 @@
 ---
 title: "Course introduction"
+format:
+  html: default
+  revealjs:
+    fontsize: 16px
+    output-file: slides_intro.html
+  pdf: default
 ---
 
 ## Objectives
 
+- The goal of the course is to
+
 ## Prerequisites
+
+- Not to be afraid of learning a scripting language.
+- Elementary knowledge of mathematics/statistics, use these to review some of the knowledge:
+
+    - [Khan Academy 7th grade statistics](https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics)
+    - [Khan Academy High School statistics](https://www.khanacademy.org/math/probability)
+
+## Basic information
+
+- Lectures/seminars each Wednesday, 12:00 -- 13:40, room L11.
+- Bring your own laptop or use the computers in the room.
+
+### Projects
+
+- During the course, you will work on a data analysis project of your own, see [more details here](../../project.qmd).
 
 ## Exercises
 

@@ -2,12 +2,19 @@
 title: "Project"
 ---
 
-To pass the course you will have to work on a small project. 
+::: {.callout-warning}
+
+Information given here will be updated later in the semestr.
+
+:::
+
+To pass the course you will have to work on a small project.
 Group/pair cooperation is possible, but each student has to submit their own report on the analysis.
 There are two options, you can choose to work either on your own dataset or use
 an existing published data.
 
 ## Get the data
+
 Although the first step in most of the analysis would be creating the research
 question(s), we assume our questions and goals are already set and skip to the step
 where we get the data suitable to answer our questions...

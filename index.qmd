@@ -1,7 +1,7 @@
 ---
 title: "Analyzing archaeological data using R"
 subtitle: "AES_707: Statistics seminar for archaeology students"
-author: 
+author:
   - name: "Petr Pajdla"
     orcid: "0000-0001-7050-9572"
   - name: "Peter Tkáč"
@@ -9,8 +9,7 @@ author:
 ---
 
 Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar
-for archaeology students at the [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/),
-Masaryk University.
+for archaeology students at the [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
 The course is taught by **Petr Pajdla** and **Peter Tkáč**.
 
 Information given here applies to spring semester 2024, the page will be
@@ -21,8 +20,6 @@ The course was taught also in 2022 and 2020.
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
   (computers are provided in the room, you can use your own laptop though).
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
-- You will work on a [project](project.qmd) of your own to complete the
-  course.
 
 ## Information on assessment
 
