@@ -26,8 +26,8 @@ website:
       title: "Topics"
       contents:
         - lect/w01/intro.qmd
-        - lect/w01/tidy.qmd
-        - lect/w02/intro2r.qmd
+        # - lect/w01/tidy.qmd
+        # - lect/w02/intro2r.qmd
         # - distributions.qmd
         # - relationships.qmd
         # - reproducibility.qmd
@@ -46,6 +46,3 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-

@@ -9,7 +9,6 @@ TODO
 - [x] Zadat aktualizaci R, RStudio a RTools (https://cran.r-project.org/) v L11
 - [x] Najít nebo motivovat studenty*ky, aby si náš kurz zapsali :)
 - [x] **PT** Přečíst co o tom píšeme v isu a případně navrhnout úpravy
-- [ ] **PP** Uploadnout knížky do isu
+- [x] **PP** Uploadnout knížky do isu
 
 <https://docs.google.com/document/d/1vnHCVebmezwyqrPmIYhQqTcb4EVaVS8xFF9K_8OJzjo/edit?usp=sharing>
-
