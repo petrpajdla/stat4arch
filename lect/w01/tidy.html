@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -107,14 +107,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../lect/w01/intro.html">
  <span class="dropdown-text">Course introduction</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../lect/w01/tidy.html">
- <span class="dropdown-text">Tidy data</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../lect/w02/intro2r.html">
- <span class="dropdown-text">Coding in R</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -133,45 +125,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w01/tidy.html">Tidy data</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lect/w01/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Course introduction</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lect/w01/tidy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Tidy data</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lect/w02/intro2r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Coding in R</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -179,7 +136,17 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#what-is-a-database" id="toc-what-is-a-database" class="nav-link" data-scroll-target="#what-is-a-database">What is a database?</a></li>
+  <li><a href="#relational-database---basic-terms" id="toc-relational-database---basic-terms" class="nav-link" data-scroll-target="#relational-database---basic-terms">Relational database - basic terms</a></li>
+  <li><a href="#relational-database---basic-terms-1" id="toc-relational-database---basic-terms-1" class="nav-link" data-scroll-target="#relational-database---basic-terms-1">Relational database - basic terms</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy data</a></li>
+  <li><a href="#types-of-variables" id="toc-types-of-variables" class="nav-link" data-scroll-target="#types-of-variables">Types of variables</a>
+  <ul class="collapse">
+  <li><a href="#categorical" id="toc-categorical" class="nav-link" data-scroll-target="#categorical">Categorical</a></li>
+  <li><a href="#numeric" id="toc-numeric" class="nav-link" data-scroll-target="#numeric">Numeric</a></li>
+  </ul></li>
+  <li><a href="#tidy-data-1" id="toc-tidy-data-1" class="nav-link" data-scroll-target="#tidy-data-1">Tidy data</a></li>
+  <li><a href="#basic-tidy-data-principles" id="toc-basic-tidy-data-principles" class="nav-link" data-scroll-target="#basic-tidy-data-principles">Basic tidy data principles</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a></li>
   </ul>
@@ -211,8 +178,63 @@ ul.task-list li input[type="checkbox"] {
 <section id="objectives" class="level2">
 <h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
 </section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<section id="what-is-a-database" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-database">What is a database?</h2>
+<p>(Brainstorming)</p>
+</section>
+<section id="relational-database---basic-terms" class="level2">
+<h2 class="anchored" data-anchor-id="relational-database---basic-terms">Relational database - basic terms</h2>
+<p><img src="./figs/database_example_1.png" class="img-fluid"> <!-- <img src="./figs/database_example_1.png" style='width:100%;'> --></p>
+</section>
+<section id="relational-database---basic-terms-1" class="level2">
+<h2 class="anchored" data-anchor-id="relational-database---basic-terms-1">Relational database - basic terms</h2>
+<p><img src="./figs/database_example.png" class="img-fluid"> <!-- <img src="./figs/database_example.png" style='width:100%;'> --></p>
+<ul>
+<li><strong>variable</strong> (<em>proměnná</em> / <em>atribut</em>) - napr. hmotnosť keramického fragmentu</li>
+<li><strong>observation</strong> / <strong>object</strong> (<em>entita</em> / <em>záznam</em>) - napr. konkrétny keramický fragment</li>
+<li><strong>value</strong> (<em>hodnota</em>)</li>
+<li><strong>primary key</strong> / <strong>unique ID</strong> (<em>primární klíč</em>)</li>
+</ul>
+</section>
+<section id="tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-data">Tidy data</h2>
+<p><img src="./figs/tidy_data.png" class="img-fluid"> <!-- <img src="figs/tidy_data.png" style='width:100%;'> --></p>
+</section>
+<section id="types-of-variables" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-variables">Types of variables</h2>
+<section id="categorical" class="level3">
+<h3 class="anchored" data-anchor-id="categorical">Categorical</h3>
+<ul>
+<li><strong>dichotomies</strong> (<em>dichotomická</em>) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)</li>
+<li><strong>nominal</strong> (<em>nominální</em>) - archeologické datovanie (“neolit”), číslo objektu, keramický typ</li>
+<li><strong>ordinal</strong> / <strong>rank</strong> (<em>ordinální, pořadová</em>) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál</li>
+</ul>
+</section>
+<section id="numeric" class="level3">
+<h3 class="anchored" data-anchor-id="numeric">Numeric</h3>
+<ul>
+<li><strong>discrete</strong> (<em>diskrétní</em>) - môžu byť len <em>celé</em> čísla - napr. počet lokalít, počet bronzových spôn</li>
+<li><strong>continuous</strong> (<em>spojité / metrické</em>) - môže byť akékoľvek <em>reálne</em> číslo - hmotnosť ker. fragmentu, dĺžka železného meča</li>
+<li><strong>interval</strong> (<em>intervalové</em>) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)</li>
+<li><strong>ratio</strong> (<em>poměrové</em>) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)</li>
+</ul>
+</section>
+</section>
+<section id="tidy-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-data-1">Tidy data</h2>
+<p>What’s wrong?</p>
+<p><img src="./figs/database_fails.png" class="img-fluid"> <!-- <img src="./figs/database_fails.png" style='width:100%;'> --></p>
+</section>
+<section id="basic-tidy-data-principles" class="level2">
+<h2 class="anchored" data-anchor-id="basic-tidy-data-principles">Basic tidy data principles</h2>
+<ul>
+<li>One variable in one column.</li>
+<li>One observation in one row.</li>
+<li>One value in one cell.</li>
+<li>Do not use color codes.</li>
+<li>Backup your data!</li>
+<li>Be consistent!</li>
+</ul>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>

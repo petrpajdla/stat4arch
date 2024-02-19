@@ -335,8 +335,59 @@
 <section id="objectives" class="slide level2">
 <h2>Objectives</h2>
 </section>
-<section id="prerequisites" class="slide level2">
-<h2>Prerequisites</h2>
+<section id="what-is-a-database" class="slide level2">
+<h2>What is a database?</h2>
+<p>(Brainstorming)</p>
+</section>
+<section id="relational-database---basic-terms" class="slide level2">
+<h2>Relational database - basic terms</h2>
+<p><img data-src="./figs/database_example_1.png"> <!-- <img src="./figs/database_example_1.png" style='width:100%;'> --></p>
+</section>
+<section id="relational-database---basic-terms-1" class="slide level2">
+<h2>Relational database - basic terms</h2>
+<p><img data-src="./figs/database_example.png"> <!-- <img src="./figs/database_example.png" style='width:100%;'> --></p>
+<ul>
+<li><strong>variable</strong> (<em>proměnná</em> / <em>atribut</em>) - napr. hmotnosť keramického fragmentu</li>
+<li><strong>observation</strong> / <strong>object</strong> (<em>entita</em> / <em>záznam</em>) - napr. konkrétny keramický fragment</li>
+<li><strong>value</strong> (<em>hodnota</em>)</li>
+<li><strong>primary key</strong> / <strong>unique ID</strong> (<em>primární klíč</em>)</li>
+</ul>
+</section>
+<section id="tidy-data" class="slide level2">
+<h2>Tidy data</h2>
+<p><img data-src="./figs/tidy_data.png"> <!-- <img src="figs/tidy_data.png" style='width:100%;'> --></p>
+</section>
+<section id="types-of-variables" class="slide level2">
+<h2>Types of variables</h2>
+<h3 id="categorical">Categorical</h3>
+<ul>
+<li><strong>dichotomies</strong> (<em>dichotomická</em>) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)</li>
+<li><strong>nominal</strong> (<em>nominální</em>) - archeologické datovanie (“neolit”), číslo objektu, keramický typ</li>
+<li><strong>ordinal</strong> / <strong>rank</strong> (<em>ordinální, pořadová</em>) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál</li>
+</ul>
+<h3 id="numeric">Numeric</h3>
+<ul>
+<li><strong>discrete</strong> (<em>diskrétní</em>) - môžu byť len <em>celé</em> čísla - napr. počet lokalít, počet bronzových spôn</li>
+<li><strong>continuous</strong> (<em>spojité / metrické</em>) - môže byť akékoľvek <em>reálne</em> číslo - hmotnosť ker. fragmentu, dĺžka železného meča</li>
+<li><strong>interval</strong> (<em>intervalové</em>) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)</li>
+<li><strong>ratio</strong> (<em>poměrové</em>) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)</li>
+</ul>
+</section>
+<section id="tidy-data-1" class="slide level2">
+<h2>Tidy data</h2>
+<p>What’s wrong?</p>
+<p><img data-src="./figs/database_fails.png"> <!-- <img src="./figs/database_fails.png" style='width:100%;'> --></p>
+</section>
+<section id="basic-tidy-data-principles" class="slide level2">
+<h2>Basic tidy data principles</h2>
+<ul>
+<li>One variable in one column.</li>
+<li>One observation in one row.</li>
+<li>One value in one cell.</li>
+<li>Do not use color codes.</li>
+<li>Backup your data!</li>
+<li>Be consistent!</li>
+</ul>
 </section>
 <section id="exercises" class="slide level2">
 <h2>Exercises</h2>
@@ -350,7 +401,7 @@
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-
+<p>AES_707 <em>Statistics seminar for archaeologists</em> | Tidy data</p>
 </div>
 </div>
 </section>

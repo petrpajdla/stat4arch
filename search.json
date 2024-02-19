@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (?), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n\n\n2.\n28. 2.\nBasic coding in R & Workflows\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n5.\n20. 3.\nReproducibility\n\n\n6.\n27. 3.\nPractice\n\n\n7.\n3. 4.\nConsidering space\n\n\n8.\n10. 4.\nConsidering time\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n10.\n15. 5.\nPractice\n\n\n11.\n22. 5."
+    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n\n\n2.\n28. 2.\nBasic coding in R & Workflows\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n5.\n20. 3.\nReproducibility\n\n\n6.\n27. 3.\nPresenting data sets fro projects & Practice\n\n\n7.\n3. 4.\nConsidering space\n\n\n8.\n10. 4.\nConsidering time\n\n\n-\n17. 4.\nReading week\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n-\n1. 5.\nHolidays\n\n\n-\n8. 5.\nHolidays\n\n\n10.\n15. 5.\nPractice\n\n\n11.\n22. 5."
   },
   {
     "objectID": "index.html",
@@ -63,34 +63,67 @@
     "text": "Multivariate exploration\n\nWill be added…"
   },
   {
-    "objectID": "lect/w01/tidy.html#prerequisites",
-    "href": "lect/w01/tidy.html#prerequisites",
+    "objectID": "lect/w01/tidy.html#what-is-a-database",
+    "href": "lect/w01/tidy.html#what-is-a-database",
     "title": "Tidy data",
-    "section": "Prerequisites",
-    "text": "Prerequisites",
-    "crumbs": [
-      "Tidy data"
-    ]
+    "section": "What is a database?",
+    "text": "What is a database?\n(Brainstorming)"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#relational-database---basic-terms",
+    "href": "lect/w01/tidy.html#relational-database---basic-terms",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#relational-database---basic-terms-1",
+    "href": "lect/w01/tidy.html#relational-database---basic-terms-1",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#tidy-data",
+    "href": "lect/w01/tidy.html#tidy-data",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#types-of-variables",
+    "href": "lect/w01/tidy.html#types-of-variables",
+    "title": "Tidy data",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\n\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#tidy-data-1",
+    "href": "lect/w01/tidy.html#tidy-data-1",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data\nWhat’s wrong?"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#basic-tidy-data-principles",
+    "href": "lect/w01/tidy.html#basic-tidy-data-principles",
+    "title": "Tidy data",
+    "section": "Basic tidy data principles",
+    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
   },
   {
     "objectID": "lect/w01/tidy.html#exercises",
     "href": "lect/w01/tidy.html#exercises",
     "title": "Tidy data",
     "section": "Exercises",
-    "text": "Exercises",
-    "crumbs": [
-      "Tidy data"
-    ]
+    "text": "Exercises"
   },
   {
     "objectID": "lect/w01/tidy.html#assignments",
     "href": "lect/w01/tidy.html#assignments",
     "title": "Tidy data",
     "section": "Assignments",
-    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).",
-    "crumbs": [
-      "Tidy data"
-    ]
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011)."
   },
   {
     "objectID": "lect/w01/slides_tidydata.html#objectives",
@@ -100,11 +133,53 @@
     "text": "Objectives"
   },
   {
-    "objectID": "lect/w01/slides_tidydata.html#prerequisites",
-    "href": "lect/w01/slides_tidydata.html#prerequisites",
+    "objectID": "lect/w01/slides_tidydata.html#what-is-a-database",
+    "href": "lect/w01/slides_tidydata.html#what-is-a-database",
     "title": "Tidy data",
-    "section": "Prerequisites",
-    "text": "Prerequisites"
+    "section": "What is a database?",
+    "text": "What is a database?\n(Brainstorming)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidydata.html#relational-database---basic-terms",
+    "href": "lect/w01/slides_tidydata.html#relational-database---basic-terms",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms"
+  },
+  {
+    "objectID": "lect/w01/slides_tidydata.html#relational-database---basic-terms-1",
+    "href": "lect/w01/slides_tidydata.html#relational-database---basic-terms-1",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidydata.html#tidy-data",
+    "href": "lect/w01/slides_tidydata.html#tidy-data",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data"
+  },
+  {
+    "objectID": "lect/w01/slides_tidydata.html#types-of-variables",
+    "href": "lect/w01/slides_tidydata.html#types-of-variables",
+    "title": "Tidy data",
+    "section": "Types of variables",
+    "text": "Types of variables\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidydata.html#tidy-data-1",
+    "href": "lect/w01/slides_tidydata.html#tidy-data-1",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data\nWhat’s wrong?"
+  },
+  {
+    "objectID": "lect/w01/slides_tidydata.html#basic-tidy-data-principles",
+    "href": "lect/w01/slides_tidydata.html#basic-tidy-data-principles",
+    "title": "Tidy data",
+    "section": "Basic tidy data principles",
+    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
   },
   {
     "objectID": "lect/w01/slides_tidydata.html#exercises",
@@ -118,49 +193,114 @@
     "href": "lect/w01/slides_tidydata.html#assignments",
     "title": "Tidy data",
     "section": "Assignments",
-    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011)."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#objectives",
-    "href": "lect/w01/slides_intro.html#objectives",
-    "title": "Course introduction",
-    "section": "Objectives",
-    "text": "Objectives\n\nThe goal of the course is to"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#prerequisites",
-    "href": "lect/w01/slides_intro.html#prerequisites",
-    "title": "Course introduction",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics, use these to review some of the knowledge:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics"
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Tidy data"
   },
   {
     "objectID": "lect/w01/slides_intro.html#basic-information",
     "href": "lect/w01/slides_intro.html#basic-information",
     "title": "Course introduction",
     "section": "Basic information",
-    "text": "Basic information\n\nLectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nBring your own laptop or use the computers in the room.\n\nProjects\n\nDuring the course, you will work on a data analysis project of your own, see more details here."
+    "text": "Basic information\n\nLectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\nSchedule\nSee details here…"
   },
   {
-    "objectID": "lect/w01/slides_intro.html#exercises",
-    "href": "lect/w01/slides_intro.html#exercises",
+    "objectID": "lect/w01/slides_intro.html#lecturers",
+    "href": "lect/w01/slides_intro.html#lecturers",
     "title": "Course introduction",
-    "section": "Exercises",
-    "text": "Exercises"
+    "section": "Lecturers",
+    "text": "Lecturers\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#and-what-about-you",
+    "href": "lect/w01/slides_intro.html#and-what-about-you",
+    "title": "Course introduction",
+    "section": "And what about you?",
+    "text": "And what about you?"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#objectives",
+    "href": "lect/w01/slides_intro.html#objectives",
+    "title": "Course introduction",
+    "section": "Objectives",
+    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#prerequisites",
+    "href": "lect/w01/slides_intro.html#prerequisites",
+    "title": "Course introduction",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#projects",
+    "href": "lect/w01/slides_intro.html#projects",
+    "title": "Course introduction",
+    "section": "Projects",
+    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#resources",
+    "href": "lect/w01/slides_intro.html#resources",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#resources-1",
+    "href": "lect/w01/slides_intro.html#resources-1",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\nLearning R\n \n\nSee section Resources for more details…\nBooks available online."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#why-maths-in-archaeology",
+    "href": "lect/w01/slides_intro.html#why-maths-in-archaeology",
+    "title": "Course introduction",
+    "section": "Why maths in archaeology?",
+    "text": "Why maths in archaeology?\nBrainstorming"
   },
   {
     "objectID": "lect/w01/slides_intro.html#assignments",
     "href": "lect/w01/slides_intro.html#assignments",
     "title": "Course introduction",
     "section": "Assignments",
-    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson (see Resources for details). These give a general overview on why to use quantitative/computational methods in archaeology."
+    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Introduction"
   },
   {
     "objectID": "lect/w01/intro.html",
     "href": "lect/w01/intro.html",
     "title": "Course introduction",
     "section": "",
-    "text": "The goal of the course is to",
+    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#basic-information",
+    "href": "lect/w01/intro.html#basic-information",
+    "title": "Course introduction",
+    "section": "",
+    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#lecturers",
+    "href": "lect/w01/intro.html#lecturers",
+    "title": "Course introduction",
+    "section": "Lecturers",
+    "text": "Lecturers\n\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#and-what-about-you",
+    "href": "lect/w01/intro.html#and-what-about-you",
+    "title": "Course introduction",
+    "section": "And what about you?",
+    "text": "And what about you?",
     "crumbs": [
       "Course introduction"
     ]
@@ -169,8 +309,8 @@
     "objectID": "lect/w01/intro.html#objectives",
     "href": "lect/w01/intro.html#objectives",
     "title": "Course introduction",
-    "section": "",
-    "text": "The goal of the course is to",
+    "section": "Objectives",
+    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment.",
     "crumbs": [
       "Course introduction"
     ]
@@ -180,27 +320,47 @@
     "href": "lect/w01/intro.html#prerequisites",
     "title": "Course introduction",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics, use these to review some of the knowledge:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics",
+    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics",
     "crumbs": [
       "Course introduction"
     ]
   },
   {
-    "objectID": "lect/w01/intro.html#basic-information",
-    "href": "lect/w01/intro.html#basic-information",
+    "objectID": "lect/w01/intro.html#projects",
+    "href": "lect/w01/intro.html#projects",
     "title": "Course introduction",
-    "section": "Basic information",
-    "text": "Basic information\n\nLectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nBring your own laptop or use the computers in the room.\n\n\nProjects\n\nDuring the course, you will work on a data analysis project of your own, see more details here.",
+    "section": "Projects",
+    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here.",
     "crumbs": [
       "Course introduction"
     ]
   },
   {
-    "objectID": "lect/w01/intro.html#exercises",
-    "href": "lect/w01/intro.html#exercises",
+    "objectID": "lect/w01/intro.html#resources",
+    "href": "lect/w01/intro.html#resources",
     "title": "Course introduction",
-    "section": "Exercises",
-    "text": "Exercises",
+    "section": "Resources",
+    "text": "Resources\n\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials.",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#resources-1",
+    "href": "lect/w01/intro.html#resources-1",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\n\nLearning R\n \n\nSee section Resources for more details…\nBooks available online.",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#why-maths-in-archaeology",
+    "href": "lect/w01/intro.html#why-maths-in-archaeology",
+    "title": "Course introduction",
+    "section": "Why maths in archaeology?",
+    "text": "Why maths in archaeology?\nBrainstorming",
     "crumbs": [
       "Course introduction"
     ]
@@ -210,7 +370,7 @@
     "href": "lect/w01/intro.html#assignments",
     "title": "Course introduction",
     "section": "Assignments",
-    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson (see Resources for details). These give a general overview on why to use quantitative/computational methods in archaeology.",
+    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.",
     "crumbs": [
       "Course introduction"
     ]
@@ -220,30 +380,21 @@
     "href": "lect/w02/intro2r.html#prerequisites",
     "title": "Coding in R",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nGo through R Basics tutorials here.",
-    "crumbs": [
-      "Coding in R"
-    ]
+    "text": "Prerequisites\n\nGo through R Basics tutorials here."
   },
   {
     "objectID": "lect/w02/intro2r.html#exercises",
     "href": "lect/w02/intro2r.html#exercises",
     "title": "Coding in R",
     "section": "Exercises",
-    "text": "Exercises",
-    "crumbs": [
-      "Coding in R"
-    ]
+    "text": "Exercises"
   },
   {
     "objectID": "lect/w02/intro2r.html#assignments",
     "href": "lect/w02/intro2r.html#assignments",
     "title": "Coding in R",
     "section": "Assignments",
-    "text": "Assignments\n\nFind a suitable dataset for your Project.",
-    "crumbs": [
-      "Coding in R"
-    ]
+    "text": "Assignments\n\nFind a suitable dataset for your Project."
   },
   {
     "objectID": "project.html",
