@@ -5,7 +5,7 @@ format:
   revealjs:
     fontsize: 24px
     output-file: slides_intro.html
-    footer: AES_707 *Statistics seminar for archaeologists* | Introduction
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Introduction](./intro.html)"
   pdf: default
 ---
 
@@ -20,7 +20,7 @@ format:
 
 ### Schedule
 
-See [details here...](../../schedule.qmd)
+See [details here...](../../schedule.html)
 
 
 ## Lecturers
@@ -83,7 +83,7 @@ If you feel usure in any of the topics we cover, it is possible you'll find thes
 
 ## Projects
 
-- During the course, you will work on a data analysis project of your own, see [more details here](../../project.qmd).
+- During the course, you will work on a data analysis project of your own, see [more details here](../../project.html).
 
 
 ## Resources
@@ -97,7 +97,7 @@ If you feel usure in any of the topics we cover, it is possible you'll find thes
 ![](./figs/vanpool.jpg){width=15%}
 ![](./figs/carlson.jpg){width=15%}
 
-- See section [Resources](../../resources.qmd) for more details...
+- See section [Resources](../../resources.html) for more details...
 - Books already available in study materials.
 
 
@@ -108,7 +108,7 @@ If you feel usure in any of the topics we cover, it is possible you'll find thes
 [![](./figs/wickham.jpg){width=15%}](https://r4ds.hadley.nz/)
 [![](./figs/healy.jpg){width=15%}](https://socviz.co/)
 
-- See section [Resources](../../resources.qmd) for more details...
+- See section [Resources](../../resources.html) for more details...
 - Books available online.
 
 
@@ -126,5 +126,5 @@ If you feel usure in any of the topics we cover, it is possible you'll find thes
   - *Quantitative Methods in Archaeology* book by David L.
   Carlson
   
-  See [Resources](../../resources.qmd) for more details.
+  See [Resources](../../resources.html) for more details.
   These books will give you a general overview on why to use quantitative/computational methods in archaeology.
