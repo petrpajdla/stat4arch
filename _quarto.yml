@@ -3,6 +3,8 @@ project:
 
 website:
   title: "stat4arch"
+  repo-url: https://github.com/petrpajdla/stat4arch/
+  repo-actions: [source, edit, issue]
   
   navbar:
     left:
