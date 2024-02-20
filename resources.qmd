@@ -89,3 +89,8 @@ the Potato People prohibits this.
 - [Open-archaeo](https://open-archaeo.info/) is a list of open source archaeological
   software and resources maintained by Zack Batist.
   
+## Installing R and RStudio
+
+There is a [comprehensive guide on how to install R and RStudio](https://rstudio-education.github.io/hopr/starting.html) in the [Hands-On Programming with R](https://rstudio-education.github.io/hopr/) book by Garrett Grolemund.
+
+If you do not want to install R on your machine, there are several online compilers or [Posit Cloud](https://posit.cloud/).
