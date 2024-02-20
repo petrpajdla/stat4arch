@@ -19,6 +19,9 @@ website:
       - file: resources.qmd
         text: "Resources"
         icon: gear
+      - file: kit.qmd
+        text: "Survival kit"
+        icon: patch-question
         
   sidebar:
     - title: "Home"
