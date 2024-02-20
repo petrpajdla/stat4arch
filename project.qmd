@@ -1,0 +1,59 @@
+---
+title: "Project"
+---
+
+::: {.callout-warning}
+
+Information given here will be updated later in the semestr.
+
+:::
+
+To pass the course you will have to work on a small project.
+Group/pair cooperation is possible, but each student has to submit their own report on the analysis.
+There are two options, you can choose to work either on your own dataset or use
+an existing published data.
+
+## Get the data
+
+Although the first step in most of the analysis would be creating the research
+question(s), we assume our questions and goals are already set and skip to the step
+where we get the data suitable to answer our questions...
+
+### Working with your own dataset
+- You can choose to use your own data. This is especially useful if you are
+  working on your BA/MA/PhD thesis or an article and want to analyze the
+  data collected for the given work.
+- This option is easier because you probably know what your dataset contains and
+  what each variable means, how it was collected etc.
+
+### Using an existing dataset
+- Find a suitable dataset online, scrape a website, get it in a book,
+  anything that comes to mind, be creative.
+  Bear in mind that the dataset needs to contain a mixture of
+  quantitative and qualitative variables. It can be organized as a table, then
+  the work is easier for you. If it is a database, we can give you a hand with
+  data preparation etc.
+- We recommend to look in the
+  [Journal of Open Archaeology Data](https://openarchaeologydata.metajnl.com/).
+  Datasets published here have clear use conditions (license), are deposited
+  in a suitable repository and should be well documented.
+- If you choose to use a dataset you found anywhere else (or web scraped etc.)
+  please make sure that it is easily accessible and suitable for the analysis.
+
+## Get to know the data
+- Make sure you know where your data is and how is it stored (format and how to read it into R).
+- Make sure you know what each variable means, what type of data does it contain etc.
+- The dataset should contain at least several quantitative and qualitative variables in order for you to be able to practice creating visualizations.
+
+### Report template
+
+RMarkdown template for the project report is [here](https://github.com/petrpajdla/stat4arch/blob/7e6d4d67b6e13a5208512951f92751287f22495e/project/project_template.Rmd).
+Create a new RMarkdown file (`.Rmd`), copy and paste the contents of the template
+in your file, do your changes, write your report and push the `Knit` button.
+Follow the instructions in the template to work on your project.
+
+### How to submit the report
+
+Feel free to contact us if you need any help or assistance during the work on
+your project. Simply send us both the source `Rmd` file and the `HTML` output
+with your questions and we will address the problem either directly or in class.

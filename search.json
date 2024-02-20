@@ -7,193 +7,123 @@
     "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n\n\n2.\n28. 2.\nBasic coding in R & Workflows\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n5.\n20. 3.\nReproducibility\n\n\n6.\n27. 3.\nPresenting data sets fro projects & Practice\n\n\n7.\n3. 4.\nConsidering space\n\n\n8.\n10. 4.\nConsidering time\n\n\n-\n17. 4.\nReading week\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n-\n1. 5.\nHolidays\n\n\n-\n8. 5.\nHolidays\n\n\n10.\n15. 5.\nPractice\n\n\n11.\n22. 5."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Analyzing archaeological data using R",
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project",
     "section": "",
-    "text": "Welcome to AES_707 Statistics seminar for archaeology students at the Department of Archaeology and Museology, Masaryk University. The course is taught by Petr Pajdla and Peter Tkáč.\nInformation given here applies to spring semester 2024, the page will be continuously updated throughout the semester. The course was taught also in 2022 and 2020."
+    "text": "Warning\n\n\n\nInformation given here will be updated later in the semestr.\nTo pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit their own report on the analysis. There are two options, you can choose to work either on your own dataset or use an existing published data."
   },
   {
-    "objectID": "index.html#information-on-assessment",
-    "href": "index.html#information-on-assessment",
-    "title": "Analyzing archaeological data using R",
-    "section": "Information on assessment",
-    "text": "Information on assessment\nTo pass the course, you have to finish and submit a report on your project."
+    "objectID": "project.html#get-the-data",
+    "href": "project.html#get-the-data",
+    "title": "Project",
+    "section": "Get the data",
+    "text": "Get the data\nAlthough the first step in most of the analysis would be creating the research question(s), we assume our questions and goals are already set and skip to the step where we get the data suitable to answer our questions…\n\nWorking with your own dataset\n\nYou can choose to use your own data. This is especially useful if you are working on your BA/MA/PhD thesis or an article and want to analyze the data collected for the given work.\nThis option is easier because you probably know what your dataset contains and what each variable means, how it was collected etc.\n\n\n\nUsing an existing dataset\n\nFind a suitable dataset online, scrape a website, get it in a book, anything that comes to mind, be creative. Bear in mind that the dataset needs to contain a mixture of quantitative and qualitative variables. It can be organized as a table, then the work is easier for you. If it is a database, we can give you a hand with data preparation etc.\nWe recommend to look in the Journal of Open Archaeology Data. Datasets published here have clear use conditions (license), are deposited in a suitable repository and should be well documented.\nIf you choose to use a dataset you found anywhere else (or web scraped etc.) please make sure that it is easily accessible and suitable for the analysis."
   },
   {
-    "objectID": "project/project_template.html",
-    "href": "project/project_template.html",
-    "title": "Title of your project",
-    "section": "",
-    "text": "This is a template for a report on your project. As you already know, we expect you to work on an analysis of a data set of your choice and hand in a report similar to this one. Delete the following examples as soon as you will be sure what you are doing. The suggested structure of a report is below. Delete anything you do not need, feel free to edit the document."
+    "objectID": "project.html#get-to-know-the-data",
+    "href": "project.html#get-to-know-the-data",
+    "title": "Project",
+    "section": "Get to know the data",
+    "text": "Get to know the data\n\nMake sure you know where your data is and how is it stored (format and how to read it into R).\nMake sure you know what each variable means, what type of data does it contain etc.\nThe dataset should contain at least several quantitative and qualitative variables in order for you to be able to practice creating visualizations.\n\n\nReport template\nRMarkdown template for the project report is here. Create a new RMarkdown file (.Rmd), copy and paste the contents of the template in your file, do your changes, write your report and push the Knit button. Follow the instructions in the template to work on your project.\n\n\nHow to submit the report\nFeel free to contact us if you need any help or assistance during the work on your project. Simply send us both the source Rmd file and the HTML output with your questions and we will address the problem either directly or in class."
   },
   {
-    "objectID": "project/project_template.html#r-markdown",
-    "href": "project/project_template.html#r-markdown",
-    "title": "Title of your project",
-    "section": "R Markdown",
-    "text": "R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+    "objectID": "lect/w02/intro2r.html#prerequisites",
+    "href": "lect/w02/intro2r.html#prerequisites",
+    "title": "Coding in R",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nGo through R Basics tutorials here."
   },
   {
-    "objectID": "project/project_template.html#including-plots",
-    "href": "project/project_template.html#including-plots",
-    "title": "Title of your project",
-    "section": "Including Plots",
-    "text": "Including Plots\nYou can also embed plots, for example:\n\n\n\n\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n\nAbstract\nWrite a short and comprehensive abstract for your project (one paragraph of text).\n\nKeywords\nInclude several relevant keywords."
-  },
-  {
-    "objectID": "project/project_template.html#introduction",
-    "href": "project/project_template.html#introduction",
-    "title": "Title of your project",
-    "section": "Introduction",
-    "text": "Introduction\nWrite what data set you are analyzing and why, what is your goal and so on (one paragraph).\nAlso load all the packages you will be using in your analysis here.\n\n# put your library calls in here\nlibrary(ggplot2)\n\n\nData\nBriefly introduce your data set. Where does it come from? What does it contain? Load your data here and use any handy functions you learned to show what the variable names are, how big your data are, what data types does it contain etc.\n\n# read your data set here\n# remember, this # is a comment (ctrl+shift+c)\n# data &lt;- read.csv(\"\")\n\nTry to answer following questions using code:\n\nHow many variables are there?\nHow many rows does the data set have?\nWhat are the names of the variables?\nWhat data types are there in the data set?\n\n\n# str(data) and other functions you learned..."
-  },
-  {
-    "objectID": "project/project_template.html#exploratory-analysis",
-    "href": "project/project_template.html#exploratory-analysis",
-    "title": "Title of your project",
-    "section": "Exploratory analysis",
-    "text": "Exploratory analysis\n\nQualitative variables\nAre there any qualitative variables in your data set? Choose at least one and answer these questions if possible:\n\nHow many values does your qualitative variable has?\nShow the count of values of the chosen qualitative variable in a suitable plot.\n\n\n#  show us some plots...\n# ggplot(data, aes(...)) +\n#   geom_bar()\n\n\n\nQuantitative variables\nExplore your quantitative variables. Plot the distribution of the variables. Show us a histogram or a density plot. Try to compare the quantities in several groups using a box plot…\nGive us numeric summaries of the chosen quantitative variable:\n\nWhat is the mean and standard deviation?\nWhat is the median and IQR?\n\nHow does the distribution of the quantitative variable look? Is it a normal distribution? Is it right/left-skewed? Is it multimodal? Try to prove these points with both the graphs and a hypothesis test.\n\n\nData transformation challenge\nUse at least three functions (filter, select, group_by, summarise, arrange, mutate) from the dplyr package to transform your data and again show some summary statistics, plots and so on. Be creative!"
-  },
-  {
-    "objectID": "project/project_template.html#multivariate-exploration",
-    "href": "project/project_template.html#multivariate-exploration",
-    "title": "Title of your project",
-    "section": "Multivariate exploration",
-    "text": "Multivariate exploration\n\nWill be added…"
-  },
-  {
-    "objectID": "lect/w01/tidy.html#what-is-a-database",
-    "href": "lect/w01/tidy.html#what-is-a-database",
-    "title": "Tidy data",
-    "section": "What is a database?",
-    "text": "What is a database?\n(Brainstorming)"
-  },
-  {
-    "objectID": "lect/w01/tidy.html#relational-database---basic-terms",
-    "href": "lect/w01/tidy.html#relational-database---basic-terms",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms"
-  },
-  {
-    "objectID": "lect/w01/tidy.html#relational-database---basic-terms-1",
-    "href": "lect/w01/tidy.html#relational-database---basic-terms-1",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
-  },
-  {
-    "objectID": "lect/w01/tidy.html#tidy-data",
-    "href": "lect/w01/tidy.html#tidy-data",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data"
-  },
-  {
-    "objectID": "lect/w01/tidy.html#types-of-variables",
-    "href": "lect/w01/tidy.html#types-of-variables",
-    "title": "Tidy data",
-    "section": "Types of variables",
-    "text": "Types of variables\n\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\n\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
-  },
-  {
-    "objectID": "lect/w01/tidy.html#tidy-data-1",
-    "href": "lect/w01/tidy.html#tidy-data-1",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data\nWhat’s wrong?"
-  },
-  {
-    "objectID": "lect/w01/tidy.html#basic-tidy-data-principles",
-    "href": "lect/w01/tidy.html#basic-tidy-data-principles",
-    "title": "Tidy data",
-    "section": "Basic tidy data principles",
-    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
-  },
-  {
-    "objectID": "lect/w01/tidy.html#exercises",
-    "href": "lect/w01/tidy.html#exercises",
-    "title": "Tidy data",
+    "objectID": "lect/w02/intro2r.html#exercises",
+    "href": "lect/w02/intro2r.html#exercises",
+    "title": "Coding in R",
     "section": "Exercises",
     "text": "Exercises"
   },
   {
-    "objectID": "lect/w01/tidy.html#assignments",
-    "href": "lect/w01/tidy.html#assignments",
-    "title": "Tidy data",
+    "objectID": "lect/w02/intro2r.html#assignments",
+    "href": "lect/w02/intro2r.html#assignments",
+    "title": "Coding in R",
     "section": "Assignments",
-    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011)."
+    "text": "Assignments\n\nFind a suitable dataset for your Project."
   },
   {
-    "objectID": "lect/w01/slides_tidydata.html#objectives",
-    "href": "lect/w01/slides_tidydata.html#objectives",
-    "title": "Tidy data",
+    "objectID": "lect/w01/intro.html",
+    "href": "lect/w01/intro.html",
+    "title": "Course introduction",
+    "section": "",
+    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…"
+  },
+  {
+    "objectID": "lect/w01/intro.html#basic-information",
+    "href": "lect/w01/intro.html#basic-information",
+    "title": "Course introduction",
+    "section": "",
+    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…"
+  },
+  {
+    "objectID": "lect/w01/intro.html#lecturers",
+    "href": "lect/w01/intro.html#lecturers",
+    "title": "Course introduction",
+    "section": "Lecturers",
+    "text": "Lecturers\n\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936"
+  },
+  {
+    "objectID": "lect/w01/intro.html#and-what-about-you",
+    "href": "lect/w01/intro.html#and-what-about-you",
+    "title": "Course introduction",
+    "section": "And what about you?",
+    "text": "And what about you?"
+  },
+  {
+    "objectID": "lect/w01/intro.html#objectives",
+    "href": "lect/w01/intro.html#objectives",
+    "title": "Course introduction",
     "section": "Objectives",
-    "text": "Objectives"
+    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment."
   },
   {
-    "objectID": "lect/w01/slides_tidydata.html#what-is-a-database",
-    "href": "lect/w01/slides_tidydata.html#what-is-a-database",
-    "title": "Tidy data",
-    "section": "What is a database?",
-    "text": "What is a database?\n(Brainstorming)"
+    "objectID": "lect/w01/intro.html#prerequisites",
+    "href": "lect/w01/intro.html#prerequisites",
+    "title": "Course introduction",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics"
   },
   {
-    "objectID": "lect/w01/slides_tidydata.html#relational-database---basic-terms",
-    "href": "lect/w01/slides_tidydata.html#relational-database---basic-terms",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms"
+    "objectID": "lect/w01/intro.html#projects",
+    "href": "lect/w01/intro.html#projects",
+    "title": "Course introduction",
+    "section": "Projects",
+    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here."
   },
   {
-    "objectID": "lect/w01/slides_tidydata.html#relational-database---basic-terms-1",
-    "href": "lect/w01/slides_tidydata.html#relational-database---basic-terms-1",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
+    "objectID": "lect/w01/intro.html#resources",
+    "href": "lect/w01/intro.html#resources",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\n\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials."
   },
   {
-    "objectID": "lect/w01/slides_tidydata.html#tidy-data",
-    "href": "lect/w01/slides_tidydata.html#tidy-data",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data"
+    "objectID": "lect/w01/intro.html#resources-1",
+    "href": "lect/w01/intro.html#resources-1",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\n\nLearning R\n \n\nSee section Resources for more details…\nBooks available online."
   },
   {
-    "objectID": "lect/w01/slides_tidydata.html#types-of-variables",
-    "href": "lect/w01/slides_tidydata.html#types-of-variables",
-    "title": "Tidy data",
-    "section": "Types of variables",
-    "text": "Types of variables\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
+    "objectID": "lect/w01/intro.html#why-maths-in-archaeology",
+    "href": "lect/w01/intro.html#why-maths-in-archaeology",
+    "title": "Course introduction",
+    "section": "Why maths in archaeology?",
+    "text": "Why maths in archaeology?\nBrainstorming"
   },
   {
-    "objectID": "lect/w01/slides_tidydata.html#tidy-data-1",
-    "href": "lect/w01/slides_tidydata.html#tidy-data-1",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data\nWhat’s wrong?"
-  },
-  {
-    "objectID": "lect/w01/slides_tidydata.html#basic-tidy-data-principles",
-    "href": "lect/w01/slides_tidydata.html#basic-tidy-data-principles",
-    "title": "Tidy data",
-    "section": "Basic tidy data principles",
-    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
-  },
-  {
-    "objectID": "lect/w01/slides_tidydata.html#exercises",
-    "href": "lect/w01/slides_tidydata.html#exercises",
-    "title": "Tidy data",
-    "section": "Exercises",
-    "text": "Exercises"
-  },
-  {
-    "objectID": "lect/w01/slides_tidydata.html#assignments",
-    "href": "lect/w01/slides_tidydata.html#assignments",
-    "title": "Tidy data",
+    "objectID": "lect/w01/intro.html#assignments",
+    "href": "lect/w01/intro.html#assignments",
+    "title": "Course introduction",
     "section": "Assignments",
-    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Tidy data"
+    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology."
   },
   {
     "objectID": "lect/w01/slides_intro.html#basic-information",
@@ -263,159 +193,224 @@
     "href": "lect/w01/slides_intro.html#assignments",
     "title": "Course introduction",
     "section": "Assignments",
-    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Introduction"
+    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.\n\n\n\nAES_707 Statistics seminar for archaeologists | Introduction"
   },
   {
-    "objectID": "lect/w01/intro.html",
-    "href": "lect/w01/intro.html",
-    "title": "Course introduction",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Analyzing archaeological data using R",
     "section": "",
-    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "text": "Welcome to AES_707 Statistics seminar for archaeology students at the Department of Archaeology and Museology, Masaryk University. The course is taught by Petr Pajdla and Peter Tkáč.\nInformation given here applies to spring semester 2024, the page will be continuously updated throughout the semester. The course was taught also in 2022 and 2020."
   },
   {
-    "objectID": "lect/w01/intro.html#basic-information",
-    "href": "lect/w01/intro.html#basic-information",
-    "title": "Course introduction",
+    "objectID": "index.html#information-on-assessment",
+    "href": "index.html#information-on-assessment",
+    "title": "Analyzing archaeological data using R",
+    "section": "Information on assessment",
+    "text": "Information on assessment\nTo pass the course, you have to finish and submit a report on your project."
+  },
+  {
+    "objectID": "kit.html",
+    "href": "kit.html",
+    "title": "Survival kit",
     "section": "",
-    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
   },
   {
-    "objectID": "lect/w01/intro.html#lecturers",
-    "href": "lect/w01/intro.html#lecturers",
-    "title": "Course introduction",
-    "section": "Lecturers",
-    "text": "Lecturers\n\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "objectID": "kit.html#special-characters",
+    "href": "kit.html#special-characters",
+    "title": "Survival kit",
+    "section": "",
+    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
   },
   {
-    "objectID": "lect/w01/intro.html#and-what-about-you",
-    "href": "lect/w01/intro.html#and-what-about-you",
-    "title": "Course introduction",
-    "section": "And what about you?",
-    "text": "And what about you?",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "objectID": "kit.html#rstudio-shortcuts",
+    "href": "kit.html#rstudio-shortcuts",
+    "title": "Survival kit",
+    "section": "RStudio shortcuts",
+    "text": "RStudio shortcuts\n\n\n\nSign/Action\nShortcut\n\n\n\n\n-&gt;\nCtrl + Alt + -\n\n\n%&gt;%\nCtrl + Shift + m\n\n\nrun selected row\nCtrl + Enter\n\n\nrun whole script\nCtrl + Shift + Enter"
   },
   {
-    "objectID": "lect/w01/intro.html#objectives",
-    "href": "lect/w01/intro.html#objectives",
-    "title": "Course introduction",
+    "objectID": "kit.html#function-reference",
+    "href": "kit.html#function-reference",
+    "title": "Survival kit",
+    "section": "Function reference",
+    "text": "Function reference\ncode description\n\nBasics\ninstall.packages(\"packagename\") installs a package\nlibrary(packagename) attaches a package from a library"
+  },
+  {
+    "objectID": "lect/w01/slides_tidydata.html#objectives",
+    "href": "lect/w01/slides_tidydata.html#objectives",
+    "title": "Tidy data",
     "section": "Objectives",
-    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment.",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "text": "Objectives"
   },
   {
-    "objectID": "lect/w01/intro.html#prerequisites",
-    "href": "lect/w01/intro.html#prerequisites",
-    "title": "Course introduction",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "objectID": "lect/w01/slides_tidydata.html#what-is-a-database",
+    "href": "lect/w01/slides_tidydata.html#what-is-a-database",
+    "title": "Tidy data",
+    "section": "What is a database?",
+    "text": "What is a database?\n(Brainstorming)"
   },
   {
-    "objectID": "lect/w01/intro.html#projects",
-    "href": "lect/w01/intro.html#projects",
-    "title": "Course introduction",
-    "section": "Projects",
-    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here.",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "objectID": "lect/w01/slides_tidydata.html#relational-database---basic-terms",
+    "href": "lect/w01/slides_tidydata.html#relational-database---basic-terms",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms"
   },
   {
-    "objectID": "lect/w01/intro.html#resources",
-    "href": "lect/w01/intro.html#resources",
-    "title": "Course introduction",
-    "section": "Resources",
-    "text": "Resources\n\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials.",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "objectID": "lect/w01/slides_tidydata.html#relational-database---basic-terms-1",
+    "href": "lect/w01/slides_tidydata.html#relational-database---basic-terms-1",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
   },
   {
-    "objectID": "lect/w01/intro.html#resources-1",
-    "href": "lect/w01/intro.html#resources-1",
-    "title": "Course introduction",
-    "section": "Resources",
-    "text": "Resources\n\nLearning R\n \n\nSee section Resources for more details…\nBooks available online.",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "objectID": "lect/w01/slides_tidydata.html#tidy-data",
+    "href": "lect/w01/slides_tidydata.html#tidy-data",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data"
   },
   {
-    "objectID": "lect/w01/intro.html#why-maths-in-archaeology",
-    "href": "lect/w01/intro.html#why-maths-in-archaeology",
-    "title": "Course introduction",
-    "section": "Why maths in archaeology?",
-    "text": "Why maths in archaeology?\nBrainstorming",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "objectID": "lect/w01/slides_tidydata.html#types-of-variables",
+    "href": "lect/w01/slides_tidydata.html#types-of-variables",
+    "title": "Tidy data",
+    "section": "Types of variables",
+    "text": "Types of variables\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
   },
   {
-    "objectID": "lect/w01/intro.html#assignments",
-    "href": "lect/w01/intro.html#assignments",
-    "title": "Course introduction",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.",
-    "crumbs": [
-      "Course introduction"
-    ]
+    "objectID": "lect/w01/slides_tidydata.html#tidy-data-1",
+    "href": "lect/w01/slides_tidydata.html#tidy-data-1",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data\nWhat’s wrong?"
   },
   {
-    "objectID": "lect/w02/intro2r.html#prerequisites",
-    "href": "lect/w02/intro2r.html#prerequisites",
-    "title": "Coding in R",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nGo through R Basics tutorials here."
+    "objectID": "lect/w01/slides_tidydata.html#basic-tidy-data-principles",
+    "href": "lect/w01/slides_tidydata.html#basic-tidy-data-principles",
+    "title": "Tidy data",
+    "section": "Basic tidy data principles",
+    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
   },
   {
-    "objectID": "lect/w02/intro2r.html#exercises",
-    "href": "lect/w02/intro2r.html#exercises",
-    "title": "Coding in R",
+    "objectID": "lect/w01/slides_tidydata.html#exercises",
+    "href": "lect/w01/slides_tidydata.html#exercises",
+    "title": "Tidy data",
     "section": "Exercises",
     "text": "Exercises"
   },
   {
-    "objectID": "lect/w02/intro2r.html#assignments",
-    "href": "lect/w02/intro2r.html#assignments",
-    "title": "Coding in R",
+    "objectID": "lect/w01/slides_tidydata.html#assignments",
+    "href": "lect/w01/slides_tidydata.html#assignments",
+    "title": "Tidy data",
     "section": "Assignments",
-    "text": "Assignments\n\nFind a suitable dataset for your Project."
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).\n\n\n\nAES_707 Statistics seminar for archaeologists | Tidy data"
   },
   {
-    "objectID": "project.html",
-    "href": "project.html",
-    "title": "Project",
+    "objectID": "lect/w01/tidy.html#what-is-a-database",
+    "href": "lect/w01/tidy.html#what-is-a-database",
+    "title": "Tidy data",
+    "section": "What is a database?",
+    "text": "What is a database?\n(Brainstorming)"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#relational-database---basic-terms",
+    "href": "lect/w01/tidy.html#relational-database---basic-terms",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#relational-database---basic-terms-1",
+    "href": "lect/w01/tidy.html#relational-database---basic-terms-1",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#tidy-data",
+    "href": "lect/w01/tidy.html#tidy-data",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#types-of-variables",
+    "href": "lect/w01/tidy.html#types-of-variables",
+    "title": "Tidy data",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\n\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#tidy-data-1",
+    "href": "lect/w01/tidy.html#tidy-data-1",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data\nWhat’s wrong?"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#basic-tidy-data-principles",
+    "href": "lect/w01/tidy.html#basic-tidy-data-principles",
+    "title": "Tidy data",
+    "section": "Basic tidy data principles",
+    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#exercises",
+    "href": "lect/w01/tidy.html#exercises",
+    "title": "Tidy data",
+    "section": "Exercises",
+    "text": "Exercises"
+  },
+  {
+    "objectID": "lect/w01/tidy.html#assignments",
+    "href": "lect/w01/tidy.html#assignments",
+    "title": "Tidy data",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011)."
+  },
+  {
+    "objectID": "project/project_template.html",
+    "href": "project/project_template.html",
+    "title": "Title of your project",
     "section": "",
-    "text": "Warning\n\n\n\nInformation given here will be updated later in the semestr.\nTo pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit their own report on the analysis. There are two options, you can choose to work either on your own dataset or use an existing published data."
+    "text": "This is a template for a report on your project. As you already know, we expect you to work on an analysis of a data set of your choice and hand in a report similar to this one. Delete the following examples as soon as you will be sure what you are doing. The suggested structure of a report is below. Delete anything you do not need, feel free to edit the document."
   },
   {
-    "objectID": "project.html#get-the-data",
-    "href": "project.html#get-the-data",
-    "title": "Project",
-    "section": "Get the data",
-    "text": "Get the data\nAlthough the first step in most of the analysis would be creating the research question(s), we assume our questions and goals are already set and skip to the step where we get the data suitable to answer our questions…\n\nWorking with your own dataset\n\nYou can choose to use your own data. This is especially useful if you are working on your BA/MA/PhD thesis or an article and want to analyze the data collected for the given work.\nThis option is easier because you probably know what your dataset contains and what each variable means, how it was collected etc.\n\n\n\nUsing an existing dataset\n\nFind a suitable dataset online, scrape a website, get it in a book, anything that comes to mind, be creative. Bear in mind that the dataset needs to contain a mixture of quantitative and qualitative variables. It can be organized as a table, then the work is easier for you. If it is a database, we can give you a hand with data preparation etc.\nWe recommend to look in the Journal of Open Archaeology Data. Datasets published here have clear use conditions (license), are deposited in a suitable repository and should be well documented.\nIf you choose to use a dataset you found anywhere else (or web scraped etc.) please make sure that it is easily accessible and suitable for the analysis."
+    "objectID": "project/project_template.html#r-markdown",
+    "href": "project/project_template.html#r-markdown",
+    "title": "Title of your project",
+    "section": "R Markdown",
+    "text": "R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
   },
   {
-    "objectID": "project.html#get-to-know-the-data",
-    "href": "project.html#get-to-know-the-data",
-    "title": "Project",
-    "section": "Get to know the data",
-    "text": "Get to know the data\n\nMake sure you know where your data is and how is it stored (format and how to read it into R).\nMake sure you know what each variable means, what type of data does it contain etc.\nThe dataset should contain at least several quantitative and qualitative variables in order for you to be able to practice creating visualizations.\n\n\nReport template\nRMarkdown template for the project report is here. Create a new RMarkdown file (.Rmd), copy and paste the contents of the template in your file, do your changes, write your report and push the Knit button. Follow the instructions in the template to work on your project.\n\n\nHow to submit the report\nFeel free to contact us if you need any help or assistance during the work on your project. Simply send us both the source Rmd file and the HTML output with your questions and we will address the problem either directly or in class."
+    "objectID": "project/project_template.html#including-plots",
+    "href": "project/project_template.html#including-plots",
+    "title": "Title of your project",
+    "section": "Including Plots",
+    "text": "Including Plots\nYou can also embed plots, for example:\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n\nAbstract\nWrite a short and comprehensive abstract for your project (one paragraph of text).\n\nKeywords\nInclude several relevant keywords."
+  },
+  {
+    "objectID": "project/project_template.html#introduction",
+    "href": "project/project_template.html#introduction",
+    "title": "Title of your project",
+    "section": "Introduction",
+    "text": "Introduction\nWrite what data set you are analyzing and why, what is your goal and so on (one paragraph).\nAlso load all the packages you will be using in your analysis here.\n\n# put your library calls in here\nlibrary(ggplot2)\n\n\nData\nBriefly introduce your data set. Where does it come from? What does it contain? Load your data here and use any handy functions you learned to show what the variable names are, how big your data are, what data types does it contain etc.\n\n# read your data set here\n# remember, this # is a comment (ctrl+shift+c)\n# data &lt;- read.csv(\"\")\n\nTry to answer following questions using code:\n\nHow many variables are there?\nHow many rows does the data set have?\nWhat are the names of the variables?\nWhat data types are there in the data set?\n\n\n# str(data) and other functions you learned..."
+  },
+  {
+    "objectID": "project/project_template.html#exploratory-analysis",
+    "href": "project/project_template.html#exploratory-analysis",
+    "title": "Title of your project",
+    "section": "Exploratory analysis",
+    "text": "Exploratory analysis\n\nQualitative variables\nAre there any qualitative variables in your data set? Choose at least one and answer these questions if possible:\n\nHow many values does your qualitative variable has?\nShow the count of values of the chosen qualitative variable in a suitable plot.\n\n\n#  show us some plots...\n# ggplot(data, aes(...)) +\n#   geom_bar()\n\n\n\nQuantitative variables\nExplore your quantitative variables. Plot the distribution of the variables. Show us a histogram or a density plot. Try to compare the quantities in several groups using a box plot…\nGive us numeric summaries of the chosen quantitative variable:\n\nWhat is the mean and standard deviation?\nWhat is the median and IQR?\n\nHow does the distribution of the quantitative variable look? Is it a normal distribution? Is it right/left-skewed? Is it multimodal? Try to prove these points with both the graphs and a hypothesis test.\n\n\nData transformation challenge\nUse at least three functions (filter, select, group_by, summarise, arrange, mutate) from the dplyr package to transform your data and again show some summary statistics, plots and so on. Be creative!"
+  },
+  {
+    "objectID": "project/project_template.html#multivariate-exploration",
+    "href": "project/project_template.html#multivariate-exploration",
+    "title": "Title of your project",
+    "section": "Multivariate exploration",
+    "text": "Multivariate exploration\n\nWill be added…"
   },
   {
     "objectID": "resources.html",
