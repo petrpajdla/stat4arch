@@ -1,5 +1,8 @@
 ---
 title: "Schedule"
+format:
+  html: default
+  pdf: default
 ---
 
 The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays). 
@@ -11,7 +14,7 @@ The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (
 | 3.      | 6. 3.  | Visualization and summary of distributions | Go through *Visualize data* tutorials [here](https://posit.cloud/learn/recipes). | Read [Make a plot](https://socviz.co/makeplot.html#makeplot) chapter from *Data Visualization* book by K. J. Healy. |
 | 4.      | 13. 3. | Visualization and summary of relationships |
 | 5.      | 20. 3. | Reproducibility |
-| 6.      | 27. 3. | Presenting data sets fro projects & Practice |
+| 6.      | 27. 3. | Presenting data sets for projects & Practice |
 | 7.      | 3. 4.  | Considering space |
 | 8.      | 10. 4. | Considering time |
 | -       | 17. 4. | *Reading week* |
