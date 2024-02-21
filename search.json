@@ -234,7 +234,14 @@
     "href": "kit.html#function-reference",
     "title": "Survival kit",
     "section": "Function reference",
-    "text": "Function reference\ncode description\n\nBasics\ninstall.packages(\"packagename\") installs a package\nlibrary(packagename) attaches a package from a library"
+    "text": "Function reference\ncode description\n\nBasics\ninstall.packages(\"packagename\") installs a package\nlibrary(packagename) attaches a package from a library\nGetting help on anything:\n?function\nhelp(function)\nLookign at data:\nhead(x) and tail(x)\nView(x)"
+  },
+  {
+    "objectID": "kit.html#summary-functions",
+    "href": "kit.html#summary-functions",
+    "title": "Survival kit",
+    "section": "Summary functions",
+    "text": "Summary functions\nmean(x) returns mean meadian(x) returns median\n\nData manipulation with dplyr\nload package library(dplyr)\n%&gt;% pipe operator, x %&gt;% f() equals f(x), allows chaining functions in a pipeline\n(in newer versions of R, there is a native pipe operator |&gt;)\ncount(data) count how many observations there are in a data frame\nsummarise(data,...) applies summary functions to a data frame\ngroup_by(data, x) group data by values in variable x\nChain this for example like this:\n```{r}\ndata %&gt;%\n  group_by(y) %&gt;% \n  summarise(prumer = mean(x),\n            median = median(x))\n```\n\n\nPlotting with ggplot2\nLoad package library(ggplot2).\nAlert: in ggplot2, individual pieces of code are chained using +!\nggplot() basic function call for each plot\naes(x, y, color, fill...) aesthetics\n\nGeometries\ngeom_histogram() produces histogram\ngeom_point() produces scatterplot\nCreate a plot like this:\n```{r}\ndata %&gt;%\n  ggplot() +\n  aes(x) +\n  geom_histogram()\n```"
   },
   {
     "objectID": "lect/w01/slides_intro.html#basic-information",

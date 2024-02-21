@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -123,6 +157,11 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text">Resources</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./kit.html" aria-current="page"> <i class="bi bi-patch-question" role="img">
+</i> 
+<span class="menu-text">Survival kit</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -144,6 +183,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#function-reference" id="toc-function-reference" class="nav-link" data-scroll-target="#function-reference">Function reference</a>
   <ul class="collapse">
   <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics">Basics</a></li>
+  </ul></li>
+  <li><a href="#summary-functions" id="toc-summary-functions" class="nav-link" data-scroll-target="#summary-functions">Summary functions</a>
+  <ul class="collapse">
+  <li><a href="#data-manipulation-with-dplyr" id="toc-data-manipulation-with-dplyr" class="nav-link" data-scroll-target="#data-manipulation-with-dplyr">Data manipulation with <code>dplyr</code></a></li>
+  <li><a href="#plotting-with-ggplot2" id="toc-plotting-with-ggplot2" class="nav-link" data-scroll-target="#plotting-with-ggplot2">Plotting with <code>ggplot2</code></a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="kit.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -271,8 +315,53 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="basics">Basics</h3>
 <p><code>install.packages("packagename")</code> installs a package<br>
 <code>library(packagename)</code> attaches a package from a library</p>
+<p>Getting help on anything:<br>
+<code>?function</code><br>
+<code>help(function)</code></p>
+<p>Lookign at data:<br>
+<code>head(x)</code> and <code>tail(x)</code><br>
+View(x)</p>
+</section>
+</section>
+<section id="summary-functions" class="level2">
+<h2 class="anchored" data-anchor-id="summary-functions">Summary functions</h2>
+<p><code>mean(x)</code> returns mean <code>meadian(x)</code> returns median</p>
+<section id="data-manipulation-with-dplyr" class="level3">
+<h3 class="anchored" data-anchor-id="data-manipulation-with-dplyr">Data manipulation with <code>dplyr</code></h3>
+<p>load package <code>library(dplyr)</code></p>
+<p><code>%&gt;%</code> <em>pipe</em> operator, <code>x %&gt;% f()</code> equals <code>f(x)</code>, allows chaining functions in a pipeline<br>
+(in newer versions of R, there is a native pipe operator <code>|&gt;</code>)</p>
+<p><code>count(data)</code> count how many observations there are in a data frame<br>
+<code>summarise(data,...)</code> applies summary functions to a data frame<br>
+<code>group_by(data, x)</code> group <em>data</em> by values in variable <em>x</em></p>
+<p>Chain this for example like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">data %&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(y) %&gt;% </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(prumer = mean(x),</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">            median = median(x))</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="plotting-with-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-with-ggplot2">Plotting with <code>ggplot2</code></h3>
+<p>Load package <code>library(ggplot2)</code>.<br>
+Alert: in <code>ggplot2</code>, individual pieces of code are chained using <code>+</code>!</p>
+<p><code>ggplot()</code> basic function call for each plot<br>
+<code>aes(x, y, color, fill...)</code> aesthetics</p>
+<section id="geometries" class="level4">
+<h4 class="anchored" data-anchor-id="geometries">Geometries</h4>
+<p><code>geom_histogram()</code> produces histogram<br>
+<code>geom_point()</code> produces scatterplot</p>
+<p>Create a plot like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">data %&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">  ggplot() +</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">  aes(x) +</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_histogram()</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 </section>
 
