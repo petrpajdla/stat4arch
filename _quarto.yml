@@ -3,7 +3,7 @@ project:
 
 website:
   title: "stat4arch"
-  repo-url: https://github.com/petrpajdla/stat4arch/
+  repo-url: "https://petrpajdla.github.io/stat4arch/"
   repo-actions: [source, edit, issue]
   
   navbar:
@@ -31,7 +31,7 @@ website:
       title: "Topics"
       contents:
         - lect/w01/intro.qmd
-        # - lect/w01/tidy.qmd
+        - lect/w01/tidy.qmd
         # - lect/w02/intro2r.qmd
         # - distributions.qmd
         # - relationships.qmd

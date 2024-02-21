@@ -5,13 +5,10 @@ format:
   html: default
   revealjs:
     fontsize: 24px
-    output-file: slides_tidydata.html
-    footer: AES_707 *Statistics seminar for archaeologists* | Tidy data
+    output-file: slides_tidy.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Tidy data](./tidy.html)"
   pdf: default
 ---
-
-## Objectives
-
 
 ## What is a database?
 
@@ -73,11 +70,6 @@ What's wrong?
 - Do not use color codes.
 - Backup your data!
 - Be consistent!
-
-
-## Exercises
-
-
 
 ## Assignments
 

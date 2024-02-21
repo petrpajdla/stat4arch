@@ -1,7 +1,10 @@
 ---
 title: "Survival kit"
 format:
-  html: default
+  html: 
+    code-block-background: true
+    code-block-border-left: true
+    highlight-style: arrow
   pdf: default
 ---
 
@@ -41,3 +44,60 @@ Some characters are somewhat difficult to write on the Czech keyboard:
 
 `install.packages("packagename")` installs a package  
 `library(packagename)` attaches a package from a library  
+
+Getting help on anything:  
+`?function`  
+`help(function)`
+
+Lookign at data:  
+`head(x)` and `tail(x)`  
+View(x)
+
+
+### Summary functions
+
+`mean(x)` returns mean
+`meadian(x)` returns median
+
+### Data manipulation with `dplyr`
+
+load package `library(dplyr)`
+
+`%>%` *pipe* operator, `x %>% f()` equals `f(x)`, allows chaining functions in a pipeline  
+(in newer versions of R, there is a native pipe operator `|>`)
+
+`count(data)` count how many observations there are in a data frame  
+`summarise(data,...)` applies summary functions to a data frame  
+`group_by(data, x)` group *data* by values in variable *x*  
+
+Chain this for example like this: 
+
+```
+data %>%
+  group_by(y) %>% 
+  summarise(prumer = mean(x),
+            median = median(x))
+```
+
+### Plotting with `ggplot2`
+
+Load package `library(ggplot2)`.  
+Alert: in `ggplot2`, individual pieces of code are chained using `+`!
+
+`ggplot()` basic function call for each plot  
+`aes(x, y, color, fill...)` aesthetics  
+
+#### Geometries
+
+`geom_histogram()` produces histogram  
+`geom_point()` produces scatterplot
+
+
+Create a plot like this: 
+
+```
+data %>%
+  ggplot() +
+  aes(x) +
+  geom_histogram()
+```
