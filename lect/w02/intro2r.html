@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -39,6 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -144,12 +179,38 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#reflection-on-the-last-week" id="toc-reflection-on-the-last-week" class="nav-link active" data-scroll-target="#reflection-on-the-last-week">Reflection on the last week</a>
+  <ul class="collapse">
+  <li><a href="#tidy-data-principles" id="toc-tidy-data-principles" class="nav-link" data-scroll-target="#tidy-data-principles">Tidy data principles</a></li>
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
+  </ul></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#r-is-a-smart-calculator" id="toc-r-is-a-smart-calculator" class="nav-link" data-scroll-target="#r-is-a-smart-calculator">R is a smart calculator…</a></li>
+  <li><a href="#functions-and-objects" id="toc-functions-and-objects" class="nav-link" data-scroll-target="#functions-and-objects">Functions and objects</a></li>
+  <li><a href="#types-of-objects" id="toc-types-of-objects" class="nav-link" data-scroll-target="#types-of-objects">Types of objects</a>
+  <ul class="collapse">
+  <li><a href="#vector" id="toc-vector" class="nav-link" data-scroll-target="#vector">Vector</a></li>
+  </ul></li>
+  <li><a href="#types-of-objects-1" id="toc-types-of-objects-1" class="nav-link" data-scroll-target="#types-of-objects-1">Types of objects</a>
+  <ul class="collapse">
+  <li><a href="#data-frame-tibble" id="toc-data-frame-tibble" class="nav-link" data-scroll-target="#data-frame-tibble">Data frame &amp; tibble</a></li>
+  </ul></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data types</a></li>
+  <li><a href="#data-types-1" id="toc-data-types-1" class="nav-link" data-scroll-target="#data-types-1">Data types</a></li>
+  <li><a href="#reading-data-in-csv-into-r" id="toc-reading-data-in-csv-into-r" class="nav-link" data-scroll-target="#reading-data-in-csv-into-r">Reading data in CSV into R</a>
+  <ul class="collapse">
+  <li><a href="#comma-separated-values-csv" id="toc-comma-separated-values-csv" class="nav-link" data-scroll-target="#comma-separated-values-csv">Comma separated values (CSV)</a></li>
+  <li><a href="#reading-csv-into-r" id="toc-reading-csv-into-r" class="nav-link" data-scroll-target="#reading-csv-into-r">Reading CSV into R</a></li>
+  </ul></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a>
+  <ul class="collapse">
+  <li><a href="#dart-points" id="toc-dart-points" class="nav-link" data-scroll-target="#dart-points">Dart points</a></li>
+  </ul></li>
+  <li><a href="#dart-points-1" id="toc-dart-points-1" class="nav-link" data-scroll-target="#dart-points-1">Dart points</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
   <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://petrpajdla.github.io/stat4arch/blob/main/lect/w02/intro2r.qmd" class="toc-action"><i class="bi bi-git"></i>View source</a></li><li><a href="https://petrpajdla.github.io/stat4arch/edit/main/lect/w02/intro2r.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://petrpajdla.github.io/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://petrpajdla.github.io/stat4arch/blob/main/lect/w02/intro2r.qmd" class="toc-action"><i class="bi bi-git"></i>View source</a></li><li><a href="https://petrpajdla.github.io/stat4arch/edit/main/lect/w02/intro2r.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://petrpajdla.github.io/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_intro2r.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="intro2r.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -173,22 +234,608 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="reflection-on-the-last-week" class="level2" data-background-color="#FAF1A4">
+<h2 data-background-color="#FAF1A4" class="anchored" data-anchor-id="reflection-on-the-last-week">Reflection on the last week</h2>
+<section id="tidy-data-principles" class="level3">
+<h3 class="anchored" data-anchor-id="tidy-data-principles">Tidy data principles</h3>
+</section>
+<section id="readings" class="level3">
+<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<p><img src="./figs/vanpool.jpg" class="img-fluid" style="width:20.0%"></p>
+</section>
+</section>
 <section id="objectives" class="level2">
 <h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<div class="incremental">
+<p>Today’s goals…</p>
+<ul class="incremental">
+<li>Notion of functions vs.&nbsp;objects.</li>
+<li>Intro on R data types (ie. <em>what types of things are there</em>).</li>
+<li>Intro on R types of objects (ie. <em>how things are represented</em>).</li>
+<li>Subsetting data frames.</li>
+<li>Reading data into R.</li>
+</ul>
+</div>
 </section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<section id="r-is-a-smart-calculator" class="level2">
+<h2 class="anchored" data-anchor-id="r-is-a-smart-calculator">R is a smart calculator…</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">40</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">6.48</span><span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">1764</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span> <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8e+10</code></pre>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">41</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">-</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -40</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>(x <span class="sc">+</span> y)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1764</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions-and-objects" class="level2 incremental">
+<h2 class="incremental anchored" data-anchor-id="functions-and-objects">Functions and objects</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="objects" class="level4">
+<h4 class="anchored" data-anchor-id="objects">Objects</h4>
 <ul>
-<li>Go through <strong>R Basics</strong> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
+<li><em>Anything</em> is an object.</li>
+<li>Objects contain <strong>data</strong> <em>(etc.)</em></li>
+<li>Objects have <strong>names</strong>.</li>
+<li>You choose the names.</li>
+<li>Name your objects wisely.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pi </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.141593</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pi <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.141593</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><code>&lt;-</code> is an <em>assignment</em> operator<br>
+(use <em>Alt + -</em> in RStudio to write it).</p>
+</div>
+</section>
+</div><div class="column fragment" style="width:50%;">
+<section id="functions" class="level4">
+<h4 class="anchored" data-anchor-id="functions">Functions</h4>
+<ul>
+<li>End with parentheses <code>function(arguments)</code>.</li>
+<li><strong>Arguments</strong> go in the parentheses.</li>
+<li>Functions <strong>do</strong> something with the inputs you give them.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">1764</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(sqrt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (x) 
+NULL</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(round)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (x, digits = 0) 
+NULL</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pi, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.14</code></pre>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+<section id="types-of-objects" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-objects">Types of objects</h2>
+<section id="vector" class="level3">
+<h3 class="anchored" data-anchor-id="vector">Vector</h3>
+<ul>
+<li>Basic data structure.</li>
+<li>Contains single data type.</li>
+<li>Created using function <code>c()</code> <em>(combine, concatenate)</em></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"Fuu"</span>, <span class="st">"Bar"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Fuu" "Bar"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 3 5 8</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  9 25 64</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="types-of-objects-1" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-objects-1">Types of objects</h2>
+<section id="data-frame-tibble" class="level3">
+<h3 class="anchored" data-anchor-id="data-frame-tibble">Data frame &amp; tibble</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>A table.</li>
+<li>Has rows and columns.</li>
+<li><em>Rectangular</em>, ie. identical number of rows in each column.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>dfr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   x y     z   w
+1 95 a  TRUE 4.2
+2 96 b FALSE 4.4
+3 97 c FALSE 4.6
+4 98 d  TRUE 4.8</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(dfr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(dfr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dfr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dfr, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   x y     z   w
+1 95 a  TRUE 4.2
+2 96 b FALSE 4.4</code></pre>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<section id="subsetting" class="level4">
+<h4 class="anchored" data-anchor-id="subsetting">Subsetting</h4>
+<ul>
+<li><code>$</code> operator returns a single column.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dfr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "x" "y" "z" "w"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>dfr<span class="sc">$</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 95 96 97 98</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>dfr<span class="sc">$</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b" "c" "d"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>dfr<span class="sc">$</span>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE FALSE  TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>dfr<span class="sc">$</span>w <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.1 2.2 2.3 2.4</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>dfr<span class="sc">$</span>x <span class="sc">-</span> dfr<span class="sc">$</span>w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 90.8 91.6 92.4 93.2</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dfr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   4 obs. of  4 variables:
+ $ x: int  95 96 97 98
+ $ y: chr  "a" "b" "c" "d"
+ $ z: logi  TRUE FALSE FALSE TRUE
+ $ w: num  4.2 4.4 4.6 4.8</code></pre>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+</section>
+<section id="data-types" class="level2">
+<h2 class="anchored" data-anchor-id="data-types">Data types</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dfr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   4 obs. of  4 variables:
+ $ x: int  95 96 97 98
+ $ y: chr  "a" "b" "c" "d"
+ $ z: logi  TRUE FALSE FALSE TRUE
+ $ w: num  4.2 4.4 4.6 4.8</code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<section id="text-strings" class="level3">
+<h3 class="anchored" data-anchor-id="text-strings">Text strings</h3>
+<ul>
+<li><strong>Character</strong> data type, abbreviated as <em>chr</em>.</li>
+<li>Written in quotation marks (double or single).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="st">"I am a string."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "I am a string."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">'I am also a string'</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<ul>
+<li>Functions with <code>is.</code> prefix:<br>
+<code>is.numeric()</code>, <code>is.double()</code> etc.</li>
 </ul>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-</section>
-<section id="assignments" class="level2">
-<h2 class="anchored" data-anchor-id="assignments">Assignments</h2>
+</div><div class="column fragment" style="width:50%;">
+<section id="numbers" class="level3">
+<h3 class="anchored" data-anchor-id="numbers">Numbers</h3>
 <ul>
-<li>Find a suitable dataset for your <a href="../../project.html">Project</a>.</li>
+<li><strong>Integers</strong> (<em>whole</em> numbers)</li>
+<li><strong>Doubles</strong> (decimal numbers)</li>
+<li><strong>Numeric</strong> (class for all numbers in general)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>dfr<span class="sc">$</span>x </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 95 96 97 98</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(dfr<span class="sc">$</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>dfr<span class="sc">$</span>x <span class="sc">+</span> dfr<span class="sc">$</span>w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  99.2 100.4 101.6 102.8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dfr<span class="sc">$</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 96.5</code></pre>
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+<section id="data-types-1" class="level2">
+<h2 class="anchored" data-anchor-id="data-types-1">Data types</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="dichotomies" class="level3">
+<h3 class="anchored" data-anchor-id="dichotomies">Dichotomies</h3>
+<ul>
+<li><strong>Logical</strong> data type.</li>
+<li>Binary/boolean values.</li>
+<li>As <code>TRUE</code> and <code>FALSE</code> in <code>R</code>.</li>
+</ul>
+</section>
+</div><div class="column fragment" style="width:50%;">
+<section id="special-values" class="level3">
+<h3 class="anchored" data-anchor-id="special-values">Special values</h3>
+<ul>
+<li>Missing values as <code>NA</code>, ie. <em>not available</em>.</li>
+<li><code>Inf</code> and <code>-Inf</code> for infinities.</li>
+<li><code>NULL</code> for an object of a zero length.</li>
+</ul>
+</section>
+</div>
+</div>
+</section>
+<section id="reading-data-in-csv-into-r" class="level2">
+<h2 class="anchored" data-anchor-id="reading-data-in-csv-into-r">Reading data in CSV into R</h2>
+<section id="comma-separated-values-csv" class="level3">
+<h3 class="anchored" data-anchor-id="comma-separated-values-csv">Comma separated values (CSV)</h3>
+<ul>
+<li><p><strong>Plain-text</strong> document.</p></li>
+<li><p>Practical <strong>exchange</strong> and <strong>preservation</strong> format for data sets.</p></li>
+<li><p>Most open and commercial softwares will allow export in CSV.</p></li>
+<li><p>Americas: separated by commas (<code>,</code>), period (<code>.</code>) as a decimal mark.</p></li>
+<li><p>Europe: separated by semicolon (<code>;</code>), comma (<code>,</code>) as a decimal mark.</p></li>
+</ul>
+</section>
+<div class="fragment">
+<section id="reading-csv-into-r" class="level3">
+<h3 class="anchored" data-anchor-id="reading-csv-into-r">Reading CSV into R</h3>
+<p>Comma separated:<br>
+<code>read.csv(file = "path")</code></p>
+<p>Semicolon separated:<br>
+<code>read.csv2(file = "path")</code></p>
+<p>Other delimiter:<br>
+<code>read.table(file = "path", sep = "separator")</code></p>
+</section>
+</div>
+</section>
+<section id="practice" class="level2" data-background-color="#B5E2FF">
+<h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="practice">Practice</h2>
+<section id="dart-points" class="level3">
+<h3 class="anchored" data-anchor-id="dart-points">Dart points</h3>
+<p><img src="./figs/dartpoints.png" class="img-fluid" style="width:66.0%"></p>
+<p><em>Adapted from Carlson 2011</em></p>
+</section>
+</section>
+<section id="dart-points-1" class="level2">
+<h2 class="anchored" data-anchor-id="dart-points-1">Dart points</h2>
+<div class="columns">
+<div class="column" style="width:80%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figs/dartpoints_scatter.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Scatter plot of dart points</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:20%;">
+<p>Measurements on five types of dart points from <strong>Fort Hood</strong> in central Texas (<strong>Darl, Ensor, Pedernales, Travis, and Wells</strong>). The points were recovered during 10 different pedestrian survey projects during the 1980’s and were classified and measured by H. Blaine Ensor…</p>
+</div>
+</div>
+</section>
+<section id="exercise" class="level2" data-background-color="#B5E2FF">
+<h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="exercise">Exercise</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Download the dataset <a href="./data/dartpoints.csv"><i class="bi-file-earmark-arrow-down " style="" role="img" aria-hidden="true"></i> dartpoints.csv</a></li>
+<li>Explore the dataset using spreadsheet editor</li>
+<li>Save the dataset somwhere you can find it</li>
+<li>Start <strong>RStudio</strong></li>
+<li>Create a script (<em>Ctrl + Shift + n</em>)</li>
+<li>Read the dataset from the path where you saved it<br>
+</li>
+<li>Save it as <code>darts</code> object</li>
+<li>What kinf of an object is it?</li>
+<li>How many rows and columns does it have?<br>
+</li>
+<li>What columns does it have?</li>
+<li>What data types are there? What is the structure?</li>
+<li>Read details about the dataset using <code>?archdata::DartPoints</code><br>
+<i class="bi-lightbulb " style="" role="img" aria-hidden="true"></i> Hints: <code>read.csv()</code>, <code>ncol()</code> and <code>nrow()</code>, <code>str()</code>, <code>colnames()</code></li>
+</ol>
+</div>
+</div><div class="column fragment" style="width:40%;">
+<section id="solution" class="level3">
+<h3 class="anchored" data-anchor-id="solution">Solution</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv"</span></span>
+<span id="cb92-2"><a href="#cb92-2"></a><span class="fu">file.download</span>(url)</span>
+<span id="cb92-3"><a href="#cb92-3"></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"dartpoints.csv"</span>)</span>
+<span id="cb92-4"><a href="#cb92-4"></a><span class="fu">class</span>(darts)</span>
+<span id="cb92-5"><a href="#cb92-5"></a><span class="fu">dim</span>(darts)</span>
+<span id="cb92-6"><a href="#cb92-6"></a><span class="fu">nrow</span>(darts)</span>
+<span id="cb92-7"><a href="#cb92-7"></a><span class="fu">ncol</span>(darts)</span>
+<span id="cb92-8"><a href="#cb92-8"></a><span class="fu">colnames</span>(darts)</span>
+<span id="cb92-9"><a href="#cb92-9"></a><span class="fu">head</span>(darts)</span>
+<span id="cb92-10"><a href="#cb92-10"></a><span class="fu">str</span>(darts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</div>
+</div>
+</section>
+<section id="assignments" class="level2" data-background-color="#BEFAB4">
+<h2 data-background-color="#BEFAB4" class="anchored" data-anchor-id="assignments">Assignments</h2>
+<ul>
+<li>Go through <strong>R Basics</strong> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
 </ul>
 
 

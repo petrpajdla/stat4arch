@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.550">
 
-  <title>stat4arch - Tidy data</title>
+  <title>stat4arch - Summaries and visualization of relationships</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -325,8 +325,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Tidy data</h1>
-  <p class="subtitle">Organizing data</p>
+  <h1 class="title">Summaries and visualization of relationships</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -335,58 +334,11 @@
 <section id="objectives" class="slide level2">
 <h2>Objectives</h2>
 </section>
-<section id="what-is-a-database" class="slide level2">
-<h2>What is a database?</h2>
-<p>(Brainstorming)</p>
-</section>
-<section id="relational-database---basic-terms" class="slide level2">
-<h2>Relational database - basic terms</h2>
-<p><img data-src="./figs/database_example_1.png"> <!-- <img src="./figs/database_example_1.png" style='width:100%;'> --></p>
-</section>
-<section id="relational-database---basic-terms-1" class="slide level2">
-<h2>Relational database - basic terms</h2>
-<p><img data-src="./figs/database_example.png"> <!-- <img src="./figs/database_example.png" style='width:100%;'> --></p>
+<section id="prereqisites" class="slide level2">
+<h2>Prereqisites</h2>
 <ul>
-<li><strong>variable</strong> (<em>proměnná</em> / <em>atribut</em>) - napr. hmotnosť keramického fragmentu</li>
-<li><strong>observation</strong> / <strong>object</strong> (<em>entita</em> / <em>záznam</em>) - napr. konkrétny keramický fragment</li>
-<li><strong>value</strong> (<em>hodnota</em>)</li>
-<li><strong>primary key</strong> / <strong>unique ID</strong> (<em>primární klíč</em>)</li>
-</ul>
-</section>
-<section id="tidy-data" class="slide level2">
-<h2>Tidy data</h2>
-<p><img data-src="./figs/tidy_data.png"> <!-- <img src="figs/tidy_data.png" style='width:100%;'> --></p>
-</section>
-<section id="types-of-variables" class="slide level2">
-<h2>Types of variables</h2>
-<h3 id="categorical">Categorical</h3>
-<ul>
-<li><strong>dichotomies</strong> (<em>dichotomická</em>) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)</li>
-<li><strong>nominal</strong> (<em>nominální</em>) - archeologické datovanie (“neolit”), číslo objektu, keramický typ</li>
-<li><strong>ordinal</strong> / <strong>rank</strong> (<em>ordinální, pořadová</em>) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál</li>
-</ul>
-<h3 id="numeric">Numeric</h3>
-<ul>
-<li><strong>discrete</strong> (<em>diskrétní</em>) - môžu byť len <em>celé</em> čísla - napr. počet lokalít, počet bronzových spôn</li>
-<li><strong>continuous</strong> (<em>spojité / metrické</em>) - môže byť akékoľvek <em>reálne</em> číslo - hmotnosť ker. fragmentu, dĺžka železného meča</li>
-<li><strong>interval</strong> (<em>intervalové</em>) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)</li>
-<li><strong>ratio</strong> (<em>poměrové</em>) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)</li>
-</ul>
-</section>
-<section id="tidy-data-1" class="slide level2">
-<h2>Tidy data</h2>
-<p>What’s wrong?</p>
-<p><img data-src="./figs/database_fails.png"> <!-- <img src="./figs/database_fails.png" style='width:100%;'> --></p>
-</section>
-<section id="basic-tidy-data-principles" class="slide level2">
-<h2>Basic tidy data principles</h2>
-<ul>
-<li>One variable in one column.</li>
-<li>One observation in one row.</li>
-<li>One value in one cell.</li>
-<li>Do not use color codes.</li>
-<li>Backup your data!</li>
-<li>Be consistent!</li>
+<li>Go through <em>Visualize data</em> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
+<li>Read <a href="https://socviz.co/makeplot.html#makeplot">Make a plot</a> chapter in <em>Data Visualization</em> book by K. J. Healy.</li>
 </ul>
 </section>
 <section id="exercises" class="slide level2">
@@ -394,14 +346,10 @@
 </section>
 <section id="assignments" class="slide level2">
 <h2>Assignments</h2>
-<ul>
-<li>Read Karl Broman’s <a href="https://kbroman.org/dataorg/">guide</a> on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. <em>The American Statistician</em> 72(1): 2–10, DOI: <a href="https://doi.org/gdz6cm" class="uri">https://doi.org/gdz6cm</a>.</li>
-<li>Read chapter <strong>Data</strong> in <em>Quantitative analysis in archaeology</em> book by VanPool and Leonard (2011).</li>
-</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>AES_707 <em>Statistics seminar for archaeologists</em> | Tidy data</p>
+<p><a href="https://petrpajdla.github.io/stat4arch/">AES_707</a> <em>Statistics seminar for archaeologists</em> | <a href="./rels.html">Relationships</a></p>
 </div>
 </div>
 </section>
