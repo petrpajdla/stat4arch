@@ -51,3 +51,4 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    highlight-style: arrow
