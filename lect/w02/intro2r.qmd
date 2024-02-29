@@ -477,6 +477,6 @@ str(darts)
 ::::
 
 
-## Assignments {background-color="#BEFAB4"}
+<!-- ## Assignments {background-color="#BEFAB4"}
 
-- Go through **R Basics** tutorials [here](https://posit.cloud/learn/recipes).
+- Go through **R Basics** tutorials [here](https://posit.cloud/learn/recipes). -->
