@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -39,6 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -195,10 +230,16 @@ window.Quarto = {
   <li><a href="#interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí" id="toc-interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí" class="nav-link" data-scroll-target="#interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí">Interquartile range (midspread, IQR, <em>kvantil</em>, <em>mezikvartilové rozpětí</em>)</a></li>
   </ul></li>
   <li><a href="#characterizing-dispersion-andor-spread-1" id="toc-characterizing-dispersion-andor-spread-1" class="nav-link" data-scroll-target="#characterizing-dispersion-andor-spread-1">Characterizing dispersion and/or spread</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
   <li><a href="#brainstorming" id="toc-brainstorming" class="nav-link" data-scroll-target="#brainstorming">Brainstorming</a></li>
   <li><a href="#plots-for-one-variable" id="toc-plots-for-one-variable" class="nav-link" data-scroll-target="#plots-for-one-variable">Plots for one variable</a></li>
   <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#histogram-1" id="toc-histogram-1" class="nav-link" data-scroll-target="#histogram-1">Histogram</a></li>
   <li><a href="#density-plot" id="toc-density-plot" class="nav-link" data-scroll-target="#density-plot">Density plot</a></li>
+  <li><a href="#density-plot-1" id="toc-density-plot-1" class="nav-link" data-scroll-target="#density-plot-1">Density plot</a></li>
+  <li><a href="#bar-chart" id="toc-bar-chart" class="nav-link" data-scroll-target="#bar-chart">Bar chart</a></li>
+  <li><a href="#plots-in-ggplot2-package" id="toc-plots-in-ggplot2-package" class="nav-link" data-scroll-target="#plots-in-ggplot2-package">Plots in ggplot2 package</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a>
   <ul class="collapse">
@@ -304,6 +345,71 @@ window.Quarto = {
 </figure>
 </div>
 </section>
+<section id="exercise" class="level2" data-background-color="#B5E2FF">
+<h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="exercise">Exercise</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Start <em>RStudio</em>.</li>
+<li>Create a new project, save it somwhere you can find it.</li>
+<li>Use the dataset from the last lecture <a href="./data/dartpoints.csv"><i class="bi-file-earmark-arrow-down " style="" role="img" aria-hidden="true"></i> dartpoints.csv</a>.</li>
+<li>Save it in your project directory.</li>
+<li>Load the data from the CSV file.</li>
+<li>Explore the dataset.</li>
+<li>Count mean and median <strong>weight</strong>, how do they differ?</li>
+<li>What is the range of the weights?</li>
+<li>What is the standard deviation of weights? What does it mean?</li>
+<li>Count the IQR. Compare it with standard deviation.</li>
+<li><i class="bi-lightbulb " style="" role="img" aria-hidden="true"></i> Hints: <code>read.csv()</code>, <code>str()</code>, <code>colnames()</code>, <code>mean()</code>, <code>median()</code>, <code>range()</code>, <code>sd()</code>, <code>IQR()</code>, <code>summary()</code></li>
+</ul>
+</div>
+</section>
+<section id="solution" class="level2" data-background-color="#B5E2FF">
+<h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="solution">Solution</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DartPoints &lt;- read.csv("dartpoints.csv")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DartPoints)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Name"      "Catalog"   "TARL"      "Quad"      "Length"    "Width"    
+ [7] "Thickness" "B.Width"   "J.Width"   "H.Length"  "Weight"    "Blade.Sh" 
+[13] "Base.Sh"   "Should.Sh" "Should.Or" "Haft.Sh"   "Haft.Or"  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DartPoints<span class="sc">$</span>Weight</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5
+[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4
+[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9
+[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4
+[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9
+[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2
+[91] 16.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(DartPoints<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.642857</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(DartPoints<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(DartPoints<span class="sc">$</span>Weight) <span class="sc">-</span> <span class="fu">min</span>(DartPoints<span class="sc">$</span>Weight) <span class="co"># or range(DartPoints$Weight)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(DartPoints<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.207088</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(DartPoints<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DartPoints<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.300   4.550   6.800   7.643  10.050  28.800 </code></pre>
+</div>
+</div>
+</section>
 <section id="brainstorming" class="level2" data-background-color="#FAF1A4">
 <h2 data-background-color="#FAF1A4" class="anchored" data-anchor-id="brainstorming">Brainstorming</h2>
 <ul>
@@ -323,9 +429,89 @@ window.Quarto = {
 </section>
 <section id="histogram" class="level2">
 <h2 class="anchored" data-anchor-id="histogram">Histogram</h2>
+<ul>
+<li><strong>Distribution</strong> of values of a <strong>quantitative</strong> variable.</li>
+</ul>
+<p>Distribution of dart point weights</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="distribs_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="histogram-1" class="level2">
+<h2 class="anchored" data-anchor-id="histogram-1">Histogram</h2>
+<ul>
+<li><strong>Distribution</strong> of values of a <strong>quantitative</strong> variable.</li>
+</ul>
+<p>Distribution of dart point weights, one column (<em>bin</em>) equals 2g</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="distribs_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="density-plot" class="level2">
 <h2 class="anchored" data-anchor-id="density-plot">Density plot</h2>
+<ul>
+<li><strong>Distribution</strong> of values of a <strong>quantitative</strong> variable</li>
+</ul>
+<p>Distribution of dart point weights</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="distribs_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="density-plot-1" class="level2">
+<h2 class="anchored" data-anchor-id="density-plot-1">Density plot</h2>
+<ul>
+<li><strong>Distribution</strong> of values of a <strong>quantitative</strong> variable, great for <strong>comparisons</strong></li>
+</ul>
+<p>Distribution of different types of dart points by weight</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="distribs_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bar-chart" class="level2">
+<h2 class="anchored" data-anchor-id="bar-chart">Bar chart</h2>
+<ul>
+<li><strong>Distribution</strong> of values of a <strong>qualitative</strong> variable</li>
+</ul>
+<p>Distribution of types of dart points</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="distribs_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="plots-in-ggplot2-package" class="level2" data-background-color="#B5E2FF">
+<h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="plots-in-ggplot2-package">Plots in ggplot2 package</h2>
 </section>
 <section id="exercises" class="level2" data-background-color="#B5E2FF">
 <h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="exercises">Exercises</h2>

@@ -667,6 +667,20 @@
     "text": "Characterizing dispersion and/or spread\n\nVarious plots of a normal distribution"
   },
   {
+    "objectID": "lect/w03/slides_distribs.html#exercise",
+    "href": "lect/w03/slides_distribs.html#exercise",
+    "title": "Summaries and visualization of distributions",
+    "section": "Exercise",
+    "text": "Exercise\n\n\nStart RStudio.\nCreate a new project, save it somwhere you can find it.\nUse the dataset from the last lecture  dartpoints.csv.\nSave it in your project directory.\nLoad the data from the CSV file.\nExplore the dataset.\nCount mean and median weight, how do they differ?\nWhat is the range of the weights?\nWhat is the standard deviation of weights? What does it mean?\nCount the IQR. Compare it with standard deviation.\n Hints: read.csv(), str(), colnames(), mean(), median(), range(), sd(), IQR(), summary()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#solution",
+    "href": "lect/w03/slides_distribs.html#solution",
+    "title": "Summaries and visualization of distributions",
+    "section": "Solution",
+    "text": "Solution\n\n# DartPoints &lt;- read.csv(\"dartpoints.csv\")\ncolnames(DartPoints)\n\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\nDartPoints$Weight\n\n [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5\n[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4\n[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9\n[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4\n[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9\n[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2\n[91] 16.3\n\nmean(DartPoints$Weight)\n\n[1] 7.642857\n\nmedian(DartPoints$Weight)\n\n[1] 6.8\n\nmax(DartPoints$Weight) - min(DartPoints$Weight) # or range(DartPoints$Weight)\n\n[1] 26.5\n\nsd(DartPoints$Weight)\n\n[1] 4.207088\n\nIQR(DartPoints$Weight)\n\n[1] 5.5\n\nsummary(DartPoints$Weight)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  2.300   4.550   6.800   7.643  10.050  28.800"
+  },
+  {
     "objectID": "lect/w03/slides_distribs.html#brainstorming",
     "href": "lect/w03/slides_distribs.html#brainstorming",
     "title": "Summaries and visualization of distributions",
@@ -685,14 +699,42 @@
     "href": "lect/w03/slides_distribs.html#histogram",
     "title": "Summaries and visualization of distributions",
     "section": "Histogram",
-    "text": "Histogram"
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram-1",
+    "href": "lect/w03/slides_distribs.html#histogram-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights, one column (bin) equals 2g"
   },
   {
     "objectID": "lect/w03/slides_distribs.html#density-plot",
     "href": "lect/w03/slides_distribs.html#density-plot",
     "title": "Summaries and visualization of distributions",
     "section": "Density plot",
-    "text": "Density plot"
+    "text": "Density plot\n\nDistribution of values of a quantitative variable\n\nDistribution of dart point weights"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot-1",
+    "href": "lect/w03/slides_distribs.html#density-plot-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\nDistribution of values of a quantitative variable, great for comparisons\n\nDistribution of different types of dart points by weight"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#bar-chart",
+    "href": "lect/w03/slides_distribs.html#bar-chart",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\nDistribution of values of a qualitative variable\n\nDistribution of types of dart points"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#plots-in-ggplot2-package",
+    "href": "lect/w03/slides_distribs.html#plots-in-ggplot2-package",
+    "title": "Summaries and visualization of distributions",
+    "section": "Plots in ggplot2 package",
+    "text": "Plots in ggplot2 package"
   },
   {
     "objectID": "lect/w03/slides_distribs.html#exercises",
@@ -758,6 +800,20 @@
     "text": "Characterizing dispersion and/or spread\n\n\n\nVarious plots of a normal distribution"
   },
   {
+    "objectID": "lect/w03/distribs.html#exercise",
+    "href": "lect/w03/distribs.html#exercise",
+    "title": "Summaries and visualization of distributions",
+    "section": "Exercise",
+    "text": "Exercise\n\n\nStart RStudio.\nCreate a new project, save it somwhere you can find it.\nUse the dataset from the last lecture  dartpoints.csv.\nSave it in your project directory.\nLoad the data from the CSV file.\nExplore the dataset.\nCount mean and median weight, how do they differ?\nWhat is the range of the weights?\nWhat is the standard deviation of weights? What does it mean?\nCount the IQR. Compare it with standard deviation.\n Hints: read.csv(), str(), colnames(), mean(), median(), range(), sd(), IQR(), summary()"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#solution",
+    "href": "lect/w03/distribs.html#solution",
+    "title": "Summaries and visualization of distributions",
+    "section": "Solution",
+    "text": "Solution\n\n# DartPoints &lt;- read.csv(\"dartpoints.csv\")\ncolnames(DartPoints)\n\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\nDartPoints$Weight\n\n [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5\n[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4\n[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9\n[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4\n[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9\n[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2\n[91] 16.3\n\nmean(DartPoints$Weight)\n\n[1] 7.642857\n\nmedian(DartPoints$Weight)\n\n[1] 6.8\n\nmax(DartPoints$Weight) - min(DartPoints$Weight) # or range(DartPoints$Weight)\n\n[1] 26.5\n\nsd(DartPoints$Weight)\n\n[1] 4.207088\n\nIQR(DartPoints$Weight)\n\n[1] 5.5\n\nsummary(DartPoints$Weight)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  2.300   4.550   6.800   7.643  10.050  28.800"
+  },
+  {
     "objectID": "lect/w03/distribs.html#brainstorming",
     "href": "lect/w03/distribs.html#brainstorming",
     "title": "Summaries and visualization of distributions",
@@ -776,14 +832,42 @@
     "href": "lect/w03/distribs.html#histogram",
     "title": "Summaries and visualization of distributions",
     "section": "Histogram",
-    "text": "Histogram"
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "lect/w03/distribs.html#histogram-1",
+    "href": "lect/w03/distribs.html#histogram-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights, one column (bin) equals 2g"
   },
   {
     "objectID": "lect/w03/distribs.html#density-plot",
     "href": "lect/w03/distribs.html#density-plot",
     "title": "Summaries and visualization of distributions",
     "section": "Density plot",
-    "text": "Density plot"
+    "text": "Density plot\n\nDistribution of values of a quantitative variable\n\nDistribution of dart point weights"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#density-plot-1",
+    "href": "lect/w03/distribs.html#density-plot-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\nDistribution of values of a quantitative variable, great for comparisons\n\nDistribution of different types of dart points by weight"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#bar-chart",
+    "href": "lect/w03/distribs.html#bar-chart",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\nDistribution of values of a qualitative variable\n\nDistribution of types of dart points"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#plots-in-ggplot2-package",
+    "href": "lect/w03/distribs.html#plots-in-ggplot2-package",
+    "title": "Summaries and visualization of distributions",
+    "section": "Plots in ggplot2 package",
+    "text": "Plots in ggplot2 package"
   },
   {
     "objectID": "lect/w03/distribs.html#exercises",
