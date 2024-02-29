@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -111,6 +140,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../lect/w01/tidy.html">
  <span class="dropdown-text">Tidy data</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/intro2r.html">
+ <span class="dropdown-text">Coding in R</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -144,10 +177,33 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#prereqisites" id="toc-prereqisites" class="nav-link" data-scroll-target="#prereqisites">Prereqisites</a></li>
+  <li><a href="#reflection-on-the-last-week" id="toc-reflection-on-the-last-week" class="nav-link active" data-scroll-target="#reflection-on-the-last-week">Reflection on the last week</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#organizing-your-work" id="toc-organizing-your-work" class="nav-link" data-scroll-target="#organizing-your-work">Organizing your work</a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
+  <li><a href="#characterizing-centrality" id="toc-characterizing-centrality" class="nav-link" data-scroll-target="#characterizing-centrality">Characterizing centrality</a>
+  <ul class="collapse">
+  <li><a href="#mean-průměr" id="toc-mean-průměr" class="nav-link" data-scroll-target="#mean-průměr">Mean (<em>průměr</em>)</a></li>
+  <li><a href="#median-medián" id="toc-median-medián" class="nav-link" data-scroll-target="#median-medián">Median (<em>medián</em>)</a></li>
+  <li><a href="#what-are-outliers-odlehlé-hodnoty" id="toc-what-are-outliers-odlehlé-hodnoty" class="nav-link" data-scroll-target="#what-are-outliers-odlehlé-hodnoty">What are outliers? (<em>odlehlé hodnoty</em>)</a></li>
+  </ul></li>
+  <li><a href="#characterizing-centrality-1" id="toc-characterizing-centrality-1" class="nav-link" data-scroll-target="#characterizing-centrality-1">Characterizing centrality</a></li>
+  <li><a href="#characterizing-dispersion-andor-spread" id="toc-characterizing-dispersion-andor-spread" class="nav-link" data-scroll-target="#characterizing-dispersion-andor-spread">Characterizing dispersion and/or spread</a>
+  <ul class="collapse">
+  <li><a href="#range-rozpětí" id="toc-range-rozpětí" class="nav-link" data-scroll-target="#range-rozpětí">Range (<em>rozpětí</em>)</a></li>
+  <li><a href="#variance-and-standard-deviation-rozptyl-a-směrodatná-odchylka" id="toc-variance-and-standard-deviation-rozptyl-a-směrodatná-odchylka" class="nav-link" data-scroll-target="#variance-and-standard-deviation-rozptyl-a-směrodatná-odchylka">Variance and Standard deviation (<em>rozptyl</em> a <em>směrodatná odchylka</em>)</a></li>
+  <li><a href="#interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí" id="toc-interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí" class="nav-link" data-scroll-target="#interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí">Interquartile range (midspread, IQR, <em>kvantil</em>, <em>mezikvartilové rozpětí</em>)</a></li>
+  </ul></li>
+  <li><a href="#characterizing-dispersion-andor-spread-1" id="toc-characterizing-dispersion-andor-spread-1" class="nav-link" data-scroll-target="#characterizing-dispersion-andor-spread-1">Characterizing dispersion and/or spread</a></li>
+  <li><a href="#brainstorming" id="toc-brainstorming" class="nav-link" data-scroll-target="#brainstorming">Brainstorming</a></li>
+  <li><a href="#plots-for-one-variable" id="toc-plots-for-one-variable" class="nav-link" data-scroll-target="#plots-for-one-variable">Plots for one variable</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#density-plot" id="toc-density-plot" class="nav-link" data-scroll-target="#density-plot">Density plot</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a></li>
+  <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a>
+  <ul class="collapse">
+  <li><a href="#optional" id="toc-optional" class="nav-link" data-scroll-target="#optional">Optional</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://petrpajdla.github.io/stat4arch/blob/main/lect/w03/distribs.qmd" class="toc-action"><i class="bi bi-git"></i>View source</a></li><li><a href="https://petrpajdla.github.io/stat4arch/edit/main/lect/w03/distribs.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://petrpajdla.github.io/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_distribs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="distribs.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -173,23 +229,120 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="reflection-on-the-last-week" class="level2" data-background-color="#FAF1A4">
+<h2 data-background-color="#FAF1A4" class="anchored" data-anchor-id="reflection-on-the-last-week">Reflection on the last week</h2>
+</section>
 <section id="objectives" class="level2">
 <h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
 </section>
-<section id="prereqisites" class="level2">
-<h2 class="anchored" data-anchor-id="prereqisites">Prereqisites</h2>
+<section id="organizing-your-work" class="level2">
+<h2 class="anchored" data-anchor-id="organizing-your-work">Organizing your work</h2>
+</section>
+<section id="descriptive-statistics" class="level2" data-background-color="#B5E2FF">
+<h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h2>
+</section>
+<section id="characterizing-centrality" class="level2">
+<h2 class="anchored" data-anchor-id="characterizing-centrality">Characterizing centrality</h2>
+<section id="mean-průměr" class="level3">
+<h3 class="anchored" data-anchor-id="mean-průměr">Mean (<em>průměr</em>)</h3>
+<p><code>mean(x)</code><br>
+<span class="math display">\[ \overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i) \]</span></p>
+</section>
+<div class="fragment">
+<section id="median-medián" class="level3">
+<h3 class="anchored" data-anchor-id="median-medián">Median (<em>medián</em>)</h3>
+<p><code>median(x)</code><br>
+- <strong>Robust</strong>, minimizes influence of outliers.</p>
+</section>
+</div>
+<div class="fragment">
+<section id="what-are-outliers-odlehlé-hodnoty" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-outliers-odlehlé-hodnoty">What are outliers? (<em>odlehlé hodnoty</em>)</h3>
 <ul>
-<li>Go through <em>Visualize data</em> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
-<li>Read <a href="https://socviz.co/makeplot.html#makeplot">Make a plot</a> chapter in <em>Data Visualization</em> book by K. J. Healy.</li>
+<li><strong>Outliers</strong> are data points that significantly differ from other observations.</li>
+<li>May indicate a measurement error, an exceptional observation, etc.</li>
 </ul>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+</div>
 </section>
-<section id="assignments" class="level2">
-<h2 class="anchored" data-anchor-id="assignments">Assignments</h2>
+<section id="characterizing-centrality-1" class="level2">
+<h2 class="anchored" data-anchor-id="characterizing-centrality-1">Characterizing centrality</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figs/normal_distribution.png" class="img-fluid figure-img"></p>
+<figcaption>Various plots of a normal distribution</figcaption>
+</figure>
+</div>
+</section>
+<section id="characterizing-dispersion-andor-spread" class="level2">
+<h2 class="anchored" data-anchor-id="characterizing-dispersion-andor-spread">Characterizing dispersion and/or spread</h2>
+<section id="range-rozpětí" class="level3">
+<h3 class="anchored" data-anchor-id="range-rozpětí">Range (<em>rozpětí</em>)</h3>
+<p><code>max(x) - min(x)</code> or <code>range(x)</code></p>
+</section>
+<div class="fragment">
+<section id="variance-and-standard-deviation-rozptyl-a-směrodatná-odchylka" class="level3">
+<h3 class="anchored" data-anchor-id="variance-and-standard-deviation-rozptyl-a-směrodatná-odchylka">Variance and Standard deviation (<em>rozptyl</em> a <em>směrodatná odchylka</em>)</h3>
+<p><code>sd(x)</code><br>
+<span class="math display">\[ \sigma = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}} \]</span></p>
+</section>
+</div>
+<div class="fragment">
+<section id="interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí" class="level3">
+<h3 class="anchored" data-anchor-id="interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí">Interquartile range (midspread, IQR, <em>kvantil</em>, <em>mezikvartilové rozpětí</em>)</h3>
+<p><code>IQR(x)</code><br>
+- <strong>Robust</strong>, minimizes influence of outliers.</p>
+</section>
+</div>
+</section>
+<section id="characterizing-dispersion-andor-spread-1" class="level2">
+<h2 class="anchored" data-anchor-id="characterizing-dispersion-andor-spread-1">Characterizing dispersion and/or spread</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figs/normal_distribution.png" class="img-fluid figure-img"></p>
+<figcaption>Various plots of a normal distribution</figcaption>
+</figure>
+</div>
+</section>
+<section id="brainstorming" class="level2" data-background-color="#FAF1A4">
+<h2 data-background-color="#FAF1A4" class="anchored" data-anchor-id="brainstorming">Brainstorming</h2>
+<ul>
+<li>Why do we visualize data?</li>
+<li>What elements does a <em>good</em> graph contain?</li>
+<li>How are these elements called?</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figs/boxplot_carlson-rmbg.png" class="img-fluid figure-img"></p>
+<figcaption>Boxplots from Carlson 2017</figcaption>
+</figure>
+</div>
+</section>
+<section id="plots-for-one-variable" class="level2" data-background-color="#B5E2FF">
+<h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="plots-for-one-variable">Plots for one variable</h2>
+</section>
+<section id="histogram" class="level2">
+<h2 class="anchored" data-anchor-id="histogram">Histogram</h2>
+</section>
+<section id="density-plot" class="level2">
+<h2 class="anchored" data-anchor-id="density-plot">Density plot</h2>
+</section>
+<section id="exercises" class="level2" data-background-color="#B5E2FF">
+<h2 data-background-color="#B5E2FF" class="anchored" data-anchor-id="exercises">Exercises</h2>
+</section>
+<section id="assignments" class="level2" data-background-color="#BEFAB4">
+<h2 data-background-color="#BEFAB4" class="anchored" data-anchor-id="assignments">Assignments</h2>
+<ul>
+<li>Read <a href="https://socviz.co/makeplot.html#makeplot">Make a plot</a> chapter in <em>Data Visualization</em> book by K. J. Healy.</li>
+</ul>
+<section id="optional" class="level3">
+<h3 class="anchored" data-anchor-id="optional">Optional</h3>
+<ul>
+<li>Go through <em>Visualize data</em> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

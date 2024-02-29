@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R & Workflows\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n\n5.\n20. 3.\nReproducibility\n\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n\n\n\n8.\n10. 4.\nConsidering time\n\n\n\n-\n17. 4.\nReading week\n\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nPractice\n\n\n\n11.\n22. 5."
+    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n\n5.\n20. 3.\nReproducibility\n\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n\n\n\n8.\n10. 4.\nConsidering time\n\n\n\n-\n17. 4.\nReading week\n\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nPractice\n\n\n\n11.\n22. 5."
   },
   {
     "objectID": "index.html",
@@ -67,84 +67,110 @@
     "href": "lect/w02/intro2r.html#objectives",
     "title": "Coding in R",
     "section": "Objectives",
-    "text": "Objectives\n\nToday’s goals…\n\nNotion of functions vs. objects.\nIntro on R data types (ie. what types of things are there).\nIntro on R types of objects (ie. how things are represented).\nSubsetting data frames.\nReading data into R."
+    "text": "Objectives\n\nToday’s goals…\n\nNotion of functions vs. objects.\nIntro on R data types (ie. what types of things are there).\nIntro on R types of objects (ie. how things are represented).\nSubsetting data frames.\nReading data into R.",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#r-is-a-smart-calculator",
     "href": "lect/w02/intro2r.html#r-is-a-smart-calculator",
     "title": "Coding in R",
     "section": "R is a smart calculator…",
-    "text": "R is a smart calculator…\n\n\n\n\n2 + 40\n\n[1] 42\n\n\n\n\n\n5^2\n\n[1] 25\n\n\n\n\n\nround(6.48^2)\n\n[1] 42\n\n\n\n\n\n5 &lt; 10\n\n[1] TRUE\n\n\n\n\n\nsqrt(1764)\n\n[1] 42\n\n\n\n\n\n8 * 10^10\n\n[1] 8e+10\n\n\n\n\n\n\nx &lt;- 1\n\n\n\n\nx\n\n[1] 1\n\n\n\n\n\ny &lt;- 41\n\n\n\n\nx + y\n\n[1] 42\n\n\n\n\n\nx &gt; y\n\n[1] FALSE\n\n\n\n\n\nz &lt;- x - y\n\n\n\n\nz\n\n[1] -40\n\n\n\n\n\n(x + y)^2\n\n[1] 1764"
+    "text": "R is a smart calculator…\n\n\n\n\n2 + 40\n\n[1] 42\n\n\n\n\n\n5^2\n\n[1] 25\n\n\n\n\n\nround(6.48^2)\n\n[1] 42\n\n\n\n\n\n5 &lt; 10\n\n[1] TRUE\n\n\n\n\n\nsqrt(1764)\n\n[1] 42\n\n\n\n\n\n8 * 10^10\n\n[1] 8e+10\n\n\n\n\n\n\nx &lt;- 1\n\n\n\n\nx\n\n[1] 1\n\n\n\n\n\ny &lt;- 41\n\n\n\n\nx + y\n\n[1] 42\n\n\n\n\n\nx &gt; y\n\n[1] FALSE\n\n\n\n\n\nz &lt;- x - y\n\n\n\n\nz\n\n[1] -40\n\n\n\n\n\n(x + y)^2\n\n[1] 1764",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#functions-and-objects",
     "href": "lect/w02/intro2r.html#functions-and-objects",
     "title": "Coding in R",
     "section": "Functions and objects",
-    "text": "Functions and objects\n\n\n\nObjects\n\nAnything is an object.\nObjects contain data (etc.)\nObjects have names.\nYou choose the names.\nName your objects wisely.\n\n\n\nx &lt;- 1\nx\n\n[1] 1\n\n\n\n\n\npi \n\n[1] 3.141593\n\n\n\n\n\npi + 1\n\n[1] 4.141593\n\n\n\n\n&lt;- is an assignment operator\n(use Alt + - in RStudio to write it).\n\n\n\n\nFunctions\n\nEnd with parentheses function(arguments).\nArguments go in the parentheses.\nFunctions do something with the inputs you give them.\n\n\n\nsqrt(x = 1764)\n\n[1] 42\n\n\n\n\n\nargs(sqrt)\n\nfunction (x) \nNULL\n\n\n\n\n\nround(pi)\n\n[1] 3\n\n\n\n\n\nargs(round)\n\nfunction (x, digits = 0) \nNULL\n\n\n\n\n\nround(pi, digits = 2)\n\n[1] 3.14"
+    "text": "Functions and objects\n\n\n\nObjects\n\nAnything is an object.\nObjects contain data (etc.)\nObjects have names.\nYou choose the names.\nName your objects wisely.\n\n\n\nx &lt;- 1\nx\n\n[1] 1\n\n\n\n\n\npi \n\n[1] 3.141593\n\n\n\n\n\npi + 1\n\n[1] 4.141593\n\n\n\n\n&lt;- is an assignment operator\n(use Alt + - in RStudio to write it).\n\n\n\n\nFunctions\n\nEnd with parentheses function(arguments).\nArguments go in the parentheses.\nFunctions do something with the inputs you give them.\n\n\n\nsqrt(x = 1764)\n\n[1] 42\n\n\n\n\n\nargs(sqrt)\n\nfunction (x) \nNULL\n\n\n\n\n\nround(pi)\n\n[1] 3\n\n\n\n\n\nargs(round)\n\nfunction (x, digits = 0) \nNULL\n\n\n\n\n\nround(pi, digits = 2)\n\n[1] 3.14",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#types-of-objects",
     "href": "lect/w02/intro2r.html#types-of-objects",
     "title": "Coding in R",
     "section": "Types of objects",
-    "text": "Types of objects\n\nVector\n\nBasic data structure.\nContains single data type.\nCreated using function c() (combine, concatenate)\n\n\n\nc(\"Fuu\", \"Bar\")\n\n[1] \"Fuu\" \"Bar\"\n\n\n\n\n\nx &lt;- c(1, 3, 5, 8)\nx\n\n[1] 1 3 5 8\n\n\n\n\n\nx^2\n\n[1]  1  9 25 64\n\n\n\n\n\nis.vector(x)\n\n[1] TRUE\n\n\n\n\n\nx &gt;= 4\n\n[1] FALSE FALSE  TRUE  TRUE\n\n\n\n\n\nlength(x)\n\n[1] 4"
+    "text": "Types of objects\n\nVector\n\nBasic data structure.\nContains single data type.\nCreated using function c() (combine, concatenate)\n\n\n\nc(\"Fuu\", \"Bar\")\n\n[1] \"Fuu\" \"Bar\"\n\n\n\n\n\nx &lt;- c(1, 3, 5, 8)\nx\n\n[1] 1 3 5 8\n\n\n\n\n\nx^2\n\n[1]  1  9 25 64\n\n\n\n\n\nis.vector(x)\n\n[1] TRUE\n\n\n\n\n\nx &gt;= 4\n\n[1] FALSE FALSE  TRUE  TRUE\n\n\n\n\n\nlength(x)\n\n[1] 4",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#types-of-objects-1",
     "href": "lect/w02/intro2r.html#types-of-objects-1",
     "title": "Coding in R",
     "section": "Types of objects",
-    "text": "Types of objects\n\nData frame & tibble\n\n\n\nA table.\nHas rows and columns.\nRectangular, ie. identical number of rows in each column.\n\n\n\ndfr\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\n\n\n\n\n\nis.data.frame(dfr)\n\n[1] TRUE\n\n\n\n\n\nncol(dfr)\n\n[1] 4\n\n\n\n\n\nnrow(dfr)\n\n[1] 4\n\n\n\n\n\nhead(dfr, n = 2)\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n\n\n\n\n\nSubsetting\n\n$ operator returns a single column.\n\n\n\ncolnames(dfr)\n\n[1] \"x\" \"y\" \"z\" \"w\"\n\n\n\n\n\ndfr$x\n\n[1] 95 96 97 98\n\n\n\n\n\ndfr$y\n\n[1] \"a\" \"b\" \"c\" \"d\"\n\n\n\n\n\ndfr$z\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\n\ndfr$w / 2\n\n[1] 2.1 2.2 2.3 2.4\n\n\n\n\n\ndfr$x - dfr$w\n\n[1] 90.8 91.6 92.4 93.2\n\n\n\n\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8"
+    "text": "Types of objects\n\nData frame & tibble\n\n\n\nA table.\nHas rows and columns.\nRectangular, ie. identical number of rows in each column.\n\n\n\ndfr\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\n\n\n\n\n\nis.data.frame(dfr)\n\n[1] TRUE\n\n\n\n\n\nncol(dfr)\n\n[1] 4\n\n\n\n\n\nnrow(dfr)\n\n[1] 4\n\n\n\n\n\nhead(dfr, n = 2)\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n\n\n\n\n\nSubsetting\n\n$ operator returns a single column.\n\n\n\ncolnames(dfr)\n\n[1] \"x\" \"y\" \"z\" \"w\"\n\n\n\n\n\ndfr$x\n\n[1] 95 96 97 98\n\n\n\n\n\ndfr$y\n\n[1] \"a\" \"b\" \"c\" \"d\"\n\n\n\n\n\ndfr$z\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\n\ndfr$w / 2\n\n[1] 2.1 2.2 2.3 2.4\n\n\n\n\n\ndfr$x - dfr$w\n\n[1] 90.8 91.6 92.4 93.2\n\n\n\n\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#data-types",
     "href": "lect/w02/intro2r.html#data-types",
     "title": "Coding in R",
     "section": "Data types",
-    "text": "Data types\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8\n\n\n\n\n\nText strings\n\nCharacter data type, abbreviated as chr.\nWritten in quotation marks (double or single).\n\n\n\"I am a string.\"\n\n[1] \"I am a string.\"\n\nx &lt;- 'I am also a string'\nis.character(x)\n\n[1] TRUE\n\n\n\nFunctions with is. prefix:\nis.numeric(), is.double() etc.\n\n\n\n\nNumbers\n\nIntegers (whole numbers)\nDoubles (decimal numbers)\nNumeric (class for all numbers in general)\n\n\ndfr$x \n\n[1] 95 96 97 98\n\nis.numeric(dfr$x)\n\n[1] TRUE\n\ndfr$x + dfr$w\n\n[1]  99.2 100.4 101.6 102.8\n\nmean(dfr$x)\n\n[1] 96.5"
+    "text": "Data types\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8\n\n\n\n\n\nText strings\n\nCharacter data type, abbreviated as chr.\nWritten in quotation marks (double or single).\n\n\n\"I am a string.\"\n\n[1] \"I am a string.\"\n\nx &lt;- 'I am also a string'\nis.character(x)\n\n[1] TRUE\n\n\n\nFunctions with is. prefix:\nis.numeric(), is.double() etc.\n\n\n\n\nNumbers\n\nIntegers (whole numbers)\nDoubles (decimal numbers)\nNumeric (class for all numbers in general)\n\n\ndfr$x \n\n[1] 95 96 97 98\n\nis.numeric(dfr$x)\n\n[1] TRUE\n\ndfr$x + dfr$w\n\n[1]  99.2 100.4 101.6 102.8\n\nmean(dfr$x)\n\n[1] 96.5",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#data-types-1",
     "href": "lect/w02/intro2r.html#data-types-1",
     "title": "Coding in R",
     "section": "Data types",
-    "text": "Data types\n\n\n\nDichotomies\n\nLogical data type.\nBinary/boolean values.\nAs TRUE and FALSE in R.\n\n\n\n\nSpecial values\n\nMissing values as NA, ie. not available.\nInf and -Inf for infinities.\nNULL for an object of a zero length."
+    "text": "Data types\n\n\n\nDichotomies\n\nLogical data type.\nBinary/boolean values.\nAs TRUE and FALSE in R.\n\n\n\n\nSpecial values\n\nMissing values as NA, ie. not available.\nInf and -Inf for infinities.\nNULL for an object of a zero length.",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#reading-data-in-csv-into-r",
     "href": "lect/w02/intro2r.html#reading-data-in-csv-into-r",
     "title": "Coding in R",
     "section": "Reading data in CSV into R",
-    "text": "Reading data in CSV into R\n\nComma separated values (CSV)\n\nPlain-text document.\nPractical exchange and preservation format for data sets.\nMost open and commercial softwares will allow export in CSV.\nAmericas: separated by commas (,), period (.) as a decimal mark.\nEurope: separated by semicolon (;), comma (,) as a decimal mark.\n\n\n\n\nReading CSV into R\nComma separated:\nread.csv(file = \"path\")\nSemicolon separated:\nread.csv2(file = \"path\")\nOther delimiter:\nread.table(file = \"path\", sep = \"separator\")"
+    "text": "Reading data in CSV into R\n\nComma separated values (CSV)\n\nPlain-text document.\nPractical exchange and preservation format for data sets.\nMost open and commercial softwares will allow export in CSV.\nAmericas: separated by commas (,), period (.) as a decimal mark.\nEurope: separated by semicolon (;), comma (,) as a decimal mark.\n\n\n\n\nReading CSV into R\nComma separated:\nread.csv(file = \"path\")\nSemicolon separated:\nread.csv2(file = \"path\")\nOther delimiter:\nread.table(file = \"path\", sep = \"separator\")",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#practice",
     "href": "lect/w02/intro2r.html#practice",
     "title": "Coding in R",
     "section": "Practice",
-    "text": "Practice\n\nDart points\n\nAdapted from Carlson 2011"
+    "text": "Practice\n\nDart points\n\nAdapted from Carlson 2011",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#dart-points-1",
     "href": "lect/w02/intro2r.html#dart-points-1",
     "title": "Coding in R",
     "section": "Dart points",
-    "text": "Dart points\n\n\n\n\n\nScatter plot of dart points\n\n\n\nMeasurements on five types of dart points from Fort Hood in central Texas (Darl, Ensor, Pedernales, Travis, and Wells). The points were recovered during 10 different pedestrian survey projects during the 1980’s and were classified and measured by H. Blaine Ensor…"
+    "text": "Dart points\n\n\n\n\n\nScatter plot of dart points\n\n\n\nMeasurements on five types of dart points from Fort Hood in central Texas (Darl, Ensor, Pedernales, Travis, and Wells). The points were recovered during 10 different pedestrian survey projects during the 1980’s and were classified and measured by H. Blaine Ensor…",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/intro2r.html#exercise",
     "href": "lect/w02/intro2r.html#exercise",
     "title": "Coding in R",
     "section": "Exercise",
-    "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kinf of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\nfile.download(url)\ndarts &lt;- read.csv(\"dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)"
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#assignments",
-    "href": "lect/w02/intro2r.html#assignments",
-    "title": "Coding in R",
-    "section": "Assignments",
-    "text": "Assignments\n\nGo through R Basics tutorials here."
+    "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kind of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\ndownload.file(url, \"./dartpoints.csv\")\ndarts &lt;- read.csv(\"./dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)",
+    "crumbs": [
+      "Coding in R"
+    ]
   },
   {
     "objectID": "lect/w02/slides_intro2r.html#reflection-on-the-last-week",
@@ -228,14 +254,7 @@
     "href": "lect/w02/slides_intro2r.html#exercise",
     "title": "Coding in R",
     "section": "Exercise",
-    "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kinf of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\nfile.download(url)\ndarts &lt;- read.csv(\"dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)"
-  },
-  {
-    "objectID": "lect/w02/slides_intro2r.html#assignments",
-    "href": "lect/w02/slides_intro2r.html#assignments",
-    "title": "Coding in R",
-    "section": "Assignments",
-    "text": "Assignments\n\nGo through R Basics tutorials here.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Coding in R"
+    "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kind of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\ndownload.file(url, \"./dartpoints.csv\")\ndarts &lt;- read.csv(\"./dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)\n\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Coding in R"
   },
   {
     "objectID": "lect/w01/tidy.html",
@@ -592,6 +611,13 @@
     ]
   },
   {
+    "objectID": "lect/w03/slides_distribs.html#reflection-on-the-last-week",
+    "href": "lect/w03/slides_distribs.html#reflection-on-the-last-week",
+    "title": "Summaries and visualization of distributions",
+    "section": "Reflection on the last week",
+    "text": "Reflection on the last week"
+  },
+  {
     "objectID": "lect/w03/slides_distribs.html#objectives",
     "href": "lect/w03/slides_distribs.html#objectives",
     "title": "Summaries and visualization of distributions",
@@ -599,11 +625,74 @@
     "text": "Objectives"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#prereqisites",
-    "href": "lect/w03/slides_distribs.html#prereqisites",
+    "objectID": "lect/w03/slides_distribs.html#organizing-your-work",
+    "href": "lect/w03/slides_distribs.html#organizing-your-work",
     "title": "Summaries and visualization of distributions",
-    "section": "Prereqisites",
-    "text": "Prereqisites\n\nGo through Visualize data tutorials here.\nRead Make a plot chapter in Data Visualization book by K. J. Healy."
+    "section": "Organizing your work",
+    "text": "Organizing your work"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#descriptive-statistics",
+    "href": "lect/w03/slides_distribs.html#descriptive-statistics",
+    "title": "Summaries and visualization of distributions",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#characterizing-centrality",
+    "href": "lect/w03/slides_distribs.html#characterizing-centrality",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing centrality",
+    "text": "Characterizing centrality\nMean (průměr)\nmean(x)\n\\[ \\overline{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{1}{n} (\\sum^n_{i=1}x_i) \\]\n\n\nMedian (medián)\nmedian(x)\n- Robust, minimizes influence of outliers.\n\n\n\nWhat are outliers? (odlehlé hodnoty)\n\nOutliers are data points that significantly differ from other observations.\nMay indicate a measurement error, an exceptional observation, etc."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#characterizing-centrality-1",
+    "href": "lect/w03/slides_distribs.html#characterizing-centrality-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing centrality",
+    "text": "Characterizing centrality\n\nVarious plots of a normal distribution"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread",
+    "href": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing dispersion and/or spread",
+    "text": "Characterizing dispersion and/or spread\nRange (rozpětí)\nmax(x) - min(x) or range(x)\n\n\nVariance and Standard deviation (rozptyl a směrodatná odchylka)\nsd(x)\n\\[ \\sigma = \\sqrt{s^2} = \\sqrt{\\frac{\\sum(x_i-\\overline{x})^2}{n-1}} \\]\n\n\n\nInterquartile range (midspread, IQR, kvantil, mezikvartilové rozpětí)\nIQR(x)\n- Robust, minimizes influence of outliers."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread-1",
+    "href": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing dispersion and/or spread",
+    "text": "Characterizing dispersion and/or spread\n\nVarious plots of a normal distribution"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#brainstorming",
+    "href": "lect/w03/slides_distribs.html#brainstorming",
+    "title": "Summaries and visualization of distributions",
+    "section": "Brainstorming",
+    "text": "Brainstorming\n\nWhy do we visualize data?\nWhat elements does a good graph contain?\nHow are these elements called?\n\n\nBoxplots from Carlson 2017"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#plots-for-one-variable",
+    "href": "lect/w03/slides_distribs.html#plots-for-one-variable",
+    "title": "Summaries and visualization of distributions",
+    "section": "Plots for one variable",
+    "text": "Plots for one variable"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram",
+    "href": "lect/w03/slides_distribs.html#histogram",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot",
+    "href": "lect/w03/slides_distribs.html#density-plot",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot"
   },
   {
     "objectID": "lect/w03/slides_distribs.html#exercises",
@@ -617,14 +706,84 @@
     "href": "lect/w03/slides_distribs.html#assignments",
     "title": "Summaries and visualization of distributions",
     "section": "Assignments",
-    "text": "Assignments\n\n\n\nAES_707 Statistics seminar for archaeologists | Distributions"
+    "text": "Assignments\n\nRead Make a plot chapter in Data Visualization book by K. J. Healy.\n\nOptional\n\nGo through Visualize data tutorials here.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Distributions"
   },
   {
-    "objectID": "lect/w03/distribs.html#prereqisites",
-    "href": "lect/w03/distribs.html#prereqisites",
+    "objectID": "lect/w03/distribs.html#objectives",
+    "href": "lect/w03/distribs.html#objectives",
     "title": "Summaries and visualization of distributions",
-    "section": "Prereqisites",
-    "text": "Prereqisites\n\nGo through Visualize data tutorials here.\nRead Make a plot chapter in Data Visualization book by K. J. Healy."
+    "section": "Objectives",
+    "text": "Objectives"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#organizing-your-work",
+    "href": "lect/w03/distribs.html#organizing-your-work",
+    "title": "Summaries and visualization of distributions",
+    "section": "Organizing your work",
+    "text": "Organizing your work"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#descriptive-statistics",
+    "href": "lect/w03/distribs.html#descriptive-statistics",
+    "title": "Summaries and visualization of distributions",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#characterizing-centrality",
+    "href": "lect/w03/distribs.html#characterizing-centrality",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing centrality",
+    "text": "Characterizing centrality\n\nMean (průměr)\nmean(x)\n\\[ \\overline{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{1}{n} (\\sum^n_{i=1}x_i) \\]\n\n\n\nMedian (medián)\nmedian(x)\n- Robust, minimizes influence of outliers.\n\n\n\n\nWhat are outliers? (odlehlé hodnoty)\n\nOutliers are data points that significantly differ from other observations.\nMay indicate a measurement error, an exceptional observation, etc."
+  },
+  {
+    "objectID": "lect/w03/distribs.html#characterizing-centrality-1",
+    "href": "lect/w03/distribs.html#characterizing-centrality-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing centrality",
+    "text": "Characterizing centrality\n\n\n\nVarious plots of a normal distribution"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#characterizing-dispersion-andor-spread",
+    "href": "lect/w03/distribs.html#characterizing-dispersion-andor-spread",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing dispersion and/or spread",
+    "text": "Characterizing dispersion and/or spread\n\nRange (rozpětí)\nmax(x) - min(x) or range(x)\n\n\n\nVariance and Standard deviation (rozptyl a směrodatná odchylka)\nsd(x)\n\\[ \\sigma = \\sqrt{s^2} = \\sqrt{\\frac{\\sum(x_i-\\overline{x})^2}{n-1}} \\]\n\n\n\n\nInterquartile range (midspread, IQR, kvantil, mezikvartilové rozpětí)\nIQR(x)\n- Robust, minimizes influence of outliers."
+  },
+  {
+    "objectID": "lect/w03/distribs.html#characterizing-dispersion-andor-spread-1",
+    "href": "lect/w03/distribs.html#characterizing-dispersion-andor-spread-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing dispersion and/or spread",
+    "text": "Characterizing dispersion and/or spread\n\n\n\nVarious plots of a normal distribution"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#brainstorming",
+    "href": "lect/w03/distribs.html#brainstorming",
+    "title": "Summaries and visualization of distributions",
+    "section": "Brainstorming",
+    "text": "Brainstorming\n\nWhy do we visualize data?\nWhat elements does a good graph contain?\nHow are these elements called?\n\n\n\n\nBoxplots from Carlson 2017"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#plots-for-one-variable",
+    "href": "lect/w03/distribs.html#plots-for-one-variable",
+    "title": "Summaries and visualization of distributions",
+    "section": "Plots for one variable",
+    "text": "Plots for one variable"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#histogram",
+    "href": "lect/w03/distribs.html#histogram",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram"
+  },
+  {
+    "objectID": "lect/w03/distribs.html#density-plot",
+    "href": "lect/w03/distribs.html#density-plot",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot"
   },
   {
     "objectID": "lect/w03/distribs.html#exercises",
@@ -638,7 +797,7 @@
     "href": "lect/w03/distribs.html#assignments",
     "title": "Summaries and visualization of distributions",
     "section": "Assignments",
-    "text": "Assignments"
+    "text": "Assignments\n\nRead Make a plot chapter in Data Visualization book by K. J. Healy.\n\n\nOptional\n\nGo through Visualize data tutorials here."
   },
   {
     "objectID": "lect/w04/slides_rels.html#objectives",

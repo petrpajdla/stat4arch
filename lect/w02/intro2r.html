@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,6 +146,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../lect/w01/tidy.html">
  <span class="dropdown-text">Tidy data</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/intro2r.html">
+ <span class="dropdown-text">Coding in R</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -169,10 +173,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w02/intro2r.html">Coding in R</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidy data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/intro2r.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Coding in R</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -208,7 +247,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#dart-points-1" id="toc-dart-points-1" class="nav-link" data-scroll-target="#dart-points-1">Dart points</a></li>
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
-  <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://petrpajdla.github.io/stat4arch/blob/main/lect/w02/intro2r.qmd" class="toc-action"><i class="bi bi-git"></i>View source</a></li><li><a href="https://petrpajdla.github.io/stat4arch/edit/main/lect/w02/intro2r.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://petrpajdla.github.io/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_intro2r.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="intro2r.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -804,7 +842,7 @@ NULL</code></pre>
 <li>Read the dataset from the path where you saved it<br>
 </li>
 <li>Save it as <code>darts</code> object</li>
-<li>What kinf of an object is it?</li>
+<li>What kind of an object is it?</li>
 <li>How many rows and columns does it have?<br>
 </li>
 <li>What columns does it have?</li>
@@ -818,8 +856,8 @@ NULL</code></pre>
 <h3 class="anchored" data-anchor-id="solution">Solution</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv"</span></span>
-<span id="cb92-2"><a href="#cb92-2"></a><span class="fu">file.download</span>(url)</span>
-<span id="cb92-3"><a href="#cb92-3"></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"dartpoints.csv"</span>)</span>
+<span id="cb92-2"><a href="#cb92-2"></a><span class="fu">download.file</span>(url, <span class="st">"./dartpoints.csv"</span>)</span>
+<span id="cb92-3"><a href="#cb92-3"></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./dartpoints.csv"</span>)</span>
 <span id="cb92-4"><a href="#cb92-4"></a><span class="fu">class</span>(darts)</span>
 <span id="cb92-5"><a href="#cb92-5"></a><span class="fu">dim</span>(darts)</span>
 <span id="cb92-6"><a href="#cb92-6"></a><span class="fu">nrow</span>(darts)</span>
@@ -831,12 +869,9 @@ NULL</code></pre>
 </section>
 </div>
 </div>
-</section>
-<section id="assignments" class="level2" data-background-color="#BEFAB4">
-<h2 data-background-color="#BEFAB4" class="anchored" data-anchor-id="assignments">Assignments</h2>
-<ul>
-<li>Go through <strong>R Basics</strong> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
-</ul>
+<!-- ## Assignments {background-color="#BEFAB4"}
+
+- Go through **R Basics** tutorials [here](https://posit.cloud/learn/recipes). -->
 
 
 </section>

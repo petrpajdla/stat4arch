@@ -945,7 +945,7 @@ NULL</code></pre>
 <li class="fragment">Read the dataset from the path where you saved it<br>
 </li>
 <li class="fragment">Save it as <code>darts</code> object</li>
-<li class="fragment">What kinf of an object is it?</li>
+<li class="fragment">What kind of an object is it?</li>
 <li class="fragment">How many rows and columns does it have?<br>
 </li>
 <li class="fragment">What columns does it have?</li>
@@ -959,8 +959,8 @@ NULL</code></pre>
 <h3 id="solution">Solution</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92" data-code-line-numbers="1,2|3|4|5,6,7|8|9|10|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a></a>url <span class="ot">&lt;-</span> <span class="st">"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv"</span></span>
-<span id="cb92-2"><a></a><span class="fu">file.download</span>(url)</span>
-<span id="cb92-3"><a></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"dartpoints.csv"</span>)</span>
+<span id="cb92-2"><a></a><span class="fu">download.file</span>(url, <span class="st">"./dartpoints.csv"</span>)</span>
+<span id="cb92-3"><a></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./dartpoints.csv"</span>)</span>
 <span id="cb92-4"><a></a><span class="fu">class</span>(darts)</span>
 <span id="cb92-5"><a></a><span class="fu">dim</span>(darts)</span>
 <span id="cb92-6"><a></a><span class="fu">nrow</span>(darts)</span>
@@ -971,12 +971,9 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="assignments" class="slide level2" data-background-color="#BEFAB4">
-<h2>Assignments</h2>
-<ul>
-<li>Go through <strong>R Basics</strong> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
-</ul>
+<!-- ## Assignments {background-color="#BEFAB4"}
+
+- Go through **R Basics** tutorials [here](https://posit.cloud/learn/recipes). -->
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

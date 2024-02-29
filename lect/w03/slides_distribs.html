@@ -331,21 +331,93 @@
 </div>
 
 </section>
+<section id="reflection-on-the-last-week" class="slide level2" data-background-color="#FAF1A4">
+<h2>Reflection on the last week</h2>
+</section>
 <section id="objectives" class="slide level2">
 <h2>Objectives</h2>
 </section>
-<section id="prereqisites" class="slide level2">
-<h2>Prereqisites</h2>
-<ul>
-<li>Go through <em>Visualize data</em> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
-<li>Read <a href="https://socviz.co/makeplot.html#makeplot">Make a plot</a> chapter in <em>Data Visualization</em> book by K. J. Healy.</li>
-</ul>
+<section id="organizing-your-work" class="slide level2">
+<h2>Organizing your work</h2>
 </section>
-<section id="exercises" class="slide level2">
+<section id="descriptive-statistics" class="slide level2" data-background-color="#B5E2FF">
+<h2>Descriptive Statistics</h2>
+</section>
+<section id="characterizing-centrality" class="slide level2">
+<h2>Characterizing centrality</h2>
+<h3 id="mean-průměr">Mean (<em>průměr</em>)</h3>
+<p><code>mean(x)</code><br>
+<span class="math display">\[ \overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i) \]</span></p>
+<div class="fragment">
+<!-- -->
+<h3 id="median-medián">Median (<em>medián</em>)</h3>
+<p><code>median(x)</code><br>
+- <strong>Robust</strong>, minimizes influence of outliers.</p>
+</div>
+<div class="fragment">
+<!-- -->
+<h3 id="what-are-outliers-odlehlé-hodnoty">What are outliers? (<em>odlehlé hodnoty</em>)</h3>
+<ul>
+<li><strong>Outliers</strong> are data points that significantly differ from other observations.</li>
+<li>May indicate a measurement error, an exceptional observation, etc.</li>
+</ul>
+</div>
+</section>
+<section id="characterizing-centrality-1" class="slide level2">
+<h2>Characterizing centrality</h2>
+
+<img data-src="./figs/normal_distribution.png" class="r-stretch quarto-figure-center"><p class="caption">Various plots of a normal distribution</p></section>
+<section id="characterizing-dispersion-andor-spread" class="slide level2">
+<h2>Characterizing dispersion and/or spread</h2>
+<h3 id="range-rozpětí">Range (<em>rozpětí</em>)</h3>
+<p><code>max(x) - min(x)</code> or <code>range(x)</code></p>
+<div class="fragment">
+<!-- -->
+<h3 id="variance-and-standard-deviation-rozptyl-a-směrodatná-odchylka">Variance and Standard deviation (<em>rozptyl</em> a <em>směrodatná odchylka</em>)</h3>
+<p><code>sd(x)</code><br>
+<span class="math display">\[ \sigma = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}} \]</span></p>
+</div>
+<div class="fragment">
+<!-- -->
+<h3 id="interquartile-range-midspread-iqr-kvantil-mezikvartilové-rozpětí">Interquartile range (midspread, IQR, <em>kvantil</em>, <em>mezikvartilové rozpětí</em>)</h3>
+<p><code>IQR(x)</code><br>
+- <strong>Robust</strong>, minimizes influence of outliers.</p>
+</div>
+</section>
+<section id="characterizing-dispersion-andor-spread-1" class="slide level2">
+<h2>Characterizing dispersion and/or spread</h2>
+
+<img data-src="./figs/normal_distribution.png" class="r-stretch quarto-figure-center"><p class="caption">Various plots of a normal distribution</p></section>
+<section id="brainstorming" class="slide level2" data-background-color="#FAF1A4">
+<h2>Brainstorming</h2>
+<ul>
+<li>Why do we visualize data?</li>
+<li>What elements does a <em>good</em> graph contain?</li>
+<li>How are these elements called?</li>
+</ul>
+
+<img data-src="./figs/boxplot_carlson-rmbg.png" class="r-stretch quarto-figure-center"><p class="caption">Boxplots from Carlson 2017</p></section>
+<section id="plots-for-one-variable" class="slide level2" data-background-color="#B5E2FF">
+<h2>Plots for one variable</h2>
+</section>
+<section id="histogram" class="slide level2">
+<h2>Histogram</h2>
+</section>
+<section id="density-plot" class="slide level2">
+<h2>Density plot</h2>
+</section>
+<section id="exercises" class="slide level2" data-background-color="#B5E2FF">
 <h2>Exercises</h2>
 </section>
-<section id="assignments" class="slide level2">
+<section id="assignments" class="slide level2" data-background-color="#BEFAB4">
 <h2>Assignments</h2>
+<ul>
+<li>Read <a href="https://socviz.co/makeplot.html#makeplot">Make a plot</a> chapter in <em>Data Visualization</em> book by K. J. Healy.</li>
+</ul>
+<h3 id="optional">Optional</h3>
+<ul>
+<li>Go through <em>Visualize data</em> tutorials <a href="https://posit.cloud/learn/recipes">here</a>.</li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
