@@ -1,0 +1,196 @@
+---
+title: "Summaries and visualization of distributions"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_distribs.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Distributions](./distribs.html)"
+  pdf: default
+execute:
+  echo: true
+---
+
+## Reflection on the last week {background-color="#FAF1A4"}
+
+```{r}
+#| echo: false
+library(ggplot2)
+library(archdata)
+data(DartPoints)
+```
+
+## Objectives
+
+## Organizing your work
+
+
+## Descriptive Statistics {background-color="#B5E2FF"}
+
+## Characterizing centrality
+
+### Mean (*průměr*)
+`mean(x)`  
+$$ \overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n} (\sum^n_{i=1}x_i) $$
+
+:::{.fragment}
+### Median (*medián*)
+`median(x)`  
+- **Robust**, minimizes influence of outliers.
+:::
+
+::: {.fragment}
+### What are outliers? (*odlehlé hodnoty*)
+- **Outliers** are data points that significantly differ from other observations. 
+- May indicate a measurement error, an exceptional observation, etc.
+:::
+
+## Characterizing centrality
+
+![Various plots of a normal distribution](./figs/normal_distribution.png)
+
+
+## Characterizing dispersion and/or spread
+
+### Range (*rozpětí*)  
+`max(x) - min(x)` or `range(x)`
+
+::: {.fragment}
+### Variance and Standard deviation (*rozptyl* a *směrodatná odchylka*)
+`sd(x)`  
+$$ \sigma = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}} $$
+:::
+
+::: {.fragment}
+### Interquartile range (midspread, IQR, *kvantil*, *mezikvartilové rozpětí*)
+`IQR(x)`  
+- **Robust**, minimizes influence of outliers.
+:::
+
+
+## Characterizing dispersion and/or spread
+
+![Various plots of a normal distribution](./figs/normal_distribution.png)
+
+## Exercise {background-color="#B5E2FF"}
+
+::: {.incremental}
+- Start *RStudio*.
+- Create a new project, save it somwhere you can find it.
+- Use the dataset from the last lecture [{{< bi file-earmark-arrow-down >}} dartpoints.csv](./data/dartpoints.csv).
+- Save it in your project directory.
+- Load the data from the CSV file.
+- Explore the dataset.
+- Count mean and median **weight**, how do they differ?
+- What is the range of the weights?
+- What is the standard deviation of weights? What does it mean?
+- Count the IQR. Compare it with standard deviation.
+- {{< bi lightbulb >}} Hints: `read.csv()`, `str()`, `colnames()`, `mean()`, `median()`, `range()`, `sd()`, `IQR()`, `summary()`
+:::
+
+## Solution {background-color="#B5E2FF"}
+
+```{r}
+# DartPoints <- read.csv("dartpoints.csv")
+colnames(DartPoints)
+DartPoints$Weight
+mean(DartPoints$Weight)
+median(DartPoints$Weight)
+max(DartPoints$Weight) - min(DartPoints$Weight) # or range(DartPoints$Weight)
+sd(DartPoints$Weight)
+IQR(DartPoints$Weight)
+summary(DartPoints$Weight)
+```
+
+## Brainstorming {background-color="#FAF1A4"}
+
+- Why do we visualize data?
+- What elements does a *good* graph contain?
+- How are these elements called?
+
+![Boxplots from Carlson 2017](./figs/boxplot_carlson-rmbg.png)
+
+
+## Plots for one variable {background-color="#B5E2FF"}
+
+## Histogram
+
+- **Distribution** of values of a **quantitative** variable.
+
+Distribution of dart point weights
+
+```{r}
+#| echo: false
+ggplot(DartPoints) +
+  aes(x = Weight) + 
+  geom_histogram(color = "black", fill = "white")
+```
+
+## Histogram
+
+- **Distribution** of values of a **quantitative** variable.
+
+Distribution of dart point weights, one column (*bin*) equals 2g
+
+```{r}
+#| echo: false
+ggplot(DartPoints) +
+  aes(x = Weight) + 
+  geom_histogram(color = "black", fill = "white", binwidth = 2)
+```
+
+## Density plot
+
+- **Distribution** of values of a **quantitative** variable
+
+Distribution of dart point weights
+
+```{r}
+#| echo: false
+ggplot(DartPoints) +
+  aes(x = Weight) + 
+  geom_density(color = "black", fill = "white")
+```
+
+## Density plot
+
+- **Distribution** of values of a **quantitative** variable, great for **comparisons**
+
+Distribution of different types of dart points by weight
+
+```{r}
+#| echo: false
+ggplot(DartPoints) +
+  aes(x = Weight, fill = Name, color = Name) + 
+  geom_density(alpha = 0.2) +
+  scale_fill_brewer(palette = "Set1") +
+  scale_color_brewer(palette = "Set1")
+```
+
+## Bar chart
+
+- **Distribution** of values of a **qualitative** variable
+
+Distribution of types of dart points 
+
+```{r}
+#| echo: false
+ggplot(DartPoints) +
+  aes(x = Name) + 
+  geom_bar(color = "black", fill = "white")
+```
+
+## Plots in ggplot2 package {background-color="#B5E2FF"}
+
+
+
+
+## Exercises {background-color="#B5E2FF"}
+
+## Assignments {background-color="#BEFAB4"}
+
+- Read [Make a plot](https://socviz.co/makeplot.html#makeplot) chapter in *Data Visualization* book by K. J. Healy.
+
+### Optional 
+
+- Go through *Visualize data* tutorials [here](https://posit.cloud/learn/recipes).

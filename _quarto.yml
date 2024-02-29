@@ -32,8 +32,8 @@ website:
       contents:
         - lect/w01/intro.qmd
         - lect/w01/tidy.qmd
-        # - lect/w02/intro2r.qmd
-        # - distributions.qmd
+        - lect/w02/intro2r.qmd
+        # - lect/w03/distribs.qmd
         # - relationships.qmd
         # - reproducibility.qmd
   
