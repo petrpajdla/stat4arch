@@ -21,11 +21,139 @@ execute:
 library(ggplot2)
 library(archdata)
 data(DartPoints)
+dartpoints <- DartPoints
 ```
 
 ## Objectives
 
-## Organizing your work
+At the end of the lecture, you will know how to..
+
+::: {.incremental}
+- Organize your **code in scripts**.
+- Organize your **work in projects**.
+- Count and interpret descriptive statics **characterizing central tendency** of a numeric variable.
+- **Describe spread** of a numeric variable.
+- **Read plots** for one variable.
+- **Create plots** displaying one variable in `ggplot2` package.
+- **Understand** what type of **variation occurs within** your variables.
+:::
+
+## Organize your work in scripts
+
+:::: {.columns}
+::: {.column width=40%}
+```{.r filename="dartpoints.r"}
+# Analysis of dartpoints data set
+# 6. 3. 2024
+
+library(ggplot2)
+
+# data -------------------------------
+# read data from CSV
+# url: https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv
+dartpoints <- read.csv("dartpoints.csv")
+
+# structure --------------------------
+colnames(dartpoints)
+nrow(dartpoints)
+ncol(dartpoints)
+str(dartpoints)
+
+mean(dartpoints$Length)
+
+# plots ------------------------------
+ggplot(data = dartpoints) +
+  aes(x = Length) +
+  geom_histogram() +
+  labs(x = "Length (cm)", y = "Count")
+  
+  
+  
+```
+:::
+::: {.column width=60% .incremental .fragment}
+**In RStudio...**
+
+- Create a new script with *Ctrl + Shift + n*
+- Put some basic info on what are you doing at the top.  
+  **Use comments** `#` (*Ctrl + Shift + c*) to write notes.  
+  Comment on the **why**, not the **what**.
+- **Divide the code** into sections with *Ctrl + Shift + r*  
+  `# Section name ----`
+- Load the packages you use at the top of the script.
+- RStudio will give you **hints**, hit *Tab* to autocomplete function calls.
+- **Execute the current line** with *Ctr + Enter* 
+- Source the whole script with *Ctrl + Shift + Enter*
+:::
+::::
+
+## Organize your work in projects
+
+:::: {.columns}
+::: {.column width=40%}
+- Each project in a **separate directory**.
+- There are **subdirectories** for different parts of the project.
+```
+~/Documents/
+    MyProject/
+      code/
+        script1.R
+        script2.R
+      data/
+        raw/
+          input_dataset.xlsx
+        processed/
+          settlements.csv
+          set_locations.geojson
+      figures/
+        plot1.png
+        plot1.pdf
+      MyProject.Rproj
+```
+- In RStudio go to  
+  *Files* > *New Project* > *New Directory*
+:::
+::: {.column width=60% .fragment}
+### Paths 
+
+::: {.fragment}
+**Absolute** file path  
+The file path is specific to a given user.  
+```
+C:/Documents/MyProject/data/raw/dartpoints.csv
+```
+:::
+
+::: {.fragment}
+**Relative** file path  
+If I am currently in MyProject/ folder:
+```
+./data/raw/dartpoints.csv
+```
+:::
+
+::: {.fragment}
+Package `here` is here to save the day!
+
+- Do not forget to install the package first.
+- Load it at the top of your script.
+
+```{r}
+#| eval: false
+# install.packages("here")
+library(here)
+```
+
+- Function `here()` will know where the top directory is.
+
+```{r}
+#| eval: false
+# read data ----
+dartpoints <- read_csv(here("data/processed/settlements.csv"))
+```
+:::
+:::
+::::
 
 
 ## Descriptive Statistics {background-color="#B5E2FF"}
@@ -94,15 +222,15 @@ $$ \sigma = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}} $$
 ## Solution {background-color="#B5E2FF"}
 
 ```{r}
-# DartPoints <- read.csv("dartpoints.csv")
-colnames(DartPoints)
-DartPoints$Weight
-mean(DartPoints$Weight)
-median(DartPoints$Weight)
-max(DartPoints$Weight) - min(DartPoints$Weight) # or range(DartPoints$Weight)
-sd(DartPoints$Weight)
-IQR(DartPoints$Weight)
-summary(DartPoints$Weight)
+# dartpoints <- read.csv("dartpoints.csv")
+colnames(dartpoints)
+dartpoints$Weight
+mean(dartpoints$Weight)
+median(dartpoints$Weight)
+max(dartpoints$Weight) - min(dartpoints$Weight) # or range(dartpoints$Weight)
+sd(dartpoints$Weight)
+IQR(dartpoints$Weight)
+summary(dartpoints$Weight)
 ```
 
 ## Brainstorming {background-color="#FAF1A4"}
@@ -120,11 +248,11 @@ summary(DartPoints$Weight)
 
 - **Distribution** of values of a **quantitative** variable.
 
-Distribution of dart point weights
+Distribution of dart point weights.
 
 ```{r}
 #| echo: false
-ggplot(DartPoints) +
+ggplot(dartpoints) +
   aes(x = Weight) + 
   geom_histogram(color = "black", fill = "white")
 ```
@@ -133,37 +261,37 @@ ggplot(DartPoints) +
 
 - **Distribution** of values of a **quantitative** variable.
 
-Distribution of dart point weights, one column (*bin*) equals 2g
+Distribution of dart point weights, one column (*bin*) equals 2 g.
 
 ```{r}
 #| echo: false
-ggplot(DartPoints) +
+ggplot(dartpoints) +
   aes(x = Weight) + 
   geom_histogram(color = "black", fill = "white", binwidth = 2)
 ```
 
 ## Density plot
 
-- **Distribution** of values of a **quantitative** variable
+- **Distribution** of values of a **quantitative** variable.
 
-Distribution of dart point weights
+Distribution of dart point weights.
 
 ```{r}
 #| echo: false
-ggplot(DartPoints) +
+ggplot(dartpoints) +
   aes(x = Weight) + 
   geom_density(color = "black", fill = "white")
 ```
 
 ## Density plot
 
-- **Distribution** of values of a **quantitative** variable, great for **comparisons**
+- **Distribution** of values of a **quantitative** variable, great for **comparisons**.
 
-Distribution of different types of dart points by weight
+Distribution of different types of dart points by weight.
 
 ```{r}
 #| echo: false
-ggplot(DartPoints) +
+ggplot(dartpoints) +
   aes(x = Weight, fill = Name, color = Name) + 
   geom_density(alpha = 0.2) +
   scale_fill_brewer(palette = "Set1") +
@@ -172,21 +300,203 @@ ggplot(DartPoints) +
 
 ## Bar chart
 
-- **Distribution** of values of a **qualitative** variable
+- **Distribution** of values of a **qualitative** variable.
 
-Distribution of types of dart points 
+Distribution of types of dart points. 
 
 ```{r}
 #| echo: false
-ggplot(DartPoints) +
+ggplot(dartpoints) +
   aes(x = Name) + 
   geom_bar(color = "black", fill = "white")
 ```
 
 ## Plots in ggplot2 package {background-color="#B5E2FF"}
 
+```{r}
+#| eval: false 
+#| code-line-numbers: "1|3|5|6|7|"
+install.packages("ggplot2") # <1>
 
+library(ggplot2) # <2>
 
+ggplot(data = <your data frame>) + # <3>
+  aes(x = <variable to be mapped to axis x>) + # <4>
+  geom_<geometry>() # <5>
+```
+
+1. Install the package `ggplot2`, do this only once.  
+2. Load the package from the library of installed packages, do this for every new script.  
+   (Calls to `library()` function are usually written at the top of the script.)  
+3. Function `ggplot()` takes the data frame as an argument.  
+4. Function `aes()` serves to map *aesthetics* (axis x and y, colors etc.) to different variables from your data frame.  
+5. Functons with `geom_` prefix are *geometries*, ie. types of plots to draw.  
+
+::: {.fragment}
+Geoms for one variable:
+
+- `geom_histogram()`
+- `geom_density()`
+- `geom_bar()`
+:::
+
+## Layers of ggplot2 {auto-animate=true}
+
+```{r}
+ggplot(data = dartpoints)
+```
+
+## Layers of ggplot2 {auto-animate=true}
+
+```{r}
+ggplot(data = dartpoints) +
+  aes(x = Name)
+```
+
+## Layers of ggplot2 {auto-animate=true}
+
+```{r}
+ggplot(data = dartpoints) +
+  aes(x = Name) +
+  geom_bar()
+```
+
+## Bar chart 
+
+:::: {.columns}
+::: {.column width=50% .fragment}
+```{r}
+ggplot(data = dartpoints) +
+  aes(x = Name) + 
+  geom_bar()
+```
+::: {.fragment}
+```{r}
+ggplot(data = dartpoints) +
+  aes(x = Name, color = Name) + 
+  geom_bar()
+```
+:::
+:::
+::: {.column width=50% .fragment}
+```{r}
+ggplot(data = dartpoints) +
+  aes(x = Name, color = Name, fill = Name) + 
+  geom_bar()
+```
+::: {.fragment}
+```{r}
+ggplot(data = dartpoints) + 
+  aes(x = Name, fill = Name) + 
+  geom_bar(color = "black")
+```
+:::
+:::
+::::
+
+## Histogram
+
+:::: {.columns}
+::: {.column width=50% .fragment}
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) +
+  geom_histogram()
+```
+::: {.fragment}
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) +
+  geom_histogram(binwidth = 5)
+```
+:::
+:::
+::: {.column width=50% .fragment}
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) +
+  geom_histogram(color = "black")
+```
+::: {.fragment}
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) +
+  geom_histogram(color = "black", fill = "white")
+```
+:::
+:::
+::::
+
+## Density plot 
+
+:::: {.columns}
+::: {.column width=50% .fragment}
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) + 
+  geom_density()
+```
+::: {.fragment}
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length, color = Name) + 
+  geom_density()
+```
+:::
+:::
+::: {.column width=50% .fragment}
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length, color = Name, fill = Name) + 
+  geom_density()
+```
+::: {.fragment}
+```{r}
+ggplot(dartpoints) + 
+  aes(x = Length, color = Name, fill = Name) + 
+  geom_density(alpha = 0.4)
+```
+:::
+:::
+::::
+
+## Labels {auto-animate=true}
+
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) +
+  geom_histogram(binwidth = 5, color = "black", fill = "white")
+```
+
+## Labels {auto-animate=true}
+
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) +
+  geom_histogram(binwidth = 5, color = "black", fill = "white") +
+  labs(x = "Length (cm)", y = "Count")
+```
+
+## Labels {auto-animate=true}
+
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) +
+  geom_histogram(binwidth = 5, color = "black", fill = "white") +
+  labs(x = "Length (cm)", y = "Count",
+       title = "Histogram of dart point lengths")
+```
+
+## Labels {auto-animate=true}
+
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length) +
+  geom_histogram(binwidth = 5, color = "black", fill = "white") +
+  labs(x = "Length (cm)", y = "Count",
+       title = "Histogram of dart point lengths", 
+       caption = "Data adapted from archdata R package, Carlson 2017")
+```
 
 ## Exercises {background-color="#B5E2FF"}
 
