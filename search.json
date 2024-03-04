@@ -622,14 +622,21 @@
     "href": "lect/w03/slides_distribs.html#objectives",
     "title": "Summaries and visualization of distributions",
     "section": "Objectives",
-    "text": "Objectives"
+    "text": "Objectives\nAt the end of the lecture, you will know how to..\n\n\nOrganize your code in scripts.\nOrganize your work in projects.\nCount and interpret descriptive statics characterizing central tendency of a numeric variable.\nDescribe spread of a numeric variable.\nRead plots for one variable.\nCreate plots displaying one variable in ggplot2 package.\nUnderstand what type of variation occurs within your variables."
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#organizing-your-work",
-    "href": "lect/w03/slides_distribs.html#organizing-your-work",
+    "objectID": "lect/w03/slides_distribs.html#organize-your-work-in-scripts",
+    "href": "lect/w03/slides_distribs.html#organize-your-work-in-scripts",
     "title": "Summaries and visualization of distributions",
-    "section": "Organizing your work",
-    "text": "Organizing your work"
+    "section": "Organize your work in scripts",
+    "text": "Organize your work in scripts\n\n\n\n\ndartpoints.r\n\n# Analysis of dartpoints data set\n# 6. 3. 2024\n\nlibrary(ggplot2)\n\n# data -------------------------------\n# read data from CSV\n# url: https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\ndartpoints &lt;- read.csv(\"dartpoints.csv\")\n\n# structure --------------------------\ncolnames(dartpoints)\nnrow(dartpoints)\nncol(dartpoints)\nstr(dartpoints)\n\nmean(dartpoints$Length)\n\n# plots ------------------------------\nggplot(data = dartpoints) +\n  aes(x = Length) +\n  geom_histogram() +\n  labs(x = \"Length (cm)\", y = \"Count\")\n  \n  \n  \n\n\nIn RStudio…\n\nCreate a new script with Ctrl + Shift + n\nPut some basic info on what are you doing at the top.\nUse comments # (Ctrl + Shift + c) to write notes.\nComment on the why, not the what.\nDivide the code into sections with Ctrl + Shift + r\n# Section name ----\nLoad the packages you use at the top of the script.\nExecute the current line with Ctr + Enter\nSource the whole script with Ctrl + Shift + Enter"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#organize-your-work-in-projects",
+    "href": "lect/w03/slides_distribs.html#organize-your-work-in-projects",
+    "title": "Summaries and visualization of distributions",
+    "section": "Organize your work in projects",
+    "text": "Organize your work in projects\n\n\n\nEach project in a separate directory.\nThere are subdirectories for different parts of the project.\n\n~/Documents/\n    MyProject/\n      code/\n        script1.R\n        script2.R\n      data/\n        raw/\n          input_dataset.xlsx\n        processed/\n          settlements.csv\n          set_locations.geojson\n      figures/\n        plot1.png\n        plot1.pdf\n      MyProject.Rproj\n\nIn RStudio go to\nFiles &gt; New Project &gt; New Directory\n\n\n\nPaths\n\nAbsolute file path\nThe file path is specific to a given user.\nC:/Documents/MyProject/data/raw/dartpoints.csv\n\n\nRelative file path\nIf I am currently in MyProject/ folder:\n./data/raw/dartpoints.csv\n\n\nPackage here is here to save the day!\n\nDo not forget to install the package first.\nLoad it at the top of your script.\n\n\n# install.packages(\"here\")\nlibrary(here)\n\n\nFunction here() will know where the top directory is.\n\n\n# read data ----\ndartpoints &lt;- read_csv(here(\"data/processed/settlements.csv\"))"
   },
   {
     "objectID": "lect/w03/slides_distribs.html#descriptive-statistics",
@@ -678,7 +685,7 @@
     "href": "lect/w03/slides_distribs.html#solution",
     "title": "Summaries and visualization of distributions",
     "section": "Solution",
-    "text": "Solution\n\n# DartPoints &lt;- read.csv(\"dartpoints.csv\")\ncolnames(DartPoints)\n\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\nDartPoints$Weight\n\n [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5\n[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4\n[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9\n[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4\n[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9\n[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2\n[91] 16.3\n\nmean(DartPoints$Weight)\n\n[1] 7.642857\n\nmedian(DartPoints$Weight)\n\n[1] 6.8\n\nmax(DartPoints$Weight) - min(DartPoints$Weight) # or range(DartPoints$Weight)\n\n[1] 26.5\n\nsd(DartPoints$Weight)\n\n[1] 4.207088\n\nIQR(DartPoints$Weight)\n\n[1] 5.5\n\nsummary(DartPoints$Weight)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  2.300   4.550   6.800   7.643  10.050  28.800"
+    "text": "Solution\n\n# dartpoints &lt;- read.csv(\"dartpoints.csv\")\ncolnames(dartpoints)\n\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\ndartpoints$Weight\n\n [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5\n[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4\n[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9\n[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4\n[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9\n[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2\n[91] 16.3\n\nmean(dartpoints$Weight)\n\n[1] 7.642857\n\nmedian(dartpoints$Weight)\n\n[1] 6.8\n\nmax(dartpoints$Weight) - min(dartpoints$Weight) # or range(dartpoints$Weight)\n\n[1] 26.5\n\nsd(dartpoints$Weight)\n\n[1] 4.207088\n\nIQR(dartpoints$Weight)\n\n[1] 5.5\n\nsummary(dartpoints$Weight)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  2.300   4.550   6.800   7.643  10.050  28.800"
   },
   {
     "objectID": "lect/w03/slides_distribs.html#brainstorming",
@@ -699,42 +706,112 @@
     "href": "lect/w03/slides_distribs.html#histogram",
     "title": "Summaries and visualization of distributions",
     "section": "Histogram",
-    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights"
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights."
   },
   {
     "objectID": "lect/w03/slides_distribs.html#histogram-1",
     "href": "lect/w03/slides_distribs.html#histogram-1",
     "title": "Summaries and visualization of distributions",
     "section": "Histogram",
-    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights, one column (bin) equals 2g"
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights, one column (bin) equals 2 g."
   },
   {
     "objectID": "lect/w03/slides_distribs.html#density-plot",
     "href": "lect/w03/slides_distribs.html#density-plot",
     "title": "Summaries and visualization of distributions",
     "section": "Density plot",
-    "text": "Density plot\n\nDistribution of values of a quantitative variable\n\nDistribution of dart point weights"
+    "text": "Density plot\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights."
   },
   {
     "objectID": "lect/w03/slides_distribs.html#density-plot-1",
     "href": "lect/w03/slides_distribs.html#density-plot-1",
     "title": "Summaries and visualization of distributions",
     "section": "Density plot",
-    "text": "Density plot\n\nDistribution of values of a quantitative variable, great for comparisons\n\nDistribution of different types of dart points by weight"
+    "text": "Density plot\n\nDistribution of values of a quantitative variable, great for comparisons.\n\nDistribution of different types of dart points by weight."
   },
   {
     "objectID": "lect/w03/slides_distribs.html#bar-chart",
     "href": "lect/w03/slides_distribs.html#bar-chart",
     "title": "Summaries and visualization of distributions",
     "section": "Bar chart",
-    "text": "Bar chart\n\nDistribution of values of a qualitative variable\n\nDistribution of types of dart points"
+    "text": "Bar chart\n\nDistribution of values of a qualitative variable.\n\nDistribution of types of dart points."
   },
   {
     "objectID": "lect/w03/slides_distribs.html#plots-in-ggplot2-package",
     "href": "lect/w03/slides_distribs.html#plots-in-ggplot2-package",
     "title": "Summaries and visualization of distributions",
     "section": "Plots in ggplot2 package",
-    "text": "Plots in ggplot2 package"
+    "text": "Plots in ggplot2 package\n\n1install.packages(\"ggplot2\")\n\n2library(ggplot2)\n\n3ggplot(data = &lt;your data frame&gt;) +\n4  aes(x = &lt;variable to be mapped to axis x&gt;) +\n5  geom_&lt;geometry&gt;()\n\n\n1\n\nInstall the package ggplot2, do this only once.\n\n\n2\n\nLoad the package from the library of installed packages, do this for every new script.\n(Calls to library() function are usually written at the top of the script.)\n\n\n3\n\nFunction ggplot() takes the data frame as an argument.\n\n\n4\n\nFunction aes() serves to map aesthetics (axis x and y, colors etc.) to different variables from your data frame.\n\n\n5\n\nFunctons with geom_ prefix are geometries, ie. types of plots to draw.\n\n\n\n\n\nGeoms for one variable:\n\ngeom_histogram()\ngeom_density()\ngeom_bar()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2",
+    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints)"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2-1",
+    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints) +\n  aes(x = Name)"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2-2",
+    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints) +\n  aes(x = Name) +\n  geom_bar()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#bar-chart-1",
+    "href": "lect/w03/slides_distribs.html#bar-chart-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\n\n\nggplot(data = dartpoints) +\n  aes(x = Name) + \n  geom_bar()\n\n\n\n\n\n\n\n\n\n\nggplot(data = dartpoints) +\n  aes(x = Name, color = Name) + \n  geom_bar()\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = dartpoints) +\n  aes(x = Name, color = Name, fill = Name) + \n  geom_bar()\n\n\n\n\n\n\n\n\n\n\nggplot(data = dartpoints) + \n  aes(x = Name, fill = Name) + \n  geom_bar(color = \"black\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram-2",
+    "href": "lect/w03/slides_distribs.html#histogram-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram()\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5)\n\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(color = \"black\")\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(color = \"black\", fill = \"white\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot-2",
+    "href": "lect/w03/slides_distribs.html#density-plot-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) + \n  geom_density()\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length, color = Name) + \n  geom_density()\n\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length, color = Name, fill = Name) + \n  geom_density()\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) + \n  aes(x = Length, color = Name, fill = Name) + \n  geom_density(alpha = 0.4)"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#labels",
+    "href": "lect/w03/slides_distribs.html#labels",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#labels-1",
+    "href": "lect/w03/slides_distribs.html#labels-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#labels-2",
+    "href": "lect/w03/slides_distribs.html#labels-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\",\n       title = \"Histogram of dart point lengths\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#labels-3",
+    "href": "lect/w03/slides_distribs.html#labels-3",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\",\n       title = \"Histogram of dart point lengths\", \n       caption = \"Data adapted from archdata R package, Carlson 2017\")"
   },
   {
     "objectID": "lect/w03/slides_distribs.html#exercises",
@@ -755,133 +832,300 @@
     "href": "lect/w03/distribs.html#objectives",
     "title": "Summaries and visualization of distributions",
     "section": "Objectives",
-    "text": "Objectives"
+    "text": "Objectives\nAt the end of the lecture, you will know how to..\n\n\nOrganize your code in scripts.\nOrganize your work in projects.\nCount and interpret descriptive statics characterizing central tendency of a numeric variable.\nDescribe spread of a numeric variable.\nRead plots for one variable.\nCreate plots displaying one variable in ggplot2 package.\nUnderstand what type of variation occurs within your variables.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
-    "objectID": "lect/w03/distribs.html#organizing-your-work",
-    "href": "lect/w03/distribs.html#organizing-your-work",
+    "objectID": "lect/w03/distribs.html#organize-your-work-in-scripts",
+    "href": "lect/w03/distribs.html#organize-your-work-in-scripts",
     "title": "Summaries and visualization of distributions",
-    "section": "Organizing your work",
-    "text": "Organizing your work"
+    "section": "Organize your work in scripts",
+    "text": "Organize your work in scripts\n\n\n\n\ndartpoints.r\n\n# Analysis of dartpoints data set\n# 6. 3. 2024\n\nlibrary(ggplot2)\n\n# data -------------------------------\n# read data from CSV\n# url: https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\ndartpoints &lt;- read.csv(\"dartpoints.csv\")\n\n# structure --------------------------\ncolnames(dartpoints)\nnrow(dartpoints)\nncol(dartpoints)\nstr(dartpoints)\n\nmean(dartpoints$Length)\n\n# plots ------------------------------\nggplot(data = dartpoints) +\n  aes(x = Length) +\n  geom_histogram() +\n  labs(x = \"Length (cm)\", y = \"Count\")\n  \n  \n  \n\n\nIn RStudio…\n\nCreate a new script with Ctrl + Shift + n\nPut some basic info on what are you doing at the top.\nUse comments # (Ctrl + Shift + c) to write notes.\nComment on the why, not the what.\nDivide the code into sections with Ctrl + Shift + r\n# Section name ----\nLoad the packages you use at the top of the script.\nExecute the current line with Ctr + Enter\nSource the whole script with Ctrl + Shift + Enter",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#organize-your-work-in-projects",
+    "href": "lect/w03/distribs.html#organize-your-work-in-projects",
+    "title": "Summaries and visualization of distributions",
+    "section": "Organize your work in projects",
+    "text": "Organize your work in projects\n\n\n\nEach project in a separate directory.\nThere are subdirectories for different parts of the project.\n\n~/Documents/\n    MyProject/\n      code/\n        script1.R\n        script2.R\n      data/\n        raw/\n          input_dataset.xlsx\n        processed/\n          settlements.csv\n          set_locations.geojson\n      figures/\n        plot1.png\n        plot1.pdf\n      MyProject.Rproj\n\nIn RStudio go to\nFiles &gt; New Project &gt; New Directory\n\n\n\nPaths\n\nAbsolute file path\nThe file path is specific to a given user.\nC:/Documents/MyProject/data/raw/dartpoints.csv\n\n\nRelative file path\nIf I am currently in MyProject/ folder:\n./data/raw/dartpoints.csv\n\n\nPackage here is here to save the day!\n\nDo not forget to install the package first.\nLoad it at the top of your script.\n\n\n# install.packages(\"here\")\nlibrary(here)\n\n\nFunction here() will know where the top directory is.\n\n\n# read data ----\ndartpoints &lt;- read_csv(here(\"data/processed/settlements.csv\"))",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#descriptive-statistics",
     "href": "lect/w03/distribs.html#descriptive-statistics",
     "title": "Summaries and visualization of distributions",
     "section": "Descriptive Statistics",
-    "text": "Descriptive Statistics"
+    "text": "Descriptive Statistics",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#characterizing-centrality",
     "href": "lect/w03/distribs.html#characterizing-centrality",
     "title": "Summaries and visualization of distributions",
     "section": "Characterizing centrality",
-    "text": "Characterizing centrality\n\nMean (průměr)\nmean(x)\n\\[ \\overline{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{1}{n} (\\sum^n_{i=1}x_i) \\]\n\n\n\nMedian (medián)\nmedian(x)\n- Robust, minimizes influence of outliers.\n\n\n\n\nWhat are outliers? (odlehlé hodnoty)\n\nOutliers are data points that significantly differ from other observations.\nMay indicate a measurement error, an exceptional observation, etc."
+    "text": "Characterizing centrality\n\nMean (průměr)\nmean(x)\n\\[ \\overline{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{1}{n} (\\sum^n_{i=1}x_i) \\]\n\n\n\nMedian (medián)\nmedian(x)\n- Robust, minimizes influence of outliers.\n\n\n\n\nWhat are outliers? (odlehlé hodnoty)\n\nOutliers are data points that significantly differ from other observations.\nMay indicate a measurement error, an exceptional observation, etc.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#characterizing-centrality-1",
     "href": "lect/w03/distribs.html#characterizing-centrality-1",
     "title": "Summaries and visualization of distributions",
     "section": "Characterizing centrality",
-    "text": "Characterizing centrality\n\n\n\nVarious plots of a normal distribution"
+    "text": "Characterizing centrality\n\n\n\nVarious plots of a normal distribution",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#characterizing-dispersion-andor-spread",
     "href": "lect/w03/distribs.html#characterizing-dispersion-andor-spread",
     "title": "Summaries and visualization of distributions",
     "section": "Characterizing dispersion and/or spread",
-    "text": "Characterizing dispersion and/or spread\n\nRange (rozpětí)\nmax(x) - min(x) or range(x)\n\n\n\nVariance and Standard deviation (rozptyl a směrodatná odchylka)\nsd(x)\n\\[ \\sigma = \\sqrt{s^2} = \\sqrt{\\frac{\\sum(x_i-\\overline{x})^2}{n-1}} \\]\n\n\n\n\nInterquartile range (midspread, IQR, kvantil, mezikvartilové rozpětí)\nIQR(x)\n- Robust, minimizes influence of outliers."
+    "text": "Characterizing dispersion and/or spread\n\nRange (rozpětí)\nmax(x) - min(x) or range(x)\n\n\n\nVariance and Standard deviation (rozptyl a směrodatná odchylka)\nsd(x)\n\\[ \\sigma = \\sqrt{s^2} = \\sqrt{\\frac{\\sum(x_i-\\overline{x})^2}{n-1}} \\]\n\n\n\n\nInterquartile range (midspread, IQR, kvantil, mezikvartilové rozpětí)\nIQR(x)\n- Robust, minimizes influence of outliers.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#characterizing-dispersion-andor-spread-1",
     "href": "lect/w03/distribs.html#characterizing-dispersion-andor-spread-1",
     "title": "Summaries and visualization of distributions",
     "section": "Characterizing dispersion and/or spread",
-    "text": "Characterizing dispersion and/or spread\n\n\n\nVarious plots of a normal distribution"
+    "text": "Characterizing dispersion and/or spread\n\n\n\nVarious plots of a normal distribution",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#exercise",
     "href": "lect/w03/distribs.html#exercise",
     "title": "Summaries and visualization of distributions",
     "section": "Exercise",
-    "text": "Exercise\n\n\nStart RStudio.\nCreate a new project, save it somwhere you can find it.\nUse the dataset from the last lecture  dartpoints.csv.\nSave it in your project directory.\nLoad the data from the CSV file.\nExplore the dataset.\nCount mean and median weight, how do they differ?\nWhat is the range of the weights?\nWhat is the standard deviation of weights? What does it mean?\nCount the IQR. Compare it with standard deviation.\n Hints: read.csv(), str(), colnames(), mean(), median(), range(), sd(), IQR(), summary()"
+    "text": "Exercise\n\n\nStart RStudio.\nCreate a new project, save it somwhere you can find it.\nUse the dataset from the last lecture  dartpoints.csv.\nSave it in your project directory.\nLoad the data from the CSV file.\nExplore the dataset.\nCount mean and median weight, how do they differ?\nWhat is the range of the weights?\nWhat is the standard deviation of weights? What does it mean?\nCount the IQR. Compare it with standard deviation.\n Hints: read.csv(), str(), colnames(), mean(), median(), range(), sd(), IQR(), summary()",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#solution",
     "href": "lect/w03/distribs.html#solution",
     "title": "Summaries and visualization of distributions",
     "section": "Solution",
-    "text": "Solution\n\n# DartPoints &lt;- read.csv(\"dartpoints.csv\")\ncolnames(DartPoints)\n\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\nDartPoints$Weight\n\n [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5\n[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4\n[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9\n[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4\n[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9\n[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2\n[91] 16.3\n\nmean(DartPoints$Weight)\n\n[1] 7.642857\n\nmedian(DartPoints$Weight)\n\n[1] 6.8\n\nmax(DartPoints$Weight) - min(DartPoints$Weight) # or range(DartPoints$Weight)\n\n[1] 26.5\n\nsd(DartPoints$Weight)\n\n[1] 4.207088\n\nIQR(DartPoints$Weight)\n\n[1] 5.5\n\nsummary(DartPoints$Weight)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  2.300   4.550   6.800   7.643  10.050  28.800"
+    "text": "Solution\n\n# dartpoints &lt;- read.csv(\"dartpoints.csv\")\ncolnames(dartpoints)\n\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\ndartpoints$Weight\n\n [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5\n[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4\n[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9\n[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4\n[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9\n[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2\n[91] 16.3\n\nmean(dartpoints$Weight)\n\n[1] 7.642857\n\nmedian(dartpoints$Weight)\n\n[1] 6.8\n\nmax(dartpoints$Weight) - min(dartpoints$Weight) # or range(dartpoints$Weight)\n\n[1] 26.5\n\nsd(dartpoints$Weight)\n\n[1] 4.207088\n\nIQR(dartpoints$Weight)\n\n[1] 5.5\n\nsummary(dartpoints$Weight)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  2.300   4.550   6.800   7.643  10.050  28.800",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#brainstorming",
     "href": "lect/w03/distribs.html#brainstorming",
     "title": "Summaries and visualization of distributions",
     "section": "Brainstorming",
-    "text": "Brainstorming\n\nWhy do we visualize data?\nWhat elements does a good graph contain?\nHow are these elements called?\n\n\n\n\nBoxplots from Carlson 2017"
+    "text": "Brainstorming\n\nWhy do we visualize data?\nWhat elements does a good graph contain?\nHow are these elements called?\n\n\n\n\nBoxplots from Carlson 2017",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#plots-for-one-variable",
     "href": "lect/w03/distribs.html#plots-for-one-variable",
     "title": "Summaries and visualization of distributions",
     "section": "Plots for one variable",
-    "text": "Plots for one variable"
+    "text": "Plots for one variable",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#histogram",
     "href": "lect/w03/distribs.html#histogram",
     "title": "Summaries and visualization of distributions",
     "section": "Histogram",
-    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights.\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#histogram-1",
     "href": "lect/w03/distribs.html#histogram-1",
     "title": "Summaries and visualization of distributions",
     "section": "Histogram",
-    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights, one column (bin) equals 2g"
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights, one column (bin) equals 2 g.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#density-plot",
     "href": "lect/w03/distribs.html#density-plot",
     "title": "Summaries and visualization of distributions",
     "section": "Density plot",
-    "text": "Density plot\n\nDistribution of values of a quantitative variable\n\nDistribution of dart point weights"
+    "text": "Density plot\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#density-plot-1",
     "href": "lect/w03/distribs.html#density-plot-1",
     "title": "Summaries and visualization of distributions",
     "section": "Density plot",
-    "text": "Density plot\n\nDistribution of values of a quantitative variable, great for comparisons\n\nDistribution of different types of dart points by weight"
+    "text": "Density plot\n\nDistribution of values of a quantitative variable, great for comparisons.\n\nDistribution of different types of dart points by weight.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#bar-chart",
     "href": "lect/w03/distribs.html#bar-chart",
     "title": "Summaries and visualization of distributions",
     "section": "Bar chart",
-    "text": "Bar chart\n\nDistribution of values of a qualitative variable\n\nDistribution of types of dart points"
+    "text": "Bar chart\n\nDistribution of values of a qualitative variable.\n\nDistribution of types of dart points.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#plots-in-ggplot2-package",
     "href": "lect/w03/distribs.html#plots-in-ggplot2-package",
     "title": "Summaries and visualization of distributions",
     "section": "Plots in ggplot2 package",
-    "text": "Plots in ggplot2 package"
+    "text": "Plots in ggplot2 package\n\n1install.packages(\"ggplot2\")\n\n2library(ggplot2)\n\n3ggplot(data = &lt;your data frame&gt;) +\n4  aes(x = &lt;variable to be mapped to axis x&gt;) +\n5  geom_&lt;geometry&gt;()\n\n\n1\n\nInstall the package ggplot2, do this only once.\n\n\n2\n\nLoad the package from the library of installed packages, do this for every new script.\n(Calls to library() function are usually written at the top of the script.)\n\n\n3\n\nFunction ggplot() takes the data frame as an argument.\n\n\n4\n\nFunction aes() serves to map aesthetics (axis x and y, colors etc.) to different variables from your data frame.\n\n\n5\n\nFunctons with geom_ prefix are geometries, ie. types of plots to draw.\n\n\n\n\n\nGeoms for one variable:\n\ngeom_histogram()\ngeom_density()\ngeom_bar()",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#layers-of-ggplot2",
+    "href": "lect/w03/distribs.html#layers-of-ggplot2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints)",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#layers-of-ggplot2-1",
+    "href": "lect/w03/distribs.html#layers-of-ggplot2-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints) +\n  aes(x = Name)",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#layers-of-ggplot2-2",
+    "href": "lect/w03/distribs.html#layers-of-ggplot2-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints) +\n  aes(x = Name) +\n  geom_bar()",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#bar-chart-1",
+    "href": "lect/w03/distribs.html#bar-chart-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\n\n\nggplot(data = dartpoints) +\n  aes(x = Name) + \n  geom_bar()\n\n\n\n\n\n\n\n\n\n\nggplot(data = dartpoints) +\n  aes(x = Name, color = Name) + \n  geom_bar()\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = dartpoints) +\n  aes(x = Name, color = Name, fill = Name) + \n  geom_bar()\n\n\n\n\n\n\n\n\n\n\nggplot(data = dartpoints) + \n  aes(x = Name, fill = Name) + \n  geom_bar(color = \"black\")",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#histogram-2",
+    "href": "lect/w03/distribs.html#histogram-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5)\n\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(color = \"black\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(color = \"black\", fill = \"white\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#density-plot-2",
+    "href": "lect/w03/distribs.html#density-plot-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\n\n\nggplot(dartpoints) +\n  aes(x = Length) + \n  geom_density()\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length, color = Name) + \n  geom_density()\n\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) +\n  aes(x = Length, color = Name, fill = Name) + \n  geom_density()\n\n\n\n\n\n\n\n\n\n\nggplot(dartpoints) + \n  aes(x = Length, color = Name, fill = Name) + \n  geom_density(alpha = 0.4)",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#labels",
+    "href": "lect/w03/distribs.html#labels",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\")",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#labels-1",
+    "href": "lect/w03/distribs.html#labels-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\")",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#labels-2",
+    "href": "lect/w03/distribs.html#labels-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\",\n       title = \"Histogram of dart point lengths\")",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
+  },
+  {
+    "objectID": "lect/w03/distribs.html#labels-3",
+    "href": "lect/w03/distribs.html#labels-3",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\",\n       title = \"Histogram of dart point lengths\", \n       caption = \"Data adapted from archdata R package, Carlson 2017\")",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#exercises",
     "href": "lect/w03/distribs.html#exercises",
     "title": "Summaries and visualization of distributions",
     "section": "Exercises",
-    "text": "Exercises"
+    "text": "Exercises",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w03/distribs.html#assignments",
     "href": "lect/w03/distribs.html#assignments",
     "title": "Summaries and visualization of distributions",
     "section": "Assignments",
-    "text": "Assignments\n\nRead Make a plot chapter in Data Visualization book by K. J. Healy.\n\n\nOptional\n\nGo through Visualize data tutorials here."
+    "text": "Assignments\n\nRead Make a plot chapter in Data Visualization book by K. J. Healy.\n\n\nOptional\n\nGo through Visualize data tutorials here.",
+    "crumbs": [
+      "Summaries and visualization of distributions"
+    ]
   },
   {
     "objectID": "lect/w04/slides_rels.html#objectives",
