@@ -12,6 +12,7 @@ format:
   pdf: default
 execute:
   echo: true
+  warning: false
 ---
 
 ## Reflection on the last week {background-color="#FAF1A4"}
@@ -51,7 +52,7 @@ library(ggplot2)
 # data -------------------------------
 # read data from CSV
 # url: https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv
-dartpoints <- read.csv("dartpoints.csv")
+dartpoints <- read.csv("dartpoints2.csv")
 
 # structure --------------------------
 colnames(dartpoints)
@@ -91,27 +92,24 @@ ggplot(data = dartpoints) +
 
 :::: {.columns}
 ::: {.column width=40%}
-- Each project in a **separate directory**.
+- Each project is in a **separate directory**.
 - There are **subdirectories** for different parts of the project.
 ```
-~/Documents/
-    MyProject/
-      code/
-        script1.R
-        script2.R
-      data/
-        raw/
-          input_dataset.xlsx
-        processed/
-          settlements.csv
-          set_locations.geojson
-      figures/
-        plot1.png
-        plot1.pdf
-      MyProject.Rproj
+MyProject/
+  code/
+    script1.R
+    script2.R
+  data/
+    dartpoints.csv
+  plots/
+    plot1.png
+    plot2.pdf
+  MyProject.Rproj
 ```
-- In RStudio go to  
-  *Files* > *New Project* > *New Directory*
+- In RStudio go to *Files* > *New Project*
+  
+![](./figs/dirstr.png)  
+
 :::
 ::: {.column width=60% .fragment}
 ### Paths 
@@ -120,7 +118,7 @@ ggplot(data = dartpoints) +
 **Absolute** file path  
 The file path is specific to a given user.  
 ```
-C:/Documents/MyProject/data/raw/dartpoints.csv
+C:/Documents/MyProject/data/dartpoints.csv
 ```
 :::
 
@@ -128,7 +126,7 @@ C:/Documents/MyProject/data/raw/dartpoints.csv
 **Relative** file path  
 If I am currently in MyProject/ folder:
 ```
-./data/raw/dartpoints.csv
+./data/dartpoints.csv
 ```
 :::
 
@@ -149,7 +147,7 @@ library(here)
 ```{r}
 #| eval: false
 # read data ----
-dartpoints <- read_csv(here("data/processed/settlements.csv"))
+dartpoints <- read_csv(here("data/dartpoints.csv"))
 ```
 :::
 :::
@@ -207,22 +205,24 @@ $$ \sigma = \sqrt{s^2} = \sqrt{\frac{\sum(x_i-\overline{x})^2}{n-1}} $$
 
 ::: {.incremental}
 - Start *RStudio*.
-- Create a new project, save it somwhere you can find it.
-- Use the dataset from the last lecture [{{< bi file-earmark-arrow-down >}} dartpoints.csv](./data/dartpoints.csv).
+- Create a new project, save it somewhere you can find it.
+- Use dataset [{{< bi file-earmark-arrow-down >}} dartpoints2.csv](./data/dartpoints2.csv).
 - Save it in your project directory.
 - Load the data from the CSV file.
+- {{< bi lightbulb >}} What is the column separator?
+- {{< bi lightbulb >}} How are NAs represented?
 - Explore the dataset.
 - Count mean and median **weight**, how do they differ?
 - What is the range of the weights?
 - What is the standard deviation of weights? What does it mean?
 - Count the IQR. Compare it with standard deviation.
-- {{< bi lightbulb >}} Hints: `read.csv()`, `str()`, `colnames()`, `mean()`, `median()`, `range()`, `sd()`, `IQR()`, `summary()`
+- {{< bi lightbulb >}} Hints: `read.csv2(path, na.strings)`, `str()`, `colnames()`, `mean()`, `median()`, `range()`, `sd()`, `IQR()`, `summary()`
 :::
 
 ## Solution {background-color="#B5E2FF"}
 
 ```{r}
-# dartpoints <- read.csv("dartpoints.csv")
+# dartpoints <- read.csv2(here::here("dartpoints2.csv"), na.strings = "-")
 colnames(dartpoints)
 dartpoints$Weight
 mean(dartpoints$Weight)
@@ -361,104 +361,101 @@ ggplot(data = dartpoints) +
   geom_bar()
 ```
 
-## Bar chart 
+## Bar chart {auto-animate=true}
 
-:::: {.columns}
-::: {.column width=50% .fragment}
 ```{r}
 ggplot(data = dartpoints) +
   aes(x = Name) + 
   geom_bar()
 ```
-::: {.fragment}
+
+## Bar chart {auto-animate=true}
+
 ```{r}
 ggplot(data = dartpoints) +
   aes(x = Name, color = Name) + 
   geom_bar()
 ```
-:::
-:::
-::: {.column width=50% .fragment}
+
+## Bar chart {auto-animate=true}
+
 ```{r}
 ggplot(data = dartpoints) +
   aes(x = Name, color = Name, fill = Name) + 
   geom_bar()
 ```
-::: {.fragment}
+
+## Bar chart {auto-animate=true}
+
 ```{r}
 ggplot(data = dartpoints) + 
   aes(x = Name, fill = Name) + 
   geom_bar(color = "black")
 ```
-:::
-:::
-::::
 
-## Histogram
+## Histogram {auto-animate=true}
 
-:::: {.columns}
-::: {.column width=50% .fragment}
 ```{r}
 ggplot(dartpoints) +
   aes(x = Length) +
   geom_histogram()
 ```
-::: {.fragment}
+
+## Histogram {auto-animate=true}
+
 ```{r}
 ggplot(dartpoints) +
   aes(x = Length) +
   geom_histogram(binwidth = 5)
 ```
-:::
-:::
-::: {.column width=50% .fragment}
+
+## Histogram {auto-animate=true}
+
 ```{r}
 ggplot(dartpoints) +
   aes(x = Length) +
-  geom_histogram(color = "black")
+  geom_histogram(binwidth = 5, color = "black")
 ```
-::: {.fragment}
+
+## Histogram {auto-animate=true}
+
 ```{r}
 ggplot(dartpoints) +
   aes(x = Length) +
-  geom_histogram(color = "black", fill = "white")
+  geom_histogram(binwidth = 5, color = "black", fill = "white")
 ```
-:::
-:::
-::::
 
-## Density plot 
+## Density plot {auto-animate=true}
 
-:::: {.columns}
-::: {.column width=50% .fragment}
 ```{r}
 ggplot(dartpoints) +
   aes(x = Length) + 
   geom_density()
 ```
-::: {.fragment}
+
+## Density plot {auto-animate=true}
+
 ```{r}
 ggplot(dartpoints) +
   aes(x = Length, color = Name) + 
   geom_density()
 ```
-:::
-:::
-::: {.column width=50% .fragment}
+
+## Density plot {auto-animate=true}
+
 ```{r}
 ggplot(dartpoints) +
   aes(x = Length, color = Name, fill = Name) + 
   geom_density()
 ```
-::: {.fragment}
+
+## Density plot {auto-animate=true}
+
 ```{r}
 ggplot(dartpoints) + 
   aes(x = Length, color = Name, fill = Name) + 
   geom_density(alpha = 0.4)
 ```
-:::
-:::
-::::
 
 ## Labels {auto-animate=true}
 
