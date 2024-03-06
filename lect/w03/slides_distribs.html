@@ -433,7 +433,7 @@
 <span id="cb1-6"><a></a><span class="co"># data -------------------------------</span></span>
 <span id="cb1-7"><a></a><span class="co"># read data from CSV</span></span>
 <span id="cb1-8"><a></a><span class="co"># url: https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv</span></span>
-<span id="cb1-9"><a></a>dartpoints <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"dartpoints.csv"</span>)</span>
+<span id="cb1-9"><a></a>dartpoints <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"dartpoints2.csv"</span>)</span>
 <span id="cb1-10"><a></a></span>
 <span id="cb1-11"><a></a><span class="co"># structure --------------------------</span></span>
 <span id="cb1-12"><a></a><span class="fu">colnames</span>(dartpoints)</span>
@@ -462,6 +462,7 @@ Comment on the <strong>why</strong>, not the <strong>what</strong>.</li>
 <li class="fragment"><strong>Divide the code</strong> into sections with <em>Ctrl + Shift + r</em><br>
 <code># Section name ----</code></li>
 <li class="fragment">Load the packages you use at the top of the script.</li>
+<li class="fragment">RStudio will give you <strong>hints</strong>, hit <em>Tab</em> to autocomplete function calls.</li>
 <li class="fragment"><strong>Execute the current line</strong> with <em>Ctr + Enter</em></li>
 <li class="fragment">Source the whole script with <em>Ctrl + Shift + Enter</em></li>
 </ul>
@@ -473,40 +474,35 @@ Comment on the <strong>why</strong>, not the <strong>what</strong>.</li>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
-<li>Each project in a <strong>separate directory</strong>.</li>
+<li>Each project is in a <strong>separate directory</strong>.</li>
 <li>There are <strong>subdirectories</strong> for different parts of the project.</li>
 </ul>
-<pre><code>~/Documents/
-    MyProject/
-      code/
-        script1.R
-        script2.R
-      data/
-        raw/
-          input_dataset.xlsx
-        processed/
-          settlements.csv
-          set_locations.geojson
-      figures/
-        plot1.png
-        plot1.pdf
-      MyProject.Rproj</code></pre>
+<pre><code>MyProject/
+  code/
+    script1.R
+    script2.R
+  data/
+    dartpoints.csv
+  plots/
+    plot1.png
+    plot2.pdf
+  MyProject.Rproj</code></pre>
 <ul>
-<li>In RStudio go to<br>
-<em>Files</em> &gt; <em>New Project</em> &gt; <em>New Directory</em></li>
+<li>In RStudio go to <em>Files</em> &gt; <em>New Project</em></li>
 </ul>
+<p><img data-src="./figs/dirstr.png"></p>
 </div><div class="column fragment" style="width:60%;">
 <!-- -->
 <h3 id="paths">Paths</h3>
 <div class="fragment">
 <p><strong>Absolute</strong> file path<br>
 The file path is specific to a given user.</p>
-<pre><code>C:/Documents/MyProject/data/raw/dartpoints.csv</code></pre>
+<pre><code>C:/Documents/MyProject/data/dartpoints.csv</code></pre>
 </div>
 <div class="fragment">
 <p><strong>Relative</strong> file path<br>
 If I am currently in MyProject/ folder:</p>
-<pre><code>./data/raw/dartpoints.csv</code></pre>
+<pre><code>./data/dartpoints.csv</code></pre>
 </div>
 <div class="fragment">
 <p>Package <code>here</code> is here to save the day!</p>
@@ -523,7 +519,7 @@ If I am currently in MyProject/ folder:</p>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># read data ----</span></span>
-<span id="cb6-2"><a></a>dartpoints <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data/processed/settlements.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a></a>dartpoints <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data/dartpoints.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -582,23 +578,25 @@ If I am currently in MyProject/ folder:</p>
 <div>
 <ul>
 <li class="fragment">Start <em>RStudio</em>.</li>
-<li class="fragment">Create a new project, save it somwhere you can find it.</li>
-<li class="fragment">Use the dataset from the last lecture <a href="./data/dartpoints.csv"><i class="bi-file-earmark-arrow-down " style="" role="img" aria-hidden="true"></i> dartpoints.csv</a>.</li>
+<li class="fragment">Create a new project, save it somewhere you can find it.</li>
+<li class="fragment">Use dataset <a href="./data/dartpoints2.csv"><i class="bi-file-earmark-arrow-down " style="" role="img" aria-hidden="true"></i> dartpoints2.csv</a>.</li>
 <li class="fragment">Save it in your project directory.</li>
 <li class="fragment">Load the data from the CSV file.</li>
+<li class="fragment"><i class="bi-lightbulb " style="" role="img" aria-hidden="true"></i> What is the column separator?</li>
+<li class="fragment"><i class="bi-lightbulb " style="" role="img" aria-hidden="true"></i> How are NAs represented?</li>
 <li class="fragment">Explore the dataset.</li>
 <li class="fragment">Count mean and median <strong>weight</strong>, how do they differ?</li>
 <li class="fragment">What is the range of the weights?</li>
 <li class="fragment">What is the standard deviation of weights? What does it mean?</li>
 <li class="fragment">Count the IQR. Compare it with standard deviation.</li>
-<li class="fragment"><i class="bi-lightbulb " style="" role="img" aria-hidden="true"></i> Hints: <code>read.csv()</code>, <code>str()</code>, <code>colnames()</code>, <code>mean()</code>, <code>median()</code>, <code>range()</code>, <code>sd()</code>, <code>IQR()</code>, <code>summary()</code></li>
+<li class="fragment"><i class="bi-lightbulb " style="" role="img" aria-hidden="true"></i> Hints: <code>read.csv2(path, na.strings)</code>, <code>str()</code>, <code>colnames()</code>, <code>mean()</code>, <code>median()</code>, <code>range()</code>, <code>sd()</code>, <code>IQR()</code>, <code>summary()</code></li>
 </ul>
 </div>
 </section>
 <section id="solution" class="slide level2" data-background-color="#B5E2FF">
 <h2>Solution</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># dartpoints &lt;- read.csv("dartpoints.csv")</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># dartpoints &lt;- read.csv2(here::here("dartpoints2.csv"), na.strings = "-")</span></span>
 <span id="cb7-2"><a></a><span class="fu">colnames</span>(dartpoints)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Name"      "Catalog"   "TARL"      "Quad"      "Length"    "Width"    
@@ -767,186 +765,114 @@ If I am currently in MyProject/ folder:</p>
 
 </div>
 <img data-src="distribs_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
-<section id="bar-chart-1" class="slide level2">
-<h2>Bar chart</h2>
-<div class="columns">
-<div class="column fragment" style="width:50%;">
+<section id="bar-chart-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Bar chart</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dartpoints) <span class="sc">+</span></span>
-<span id="cb26-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name) <span class="sc">+</span> </span>
-<span id="cb26-3"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb26-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dartpoints) <span class="sc">+</span></span>
+<span id="cb26-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name) <span class="sc">+</span> </span>
+<span id="cb26-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-<div class="fragment">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="bar-chart-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Bar chart</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dartpoints) <span class="sc">+</span></span>
-<span id="cb27-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">color =</span> Name) <span class="sc">+</span> </span>
-<span id="cb27-3"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb27-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dartpoints) <span class="sc">+</span></span>
+<span id="cb27-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">color =</span> Name) <span class="sc">+</span> </span>
+<span id="cb27-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:50%;">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="bar-chart-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Bar chart</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dartpoints) <span class="sc">+</span></span>
-<span id="cb28-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">color =</span> Name, <span class="at">fill =</span> Name) <span class="sc">+</span> </span>
-<span id="cb28-3"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb28-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dartpoints) <span class="sc">+</span></span>
+<span id="cb28-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">color =</span> Name, <span class="at">fill =</span> Name) <span class="sc">+</span> </span>
+<span id="cb28-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-<div class="fragment">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<section id="bar-chart-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Bar chart</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dartpoints) <span class="sc">+</span> </span>
-<span id="cb29-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">fill =</span> Name) <span class="sc">+</span> </span>
-<span id="cb29-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb29-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dartpoints) <span class="sc">+</span> </span>
+<span id="cb29-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">fill =</span> Name) <span class="sc">+</span> </span>
+<span id="cb29-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="histogram-2" class="slide level2">
-<h2>Histogram</h2>
-<div class="columns">
-<div class="column fragment" style="width:50%;">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<section id="histogram-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Histogram</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
-<span id="cb30-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span></span>
-<span id="cb30-3"><a></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb30-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
+<span id="cb30-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span></span>
+<span id="cb30-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-<div class="fragment">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<section id="histogram-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Histogram</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
-<span id="cb31-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span></span>
-<span id="cb31-3"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb31-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
+<span id="cb31-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span></span>
+<span id="cb31-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:50%;">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<section id="histogram-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Histogram</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
-<span id="cb32-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span></span>
-<span id="cb32-3"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb32-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
+<span id="cb32-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span></span>
+<span id="cb32-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-<div class="fragment">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
+<section id="histogram-5" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Histogram</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
-<span id="cb33-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span></span>
-<span id="cb33-3"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb33-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
+<span id="cb33-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span></span>
+<span id="cb33-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="density-plot-2" class="slide level2">
-<h2>Density plot</h2>
-<div class="columns">
-<div class="column fragment" style="width:50%;">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
+<section id="density-plot-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Density plot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
-<span id="cb34-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span> </span>
-<span id="cb34-3"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb34-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
+<span id="cb34-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span> </span>
+<span id="cb34-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-<div class="fragment">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
+<section id="density-plot-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Density plot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
-<span id="cb35-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length, <span class="at">color =</span> Name) <span class="sc">+</span> </span>
-<span id="cb35-3"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-23-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb35-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
+<span id="cb35-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length, <span class="at">color =</span> Name) <span class="sc">+</span> </span>
+<span id="cb35-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:50%;">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
+<section id="density-plot-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Density plot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
-<span id="cb36-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length, <span class="at">color =</span> Name, <span class="at">fill =</span> Name) <span class="sc">+</span> </span>
-<span id="cb36-3"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb36-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span></span>
+<span id="cb36-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length, <span class="at">color =</span> Name, <span class="at">fill =</span> Name) <span class="sc">+</span> </span>
+<span id="cb36-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-<div class="fragment">
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
+<section id="density-plot-5" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Density plot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span> </span>
-<span id="cb37-2"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length, <span class="at">color =</span> Name, <span class="at">fill =</span> Name) <span class="sc">+</span> </span>
-<span id="cb37-3"><a></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="distribs_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb37-1" class="hljs-ln-code"><a></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span> </span>
+<span id="cb37-2" class="hljs-ln-code"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Length, <span class="at">color =</span> Name, <span class="at">fill =</span> Name) <span class="sc">+</span> </span>
+<span id="cb37-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+<img data-src="distribs_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
 <section id="labels" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Labels</h2>
 <div class="cell">
