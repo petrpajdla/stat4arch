@@ -1,0 +1,22 @@
+---
+title: "Summaries and visualization of relationships"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_rels.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Relationships](./rels.html)"
+  pdf: default
+---
+
+## Objectives
+
+## Prereqisites
+
+- Go through *Visualize data* tutorials [here](https://posit.cloud/learn/recipes).
+- Read [Make a plot](https://socviz.co/makeplot.html#makeplot) chapter in *Data Visualization* book by K. J. Healy.
+
+
+## Exercises
+
+## Assignments

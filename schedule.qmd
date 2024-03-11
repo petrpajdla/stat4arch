@@ -12,7 +12,7 @@ The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (
 | 1.      | 21. 2. | [Introduction](lect/w01/intro.qmd) and [*Tidy data*](lect/w01/tidy.qmd) | [{{< bi file-earmark-arrow-down >}} Example script](lect/w01/teaser.r) |
 | 2.      | 28. 2. | [Basic coding in R](lect/w02/intro2r.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset](lect/w02/data/dartpoints.csv) |
 | 3.      | 6. 3.  | [Visualization and summary of distributions](lect/w03/distribs.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset](lect/w03/data/dartpoints2.csv) |
-| 4.      | 13. 3. | Visualization and summary of relationships | |
+| 4.      | 13. 3. | [Visualization and summary of relationships](lect/w04/rels.qmd) | |
 | 5.      | 20. 3. | Reproducibility | |
 | 6.      | 27. 3. | Presenting data sets for projects & Practice | |
 | 7.      | 3. 4.  | Considering space | |
