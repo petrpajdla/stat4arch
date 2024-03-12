@@ -6,17 +6,300 @@ format:
     fontsize: 24px
     output-file: slides_rels.html
     footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Relationships](./rels.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  pdf: default
+execute:
+  echo: true
+  warning: false
   pdf: default
 ---
 
-## Objectives
+## Reflection on the last lecture {background-color="#FAF1A4"}
 
-## Prereqisites
+```{r}
+#| echo: false
+library(ggplot2)
+library(archdata)
+data(DartPoints)
+dartpoints <- DartPoints
+```
 
-- Go through *Visualize data* tutorials [here](https://posit.cloud/learn/recipes).
-- Read [Make a plot](https://socviz.co/makeplot.html#makeplot) chapter in *Data Visualization* book by K. J. Healy.
+## Objectives 
+
+At the end of the lecture, you will know how to...
+
+::: {.incremental}
+- Describe relationship of quantitative and qualitative variable.
+- Create and read **box plots** and **violin plots**.  
+- Understand relationship of two quantitative variables.
+- Count and interpret **correlation**.
+- Create and understand **scatterplots**.
+- Assess what **relationship** (covariation) occurs between your variables.
+:::
 
 
-## Exercises
+## Relationship of quantitative and qualitative variables {background-color="#B5E2FF"}
 
-## Assignments
+
+## Boxplot {auto-animate=true}
+
+```{r}
+g <- ggplot(dartpoints) +
+  aes(x = Name, y = Width)
+```
+
+## Boxplot {auto-animate=true}
+
+```{r}
+g <- ggplot(dartpoints) +
+  aes(x = Name, y = Width)
+  
+g + geom_boxplot()
+```
+
+## Boxplot 
+
+Also *box and whisker plot*, displays *five-number summary*. 
+
+![](./figs/boxplot.png)
+
+## Violin plot 
+
+```{r}
+g + geom_violin()
+```
+
+## Violin plot {auto-animate=true}
+
+```{r}
+g + geom_violin() +
+  geom_jitter(width = 0.05, alpha = 0.4)
+```
+
+## Violin plot {auto-animate=true}
+
+```{r}
+g + geom_violin() +
+  geom_boxplot(width = 0.15) +
+  geom_jitter(width = 0.05, alpha = 0.2)
+```
+
+
+## Relationship of two quantitative variables {background-color="#B5E2FF"}
+
+## Correlation 
+
+:::: {.columns}
+::: {.column width=60%}
+::::: {.incremental}
+- A statistic describing a relationship between two continuous variables.
+- To what degree is a variable y explained by x?
+- Correlation coefficient **r**, from **-1 to +1**.
+
+- **Correlation does not imply causation!**
+
+- r = 1 – strong positive correlation
+- r = 0.5 – moderately strong positive correlation
+- r = 0 – variables are not correlated
+- r = -0.2 – weak negative correlation
+- r = -1 – strong negative correlation
+:::::
+:::
+::: {.column width=40%}
+::::: {.fragment}
+Function `cor()`
+
+```{r}
+cor(dartpoints$Length, dartpoints$Width)
+cor(dartpoints$Length, dartpoints$Weight)
+cor(dartpoints$Width, dartpoints$Thickness)
+```
+:::::
+:::
+::::
+
+## Scatter plot 
+
+- Plot displying **two continuous** variables, x and y.
+- *x axis*: explanatory variable, independent, predictor.
+- *y axis*: dependent variable, response.
+
+```{r}
+ggplot(dartpoints) +
+  aes(x = Length, y = Weight) +
+  geom_point()
+
+```
+
+## Correlation examples
+
+```{r}
+#| echo: false 
+#| fig-height: 3
+cor09 <- tibble::as_tibble(MASS::mvrnorm(50, mu = c(0,0), Sigma = matrix(c(1, 0.924, 0.924, 1), ncol = 2), empirical = TRUE))
+cor05 <- tibble::as_tibble(MASS::mvrnorm(50, mu = c(0,0), Sigma = matrix(c(1, 0.56, 0.56, 1), ncol = 2), empirical = TRUE))
+cor00 <- tibble::as_tibble(MASS::mvrnorm(50, mu = c(0,0), Sigma = matrix(c(1, 0.08, 0.08, 1), ncol = 2), empirical = TRUE))
+cor06n <- tibble::as_tibble(MASS::mvrnorm(50, mu = c(0,0), Sigma = matrix(c(1, -0.62, -0.62, 1), ncol = 2), empirical = TRUE))
+
+g09 <- ggplot(cor09, aes(V1, V2)) + 
+  stat_smooth(method = "lm", se = FALSE) + geom_point() + 
+  theme(axis.title = element_blank())
+
+g05 <- ggplot(cor05, aes(V1, V2)) + 
+  stat_smooth(method = "lm", se = FALSE) + geom_point() + 
+  theme(axis.title = element_blank())
+  
+g00 <- ggplot(cor00, aes(V1, V2)) + 
+  stat_smooth(method = "lm", se = FALSE) + geom_point() + 
+  theme(axis.title = element_blank())
+  
+g06n <- ggplot(cor06n, aes(V1, V2)) + 
+  stat_smooth(method = "lm", se = FALSE) + geom_point() + 
+  theme(axis.title = element_blank())
+
+gridExtra::grid.arrange(g09, g05, g00, g06n, nrow = 1)
+```
+
+## Correlation examples  {auto-animate=true}
+
+```{r}
+#| echo: false 
+#| fig-height: 3
+g09 <- g09 + labs(title = "r = 0.924")
+g05 <- g05 + labs(title = "r = 0.560")
+g00 <- g00 + labs(title = "r = 0.080")
+g06n <- g06n + labs(title = "r = -0.620")
+
+gridExtra::grid.arrange(g09, g05, g00, g06n, nrow = 1)
+```
+
+## Scatter plots 
+
+```{r}
+ggplot(data = dartpoints) +
+  aes(x = Weight, y = Length) +
+  geom_point()
+```
+
+## Scatter plots {auto-animate=true}
+
+```{r}
+ggplot(data = dartpoints) +
+  aes(x = Weight, y = Length, color = Name) + 
+  geom_point(size = 3, alpha = 0.5)
+```
+
+## Scatter plots {auto-animate=true}
+
+```{r}
+#| code-line-numbers: "4-5|6"
+ggplot(data = dartpoints) +
+  aes(x = Weight, y = Length, color = Name) + 
+  geom_point(size = 3, alpha = 0.5) +
+  labs(x = "Weight (g)", y = "Length (mm)", color = "Type",
+       title = "Relationship of weight and length of dart points") +
+  theme_light()
+```
+
+## Scatter plots {auto-animate=true}
+
+```{r}
+#| code-line-numbers: "2-3"
+ggplot(data = dartpoints) +
+  aes(x = Weight, y = Length, size = Width, color = Name) + 
+  geom_point(alpha = 0.5) +
+  labs(x = "Weight (g)", y = "Length (mm)", color = "Type",
+       title = "Relationship of weight and length of dart points") +
+  theme_light()
+```
+
+## Trends
+
+```{r}
+#| code-line-numbers: "4"
+ggplot(data = dartpoints) +
+  aes(x = Weight, y = Length) + 
+  geom_point(size = 3, alpha = 0.5) +
+  geom_smooth() +
+  labs(x = "Weight (g)", y = "Length (mm)", color = "Type",
+       title = "Relationship of weight and length of dart points") +
+  theme_light()
+```
+
+## Trends {auto-animate=true}
+
+```{r}
+#| code-line-numbers: "4"
+ggplot(data = dartpoints) +
+  aes(x = Weight, y = Length) + 
+  geom_point(size = 3, alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(x = "Weight (g)", y = "Length (mm)", color = "Type",
+       title = "Relationship of weight and length of dart points") +
+  theme_light()
+```
+
+## Trends {auto-animate=true}
+
+```{r}
+#| code-line-numbers: "4,7"
+ggplot(data = dartpoints) +
+  aes(x = Weight, y = Length) + 
+  geom_point(size = 3, alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Weight (g)", y = "Length (mm)", color = "Type",
+       title = "Relationship of weight and length of dart points") +
+  theme_linedraw()
+```
+
+## Small multiples 
+
+```{r}
+#| code-line-numbers: "8"
+ggplot(data = dartpoints) +
+  aes(x = Weight, y = Length) + 
+  geom_point(size = 3, alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Weight (g)", y = "Length (mm)", color = "Type",
+       title = "Relationship of weight and length of dart points") +
+  theme_linedraw() +
+  facet_wrap(~Name)
+```
+
+## Exercise {background-color="#B5E2FF"}
+
+:::: {.columns}
+::: {.column width=80%}
+::: {.incremental}
+- Download data set with bronze age cups ([{{< bi file-earmark-arrow-down >}} bacups.csv](./data/bacups.csv)).
+- Create a project in RStudio and load the data set.
+- Explore the data set and its structure.
+- What are the observations?
+- What types of variables are there? 
+- Create a plot showing distribution of cup heights (`H`).
+- Create a boxplot for cup heights divided by phases (`Phase`).
+- Are there any outliers?
+- Count correlation between cup height (`H`) and rim diameter (`RD`).
+- Create a plot showing relationship between cup height and its rim diameter.
+- Color cups from different phases (`Phase`) by differently.
+- Describe the relationship, add a linear model to the plot.
+- Label the axes sensibly.
+:::
+:::
+::: {.column width=20%}
+::: {.fragment}
+{{< bi lightbulb >}} Hints:  
+`read.csv()`,  
+`str()`,  
+`colnames()`,  
+`summary()`,  
+`cor()`,  
+`ggplot() +`  
+`  aes() + `  
+`  geom_* + `
+`  stat_*`
+:::
+:::
+::::
