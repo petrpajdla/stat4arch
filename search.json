@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n\n\n\n5.\n20. 3.\nReproducibility\n\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n\n\n\n8.\n10. 4.\nConsidering time\n\n\n\n-\n17. 4.\nReading week\n\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nPractice\n\n\n\n11.\n22. 5."
+    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset\n\n\n5.\n20. 3.\nReproducibility\n\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n\n\n\n8.\n10. 4.\nConsidering time\n\n\n\n-\n17. 4.\nReading week\n\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nPractice\n\n\n\n11.\n22. 5."
   },
   {
     "objectID": "index.html",
@@ -61,6 +61,834 @@
     "title": "Title of your project",
     "section": "Multivariate exploration",
     "text": "Multivariate exploration\n\nWill be added…"
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#objectives",
+    "href": "lect/w02/intro2r.html#objectives",
+    "title": "Coding in R",
+    "section": "Objectives",
+    "text": "Objectives\n\nToday’s goals…\n\nNotion of functions vs. objects.\nIntro on R data types (ie. what types of things are there).\nIntro on R types of objects (ie. how things are represented).\nSubsetting data frames.\nReading data into R.",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#r-is-a-smart-calculator",
+    "href": "lect/w02/intro2r.html#r-is-a-smart-calculator",
+    "title": "Coding in R",
+    "section": "R is a smart calculator…",
+    "text": "R is a smart calculator…\n\n\n\n\n2 + 40\n\n[1] 42\n\n\n\n\n\n5^2\n\n[1] 25\n\n\n\n\n\nround(6.48^2)\n\n[1] 42\n\n\n\n\n\n5 &lt; 10\n\n[1] TRUE\n\n\n\n\n\nsqrt(1764)\n\n[1] 42\n\n\n\n\n\n8 * 10^10\n\n[1] 8e+10\n\n\n\n\n\n\nx &lt;- 1\n\n\n\n\nx\n\n[1] 1\n\n\n\n\n\ny &lt;- 41\n\n\n\n\nx + y\n\n[1] 42\n\n\n\n\n\nx &gt; y\n\n[1] FALSE\n\n\n\n\n\nz &lt;- x - y\n\n\n\n\nz\n\n[1] -40\n\n\n\n\n\n(x + y)^2\n\n[1] 1764",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#functions-and-objects",
+    "href": "lect/w02/intro2r.html#functions-and-objects",
+    "title": "Coding in R",
+    "section": "Functions and objects",
+    "text": "Functions and objects\n\n\n\nObjects\n\nAnything is an object.\nObjects contain data (etc.)\nObjects have names.\nYou choose the names.\nName your objects wisely.\n\n\n\nx &lt;- 1\nx\n\n[1] 1\n\n\n\n\n\npi \n\n[1] 3.141593\n\n\n\n\n\npi + 1\n\n[1] 4.141593\n\n\n\n\n&lt;- is an assignment operator\n(use Alt + - in RStudio to write it).\n\n\n\n\nFunctions\n\nEnd with parentheses function(arguments).\nArguments go in the parentheses.\nFunctions do something with the inputs you give them.\n\n\n\nsqrt(x = 1764)\n\n[1] 42\n\n\n\n\n\nargs(sqrt)\n\nfunction (x) \nNULL\n\n\n\n\n\nround(pi)\n\n[1] 3\n\n\n\n\n\nargs(round)\n\nfunction (x, digits = 0) \nNULL\n\n\n\n\n\nround(pi, digits = 2)\n\n[1] 3.14",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#types-of-objects",
+    "href": "lect/w02/intro2r.html#types-of-objects",
+    "title": "Coding in R",
+    "section": "Types of objects",
+    "text": "Types of objects\n\nVector\n\nBasic data structure.\nContains single data type.\nCreated using function c() (combine, concatenate)\n\n\n\nc(\"Fuu\", \"Bar\")\n\n[1] \"Fuu\" \"Bar\"\n\n\n\n\n\nx &lt;- c(1, 3, 5, 8)\nx\n\n[1] 1 3 5 8\n\n\n\n\n\nx^2\n\n[1]  1  9 25 64\n\n\n\n\n\nis.vector(x)\n\n[1] TRUE\n\n\n\n\n\nx &gt;= 4\n\n[1] FALSE FALSE  TRUE  TRUE\n\n\n\n\n\nlength(x)\n\n[1] 4",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#types-of-objects-1",
+    "href": "lect/w02/intro2r.html#types-of-objects-1",
+    "title": "Coding in R",
+    "section": "Types of objects",
+    "text": "Types of objects\n\nData frame & tibble\n\n\n\nA table.\nHas rows and columns.\nRectangular, ie. identical number of rows in each column.\n\n\n\ndfr\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\n\n\n\n\n\nis.data.frame(dfr)\n\n[1] TRUE\n\n\n\n\n\nncol(dfr)\n\n[1] 4\n\n\n\n\n\nnrow(dfr)\n\n[1] 4\n\n\n\n\n\nhead(dfr, n = 2)\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n\n\n\n\n\nSubsetting\n\n$ operator returns a single column.\n\n\n\ncolnames(dfr)\n\n[1] \"x\" \"y\" \"z\" \"w\"\n\n\n\n\n\ndfr$x\n\n[1] 95 96 97 98\n\n\n\n\n\ndfr$y\n\n[1] \"a\" \"b\" \"c\" \"d\"\n\n\n\n\n\ndfr$z\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\n\ndfr$w / 2\n\n[1] 2.1 2.2 2.3 2.4\n\n\n\n\n\ndfr$x - dfr$w\n\n[1] 90.8 91.6 92.4 93.2\n\n\n\n\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#data-types",
+    "href": "lect/w02/intro2r.html#data-types",
+    "title": "Coding in R",
+    "section": "Data types",
+    "text": "Data types\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8\n\n\n\n\n\nText strings\n\nCharacter data type, abbreviated as chr.\nWritten in quotation marks (double or single).\n\n\n\"I am a string.\"\n\n[1] \"I am a string.\"\n\nx &lt;- 'I am also a string'\nis.character(x)\n\n[1] TRUE\n\n\n\nFunctions with is. prefix:\nis.numeric(), is.double() etc.\n\n\n\n\nNumbers\n\nIntegers (whole numbers)\nDoubles (decimal numbers)\nNumeric (class for all numbers in general)\n\n\ndfr$x \n\n[1] 95 96 97 98\n\nis.numeric(dfr$x)\n\n[1] TRUE\n\ndfr$x + dfr$w\n\n[1]  99.2 100.4 101.6 102.8\n\nmean(dfr$x)\n\n[1] 96.5",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#data-types-1",
+    "href": "lect/w02/intro2r.html#data-types-1",
+    "title": "Coding in R",
+    "section": "Data types",
+    "text": "Data types\n\n\n\nDichotomies\n\nLogical data type.\nBinary/boolean values.\nAs TRUE and FALSE in R.\n\n\n\n\nSpecial values\n\nMissing values as NA, ie. not available.\nInf and -Inf for infinities.\nNULL for an object of a zero length.",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#reading-data-in-csv-into-r",
+    "href": "lect/w02/intro2r.html#reading-data-in-csv-into-r",
+    "title": "Coding in R",
+    "section": "Reading data in CSV into R",
+    "text": "Reading data in CSV into R\n\nComma separated values (CSV)\n\nPlain-text document.\nPractical exchange and preservation format for data sets.\nMost open and commercial softwares will allow export in CSV.\nAmericas: separated by commas (,), period (.) as a decimal mark.\nEurope: separated by semicolon (;), comma (,) as a decimal mark.\n\n\n\n\nReading CSV into R\nComma separated:\nread.csv(file = \"path\")\nSemicolon separated:\nread.csv2(file = \"path\")\nOther delimiter:\nread.table(file = \"path\", sep = \"separator\")",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#practice",
+    "href": "lect/w02/intro2r.html#practice",
+    "title": "Coding in R",
+    "section": "Practice",
+    "text": "Practice\n\nDart points\n\nAdapted from Carlson 2011",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#dart-points-1",
+    "href": "lect/w02/intro2r.html#dart-points-1",
+    "title": "Coding in R",
+    "section": "Dart points",
+    "text": "Dart points\n\n\n\n\n\nScatter plot of dart points\n\n\n\nMeasurements on five types of dart points from Fort Hood in central Texas (Darl, Ensor, Pedernales, Travis, and Wells). The points were recovered during 10 different pedestrian survey projects during the 1980’s and were classified and measured by H. Blaine Ensor…",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/intro2r.html#exercise",
+    "href": "lect/w02/intro2r.html#exercise",
+    "title": "Coding in R",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kind of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\ndownload.file(url, \"./dartpoints.csv\")\ndarts &lt;- read.csv(\"./dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)",
+    "crumbs": [
+      "Coding in R"
+    ]
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#reflection-on-the-last-week",
+    "href": "lect/w02/slides_intro2r.html#reflection-on-the-last-week",
+    "title": "Coding in R",
+    "section": "Reflection on the last week",
+    "text": "Reflection on the last week\nTidy data principles\nReadings"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#objectives",
+    "href": "lect/w02/slides_intro2r.html#objectives",
+    "title": "Coding in R",
+    "section": "Objectives",
+    "text": "Objectives\n\nToday’s goals…\n\nNotion of functions vs. objects.\nIntro on R data types (ie. what types of things are there).\nIntro on R types of objects (ie. how things are represented).\nSubsetting data frames.\nReading data into R."
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#r-is-a-smart-calculator",
+    "href": "lect/w02/slides_intro2r.html#r-is-a-smart-calculator",
+    "title": "Coding in R",
+    "section": "R is a smart calculator…",
+    "text": "R is a smart calculator…\n\n\n\n\n2 + 40\n\n[1] 42\n\n\n\n\n\n5^2\n\n[1] 25\n\n\n\n\n\nround(6.48^2)\n\n[1] 42\n\n\n\n\n\n5 &lt; 10\n\n[1] TRUE\n\n\n\n\n\nsqrt(1764)\n\n[1] 42\n\n\n\n\n\n8 * 10^10\n\n[1] 8e+10\n\n\n\n\n\n\nx &lt;- 1\n\n\n\n\nx\n\n[1] 1\n\n\n\n\n\ny &lt;- 41\n\n\n\n\nx + y\n\n[1] 42\n\n\n\n\n\nx &gt; y\n\n[1] FALSE\n\n\n\n\n\nz &lt;- x - y\n\n\n\n\nz\n\n[1] -40\n\n\n\n\n\n(x + y)^2\n\n[1] 1764"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#functions-and-objects",
+    "href": "lect/w02/slides_intro2r.html#functions-and-objects",
+    "title": "Coding in R",
+    "section": "Functions and objects",
+    "text": "Functions and objects\n\n\nObjects\n\nAnything is an object.\nObjects contain data (etc.)\nObjects have names.\nYou choose the names.\nName your objects wisely.\n\n\n\nx &lt;- 1\nx\n\n[1] 1\n\n\n\n\n\npi \n\n[1] 3.141593\n\n\n\n\n\npi + 1\n\n[1] 4.141593\n\n\n\n\n&lt;- is an assignment operator\n(use Alt + - in RStudio to write it).\n\n\n\nFunctions\n\nEnd with parentheses function(arguments).\nArguments go in the parentheses.\nFunctions do something with the inputs you give them.\n\n\n\nsqrt(x = 1764)\n\n[1] 42\n\n\n\n\n\nargs(sqrt)\n\nfunction (x) \nNULL\n\n\n\n\n\nround(pi)\n\n[1] 3\n\n\n\n\n\nargs(round)\n\nfunction (x, digits = 0) \nNULL\n\n\n\n\n\nround(pi, digits = 2)\n\n[1] 3.14"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#types-of-objects",
+    "href": "lect/w02/slides_intro2r.html#types-of-objects",
+    "title": "Coding in R",
+    "section": "Types of objects",
+    "text": "Types of objects\nVector\n\nBasic data structure.\nContains single data type.\nCreated using function c() (combine, concatenate)\n\n\n\nc(\"Fuu\", \"Bar\")\n\n[1] \"Fuu\" \"Bar\"\n\n\n\n\n\nx &lt;- c(1, 3, 5, 8)\nx\n\n[1] 1 3 5 8\n\n\n\n\n\nx^2\n\n[1]  1  9 25 64\n\n\n\n\n\nis.vector(x)\n\n[1] TRUE\n\n\n\n\n\nx &gt;= 4\n\n[1] FALSE FALSE  TRUE  TRUE\n\n\n\n\n\nlength(x)\n\n[1] 4"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#types-of-objects-1",
+    "href": "lect/w02/slides_intro2r.html#types-of-objects-1",
+    "title": "Coding in R",
+    "section": "Types of objects",
+    "text": "Types of objects\nData frame & tibble\n\n\n\nA table.\nHas rows and columns.\nRectangular, ie. identical number of rows in each column.\n\n\n\ndfr\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\n\n\n\n\n\nis.data.frame(dfr)\n\n[1] TRUE\n\n\n\n\n\nncol(dfr)\n\n[1] 4\n\n\n\n\n\nnrow(dfr)\n\n[1] 4\n\n\n\n\n\nhead(dfr, n = 2)\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n\n\n\n\n\nSubsetting\n\n$ operator returns a single column.\n\n\n\ncolnames(dfr)\n\n[1] \"x\" \"y\" \"z\" \"w\"\n\n\n\n\n\ndfr$x\n\n[1] 95 96 97 98\n\n\n\n\n\ndfr$y\n\n[1] \"a\" \"b\" \"c\" \"d\"\n\n\n\n\n\ndfr$z\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\n\ndfr$w / 2\n\n[1] 2.1 2.2 2.3 2.4\n\n\n\n\n\ndfr$x - dfr$w\n\n[1] 90.8 91.6 92.4 93.2\n\n\n\n\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#data-types",
+    "href": "lect/w02/slides_intro2r.html#data-types",
+    "title": "Coding in R",
+    "section": "Data types",
+    "text": "Data types\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8\n\n\n\n\n\nText strings\n\nCharacter data type, abbreviated as chr.\nWritten in quotation marks (double or single).\n\n\n\"I am a string.\"\n\n[1] \"I am a string.\"\n\nx &lt;- 'I am also a string'\nis.character(x)\n\n[1] TRUE\n\n\n\nFunctions with is. prefix:\nis.numeric(), is.double() etc.\n\n\n\nNumbers\n\nIntegers (whole numbers)\nDoubles (decimal numbers)\nNumeric (class for all numbers in general)\n\n\ndfr$x \n\n[1] 95 96 97 98\n\nis.numeric(dfr$x)\n\n[1] TRUE\n\ndfr$x + dfr$w\n\n[1]  99.2 100.4 101.6 102.8\n\nmean(dfr$x)\n\n[1] 96.5"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#data-types-1",
+    "href": "lect/w02/slides_intro2r.html#data-types-1",
+    "title": "Coding in R",
+    "section": "Data types",
+    "text": "Data types\n\n\nDichotomies\n\nLogical data type.\nBinary/boolean values.\nAs TRUE and FALSE in R.\n\n\n\nSpecial values\n\nMissing values as NA, ie. not available.\nInf and -Inf for infinities.\nNULL for an object of a zero length."
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#reading-data-in-csv-into-r",
+    "href": "lect/w02/slides_intro2r.html#reading-data-in-csv-into-r",
+    "title": "Coding in R",
+    "section": "Reading data in CSV into R",
+    "text": "Reading data in CSV into R\nComma separated values (CSV)\n\nPlain-text document.\nPractical exchange and preservation format for data sets.\nMost open and commercial softwares will allow export in CSV.\nAmericas: separated by commas (,), period (.) as a decimal mark.\nEurope: separated by semicolon (;), comma (,) as a decimal mark.\n\n\n\nReading CSV into R\nComma separated:\nread.csv(file = \"path\")\nSemicolon separated:\nread.csv2(file = \"path\")\nOther delimiter:\nread.table(file = \"path\", sep = \"separator\")"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#practice",
+    "href": "lect/w02/slides_intro2r.html#practice",
+    "title": "Coding in R",
+    "section": "Practice",
+    "text": "Practice\nDart points\n\nAdapted from Carlson 2011"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#dart-points-1",
+    "href": "lect/w02/slides_intro2r.html#dart-points-1",
+    "title": "Coding in R",
+    "section": "Dart points",
+    "text": "Dart points\n\n\n\n\n\nScatter plot of dart points\n\n\n\nMeasurements on five types of dart points from Fort Hood in central Texas (Darl, Ensor, Pedernales, Travis, and Wells). The points were recovered during 10 different pedestrian survey projects during the 1980’s and were classified and measured by H. Blaine Ensor…"
+  },
+  {
+    "objectID": "lect/w02/slides_intro2r.html#exercise",
+    "href": "lect/w02/slides_intro2r.html#exercise",
+    "title": "Coding in R",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kind of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\ndownload.file(url, \"./dartpoints.csv\")\ndarts &lt;- read.csv(\"./dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)\n\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Coding in R"
+  },
+  {
+    "objectID": "lect/w01/tidy.html",
+    "href": "lect/w01/tidy.html",
+    "title": "Tidy data",
+    "section": "",
+    "text": "(Brainstorming)",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#what-is-a-database",
+    "href": "lect/w01/tidy.html#what-is-a-database",
+    "title": "Tidy data",
+    "section": "",
+    "text": "(Brainstorming)",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#relational-database---basic-terms",
+    "href": "lect/w01/tidy.html#relational-database---basic-terms",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#relational-database---basic-terms-1",
+    "href": "lect/w01/tidy.html#relational-database---basic-terms-1",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#tidy-data",
+    "href": "lect/w01/tidy.html#tidy-data",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#types-of-variables",
+    "href": "lect/w01/tidy.html#types-of-variables",
+    "title": "Tidy data",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\n\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#tidy-data-1",
+    "href": "lect/w01/tidy.html#tidy-data-1",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data\nWhat’s wrong?",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#basic-tidy-data-principles",
+    "href": "lect/w01/tidy.html#basic-tidy-data-principles",
+    "title": "Tidy data",
+    "section": "Basic tidy data principles",
+    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#assignments",
+    "href": "lect/w01/tidy.html#assignments",
+    "title": "Tidy data",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#what-is-a-database",
+    "href": "lect/w01/slides_tidy.html#what-is-a-database",
+    "title": "Tidy data",
+    "section": "What is a database?",
+    "text": "What is a database?\n(Brainstorming)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#relational-database---basic-terms",
+    "href": "lect/w01/slides_tidy.html#relational-database---basic-terms",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#relational-database---basic-terms-1",
+    "href": "lect/w01/slides_tidy.html#relational-database---basic-terms-1",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#tidy-data",
+    "href": "lect/w01/slides_tidy.html#tidy-data",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#types-of-variables",
+    "href": "lect/w01/slides_tidy.html#types-of-variables",
+    "title": "Tidy data",
+    "section": "Types of variables",
+    "text": "Types of variables\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#tidy-data-1",
+    "href": "lect/w01/slides_tidy.html#tidy-data-1",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data\nWhat’s wrong?"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#basic-tidy-data-principles",
+    "href": "lect/w01/slides_tidy.html#basic-tidy-data-principles",
+    "title": "Tidy data",
+    "section": "Basic tidy data principles",
+    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#assignments",
+    "href": "lect/w01/slides_tidy.html#assignments",
+    "title": "Tidy data",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Tidy data"
+  },
+  {
+    "objectID": "kit.html",
+    "href": "kit.html",
+    "title": "Survival kit",
+    "section": "",
+    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
+  },
+  {
+    "objectID": "kit.html#special-characters",
+    "href": "kit.html#special-characters",
+    "title": "Survival kit",
+    "section": "",
+    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
+  },
+  {
+    "objectID": "kit.html#rstudio-shortcuts",
+    "href": "kit.html#rstudio-shortcuts",
+    "title": "Survival kit",
+    "section": "RStudio shortcuts",
+    "text": "RStudio shortcuts\n\n\n\nSign/Action\nShortcut\n\n\n\n\n-&gt;\nCtrl + Alt + -\n\n\n%&gt;%\nCtrl + Shift + m\n\n\nrun selected row\nCtrl + Enter\n\n\nrun whole script\nCtrl + Shift + Enter"
+  },
+  {
+    "objectID": "kit.html#function-reference",
+    "href": "kit.html#function-reference",
+    "title": "Survival kit",
+    "section": "Function reference",
+    "text": "Function reference\ncode description\n\nBasics\ninstall.packages(\"packagename\") installs a package\nlibrary(packagename) attaches a package from a library\nGetting help on anything:\n?function\nhelp(function)\nLookign at data:\nhead(x) and tail(x)\nView(x)\n\n\nSummary functions\nmean(x) returns mean meadian(x) returns median\n\n\nData manipulation with dplyr\nload package library(dplyr)\n%&gt;% pipe operator, x %&gt;% f() equals f(x), allows chaining functions in a pipeline\n(in newer versions of R, there is a native pipe operator |&gt;)\ncount(data) count how many observations there are in a data frame\nsummarise(data,...) applies summary functions to a data frame\ngroup_by(data, x) group data by values in variable x\nChain this for example like this:\ndata %&gt;%\n  group_by(y) %&gt;% \n  summarise(prumer = mean(x),\n            median = median(x))\n\n\nPlotting with ggplot2\nLoad package library(ggplot2).\nAlert: in ggplot2, individual pieces of code are chained using +!\nggplot() basic function call for each plot\naes(x, y, color, fill...) aesthetics\n\nGeometries\ngeom_histogram() produces histogram\ngeom_point() produces scatterplot\nCreate a plot like this:\ndata %&gt;%\n  ggplot() +\n  aes(x) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#basic-information",
+    "href": "lect/w01/slides_intro.html#basic-information",
+    "title": "Course introduction",
+    "section": "Basic information",
+    "text": "Basic information\n\nLectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\nSchedule\nSee details here…"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#lecturers",
+    "href": "lect/w01/slides_intro.html#lecturers",
+    "title": "Course introduction",
+    "section": "Lecturers",
+    "text": "Lecturers\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#and-what-about-you",
+    "href": "lect/w01/slides_intro.html#and-what-about-you",
+    "title": "Course introduction",
+    "section": "And what about you?",
+    "text": "And what about you?"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#objectives",
+    "href": "lect/w01/slides_intro.html#objectives",
+    "title": "Course introduction",
+    "section": "Objectives",
+    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#prerequisites",
+    "href": "lect/w01/slides_intro.html#prerequisites",
+    "title": "Course introduction",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#projects",
+    "href": "lect/w01/slides_intro.html#projects",
+    "title": "Course introduction",
+    "section": "Projects",
+    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#resources",
+    "href": "lect/w01/slides_intro.html#resources",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#resources-1",
+    "href": "lect/w01/slides_intro.html#resources-1",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\nLearning R\n \n\nSee section Resources for more details…\nBooks available online."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#why-maths-in-archaeology",
+    "href": "lect/w01/slides_intro.html#why-maths-in-archaeology",
+    "title": "Course introduction",
+    "section": "Why maths in archaeology?",
+    "text": "Why maths in archaeology?\nBrainstorming"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#assignments",
+    "href": "lect/w01/slides_intro.html#assignments",
+    "title": "Course introduction",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Introduction"
+  },
+  {
+    "objectID": "lect/w01/intro.html",
+    "href": "lect/w01/intro.html",
+    "title": "Course introduction",
+    "section": "",
+    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#basic-information",
+    "href": "lect/w01/intro.html#basic-information",
+    "title": "Course introduction",
+    "section": "",
+    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#lecturers",
+    "href": "lect/w01/intro.html#lecturers",
+    "title": "Course introduction",
+    "section": "Lecturers",
+    "text": "Lecturers\n\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#and-what-about-you",
+    "href": "lect/w01/intro.html#and-what-about-you",
+    "title": "Course introduction",
+    "section": "And what about you?",
+    "text": "And what about you?",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#objectives",
+    "href": "lect/w01/intro.html#objectives",
+    "title": "Course introduction",
+    "section": "Objectives",
+    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment.",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#prerequisites",
+    "href": "lect/w01/intro.html#prerequisites",
+    "title": "Course introduction",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#projects",
+    "href": "lect/w01/intro.html#projects",
+    "title": "Course introduction",
+    "section": "Projects",
+    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here.",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#resources",
+    "href": "lect/w01/intro.html#resources",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\n\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials.",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#resources-1",
+    "href": "lect/w01/intro.html#resources-1",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\n\nLearning R\n \n\nSee section Resources for more details…\nBooks available online.",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#why-maths-in-archaeology",
+    "href": "lect/w01/intro.html#why-maths-in-archaeology",
+    "title": "Course introduction",
+    "section": "Why maths in archaeology?",
+    "text": "Why maths in archaeology?\nBrainstorming",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/intro.html#assignments",
+    "href": "lect/w01/intro.html#assignments",
+    "title": "Course introduction",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.",
+    "crumbs": [
+      "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#reflection-on-the-last-week",
+    "href": "lect/w03/slides_distribs.html#reflection-on-the-last-week",
+    "title": "Summaries and visualization of distributions",
+    "section": "Reflection on the last week",
+    "text": "Reflection on the last week"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#objectives",
+    "href": "lect/w03/slides_distribs.html#objectives",
+    "title": "Summaries and visualization of distributions",
+    "section": "Objectives",
+    "text": "Objectives\nAt the end of the lecture, you will know how to..\n\n\nOrganize your code in scripts.\nOrganize your work in projects.\nCount and interpret descriptive statics characterizing central tendency of a numeric variable.\nDescribe spread of a numeric variable.\nRead plots for one variable.\nCreate plots displaying one variable in ggplot2 package.\nUnderstand what type of variation occurs within your variables."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#organize-your-work-in-scripts",
+    "href": "lect/w03/slides_distribs.html#organize-your-work-in-scripts",
+    "title": "Summaries and visualization of distributions",
+    "section": "Organize your work in scripts",
+    "text": "Organize your work in scripts\n\n\n\n\ndartpoints.r\n\n# Analysis of dartpoints data set\n# 6. 3. 2024\n\nlibrary(ggplot2)\n\n# data -------------------------------\n# read data from CSV\n# url: https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\ndartpoints &lt;- read.csv(\"dartpoints2.csv\")\n\n# structure --------------------------\ncolnames(dartpoints)\nnrow(dartpoints)\nncol(dartpoints)\nstr(dartpoints)\n\nmean(dartpoints$Length)\n\n# plots ------------------------------\nggplot(data = dartpoints) +\n  aes(x = Length) +\n  geom_histogram() +\n  labs(x = \"Length (cm)\", y = \"Count\")\n  \n  \n  \n\n\nIn RStudio…\n\nCreate a new script with Ctrl + Shift + n\nPut some basic info on what are you doing at the top.\nUse comments # (Ctrl + Shift + c) to write notes.\nComment on the why, not the what.\nDivide the code into sections with Ctrl + Shift + r\n# Section name ----\nLoad the packages you use at the top of the script.\nRStudio will give you hints, hit Tab to autocomplete function calls.\nExecute the current line with Ctr + Enter\nSource the whole script with Ctrl + Shift + Enter"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#organize-your-work-in-projects",
+    "href": "lect/w03/slides_distribs.html#organize-your-work-in-projects",
+    "title": "Summaries and visualization of distributions",
+    "section": "Organize your work in projects",
+    "text": "Organize your work in projects\n\n\n\nEach project is in a separate directory.\nThere are subdirectories for different parts of the project.\n\nMyProject/\n  code/\n    script1.R\n    script2.R\n  data/\n    dartpoints.csv\n  plots/\n    plot1.png\n    plot2.pdf\n  MyProject.Rproj\n\nIn RStudio go to Files &gt; New Project\n\n\n\n\nPaths\n\nAbsolute file path\nThe file path is specific to a given user.\nC:/Documents/MyProject/data/dartpoints.csv\n\n\nRelative file path\nIf I am currently in MyProject/ folder:\n./data/dartpoints.csv\n\n\nPackage here is here to save the day!\n\nDo not forget to install the package first.\nLoad it at the top of your script.\n\n\n# install.packages(\"here\")\nlibrary(here)\n\n\nFunction here() will know where the top directory is.\n\n\n# read data ----\ndartpoints &lt;- read_csv(here(\"data/dartpoints.csv\"))"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#descriptive-statistics",
+    "href": "lect/w03/slides_distribs.html#descriptive-statistics",
+    "title": "Summaries and visualization of distributions",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#characterizing-centrality",
+    "href": "lect/w03/slides_distribs.html#characterizing-centrality",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing centrality",
+    "text": "Characterizing centrality\nMean (průměr)\nmean(x)\n\\[ \\overline{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{1}{n} (\\sum^n_{i=1}x_i) \\]\n\n\nMedian (medián)\nmedian(x)\n- Robust, minimizes influence of outliers.\n\n\n\nWhat are outliers? (odlehlé hodnoty)\n\nOutliers are data points that significantly differ from other observations.\nMay indicate a measurement error, an exceptional observation, etc."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#characterizing-centrality-1",
+    "href": "lect/w03/slides_distribs.html#characterizing-centrality-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing centrality",
+    "text": "Characterizing centrality\n\nVarious plots of a normal distribution"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread",
+    "href": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing dispersion and/or spread",
+    "text": "Characterizing dispersion and/or spread\nRange (rozpětí)\nmax(x) - min(x) or range(x)\n\n\nVariance and Standard deviation (rozptyl a směrodatná odchylka)\nsd(x)\n\\[ \\sigma = \\sqrt{s^2} = \\sqrt{\\frac{\\sum(x_i-\\overline{x})^2}{n-1}} \\]\n\n\n\nInterquartile range (midspread, IQR, kvantil, mezikvartilové rozpětí)\nIQR(x)\n- Robust, minimizes influence of outliers."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread-1",
+    "href": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Characterizing dispersion and/or spread",
+    "text": "Characterizing dispersion and/or spread\n\nVarious plots of a normal distribution"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#exercise",
+    "href": "lect/w03/slides_distribs.html#exercise",
+    "title": "Summaries and visualization of distributions",
+    "section": "Exercise",
+    "text": "Exercise\n\n\nStart RStudio.\nCreate a new project, save it somewhere you can find it.\nUse dataset  dartpoints2.csv.\nSave it in your project directory.\nLoad the data from the CSV file.\n What is the column separator?\n How are NAs represented?\nExplore the dataset.\nCount mean and median weight, how do they differ?\nWhat is the range of the weights?\nWhat is the standard deviation of weights? What does it mean?\nCount the IQR. Compare it with standard deviation.\n Hints: read.csv2(path, na.strings), str(), colnames(), mean(), median(), range(), sd(), IQR(), summary()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#solution",
+    "href": "lect/w03/slides_distribs.html#solution",
+    "title": "Summaries and visualization of distributions",
+    "section": "Solution",
+    "text": "Solution\n\n# dartpoints &lt;- read.csv2(here::here(\"dartpoints2.csv\"), na.strings = \"-\")\ncolnames(dartpoints)\n\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\ndartpoints$Weight\n\n [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5\n[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4\n[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9\n[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4\n[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9\n[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2\n[91] 16.3\n\nmean(dartpoints$Weight)\n\n[1] 7.642857\n\nmedian(dartpoints$Weight)\n\n[1] 6.8\n\nmax(dartpoints$Weight) - min(dartpoints$Weight) # or range(dartpoints$Weight)\n\n[1] 26.5\n\nsd(dartpoints$Weight)\n\n[1] 4.207088\n\nIQR(dartpoints$Weight)\n\n[1] 5.5\n\nsummary(dartpoints$Weight)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  2.300   4.550   6.800   7.643  10.050  28.800"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#brainstorming",
+    "href": "lect/w03/slides_distribs.html#brainstorming",
+    "title": "Summaries and visualization of distributions",
+    "section": "Brainstorming",
+    "text": "Brainstorming\n\nWhy do we visualize data?\nWhat elements does a good graph contain?\nHow are these elements called?\n\n\nBoxplots from Carlson 2017"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#plots-for-one-variable",
+    "href": "lect/w03/slides_distribs.html#plots-for-one-variable",
+    "title": "Summaries and visualization of distributions",
+    "section": "Plots for one variable",
+    "text": "Plots for one variable"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram",
+    "href": "lect/w03/slides_distribs.html#histogram",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram-1",
+    "href": "lect/w03/slides_distribs.html#histogram-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights, one column (bin) equals 2 g."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot",
+    "href": "lect/w03/slides_distribs.html#density-plot",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot-1",
+    "href": "lect/w03/slides_distribs.html#density-plot-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\nDistribution of values of a quantitative variable, great for comparisons.\n\nDistribution of different types of dart points by weight."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#bar-chart",
+    "href": "lect/w03/slides_distribs.html#bar-chart",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\nDistribution of values of a qualitative variable.\n\nDistribution of types of dart points."
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#plots-in-ggplot2-package",
+    "href": "lect/w03/slides_distribs.html#plots-in-ggplot2-package",
+    "title": "Summaries and visualization of distributions",
+    "section": "Plots in ggplot2 package",
+    "text": "Plots in ggplot2 package\n\n1install.packages(\"ggplot2\")\n\n2library(ggplot2)\n\n3ggplot(data = &lt;your data frame&gt;) +\n4  aes(x = &lt;variable to be mapped to axis x&gt;) +\n5  geom_&lt;geometry&gt;()\n\n\n1\n\nInstall the package ggplot2, do this only once.\n\n\n2\n\nLoad the package from the library of installed packages, do this for every new script.\n(Calls to library() function are usually written at the top of the script.)\n\n\n3\n\nFunction ggplot() takes the data frame as an argument.\n\n\n4\n\nFunction aes() serves to map aesthetics (axis x and y, colors etc.) to different variables from your data frame.\n\n\n5\n\nFunctons with geom_ prefix are geometries, ie. types of plots to draw.\n\n\n\n\n\nGeoms for one variable:\n\ngeom_histogram()\ngeom_density()\ngeom_bar()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2",
+    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints)"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2-1",
+    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints) +\n  aes(x = Name)"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2-2",
+    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Layers of ggplot2",
+    "text": "Layers of ggplot2\n\nggplot(data = dartpoints) +\n  aes(x = Name) +\n  geom_bar()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#bar-chart-1",
+    "href": "lect/w03/slides_distribs.html#bar-chart-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\nggplot(data = dartpoints) +\n  aes(x = Name) + \n  geom_bar()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#bar-chart-2",
+    "href": "lect/w03/slides_distribs.html#bar-chart-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\nggplot(data = dartpoints) +\n  aes(x = Name, color = Name) + \n  geom_bar()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#bar-chart-3",
+    "href": "lect/w03/slides_distribs.html#bar-chart-3",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\nggplot(data = dartpoints) +\n  aes(x = Name, color = Name, fill = Name) + \n  geom_bar()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#bar-chart-4",
+    "href": "lect/w03/slides_distribs.html#bar-chart-4",
+    "title": "Summaries and visualization of distributions",
+    "section": "Bar chart",
+    "text": "Bar chart\n\nggplot(data = dartpoints) + \n  aes(x = Name, fill = Name) + \n  geom_bar(color = \"black\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram-2",
+    "href": "lect/w03/slides_distribs.html#histogram-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram-3",
+    "href": "lect/w03/slides_distribs.html#histogram-3",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5)"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram-4",
+    "href": "lect/w03/slides_distribs.html#histogram-4",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#histogram-5",
+    "href": "lect/w03/slides_distribs.html#histogram-5",
+    "title": "Summaries and visualization of distributions",
+    "section": "Histogram",
+    "text": "Histogram\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot-2",
+    "href": "lect/w03/slides_distribs.html#density-plot-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\nggplot(dartpoints) +\n  aes(x = Length) + \n  geom_density()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot-3",
+    "href": "lect/w03/slides_distribs.html#density-plot-3",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\nggplot(dartpoints) +\n  aes(x = Length, color = Name) + \n  geom_density()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot-4",
+    "href": "lect/w03/slides_distribs.html#density-plot-4",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\nggplot(dartpoints) +\n  aes(x = Length, color = Name, fill = Name) + \n  geom_density()"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#density-plot-5",
+    "href": "lect/w03/slides_distribs.html#density-plot-5",
+    "title": "Summaries and visualization of distributions",
+    "section": "Density plot",
+    "text": "Density plot\n\nggplot(dartpoints) + \n  aes(x = Length, color = Name, fill = Name) + \n  geom_density(alpha = 0.4)"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#labels",
+    "href": "lect/w03/slides_distribs.html#labels",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#labels-1",
+    "href": "lect/w03/slides_distribs.html#labels-1",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#labels-2",
+    "href": "lect/w03/slides_distribs.html#labels-2",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\",\n       title = \"Histogram of dart point lengths\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#labels-3",
+    "href": "lect/w03/slides_distribs.html#labels-3",
+    "title": "Summaries and visualization of distributions",
+    "section": "Labels",
+    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\",\n       title = \"Histogram of dart point lengths\", \n       caption = \"Data adapted from archdata R package, Carlson 2017\")"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#exercises",
+    "href": "lect/w03/slides_distribs.html#exercises",
+    "title": "Summaries and visualization of distributions",
+    "section": "Exercises",
+    "text": "Exercises"
+  },
+  {
+    "objectID": "lect/w03/slides_distribs.html#assignments",
+    "href": "lect/w03/slides_distribs.html#assignments",
+    "title": "Summaries and visualization of distributions",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead Make a plot chapter in Data Visualization book by K. J. Healy.\n\nOptional\n\nGo through Visualize data tutorials here.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Distributions"
   },
   {
     "objectID": "lect/w03/distribs.html#objectives",
@@ -453,831 +1281,384 @@
     ]
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#reflection-on-the-last-week",
-    "href": "lect/w03/slides_distribs.html#reflection-on-the-last-week",
-    "title": "Summaries and visualization of distributions",
-    "section": "Reflection on the last week",
-    "text": "Reflection on the last week"
+    "objectID": "lect/w04/slides_rels.html#reflection-on-the-last-lecture",
+    "href": "lect/w04/slides_rels.html#reflection-on-the-last-lecture",
+    "title": "Summaries and visualization of relationships",
+    "section": "Reflection on the last lecture",
+    "text": "Reflection on the last lecture"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#objectives",
-    "href": "lect/w03/slides_distribs.html#objectives",
-    "title": "Summaries and visualization of distributions",
+    "objectID": "lect/w04/slides_rels.html#objectives",
+    "href": "lect/w04/slides_rels.html#objectives",
+    "title": "Summaries and visualization of relationships",
     "section": "Objectives",
-    "text": "Objectives\nAt the end of the lecture, you will know how to..\n\n\nOrganize your code in scripts.\nOrganize your work in projects.\nCount and interpret descriptive statics characterizing central tendency of a numeric variable.\nDescribe spread of a numeric variable.\nRead plots for one variable.\nCreate plots displaying one variable in ggplot2 package.\nUnderstand what type of variation occurs within your variables."
+    "text": "Objectives\nAt the end of the lecture, you will know how to…\n\n\nDescribe relationship of quantitative and qualitative variable.\nCreate and read box plots and violin plots.\n\nUnderstand relationship of two quantitative variables.\nCount and interpret correlation.\nCreate and understand scatterplots.\nAssess what relationship (covariation) occurs between your variables."
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#organize-your-work-in-scripts",
-    "href": "lect/w03/slides_distribs.html#organize-your-work-in-scripts",
-    "title": "Summaries and visualization of distributions",
-    "section": "Organize your work in scripts",
-    "text": "Organize your work in scripts\n\n\n\n\ndartpoints.r\n\n# Analysis of dartpoints data set\n# 6. 3. 2024\n\nlibrary(ggplot2)\n\n# data -------------------------------\n# read data from CSV\n# url: https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\ndartpoints &lt;- read.csv(\"dartpoints2.csv\")\n\n# structure --------------------------\ncolnames(dartpoints)\nnrow(dartpoints)\nncol(dartpoints)\nstr(dartpoints)\n\nmean(dartpoints$Length)\n\n# plots ------------------------------\nggplot(data = dartpoints) +\n  aes(x = Length) +\n  geom_histogram() +\n  labs(x = \"Length (cm)\", y = \"Count\")\n  \n  \n  \n\n\nIn RStudio…\n\nCreate a new script with Ctrl + Shift + n\nPut some basic info on what are you doing at the top.\nUse comments # (Ctrl + Shift + c) to write notes.\nComment on the why, not the what.\nDivide the code into sections with Ctrl + Shift + r\n# Section name ----\nLoad the packages you use at the top of the script.\nRStudio will give you hints, hit Tab to autocomplete function calls.\nExecute the current line with Ctr + Enter\nSource the whole script with Ctrl + Shift + Enter"
+    "objectID": "lect/w04/slides_rels.html#relationship-of-quantitative-and-qualitative-variables",
+    "href": "lect/w04/slides_rels.html#relationship-of-quantitative-and-qualitative-variables",
+    "title": "Summaries and visualization of relationships",
+    "section": "Relationship of quantitative and qualitative variables",
+    "text": "Relationship of quantitative and qualitative variables"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#organize-your-work-in-projects",
-    "href": "lect/w03/slides_distribs.html#organize-your-work-in-projects",
-    "title": "Summaries and visualization of distributions",
-    "section": "Organize your work in projects",
-    "text": "Organize your work in projects\n\n\n\nEach project is in a separate directory.\nThere are subdirectories for different parts of the project.\n\nMyProject/\n  code/\n    script1.R\n    script2.R\n  data/\n    dartpoints.csv\n  plots/\n    plot1.png\n    plot2.pdf\n  MyProject.Rproj\n\nIn RStudio go to Files &gt; New Project\n\n\n\n\nPaths\n\nAbsolute file path\nThe file path is specific to a given user.\nC:/Documents/MyProject/data/dartpoints.csv\n\n\nRelative file path\nIf I am currently in MyProject/ folder:\n./data/dartpoints.csv\n\n\nPackage here is here to save the day!\n\nDo not forget to install the package first.\nLoad it at the top of your script.\n\n\n# install.packages(\"here\")\nlibrary(here)\n\n\nFunction here() will know where the top directory is.\n\n\n# read data ----\ndartpoints &lt;- read_csv(here(\"data/dartpoints.csv\"))"
+    "objectID": "lect/w04/slides_rels.html#boxplot",
+    "href": "lect/w04/slides_rels.html#boxplot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#descriptive-statistics",
-    "href": "lect/w03/slides_distribs.html#descriptive-statistics",
-    "title": "Summaries and visualization of distributions",
-    "section": "Descriptive Statistics",
-    "text": "Descriptive Statistics"
+    "objectID": "lect/w04/slides_rels.html#boxplot-1",
+    "href": "lect/w04/slides_rels.html#boxplot-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)\n  \ng + geom_boxplot()"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#characterizing-centrality",
-    "href": "lect/w03/slides_distribs.html#characterizing-centrality",
-    "title": "Summaries and visualization of distributions",
-    "section": "Characterizing centrality",
-    "text": "Characterizing centrality\nMean (průměr)\nmean(x)\n\\[ \\overline{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{1}{n} (\\sum^n_{i=1}x_i) \\]\n\n\nMedian (medián)\nmedian(x)\n- Robust, minimizes influence of outliers.\n\n\n\nWhat are outliers? (odlehlé hodnoty)\n\nOutliers are data points that significantly differ from other observations.\nMay indicate a measurement error, an exceptional observation, etc."
+    "objectID": "lect/w04/slides_rels.html#boxplot-2",
+    "href": "lect/w04/slides_rels.html#boxplot-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\nAlso box and whisker plot, displays five-number summary."
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#characterizing-centrality-1",
-    "href": "lect/w03/slides_distribs.html#characterizing-centrality-1",
-    "title": "Summaries and visualization of distributions",
-    "section": "Characterizing centrality",
-    "text": "Characterizing centrality\n\nVarious plots of a normal distribution"
+    "objectID": "lect/w04/slides_rels.html#violin-plot",
+    "href": "lect/w04/slides_rels.html#violin-plot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin()"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread",
-    "href": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread",
-    "title": "Summaries and visualization of distributions",
-    "section": "Characterizing dispersion and/or spread",
-    "text": "Characterizing dispersion and/or spread\nRange (rozpětí)\nmax(x) - min(x) or range(x)\n\n\nVariance and Standard deviation (rozptyl a směrodatná odchylka)\nsd(x)\n\\[ \\sigma = \\sqrt{s^2} = \\sqrt{\\frac{\\sum(x_i-\\overline{x})^2}{n-1}} \\]\n\n\n\nInterquartile range (midspread, IQR, kvantil, mezikvartilové rozpětí)\nIQR(x)\n- Robust, minimizes influence of outliers."
+    "objectID": "lect/w04/slides_rels.html#violin-plot-1",
+    "href": "lect/w04/slides_rels.html#violin-plot-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin() +\n  geom_jitter(width = 0.05, alpha = 0.4)"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread-1",
-    "href": "lect/w03/slides_distribs.html#characterizing-dispersion-andor-spread-1",
-    "title": "Summaries and visualization of distributions",
-    "section": "Characterizing dispersion and/or spread",
-    "text": "Characterizing dispersion and/or spread\n\nVarious plots of a normal distribution"
+    "objectID": "lect/w04/slides_rels.html#violin-plot-2",
+    "href": "lect/w04/slides_rels.html#violin-plot-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin() +\n  geom_boxplot(width = 0.15) +\n  geom_jitter(width = 0.05, alpha = 0.2)"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#exercise",
-    "href": "lect/w03/slides_distribs.html#exercise",
-    "title": "Summaries and visualization of distributions",
+    "objectID": "lect/w04/slides_rels.html#relationship-of-two-quantitative-variables",
+    "href": "lect/w04/slides_rels.html#relationship-of-two-quantitative-variables",
+    "title": "Summaries and visualization of relationships",
+    "section": "Relationship of two quantitative variables",
+    "text": "Relationship of two quantitative variables"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#correlation",
+    "href": "lect/w04/slides_rels.html#correlation",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation",
+    "text": "Correlation\n\n\n\n\nA statistic describing a relationship between two continuous variables.\nTo what degree is a variable y explained by x?\nCorrelation coefficient r, from -1 to +1.\nCorrelation does not imply causation!\nr = 1 – strong positive correlation\nr = 0.5 – moderately strong positive correlation\nr = 0 – variables are not correlated\nr = -0.2 – weak negative correlation\nr = -1 – strong negative correlation\n\n\n\n\nFunction cor()\n\ncor(dartpoints$Length, dartpoints$Width)\n\n[1] 0.7689932\n\ncor(dartpoints$Length, dartpoints$Weight)\n\n[1] 0.879953\n\ncor(dartpoints$Width, dartpoints$Thickness)\n\n[1] 0.5459291"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plot",
+    "href": "lect/w04/slides_rels.html#scatter-plot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nPlot displying two continuous variables, x and y.\nx axis: explanatory variable, independent, predictor.\ny axis: dependent variable, response.\n\n\nggplot(dartpoints) +\n  aes(x = Length, y = Weight) +\n  geom_point()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#correlation-examples",
+    "href": "lect/w04/slides_rels.html#correlation-examples",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation examples",
+    "text": "Correlation examples"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#correlation-examples-1",
+    "href": "lect/w04/slides_rels.html#correlation-examples-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation examples",
+    "text": "Correlation examples"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plots",
+    "href": "lect/w04/slides_rels.html#scatter-plots",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) +\n  geom_point()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plots-1",
+    "href": "lect/w04/slides_rels.html#scatter-plots-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5)"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plots-2",
+    "href": "lect/w04/slides_rels.html#scatter-plots-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plots-3",
+    "href": "lect/w04/slides_rels.html#scatter-plots-3",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, size = Width, color = Name) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#trends",
+    "href": "lect/w04/slides_rels.html#trends",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth() +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#trends-1",
+    "href": "lect/w04/slides_rels.html#trends-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\") +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#trends-2",
+    "href": "lect/w04/slides_rels.html#trends-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#small-multiples",
+    "href": "lect/w04/slides_rels.html#small-multiples",
+    "title": "Summaries and visualization of relationships",
+    "section": "Small multiples",
+    "text": "Small multiples\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw() +\n  facet_wrap(~Name)"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#exercise",
+    "href": "lect/w04/slides_rels.html#exercise",
+    "title": "Summaries and visualization of relationships",
     "section": "Exercise",
-    "text": "Exercise\n\n\nStart RStudio.\nCreate a new project, save it somewhere you can find it.\nUse dataset  dartpoints2.csv.\nSave it in your project directory.\nLoad the data from the CSV file.\n What is the column separator?\n How are NAs represented?\nExplore the dataset.\nCount mean and median weight, how do they differ?\nWhat is the range of the weights?\nWhat is the standard deviation of weights? What does it mean?\nCount the IQR. Compare it with standard deviation.\n Hints: read.csv2(path, na.strings), str(), colnames(), mean(), median(), range(), sd(), IQR(), summary()"
+    "text": "Exercise\n\n\n\n\nDownload data set with bronze age cups ( bacups.csv).\nCreate a project in RStudio and load the data set.\nExplore the data set and its structure.\nWhat are the observations?\nWhat types of variables are there?\nCreate a plot showing distribution of cup heights (H).\nCreate a boxplot for cup heights divided by phases (Phase).\nAre there any outliers?\nCount correlation between cup height (H) and rim diameter (RD).\nCreate a plot showing relationship between cup height and its rim diameter.\nColor cups from different phases (Phase) by differently.\nDescribe the relationship, add a linear model to the plot.\nLabel the axes sensibly.\n\n\n\n\n Hints:\nread.csv(),\nstr(),\ncolnames(),\nsummary(),\ncor(),\nggplot() +\naes() +\ngeom_* + stat_*\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Relationships"
   },
   {
-    "objectID": "lect/w03/slides_distribs.html#solution",
-    "href": "lect/w03/slides_distribs.html#solution",
-    "title": "Summaries and visualization of distributions",
-    "section": "Solution",
-    "text": "Solution\n\n# dartpoints &lt;- read.csv2(here::here(\"dartpoints2.csv\"), na.strings = \"-\")\ncolnames(dartpoints)\n\n [1] \"Name\"      \"Catalog\"   \"TARL\"      \"Quad\"      \"Length\"    \"Width\"    \n [7] \"Thickness\" \"B.Width\"   \"J.Width\"   \"H.Length\"  \"Weight\"    \"Blade.Sh\" \n[13] \"Base.Sh\"   \"Should.Sh\" \"Should.Or\" \"Haft.Sh\"   \"Haft.Or\"  \n\ndartpoints$Weight\n\n [1]  3.6  4.5  3.6  4.0  2.3  3.0  3.9  6.2  5.1  2.8  2.5  4.8  3.2  3.8  4.5\n[16]  4.4  2.5  2.3  4.2  3.3  3.6  7.4  5.6  4.8  7.8  9.2  6.2  4.3  4.6  5.4\n[31]  5.9  5.1  4.7  7.2  2.5  3.9  4.1  7.2 10.7 12.5 13.4 11.1  7.2 28.8 13.9\n[46]  9.4  5.3  7.9  7.3 12.2  9.3 11.1 14.8 10.7 11.1 12.3 13.1  6.1  9.2  9.4\n[61]  6.7 15.3 15.1  4.6  4.3 11.6 10.5  6.8  9.1  9.4  9.5 10.4  7.5  8.7  6.9\n[76] 15.0 11.4  6.3  7.5  5.9  5.4  9.5  5.4  7.1  9.7 12.6 10.5  5.6  4.9  5.2\n[91] 16.3\n\nmean(dartpoints$Weight)\n\n[1] 7.642857\n\nmedian(dartpoints$Weight)\n\n[1] 6.8\n\nmax(dartpoints$Weight) - min(dartpoints$Weight) # or range(dartpoints$Weight)\n\n[1] 26.5\n\nsd(dartpoints$Weight)\n\n[1] 4.207088\n\nIQR(dartpoints$Weight)\n\n[1] 5.5\n\nsummary(dartpoints$Weight)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  2.300   4.550   6.800   7.643  10.050  28.800"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#brainstorming",
-    "href": "lect/w03/slides_distribs.html#brainstorming",
-    "title": "Summaries and visualization of distributions",
-    "section": "Brainstorming",
-    "text": "Brainstorming\n\nWhy do we visualize data?\nWhat elements does a good graph contain?\nHow are these elements called?\n\n\nBoxplots from Carlson 2017"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#plots-for-one-variable",
-    "href": "lect/w03/slides_distribs.html#plots-for-one-variable",
-    "title": "Summaries and visualization of distributions",
-    "section": "Plots for one variable",
-    "text": "Plots for one variable"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#histogram",
-    "href": "lect/w03/slides_distribs.html#histogram",
-    "title": "Summaries and visualization of distributions",
-    "section": "Histogram",
-    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights."
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#histogram-1",
-    "href": "lect/w03/slides_distribs.html#histogram-1",
-    "title": "Summaries and visualization of distributions",
-    "section": "Histogram",
-    "text": "Histogram\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights, one column (bin) equals 2 g."
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#density-plot",
-    "href": "lect/w03/slides_distribs.html#density-plot",
-    "title": "Summaries and visualization of distributions",
-    "section": "Density plot",
-    "text": "Density plot\n\nDistribution of values of a quantitative variable.\n\nDistribution of dart point weights."
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#density-plot-1",
-    "href": "lect/w03/slides_distribs.html#density-plot-1",
-    "title": "Summaries and visualization of distributions",
-    "section": "Density plot",
-    "text": "Density plot\n\nDistribution of values of a quantitative variable, great for comparisons.\n\nDistribution of different types of dart points by weight."
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#bar-chart",
-    "href": "lect/w03/slides_distribs.html#bar-chart",
-    "title": "Summaries and visualization of distributions",
-    "section": "Bar chart",
-    "text": "Bar chart\n\nDistribution of values of a qualitative variable.\n\nDistribution of types of dart points."
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#plots-in-ggplot2-package",
-    "href": "lect/w03/slides_distribs.html#plots-in-ggplot2-package",
-    "title": "Summaries and visualization of distributions",
-    "section": "Plots in ggplot2 package",
-    "text": "Plots in ggplot2 package\n\n1install.packages(\"ggplot2\")\n\n2library(ggplot2)\n\n3ggplot(data = &lt;your data frame&gt;) +\n4  aes(x = &lt;variable to be mapped to axis x&gt;) +\n5  geom_&lt;geometry&gt;()\n\n\n1\n\nInstall the package ggplot2, do this only once.\n\n\n2\n\nLoad the package from the library of installed packages, do this for every new script.\n(Calls to library() function are usually written at the top of the script.)\n\n\n3\n\nFunction ggplot() takes the data frame as an argument.\n\n\n4\n\nFunction aes() serves to map aesthetics (axis x and y, colors etc.) to different variables from your data frame.\n\n\n5\n\nFunctons with geom_ prefix are geometries, ie. types of plots to draw.\n\n\n\n\n\nGeoms for one variable:\n\ngeom_histogram()\ngeom_density()\ngeom_bar()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2",
-    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2",
-    "title": "Summaries and visualization of distributions",
-    "section": "Layers of ggplot2",
-    "text": "Layers of ggplot2\n\nggplot(data = dartpoints)"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2-1",
-    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2-1",
-    "title": "Summaries and visualization of distributions",
-    "section": "Layers of ggplot2",
-    "text": "Layers of ggplot2\n\nggplot(data = dartpoints) +\n  aes(x = Name)"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#layers-of-ggplot2-2",
-    "href": "lect/w03/slides_distribs.html#layers-of-ggplot2-2",
-    "title": "Summaries and visualization of distributions",
-    "section": "Layers of ggplot2",
-    "text": "Layers of ggplot2\n\nggplot(data = dartpoints) +\n  aes(x = Name) +\n  geom_bar()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#bar-chart-1",
-    "href": "lect/w03/slides_distribs.html#bar-chart-1",
-    "title": "Summaries and visualization of distributions",
-    "section": "Bar chart",
-    "text": "Bar chart\n\nggplot(data = dartpoints) +\n  aes(x = Name) + \n  geom_bar()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#bar-chart-2",
-    "href": "lect/w03/slides_distribs.html#bar-chart-2",
-    "title": "Summaries and visualization of distributions",
-    "section": "Bar chart",
-    "text": "Bar chart\n\nggplot(data = dartpoints) +\n  aes(x = Name, color = Name) + \n  geom_bar()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#bar-chart-3",
-    "href": "lect/w03/slides_distribs.html#bar-chart-3",
-    "title": "Summaries and visualization of distributions",
-    "section": "Bar chart",
-    "text": "Bar chart\n\nggplot(data = dartpoints) +\n  aes(x = Name, color = Name, fill = Name) + \n  geom_bar()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#bar-chart-4",
-    "href": "lect/w03/slides_distribs.html#bar-chart-4",
-    "title": "Summaries and visualization of distributions",
-    "section": "Bar chart",
-    "text": "Bar chart\n\nggplot(data = dartpoints) + \n  aes(x = Name, fill = Name) + \n  geom_bar(color = \"black\")"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#histogram-2",
-    "href": "lect/w03/slides_distribs.html#histogram-2",
-    "title": "Summaries and visualization of distributions",
-    "section": "Histogram",
-    "text": "Histogram\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#histogram-3",
-    "href": "lect/w03/slides_distribs.html#histogram-3",
-    "title": "Summaries and visualization of distributions",
-    "section": "Histogram",
-    "text": "Histogram\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5)"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#histogram-4",
-    "href": "lect/w03/slides_distribs.html#histogram-4",
-    "title": "Summaries and visualization of distributions",
-    "section": "Histogram",
-    "text": "Histogram\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\")"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#histogram-5",
-    "href": "lect/w03/slides_distribs.html#histogram-5",
-    "title": "Summaries and visualization of distributions",
-    "section": "Histogram",
-    "text": "Histogram\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\")"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#density-plot-2",
-    "href": "lect/w03/slides_distribs.html#density-plot-2",
-    "title": "Summaries and visualization of distributions",
-    "section": "Density plot",
-    "text": "Density plot\n\nggplot(dartpoints) +\n  aes(x = Length) + \n  geom_density()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#density-plot-3",
-    "href": "lect/w03/slides_distribs.html#density-plot-3",
-    "title": "Summaries and visualization of distributions",
-    "section": "Density plot",
-    "text": "Density plot\n\nggplot(dartpoints) +\n  aes(x = Length, color = Name) + \n  geom_density()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#density-plot-4",
-    "href": "lect/w03/slides_distribs.html#density-plot-4",
-    "title": "Summaries and visualization of distributions",
-    "section": "Density plot",
-    "text": "Density plot\n\nggplot(dartpoints) +\n  aes(x = Length, color = Name, fill = Name) + \n  geom_density()"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#density-plot-5",
-    "href": "lect/w03/slides_distribs.html#density-plot-5",
-    "title": "Summaries and visualization of distributions",
-    "section": "Density plot",
-    "text": "Density plot\n\nggplot(dartpoints) + \n  aes(x = Length, color = Name, fill = Name) + \n  geom_density(alpha = 0.4)"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#labels",
-    "href": "lect/w03/slides_distribs.html#labels",
-    "title": "Summaries and visualization of distributions",
-    "section": "Labels",
-    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\")"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#labels-1",
-    "href": "lect/w03/slides_distribs.html#labels-1",
-    "title": "Summaries and visualization of distributions",
-    "section": "Labels",
-    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\")"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#labels-2",
-    "href": "lect/w03/slides_distribs.html#labels-2",
-    "title": "Summaries and visualization of distributions",
-    "section": "Labels",
-    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\",\n       title = \"Histogram of dart point lengths\")"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#labels-3",
-    "href": "lect/w03/slides_distribs.html#labels-3",
-    "title": "Summaries and visualization of distributions",
-    "section": "Labels",
-    "text": "Labels\n\nggplot(dartpoints) +\n  aes(x = Length) +\n  geom_histogram(binwidth = 5, color = \"black\", fill = \"white\") +\n  labs(x = \"Length (cm)\", y = \"Count\",\n       title = \"Histogram of dart point lengths\", \n       caption = \"Data adapted from archdata R package, Carlson 2017\")"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#exercises",
-    "href": "lect/w03/slides_distribs.html#exercises",
-    "title": "Summaries and visualization of distributions",
-    "section": "Exercises",
-    "text": "Exercises"
-  },
-  {
-    "objectID": "lect/w03/slides_distribs.html#assignments",
-    "href": "lect/w03/slides_distribs.html#assignments",
-    "title": "Summaries and visualization of distributions",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead Make a plot chapter in Data Visualization book by K. J. Healy.\n\nOptional\n\nGo through Visualize data tutorials here.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Distributions"
-  },
-  {
-    "objectID": "lect/w01/intro.html",
-    "href": "lect/w01/intro.html",
-    "title": "Course introduction",
-    "section": "",
-    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…",
-    "crumbs": [
-      "Course introduction"
-    ]
-  },
-  {
-    "objectID": "lect/w01/intro.html#basic-information",
-    "href": "lect/w01/intro.html#basic-information",
-    "title": "Course introduction",
-    "section": "",
-    "text": "Lectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\n\n\nSee details here…",
-    "crumbs": [
-      "Course introduction"
-    ]
-  },
-  {
-    "objectID": "lect/w01/intro.html#lecturers",
-    "href": "lect/w01/intro.html#lecturers",
-    "title": "Course introduction",
-    "section": "Lecturers",
-    "text": "Lecturers\n\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936",
-    "crumbs": [
-      "Course introduction"
-    ]
-  },
-  {
-    "objectID": "lect/w01/intro.html#and-what-about-you",
-    "href": "lect/w01/intro.html#and-what-about-you",
-    "title": "Course introduction",
-    "section": "And what about you?",
-    "text": "And what about you?",
-    "crumbs": [
-      "Course introduction"
-    ]
-  },
-  {
-    "objectID": "lect/w01/intro.html#objectives",
-    "href": "lect/w01/intro.html#objectives",
-    "title": "Course introduction",
+    "objectID": "lect/w04/rels.html#objectives",
+    "href": "lect/w04/rels.html#objectives",
+    "title": "Summaries and visualization of relationships",
     "section": "Objectives",
-    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment.",
+    "text": "Objectives\nAt the end of the lecture, you will know how to…\n\n\nDescribe relationship of quantitative and qualitative variable.\nCreate and read box plots and violin plots.\n\nUnderstand relationship of two quantitative variables.\nCount and interpret correlation.\nCreate and understand scatterplots.\nAssess what relationship (covariation) occurs between your variables.",
     "crumbs": [
-      "Course introduction"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/intro.html#prerequisites",
-    "href": "lect/w01/intro.html#prerequisites",
-    "title": "Course introduction",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics",
+    "objectID": "lect/w04/rels.html#relationship-of-quantitative-and-qualitative-variables",
+    "href": "lect/w04/rels.html#relationship-of-quantitative-and-qualitative-variables",
+    "title": "Summaries and visualization of relationships",
+    "section": "Relationship of quantitative and qualitative variables",
+    "text": "Relationship of quantitative and qualitative variables",
     "crumbs": [
-      "Course introduction"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/intro.html#projects",
-    "href": "lect/w01/intro.html#projects",
-    "title": "Course introduction",
-    "section": "Projects",
-    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here.",
+    "objectID": "lect/w04/rels.html#boxplot",
+    "href": "lect/w04/rels.html#boxplot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)",
     "crumbs": [
-      "Course introduction"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/intro.html#resources",
-    "href": "lect/w01/intro.html#resources",
-    "title": "Course introduction",
-    "section": "Resources",
-    "text": "Resources\n\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials.",
+    "objectID": "lect/w04/rels.html#boxplot-1",
+    "href": "lect/w04/rels.html#boxplot-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)\n  \ng + geom_boxplot()",
     "crumbs": [
-      "Course introduction"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/intro.html#resources-1",
-    "href": "lect/w01/intro.html#resources-1",
-    "title": "Course introduction",
-    "section": "Resources",
-    "text": "Resources\n\nLearning R\n \n\nSee section Resources for more details…\nBooks available online.",
+    "objectID": "lect/w04/rels.html#boxplot-2",
+    "href": "lect/w04/rels.html#boxplot-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\nAlso box and whisker plot, displays five-number summary.",
     "crumbs": [
-      "Course introduction"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/intro.html#why-maths-in-archaeology",
-    "href": "lect/w01/intro.html#why-maths-in-archaeology",
-    "title": "Course introduction",
-    "section": "Why maths in archaeology?",
-    "text": "Why maths in archaeology?\nBrainstorming",
+    "objectID": "lect/w04/rels.html#violin-plot",
+    "href": "lect/w04/rels.html#violin-plot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin()",
     "crumbs": [
-      "Course introduction"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/intro.html#assignments",
-    "href": "lect/w01/intro.html#assignments",
-    "title": "Course introduction",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.",
+    "objectID": "lect/w04/rels.html#violin-plot-1",
+    "href": "lect/w04/rels.html#violin-plot-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin() +\n  geom_jitter(width = 0.05, alpha = 0.4)",
     "crumbs": [
-      "Course introduction"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/slides_intro.html#basic-information",
-    "href": "lect/w01/slides_intro.html#basic-information",
-    "title": "Course introduction",
-    "section": "Basic information",
-    "text": "Basic information\n\nLectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\nSchedule\nSee details here…"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#lecturers",
-    "href": "lect/w01/slides_intro.html#lecturers",
-    "title": "Course introduction",
-    "section": "Lecturers",
-    "text": "Lecturers\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#and-what-about-you",
-    "href": "lect/w01/slides_intro.html#and-what-about-you",
-    "title": "Course introduction",
-    "section": "And what about you?",
-    "text": "And what about you?"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#objectives",
-    "href": "lect/w01/slides_intro.html#objectives",
-    "title": "Course introduction",
-    "section": "Objectives",
-    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#prerequisites",
-    "href": "lect/w01/slides_intro.html#prerequisites",
-    "title": "Course introduction",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#projects",
-    "href": "lect/w01/slides_intro.html#projects",
-    "title": "Course introduction",
-    "section": "Projects",
-    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#resources",
-    "href": "lect/w01/slides_intro.html#resources",
-    "title": "Course introduction",
-    "section": "Resources",
-    "text": "Resources\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#resources-1",
-    "href": "lect/w01/slides_intro.html#resources-1",
-    "title": "Course introduction",
-    "section": "Resources",
-    "text": "Resources\nLearning R\n \n\nSee section Resources for more details…\nBooks available online."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#why-maths-in-archaeology",
-    "href": "lect/w01/slides_intro.html#why-maths-in-archaeology",
-    "title": "Course introduction",
-    "section": "Why maths in archaeology?",
-    "text": "Why maths in archaeology?\nBrainstorming"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#assignments",
-    "href": "lect/w01/slides_intro.html#assignments",
-    "title": "Course introduction",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Introduction"
-  },
-  {
-    "objectID": "kit.html",
-    "href": "kit.html",
-    "title": "Survival kit",
-    "section": "",
-    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
-  },
-  {
-    "objectID": "kit.html#special-characters",
-    "href": "kit.html#special-characters",
-    "title": "Survival kit",
-    "section": "",
-    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
-  },
-  {
-    "objectID": "kit.html#rstudio-shortcuts",
-    "href": "kit.html#rstudio-shortcuts",
-    "title": "Survival kit",
-    "section": "RStudio shortcuts",
-    "text": "RStudio shortcuts\n\n\n\nSign/Action\nShortcut\n\n\n\n\n-&gt;\nCtrl + Alt + -\n\n\n%&gt;%\nCtrl + Shift + m\n\n\nrun selected row\nCtrl + Enter\n\n\nrun whole script\nCtrl + Shift + Enter"
-  },
-  {
-    "objectID": "kit.html#function-reference",
-    "href": "kit.html#function-reference",
-    "title": "Survival kit",
-    "section": "Function reference",
-    "text": "Function reference\ncode description\n\nBasics\ninstall.packages(\"packagename\") installs a package\nlibrary(packagename) attaches a package from a library\nGetting help on anything:\n?function\nhelp(function)\nLookign at data:\nhead(x) and tail(x)\nView(x)\n\n\nSummary functions\nmean(x) returns mean meadian(x) returns median\n\n\nData manipulation with dplyr\nload package library(dplyr)\n%&gt;% pipe operator, x %&gt;% f() equals f(x), allows chaining functions in a pipeline\n(in newer versions of R, there is a native pipe operator |&gt;)\ncount(data) count how many observations there are in a data frame\nsummarise(data,...) applies summary functions to a data frame\ngroup_by(data, x) group data by values in variable x\nChain this for example like this:\ndata %&gt;%\n  group_by(y) %&gt;% \n  summarise(prumer = mean(x),\n            median = median(x))\n\n\nPlotting with ggplot2\nLoad package library(ggplot2).\nAlert: in ggplot2, individual pieces of code are chained using +!\nggplot() basic function call for each plot\naes(x, y, color, fill...) aesthetics\n\nGeometries\ngeom_histogram() produces histogram\ngeom_point() produces scatterplot\nCreate a plot like this:\ndata %&gt;%\n  ggplot() +\n  aes(x) +\n  geom_histogram()"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#what-is-a-database",
-    "href": "lect/w01/slides_tidy.html#what-is-a-database",
-    "title": "Tidy data",
-    "section": "What is a database?",
-    "text": "What is a database?\n(Brainstorming)"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#relational-database---basic-terms",
-    "href": "lect/w01/slides_tidy.html#relational-database---basic-terms",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#relational-database---basic-terms-1",
-    "href": "lect/w01/slides_tidy.html#relational-database---basic-terms-1",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#tidy-data",
-    "href": "lect/w01/slides_tidy.html#tidy-data",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#types-of-variables",
-    "href": "lect/w01/slides_tidy.html#types-of-variables",
-    "title": "Tidy data",
-    "section": "Types of variables",
-    "text": "Types of variables\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#tidy-data-1",
-    "href": "lect/w01/slides_tidy.html#tidy-data-1",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data\nWhat’s wrong?"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#basic-tidy-data-principles",
-    "href": "lect/w01/slides_tidy.html#basic-tidy-data-principles",
-    "title": "Tidy data",
-    "section": "Basic tidy data principles",
-    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#assignments",
-    "href": "lect/w01/slides_tidy.html#assignments",
-    "title": "Tidy data",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Tidy data"
-  },
-  {
-    "objectID": "lect/w01/tidy.html",
-    "href": "lect/w01/tidy.html",
-    "title": "Tidy data",
-    "section": "",
-    "text": "(Brainstorming)",
+    "objectID": "lect/w04/rels.html#violin-plot-2",
+    "href": "lect/w04/rels.html#violin-plot-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin() +\n  geom_boxplot(width = 0.15) +\n  geom_jitter(width = 0.05, alpha = 0.2)",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/tidy.html#what-is-a-database",
-    "href": "lect/w01/tidy.html#what-is-a-database",
-    "title": "Tidy data",
-    "section": "",
-    "text": "(Brainstorming)",
+    "objectID": "lect/w04/rels.html#relationship-of-two-quantitative-variables",
+    "href": "lect/w04/rels.html#relationship-of-two-quantitative-variables",
+    "title": "Summaries and visualization of relationships",
+    "section": "Relationship of two quantitative variables",
+    "text": "Relationship of two quantitative variables",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/tidy.html#relational-database---basic-terms",
-    "href": "lect/w01/tidy.html#relational-database---basic-terms",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms",
+    "objectID": "lect/w04/rels.html#correlation",
+    "href": "lect/w04/rels.html#correlation",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation",
+    "text": "Correlation\n\n\n\n\nA statistic describing a relationship between two continuous variables.\nTo what degree is a variable y explained by x?\nCorrelation coefficient r, from -1 to +1.\nCorrelation does not imply causation!\nr = 1 – strong positive correlation\nr = 0.5 – moderately strong positive correlation\nr = 0 – variables are not correlated\nr = -0.2 – weak negative correlation\nr = -1 – strong negative correlation\n\n\n\n\nFunction cor()\n\ncor(dartpoints$Length, dartpoints$Width)\n\n[1] 0.7689932\n\ncor(dartpoints$Length, dartpoints$Weight)\n\n[1] 0.879953\n\ncor(dartpoints$Width, dartpoints$Thickness)\n\n[1] 0.5459291",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/tidy.html#relational-database---basic-terms-1",
-    "href": "lect/w01/tidy.html#relational-database---basic-terms-1",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)",
+    "objectID": "lect/w04/rels.html#scatter-plot",
+    "href": "lect/w04/rels.html#scatter-plot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nPlot displying two continuous variables, x and y.\nx axis: explanatory variable, independent, predictor.\ny axis: dependent variable, response.\n\n\nggplot(dartpoints) +\n  aes(x = Length, y = Weight) +\n  geom_point()",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/tidy.html#tidy-data",
-    "href": "lect/w01/tidy.html#tidy-data",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data",
+    "objectID": "lect/w04/rels.html#correlation-examples",
+    "href": "lect/w04/rels.html#correlation-examples",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation examples",
+    "text": "Correlation examples",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/tidy.html#types-of-variables",
-    "href": "lect/w01/tidy.html#types-of-variables",
-    "title": "Tidy data",
-    "section": "Types of variables",
-    "text": "Types of variables\n\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\n\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)",
+    "objectID": "lect/w04/rels.html#correlation-examples-1",
+    "href": "lect/w04/rels.html#correlation-examples-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation examples",
+    "text": "Correlation examples",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/tidy.html#tidy-data-1",
-    "href": "lect/w01/tidy.html#tidy-data-1",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data\nWhat’s wrong?",
+    "objectID": "lect/w04/rels.html#scatter-plots",
+    "href": "lect/w04/rels.html#scatter-plots",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) +\n  geom_point()",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/tidy.html#basic-tidy-data-principles",
-    "href": "lect/w01/tidy.html#basic-tidy-data-principles",
-    "title": "Tidy data",
-    "section": "Basic tidy data principles",
-    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!",
+    "objectID": "lect/w04/rels.html#scatter-plots-1",
+    "href": "lect/w04/rels.html#scatter-plots-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5)",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w01/tidy.html#assignments",
-    "href": "lect/w01/tidy.html#assignments",
-    "title": "Tidy data",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).",
+    "objectID": "lect/w04/rels.html#scatter-plots-2",
+    "href": "lect/w04/rels.html#scatter-plots-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
     "crumbs": [
-      "Tidy data"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w02/slides_intro2r.html#reflection-on-the-last-week",
-    "href": "lect/w02/slides_intro2r.html#reflection-on-the-last-week",
-    "title": "Coding in R",
-    "section": "Reflection on the last week",
-    "text": "Reflection on the last week\nTidy data principles\nReadings"
+    "objectID": "lect/w04/rels.html#scatter-plots-3",
+    "href": "lect/w04/rels.html#scatter-plots-3",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, size = Width, color = Name) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w02/slides_intro2r.html#objectives",
-    "href": "lect/w02/slides_intro2r.html#objectives",
-    "title": "Coding in R",
-    "section": "Objectives",
-    "text": "Objectives\n\nToday’s goals…\n\nNotion of functions vs. objects.\nIntro on R data types (ie. what types of things are there).\nIntro on R types of objects (ie. how things are represented).\nSubsetting data frames.\nReading data into R."
+    "objectID": "lect/w04/rels.html#trends",
+    "href": "lect/w04/rels.html#trends",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth() +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w02/slides_intro2r.html#r-is-a-smart-calculator",
-    "href": "lect/w02/slides_intro2r.html#r-is-a-smart-calculator",
-    "title": "Coding in R",
-    "section": "R is a smart calculator…",
-    "text": "R is a smart calculator…\n\n\n\n\n2 + 40\n\n[1] 42\n\n\n\n\n\n5^2\n\n[1] 25\n\n\n\n\n\nround(6.48^2)\n\n[1] 42\n\n\n\n\n\n5 &lt; 10\n\n[1] TRUE\n\n\n\n\n\nsqrt(1764)\n\n[1] 42\n\n\n\n\n\n8 * 10^10\n\n[1] 8e+10\n\n\n\n\n\n\nx &lt;- 1\n\n\n\n\nx\n\n[1] 1\n\n\n\n\n\ny &lt;- 41\n\n\n\n\nx + y\n\n[1] 42\n\n\n\n\n\nx &gt; y\n\n[1] FALSE\n\n\n\n\n\nz &lt;- x - y\n\n\n\n\nz\n\n[1] -40\n\n\n\n\n\n(x + y)^2\n\n[1] 1764"
+    "objectID": "lect/w04/rels.html#trends-1",
+    "href": "lect/w04/rels.html#trends-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\") +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w02/slides_intro2r.html#functions-and-objects",
-    "href": "lect/w02/slides_intro2r.html#functions-and-objects",
-    "title": "Coding in R",
-    "section": "Functions and objects",
-    "text": "Functions and objects\n\n\nObjects\n\nAnything is an object.\nObjects contain data (etc.)\nObjects have names.\nYou choose the names.\nName your objects wisely.\n\n\n\nx &lt;- 1\nx\n\n[1] 1\n\n\n\n\n\npi \n\n[1] 3.141593\n\n\n\n\n\npi + 1\n\n[1] 4.141593\n\n\n\n\n&lt;- is an assignment operator\n(use Alt + - in RStudio to write it).\n\n\n\nFunctions\n\nEnd with parentheses function(arguments).\nArguments go in the parentheses.\nFunctions do something with the inputs you give them.\n\n\n\nsqrt(x = 1764)\n\n[1] 42\n\n\n\n\n\nargs(sqrt)\n\nfunction (x) \nNULL\n\n\n\n\n\nround(pi)\n\n[1] 3\n\n\n\n\n\nargs(round)\n\nfunction (x, digits = 0) \nNULL\n\n\n\n\n\nround(pi, digits = 2)\n\n[1] 3.14"
+    "objectID": "lect/w04/rels.html#trends-2",
+    "href": "lect/w04/rels.html#trends-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w02/slides_intro2r.html#types-of-objects",
-    "href": "lect/w02/slides_intro2r.html#types-of-objects",
-    "title": "Coding in R",
-    "section": "Types of objects",
-    "text": "Types of objects\nVector\n\nBasic data structure.\nContains single data type.\nCreated using function c() (combine, concatenate)\n\n\n\nc(\"Fuu\", \"Bar\")\n\n[1] \"Fuu\" \"Bar\"\n\n\n\n\n\nx &lt;- c(1, 3, 5, 8)\nx\n\n[1] 1 3 5 8\n\n\n\n\n\nx^2\n\n[1]  1  9 25 64\n\n\n\n\n\nis.vector(x)\n\n[1] TRUE\n\n\n\n\n\nx &gt;= 4\n\n[1] FALSE FALSE  TRUE  TRUE\n\n\n\n\n\nlength(x)\n\n[1] 4"
+    "objectID": "lect/w04/rels.html#small-multiples",
+    "href": "lect/w04/rels.html#small-multiples",
+    "title": "Summaries and visualization of relationships",
+    "section": "Small multiples",
+    "text": "Small multiples\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw() +\n  facet_wrap(~Name)",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w02/slides_intro2r.html#types-of-objects-1",
-    "href": "lect/w02/slides_intro2r.html#types-of-objects-1",
-    "title": "Coding in R",
-    "section": "Types of objects",
-    "text": "Types of objects\nData frame & tibble\n\n\n\nA table.\nHas rows and columns.\nRectangular, ie. identical number of rows in each column.\n\n\n\ndfr\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\n\n\n\n\n\nis.data.frame(dfr)\n\n[1] TRUE\n\n\n\n\n\nncol(dfr)\n\n[1] 4\n\n\n\n\n\nnrow(dfr)\n\n[1] 4\n\n\n\n\n\nhead(dfr, n = 2)\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n\n\n\n\n\nSubsetting\n\n$ operator returns a single column.\n\n\n\ncolnames(dfr)\n\n[1] \"x\" \"y\" \"z\" \"w\"\n\n\n\n\n\ndfr$x\n\n[1] 95 96 97 98\n\n\n\n\n\ndfr$y\n\n[1] \"a\" \"b\" \"c\" \"d\"\n\n\n\n\n\ndfr$z\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\n\ndfr$w / 2\n\n[1] 2.1 2.2 2.3 2.4\n\n\n\n\n\ndfr$x - dfr$w\n\n[1] 90.8 91.6 92.4 93.2\n\n\n\n\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8"
-  },
-  {
-    "objectID": "lect/w02/slides_intro2r.html#data-types",
-    "href": "lect/w02/slides_intro2r.html#data-types",
-    "title": "Coding in R",
-    "section": "Data types",
-    "text": "Data types\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8\n\n\n\n\n\nText strings\n\nCharacter data type, abbreviated as chr.\nWritten in quotation marks (double or single).\n\n\n\"I am a string.\"\n\n[1] \"I am a string.\"\n\nx &lt;- 'I am also a string'\nis.character(x)\n\n[1] TRUE\n\n\n\nFunctions with is. prefix:\nis.numeric(), is.double() etc.\n\n\n\nNumbers\n\nIntegers (whole numbers)\nDoubles (decimal numbers)\nNumeric (class for all numbers in general)\n\n\ndfr$x \n\n[1] 95 96 97 98\n\nis.numeric(dfr$x)\n\n[1] TRUE\n\ndfr$x + dfr$w\n\n[1]  99.2 100.4 101.6 102.8\n\nmean(dfr$x)\n\n[1] 96.5"
-  },
-  {
-    "objectID": "lect/w02/slides_intro2r.html#data-types-1",
-    "href": "lect/w02/slides_intro2r.html#data-types-1",
-    "title": "Coding in R",
-    "section": "Data types",
-    "text": "Data types\n\n\nDichotomies\n\nLogical data type.\nBinary/boolean values.\nAs TRUE and FALSE in R.\n\n\n\nSpecial values\n\nMissing values as NA, ie. not available.\nInf and -Inf for infinities.\nNULL for an object of a zero length."
-  },
-  {
-    "objectID": "lect/w02/slides_intro2r.html#reading-data-in-csv-into-r",
-    "href": "lect/w02/slides_intro2r.html#reading-data-in-csv-into-r",
-    "title": "Coding in R",
-    "section": "Reading data in CSV into R",
-    "text": "Reading data in CSV into R\nComma separated values (CSV)\n\nPlain-text document.\nPractical exchange and preservation format for data sets.\nMost open and commercial softwares will allow export in CSV.\nAmericas: separated by commas (,), period (.) as a decimal mark.\nEurope: separated by semicolon (;), comma (,) as a decimal mark.\n\n\n\nReading CSV into R\nComma separated:\nread.csv(file = \"path\")\nSemicolon separated:\nread.csv2(file = \"path\")\nOther delimiter:\nread.table(file = \"path\", sep = \"separator\")"
-  },
-  {
-    "objectID": "lect/w02/slides_intro2r.html#practice",
-    "href": "lect/w02/slides_intro2r.html#practice",
-    "title": "Coding in R",
-    "section": "Practice",
-    "text": "Practice\nDart points\n\nAdapted from Carlson 2011"
-  },
-  {
-    "objectID": "lect/w02/slides_intro2r.html#dart-points-1",
-    "href": "lect/w02/slides_intro2r.html#dart-points-1",
-    "title": "Coding in R",
-    "section": "Dart points",
-    "text": "Dart points\n\n\n\n\n\nScatter plot of dart points\n\n\n\nMeasurements on five types of dart points from Fort Hood in central Texas (Darl, Ensor, Pedernales, Travis, and Wells). The points were recovered during 10 different pedestrian survey projects during the 1980’s and were classified and measured by H. Blaine Ensor…"
-  },
-  {
-    "objectID": "lect/w02/slides_intro2r.html#exercise",
-    "href": "lect/w02/slides_intro2r.html#exercise",
-    "title": "Coding in R",
+    "objectID": "lect/w04/rels.html#exercise",
+    "href": "lect/w04/rels.html#exercise",
+    "title": "Summaries and visualization of relationships",
     "section": "Exercise",
-    "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kind of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\ndownload.file(url, \"./dartpoints.csv\")\ndarts &lt;- read.csv(\"./dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)\n\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Coding in R"
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#objectives",
-    "href": "lect/w02/intro2r.html#objectives",
-    "title": "Coding in R",
-    "section": "Objectives",
-    "text": "Objectives\n\nToday’s goals…\n\nNotion of functions vs. objects.\nIntro on R data types (ie. what types of things are there).\nIntro on R types of objects (ie. how things are represented).\nSubsetting data frames.\nReading data into R.",
+    "text": "Exercise\n\n\n\n\nDownload data set with bronze age cups ( bacups.csv).\nCreate a project in RStudio and load the data set.\nExplore the data set and its structure.\nWhat are the observations?\nWhat types of variables are there?\nCreate a plot showing distribution of cup heights (H).\nCreate a boxplot for cup heights divided by phases (Phase).\nAre there any outliers?\nCount correlation between cup height (H) and rim diameter (RD).\nCreate a plot showing relationship between cup height and its rim diameter.\nColor cups from different phases (Phase) by differently.\nDescribe the relationship, add a linear model to the plot.\nLabel the axes sensibly.\n\n\n\n\n Hints:\nread.csv(),\nstr(),\ncolnames(),\nsummary(),\ncor(),\nggplot() +\naes() +\ngeom_* + stat_*",
     "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#r-is-a-smart-calculator",
-    "href": "lect/w02/intro2r.html#r-is-a-smart-calculator",
-    "title": "Coding in R",
-    "section": "R is a smart calculator…",
-    "text": "R is a smart calculator…\n\n\n\n\n2 + 40\n\n[1] 42\n\n\n\n\n\n5^2\n\n[1] 25\n\n\n\n\n\nround(6.48^2)\n\n[1] 42\n\n\n\n\n\n5 &lt; 10\n\n[1] TRUE\n\n\n\n\n\nsqrt(1764)\n\n[1] 42\n\n\n\n\n\n8 * 10^10\n\n[1] 8e+10\n\n\n\n\n\n\nx &lt;- 1\n\n\n\n\nx\n\n[1] 1\n\n\n\n\n\ny &lt;- 41\n\n\n\n\nx + y\n\n[1] 42\n\n\n\n\n\nx &gt; y\n\n[1] FALSE\n\n\n\n\n\nz &lt;- x - y\n\n\n\n\nz\n\n[1] -40\n\n\n\n\n\n(x + y)^2\n\n[1] 1764",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#functions-and-objects",
-    "href": "lect/w02/intro2r.html#functions-and-objects",
-    "title": "Coding in R",
-    "section": "Functions and objects",
-    "text": "Functions and objects\n\n\n\nObjects\n\nAnything is an object.\nObjects contain data (etc.)\nObjects have names.\nYou choose the names.\nName your objects wisely.\n\n\n\nx &lt;- 1\nx\n\n[1] 1\n\n\n\n\n\npi \n\n[1] 3.141593\n\n\n\n\n\npi + 1\n\n[1] 4.141593\n\n\n\n\n&lt;- is an assignment operator\n(use Alt + - in RStudio to write it).\n\n\n\n\nFunctions\n\nEnd with parentheses function(arguments).\nArguments go in the parentheses.\nFunctions do something with the inputs you give them.\n\n\n\nsqrt(x = 1764)\n\n[1] 42\n\n\n\n\n\nargs(sqrt)\n\nfunction (x) \nNULL\n\n\n\n\n\nround(pi)\n\n[1] 3\n\n\n\n\n\nargs(round)\n\nfunction (x, digits = 0) \nNULL\n\n\n\n\n\nround(pi, digits = 2)\n\n[1] 3.14",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#types-of-objects",
-    "href": "lect/w02/intro2r.html#types-of-objects",
-    "title": "Coding in R",
-    "section": "Types of objects",
-    "text": "Types of objects\n\nVector\n\nBasic data structure.\nContains single data type.\nCreated using function c() (combine, concatenate)\n\n\n\nc(\"Fuu\", \"Bar\")\n\n[1] \"Fuu\" \"Bar\"\n\n\n\n\n\nx &lt;- c(1, 3, 5, 8)\nx\n\n[1] 1 3 5 8\n\n\n\n\n\nx^2\n\n[1]  1  9 25 64\n\n\n\n\n\nis.vector(x)\n\n[1] TRUE\n\n\n\n\n\nx &gt;= 4\n\n[1] FALSE FALSE  TRUE  TRUE\n\n\n\n\n\nlength(x)\n\n[1] 4",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#types-of-objects-1",
-    "href": "lect/w02/intro2r.html#types-of-objects-1",
-    "title": "Coding in R",
-    "section": "Types of objects",
-    "text": "Types of objects\n\nData frame & tibble\n\n\n\nA table.\nHas rows and columns.\nRectangular, ie. identical number of rows in each column.\n\n\n\ndfr\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n3 97 c FALSE 4.6\n4 98 d  TRUE 4.8\n\n\n\n\n\nis.data.frame(dfr)\n\n[1] TRUE\n\n\n\n\n\nncol(dfr)\n\n[1] 4\n\n\n\n\n\nnrow(dfr)\n\n[1] 4\n\n\n\n\n\nhead(dfr, n = 2)\n\n   x y     z   w\n1 95 a  TRUE 4.2\n2 96 b FALSE 4.4\n\n\n\n\n\nSubsetting\n\n$ operator returns a single column.\n\n\n\ncolnames(dfr)\n\n[1] \"x\" \"y\" \"z\" \"w\"\n\n\n\n\n\ndfr$x\n\n[1] 95 96 97 98\n\n\n\n\n\ndfr$y\n\n[1] \"a\" \"b\" \"c\" \"d\"\n\n\n\n\n\ndfr$z\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\n\ndfr$w / 2\n\n[1] 2.1 2.2 2.3 2.4\n\n\n\n\n\ndfr$x - dfr$w\n\n[1] 90.8 91.6 92.4 93.2\n\n\n\n\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#data-types",
-    "href": "lect/w02/intro2r.html#data-types",
-    "title": "Coding in R",
-    "section": "Data types",
-    "text": "Data types\n\nstr(dfr)\n\n'data.frame':   4 obs. of  4 variables:\n $ x: int  95 96 97 98\n $ y: chr  \"a\" \"b\" \"c\" \"d\"\n $ z: logi  TRUE FALSE FALSE TRUE\n $ w: num  4.2 4.4 4.6 4.8\n\n\n\n\n\nText strings\n\nCharacter data type, abbreviated as chr.\nWritten in quotation marks (double or single).\n\n\n\"I am a string.\"\n\n[1] \"I am a string.\"\n\nx &lt;- 'I am also a string'\nis.character(x)\n\n[1] TRUE\n\n\n\nFunctions with is. prefix:\nis.numeric(), is.double() etc.\n\n\n\n\nNumbers\n\nIntegers (whole numbers)\nDoubles (decimal numbers)\nNumeric (class for all numbers in general)\n\n\ndfr$x \n\n[1] 95 96 97 98\n\nis.numeric(dfr$x)\n\n[1] TRUE\n\ndfr$x + dfr$w\n\n[1]  99.2 100.4 101.6 102.8\n\nmean(dfr$x)\n\n[1] 96.5",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#data-types-1",
-    "href": "lect/w02/intro2r.html#data-types-1",
-    "title": "Coding in R",
-    "section": "Data types",
-    "text": "Data types\n\n\n\nDichotomies\n\nLogical data type.\nBinary/boolean values.\nAs TRUE and FALSE in R.\n\n\n\n\nSpecial values\n\nMissing values as NA, ie. not available.\nInf and -Inf for infinities.\nNULL for an object of a zero length.",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#reading-data-in-csv-into-r",
-    "href": "lect/w02/intro2r.html#reading-data-in-csv-into-r",
-    "title": "Coding in R",
-    "section": "Reading data in CSV into R",
-    "text": "Reading data in CSV into R\n\nComma separated values (CSV)\n\nPlain-text document.\nPractical exchange and preservation format for data sets.\nMost open and commercial softwares will allow export in CSV.\nAmericas: separated by commas (,), period (.) as a decimal mark.\nEurope: separated by semicolon (;), comma (,) as a decimal mark.\n\n\n\n\nReading CSV into R\nComma separated:\nread.csv(file = \"path\")\nSemicolon separated:\nread.csv2(file = \"path\")\nOther delimiter:\nread.table(file = \"path\", sep = \"separator\")",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#practice",
-    "href": "lect/w02/intro2r.html#practice",
-    "title": "Coding in R",
-    "section": "Practice",
-    "text": "Practice\n\nDart points\n\nAdapted from Carlson 2011",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#dart-points-1",
-    "href": "lect/w02/intro2r.html#dart-points-1",
-    "title": "Coding in R",
-    "section": "Dart points",
-    "text": "Dart points\n\n\n\n\n\nScatter plot of dart points\n\n\n\nMeasurements on five types of dart points from Fort Hood in central Texas (Darl, Ensor, Pedernales, Travis, and Wells). The points were recovered during 10 different pedestrian survey projects during the 1980’s and were classified and measured by H. Blaine Ensor…",
-    "crumbs": [
-      "Coding in R"
-    ]
-  },
-  {
-    "objectID": "lect/w02/intro2r.html#exercise",
-    "href": "lect/w02/intro2r.html#exercise",
-    "title": "Coding in R",
-    "section": "Exercise",
-    "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kind of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\ndownload.file(url, \"./dartpoints.csv\")\ndarts &lt;- read.csv(\"./dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)",
-    "crumbs": [
-      "Coding in R"
+      "Summaries and visualization of relationships"
     ]
   },
   {
