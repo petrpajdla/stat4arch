@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset\n\n\n5.\n20. 3.\nReproducibility\n\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n\n\n\n8.\n10. 4.\nConsidering time\n\n\n\n-\n17. 4.\nReading week\n\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nPractice\n\n\n\n11.\n22. 5."
+    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset &  Script\n\n\n5.\n20. 3.\nNormal distribution & data manpulation with dplyr\n\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n\n\n\n8.\n10. 4.\nConsidering time\n\n\n\n-\n17. 4.\nReading week\n\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nPractice\n\n\n\n11.\n22. 5."
   },
   {
     "objectID": "index.html",
@@ -61,6 +61,305 @@
     "title": "Title of your project",
     "section": "Multivariate exploration",
     "text": "Multivariate exploration\n\nWill be added…"
+  },
+  {
+    "objectID": "lect/w05/dplyr.html",
+    "href": "lect/w05/dplyr.html",
+    "title": "Data manipulation with dplyr",
+    "section": "",
+    "text": "dplyr\n\n\n\n\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#data-transformation",
+    "href": "lect/w05/dplyr.html#data-transformation",
+    "title": "Data manipulation with dplyr",
+    "section": "",
+    "text": "dplyr\n\n\n\n\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#before-we-begin",
+    "href": "lect/w05/dplyr.html#before-we-begin",
+    "title": "Data manipulation with dplyr",
+    "section": "Before we begin",
+    "text": "Before we begin\n\n\nload packages here and dplyr (don’t forget to install them firstly, if you haven’t done so yet)\nopen the project from last lecture (or create a new one if you don’t have it)\ncreate a new script\nload data dartpoints.csv into your script\nif you are loading data with here function don’t forget to check whether your data and script are in the same folder as your project\ncreate an object called “sipky” from the loaded database (with &lt;-)\n\n\n\n\nlibrary(here)\nlibrary(dplyr)\nsipky &lt;- read.csv(here(\"dartpoints.csv\"))",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#selecting-variables",
+    "href": "lect/w05/dplyr.html#selecting-variables",
+    "title": "Data manipulation with dplyr",
+    "section": "Selecting variables",
+    "text": "Selecting variables\n\n\nselect(dataframe, variable1, variable2)\nsometimes you will need to remove variables you don’t need in your work, to have your database more user friendly\nfor example, you need only variables dealing with major proportions of the dartpoints, but your database have plenty of other variables which are making it difficult to observe, like here:\n\n\n\n\nhead(sipky)\n\n  Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n1 Darl 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6\n2 Darl 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9\n3 Darl 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2\n4 Darl 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3\n5 Darl 36-3321 41CV1023 12/58   30.6  17.1       4.0    12.6    11.2      8.9\n6 Darl 35-2959 41CV0235 21/63   41.8  16.8       4.1    12.7    11.5     11.0\n  Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    3.6        S       I         S         T       S       E\n2    4.5        S       I         S         T       S       E\n3    3.6        S       I         S         T       S       E\n4    4.0        S       I         S         T       S       E\n5    2.3        S       I         S         T       S       E\n6    3.0        S       E         I         T       I       C",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#selecting-variables-1",
+    "href": "lect/w05/dplyr.html#selecting-variables-1",
+    "title": "Data manipulation with dplyr",
+    "section": "Selecting variables",
+    "text": "Selecting variables\n\nto create a new dataframe, simply use function select and define which variables you want to keep\n\n\nsipky &lt;- select(sipky, Name, Length, Width, Weight)\nhead(sipky)\n\n  Name Length Width Weight\n1 Darl   42.8  15.8    3.6\n2 Darl   40.5  17.4    4.5\n3 Darl   37.5  16.3    3.6\n4 Darl   40.3  16.1    4.0\n5 Darl   30.6  17.1    2.3\n6 Darl   41.8  16.8    3.0",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#renaming-variables",
+    "href": "lect/w05/dplyr.html#renaming-variables",
+    "title": "Data manipulation with dplyr",
+    "section": "Renaming variables",
+    "text": "Renaming variables\n\n\nrenaming your variables with function rename(data, new_name = old_name) can be useful when dealing with complicated code names or different languages\n Hint: don’t forget to save object with new variable names by &lt;-\n\n\n\n\nsipky &lt;- rename(sipky,\n   typ = Name,\n   delka = Length,\n   sirka = Width,\n   hmotnost = Weight)\n\nhead(sipky)\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#arranging-values-in-ascending-order",
+    "href": "lect/w05/dplyr.html#arranging-values-in-ascending-order",
+    "title": "Data manipulation with dplyr",
+    "section": "Arranging values in ascending order…",
+    "text": "Arranging values in ascending order…\n\nhere you can order your observations from the lowest to highest (or vice versa). To do so, use function arrange(data, variable)\n\n\nhead(arrange(sipky, delka))\n\n   typ delka sirka hmotnost\n1 Darl  30.6  17.1      2.3\n2 Darl  31.2  15.6      2.5\n3 Darl  32.0  16.0      3.3\n4 Darl  32.4  14.5      2.5\n5 Darl  33.1  17.4      4.2\n6 Darl  33.5  16.6      3.2",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#and-in-descending-order",
+    "href": "lect/w05/dplyr.html#and-in-descending-order",
+    "title": "Data manipulation with dplyr",
+    "section": "…and in descending order",
+    "text": "…and in descending order\n\nif you want to order the values from higher to smaller just add desc()\n\n\nhead(arrange(sipky, desc(delka)))\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n3 Pedernales  78.3  28.1     14.8\n4 Pedernales  70.4  30.4     13.1\n5     Travis  69.0  20.9     11.4\n6 Pedernales  67.2  27.1     15.3\n\n\n\n Task: What will happen if you will try to order non-numerical variable, but a categorical variable (such as type of the dartpoint)?",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#filtering",
+    "href": "lect/w05/dplyr.html#filtering",
+    "title": "Data manipulation with dplyr",
+    "section": "Filtering",
+    "text": "Filtering\n\n\nfunction filter(data, variable &lt;operator&gt; value) allows you to filter your data based on different conditions, for example minimal weight, type of the dartpoint, etc\nlogical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &, |, etc (use ?dplyr::filter for more details)\n\n\n\n\nhere we use &gt; to get only dartpoints with the length higher than 80 cm\n\n\nfilter(sipky, delka &gt; 80)\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n\n\n\n\n\nand here we use == to choose only those dartpoints which are of type “Travis”\n\n\nfilter(sipky, typ == \"Travis\")\n\n      typ delka sirka hmotnost\n1  Travis  56.5  21.1      9.5\n2  Travis  54.6  22.4     10.4\n3  Travis  46.3  21.3      7.5\n4  Travis  57.6  18.9      8.7\n5  Travis  49.1  21.4      6.9\n6  Travis  64.6  21.5     15.0\n7  Travis  69.0  20.9     11.4\n8  Travis  40.1  18.4      6.3\n9  Travis  41.5  19.2      7.5\n10 Travis  46.3  17.9      5.9\n11 Travis  39.6  21.5      5.4\n\n\n\n\n\nalternatively, you can exclude all points of a type “Travis” by negation !=\n\n\nhead(filter(sipky, typ != \"Travis\"))\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0\n\n\n\n\n\nadd & if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” AND are heavier than 10 grams\n\n\nfilter(sipky, typ == \"Wells\" & hmotnost &gt; 10)\n\n    typ delka sirka hmotnost\n1 Wells  65.4  25.1     12.6\n2 Wells  58.9  24.4     10.5\n3 Wells  63.1  24.7     16.3\n\n\n\n\n\n Task: instead of & try operator | (OR) and see how the result differs",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#filtering-based-on-a-vector",
+    "href": "lect/w05/dplyr.html#filtering-based-on-a-vector",
+    "title": "Data manipulation with dplyr",
+    "section": "Filtering based on a vector",
+    "text": "Filtering based on a vector\n\nyou can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator %in%\n\n\nvyber &lt;- c(\"Pedernales\", \"Ensor\")\n\nhead(filter(sipky, typ %in% vyber))\n\n    typ delka sirka hmotnost\n1 Ensor  43.5  20.1      4.6\n2 Ensor  42.1  20.8      5.4\n3 Ensor  42.1  25.1      5.9\n4 Ensor  43.1  20.0      5.1\n5 Ensor  37.5  21.8      4.7\n6 Ensor  55.2  22.5      7.2",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#summaries",
+    "href": "lect/w05/dplyr.html#summaries",
+    "title": "Data manipulation with dplyr",
+    "section": "Summaries",
+    "text": "Summaries\n\nwe already know some functions to calculate basic summaries, for example function mean\n\n\nmean(sipky$delka)\n\n[1] 49.33077\n\n\n\n\nbut if you want to create a new dataframe from calculated statistics, function summarise(data, new_variable = summary_statistics) is much more helpfull\nfor summary statistics you can use different functions: mean(), median(), sd(), min()…, (use ?summarise for more details)\n\n\n\n\nsummarise(sipky, delka_prumer = mean(delka))\n\n  delka_prumer\n1     49.33077\n\n\n\n\n\nyou can also calculate more summaries:\n\n\nsummarise(sipky,\n    delka_prumer = mean(delka),\n    delka_sd = sd(delka),\n    delka_min = min(delka),\n    delka_max = max(delka),\n    pocet = n())\n\n  delka_prumer delka_sd delka_min delka_max pocet\n1     49.33077 12.73619      30.6     109.5    91",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#grouping",
+    "href": "lect/w05/dplyr.html#grouping",
+    "title": "Data manipulation with dplyr",
+    "section": "Grouping",
+    "text": "Grouping\n\nsummaries above were applied on whole dataframe. Here we will learn how to calculate summaries for each type of the dartpoint by using group_by(data, variable_to_be_grouped_by)\n\n\nsipky_typ &lt;- group_by(sipky, typ)\n\n\n\nat first sight, you don´t see any differences, but they will be visible after applying function summarise\n\n\nsummarise(sipky_typ, delka_prumer = mean(delka))\n\n# A tibble: 5 × 2\n  typ        delka_prumer\n  &lt;fct&gt;             &lt;dbl&gt;\n1 Darl               39.8\n2 Ensor              42.7\n3 Pedernales         57.9\n4 Travis             51.4\n5 Wells              53.1\n\n\n\n\n\nyou can also calculate more summaries at once and use round to remove unnecessary decimals:\n\n\nsummarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())\n\n# A tibble: 5 × 3\n  typ        delka_prumer pocet\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;\n1 Darl               39.8    28\n2 Ensor              42.7    10\n3 Pedernales         57.9    32\n4 Travis             51.4    11\n5 Wells              53.1    10\n\n\n\n\n\n Task: save the result as a new dataframe “sipky_sum” for later work\n\n\n\n\nsipky_sum &lt;- summarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#mutate",
+    "href": "lect/w05/dplyr.html#mutate",
+    "title": "Data manipulation with dplyr",
+    "section": "Mutate",
+    "text": "Mutate\n\n\nfunction mutate creates a new variable, here we will show how to add variable with percentages\nnote: sum calculates a total sum of values from chosen variable (in this case - “pocet”)\n\n\n\n\nmutate(sipky_sum,\n   procento = (pocet/sum(pocet))*100)\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28     30.8\n2 Ensor              42.7    10     11.0\n3 Pedernales         57.9    32     35.2\n4 Travis             51.4    11     12.1\n5 Wells              53.1    10     11.0\n\n\n\n\n\n Hint: you can again remove unnecessary decimals by adding round but be careful with the right number of the brackets ()!\n\n\nmutate(sipky_sum,\n   procento = round((pocet/sum(pocet))*100, 0))\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28       31\n2 Ensor              42.7    10       11\n3 Pedernales         57.9    32       35\n4 Travis             51.4    11       12\n5 Wells              53.1    10       11",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#pipe-operator",
+    "href": "lect/w05/dplyr.html#pipe-operator",
+    "title": "Data manipulation with dplyr",
+    "section": "Pipe operator",
+    "text": "Pipe operator\n\n\nwhen applying plenty of transformation on one dataset “pipe operator” (%&gt;%) could make your work easier and code shorter and more readable\nnotice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”\n\n\n\n\nsipky %&gt;% \n  filter(delka &gt; 70) %&gt;%\n  arrange(delka)\n\n         typ delka sirka hmotnost\n1 Pedernales  70.4  30.4     13.1\n2 Pedernales  78.3  28.1     14.8\n3 Pedernales  84.0  21.2      9.3\n4 Pedernales 109.5  49.3     28.8",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
+    "href": "lect/w05/dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
+    "title": "Data manipulation with dplyr",
+    "section": "More complex summarising with dplyr and pipe",
+    "text": "More complex summarising with dplyr and pipe\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = round(mean(delka), 1),\n    hmotnost_prum = round(mean(hmotnost), 1),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100, 1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9          10.6    32     35.2\n2 Darl             39.8           4.4    28     30.8\n3 Travis           51.4           8.6    11     12.1\n4 Ensor            42.7           5.1    10     11  \n5 Wells            53.1           8.7    10     11",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#visualising-your-summaries",
+    "href": "lect/w05/dplyr.html#visualising-your-summaries",
+    "title": "Data manipulation with dplyr",
+    "section": "Visualising your summaries",
+    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9         10.6     32     35.2\n2 Darl             39.8          4.41    28     30.8\n3 Travis           51.4          8.59    11     12.1\n4 Ensor            42.7          5.06    10     11  \n5 Wells            53.1          8.68    10     11",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#visualising-your-summaries-1",
+    "href": "lect/w05/dplyr.html#visualising-your-summaries-1",
+    "title": "Data manipulation with dplyr",
+    "section": "Visualising your summaries",
+    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  ggplot() +\n  aes(x = typ, y = delka_prum) +\n  geom_col() +\n  labs(title = \"Průměrná délka šipky\") +\n  theme_light()",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#saving-your-results",
+    "href": "lect/w05/dplyr.html#saving-your-results",
+    "title": "Data manipulation with dplyr",
+    "section": "Saving your results",
+    "text": "Saving your results\n\nuse write.csv for saving your results as a comma separated file\n\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  write.csv(here(\"sipky_result.csv\"))\n\n\n\nor save your summarised data frame as an object and save it later\n\n\nsipky_result &lt;- sipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n  \nwrite.csv(sipky_result, here(\"sipky_result.csv\"))",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#data-transformation",
+    "href": "lect/w05/slides_dplyr.html#data-transformation",
+    "title": "Data manipulation with dplyr",
+    "section": "Data Transformation",
+    "text": "Data Transformation\nPackage\n\ndplyr\n\nGoals\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#before-we-begin",
+    "href": "lect/w05/slides_dplyr.html#before-we-begin",
+    "title": "Data manipulation with dplyr",
+    "section": "Before we begin",
+    "text": "Before we begin\n\n\nload packages here and dplyr (don’t forget to install them firstly, if you haven’t done so yet)\nopen the project from last lecture (or create a new one if you don’t have it)\ncreate a new script\nload data dartpoints.csv into your script\nif you are loading data with here function don’t forget to check whether your data and script are in the same folder as your project\ncreate an object called “sipky” from the loaded database (with &lt;-)\n\n\n\n\nlibrary(here)\nlibrary(dplyr)\nsipky &lt;- read.csv(here(\"dartpoints.csv\"))"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#selecting-variables",
+    "href": "lect/w05/slides_dplyr.html#selecting-variables",
+    "title": "Data manipulation with dplyr",
+    "section": "Selecting variables",
+    "text": "Selecting variables\n\n\nselect(dataframe, variable1, variable2)\nsometimes you will need to remove variables you don’t need in your work, to have your database more user friendly\nfor example, you need only variables dealing with major proportions of the dartpoints, but your database have plenty of other variables which are making it difficult to observe, like here:\n\n\n\n\nhead(sipky)\n\n  Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n1 Darl 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6\n2 Darl 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9\n3 Darl 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2\n4 Darl 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3\n5 Darl 36-3321 41CV1023 12/58   30.6  17.1       4.0    12.6    11.2      8.9\n6 Darl 35-2959 41CV0235 21/63   41.8  16.8       4.1    12.7    11.5     11.0\n  Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    3.6        S       I         S         T       S       E\n2    4.5        S       I         S         T       S       E\n3    3.6        S       I         S         T       S       E\n4    4.0        S       I         S         T       S       E\n5    2.3        S       I         S         T       S       E\n6    3.0        S       E         I         T       I       C"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#selecting-variables-1",
+    "href": "lect/w05/slides_dplyr.html#selecting-variables-1",
+    "title": "Data manipulation with dplyr",
+    "section": "Selecting variables",
+    "text": "Selecting variables\n\nto create a new dataframe, simply use function select and define which variables you want to keep\n\n\nsipky &lt;- select(sipky, Name, Length, Width, Weight)\nhead(sipky)\n\n  Name Length Width Weight\n1 Darl   42.8  15.8    3.6\n2 Darl   40.5  17.4    4.5\n3 Darl   37.5  16.3    3.6\n4 Darl   40.3  16.1    4.0\n5 Darl   30.6  17.1    2.3\n6 Darl   41.8  16.8    3.0"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#renaming-variables",
+    "href": "lect/w05/slides_dplyr.html#renaming-variables",
+    "title": "Data manipulation with dplyr",
+    "section": "Renaming variables",
+    "text": "Renaming variables\n\n\nrenaming your variables with function rename(data, new_name = old_name) can be useful when dealing with complicated code names or different languages\n Hint: don’t forget to save object with new variable names by &lt;-\n\n\n\n\nsipky &lt;- rename(sipky,\n   typ = Name,\n   delka = Length,\n   sirka = Width,\n   hmotnost = Weight)\n\nhead(sipky)\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#arranging-values-in-ascending-order",
+    "href": "lect/w05/slides_dplyr.html#arranging-values-in-ascending-order",
+    "title": "Data manipulation with dplyr",
+    "section": "Arranging values in ascending order…",
+    "text": "Arranging values in ascending order…\n\nhere you can order your observations from the lowest to highest (or vice versa). To do so, use function arrange(data, variable)\n\n\nhead(arrange(sipky, delka))\n\n   typ delka sirka hmotnost\n1 Darl  30.6  17.1      2.3\n2 Darl  31.2  15.6      2.5\n3 Darl  32.0  16.0      3.3\n4 Darl  32.4  14.5      2.5\n5 Darl  33.1  17.4      4.2\n6 Darl  33.5  16.6      3.2"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#and-in-descending-order",
+    "href": "lect/w05/slides_dplyr.html#and-in-descending-order",
+    "title": "Data manipulation with dplyr",
+    "section": "…and in descending order",
+    "text": "…and in descending order\n\nif you want to order the values from higher to smaller just add desc()\n\n\nhead(arrange(sipky, desc(delka)))\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n3 Pedernales  78.3  28.1     14.8\n4 Pedernales  70.4  30.4     13.1\n5     Travis  69.0  20.9     11.4\n6 Pedernales  67.2  27.1     15.3\n\n\n\n Task: What will happen if you will try to order non-numerical variable, but a categorical variable (such as type of the dartpoint)?"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#filtering",
+    "href": "lect/w05/slides_dplyr.html#filtering",
+    "title": "Data manipulation with dplyr",
+    "section": "Filtering",
+    "text": "Filtering\n\n\nfunction filter(data, variable &lt;operator&gt; value) allows you to filter your data based on different conditions, for example minimal weight, type of the dartpoint, etc\nlogical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &, |, etc (use ?dplyr::filter for more details)\n\n\n\n\nhere we use &gt; to get only dartpoints with the length higher than 80 cm\n\n\nfilter(sipky, delka &gt; 80)\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n\n\n\n\n\nand here we use == to choose only those dartpoints which are of type “Travis”\n\n\nfilter(sipky, typ == \"Travis\")\n\n      typ delka sirka hmotnost\n1  Travis  56.5  21.1      9.5\n2  Travis  54.6  22.4     10.4\n3  Travis  46.3  21.3      7.5\n4  Travis  57.6  18.9      8.7\n5  Travis  49.1  21.4      6.9\n6  Travis  64.6  21.5     15.0\n7  Travis  69.0  20.9     11.4\n8  Travis  40.1  18.4      6.3\n9  Travis  41.5  19.2      7.5\n10 Travis  46.3  17.9      5.9\n11 Travis  39.6  21.5      5.4\n\n\n\n\n\nalternatively, you can exclude all points of a type “Travis” by negation !=\n\n\nhead(filter(sipky, typ != \"Travis\"))\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0\n\n\n\n\n\nadd & if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” AND are heavier than 10 grams\n\n\nfilter(sipky, typ == \"Wells\" & hmotnost &gt; 10)\n\n    typ delka sirka hmotnost\n1 Wells  65.4  25.1     12.6\n2 Wells  58.9  24.4     10.5\n3 Wells  63.1  24.7     16.3\n\n\n\n\n\n Task: instead of & try operator | (OR) and see how the result differs"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#filtering-based-on-a-vector",
+    "href": "lect/w05/slides_dplyr.html#filtering-based-on-a-vector",
+    "title": "Data manipulation with dplyr",
+    "section": "Filtering based on a vector",
+    "text": "Filtering based on a vector\n\nyou can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator %in%\n\n\nvyber &lt;- c(\"Pedernales\", \"Ensor\")\n\nhead(filter(sipky, typ %in% vyber))\n\n    typ delka sirka hmotnost\n1 Ensor  43.5  20.1      4.6\n2 Ensor  42.1  20.8      5.4\n3 Ensor  42.1  25.1      5.9\n4 Ensor  43.1  20.0      5.1\n5 Ensor  37.5  21.8      4.7\n6 Ensor  55.2  22.5      7.2"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#summaries",
+    "href": "lect/w05/slides_dplyr.html#summaries",
+    "title": "Data manipulation with dplyr",
+    "section": "Summaries",
+    "text": "Summaries\n\nwe already know some functions to calculate basic summaries, for example function mean\n\n\nmean(sipky$delka)\n\n[1] 49.33077\n\n\n\n\nbut if you want to create a new dataframe from calculated statistics, function summarise(data, new_variable = summary_statistics) is much more helpfull\nfor summary statistics you can use different functions: mean(), median(), sd(), min()…, (use ?summarise for more details)\n\n\n\n\nsummarise(sipky, delka_prumer = mean(delka))\n\n  delka_prumer\n1     49.33077\n\n\n\n\n\nyou can also calculate more summaries:\n\n\nsummarise(sipky,\n    delka_prumer = mean(delka),\n    delka_sd = sd(delka),\n    delka_min = min(delka),\n    delka_max = max(delka),\n    pocet = n())\n\n  delka_prumer delka_sd delka_min delka_max pocet\n1     49.33077 12.73619      30.6     109.5    91"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#grouping",
+    "href": "lect/w05/slides_dplyr.html#grouping",
+    "title": "Data manipulation with dplyr",
+    "section": "Grouping",
+    "text": "Grouping\n\nsummaries above were applied on whole dataframe. Here we will learn how to calculate summaries for each type of the dartpoint by using group_by(data, variable_to_be_grouped_by)\n\n\nsipky_typ &lt;- group_by(sipky, typ)\n\n\n\nat first sight, you don´t see any differences, but they will be visible after applying function summarise\n\n\nsummarise(sipky_typ, delka_prumer = mean(delka))\n\n# A tibble: 5 × 2\n  typ        delka_prumer\n  &lt;fct&gt;             &lt;dbl&gt;\n1 Darl               39.8\n2 Ensor              42.7\n3 Pedernales         57.9\n4 Travis             51.4\n5 Wells              53.1\n\n\n\n\n\nyou can also calculate more summaries at once and use round to remove unnecessary decimals:\n\n\nsummarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())\n\n# A tibble: 5 × 3\n  typ        delka_prumer pocet\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;\n1 Darl               39.8    28\n2 Ensor              42.7    10\n3 Pedernales         57.9    32\n4 Travis             51.4    11\n5 Wells              53.1    10\n\n\n\n\n\n Task: save the result as a new dataframe “sipky_sum” for later work\n\n\n\n\nsipky_sum &lt;- summarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#mutate",
+    "href": "lect/w05/slides_dplyr.html#mutate",
+    "title": "Data manipulation with dplyr",
+    "section": "Mutate",
+    "text": "Mutate\n\n\nfunction mutate creates a new variable, here we will show how to add variable with percentages\nnote: sum calculates a total sum of values from chosen variable (in this case - “pocet”)\n\n\n\n\nmutate(sipky_sum,\n   procento = (pocet/sum(pocet))*100)\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28     30.8\n2 Ensor              42.7    10     11.0\n3 Pedernales         57.9    32     35.2\n4 Travis             51.4    11     12.1\n5 Wells              53.1    10     11.0\n\n\n\n\n\n Hint: you can again remove unnecessary decimals by adding round but be careful with the right number of the brackets ()!\n\n\nmutate(sipky_sum,\n   procento = round((pocet/sum(pocet))*100, 0))\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28       31\n2 Ensor              42.7    10       11\n3 Pedernales         57.9    32       35\n4 Travis             51.4    11       12\n5 Wells              53.1    10       11"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#pipe-operator",
+    "href": "lect/w05/slides_dplyr.html#pipe-operator",
+    "title": "Data manipulation with dplyr",
+    "section": "Pipe operator",
+    "text": "Pipe operator\n\n\nwhen applying plenty of transformation on one dataset “pipe operator” (%&gt;%) could make your work easier and code shorter and more readable\nnotice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”\n\n\n\n\nsipky %&gt;% \n  filter(delka &gt; 70) %&gt;%\n  arrange(delka)\n\n         typ delka sirka hmotnost\n1 Pedernales  70.4  30.4     13.1\n2 Pedernales  78.3  28.1     14.8\n3 Pedernales  84.0  21.2      9.3\n4 Pedernales 109.5  49.3     28.8"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
+    "href": "lect/w05/slides_dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
+    "title": "Data manipulation with dplyr",
+    "section": "More complex summarising with dplyr and pipe",
+    "text": "More complex summarising with dplyr and pipe\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = round(mean(delka), 1),\n    hmotnost_prum = round(mean(hmotnost), 1),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100, 1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9          10.6    32     35.2\n2 Darl             39.8           4.4    28     30.8\n3 Travis           51.4           8.6    11     12.1\n4 Ensor            42.7           5.1    10     11  \n5 Wells            53.1           8.7    10     11"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#visualising-your-summaries",
+    "href": "lect/w05/slides_dplyr.html#visualising-your-summaries",
+    "title": "Data manipulation with dplyr",
+    "section": "Visualising your summaries",
+    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9         10.6     32     35.2\n2 Darl             39.8          4.41    28     30.8\n3 Travis           51.4          8.59    11     12.1\n4 Ensor            42.7          5.06    10     11  \n5 Wells            53.1          8.68    10     11"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#visualising-your-summaries-1",
+    "href": "lect/w05/slides_dplyr.html#visualising-your-summaries-1",
+    "title": "Data manipulation with dplyr",
+    "section": "Visualising your summaries",
+    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  ggplot() +\n  aes(x = typ, y = delka_prum) +\n  geom_col() +\n  labs(title = \"Průměrná délka šipky\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w05/slides_dplyr.html#saving-your-results",
+    "href": "lect/w05/slides_dplyr.html#saving-your-results",
+    "title": "Data manipulation with dplyr",
+    "section": "Saving your results",
+    "text": "Saving your results\n\nuse write.csv for saving your results as a comma separated file\n\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  write.csv(here(\"sipky_result.csv\"))\n\n\n\nor save your summarised data frame as an object and save it later\n\n\nsipky_result &lt;- sipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n  \nwrite.csv(sipky_result, here(\"sipky_result.csv\"))\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | dplyr"
   },
   {
     "objectID": "lect/w02/intro2r.html#objectives",
