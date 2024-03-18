@@ -38,6 +38,8 @@ website:
         - lect/w02/intro2r.qmd
         - lect/w03/distribs.qmd
         - lect/w04/rels.qmd
+        - lect/w05/norm.qmd
+        - lect/w05/dplyr.qmd
         # - reproducibility.qmd
   
   page-footer: 

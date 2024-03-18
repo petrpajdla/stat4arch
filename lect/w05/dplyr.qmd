@@ -1,0 +1,370 @@
+---
+title: "Data manipulation with dplyr"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_dplyr.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [`dplyr`](./dplyr.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  pdf: default
+execute:
+  echo: true
+  warning: false
+---
+
+## Data Transformation {background-color="#FAF1A4"}
+
+### Package
+
+- `dplyr`
+
+### Goals
+
+We will learn how to:
+
+::: {.incremental}
+- select desired variables -- `select()`
+- rename your variables -- `rename()`
+- order them from lowest to highest values (or vice versa) -- `arrange()`
+- filter your data based on different conditions -- `filter()`
+- calculate different summary statistics such as mean or count -- `summarise()`
+- add new variables such as percentage -- `mutate()`
+- work with different functions more effectively -- `%>%`
+- save your results as comma separated file
+:::
+
+
+## Before we begin {background-color="#FAF1A4"}
+
+::: {.incremental}
+- load packages `here` and `dplyr` (don't forget to install them firstly, if you haven't done so yet)
+- open the project from last lecture (or create a new one if you don't have it)
+- create a new script
+- load data [dartpoints.csv](./data/dartpoints.csv) into your script
+- if you are loading data with `here` function don't forget to check whether your data and script are in the **same folder** as your project
+- create an object called *"sipky"* from the loaded database (with `<-`)
+:::
+
+```{r}
+#| echo: false
+library(archdata)
+library(dplyr)
+library(ggplot2)
+data(DartPoints)
+sipky <- DartPoints
+```
+
+::: {.fragment}
+```{r}
+#| message: false
+#| eval: false
+library(here)
+library(dplyr)
+sipky <- read.csv(here("dartpoints.csv"))
+```
+:::
+
+## Selecting variables
+
+::: {.incremental}
+- `select(dataframe, variable1, variable2)`
+- sometimes you will need to remove variables you don't need in your work, to have your database more user friendly
+- for example, you need only variables dealing with major proportions of the dartpoints, but your database have plenty of other variables which are making it difficult to observe, like here:
+:::
+
+::: {.fragment}
+```{r}
+head(sipky)
+```
+:::
+
+## Selecting variables
+
+- to create a new dataframe, simply use function `select` and define which variables you want to keep
+
+```{r}
+sipky <- select(sipky, Name, Length, Width, Weight)
+head(sipky)
+```
+
+## Renaming variables
+
+::: {.incremental}
+- renaming your variables with function `rename(data, new_name = old_name)` can be useful when dealing with complicated code names or different languages
+- {{< bi lightbulb >}} Hint: don't forget to save object with new variable names by `<-`
+:::
+
+::: {.fragment}
+```{r}
+sipky <- rename(sipky,
+   typ = Name,
+   delka = Length,
+   sirka = Width,
+   hmotnost = Weight)
+
+head(sipky)
+```
+:::
+
+## Arranging values in ascending order...
+
+- here you can order your observations from the lowest to highest (or vice versa). To do so, use function `arrange(data, variable)`
+
+```{r}
+head(arrange(sipky, delka))
+```
+
+## ...and in descending order
+
+- if you want to order the values from higher to smaller just add `desc()`
+
+```{r}
+head(arrange(sipky, desc(delka)))
+```
+
+::: {.fragment}
+{{< bi wrench-adjustable >}} Task: What will happen if you will try to order non-numerical variable, but a categorical variable (such as type of the dartpoint)?
+:::
+
+## Filtering {.scrollable}
+
+::: {.incremental}
+- function `filter(data, variable <operator> value)` allows you to filter your data based on different conditions, for example minimal weight, type of the dartpoint, etc
+- logical and mathematical operators: ==, !=, \<, \>, \>=, \<=, &, \|, etc (use `?dplyr::filter` for more details)
+:::
+
+::: {.fragment}
+- here we use `>` to get only dartpoints with the length higher than 80 cm
+
+```{r}
+filter(sipky, delka > 80)
+```
+:::
+
+::: {.fragment}
+- and here we use `==` to choose only those dartpoints which are of type "Travis"
+
+```{r}
+filter(sipky, typ == "Travis")
+```
+:::
+
+::: {.fragment}
+- alternatively, you can exclude all points of a type "Travis" by negation `!=`
+
+```{r}
+head(filter(sipky, typ != "Travis"))
+```
+:::
+
+::: {.fragment}
+- add `&` if you want to filter with more than one condition, for example here we will filter all points which are type "Wells" **AND** are heavier than 10 grams
+
+```{r}
+filter(sipky, typ == "Wells" & hmotnost > 10)
+```
+:::
+
+::: {.fragment}
+- {{< bi wrench-adjustable >}} Task: instead of `&` try operator `|` (**OR**) and see how the result differs
+:::
+
+## Filtering based on a vector
+
+- you can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator `%in%`
+
+```{r}
+vyber <- c("Pedernales", "Ensor")
+
+head(filter(sipky, typ %in% vyber))
+```
+
+## Summaries 
+
+- we already know some functions to calculate basic summaries, for example function `mean`
+
+```{r}
+mean(sipky$delka)
+```
+
+::: {.incremental}
+- but if you want to create a new dataframe from calculated statistics, function `summarise(data, new_variable = summary_statistics)` is much more helpfull
+- for summary statistics you can use different functions: `mean()`, `median()`, `sd()`, `min()`..., (use `?summarise` for more details)
+:::
+
+::: {.fragment}
+```{r}
+summarise(sipky, delka_prumer = mean(delka))
+```
+:::
+
+::: {.fragment}
+- you can also calculate more summaries:
+
+```{r}
+summarise(sipky,
+    delka_prumer = mean(delka),
+    delka_sd = sd(delka),
+    delka_min = min(delka),
+    delka_max = max(delka),
+    pocet = n())
+```
+:::
+
+## Grouping {.scrollable}
+
+- summaries above were applied on whole dataframe. Here we will learn how to calculate summaries for each type of the dartpoint by using `group_by(data, variable_to_be_grouped_by)`
+
+```{r}
+sipky_typ <- group_by(sipky, typ)
+```
+
+::: {.fragment}
+- at first sight, you don´t see any differences, but they will be visible after applying function `summarise`
+
+```{r}
+summarise(sipky_typ, delka_prumer = mean(delka))
+```
+:::
+
+::: {.fragment}
+- you can also calculate more summaries at once and use `round` to remove unnecessary decimals:
+
+```{r}
+summarise(sipky_typ, 
+    delka_prumer = round(mean(delka),1),
+    pocet = n())
+```
+:::
+
+::: {.fragment}
+- {{< bi wrench-adjustable >}} Task: save the result as a new dataframe "sipky_sum" for later work
+:::
+
+::: {.fragment}
+```{r}
+sipky_sum <- summarise(sipky_typ, 
+    delka_prumer = round(mean(delka),1),
+    pocet = n())
+```
+:::
+
+## Mutate
+
+::: {.incremental}
+- function `mutate` creates a new variable, here we will show how to add variable with percentages
+- note: `sum` calculates a **total sum** of values from chosen variable (in this case - "pocet")
+:::
+
+::: {.fragment}
+```{r}
+mutate(sipky_sum,
+   procento = (pocet/sum(pocet))*100)
+```
+:::
+
+::: {.fragment}
+- {{< bi lightbulb >}} Hint: you can again remove unnecessary decimals by adding `round` but be careful with the right number of the brackets `()`!
+
+```{r}
+mutate(sipky_sum,
+   procento = round((pocet/sum(pocet))*100, 0))
+```
+:::
+
+## Pipe operator
+
+::: {.incremental}
+- when applying plenty of transformation on one dataset "pipe operator" (`%>%`) could make your work easier and code shorter and more readable
+- notice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the "pipe"
+:::
+
+::: {.fragment}
+```{r}
+sipky %>% 
+  filter(delka > 70) %>%
+  arrange(delka)
+```
+:::
+
+## More complex summarising with dplyr and pipe
+
+```{r}
+#| code-line-numbers: "1|2|3-5|6|7|"
+sipky %>% 
+  group_by(typ) %>% 
+  summarise(delka_prum = round(mean(delka), 1),
+    hmotnost_prum = round(mean(hmotnost), 1),
+    pocet = n()) %>%
+  mutate(procento = round((pocet/sum(pocet))*100, 1)) %>% 
+  arrange(desc(pocet))
+```
+
+## Visualising your summaries {.auto-animate}
+
+```{r}
+sipky %>% 
+  group_by(typ) %>% 
+  summarise(delka_prum = mean(delka),
+    hmotnost_prum = mean(hmotnost),
+    pocet = n()) %>%
+  mutate(procento = round((pocet/sum(pocet))*100,1)) %>% 
+  arrange(desc(pocet))
+```
+
+## Visualising your summaries {.auto-animate}
+
+```{r}
+#| code-line-numbers: 1-7|8-12
+sipky %>% 
+  group_by(typ) %>% 
+  summarise(delka_prum = mean(delka),
+    hmotnost_prum = mean(hmotnost),
+    pocet = n()) %>%
+  mutate(procento = round((pocet/sum(pocet))*100,1)) %>% 
+  arrange(desc(pocet)) %>% 
+  ggplot() +
+  aes(x = typ, y = delka_prum) +
+  geom_col() +
+  labs(title = "Průměrná délka šipky") +
+  theme_light()
+```
+
+
+## Saving your results
+
+- use `write.csv` for saving your results as a comma separated file
+
+```{r}
+#| eval: false
+sipky %>% 
+  group_by(typ) %>% 
+  summarise(delka_prum = mean(delka),
+    hmotnost_prum = mean(hmotnost),
+    pocet = n()) %>%
+  mutate(procento = round((pocet/sum(pocet))*100,1)) %>% 
+  arrange(desc(pocet)) %>% 
+  write.csv(here("sipky_result.csv"))
+```
+
+::: {.fragment}
+- or save your summarised data frame as an object and save it later
+
+
+```{r}
+#| eval: false
+#| code-line-numbers: 1-7|9|
+sipky_result <- sipky %>% 
+  group_by(typ) %>% 
+  summarise(delka_prum = mean(delka),
+    hmotnost_prum = mean(hmotnost),
+    pocet = n()) %>%
+  mutate(procento = round((pocet/sum(pocet))*100,1)) %>% 
+  arrange(desc(pocet))
+  
+write.csv(sipky_result, here("sipky_result.csv"))
+```
+:::
