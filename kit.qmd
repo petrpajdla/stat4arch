@@ -31,6 +31,8 @@ Some characters are somewhat difficult to write on the Czech keyboard:
 | %>%              | Ctrl + Shift + m |
 | run selected row | Ctrl + Enter     |
 | run whole script | Ctrl + Shift + Enter |
+| comment line     | Ctrl + Shift + c |
+| insert section   | Ctrl + Shift + r |
 
 
 ## Function reference 
@@ -43,8 +45,8 @@ Some characters are somewhat difficult to write on the Czech keyboard:
 `library(packagename)` attaches a package from a library  
 
 Getting help on anything:  
-`?function`  
-`help(function)`
+`?function` equals `help(function)`  
+`??function`  
 
 Lookign at data:  
 `head(x)` and `tail(x)`  

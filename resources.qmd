@@ -51,6 +51,12 @@ the Potato People prohibits this.
 - Search through [Stack Overflow](https://stackoverflow.com/questions/tagged/r).
   Find some tips on asking good questions and providing minimal reproducible examples
   in this [thread](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example).
+  
+### Data visualizations 
+
+- Choosing proper graph for the data and message you want to communicate can be difficult, have a look at some of galeries of various graphs: [Visual vocabulary by Financial Times](ft.com/vocabulary), [From Data to Viz](https://www.data-to-viz.com) website or [The Data Visualisation Catalogue](https://datavizcatalogue.com/).
+- Or go for sites with graphs created in R directly (with code): [R Graph Gallery](https://r-graph-gallery.com/index.html) or [R Charts](https://r-charts.com/).
+- Choosing right colors for your graphs and maps can be difficult, have a look at the [Color Brewer](https://colorbrewer2.org) website that offers many great color palettes.
 
 ## Reproducibility
 
