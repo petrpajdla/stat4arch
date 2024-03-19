@@ -14,3 +14,73 @@ execute:
   echo: true
   warning: false
 ---
+
+## Reflection {background-color="#FAF1A4"}
+
+::: {.incremental}
+- You know how to do the basics:
+- read data into R,
+- count some statistics,
+- create and interpret basic plots,
+- describe the plots with labels, change the style, save them.
+:::
+
+::: {.fragment}
+Some additions...
+
+::: {.incremental}
+- {{< bi patch-question >}} *Where do I get help?*
+- {{< bi patch-check-fill >}} In [cheat sheets](https://posit.co/resources/cheatsheets/).
+- {{< bi patch-question >}} *What type of graph should I choose?*
+- {{< bi patch-check-fill >}} Look in the [R Graph Gallery](https://r-graph-gallery.com/index.html).
+- {{< bi patch-question >}} *What colors should I use?*
+- {{< bi patch-check-fill >}} Look at the [Color Brewer](https://colorbrewer2.org).
+- See section [Resources](../../resources.qmd) at the website for more...
+:::
+:::
+
+## Normal distribution
+
+*bell-shaped curve*, *Gaussian distribution*
+
+![](./figs/normal_distribution.png)
+
+## Normal distribution
+
+### One standard deviation *(one sigma)*
+
+![](./figs/sigma1.png)
+
+## Normal distribution {auto-animate=true}
+
+### Two standard deviations *(two sigma)*
+
+![](./figs/sigma2.png)
+
+## Normal distribution {auto-animate=true}
+
+### Three standard deviations *(three sigma)*
+
+![](./figs/sigma3.png)
+
+## Is my distribution normal?
+
+::: {.fragment}
+### Visual aids
+
+::: {.incremental}
+- Density plot
+- Q-Q plot (quantile-quantile plot)  
+  `qqnorm()` or `ggplot(data) + aes(sample = x) + geom_qq()`
+:::
+:::
+
+::: {.fragment}
+### Statistical hypothesis test
+
+::: {.incremental}
+- Shapiro-Wilk test  
+  `shapiro.text()`
+- Kolmogorov-Smirnov normality test
+:::
+:::
