@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -39,6 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -219,8 +220,32 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_norm.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="norm.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link active" data-scroll-target="#reflection">Reflection</a></li>
+  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution">Normal distribution</a></li>
+  <li><a href="#normal-distribution-1" id="toc-normal-distribution-1" class="nav-link" data-scroll-target="#normal-distribution-1">Normal distribution</a>
+  <ul class="collapse">
+  <li><a href="#one-standard-deviation-one-sigma" id="toc-one-standard-deviation-one-sigma" class="nav-link" data-scroll-target="#one-standard-deviation-one-sigma">One standard deviation <em>(one sigma)</em></a></li>
+  </ul></li>
+  <li><a href="#normal-distribution-2" id="toc-normal-distribution-2" class="nav-link" data-scroll-target="#normal-distribution-2">Normal distribution</a>
+  <ul class="collapse">
+  <li><a href="#two-standard-deviations-two-sigma" id="toc-two-standard-deviations-two-sigma" class="nav-link" data-scroll-target="#two-standard-deviations-two-sigma">Two standard deviations <em>(two sigma)</em></a></li>
+  </ul></li>
+  <li><a href="#normal-distribution-3" id="toc-normal-distribution-3" class="nav-link" data-scroll-target="#normal-distribution-3">Normal distribution</a>
+  <ul class="collapse">
+  <li><a href="#three-standard-deviations-three-sigma" id="toc-three-standard-deviations-three-sigma" class="nav-link" data-scroll-target="#three-standard-deviations-three-sigma">Three standard deviations <em>(three sigma)</em></a></li>
+  </ul></li>
+  <li><a href="#is-my-distribution-normal" id="toc-is-my-distribution-normal" class="nav-link" data-scroll-target="#is-my-distribution-normal">Is my distribution normal?</a>
+  <ul class="collapse">
+  <li><a href="#visual-aids" id="toc-visual-aids" class="nav-link" data-scroll-target="#visual-aids">Visual aids</a></li>
+  <li><a href="#statistical-hypothesis-test" id="toc-statistical-hypothesis-test" class="nav-link" data-scroll-target="#statistical-hypothesis-test">Statistical hypothesis test</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://petrpajdla.github.io/stat4arch/blob/main/lect/w05/norm.qmd" class="toc-action"><i class="bi bi-git"></i>View source</a></li><li><a href="https://petrpajdla.github.io/stat4arch/edit/main/lect/w05/norm.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://petrpajdla.github.io/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_norm.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="norm.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -243,8 +268,87 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="reflection" class="level2" data-background-color="#FAF1A4">
+<h2 data-background-color="#FAF1A4" class="anchored" data-anchor-id="reflection">Reflection</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>You know how to do the basics:</li>
+<li>read data into R,</li>
+<li>count some statistics,</li>
+<li>create and interpret basic plots,</li>
+<li>describe the plots with labels, change the style, save them.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Some additions…</p>
+<div class="incremental">
+<ul class="incremental">
+<li><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>Where do I get help?</em></li>
+<li><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> In <a href="https://posit.co/resources/cheatsheets/">cheat sheets</a>.</li>
+<li><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>What type of graph should I choose?</em></li>
+<li><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> Look in the <a href="https://r-graph-gallery.com/index.html">R Graph Gallery</a>.</li>
+<li><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>What colors should I use?</em></li>
+<li><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> Look at the <a href="https://colorbrewer2.org">Color Brewer</a>.</li>
+<li>See section <a href="../../resources.html">Resources</a> at the website for more…</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="normal-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="normal-distribution">Normal distribution</h2>
+<p><em>bell-shaped curve</em>, <em>Gaussian distribution</em></p>
+<p><img src="./figs/normal_distribution.png" class="img-fluid"></p>
+</section>
+<section id="normal-distribution-1" class="level2">
+<h2 class="anchored" data-anchor-id="normal-distribution-1">Normal distribution</h2>
+<section id="one-standard-deviation-one-sigma" class="level3">
+<h3 class="anchored" data-anchor-id="one-standard-deviation-one-sigma">One standard deviation <em>(one sigma)</em></h3>
+<p><img src="./figs/sigma1.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="normal-distribution-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="normal-distribution-2">Normal distribution</h2>
+<section id="two-standard-deviations-two-sigma" class="level3">
+<h3 class="anchored" data-anchor-id="two-standard-deviations-two-sigma">Two standard deviations <em>(two sigma)</em></h3>
+<p><img src="./figs/sigma2.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="normal-distribution-3" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="normal-distribution-3">Normal distribution</h2>
+<section id="three-standard-deviations-three-sigma" class="level3">
+<h3 class="anchored" data-anchor-id="three-standard-deviations-three-sigma">Three standard deviations <em>(three sigma)</em></h3>
+<p><img src="./figs/sigma3.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="is-my-distribution-normal" class="level2">
+<h2 class="anchored" data-anchor-id="is-my-distribution-normal">Is my distribution normal?</h2>
+<div class="fragment">
+<section id="visual-aids" class="level3">
+<h3 class="anchored" data-anchor-id="visual-aids">Visual aids</h3>
+<div class="incremental">
+<ul class="incremental">
+<li>Density plot</li>
+<li>Q-Q plot (quantile-quantile plot)<br>
+<code>qqnorm()</code> or <code>ggplot(data) + aes(sample = x) + geom_qq()</code></li>
+</ul>
+</div>
+</section>
+</div>
+<div class="fragment">
+<section id="statistical-hypothesis-test" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-hypothesis-test">Statistical hypothesis test</h3>
+<div class="incremental">
+<ul class="incremental">
+<li>Shapiro-Wilk test<br>
+<code>shapiro.text()</code></li>
+<li>Kolmogorov-Smirnov normality test</li>
+</ul>
+</div>
+</section>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -326,24 +430,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -378,11 +464,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -670,7 +752,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://petrpajdla.github.io/stat4arch/blob/main/lect/w05/norm.qmd" class="toc-action"><i class="bi bi-git"></i>View source</a></li><li><a href="https://petrpajdla.github.io/stat4arch/edit/main/lect/w05/norm.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://petrpajdla.github.io/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://petrpajdla.github.io/stat4arch/blob/main/lect/w05/norm.qmd" class="toc-action"><i class="bi bi-git"></i>View source</a></li><li><a href="https://petrpajdla.github.io/stat4arch/edit/main/lect/w05/norm.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://petrpajdla.github.io/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

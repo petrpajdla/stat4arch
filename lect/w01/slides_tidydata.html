@@ -8,9 +8,9 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.550">
+  <meta name="generator" content="quarto-1.3.450">
 
-  <title>stat4arch - Course introduction</title>
+  <title>stat4arch - Tidy data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -155,8 +155,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -325,115 +324,82 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Course introduction</h1>
+  <h1 class="title">Tidy data</h1>
+  <p class="subtitle">Organizing data</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="basic-information" class="slide level2">
-<h2>Basic information</h2>
-<ul>
-<li>Lectures/seminars each <strong>Wednesday, 12:00 – 13:40</strong>, room <strong>L11</strong>.</li>
-<li>Try not to miss the seminars/lectures please.</li>
-<li><em>Hybrid</em> teaching or recording the lectures is not planned.</li>
-<li>Be active and curious, the lectures are mere introductions and most of the work is up to you.</li>
-<li>Bring your own laptop or use the computers in the room.</li>
-</ul>
-<h3 id="schedule">Schedule</h3>
-<p>See <a href="../../schedule.html">details here…</a></p>
-</section>
-<section id="lecturers" class="slide level2">
-<h2>Lecturers</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="./figs/pp.jpg"></p>
-<h4 id="petr-pajdla">Petr Pajdla</h4>
-<p><em>Archaeological information system of the Czech republic (AIS CR)</em><br>
-<em>Institute of Archaeology, Czech Acad Sci, Brno</em></p>
-<p><a href="https://orcid.org/0000-0001-7050-9572">0000-0001-7050-9572</a></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="./figs/pt.jpg"></p>
-<h4 id="peter-tkáč">Peter Tkáč</h4>
-<p><em>Department of Archaeology and Museology, Masaryk University</em><br>
-<em>Institute of Botany, Czech Acad Sci</em></p>
-<p><a href="https://orcid.org/0000-0002-9444-1936">0000-0002-9444-1936</a></p>
-</div>
-</div>
-</section>
-<section id="and-what-about-you" class="slide level2">
-<h2>And what about you?</h2>
-</section>
 <section id="objectives" class="slide level2">
 <h2>Objectives</h2>
-<p>At the end of the course, you will be able to:</p>
+</section>
+<section id="what-is-a-database" class="slide level2">
+<h2>What is a database?</h2>
+<p>(Brainstorming)</p>
+</section>
+<section id="relational-database---basic-terms" class="slide level2">
+<h2>Relational database - basic terms</h2>
+<p><img data-src="./figs/database_example_1.png"> <!-- <img src="./figs/database_example_1.png" style='width:100%;'> --></p>
+</section>
+<section id="relational-database---basic-terms-1" class="slide level2">
+<h2>Relational database - basic terms</h2>
+<p><img data-src="./figs/database_example.png"> <!-- <img src="./figs/database_example.png" style='width:100%;'> --></p>
 <ul>
-<li>understand basic statistics terminology,</li>
-<li>create plots for one and two variables,</li>
-<li>calculate and interpret summary statistics,</li>
-<li>manipulate and prepare data for various types of analyses,</li>
-<li>analyze range of data types,</li>
-<li>analyze spatial and temporal data,</li>
-<li>work in the R programming language and environment.</li>
+<li><strong>variable</strong> (<em>proměnná</em> / <em>atribut</em>) - napr. hmotnosť keramického fragmentu</li>
+<li><strong>observation</strong> / <strong>object</strong> (<em>entita</em> / <em>záznam</em>) - napr. konkrétny keramický fragment</li>
+<li><strong>value</strong> (<em>hodnota</em>)</li>
+<li><strong>primary key</strong> / <strong>unique ID</strong> (<em>primární klíč</em>)</li>
 </ul>
 </section>
-<section id="prerequisites" class="slide level2">
-<h2>Prerequisites</h2>
+<section id="tidy-data" class="slide level2">
+<h2>Tidy data</h2>
+<p><img data-src="./figs/tidy_data.png"> <!-- <img src="figs/tidy_data.png" style='width:100%;'> --></p>
+</section>
+<section id="types-of-variables" class="slide level2">
+<h2>Types of variables</h2>
+<h3 id="categorical">Categorical</h3>
 <ul>
-<li>Not to be afraid of learning a scripting language.</li>
-<li>Elementary knowledge of mathematics/statistics.</li>
+<li><strong>dichotomies</strong> (<em>dichotomická</em>) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)</li>
+<li><strong>nominal</strong> (<em>nominální</em>) - archeologické datovanie (“neolit”), číslo objektu, keramický typ</li>
+<li><strong>ordinal</strong> / <strong>rank</strong> (<em>ordinální, pořadová</em>) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál</li>
 </ul>
-<h3 id="where-to-review-basics-of-mathsstats">Where to review basics of maths/stats?</h3>
-<p>If you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:</p>
+<h3 id="numeric">Numeric</h3>
 <ul>
-<li><a href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics">Khan Academy 7th grade statistics</a></li>
-<li><a href="https://www.khanacademy.org/math/probability">Khan Academy High School statistics</a></li>
+<li><strong>discrete</strong> (<em>diskrétní</em>) - môžu byť len <em>celé</em> čísla - napr. počet lokalít, počet bronzových spôn</li>
+<li><strong>continuous</strong> (<em>spojité / metrické</em>) - môže byť akékoľvek <em>reálne</em> číslo - hmotnosť ker. fragmentu, dĺžka železného meča</li>
+<li><strong>interval</strong> (<em>intervalové</em>) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)</li>
+<li><strong>ratio</strong> (<em>poměrové</em>) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)</li>
 </ul>
 </section>
-<section id="projects" class="slide level2">
-<h2>Projects</h2>
+<section id="tidy-data-1" class="slide level2">
+<h2>Tidy data</h2>
+<p>What’s wrong?</p>
+<p><img data-src="./figs/database_fails.png"> <!-- <img src="./figs/database_fails.png" style='width:100%;'> --></p>
+</section>
+<section id="basic-tidy-data-principles" class="slide level2">
+<h2>Basic tidy data principles</h2>
 <ul>
-<li>During the course, you will work on a data analysis project of your own, see <a href="../../project.html">more details here</a>.</li>
+<li>One variable in one column.</li>
+<li>One observation in one row.</li>
+<li>One value in one cell.</li>
+<li>Do not use color codes.</li>
+<li>Backup your data!</li>
+<li>Be consistent!</li>
 </ul>
 </section>
-<section id="resources" class="slide level2">
-<h2>Resources</h2>
-<h3 id="quantitative-methods-in-archaeology">Quantitative methods in archaeology</h3>
-<p><img data-src="./figs/shennan.jpg" style="width:15.0%"> <img data-src="./figs/fletcher.jpg" style="width:15.0%"> <img data-src="./figs/baxter.jpeg" style="width:15.0%"> <img data-src="./figs/drennan.jpg" style="width:15.0%"> <img data-src="./figs/vanpool.jpg" style="width:15.0%"> <img data-src="./figs/carlson.jpg" style="width:15.0%"></p>
-<ul>
-<li>See section <a href="../../resources.html">Resources</a> for more details…</li>
-<li>Books already available in study materials.</li>
-</ul>
-</section>
-<section id="resources-1" class="slide level2">
-<h2>Resources</h2>
-<h3 id="learning-r">Learning R</h3>
-<p><a href="https://r4ds.hadley.nz/"><img data-src="./figs/wickham.jpg" style="width:15.0%"></a> <a href="https://socviz.co/"><img data-src="./figs/healy.jpg" style="width:15.0%"></a></p>
-<ul>
-<li>See section <a href="../../resources.html">Resources</a> for more details…</li>
-<li>Books available online.</li>
-</ul>
-</section>
-<section id="why-maths-in-archaeology" class="slide level2">
-<h2>Why maths in archaeology?</h2>
-<p><em>Brainstorming</em></p>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
 </section>
 <section id="assignments" class="slide level2">
 <h2>Assignments</h2>
 <ul>
-<li><p>Read chapters <strong>Quantifying Archaeology</strong> in <em>Quantitative Analysis in Archaeology</em> book by VanPool, T. L. and Leonard, R. D. (2011).</p></li>
-<li><p>Optionally, read <strong>Introductions</strong> in:</p>
-<ul>
-<li><em>Quantifying archaeology</em> book by Stephen Shennan, and/or</li>
-<li><em>Quantitative Methods in Archaeology</em> book by David L. Carlson</li>
-</ul>
-<p>See <a href="../../resources.html">Resources</a> for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.</p></li>
+<li>Read Karl Broman’s <a href="https://kbroman.org/dataorg/">guide</a> on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. <em>The American Statistician</em> 72(1): 2–10, DOI: <a href="https://doi.org/gdz6cm" class="uri">https://doi.org/gdz6cm</a>.</li>
+<li>Read chapter <strong>Data</strong> in <em>Quantitative analysis in archaeology</em> book by VanPool and Leonard (2011).</li>
 </ul>
 
-<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p><a href="https://petrpajdla.github.io/stat4arch/">AES_707</a> <em>Statistics seminar for archaeologists</em> | <a href="./intro.html">Introduction</a></p>
-</div>
+<p>AES_707 <em>Statistics seminar for archaeologists</em> | Tidy data</p>
 </div>
 </section>
     </div>
@@ -462,6 +428,7 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -722,9 +689,10 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -734,17 +702,8 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

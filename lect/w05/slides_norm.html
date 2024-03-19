@@ -7,8 +7,9 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.550">
 
   <title>stat4arch - Normal distribution</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -333,8 +334,76 @@
 </div>
 
 </section>
-<section class="slide level2">
+<section id="reflection" class="slide level2" data-background-color="#FAF1A4">
+<h2>Reflection</h2>
+<div>
+<ul>
+<li class="fragment">You know how to do the basics:</li>
+<li class="fragment">read data into R,</li>
+<li class="fragment">count some statistics,</li>
+<li class="fragment">create and interpret basic plots,</li>
+<li class="fragment">describe the plots with labels, change the style, save them.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Some additions…</p>
+<div>
+<ul>
+<li class="fragment"><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>Where do I get help?</em></li>
+<li class="fragment"><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> In <a href="https://posit.co/resources/cheatsheets/">cheat sheets</a>.</li>
+<li class="fragment"><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>What type of graph should I choose?</em></li>
+<li class="fragment"><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> Look in the <a href="https://r-graph-gallery.com/index.html">R Graph Gallery</a>.</li>
+<li class="fragment"><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>What colors should I use?</em></li>
+<li class="fragment"><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> Look at the <a href="https://colorbrewer2.org">Color Brewer</a>.</li>
+<li class="fragment">See section <a href="../../resources.html">Resources</a> at the website for more…</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="normal-distribution" class="slide level2">
+<h2>Normal distribution</h2>
+<p><em>bell-shaped curve</em>, <em>Gaussian distribution</em></p>
 
+<img data-src="./figs/normal_distribution.png" class="r-stretch"></section>
+<section id="normal-distribution-1" class="slide level2">
+<h2>Normal distribution</h2>
+<h3 id="one-standard-deviation-one-sigma">One standard deviation <em>(one sigma)</em></h3>
+
+<img data-src="./figs/sigma1.png" class="r-stretch"></section>
+<section id="normal-distribution-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Normal distribution</h2>
+<h3 id="two-standard-deviations-two-sigma">Two standard deviations <em>(two sigma)</em></h3>
+
+<img data-src="./figs/sigma2.png" class="r-stretch"></section>
+<section id="normal-distribution-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Normal distribution</h2>
+<h3 id="three-standard-deviations-three-sigma">Three standard deviations <em>(three sigma)</em></h3>
+
+<img data-src="./figs/sigma3.png" class="r-stretch"></section>
+<section id="is-my-distribution-normal" class="slide level2">
+<h2>Is my distribution normal?</h2>
+<div class="fragment">
+<!-- -->
+<h3 id="visual-aids">Visual aids</h3>
+<div>
+<ul>
+<li class="fragment">Density plot</li>
+<li class="fragment">Q-Q plot (quantile-quantile plot)<br>
+<code>qqnorm()</code> or <code>ggplot(data) + aes(sample = x) + geom_qq()</code></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<!-- -->
+<h3 id="statistical-hypothesis-test">Statistical hypothesis test</h3>
+<div>
+<ul>
+<li class="fragment">Shapiro-Wilk test<br>
+<code>shapiro.text()</code></li>
+<li class="fragment">Kolmogorov-Smirnov normality test</li>
+</ul>
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -630,24 +699,6 @@
         // clear code selection
         e.clearSelection();
       });
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -684,11 +735,7 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {

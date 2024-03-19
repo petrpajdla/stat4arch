@@ -7,359 +7,518 @@
     "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset &  Script\n\n\n5.\n20. 3.\nNormal distribution & data manpulation with dplyr\n Dataset\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n\n\n\n8.\n10. 4.\nConsidering time\n\n\n\n-\n17. 4.\nReading week\n\n\n\n9.\n24. 4.\nMultivariate analysis\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nPractice\n\n\n\n11.\n22. 5."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Analyzing archaeological data using R",
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project",
     "section": "",
-    "text": "Welcome to AES_707 Statistics seminar for archaeology students at the Department of Archaeology and Museology, Masaryk University. The course is taught by Petr Pajdla and Peter Tkáč.\nInformation given here applies to spring semester 2024, the page will be continuously updated throughout the semester. The course was taught also in 2022 and 2020."
+    "text": "Warning\n\n\n\nInformation given here will be updated later in the semestr.\nTo pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit their own report on the analysis. There are two options, you can choose to work either on your own dataset or use an existing published data."
   },
   {
-    "objectID": "index.html#information-on-assessment",
-    "href": "index.html#information-on-assessment",
-    "title": "Analyzing archaeological data using R",
-    "section": "Information on assessment",
-    "text": "Information on assessment\nTo pass the course, you have to finish and submit a report on your project."
+    "objectID": "project.html#get-the-data",
+    "href": "project.html#get-the-data",
+    "title": "Project",
+    "section": "Get the data",
+    "text": "Get the data\nAlthough the first step in most of the analysis would be creating the research question(s), we assume our questions and goals are already set and skip to the step where we get the data suitable to answer our questions…\n\nWorking with your own dataset\n\nYou can choose to use your own data. This is especially useful if you are working on your BA/MA/PhD thesis or an article and want to analyze the data collected for the given work.\nThis option is easier because you probably know what your dataset contains and what each variable means, how it was collected etc.\n\n\n\nUsing an existing dataset\n\nFind a suitable dataset online, scrape a website, get it in a book, anything that comes to mind, be creative. Bear in mind that the dataset needs to contain a mixture of quantitative and qualitative variables. It can be organized as a table, then the work is easier for you. If it is a database, we can give you a hand with data preparation etc.\nWe recommend to look in the Journal of Open Archaeology Data. Datasets published here have clear use conditions (license), are deposited in a suitable repository and should be well documented.\nIf you choose to use a dataset you found anywhere else (or web scraped etc.) please make sure that it is easily accessible and suitable for the analysis."
   },
   {
-    "objectID": "project/project_template.html",
-    "href": "project/project_template.html",
-    "title": "Title of your project",
+    "objectID": "project.html#get-to-know-the-data",
+    "href": "project.html#get-to-know-the-data",
+    "title": "Project",
+    "section": "Get to know the data",
+    "text": "Get to know the data\n\nMake sure you know where your data is and how is it stored (format and how to read it into R).\nMake sure you know what each variable means, what type of data does it contain etc.\nThe dataset should contain at least several quantitative and qualitative variables in order for you to be able to practice creating visualizations.\n\n\nReport template\nRMarkdown template for the project report is here. Create a new RMarkdown file (.Rmd), copy and paste the contents of the template in your file, do your changes, write your report and push the Knit button. Follow the instructions in the template to work on your project.\n\n\nHow to submit the report\nFeel free to contact us if you need any help or assistance during the work on your project. Simply send us both the source Rmd file and the HTML output with your questions and we will address the problem either directly or in class."
+  },
+  {
+    "objectID": "lect/w05/norm.html",
+    "href": "lect/w05/norm.html",
+    "title": "Normal distribution",
     "section": "",
-    "text": "This is a template for a report on your project. As you already know, we expect you to work on an analysis of a data set of your choice and hand in a report similar to this one. Delete the following examples as soon as you will be sure what you are doing. The suggested structure of a report is below. Delete anything you do not need, feel free to edit the document."
+    "text": "You know how to do the basics:\nread data into R,\ncount some statistics,\ncreate and interpret basic plots,\ndescribe the plots with labels, change the style, save them.\n\n\n\nSome additions…\n\n\n Where do I get help?\n In cheat sheets.\n What type of graph should I choose?\n Look in the R Graph Gallery.\n What colors should I use?\n Look at the Color Brewer.\nSee section Resources at the website for more…",
+    "crumbs": [
+      "Normal distribution"
+    ]
   },
   {
-    "objectID": "project/project_template.html#r-markdown",
-    "href": "project/project_template.html#r-markdown",
-    "title": "Title of your project",
-    "section": "R Markdown",
-    "text": "R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
-  },
-  {
-    "objectID": "project/project_template.html#including-plots",
-    "href": "project/project_template.html#including-plots",
-    "title": "Title of your project",
-    "section": "Including Plots",
-    "text": "Including Plots\nYou can also embed plots, for example:\n\n\n\n\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n\nAbstract\nWrite a short and comprehensive abstract for your project (one paragraph of text).\n\nKeywords\nInclude several relevant keywords."
-  },
-  {
-    "objectID": "project/project_template.html#introduction",
-    "href": "project/project_template.html#introduction",
-    "title": "Title of your project",
-    "section": "Introduction",
-    "text": "Introduction\nWrite what data set you are analyzing and why, what is your goal and so on (one paragraph).\nAlso load all the packages you will be using in your analysis here.\n\n# put your library calls in here\nlibrary(ggplot2)\n\n\nData\nBriefly introduce your data set. Where does it come from? What does it contain? Load your data here and use any handy functions you learned to show what the variable names are, how big your data are, what data types does it contain etc.\n\n# read your data set here\n# remember, this # is a comment (ctrl+shift+c)\n# data &lt;- read.csv(\"\")\n\nTry to answer following questions using code:\n\nHow many variables are there?\nHow many rows does the data set have?\nWhat are the names of the variables?\nWhat data types are there in the data set?\n\n\n# str(data) and other functions you learned..."
-  },
-  {
-    "objectID": "project/project_template.html#exploratory-analysis",
-    "href": "project/project_template.html#exploratory-analysis",
-    "title": "Title of your project",
-    "section": "Exploratory analysis",
-    "text": "Exploratory analysis\n\nQualitative variables\nAre there any qualitative variables in your data set? Choose at least one and answer these questions if possible:\n\nHow many values does your qualitative variable has?\nShow the count of values of the chosen qualitative variable in a suitable plot.\n\n\n#  show us some plots...\n# ggplot(data, aes(...)) +\n#   geom_bar()\n\n\n\nQuantitative variables\nExplore your quantitative variables. Plot the distribution of the variables. Show us a histogram or a density plot. Try to compare the quantities in several groups using a box plot…\nGive us numeric summaries of the chosen quantitative variable:\n\nWhat is the mean and standard deviation?\nWhat is the median and IQR?\n\nHow does the distribution of the quantitative variable look? Is it a normal distribution? Is it right/left-skewed? Is it multimodal? Try to prove these points with both the graphs and a hypothesis test.\n\n\nData transformation challenge\nUse at least three functions (filter, select, group_by, summarise, arrange, mutate) from the dplyr package to transform your data and again show some summary statistics, plots and so on. Be creative!"
-  },
-  {
-    "objectID": "project/project_template.html#multivariate-exploration",
-    "href": "project/project_template.html#multivariate-exploration",
-    "title": "Title of your project",
-    "section": "Multivariate exploration",
-    "text": "Multivariate exploration\n\nWill be added…"
-  },
-  {
-    "objectID": "lect/w05/dplyr.html",
-    "href": "lect/w05/dplyr.html",
-    "title": "Data manipulation with dplyr",
+    "objectID": "lect/w05/norm.html#reflection",
+    "href": "lect/w05/norm.html#reflection",
+    "title": "Normal distribution",
     "section": "",
-    "text": "dplyr\n\n\n\n\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file",
+    "text": "You know how to do the basics:\nread data into R,\ncount some statistics,\ncreate and interpret basic plots,\ndescribe the plots with labels, change the style, save them.\n\n\n\nSome additions…\n\n\n Where do I get help?\n In cheat sheets.\n What type of graph should I choose?\n Look in the R Graph Gallery.\n What colors should I use?\n Look at the Color Brewer.\nSee section Resources at the website for more…",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Normal distribution"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#data-transformation",
-    "href": "lect/w05/dplyr.html#data-transformation",
-    "title": "Data manipulation with dplyr",
-    "section": "",
-    "text": "dplyr\n\n\n\n\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file",
+    "objectID": "lect/w05/norm.html#normal-distribution",
+    "href": "lect/w05/norm.html#normal-distribution",
+    "title": "Normal distribution",
+    "section": "Normal distribution",
+    "text": "Normal distribution\nbell-shaped curve, Gaussian distribution",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Normal distribution"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#before-we-begin",
-    "href": "lect/w05/dplyr.html#before-we-begin",
-    "title": "Data manipulation with dplyr",
-    "section": "Before we begin",
-    "text": "Before we begin\n\n\nload packages here and dplyr (don’t forget to install them firstly, if you haven’t done so yet)\nopen the project from last lecture (or create a new one if you don’t have it)\ncreate a new script\nload data dartpoints.csv into your script\nif you are loading data with here function don’t forget to check whether your data and script are in the same folder as your project\ncreate an object called “sipky” from the loaded database (with &lt;-)\n\n\n\n\nlibrary(here)\nlibrary(dplyr)\nsipky &lt;- read.csv(here(\"dartpoints.csv\"))",
+    "objectID": "lect/w05/norm.html#normal-distribution-1",
+    "href": "lect/w05/norm.html#normal-distribution-1",
+    "title": "Normal distribution",
+    "section": "Normal distribution",
+    "text": "Normal distribution\n\nOne standard deviation (one sigma)",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Normal distribution"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#selecting-variables",
-    "href": "lect/w05/dplyr.html#selecting-variables",
-    "title": "Data manipulation with dplyr",
-    "section": "Selecting variables",
-    "text": "Selecting variables\n\n\nselect(dataframe, variable1, variable2)\nsometimes you will need to remove variables you don’t need in your work, to have your database more user friendly\nfor example, you need only variables dealing with major proportions of the dartpoints, but your database have plenty of other variables which are making it difficult to observe, like here:\n\n\n\n\nhead(sipky)\n\n  Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n1 Darl 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6\n2 Darl 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9\n3 Darl 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2\n4 Darl 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3\n5 Darl 36-3321 41CV1023 12/58   30.6  17.1       4.0    12.6    11.2      8.9\n6 Darl 35-2959 41CV0235 21/63   41.8  16.8       4.1    12.7    11.5     11.0\n  Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    3.6        S       I         S         T       S       E\n2    4.5        S       I         S         T       S       E\n3    3.6        S       I         S         T       S       E\n4    4.0        S       I         S         T       S       E\n5    2.3        S       I         S         T       S       E\n6    3.0        S       E         I         T       I       C",
+    "objectID": "lect/w05/norm.html#normal-distribution-2",
+    "href": "lect/w05/norm.html#normal-distribution-2",
+    "title": "Normal distribution",
+    "section": "Normal distribution",
+    "text": "Normal distribution\n\nTwo standard deviations (two sigma)",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Normal distribution"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#selecting-variables-1",
-    "href": "lect/w05/dplyr.html#selecting-variables-1",
-    "title": "Data manipulation with dplyr",
-    "section": "Selecting variables",
-    "text": "Selecting variables\n\nto create a new dataframe, simply use function select and define which variables you want to keep\n\n\nsipky &lt;- select(sipky, Name, Length, Width, Weight)\nhead(sipky)\n\n  Name Length Width Weight\n1 Darl   42.8  15.8    3.6\n2 Darl   40.5  17.4    4.5\n3 Darl   37.5  16.3    3.6\n4 Darl   40.3  16.1    4.0\n5 Darl   30.6  17.1    2.3\n6 Darl   41.8  16.8    3.0",
+    "objectID": "lect/w05/norm.html#normal-distribution-3",
+    "href": "lect/w05/norm.html#normal-distribution-3",
+    "title": "Normal distribution",
+    "section": "Normal distribution",
+    "text": "Normal distribution\n\nThree standard deviations (three sigma)",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Normal distribution"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#renaming-variables",
-    "href": "lect/w05/dplyr.html#renaming-variables",
-    "title": "Data manipulation with dplyr",
-    "section": "Renaming variables",
-    "text": "Renaming variables\n\n\nrenaming your variables with function rename(data, new_name = old_name) can be useful when dealing with complicated code names or different languages\n Hint: don’t forget to save object with new variable names by &lt;-\n\n\n\n\nsipky &lt;- rename(sipky,\n   typ = Name,\n   delka = Length,\n   sirka = Width,\n   hmotnost = Weight)\n\nhead(sipky)\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0",
+    "objectID": "lect/w05/norm.html#is-my-distribution-normal",
+    "href": "lect/w05/norm.html#is-my-distribution-normal",
+    "title": "Normal distribution",
+    "section": "Is my distribution normal?",
+    "text": "Is my distribution normal?\n\n\nVisual aids\n\n\nDensity plot\nQ-Q plot (quantile-quantile plot)\nqqnorm() or ggplot(data) + aes(sample = x) + geom_qq()\n\n\n\n\n\n\nStatistical hypothesis test\n\n\nShapiro-Wilk test\nshapiro.text()\nKolmogorov-Smirnov normality test",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Normal distribution"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#arranging-values-in-ascending-order",
-    "href": "lect/w05/dplyr.html#arranging-values-in-ascending-order",
-    "title": "Data manipulation with dplyr",
-    "section": "Arranging values in ascending order…",
-    "text": "Arranging values in ascending order…\n\nhere you can order your observations from the lowest to highest (or vice versa). To do so, use function arrange(data, variable)\n\n\nhead(arrange(sipky, delka))\n\n   typ delka sirka hmotnost\n1 Darl  30.6  17.1      2.3\n2 Darl  31.2  15.6      2.5\n3 Darl  32.0  16.0      3.3\n4 Darl  32.4  14.5      2.5\n5 Darl  33.1  17.4      4.2\n6 Darl  33.5  16.6      3.2",
+    "objectID": "lect/w05/slides_norm.html#reflection",
+    "href": "lect/w05/slides_norm.html#reflection",
+    "title": "Normal distribution",
+    "section": "Reflection",
+    "text": "Reflection\n\n\nYou know how to do the basics:\nread data into R,\ncount some statistics,\ncreate and interpret basic plots,\ndescribe the plots with labels, change the style, save them.\n\n\n\nSome additions…\n\n\n Where do I get help?\n In cheat sheets.\n What type of graph should I choose?\n Look in the R Graph Gallery.\n What colors should I use?\n Look at the Color Brewer.\nSee section Resources at the website for more…"
+  },
+  {
+    "objectID": "lect/w05/slides_norm.html#normal-distribution",
+    "href": "lect/w05/slides_norm.html#normal-distribution",
+    "title": "Normal distribution",
+    "section": "Normal distribution",
+    "text": "Normal distribution\nbell-shaped curve, Gaussian distribution"
+  },
+  {
+    "objectID": "lect/w05/slides_norm.html#normal-distribution-1",
+    "href": "lect/w05/slides_norm.html#normal-distribution-1",
+    "title": "Normal distribution",
+    "section": "Normal distribution",
+    "text": "Normal distribution\nOne standard deviation (one sigma)"
+  },
+  {
+    "objectID": "lect/w05/slides_norm.html#normal-distribution-2",
+    "href": "lect/w05/slides_norm.html#normal-distribution-2",
+    "title": "Normal distribution",
+    "section": "Normal distribution",
+    "text": "Normal distribution\nTwo standard deviations (two sigma)"
+  },
+  {
+    "objectID": "lect/w05/slides_norm.html#normal-distribution-3",
+    "href": "lect/w05/slides_norm.html#normal-distribution-3",
+    "title": "Normal distribution",
+    "section": "Normal distribution",
+    "text": "Normal distribution\nThree standard deviations (three sigma)"
+  },
+  {
+    "objectID": "lect/w05/slides_norm.html#is-my-distribution-normal",
+    "href": "lect/w05/slides_norm.html#is-my-distribution-normal",
+    "title": "Normal distribution",
+    "section": "Is my distribution normal?",
+    "text": "Is my distribution normal?\n\n\nVisual aids\n\n\nDensity plot\nQ-Q plot (quantile-quantile plot)\nqqnorm() or ggplot(data) + aes(sample = x) + geom_qq()\n\n\n\n\n\nStatistical hypothesis test\n\n\nShapiro-Wilk test\nshapiro.text()\nKolmogorov-Smirnov normality test\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Normal distribution"
+  },
+  {
+    "objectID": "lect/w04/rels.html#objectives",
+    "href": "lect/w04/rels.html#objectives",
+    "title": "Summaries and visualization of relationships",
+    "section": "Objectives",
+    "text": "Objectives\nAt the end of the lecture, you will know how to…\n\n\nDescribe relationship of quantitative and qualitative variable.\nCreate and read box plots and violin plots.\n\nUnderstand relationship of two quantitative variables.\nCount and interpret correlation.\nCreate and understand scatterplots.\nAssess what relationship (covariation) occurs between your variables.",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#and-in-descending-order",
-    "href": "lect/w05/dplyr.html#and-in-descending-order",
-    "title": "Data manipulation with dplyr",
-    "section": "…and in descending order",
-    "text": "…and in descending order\n\nif you want to order the values from higher to smaller just add desc()\n\n\nhead(arrange(sipky, desc(delka)))\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n3 Pedernales  78.3  28.1     14.8\n4 Pedernales  70.4  30.4     13.1\n5     Travis  69.0  20.9     11.4\n6 Pedernales  67.2  27.1     15.3\n\n\n\n Task: What will happen if you will try to order non-numerical variable, but a categorical variable (such as type of the dartpoint)?",
+    "objectID": "lect/w04/rels.html#relationship-of-quantitative-and-qualitative-variables",
+    "href": "lect/w04/rels.html#relationship-of-quantitative-and-qualitative-variables",
+    "title": "Summaries and visualization of relationships",
+    "section": "Relationship of quantitative and qualitative variables",
+    "text": "Relationship of quantitative and qualitative variables",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#filtering",
-    "href": "lect/w05/dplyr.html#filtering",
-    "title": "Data manipulation with dplyr",
-    "section": "Filtering",
-    "text": "Filtering\n\n\nfunction filter(data, variable &lt;operator&gt; value) allows you to filter your data based on different conditions, for example minimal weight, type of the dartpoint, etc\nlogical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &, |, etc (use ?dplyr::filter for more details)\n\n\n\n\nhere we use &gt; to get only dartpoints with the length higher than 80 cm\n\n\nfilter(sipky, delka &gt; 80)\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n\n\n\n\n\nand here we use == to choose only those dartpoints which are of type “Travis”\n\n\nfilter(sipky, typ == \"Travis\")\n\n      typ delka sirka hmotnost\n1  Travis  56.5  21.1      9.5\n2  Travis  54.6  22.4     10.4\n3  Travis  46.3  21.3      7.5\n4  Travis  57.6  18.9      8.7\n5  Travis  49.1  21.4      6.9\n6  Travis  64.6  21.5     15.0\n7  Travis  69.0  20.9     11.4\n8  Travis  40.1  18.4      6.3\n9  Travis  41.5  19.2      7.5\n10 Travis  46.3  17.9      5.9\n11 Travis  39.6  21.5      5.4\n\n\n\n\n\nalternatively, you can exclude all points of a type “Travis” by negation !=\n\n\nhead(filter(sipky, typ != \"Travis\"))\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0\n\n\n\n\n\nadd & if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” AND are heavier than 10 grams\n\n\nfilter(sipky, typ == \"Wells\" & hmotnost &gt; 10)\n\n    typ delka sirka hmotnost\n1 Wells  65.4  25.1     12.6\n2 Wells  58.9  24.4     10.5\n3 Wells  63.1  24.7     16.3\n\n\n\n\n\n Task: instead of & try operator | (OR) and see how the result differs",
+    "objectID": "lect/w04/rels.html#boxplot",
+    "href": "lect/w04/rels.html#boxplot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#filtering-based-on-a-vector",
-    "href": "lect/w05/dplyr.html#filtering-based-on-a-vector",
-    "title": "Data manipulation with dplyr",
-    "section": "Filtering based on a vector",
-    "text": "Filtering based on a vector\n\nyou can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator %in%\n\n\nvyber &lt;- c(\"Pedernales\", \"Ensor\")\n\nhead(filter(sipky, typ %in% vyber))\n\n    typ delka sirka hmotnost\n1 Ensor  43.5  20.1      4.6\n2 Ensor  42.1  20.8      5.4\n3 Ensor  42.1  25.1      5.9\n4 Ensor  43.1  20.0      5.1\n5 Ensor  37.5  21.8      4.7\n6 Ensor  55.2  22.5      7.2",
+    "objectID": "lect/w04/rels.html#boxplot-1",
+    "href": "lect/w04/rels.html#boxplot-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)\n  \ng + geom_boxplot()",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#summaries",
-    "href": "lect/w05/dplyr.html#summaries",
-    "title": "Data manipulation with dplyr",
-    "section": "Summaries",
-    "text": "Summaries\n\nwe already know some functions to calculate basic summaries, for example function mean\n\n\nmean(sipky$delka)\n\n[1] 49.33077\n\n\n\n\nbut if you want to create a new dataframe from calculated statistics, function summarise(data, new_variable = summary_statistics) is much more helpfull\nfor summary statistics you can use different functions: mean(), median(), sd(), min()…, (use ?summarise for more details)\n\n\n\n\nsummarise(sipky, delka_prumer = mean(delka))\n\n  delka_prumer\n1     49.33077\n\n\n\n\n\nyou can also calculate more summaries:\n\n\nsummarise(sipky,\n    delka_prumer = mean(delka),\n    delka_sd = sd(delka),\n    delka_min = min(delka),\n    delka_max = max(delka),\n    pocet = n())\n\n  delka_prumer delka_sd delka_min delka_max pocet\n1     49.33077 12.73619      30.6     109.5    91",
+    "objectID": "lect/w04/rels.html#boxplot-2",
+    "href": "lect/w04/rels.html#boxplot-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\nAlso box and whisker plot, displays five-number summary.",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#grouping",
-    "href": "lect/w05/dplyr.html#grouping",
-    "title": "Data manipulation with dplyr",
-    "section": "Grouping",
-    "text": "Grouping\n\nsummaries above were applied on whole dataframe. Here we will learn how to calculate summaries for each type of the dartpoint by using group_by(data, variable_to_be_grouped_by)\n\n\nsipky_typ &lt;- group_by(sipky, typ)\n\n\n\nat first sight, you don´t see any differences, but they will be visible after applying function summarise\n\n\nsummarise(sipky_typ, delka_prumer = mean(delka))\n\n# A tibble: 5 × 2\n  typ        delka_prumer\n  &lt;fct&gt;             &lt;dbl&gt;\n1 Darl               39.8\n2 Ensor              42.7\n3 Pedernales         57.9\n4 Travis             51.4\n5 Wells              53.1\n\n\n\n\n\nyou can also calculate more summaries at once and use round to remove unnecessary decimals:\n\n\nsummarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())\n\n# A tibble: 5 × 3\n  typ        delka_prumer pocet\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;\n1 Darl               39.8    28\n2 Ensor              42.7    10\n3 Pedernales         57.9    32\n4 Travis             51.4    11\n5 Wells              53.1    10\n\n\n\n\n\n Task: save the result as a new dataframe “sipky_sum” for later work\n\n\n\n\nsipky_sum &lt;- summarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())",
+    "objectID": "lect/w04/rels.html#violin-plot",
+    "href": "lect/w04/rels.html#violin-plot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin()",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#mutate",
-    "href": "lect/w05/dplyr.html#mutate",
-    "title": "Data manipulation with dplyr",
-    "section": "Mutate",
-    "text": "Mutate\n\n\nfunction mutate creates a new variable, here we will show how to add variable with percentages\nnote: sum calculates a total sum of values from chosen variable (in this case - “pocet”)\n\n\n\n\nmutate(sipky_sum,\n   procento = (pocet/sum(pocet))*100)\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28     30.8\n2 Ensor              42.7    10     11.0\n3 Pedernales         57.9    32     35.2\n4 Travis             51.4    11     12.1\n5 Wells              53.1    10     11.0\n\n\n\n\n\n Hint: you can again remove unnecessary decimals by adding round but be careful with the right number of the brackets ()!\n\n\nmutate(sipky_sum,\n   procento = round((pocet/sum(pocet))*100, 0))\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28       31\n2 Ensor              42.7    10       11\n3 Pedernales         57.9    32       35\n4 Travis             51.4    11       12\n5 Wells              53.1    10       11",
+    "objectID": "lect/w04/rels.html#violin-plot-1",
+    "href": "lect/w04/rels.html#violin-plot-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin() +\n  geom_jitter(width = 0.05, alpha = 0.4)",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#pipe-operator",
-    "href": "lect/w05/dplyr.html#pipe-operator",
-    "title": "Data manipulation with dplyr",
-    "section": "Pipe operator",
-    "text": "Pipe operator\n\n\nwhen applying plenty of transformation on one dataset “pipe operator” (%&gt;%) could make your work easier and code shorter and more readable\nnotice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”\n\n\n\n\nsipky %&gt;% \n  filter(delka &gt; 70) %&gt;%\n  arrange(delka)\n\n         typ delka sirka hmotnost\n1 Pedernales  70.4  30.4     13.1\n2 Pedernales  78.3  28.1     14.8\n3 Pedernales  84.0  21.2      9.3\n4 Pedernales 109.5  49.3     28.8",
+    "objectID": "lect/w04/rels.html#violin-plot-2",
+    "href": "lect/w04/rels.html#violin-plot-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin() +\n  geom_boxplot(width = 0.15) +\n  geom_jitter(width = 0.05, alpha = 0.2)",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
-    "href": "lect/w05/dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
-    "title": "Data manipulation with dplyr",
-    "section": "More complex summarising with dplyr and pipe",
-    "text": "More complex summarising with dplyr and pipe\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = round(mean(delka), 1),\n    hmotnost_prum = round(mean(hmotnost), 1),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100, 1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9          10.6    32     35.2\n2 Darl             39.8           4.4    28     30.8\n3 Travis           51.4           8.6    11     12.1\n4 Ensor            42.7           5.1    10     11  \n5 Wells            53.1           8.7    10     11",
+    "objectID": "lect/w04/rels.html#relationship-of-two-quantitative-variables",
+    "href": "lect/w04/rels.html#relationship-of-two-quantitative-variables",
+    "title": "Summaries and visualization of relationships",
+    "section": "Relationship of two quantitative variables",
+    "text": "Relationship of two quantitative variables",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#visualising-your-summaries",
-    "href": "lect/w05/dplyr.html#visualising-your-summaries",
-    "title": "Data manipulation with dplyr",
-    "section": "Visualising your summaries",
-    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9         10.6     32     35.2\n2 Darl             39.8          4.41    28     30.8\n3 Travis           51.4          8.59    11     12.1\n4 Ensor            42.7          5.06    10     11  \n5 Wells            53.1          8.68    10     11",
+    "objectID": "lect/w04/rels.html#correlation",
+    "href": "lect/w04/rels.html#correlation",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation",
+    "text": "Correlation\n\n\n\n\nA statistic describing a relationship between two continuous variables.\nTo what degree is a variable y explained by x?\nCorrelation coefficient r, from -1 to +1.\nCorrelation does not imply causation!\nr = 1 – strong positive correlation\nr = 0.5 – moderately strong positive correlation\nr = 0 – variables are not correlated\nr = -0.2 – weak negative correlation\nr = -1 – strong negative correlation\n\n\n\n\nFunction cor()\n\ncor(dartpoints$Length, dartpoints$Width)\n\n[1] 0.7689932\n\ncor(dartpoints$Length, dartpoints$Weight)\n\n[1] 0.879953\n\ncor(dartpoints$Width, dartpoints$Thickness)\n\n[1] 0.5459291",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#visualising-your-summaries-1",
-    "href": "lect/w05/dplyr.html#visualising-your-summaries-1",
-    "title": "Data manipulation with dplyr",
-    "section": "Visualising your summaries",
-    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  ggplot() +\n  aes(x = typ, y = delka_prum) +\n  geom_col() +\n  labs(title = \"Průměrná délka šipky\") +\n  theme_light()",
+    "objectID": "lect/w04/rels.html#scatter-plot",
+    "href": "lect/w04/rels.html#scatter-plot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nPlot displying two continuous variables, x and y.\nx axis: explanatory variable, independent, predictor.\ny axis: dependent variable, response.\n\n\nggplot(dartpoints) +\n  aes(x = Length, y = Weight) +\n  geom_point()",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/dplyr.html#saving-your-results",
-    "href": "lect/w05/dplyr.html#saving-your-results",
-    "title": "Data manipulation with dplyr",
-    "section": "Saving your results",
-    "text": "Saving your results\n\nuse write.csv for saving your results as a comma separated file\n\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  write.csv(here(\"sipky_result.csv\"))\n\n\n\nor save your summarised data frame as an object and save it later\n\n\nsipky_result &lt;- sipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n  \nwrite.csv(sipky_result, here(\"sipky_result.csv\"))",
+    "objectID": "lect/w04/rels.html#correlation-examples",
+    "href": "lect/w04/rels.html#correlation-examples",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation examples",
+    "text": "Correlation examples",
     "crumbs": [
-      "Data manipulation with dplyr"
+      "Summaries and visualization of relationships"
     ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#data-transformation",
-    "href": "lect/w05/slides_dplyr.html#data-transformation",
-    "title": "Data manipulation with dplyr",
-    "section": "Data Transformation",
-    "text": "Data Transformation\nPackage\n\ndplyr\n\nGoals\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file"
+    "objectID": "lect/w04/rels.html#correlation-examples-1",
+    "href": "lect/w04/rels.html#correlation-examples-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation examples",
+    "text": "Correlation examples",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#before-we-begin",
-    "href": "lect/w05/slides_dplyr.html#before-we-begin",
-    "title": "Data manipulation with dplyr",
-    "section": "Before we begin",
-    "text": "Before we begin\n\n\nload packages here and dplyr (don’t forget to install them firstly, if you haven’t done so yet)\nopen the project from last lecture (or create a new one if you don’t have it)\ncreate a new script\nload data dartpoints.csv into your script\nif you are loading data with here function don’t forget to check whether your data and script are in the same folder as your project\ncreate an object called “sipky” from the loaded database (with &lt;-)\n\n\n\n\nlibrary(here)\nlibrary(dplyr)\nsipky &lt;- read.csv(here(\"dartpoints.csv\"))"
+    "objectID": "lect/w04/rels.html#scatter-plots",
+    "href": "lect/w04/rels.html#scatter-plots",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) +\n  geom_point()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#selecting-variables",
-    "href": "lect/w05/slides_dplyr.html#selecting-variables",
-    "title": "Data manipulation with dplyr",
-    "section": "Selecting variables",
-    "text": "Selecting variables\n\n\nselect(dataframe, variable1, variable2)\nsometimes you will need to remove variables you don’t need in your work, to have your database more user friendly\nfor example, you need only variables dealing with major proportions of the dartpoints, but your database have plenty of other variables which are making it difficult to observe, like here:\n\n\n\n\nhead(sipky)\n\n  Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n1 Darl 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6\n2 Darl 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9\n3 Darl 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2\n4 Darl 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3\n5 Darl 36-3321 41CV1023 12/58   30.6  17.1       4.0    12.6    11.2      8.9\n6 Darl 35-2959 41CV0235 21/63   41.8  16.8       4.1    12.7    11.5     11.0\n  Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    3.6        S       I         S         T       S       E\n2    4.5        S       I         S         T       S       E\n3    3.6        S       I         S         T       S       E\n4    4.0        S       I         S         T       S       E\n5    2.3        S       I         S         T       S       E\n6    3.0        S       E         I         T       I       C"
+    "objectID": "lect/w04/rels.html#scatter-plots-1",
+    "href": "lect/w04/rels.html#scatter-plots-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5)",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#selecting-variables-1",
-    "href": "lect/w05/slides_dplyr.html#selecting-variables-1",
-    "title": "Data manipulation with dplyr",
-    "section": "Selecting variables",
-    "text": "Selecting variables\n\nto create a new dataframe, simply use function select and define which variables you want to keep\n\n\nsipky &lt;- select(sipky, Name, Length, Width, Weight)\nhead(sipky)\n\n  Name Length Width Weight\n1 Darl   42.8  15.8    3.6\n2 Darl   40.5  17.4    4.5\n3 Darl   37.5  16.3    3.6\n4 Darl   40.3  16.1    4.0\n5 Darl   30.6  17.1    2.3\n6 Darl   41.8  16.8    3.0"
+    "objectID": "lect/w04/rels.html#scatter-plots-2",
+    "href": "lect/w04/rels.html#scatter-plots-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#renaming-variables",
-    "href": "lect/w05/slides_dplyr.html#renaming-variables",
-    "title": "Data manipulation with dplyr",
-    "section": "Renaming variables",
-    "text": "Renaming variables\n\n\nrenaming your variables with function rename(data, new_name = old_name) can be useful when dealing with complicated code names or different languages\n Hint: don’t forget to save object with new variable names by &lt;-\n\n\n\n\nsipky &lt;- rename(sipky,\n   typ = Name,\n   delka = Length,\n   sirka = Width,\n   hmotnost = Weight)\n\nhead(sipky)\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0"
+    "objectID": "lect/w04/rels.html#scatter-plots-3",
+    "href": "lect/w04/rels.html#scatter-plots-3",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, size = Width, color = Name) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#arranging-values-in-ascending-order",
-    "href": "lect/w05/slides_dplyr.html#arranging-values-in-ascending-order",
-    "title": "Data manipulation with dplyr",
-    "section": "Arranging values in ascending order…",
-    "text": "Arranging values in ascending order…\n\nhere you can order your observations from the lowest to highest (or vice versa). To do so, use function arrange(data, variable)\n\n\nhead(arrange(sipky, delka))\n\n   typ delka sirka hmotnost\n1 Darl  30.6  17.1      2.3\n2 Darl  31.2  15.6      2.5\n3 Darl  32.0  16.0      3.3\n4 Darl  32.4  14.5      2.5\n5 Darl  33.1  17.4      4.2\n6 Darl  33.5  16.6      3.2"
+    "objectID": "lect/w04/rels.html#trends",
+    "href": "lect/w04/rels.html#trends",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth() +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#and-in-descending-order",
-    "href": "lect/w05/slides_dplyr.html#and-in-descending-order",
-    "title": "Data manipulation with dplyr",
-    "section": "…and in descending order",
-    "text": "…and in descending order\n\nif you want to order the values from higher to smaller just add desc()\n\n\nhead(arrange(sipky, desc(delka)))\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n3 Pedernales  78.3  28.1     14.8\n4 Pedernales  70.4  30.4     13.1\n5     Travis  69.0  20.9     11.4\n6 Pedernales  67.2  27.1     15.3\n\n\n\n Task: What will happen if you will try to order non-numerical variable, but a categorical variable (such as type of the dartpoint)?"
+    "objectID": "lect/w04/rels.html#trends-1",
+    "href": "lect/w04/rels.html#trends-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\") +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#filtering",
-    "href": "lect/w05/slides_dplyr.html#filtering",
-    "title": "Data manipulation with dplyr",
-    "section": "Filtering",
-    "text": "Filtering\n\n\nfunction filter(data, variable &lt;operator&gt; value) allows you to filter your data based on different conditions, for example minimal weight, type of the dartpoint, etc\nlogical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &, |, etc (use ?dplyr::filter for more details)\n\n\n\n\nhere we use &gt; to get only dartpoints with the length higher than 80 cm\n\n\nfilter(sipky, delka &gt; 80)\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n\n\n\n\n\nand here we use == to choose only those dartpoints which are of type “Travis”\n\n\nfilter(sipky, typ == \"Travis\")\n\n      typ delka sirka hmotnost\n1  Travis  56.5  21.1      9.5\n2  Travis  54.6  22.4     10.4\n3  Travis  46.3  21.3      7.5\n4  Travis  57.6  18.9      8.7\n5  Travis  49.1  21.4      6.9\n6  Travis  64.6  21.5     15.0\n7  Travis  69.0  20.9     11.4\n8  Travis  40.1  18.4      6.3\n9  Travis  41.5  19.2      7.5\n10 Travis  46.3  17.9      5.9\n11 Travis  39.6  21.5      5.4\n\n\n\n\n\nalternatively, you can exclude all points of a type “Travis” by negation !=\n\n\nhead(filter(sipky, typ != \"Travis\"))\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0\n\n\n\n\n\nadd & if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” AND are heavier than 10 grams\n\n\nfilter(sipky, typ == \"Wells\" & hmotnost &gt; 10)\n\n    typ delka sirka hmotnost\n1 Wells  65.4  25.1     12.6\n2 Wells  58.9  24.4     10.5\n3 Wells  63.1  24.7     16.3\n\n\n\n\n\n Task: instead of & try operator | (OR) and see how the result differs"
+    "objectID": "lect/w04/rels.html#trends-2",
+    "href": "lect/w04/rels.html#trends-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw()",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#filtering-based-on-a-vector",
-    "href": "lect/w05/slides_dplyr.html#filtering-based-on-a-vector",
-    "title": "Data manipulation with dplyr",
-    "section": "Filtering based on a vector",
-    "text": "Filtering based on a vector\n\nyou can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator %in%\n\n\nvyber &lt;- c(\"Pedernales\", \"Ensor\")\n\nhead(filter(sipky, typ %in% vyber))\n\n    typ delka sirka hmotnost\n1 Ensor  43.5  20.1      4.6\n2 Ensor  42.1  20.8      5.4\n3 Ensor  42.1  25.1      5.9\n4 Ensor  43.1  20.0      5.1\n5 Ensor  37.5  21.8      4.7\n6 Ensor  55.2  22.5      7.2"
+    "objectID": "lect/w04/rels.html#small-multiples",
+    "href": "lect/w04/rels.html#small-multiples",
+    "title": "Summaries and visualization of relationships",
+    "section": "Small multiples",
+    "text": "Small multiples\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw() +\n  facet_wrap(~Name)",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#summaries",
-    "href": "lect/w05/slides_dplyr.html#summaries",
-    "title": "Data manipulation with dplyr",
-    "section": "Summaries",
-    "text": "Summaries\n\nwe already know some functions to calculate basic summaries, for example function mean\n\n\nmean(sipky$delka)\n\n[1] 49.33077\n\n\n\n\nbut if you want to create a new dataframe from calculated statistics, function summarise(data, new_variable = summary_statistics) is much more helpfull\nfor summary statistics you can use different functions: mean(), median(), sd(), min()…, (use ?summarise for more details)\n\n\n\n\nsummarise(sipky, delka_prumer = mean(delka))\n\n  delka_prumer\n1     49.33077\n\n\n\n\n\nyou can also calculate more summaries:\n\n\nsummarise(sipky,\n    delka_prumer = mean(delka),\n    delka_sd = sd(delka),\n    delka_min = min(delka),\n    delka_max = max(delka),\n    pocet = n())\n\n  delka_prumer delka_sd delka_min delka_max pocet\n1     49.33077 12.73619      30.6     109.5    91"
+    "objectID": "lect/w04/rels.html#exercise",
+    "href": "lect/w04/rels.html#exercise",
+    "title": "Summaries and visualization of relationships",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\nDownload data set with bronze age cups ( bacups.csv).\nCreate a project in RStudio and load the data set.\nExplore the data set and its structure.\nWhat are the observations?\nWhat types of variables are there?\nCreate a plot showing distribution of cup heights (H).\nCreate a boxplot for cup heights divided by phases (Phase).\nAre there any outliers?\nCount correlation between cup height (H) and rim diameter (RD).\nCreate a plot showing relationship between cup height and its rim diameter.\nColor cups from different phases (Phase) by differently.\nDescribe the relationship, add a linear model to the plot.\nLabel the axes sensibly.\n\n\n\n\n Hints:\nread.csv(),\nstr(),\ncolnames(),\nsummary(),\ncor(),\nggplot() +\naes() +\ngeom_* + stat_*",
+    "crumbs": [
+      "Summaries and visualization of relationships"
+    ]
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#grouping",
-    "href": "lect/w05/slides_dplyr.html#grouping",
-    "title": "Data manipulation with dplyr",
-    "section": "Grouping",
-    "text": "Grouping\n\nsummaries above were applied on whole dataframe. Here we will learn how to calculate summaries for each type of the dartpoint by using group_by(data, variable_to_be_grouped_by)\n\n\nsipky_typ &lt;- group_by(sipky, typ)\n\n\n\nat first sight, you don´t see any differences, but they will be visible after applying function summarise\n\n\nsummarise(sipky_typ, delka_prumer = mean(delka))\n\n# A tibble: 5 × 2\n  typ        delka_prumer\n  &lt;fct&gt;             &lt;dbl&gt;\n1 Darl               39.8\n2 Ensor              42.7\n3 Pedernales         57.9\n4 Travis             51.4\n5 Wells              53.1\n\n\n\n\n\nyou can also calculate more summaries at once and use round to remove unnecessary decimals:\n\n\nsummarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())\n\n# A tibble: 5 × 3\n  typ        delka_prumer pocet\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;\n1 Darl               39.8    28\n2 Ensor              42.7    10\n3 Pedernales         57.9    32\n4 Travis             51.4    11\n5 Wells              53.1    10\n\n\n\n\n\n Task: save the result as a new dataframe “sipky_sum” for later work\n\n\n\n\nsipky_sum &lt;- summarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())"
+    "objectID": "lect/w04/slides_rels.html#reflection-on-the-last-lecture",
+    "href": "lect/w04/slides_rels.html#reflection-on-the-last-lecture",
+    "title": "Summaries and visualization of relationships",
+    "section": "Reflection on the last lecture",
+    "text": "Reflection on the last lecture"
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#mutate",
-    "href": "lect/w05/slides_dplyr.html#mutate",
-    "title": "Data manipulation with dplyr",
-    "section": "Mutate",
-    "text": "Mutate\n\n\nfunction mutate creates a new variable, here we will show how to add variable with percentages\nnote: sum calculates a total sum of values from chosen variable (in this case - “pocet”)\n\n\n\n\nmutate(sipky_sum,\n   procento = (pocet/sum(pocet))*100)\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28     30.8\n2 Ensor              42.7    10     11.0\n3 Pedernales         57.9    32     35.2\n4 Travis             51.4    11     12.1\n5 Wells              53.1    10     11.0\n\n\n\n\n\n Hint: you can again remove unnecessary decimals by adding round but be careful with the right number of the brackets ()!\n\n\nmutate(sipky_sum,\n   procento = round((pocet/sum(pocet))*100, 0))\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28       31\n2 Ensor              42.7    10       11\n3 Pedernales         57.9    32       35\n4 Travis             51.4    11       12\n5 Wells              53.1    10       11"
+    "objectID": "lect/w04/slides_rels.html#objectives",
+    "href": "lect/w04/slides_rels.html#objectives",
+    "title": "Summaries and visualization of relationships",
+    "section": "Objectives",
+    "text": "Objectives\nAt the end of the lecture, you will know how to…\n\n\nDescribe relationship of quantitative and qualitative variable.\nCreate and read box plots and violin plots.\n\nUnderstand relationship of two quantitative variables.\nCount and interpret correlation.\nCreate and understand scatterplots.\nAssess what relationship (covariation) occurs between your variables."
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#pipe-operator",
-    "href": "lect/w05/slides_dplyr.html#pipe-operator",
-    "title": "Data manipulation with dplyr",
-    "section": "Pipe operator",
-    "text": "Pipe operator\n\n\nwhen applying plenty of transformation on one dataset “pipe operator” (%&gt;%) could make your work easier and code shorter and more readable\nnotice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”\n\n\n\n\nsipky %&gt;% \n  filter(delka &gt; 70) %&gt;%\n  arrange(delka)\n\n         typ delka sirka hmotnost\n1 Pedernales  70.4  30.4     13.1\n2 Pedernales  78.3  28.1     14.8\n3 Pedernales  84.0  21.2      9.3\n4 Pedernales 109.5  49.3     28.8"
+    "objectID": "lect/w04/slides_rels.html#relationship-of-quantitative-and-qualitative-variables",
+    "href": "lect/w04/slides_rels.html#relationship-of-quantitative-and-qualitative-variables",
+    "title": "Summaries and visualization of relationships",
+    "section": "Relationship of quantitative and qualitative variables",
+    "text": "Relationship of quantitative and qualitative variables"
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
-    "href": "lect/w05/slides_dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
-    "title": "Data manipulation with dplyr",
-    "section": "More complex summarising with dplyr and pipe",
-    "text": "More complex summarising with dplyr and pipe\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = round(mean(delka), 1),\n    hmotnost_prum = round(mean(hmotnost), 1),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100, 1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9          10.6    32     35.2\n2 Darl             39.8           4.4    28     30.8\n3 Travis           51.4           8.6    11     12.1\n4 Ensor            42.7           5.1    10     11  \n5 Wells            53.1           8.7    10     11"
+    "objectID": "lect/w04/slides_rels.html#boxplot",
+    "href": "lect/w04/slides_rels.html#boxplot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)"
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#visualising-your-summaries",
-    "href": "lect/w05/slides_dplyr.html#visualising-your-summaries",
-    "title": "Data manipulation with dplyr",
-    "section": "Visualising your summaries",
-    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9         10.6     32     35.2\n2 Darl             39.8          4.41    28     30.8\n3 Travis           51.4          8.59    11     12.1\n4 Ensor            42.7          5.06    10     11  \n5 Wells            53.1          8.68    10     11"
+    "objectID": "lect/w04/slides_rels.html#boxplot-1",
+    "href": "lect/w04/slides_rels.html#boxplot-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)\n  \ng + geom_boxplot()"
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#visualising-your-summaries-1",
-    "href": "lect/w05/slides_dplyr.html#visualising-your-summaries-1",
-    "title": "Data manipulation with dplyr",
-    "section": "Visualising your summaries",
-    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  ggplot() +\n  aes(x = typ, y = delka_prum) +\n  geom_col() +\n  labs(title = \"Průměrná délka šipky\") +\n  theme_light()"
+    "objectID": "lect/w04/slides_rels.html#boxplot-2",
+    "href": "lect/w04/slides_rels.html#boxplot-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Boxplot",
+    "text": "Boxplot\nAlso box and whisker plot, displays five-number summary."
   },
   {
-    "objectID": "lect/w05/slides_dplyr.html#saving-your-results",
-    "href": "lect/w05/slides_dplyr.html#saving-your-results",
-    "title": "Data manipulation with dplyr",
-    "section": "Saving your results",
-    "text": "Saving your results\n\nuse write.csv for saving your results as a comma separated file\n\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  write.csv(here(\"sipky_result.csv\"))\n\n\n\nor save your summarised data frame as an object and save it later\n\n\nsipky_result &lt;- sipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n  \nwrite.csv(sipky_result, here(\"sipky_result.csv\"))\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | dplyr"
+    "objectID": "lect/w04/slides_rels.html#violin-plot",
+    "href": "lect/w04/slides_rels.html#violin-plot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#violin-plot-1",
+    "href": "lect/w04/slides_rels.html#violin-plot-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin() +\n  geom_jitter(width = 0.05, alpha = 0.4)"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#violin-plot-2",
+    "href": "lect/w04/slides_rels.html#violin-plot-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Violin plot",
+    "text": "Violin plot\n\ng + geom_violin() +\n  geom_boxplot(width = 0.15) +\n  geom_jitter(width = 0.05, alpha = 0.2)"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#relationship-of-two-quantitative-variables",
+    "href": "lect/w04/slides_rels.html#relationship-of-two-quantitative-variables",
+    "title": "Summaries and visualization of relationships",
+    "section": "Relationship of two quantitative variables",
+    "text": "Relationship of two quantitative variables"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#correlation",
+    "href": "lect/w04/slides_rels.html#correlation",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation",
+    "text": "Correlation\n\n\n\n\nA statistic describing a relationship between two continuous variables.\nTo what degree is a variable y explained by x?\nCorrelation coefficient r, from -1 to +1.\nCorrelation does not imply causation!\nr = 1 – strong positive correlation\nr = 0.5 – moderately strong positive correlation\nr = 0 – variables are not correlated\nr = -0.2 – weak negative correlation\nr = -1 – strong negative correlation\n\n\n\n\nFunction cor()\n\ncor(dartpoints$Length, dartpoints$Width)\n\n[1] 0.7689932\n\ncor(dartpoints$Length, dartpoints$Weight)\n\n[1] 0.879953\n\ncor(dartpoints$Width, dartpoints$Thickness)\n\n[1] 0.5459291"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plot",
+    "href": "lect/w04/slides_rels.html#scatter-plot",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nPlot displying two continuous variables, x and y.\nx axis: explanatory variable, independent, predictor.\ny axis: dependent variable, response.\n\n\nggplot(dartpoints) +\n  aes(x = Length, y = Weight) +\n  geom_point()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#correlation-examples",
+    "href": "lect/w04/slides_rels.html#correlation-examples",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation examples",
+    "text": "Correlation examples"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#correlation-examples-1",
+    "href": "lect/w04/slides_rels.html#correlation-examples-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Correlation examples",
+    "text": "Correlation examples"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plots",
+    "href": "lect/w04/slides_rels.html#scatter-plots",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) +\n  geom_point()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plots-1",
+    "href": "lect/w04/slides_rels.html#scatter-plots-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5)"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plots-2",
+    "href": "lect/w04/slides_rels.html#scatter-plots-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#scatter-plots-3",
+    "href": "lect/w04/slides_rels.html#scatter-plots-3",
+    "title": "Summaries and visualization of relationships",
+    "section": "Scatter plots",
+    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, size = Width, color = Name) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#trends",
+    "href": "lect/w04/slides_rels.html#trends",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth() +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#trends-1",
+    "href": "lect/w04/slides_rels.html#trends-1",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\") +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#trends-2",
+    "href": "lect/w04/slides_rels.html#trends-2",
+    "title": "Summaries and visualization of relationships",
+    "section": "Trends",
+    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw()"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#small-multiples",
+    "href": "lect/w04/slides_rels.html#small-multiples",
+    "title": "Summaries and visualization of relationships",
+    "section": "Small multiples",
+    "text": "Small multiples\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw() +\n  facet_wrap(~Name)"
+  },
+  {
+    "objectID": "lect/w04/slides_rels.html#exercise",
+    "href": "lect/w04/slides_rels.html#exercise",
+    "title": "Summaries and visualization of relationships",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\nDownload data set with bronze age cups ( bacups.csv).\nCreate a project in RStudio and load the data set.\nExplore the data set and its structure.\nWhat are the observations?\nWhat types of variables are there?\nCreate a plot showing distribution of cup heights (H).\nCreate a boxplot for cup heights divided by phases (Phase).\nAre there any outliers?\nCount correlation between cup height (H) and rim diameter (RD).\nCreate a plot showing relationship between cup height and its rim diameter.\nColor cups from different phases (Phase) by differently.\nDescribe the relationship, add a linear model to the plot.\nLabel the axes sensibly.\n\n\n\n\n Hints:\nread.csv(),\nstr(),\ncolnames(),\nsummary(),\ncor(),\nggplot() +\naes() +\ngeom_* + stat_*\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Relationships"
   },
   {
     "objectID": "lect/w02/intro2r.html#objectives",
@@ -556,250 +715,6 @@
     "text": "Exercise\n\n\n\n\nDownload the dataset  dartpoints.csv\nExplore the dataset using spreadsheet editor\nSave the dataset somwhere you can find it\nStart RStudio\nCreate a script (Ctrl + Shift + n)\nRead the dataset from the path where you saved it\n\nSave it as darts object\nWhat kind of an object is it?\nHow many rows and columns does it have?\n\nWhat columns does it have?\nWhat data types are there? What is the structure?\nRead details about the dataset using ?archdata::DartPoints\n Hints: read.csv(), ncol() and nrow(), str(), colnames()\n\n\n\n\nSolution\n\nurl &lt;- \"https://petrpajdla.github.io/stat4arch/lect/w02/data/dartpoints.csv\"\ndownload.file(url, \"./dartpoints.csv\")\ndarts &lt;- read.csv(\"./dartpoints.csv\")\nclass(darts)\ndim(darts)\nnrow(darts)\nncol(darts)\ncolnames(darts)\nhead(darts)\nstr(darts)\n\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Coding in R"
   },
   {
-    "objectID": "lect/w01/tidy.html",
-    "href": "lect/w01/tidy.html",
-    "title": "Tidy data",
-    "section": "",
-    "text": "(Brainstorming)",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/tidy.html#what-is-a-database",
-    "href": "lect/w01/tidy.html#what-is-a-database",
-    "title": "Tidy data",
-    "section": "",
-    "text": "(Brainstorming)",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/tidy.html#relational-database---basic-terms",
-    "href": "lect/w01/tidy.html#relational-database---basic-terms",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/tidy.html#relational-database---basic-terms-1",
-    "href": "lect/w01/tidy.html#relational-database---basic-terms-1",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/tidy.html#tidy-data",
-    "href": "lect/w01/tidy.html#tidy-data",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/tidy.html#types-of-variables",
-    "href": "lect/w01/tidy.html#types-of-variables",
-    "title": "Tidy data",
-    "section": "Types of variables",
-    "text": "Types of variables\n\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\n\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/tidy.html#tidy-data-1",
-    "href": "lect/w01/tidy.html#tidy-data-1",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data\nWhat’s wrong?",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/tidy.html#basic-tidy-data-principles",
-    "href": "lect/w01/tidy.html#basic-tidy-data-principles",
-    "title": "Tidy data",
-    "section": "Basic tidy data principles",
-    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/tidy.html#assignments",
-    "href": "lect/w01/tidy.html#assignments",
-    "title": "Tidy data",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).",
-    "crumbs": [
-      "Tidy data"
-    ]
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#what-is-a-database",
-    "href": "lect/w01/slides_tidy.html#what-is-a-database",
-    "title": "Tidy data",
-    "section": "What is a database?",
-    "text": "What is a database?\n(Brainstorming)"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#relational-database---basic-terms",
-    "href": "lect/w01/slides_tidy.html#relational-database---basic-terms",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#relational-database---basic-terms-1",
-    "href": "lect/w01/slides_tidy.html#relational-database---basic-terms-1",
-    "title": "Tidy data",
-    "section": "Relational database - basic terms",
-    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#tidy-data",
-    "href": "lect/w01/slides_tidy.html#tidy-data",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#types-of-variables",
-    "href": "lect/w01/slides_tidy.html#types-of-variables",
-    "title": "Tidy data",
-    "section": "Types of variables",
-    "text": "Types of variables\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#tidy-data-1",
-    "href": "lect/w01/slides_tidy.html#tidy-data-1",
-    "title": "Tidy data",
-    "section": "Tidy data",
-    "text": "Tidy data\nWhat’s wrong?"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#basic-tidy-data-principles",
-    "href": "lect/w01/slides_tidy.html#basic-tidy-data-principles",
-    "title": "Tidy data",
-    "section": "Basic tidy data principles",
-    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
-  },
-  {
-    "objectID": "lect/w01/slides_tidy.html#assignments",
-    "href": "lect/w01/slides_tidy.html#assignments",
-    "title": "Tidy data",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Tidy data"
-  },
-  {
-    "objectID": "kit.html",
-    "href": "kit.html",
-    "title": "Survival kit",
-    "section": "",
-    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
-  },
-  {
-    "objectID": "kit.html#special-characters",
-    "href": "kit.html#special-characters",
-    "title": "Survival kit",
-    "section": "",
-    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
-  },
-  {
-    "objectID": "kit.html#rstudio-shortcuts",
-    "href": "kit.html#rstudio-shortcuts",
-    "title": "Survival kit",
-    "section": "RStudio shortcuts",
-    "text": "RStudio shortcuts\n\n\n\nSign/Action\nShortcut\n\n\n\n\n-&gt;\nCtrl + Alt + -\n\n\n%&gt;%\nCtrl + Shift + m\n\n\nrun selected row\nCtrl + Enter\n\n\nrun whole script\nCtrl + Shift + Enter\n\n\ncomment line\nCtrl + Shift + c\n\n\ninsert section\nCtrl + Shift + r"
-  },
-  {
-    "objectID": "kit.html#function-reference",
-    "href": "kit.html#function-reference",
-    "title": "Survival kit",
-    "section": "Function reference",
-    "text": "Function reference\ncode description\n\nBasics\ninstall.packages(\"packagename\") installs a package\nlibrary(packagename) attaches a package from a library\nGetting help on anything:\n?function equals help(function)\n??function\nLookign at data:\nhead(x) and tail(x)\nView(x)\n\n\nSummary functions\nmean(x) returns mean meadian(x) returns median\n\n\nData manipulation with dplyr\nload package library(dplyr)\n%&gt;% pipe operator, x %&gt;% f() equals f(x), allows chaining functions in a pipeline\n(in newer versions of R, there is a native pipe operator |&gt;)\ncount(data) count how many observations there are in a data frame\nsummarise(data,...) applies summary functions to a data frame\ngroup_by(data, x) group data by values in variable x\nChain this for example like this:\ndata %&gt;%\n  group_by(y) %&gt;% \n  summarise(prumer = mean(x),\n            median = median(x))\n\n\nPlotting with ggplot2\nLoad package library(ggplot2).\nAlert: in ggplot2, individual pieces of code are chained using +!\nggplot() basic function call for each plot\naes(x, y, color, fill...) aesthetics\n\nGeometries\ngeom_histogram() produces histogram\ngeom_point() produces scatterplot\nCreate a plot like this:\ndata %&gt;%\n  ggplot() +\n  aes(x) +\n  geom_histogram()"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#basic-information",
-    "href": "lect/w01/slides_intro.html#basic-information",
-    "title": "Course introduction",
-    "section": "Basic information",
-    "text": "Basic information\n\nLectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\nSchedule\nSee details here…"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#lecturers",
-    "href": "lect/w01/slides_intro.html#lecturers",
-    "title": "Course introduction",
-    "section": "Lecturers",
-    "text": "Lecturers\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#and-what-about-you",
-    "href": "lect/w01/slides_intro.html#and-what-about-you",
-    "title": "Course introduction",
-    "section": "And what about you?",
-    "text": "And what about you?"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#objectives",
-    "href": "lect/w01/slides_intro.html#objectives",
-    "title": "Course introduction",
-    "section": "Objectives",
-    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#prerequisites",
-    "href": "lect/w01/slides_intro.html#prerequisites",
-    "title": "Course introduction",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#projects",
-    "href": "lect/w01/slides_intro.html#projects",
-    "title": "Course introduction",
-    "section": "Projects",
-    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#resources",
-    "href": "lect/w01/slides_intro.html#resources",
-    "title": "Course introduction",
-    "section": "Resources",
-    "text": "Resources\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#resources-1",
-    "href": "lect/w01/slides_intro.html#resources-1",
-    "title": "Course introduction",
-    "section": "Resources",
-    "text": "Resources\nLearning R\n \n\nSee section Resources for more details…\nBooks available online."
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#why-maths-in-archaeology",
-    "href": "lect/w01/slides_intro.html#why-maths-in-archaeology",
-    "title": "Course introduction",
-    "section": "Why maths in archaeology?",
-    "text": "Why maths in archaeology?\nBrainstorming"
-  },
-  {
-    "objectID": "lect/w01/slides_intro.html#assignments",
-    "href": "lect/w01/slides_intro.html#assignments",
-    "title": "Course introduction",
-    "section": "Assignments",
-    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Introduction"
-  },
-  {
     "objectID": "lect/w01/intro.html",
     "href": "lect/w01/intro.html",
     "title": "Course introduction",
@@ -907,6 +822,264 @@
     "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.",
     "crumbs": [
       "Course introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#basic-information",
+    "href": "lect/w01/slides_intro.html#basic-information",
+    "title": "Course introduction",
+    "section": "Basic information",
+    "text": "Basic information\n\nLectures/seminars each Wednesday, 12:00 – 13:40, room L11.\nTry not to miss the seminars/lectures please.\nHybrid teaching or recording the lectures is not planned.\nBe active and curious, the lectures are mere introductions and most of the work is up to you.\nBring your own laptop or use the computers in the room.\n\nSchedule\nSee details here…"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#lecturers",
+    "href": "lect/w01/slides_intro.html#lecturers",
+    "title": "Course introduction",
+    "section": "Lecturers",
+    "text": "Lecturers\n\n\n\nPetr Pajdla\nArchaeological information system of the Czech republic (AIS CR)\nInstitute of Archaeology, Czech Acad Sci, Brno\n0000-0001-7050-9572\n\n\nPeter Tkáč\nDepartment of Archaeology and Museology, Masaryk University\nInstitute of Botany, Czech Acad Sci\n0000-0002-9444-1936"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#and-what-about-you",
+    "href": "lect/w01/slides_intro.html#and-what-about-you",
+    "title": "Course introduction",
+    "section": "And what about you?",
+    "text": "And what about you?"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#objectives",
+    "href": "lect/w01/slides_intro.html#objectives",
+    "title": "Course introduction",
+    "section": "Objectives",
+    "text": "Objectives\nAt the end of the course, you will be able to:\n\nunderstand basic statistics terminology,\ncreate plots for one and two variables,\ncalculate and interpret summary statistics,\nmanipulate and prepare data for various types of analyses,\nanalyze range of data types,\nanalyze spatial and temporal data,\nwork in the R programming language and environment."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#prerequisites",
+    "href": "lect/w01/slides_intro.html#prerequisites",
+    "title": "Course introduction",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nNot to be afraid of learning a scripting language.\nElementary knowledge of mathematics/statistics.\n\nWhere to review basics of maths/stats?\nIf you feel usure in any of the topics we cover, it is possible you’ll find these courses explaining basics in maths and stats helpful:\n\nKhan Academy 7th grade statistics\nKhan Academy High School statistics"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#projects",
+    "href": "lect/w01/slides_intro.html#projects",
+    "title": "Course introduction",
+    "section": "Projects",
+    "text": "Projects\n\nDuring the course, you will work on a data analysis project of your own, see more details here."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#resources",
+    "href": "lect/w01/slides_intro.html#resources",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\nQuantitative methods in archaeology\n     \n\nSee section Resources for more details…\nBooks already available in study materials."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#resources-1",
+    "href": "lect/w01/slides_intro.html#resources-1",
+    "title": "Course introduction",
+    "section": "Resources",
+    "text": "Resources\nLearning R\n \n\nSee section Resources for more details…\nBooks available online."
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#why-maths-in-archaeology",
+    "href": "lect/w01/slides_intro.html#why-maths-in-archaeology",
+    "title": "Course introduction",
+    "section": "Why maths in archaeology?",
+    "text": "Why maths in archaeology?\nBrainstorming"
+  },
+  {
+    "objectID": "lect/w01/slides_intro.html#assignments",
+    "href": "lect/w01/slides_intro.html#assignments",
+    "title": "Course introduction",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead chapters Quantifying Archaeology in Quantitative Analysis in Archaeology book by VanPool, T. L. and Leonard, R. D. (2011).\nOptionally, read Introductions in:\n\nQuantifying archaeology book by Stephen Shennan, and/or\nQuantitative Methods in Archaeology book by David L. Carlson\n\nSee Resources for more details. These books will give you a general overview on why to use quantitative/computational methods in archaeology.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Introduction"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Analyzing archaeological data using R",
+    "section": "",
+    "text": "Welcome to AES_707 Statistics seminar for archaeology students at the Department of Archaeology and Museology, Masaryk University. The course is taught by Petr Pajdla and Peter Tkáč.\nInformation given here applies to spring semester 2024, the page will be continuously updated throughout the semester. The course was taught also in 2022 and 2020."
+  },
+  {
+    "objectID": "index.html#information-on-assessment",
+    "href": "index.html#information-on-assessment",
+    "title": "Analyzing archaeological data using R",
+    "section": "Information on assessment",
+    "text": "Information on assessment\nTo pass the course, you have to finish and submit a report on your project."
+  },
+  {
+    "objectID": "kit.html",
+    "href": "kit.html",
+    "title": "Survival kit",
+    "section": "",
+    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
+  },
+  {
+    "objectID": "kit.html#special-characters",
+    "href": "kit.html#special-characters",
+    "title": "Survival kit",
+    "section": "",
+    "text": "Some characters are somewhat difficult to write on the Czech keyboard:\n\n\n\nCharacter\nShortcut\nAlterantive\n\n\n\n\n#\nAlt + 35\nAlt + x\n\n\n$\nAlt + 36\nAlt + ů\n\n\n&\nAlt + 38\nAlt + c\n\n\n~\nAlt + 126\nAlt + +\n\n\n|\n\nAlt + w\n\n\n&gt;\n\nAlt + .\n\n\n{}\n\nAlt + b/n\n\n\n[]\n\nAlt + f/g\n\n\n`\n\nAlt + ý + Space\n\n\n^\nAlt + 94"
+  },
+  {
+    "objectID": "kit.html#rstudio-shortcuts",
+    "href": "kit.html#rstudio-shortcuts",
+    "title": "Survival kit",
+    "section": "RStudio shortcuts",
+    "text": "RStudio shortcuts\n\n\n\nSign/Action\nShortcut\n\n\n\n\n-&gt;\nCtrl + Alt + -\n\n\n%&gt;%\nCtrl + Shift + m\n\n\nrun selected row\nCtrl + Enter\n\n\nrun whole script\nCtrl + Shift + Enter\n\n\ncomment line\nCtrl + Shift + c\n\n\ninsert section\nCtrl + Shift + r"
+  },
+  {
+    "objectID": "kit.html#function-reference",
+    "href": "kit.html#function-reference",
+    "title": "Survival kit",
+    "section": "Function reference",
+    "text": "Function reference\ncode description\n\nBasics\ninstall.packages(\"packagename\") installs a package\nlibrary(packagename) attaches a package from a library\nGetting help on anything:\n?function equals help(function)\n??function\nLookign at data:\nhead(x) and tail(x)\nView(x)\n\n\nSummary functions\nmean(x) returns mean meadian(x) returns median\n\n\nData manipulation with dplyr\nload package library(dplyr)\n%&gt;% pipe operator, x %&gt;% f() equals f(x), allows chaining functions in a pipeline\n(in newer versions of R, there is a native pipe operator |&gt;)\ncount(data) count how many observations there are in a data frame\nsummarise(data,...) applies summary functions to a data frame\ngroup_by(data, x) group data by values in variable x\nChain this for example like this:\ndata %&gt;%\n  group_by(y) %&gt;% \n  summarise(prumer = mean(x),\n            median = median(x))\n\n\nPlotting with ggplot2\nLoad package library(ggplot2).\nAlert: in ggplot2, individual pieces of code are chained using +!\nggplot() basic function call for each plot\naes(x, y, color, fill...) aesthetics\n\nGeometries\ngeom_histogram() produces histogram\ngeom_point() produces scatterplot\nCreate a plot like this:\ndata %&gt;%\n  ggplot() +\n  aes(x) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#what-is-a-database",
+    "href": "lect/w01/slides_tidy.html#what-is-a-database",
+    "title": "Tidy data",
+    "section": "What is a database?",
+    "text": "What is a database?\n(Brainstorming)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#relational-database---basic-terms",
+    "href": "lect/w01/slides_tidy.html#relational-database---basic-terms",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#relational-database---basic-terms-1",
+    "href": "lect/w01/slides_tidy.html#relational-database---basic-terms-1",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#tidy-data",
+    "href": "lect/w01/slides_tidy.html#tidy-data",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#types-of-variables",
+    "href": "lect/w01/slides_tidy.html#types-of-variables",
+    "title": "Tidy data",
+    "section": "Types of variables",
+    "text": "Types of variables\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#tidy-data-1",
+    "href": "lect/w01/slides_tidy.html#tidy-data-1",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data\nWhat’s wrong?"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#basic-tidy-data-principles",
+    "href": "lect/w01/slides_tidy.html#basic-tidy-data-principles",
+    "title": "Tidy data",
+    "section": "Basic tidy data principles",
+    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!"
+  },
+  {
+    "objectID": "lect/w01/slides_tidy.html#assignments",
+    "href": "lect/w01/slides_tidy.html#assignments",
+    "title": "Tidy data",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Tidy data"
+  },
+  {
+    "objectID": "lect/w01/tidy.html",
+    "href": "lect/w01/tidy.html",
+    "title": "Tidy data",
+    "section": "",
+    "text": "(Brainstorming)",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#what-is-a-database",
+    "href": "lect/w01/tidy.html#what-is-a-database",
+    "title": "Tidy data",
+    "section": "",
+    "text": "(Brainstorming)",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#relational-database---basic-terms",
+    "href": "lect/w01/tidy.html#relational-database---basic-terms",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#relational-database---basic-terms-1",
+    "href": "lect/w01/tidy.html#relational-database---basic-terms-1",
+    "title": "Tidy data",
+    "section": "Relational database - basic terms",
+    "text": "Relational database - basic terms\n \n\nvariable (proměnná / atribut) - napr. hmotnosť keramického fragmentu\nobservation / object (entita / záznam) - napr. konkrétny keramický fragment\nvalue (hodnota)\nprimary key / unique ID (primární klíč)",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#tidy-data",
+    "href": "lect/w01/tidy.html#tidy-data",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#types-of-variables",
+    "href": "lect/w01/tidy.html#types-of-variables",
+    "title": "Tidy data",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nCategorical\n\ndichotomies (dichotomická) - prítomnosť alebo neprítomnosť nejakého javu (“Y/N”)\nnominal (nominální) - archeologické datovanie (“neolit”), číslo objektu, keramický typ\nordinal / rank (ordinální, pořadová) - tlupa / kmeň / náčelníctvo / štát, alebo: komponenta / sídelný areál / nadkomunitný areál\n\n\n\nNumeric\n\ndiscrete (diskrétní) - môžu byť len celé čísla - napr. počet lokalít, počet bronzových spôn\ncontinuous (spojité / metrické) - môže byť akékoľvek reálne číslo - hmotnosť ker. fragmentu, dĺžka železného meča\ninterval (intervalové) - numericky vyjadrujú vzdialenosť na vyjadrenie hierarchického vzťahu, nemajú ale zmysluplný nultý bod, umožňujú relatívne porovnávanie ale nie kalkulácie (napr. BC/AD - rozdiel medzi 400AD a 800AD je 400 rokov, 400AD ale nieje 2 krát staršie než 800AD)\nratio (poměrové) - na rozdiel od intervalových premenných umožňujú kalkulácie (napr. vek - objekt starý 1000 rokov je 2krát starší než objekt starý 500; dĺžka meča aj.)",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#tidy-data-1",
+    "href": "lect/w01/tidy.html#tidy-data-1",
+    "title": "Tidy data",
+    "section": "Tidy data",
+    "text": "Tidy data\nWhat’s wrong?",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#basic-tidy-data-principles",
+    "href": "lect/w01/tidy.html#basic-tidy-data-principles",
+    "title": "Tidy data",
+    "section": "Basic tidy data principles",
+    "text": "Basic tidy data principles\n\nOne variable in one column.\nOne observation in one row.\nOne value in one cell.\nDo not use color codes.\nBackup your data!\nBe consistent!",
+    "crumbs": [
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w01/tidy.html#assignments",
+    "href": "lect/w01/tidy.html#assignments",
+    "title": "Tidy data",
+    "section": "Assignments",
+    "text": "Assignments\n\nRead Karl Broman’s guide on how to organize data in spreadsheets. As an article: Broman, K. W. and Woo, K. H. 2017: Data Organization in Spreadsheets. The American Statistician 72(1): 2–10, DOI: https://doi.org/gdz6cm.\nRead chapter Data in Quantitative analysis in archaeology book by VanPool and Leonard (2011).",
+    "crumbs": [
+      "Tidy data"
     ]
   },
   {
@@ -1580,406 +1753,345 @@
     ]
   },
   {
-    "objectID": "lect/w04/slides_rels.html#reflection-on-the-last-lecture",
-    "href": "lect/w04/slides_rels.html#reflection-on-the-last-lecture",
-    "title": "Summaries and visualization of relationships",
-    "section": "Reflection on the last lecture",
-    "text": "Reflection on the last lecture"
+    "objectID": "lect/w05/slides_dplyr.html#data-transformation",
+    "href": "lect/w05/slides_dplyr.html#data-transformation",
+    "title": "Data manipulation with dplyr",
+    "section": "Data Transformation",
+    "text": "Data Transformation\nPackage\n\ndplyr\n\nGoals\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#objectives",
-    "href": "lect/w04/slides_rels.html#objectives",
-    "title": "Summaries and visualization of relationships",
-    "section": "Objectives",
-    "text": "Objectives\nAt the end of the lecture, you will know how to…\n\n\nDescribe relationship of quantitative and qualitative variable.\nCreate and read box plots and violin plots.\n\nUnderstand relationship of two quantitative variables.\nCount and interpret correlation.\nCreate and understand scatterplots.\nAssess what relationship (covariation) occurs between your variables."
+    "objectID": "lect/w05/slides_dplyr.html#before-we-begin",
+    "href": "lect/w05/slides_dplyr.html#before-we-begin",
+    "title": "Data manipulation with dplyr",
+    "section": "Before we begin",
+    "text": "Before we begin\n\n\nload packages here and dplyr (don’t forget to install them firstly, if you haven’t done so yet)\nopen the project from last lecture (or create a new one if you don’t have it)\ncreate a new script\nload data dartpoints.csv into your script\nif you are loading data with here function don’t forget to check whether your data and script are in the same folder as your project\ncreate an object called “sipky” from the loaded database (with &lt;-)\n\n\n\n\nlibrary(here)\nlibrary(dplyr)\nsipky &lt;- read.csv(here(\"dartpoints.csv\"))"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#relationship-of-quantitative-and-qualitative-variables",
-    "href": "lect/w04/slides_rels.html#relationship-of-quantitative-and-qualitative-variables",
-    "title": "Summaries and visualization of relationships",
-    "section": "Relationship of quantitative and qualitative variables",
-    "text": "Relationship of quantitative and qualitative variables"
+    "objectID": "lect/w05/slides_dplyr.html#selecting-variables",
+    "href": "lect/w05/slides_dplyr.html#selecting-variables",
+    "title": "Data manipulation with dplyr",
+    "section": "Selecting variables",
+    "text": "Selecting variables\n\n\nselect(dataframe, variable1, variable2)\nsometimes you will need to remove variables you don’t need in your work, to have your database more user friendly\nfor example, you need only variables dealing with major proportions of the dartpoints, but your database have plenty of other variables which are making it difficult to observe, like here:\n\n\n\n\nhead(sipky)\n\n  Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n1 Darl 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6\n2 Darl 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9\n3 Darl 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2\n4 Darl 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3\n5 Darl 36-3321 41CV1023 12/58   30.6  17.1       4.0    12.6    11.2      8.9\n6 Darl 35-2959 41CV0235 21/63   41.8  16.8       4.1    12.7    11.5     11.0\n  Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    3.6        S       I         S         T       S       E\n2    4.5        S       I         S         T       S       E\n3    3.6        S       I         S         T       S       E\n4    4.0        S       I         S         T       S       E\n5    2.3        S       I         S         T       S       E\n6    3.0        S       E         I         T       I       C"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#boxplot",
-    "href": "lect/w04/slides_rels.html#boxplot",
-    "title": "Summaries and visualization of relationships",
-    "section": "Boxplot",
-    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)"
+    "objectID": "lect/w05/slides_dplyr.html#selecting-variables-1",
+    "href": "lect/w05/slides_dplyr.html#selecting-variables-1",
+    "title": "Data manipulation with dplyr",
+    "section": "Selecting variables",
+    "text": "Selecting variables\n\nto create a new dataframe, simply use function select and define which variables you want to keep\n\n\nsipky &lt;- select(sipky, Name, Length, Width, Weight)\nhead(sipky)\n\n  Name Length Width Weight\n1 Darl   42.8  15.8    3.6\n2 Darl   40.5  17.4    4.5\n3 Darl   37.5  16.3    3.6\n4 Darl   40.3  16.1    4.0\n5 Darl   30.6  17.1    2.3\n6 Darl   41.8  16.8    3.0"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#boxplot-1",
-    "href": "lect/w04/slides_rels.html#boxplot-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Boxplot",
-    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)\n  \ng + geom_boxplot()"
+    "objectID": "lect/w05/slides_dplyr.html#renaming-variables",
+    "href": "lect/w05/slides_dplyr.html#renaming-variables",
+    "title": "Data manipulation with dplyr",
+    "section": "Renaming variables",
+    "text": "Renaming variables\n\n\nrenaming your variables with function rename(data, new_name = old_name) can be useful when dealing with complicated code names or different languages\n Hint: don’t forget to save object with new variable names by &lt;-\n\n\n\n\nsipky &lt;- rename(sipky,\n   typ = Name,\n   delka = Length,\n   sirka = Width,\n   hmotnost = Weight)\n\nhead(sipky)\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#boxplot-2",
-    "href": "lect/w04/slides_rels.html#boxplot-2",
-    "title": "Summaries and visualization of relationships",
-    "section": "Boxplot",
-    "text": "Boxplot\nAlso box and whisker plot, displays five-number summary."
+    "objectID": "lect/w05/slides_dplyr.html#arranging-values-in-ascending-order",
+    "href": "lect/w05/slides_dplyr.html#arranging-values-in-ascending-order",
+    "title": "Data manipulation with dplyr",
+    "section": "Arranging values in ascending order…",
+    "text": "Arranging values in ascending order…\n\nhere you can order your observations from the lowest to highest (or vice versa). To do so, use function arrange(data, variable)\n\n\nhead(arrange(sipky, delka))\n\n   typ delka sirka hmotnost\n1 Darl  30.6  17.1      2.3\n2 Darl  31.2  15.6      2.5\n3 Darl  32.0  16.0      3.3\n4 Darl  32.4  14.5      2.5\n5 Darl  33.1  17.4      4.2\n6 Darl  33.5  16.6      3.2"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#violin-plot",
-    "href": "lect/w04/slides_rels.html#violin-plot",
-    "title": "Summaries and visualization of relationships",
-    "section": "Violin plot",
-    "text": "Violin plot\n\ng + geom_violin()"
+    "objectID": "lect/w05/slides_dplyr.html#and-in-descending-order",
+    "href": "lect/w05/slides_dplyr.html#and-in-descending-order",
+    "title": "Data manipulation with dplyr",
+    "section": "…and in descending order",
+    "text": "…and in descending order\n\nif you want to order the values from higher to smaller just add desc()\n\n\nhead(arrange(sipky, desc(delka)))\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n3 Pedernales  78.3  28.1     14.8\n4 Pedernales  70.4  30.4     13.1\n5     Travis  69.0  20.9     11.4\n6 Pedernales  67.2  27.1     15.3\n\n\n\n Task: What will happen if you will try to order non-numerical variable, but a categorical variable (such as type of the dartpoint)?"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#violin-plot-1",
-    "href": "lect/w04/slides_rels.html#violin-plot-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Violin plot",
-    "text": "Violin plot\n\ng + geom_violin() +\n  geom_jitter(width = 0.05, alpha = 0.4)"
+    "objectID": "lect/w05/slides_dplyr.html#filtering",
+    "href": "lect/w05/slides_dplyr.html#filtering",
+    "title": "Data manipulation with dplyr",
+    "section": "Filtering",
+    "text": "Filtering\n\n\nfunction filter(data, variable &lt;operator&gt; value) allows you to filter your data based on different conditions, for example minimal weight, type of the dartpoint, etc\nlogical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &, |, etc (use ?dplyr::filter for more details)\n\n\n\n\nhere we use &gt; to get only dartpoints with the length higher than 80 cm\n\n\nfilter(sipky, delka &gt; 80)\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n\n\n\n\n\nand here we use == to choose only those dartpoints which are of type “Travis”\n\n\nfilter(sipky, typ == \"Travis\")\n\n      typ delka sirka hmotnost\n1  Travis  56.5  21.1      9.5\n2  Travis  54.6  22.4     10.4\n3  Travis  46.3  21.3      7.5\n4  Travis  57.6  18.9      8.7\n5  Travis  49.1  21.4      6.9\n6  Travis  64.6  21.5     15.0\n7  Travis  69.0  20.9     11.4\n8  Travis  40.1  18.4      6.3\n9  Travis  41.5  19.2      7.5\n10 Travis  46.3  17.9      5.9\n11 Travis  39.6  21.5      5.4\n\n\n\n\n\nalternatively, you can exclude all points of a type “Travis” by negation !=\n\n\nhead(filter(sipky, typ != \"Travis\"))\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0\n\n\n\n\n\nadd & if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” AND are heavier than 10 grams\n\n\nfilter(sipky, typ == \"Wells\" & hmotnost &gt; 10)\n\n    typ delka sirka hmotnost\n1 Wells  65.4  25.1     12.6\n2 Wells  58.9  24.4     10.5\n3 Wells  63.1  24.7     16.3\n\n\n\n\n\n Task: instead of & try operator | (OR) and see how the result differs"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#violin-plot-2",
-    "href": "lect/w04/slides_rels.html#violin-plot-2",
-    "title": "Summaries and visualization of relationships",
-    "section": "Violin plot",
-    "text": "Violin plot\n\ng + geom_violin() +\n  geom_boxplot(width = 0.15) +\n  geom_jitter(width = 0.05, alpha = 0.2)"
+    "objectID": "lect/w05/slides_dplyr.html#filtering-based-on-a-vector",
+    "href": "lect/w05/slides_dplyr.html#filtering-based-on-a-vector",
+    "title": "Data manipulation with dplyr",
+    "section": "Filtering based on a vector",
+    "text": "Filtering based on a vector\n\nyou can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator %in%\n\n\nvyber &lt;- c(\"Pedernales\", \"Ensor\")\n\nhead(filter(sipky, typ %in% vyber))\n\n    typ delka sirka hmotnost\n1 Ensor  43.5  20.1      4.6\n2 Ensor  42.1  20.8      5.4\n3 Ensor  42.1  25.1      5.9\n4 Ensor  43.1  20.0      5.1\n5 Ensor  37.5  21.8      4.7\n6 Ensor  55.2  22.5      7.2"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#relationship-of-two-quantitative-variables",
-    "href": "lect/w04/slides_rels.html#relationship-of-two-quantitative-variables",
-    "title": "Summaries and visualization of relationships",
-    "section": "Relationship of two quantitative variables",
-    "text": "Relationship of two quantitative variables"
+    "objectID": "lect/w05/slides_dplyr.html#summaries",
+    "href": "lect/w05/slides_dplyr.html#summaries",
+    "title": "Data manipulation with dplyr",
+    "section": "Summaries",
+    "text": "Summaries\n\nwe already know some functions to calculate basic summaries, for example function mean\n\n\nmean(sipky$delka)\n\n[1] 49.33077\n\n\n\n\nbut if you want to create a new dataframe from calculated statistics, function summarise(data, new_variable = summary_statistics) is much more helpfull\nfor summary statistics you can use different functions: mean(), median(), sd(), min()…, (use ?summarise for more details)\n\n\n\n\nsummarise(sipky, delka_prumer = mean(delka))\n\n  delka_prumer\n1     49.33077\n\n\n\n\n\nyou can also calculate more summaries:\n\n\nsummarise(sipky,\n    delka_prumer = mean(delka),\n    delka_sd = sd(delka),\n    delka_min = min(delka),\n    delka_max = max(delka),\n    pocet = n())\n\n  delka_prumer delka_sd delka_min delka_max pocet\n1     49.33077 12.73619      30.6     109.5    91"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#correlation",
-    "href": "lect/w04/slides_rels.html#correlation",
-    "title": "Summaries and visualization of relationships",
-    "section": "Correlation",
-    "text": "Correlation\n\n\n\n\nA statistic describing a relationship between two continuous variables.\nTo what degree is a variable y explained by x?\nCorrelation coefficient r, from -1 to +1.\nCorrelation does not imply causation!\nr = 1 – strong positive correlation\nr = 0.5 – moderately strong positive correlation\nr = 0 – variables are not correlated\nr = -0.2 – weak negative correlation\nr = -1 – strong negative correlation\n\n\n\n\nFunction cor()\n\ncor(dartpoints$Length, dartpoints$Width)\n\n[1] 0.7689932\n\ncor(dartpoints$Length, dartpoints$Weight)\n\n[1] 0.879953\n\ncor(dartpoints$Width, dartpoints$Thickness)\n\n[1] 0.5459291"
+    "objectID": "lect/w05/slides_dplyr.html#grouping",
+    "href": "lect/w05/slides_dplyr.html#grouping",
+    "title": "Data manipulation with dplyr",
+    "section": "Grouping",
+    "text": "Grouping\n\nsummaries above were applied on whole dataframe. Here we will learn how to calculate summaries for each type of the dartpoint by using group_by(data, variable_to_be_grouped_by)\n\n\nsipky_typ &lt;- group_by(sipky, typ)\n\n\n\nat first sight, you don´t see any differences, but they will be visible after applying function summarise\n\n\nsummarise(sipky_typ, delka_prumer = mean(delka))\n\n# A tibble: 5 × 2\n  typ        delka_prumer\n  &lt;fct&gt;             &lt;dbl&gt;\n1 Darl               39.8\n2 Ensor              42.7\n3 Pedernales         57.9\n4 Travis             51.4\n5 Wells              53.1\n\n\n\n\n\nyou can also calculate more summaries at once and use round to remove unnecessary decimals:\n\n\nsummarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())\n\n# A tibble: 5 × 3\n  typ        delka_prumer pocet\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;\n1 Darl               39.8    28\n2 Ensor              42.7    10\n3 Pedernales         57.9    32\n4 Travis             51.4    11\n5 Wells              53.1    10\n\n\n\n\n\n Task: save the result as a new dataframe “sipky_sum” for later work\n\n\n\n\nsipky_sum &lt;- summarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#scatter-plot",
-    "href": "lect/w04/slides_rels.html#scatter-plot",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plot",
-    "text": "Scatter plot\n\nPlot displying two continuous variables, x and y.\nx axis: explanatory variable, independent, predictor.\ny axis: dependent variable, response.\n\n\nggplot(dartpoints) +\n  aes(x = Length, y = Weight) +\n  geom_point()"
+    "objectID": "lect/w05/slides_dplyr.html#mutate",
+    "href": "lect/w05/slides_dplyr.html#mutate",
+    "title": "Data manipulation with dplyr",
+    "section": "Mutate",
+    "text": "Mutate\n\n\nfunction mutate creates a new variable, here we will show how to add variable with percentages\nnote: sum calculates a total sum of values from chosen variable (in this case - “pocet”)\n\n\n\n\nmutate(sipky_sum,\n   procento = (pocet/sum(pocet))*100)\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28     30.8\n2 Ensor              42.7    10     11.0\n3 Pedernales         57.9    32     35.2\n4 Travis             51.4    11     12.1\n5 Wells              53.1    10     11.0\n\n\n\n\n\n Hint: you can again remove unnecessary decimals by adding round but be careful with the right number of the brackets ()!\n\n\nmutate(sipky_sum,\n   procento = round((pocet/sum(pocet))*100, 0))\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28       31\n2 Ensor              42.7    10       11\n3 Pedernales         57.9    32       35\n4 Travis             51.4    11       12\n5 Wells              53.1    10       11"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#correlation-examples",
-    "href": "lect/w04/slides_rels.html#correlation-examples",
-    "title": "Summaries and visualization of relationships",
-    "section": "Correlation examples",
-    "text": "Correlation examples"
+    "objectID": "lect/w05/slides_dplyr.html#pipe-operator",
+    "href": "lect/w05/slides_dplyr.html#pipe-operator",
+    "title": "Data manipulation with dplyr",
+    "section": "Pipe operator",
+    "text": "Pipe operator\n\n\nwhen applying plenty of transformation on one dataset “pipe operator” (%&gt;%) could make your work easier and code shorter and more readable\nnotice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”\n\n\n\n\nsipky %&gt;% \n  filter(delka &gt; 70) %&gt;%\n  arrange(delka)\n\n         typ delka sirka hmotnost\n1 Pedernales  70.4  30.4     13.1\n2 Pedernales  78.3  28.1     14.8\n3 Pedernales  84.0  21.2      9.3\n4 Pedernales 109.5  49.3     28.8"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#correlation-examples-1",
-    "href": "lect/w04/slides_rels.html#correlation-examples-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Correlation examples",
-    "text": "Correlation examples"
+    "objectID": "lect/w05/slides_dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
+    "href": "lect/w05/slides_dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
+    "title": "Data manipulation with dplyr",
+    "section": "More complex summarising with dplyr and pipe",
+    "text": "More complex summarising with dplyr and pipe\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = round(mean(delka), 1),\n    hmotnost_prum = round(mean(hmotnost), 1),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100, 1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9          10.6    32     35.2\n2 Darl             39.8           4.4    28     30.8\n3 Travis           51.4           8.6    11     12.1\n4 Ensor            42.7           5.1    10     11  \n5 Wells            53.1           8.7    10     11"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#scatter-plots",
-    "href": "lect/w04/slides_rels.html#scatter-plots",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plots",
-    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) +\n  geom_point()"
+    "objectID": "lect/w05/slides_dplyr.html#visualising-your-summaries",
+    "href": "lect/w05/slides_dplyr.html#visualising-your-summaries",
+    "title": "Data manipulation with dplyr",
+    "section": "Visualising your summaries",
+    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9         10.6     32     35.2\n2 Darl             39.8          4.41    28     30.8\n3 Travis           51.4          8.59    11     12.1\n4 Ensor            42.7          5.06    10     11  \n5 Wells            53.1          8.68    10     11"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#scatter-plots-1",
-    "href": "lect/w04/slides_rels.html#scatter-plots-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plots",
-    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5)"
+    "objectID": "lect/w05/slides_dplyr.html#visualising-your-summaries-1",
+    "href": "lect/w05/slides_dplyr.html#visualising-your-summaries-1",
+    "title": "Data manipulation with dplyr",
+    "section": "Visualising your summaries",
+    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  ggplot() +\n  aes(x = typ, y = delka_prum) +\n  geom_col() +\n  labs(title = \"Průměrná délka šipky\") +\n  theme_light()"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#scatter-plots-2",
-    "href": "lect/w04/slides_rels.html#scatter-plots-2",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plots",
-    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
+    "objectID": "lect/w05/slides_dplyr.html#saving-your-results",
+    "href": "lect/w05/slides_dplyr.html#saving-your-results",
+    "title": "Data manipulation with dplyr",
+    "section": "Saving your results",
+    "text": "Saving your results\n\nuse write.csv for saving your results as a comma separated file\n\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  write.csv(here(\"sipky_result.csv\"))\n\n\n\nor save your summarised data frame as an object and save it later\n\n\nsipky_result &lt;- sipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n  \nwrite.csv(sipky_result, here(\"sipky_result.csv\"))\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | dplyr"
   },
   {
-    "objectID": "lect/w04/slides_rels.html#scatter-plots-3",
-    "href": "lect/w04/slides_rels.html#scatter-plots-3",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plots",
-    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, size = Width, color = Name) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
-  },
-  {
-    "objectID": "lect/w04/slides_rels.html#trends",
-    "href": "lect/w04/slides_rels.html#trends",
-    "title": "Summaries and visualization of relationships",
-    "section": "Trends",
-    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth() +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
-  },
-  {
-    "objectID": "lect/w04/slides_rels.html#trends-1",
-    "href": "lect/w04/slides_rels.html#trends-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Trends",
-    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\") +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()"
-  },
-  {
-    "objectID": "lect/w04/slides_rels.html#trends-2",
-    "href": "lect/w04/slides_rels.html#trends-2",
-    "title": "Summaries and visualization of relationships",
-    "section": "Trends",
-    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw()"
-  },
-  {
-    "objectID": "lect/w04/slides_rels.html#small-multiples",
-    "href": "lect/w04/slides_rels.html#small-multiples",
-    "title": "Summaries and visualization of relationships",
-    "section": "Small multiples",
-    "text": "Small multiples\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw() +\n  facet_wrap(~Name)"
-  },
-  {
-    "objectID": "lect/w04/slides_rels.html#exercise",
-    "href": "lect/w04/slides_rels.html#exercise",
-    "title": "Summaries and visualization of relationships",
-    "section": "Exercise",
-    "text": "Exercise\n\n\n\n\nDownload data set with bronze age cups ( bacups.csv).\nCreate a project in RStudio and load the data set.\nExplore the data set and its structure.\nWhat are the observations?\nWhat types of variables are there?\nCreate a plot showing distribution of cup heights (H).\nCreate a boxplot for cup heights divided by phases (Phase).\nAre there any outliers?\nCount correlation between cup height (H) and rim diameter (RD).\nCreate a plot showing relationship between cup height and its rim diameter.\nColor cups from different phases (Phase) by differently.\nDescribe the relationship, add a linear model to the plot.\nLabel the axes sensibly.\n\n\n\n\n Hints:\nread.csv(),\nstr(),\ncolnames(),\nsummary(),\ncor(),\nggplot() +\naes() +\ngeom_* + stat_*\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Relationships"
-  },
-  {
-    "objectID": "lect/w04/rels.html#objectives",
-    "href": "lect/w04/rels.html#objectives",
-    "title": "Summaries and visualization of relationships",
-    "section": "Objectives",
-    "text": "Objectives\nAt the end of the lecture, you will know how to…\n\n\nDescribe relationship of quantitative and qualitative variable.\nCreate and read box plots and violin plots.\n\nUnderstand relationship of two quantitative variables.\nCount and interpret correlation.\nCreate and understand scatterplots.\nAssess what relationship (covariation) occurs between your variables.",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#relationship-of-quantitative-and-qualitative-variables",
-    "href": "lect/w04/rels.html#relationship-of-quantitative-and-qualitative-variables",
-    "title": "Summaries and visualization of relationships",
-    "section": "Relationship of quantitative and qualitative variables",
-    "text": "Relationship of quantitative and qualitative variables",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#boxplot",
-    "href": "lect/w04/rels.html#boxplot",
-    "title": "Summaries and visualization of relationships",
-    "section": "Boxplot",
-    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#boxplot-1",
-    "href": "lect/w04/rels.html#boxplot-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Boxplot",
-    "text": "Boxplot\n\ng &lt;- ggplot(dartpoints) +\n  aes(x = Name, y = Width)\n  \ng + geom_boxplot()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#boxplot-2",
-    "href": "lect/w04/rels.html#boxplot-2",
-    "title": "Summaries and visualization of relationships",
-    "section": "Boxplot",
-    "text": "Boxplot\nAlso box and whisker plot, displays five-number summary.",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#violin-plot",
-    "href": "lect/w04/rels.html#violin-plot",
-    "title": "Summaries and visualization of relationships",
-    "section": "Violin plot",
-    "text": "Violin plot\n\ng + geom_violin()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#violin-plot-1",
-    "href": "lect/w04/rels.html#violin-plot-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Violin plot",
-    "text": "Violin plot\n\ng + geom_violin() +\n  geom_jitter(width = 0.05, alpha = 0.4)",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#violin-plot-2",
-    "href": "lect/w04/rels.html#violin-plot-2",
-    "title": "Summaries and visualization of relationships",
-    "section": "Violin plot",
-    "text": "Violin plot\n\ng + geom_violin() +\n  geom_boxplot(width = 0.15) +\n  geom_jitter(width = 0.05, alpha = 0.2)",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#relationship-of-two-quantitative-variables",
-    "href": "lect/w04/rels.html#relationship-of-two-quantitative-variables",
-    "title": "Summaries and visualization of relationships",
-    "section": "Relationship of two quantitative variables",
-    "text": "Relationship of two quantitative variables",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#correlation",
-    "href": "lect/w04/rels.html#correlation",
-    "title": "Summaries and visualization of relationships",
-    "section": "Correlation",
-    "text": "Correlation\n\n\n\n\nA statistic describing a relationship between two continuous variables.\nTo what degree is a variable y explained by x?\nCorrelation coefficient r, from -1 to +1.\nCorrelation does not imply causation!\nr = 1 – strong positive correlation\nr = 0.5 – moderately strong positive correlation\nr = 0 – variables are not correlated\nr = -0.2 – weak negative correlation\nr = -1 – strong negative correlation\n\n\n\n\nFunction cor()\n\ncor(dartpoints$Length, dartpoints$Width)\n\n[1] 0.7689932\n\ncor(dartpoints$Length, dartpoints$Weight)\n\n[1] 0.879953\n\ncor(dartpoints$Width, dartpoints$Thickness)\n\n[1] 0.5459291",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#scatter-plot",
-    "href": "lect/w04/rels.html#scatter-plot",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plot",
-    "text": "Scatter plot\n\nPlot displying two continuous variables, x and y.\nx axis: explanatory variable, independent, predictor.\ny axis: dependent variable, response.\n\n\nggplot(dartpoints) +\n  aes(x = Length, y = Weight) +\n  geom_point()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#correlation-examples",
-    "href": "lect/w04/rels.html#correlation-examples",
-    "title": "Summaries and visualization of relationships",
-    "section": "Correlation examples",
-    "text": "Correlation examples",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#correlation-examples-1",
-    "href": "lect/w04/rels.html#correlation-examples-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Correlation examples",
-    "text": "Correlation examples",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#scatter-plots",
-    "href": "lect/w04/rels.html#scatter-plots",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plots",
-    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) +\n  geom_point()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#scatter-plots-1",
-    "href": "lect/w04/rels.html#scatter-plots-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plots",
-    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5)",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#scatter-plots-2",
-    "href": "lect/w04/rels.html#scatter-plots-2",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plots",
-    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, color = Name) + \n  geom_point(size = 3, alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#scatter-plots-3",
-    "href": "lect/w04/rels.html#scatter-plots-3",
-    "title": "Summaries and visualization of relationships",
-    "section": "Scatter plots",
-    "text": "Scatter plots\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length, size = Width, color = Name) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#trends",
-    "href": "lect/w04/rels.html#trends",
-    "title": "Summaries and visualization of relationships",
-    "section": "Trends",
-    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth() +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#trends-1",
-    "href": "lect/w04/rels.html#trends-1",
-    "title": "Summaries and visualization of relationships",
-    "section": "Trends",
-    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\") +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_light()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#trends-2",
-    "href": "lect/w04/rels.html#trends-2",
-    "title": "Summaries and visualization of relationships",
-    "section": "Trends",
-    "text": "Trends\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw()",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#small-multiples",
-    "href": "lect/w04/rels.html#small-multiples",
-    "title": "Summaries and visualization of relationships",
-    "section": "Small multiples",
-    "text": "Small multiples\n\nggplot(data = dartpoints) +\n  aes(x = Weight, y = Length) + \n  geom_point(size = 3, alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Weight (g)\", y = \"Length (mm)\", color = \"Type\",\n       title = \"Relationship of weight and length of dart points\") +\n  theme_linedraw() +\n  facet_wrap(~Name)",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "lect/w04/rels.html#exercise",
-    "href": "lect/w04/rels.html#exercise",
-    "title": "Summaries and visualization of relationships",
-    "section": "Exercise",
-    "text": "Exercise\n\n\n\n\nDownload data set with bronze age cups ( bacups.csv).\nCreate a project in RStudio and load the data set.\nExplore the data set and its structure.\nWhat are the observations?\nWhat types of variables are there?\nCreate a plot showing distribution of cup heights (H).\nCreate a boxplot for cup heights divided by phases (Phase).\nAre there any outliers?\nCount correlation between cup height (H) and rim diameter (RD).\nCreate a plot showing relationship between cup height and its rim diameter.\nColor cups from different phases (Phase) by differently.\nDescribe the relationship, add a linear model to the plot.\nLabel the axes sensibly.\n\n\n\n\n Hints:\nread.csv(),\nstr(),\ncolnames(),\nsummary(),\ncor(),\nggplot() +\naes() +\ngeom_* + stat_*",
-    "crumbs": [
-      "Summaries and visualization of relationships"
-    ]
-  },
-  {
-    "objectID": "project.html",
-    "href": "project.html",
-    "title": "Project",
+    "objectID": "lect/w05/dplyr.html",
+    "href": "lect/w05/dplyr.html",
+    "title": "Data manipulation with dplyr",
     "section": "",
-    "text": "Warning\n\n\n\nInformation given here will be updated later in the semestr.\nTo pass the course you will have to work on a small project. Group/pair cooperation is possible, but each student has to submit their own report on the analysis. There are two options, you can choose to work either on your own dataset or use an existing published data."
+    "text": "dplyr\n\n\n\n\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
   },
   {
-    "objectID": "project.html#get-the-data",
-    "href": "project.html#get-the-data",
-    "title": "Project",
-    "section": "Get the data",
-    "text": "Get the data\nAlthough the first step in most of the analysis would be creating the research question(s), we assume our questions and goals are already set and skip to the step where we get the data suitable to answer our questions…\n\nWorking with your own dataset\n\nYou can choose to use your own data. This is especially useful if you are working on your BA/MA/PhD thesis or an article and want to analyze the data collected for the given work.\nThis option is easier because you probably know what your dataset contains and what each variable means, how it was collected etc.\n\n\n\nUsing an existing dataset\n\nFind a suitable dataset online, scrape a website, get it in a book, anything that comes to mind, be creative. Bear in mind that the dataset needs to contain a mixture of quantitative and qualitative variables. It can be organized as a table, then the work is easier for you. If it is a database, we can give you a hand with data preparation etc.\nWe recommend to look in the Journal of Open Archaeology Data. Datasets published here have clear use conditions (license), are deposited in a suitable repository and should be well documented.\nIf you choose to use a dataset you found anywhere else (or web scraped etc.) please make sure that it is easily accessible and suitable for the analysis."
+    "objectID": "lect/w05/dplyr.html#data-transformation",
+    "href": "lect/w05/dplyr.html#data-transformation",
+    "title": "Data manipulation with dplyr",
+    "section": "",
+    "text": "dplyr\n\n\n\n\nWe will learn how to:\n\n\nselect desired variables – select()\nrename your variables – rename()\norder them from lowest to highest values (or vice versa) – arrange()\nfilter your data based on different conditions – filter()\ncalculate different summary statistics such as mean or count – summarise()\nadd new variables such as percentage – mutate()\nwork with different functions more effectively – %&gt;%\nsave your results as comma separated file",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
   },
   {
-    "objectID": "project.html#get-to-know-the-data",
-    "href": "project.html#get-to-know-the-data",
-    "title": "Project",
-    "section": "Get to know the data",
-    "text": "Get to know the data\n\nMake sure you know where your data is and how is it stored (format and how to read it into R).\nMake sure you know what each variable means, what type of data does it contain etc.\nThe dataset should contain at least several quantitative and qualitative variables in order for you to be able to practice creating visualizations.\n\n\nReport template\nRMarkdown template for the project report is here. Create a new RMarkdown file (.Rmd), copy and paste the contents of the template in your file, do your changes, write your report and push the Knit button. Follow the instructions in the template to work on your project.\n\n\nHow to submit the report\nFeel free to contact us if you need any help or assistance during the work on your project. Simply send us both the source Rmd file and the HTML output with your questions and we will address the problem either directly or in class."
+    "objectID": "lect/w05/dplyr.html#before-we-begin",
+    "href": "lect/w05/dplyr.html#before-we-begin",
+    "title": "Data manipulation with dplyr",
+    "section": "Before we begin",
+    "text": "Before we begin\n\n\nload packages here and dplyr (don’t forget to install them firstly, if you haven’t done so yet)\nopen the project from last lecture (or create a new one if you don’t have it)\ncreate a new script\nload data dartpoints.csv into your script\nif you are loading data with here function don’t forget to check whether your data and script are in the same folder as your project\ncreate an object called “sipky” from the loaded database (with &lt;-)\n\n\n\n\nlibrary(here)\nlibrary(dplyr)\nsipky &lt;- read.csv(here(\"dartpoints.csv\"))",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#selecting-variables",
+    "href": "lect/w05/dplyr.html#selecting-variables",
+    "title": "Data manipulation with dplyr",
+    "section": "Selecting variables",
+    "text": "Selecting variables\n\n\nselect(dataframe, variable1, variable2)\nsometimes you will need to remove variables you don’t need in your work, to have your database more user friendly\nfor example, you need only variables dealing with major proportions of the dartpoints, but your database have plenty of other variables which are making it difficult to observe, like here:\n\n\n\n\nhead(sipky)\n\n  Name Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length\n1 Darl 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6\n2 Darl 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9\n3 Darl 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2\n4 Darl 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3\n5 Darl 36-3321 41CV1023 12/58   30.6  17.1       4.0    12.6    11.2      8.9\n6 Darl 35-2959 41CV0235 21/63   41.8  16.8       4.1    12.7    11.5     11.0\n  Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    3.6        S       I         S         T       S       E\n2    4.5        S       I         S         T       S       E\n3    3.6        S       I         S         T       S       E\n4    4.0        S       I         S         T       S       E\n5    2.3        S       I         S         T       S       E\n6    3.0        S       E         I         T       I       C",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#selecting-variables-1",
+    "href": "lect/w05/dplyr.html#selecting-variables-1",
+    "title": "Data manipulation with dplyr",
+    "section": "Selecting variables",
+    "text": "Selecting variables\n\nto create a new dataframe, simply use function select and define which variables you want to keep\n\n\nsipky &lt;- select(sipky, Name, Length, Width, Weight)\nhead(sipky)\n\n  Name Length Width Weight\n1 Darl   42.8  15.8    3.6\n2 Darl   40.5  17.4    4.5\n3 Darl   37.5  16.3    3.6\n4 Darl   40.3  16.1    4.0\n5 Darl   30.6  17.1    2.3\n6 Darl   41.8  16.8    3.0",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#renaming-variables",
+    "href": "lect/w05/dplyr.html#renaming-variables",
+    "title": "Data manipulation with dplyr",
+    "section": "Renaming variables",
+    "text": "Renaming variables\n\n\nrenaming your variables with function rename(data, new_name = old_name) can be useful when dealing with complicated code names or different languages\n Hint: don’t forget to save object with new variable names by &lt;-\n\n\n\n\nsipky &lt;- rename(sipky,\n   typ = Name,\n   delka = Length,\n   sirka = Width,\n   hmotnost = Weight)\n\nhead(sipky)\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#arranging-values-in-ascending-order",
+    "href": "lect/w05/dplyr.html#arranging-values-in-ascending-order",
+    "title": "Data manipulation with dplyr",
+    "section": "Arranging values in ascending order…",
+    "text": "Arranging values in ascending order…\n\nhere you can order your observations from the lowest to highest (or vice versa). To do so, use function arrange(data, variable)\n\n\nhead(arrange(sipky, delka))\n\n   typ delka sirka hmotnost\n1 Darl  30.6  17.1      2.3\n2 Darl  31.2  15.6      2.5\n3 Darl  32.0  16.0      3.3\n4 Darl  32.4  14.5      2.5\n5 Darl  33.1  17.4      4.2\n6 Darl  33.5  16.6      3.2",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#and-in-descending-order",
+    "href": "lect/w05/dplyr.html#and-in-descending-order",
+    "title": "Data manipulation with dplyr",
+    "section": "…and in descending order",
+    "text": "…and in descending order\n\nif you want to order the values from higher to smaller just add desc()\n\n\nhead(arrange(sipky, desc(delka)))\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n3 Pedernales  78.3  28.1     14.8\n4 Pedernales  70.4  30.4     13.1\n5     Travis  69.0  20.9     11.4\n6 Pedernales  67.2  27.1     15.3\n\n\n\n Task: What will happen if you will try to order non-numerical variable, but a categorical variable (such as type of the dartpoint)?",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#filtering",
+    "href": "lect/w05/dplyr.html#filtering",
+    "title": "Data manipulation with dplyr",
+    "section": "Filtering",
+    "text": "Filtering\n\n\nfunction filter(data, variable &lt;operator&gt; value) allows you to filter your data based on different conditions, for example minimal weight, type of the dartpoint, etc\nlogical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &, |, etc (use ?dplyr::filter for more details)\n\n\n\n\nhere we use &gt; to get only dartpoints with the length higher than 80 cm\n\n\nfilter(sipky, delka &gt; 80)\n\n         typ delka sirka hmotnost\n1 Pedernales 109.5  49.3     28.8\n2 Pedernales  84.0  21.2      9.3\n\n\n\n\n\nand here we use == to choose only those dartpoints which are of type “Travis”\n\n\nfilter(sipky, typ == \"Travis\")\n\n      typ delka sirka hmotnost\n1  Travis  56.5  21.1      9.5\n2  Travis  54.6  22.4     10.4\n3  Travis  46.3  21.3      7.5\n4  Travis  57.6  18.9      8.7\n5  Travis  49.1  21.4      6.9\n6  Travis  64.6  21.5     15.0\n7  Travis  69.0  20.9     11.4\n8  Travis  40.1  18.4      6.3\n9  Travis  41.5  19.2      7.5\n10 Travis  46.3  17.9      5.9\n11 Travis  39.6  21.5      5.4\n\n\n\n\n\nalternatively, you can exclude all points of a type “Travis” by negation !=\n\n\nhead(filter(sipky, typ != \"Travis\"))\n\n   typ delka sirka hmotnost\n1 Darl  42.8  15.8      3.6\n2 Darl  40.5  17.4      4.5\n3 Darl  37.5  16.3      3.6\n4 Darl  40.3  16.1      4.0\n5 Darl  30.6  17.1      2.3\n6 Darl  41.8  16.8      3.0\n\n\n\n\n\nadd & if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” AND are heavier than 10 grams\n\n\nfilter(sipky, typ == \"Wells\" & hmotnost &gt; 10)\n\n    typ delka sirka hmotnost\n1 Wells  65.4  25.1     12.6\n2 Wells  58.9  24.4     10.5\n3 Wells  63.1  24.7     16.3\n\n\n\n\n\n Task: instead of & try operator | (OR) and see how the result differs",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#filtering-based-on-a-vector",
+    "href": "lect/w05/dplyr.html#filtering-based-on-a-vector",
+    "title": "Data manipulation with dplyr",
+    "section": "Filtering based on a vector",
+    "text": "Filtering based on a vector\n\nyou can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator %in%\n\n\nvyber &lt;- c(\"Pedernales\", \"Ensor\")\n\nhead(filter(sipky, typ %in% vyber))\n\n    typ delka sirka hmotnost\n1 Ensor  43.5  20.1      4.6\n2 Ensor  42.1  20.8      5.4\n3 Ensor  42.1  25.1      5.9\n4 Ensor  43.1  20.0      5.1\n5 Ensor  37.5  21.8      4.7\n6 Ensor  55.2  22.5      7.2",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#summaries",
+    "href": "lect/w05/dplyr.html#summaries",
+    "title": "Data manipulation with dplyr",
+    "section": "Summaries",
+    "text": "Summaries\n\nwe already know some functions to calculate basic summaries, for example function mean\n\n\nmean(sipky$delka)\n\n[1] 49.33077\n\n\n\n\nbut if you want to create a new dataframe from calculated statistics, function summarise(data, new_variable = summary_statistics) is much more helpfull\nfor summary statistics you can use different functions: mean(), median(), sd(), min()…, (use ?summarise for more details)\n\n\n\n\nsummarise(sipky, delka_prumer = mean(delka))\n\n  delka_prumer\n1     49.33077\n\n\n\n\n\nyou can also calculate more summaries:\n\n\nsummarise(sipky,\n    delka_prumer = mean(delka),\n    delka_sd = sd(delka),\n    delka_min = min(delka),\n    delka_max = max(delka),\n    pocet = n())\n\n  delka_prumer delka_sd delka_min delka_max pocet\n1     49.33077 12.73619      30.6     109.5    91",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#grouping",
+    "href": "lect/w05/dplyr.html#grouping",
+    "title": "Data manipulation with dplyr",
+    "section": "Grouping",
+    "text": "Grouping\n\nsummaries above were applied on whole dataframe. Here we will learn how to calculate summaries for each type of the dartpoint by using group_by(data, variable_to_be_grouped_by)\n\n\nsipky_typ &lt;- group_by(sipky, typ)\n\n\n\nat first sight, you don´t see any differences, but they will be visible after applying function summarise\n\n\nsummarise(sipky_typ, delka_prumer = mean(delka))\n\n# A tibble: 5 × 2\n  typ        delka_prumer\n  &lt;fct&gt;             &lt;dbl&gt;\n1 Darl               39.8\n2 Ensor              42.7\n3 Pedernales         57.9\n4 Travis             51.4\n5 Wells              53.1\n\n\n\n\n\nyou can also calculate more summaries at once and use round to remove unnecessary decimals:\n\n\nsummarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())\n\n# A tibble: 5 × 3\n  typ        delka_prumer pocet\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;\n1 Darl               39.8    28\n2 Ensor              42.7    10\n3 Pedernales         57.9    32\n4 Travis             51.4    11\n5 Wells              53.1    10\n\n\n\n\n\n Task: save the result as a new dataframe “sipky_sum” for later work\n\n\n\n\nsipky_sum &lt;- summarise(sipky_typ, \n    delka_prumer = round(mean(delka),1),\n    pocet = n())",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#mutate",
+    "href": "lect/w05/dplyr.html#mutate",
+    "title": "Data manipulation with dplyr",
+    "section": "Mutate",
+    "text": "Mutate\n\n\nfunction mutate creates a new variable, here we will show how to add variable with percentages\nnote: sum calculates a total sum of values from chosen variable (in this case - “pocet”)\n\n\n\n\nmutate(sipky_sum,\n   procento = (pocet/sum(pocet))*100)\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28     30.8\n2 Ensor              42.7    10     11.0\n3 Pedernales         57.9    32     35.2\n4 Travis             51.4    11     12.1\n5 Wells              53.1    10     11.0\n\n\n\n\n\n Hint: you can again remove unnecessary decimals by adding round but be careful with the right number of the brackets ()!\n\n\nmutate(sipky_sum,\n   procento = round((pocet/sum(pocet))*100, 0))\n\n# A tibble: 5 × 4\n  typ        delka_prumer pocet procento\n  &lt;fct&gt;             &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Darl               39.8    28       31\n2 Ensor              42.7    10       11\n3 Pedernales         57.9    32       35\n4 Travis             51.4    11       12\n5 Wells              53.1    10       11",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#pipe-operator",
+    "href": "lect/w05/dplyr.html#pipe-operator",
+    "title": "Data manipulation with dplyr",
+    "section": "Pipe operator",
+    "text": "Pipe operator\n\n\nwhen applying plenty of transformation on one dataset “pipe operator” (%&gt;%) could make your work easier and code shorter and more readable\nnotice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”\n\n\n\n\nsipky %&gt;% \n  filter(delka &gt; 70) %&gt;%\n  arrange(delka)\n\n         typ delka sirka hmotnost\n1 Pedernales  70.4  30.4     13.1\n2 Pedernales  78.3  28.1     14.8\n3 Pedernales  84.0  21.2      9.3\n4 Pedernales 109.5  49.3     28.8",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
+    "href": "lect/w05/dplyr.html#more-complex-summarising-with-dplyr-and-pipe",
+    "title": "Data manipulation with dplyr",
+    "section": "More complex summarising with dplyr and pipe",
+    "text": "More complex summarising with dplyr and pipe\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = round(mean(delka), 1),\n    hmotnost_prum = round(mean(hmotnost), 1),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100, 1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9          10.6    32     35.2\n2 Darl             39.8           4.4    28     30.8\n3 Travis           51.4           8.6    11     12.1\n4 Ensor            42.7           5.1    10     11  \n5 Wells            53.1           8.7    10     11",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#visualising-your-summaries",
+    "href": "lect/w05/dplyr.html#visualising-your-summaries",
+    "title": "Data manipulation with dplyr",
+    "section": "Visualising your summaries",
+    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n\n# A tibble: 5 × 5\n  typ        delka_prum hmotnost_prum pocet procento\n  &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1 Pedernales       57.9         10.6     32     35.2\n2 Darl             39.8          4.41    28     30.8\n3 Travis           51.4          8.59    11     12.1\n4 Ensor            42.7          5.06    10     11  \n5 Wells            53.1          8.68    10     11",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#visualising-your-summaries-1",
+    "href": "lect/w05/dplyr.html#visualising-your-summaries-1",
+    "title": "Data manipulation with dplyr",
+    "section": "Visualising your summaries",
+    "text": "Visualising your summaries\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  ggplot() +\n  aes(x = typ, y = delka_prum) +\n  geom_col() +\n  labs(title = \"Průměrná délka šipky\") +\n  theme_light()",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "lect/w05/dplyr.html#saving-your-results",
+    "href": "lect/w05/dplyr.html#saving-your-results",
+    "title": "Data manipulation with dplyr",
+    "section": "Saving your results",
+    "text": "Saving your results\n\nuse write.csv for saving your results as a comma separated file\n\n\nsipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet)) %&gt;% \n  write.csv(here(\"sipky_result.csv\"))\n\n\n\nor save your summarised data frame as an object and save it later\n\n\nsipky_result &lt;- sipky %&gt;% \n  group_by(typ) %&gt;% \n  summarise(delka_prum = mean(delka),\n    hmotnost_prum = mean(hmotnost),\n    pocet = n()) %&gt;%\n  mutate(procento = round((pocet/sum(pocet))*100,1)) %&gt;% \n  arrange(desc(pocet))\n  \nwrite.csv(sipky_result, here(\"sipky_result.csv\"))",
+    "crumbs": [
+      "Data manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "project/project_template.html",
+    "href": "project/project_template.html",
+    "title": "Title of your project",
+    "section": "",
+    "text": "This is a template for a report on your project. As you already know, we expect you to work on an analysis of a data set of your choice and hand in a report similar to this one. Delete the following examples as soon as you will be sure what you are doing. The suggested structure of a report is below. Delete anything you do not need, feel free to edit the document."
+  },
+  {
+    "objectID": "project/project_template.html#r-markdown",
+    "href": "project/project_template.html#r-markdown",
+    "title": "Title of your project",
+    "section": "R Markdown",
+    "text": "R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+  },
+  {
+    "objectID": "project/project_template.html#including-plots",
+    "href": "project/project_template.html#including-plots",
+    "title": "Title of your project",
+    "section": "Including Plots",
+    "text": "Including Plots\nYou can also embed plots, for example:\n\n\n\n\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n\nAbstract\nWrite a short and comprehensive abstract for your project (one paragraph of text).\n\nKeywords\nInclude several relevant keywords."
+  },
+  {
+    "objectID": "project/project_template.html#introduction",
+    "href": "project/project_template.html#introduction",
+    "title": "Title of your project",
+    "section": "Introduction",
+    "text": "Introduction\nWrite what data set you are analyzing and why, what is your goal and so on (one paragraph).\nAlso load all the packages you will be using in your analysis here.\n\n# put your library calls in here\nlibrary(ggplot2)\n\n\nData\nBriefly introduce your data set. Where does it come from? What does it contain? Load your data here and use any handy functions you learned to show what the variable names are, how big your data are, what data types does it contain etc.\n\n# read your data set here\n# remember, this # is a comment (ctrl+shift+c)\n# data &lt;- read.csv(\"\")\n\nTry to answer following questions using code:\n\nHow many variables are there?\nHow many rows does the data set have?\nWhat are the names of the variables?\nWhat data types are there in the data set?\n\n\n# str(data) and other functions you learned..."
+  },
+  {
+    "objectID": "project/project_template.html#exploratory-analysis",
+    "href": "project/project_template.html#exploratory-analysis",
+    "title": "Title of your project",
+    "section": "Exploratory analysis",
+    "text": "Exploratory analysis\n\nQualitative variables\nAre there any qualitative variables in your data set? Choose at least one and answer these questions if possible:\n\nHow many values does your qualitative variable has?\nShow the count of values of the chosen qualitative variable in a suitable plot.\n\n\n#  show us some plots...\n# ggplot(data, aes(...)) +\n#   geom_bar()\n\n\n\nQuantitative variables\nExplore your quantitative variables. Plot the distribution of the variables. Show us a histogram or a density plot. Try to compare the quantities in several groups using a box plot…\nGive us numeric summaries of the chosen quantitative variable:\n\nWhat is the mean and standard deviation?\nWhat is the median and IQR?\n\nHow does the distribution of the quantitative variable look? Is it a normal distribution? Is it right/left-skewed? Is it multimodal? Try to prove these points with both the graphs and a hypothesis test.\n\n\nData transformation challenge\nUse at least three functions (filter, select, group_by, summarise, arrange, mutate) from the dplyr package to transform your data and again show some summary statistics, plots and so on. Be creative!"
+  },
+  {
+    "objectID": "project/project_template.html#multivariate-exploration",
+    "href": "project/project_template.html#multivariate-exploration",
+    "title": "Title of your project",
+    "section": "Multivariate exploration",
+    "text": "Multivariate exploration\n\nWill be added…"
   },
   {
     "objectID": "resources.html",
