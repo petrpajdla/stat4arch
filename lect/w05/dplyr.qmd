@@ -235,7 +235,7 @@ summarise(sipky_typ, delka_prumer = mean(delka))
 
 ```{r}
 summarise(sipky_typ, 
-    delka_prumer = round(mean(delka),1),
+    delka_prumer = round(mean(delka), 1),
     pocet = n())
 ```
 :::
@@ -247,7 +247,7 @@ summarise(sipky_typ,
 ::: {.fragment}
 ```{r}
 sipky_sum <- summarise(sipky_typ, 
-    delka_prumer = round(mean(delka),1),
+    delka_prumer = round(mean(delka), 1),
     pocet = n())
 ```
 :::
@@ -262,7 +262,7 @@ sipky_sum <- summarise(sipky_typ,
 ::: {.fragment}
 ```{r}
 mutate(sipky_sum,
-   procento = (pocet/sum(pocet))*100)
+   procento = pocet/sum(pocet)*100)
 ```
 :::
 
@@ -271,7 +271,7 @@ mutate(sipky_sum,
 
 ```{r}
 mutate(sipky_sum,
-   procento = round((pocet/sum(pocet))*100, 0))
+   procento = round(pocet/sum(pocet)*100, 0))
 ```
 :::
 
@@ -293,13 +293,14 @@ sipky %>%
 ## More complex summarising with dplyr and pipe
 
 ```{r}
-#| code-line-numbers: "1|2|3-5|6|7|"
+#| code-line-numbers: "1|2|3-6|7|8|"
 sipky %>% 
   group_by(typ) %>% 
-  summarise(delka_prum = round(mean(delka), 1),
+  summarise(
+    delka_prum = round(mean(delka), 1),
     hmotnost_prum = round(mean(hmotnost), 1),
     pocet = n()) %>%
-  mutate(procento = round((pocet/sum(pocet))*100, 1)) %>% 
+  mutate(procento = round(pocet/sum(pocet)*100, 1)) %>% 
   arrange(desc(pocet))
 ```
 
@@ -308,23 +309,25 @@ sipky %>%
 ```{r}
 sipky %>% 
   group_by(typ) %>% 
-  summarise(delka_prum = mean(delka),
+  summarise(
+    delka_prum = mean(delka),
     hmotnost_prum = mean(hmotnost),
     pocet = n()) %>%
-  mutate(procento = round((pocet/sum(pocet))*100,1)) %>% 
+  mutate(procento = round(pocet/sum(pocet)*100, 1)) %>% 
   arrange(desc(pocet))
 ```
 
 ## Visualising your summaries {.auto-animate}
 
 ```{r}
-#| code-line-numbers: 1-7|8-12
+#| code-line-numbers: 1-8|9-13
 sipky %>% 
   group_by(typ) %>% 
-  summarise(delka_prum = mean(delka),
+  summarise(
+    delka_prum = mean(delka),
     hmotnost_prum = mean(hmotnost),
     pocet = n()) %>%
-  mutate(procento = round((pocet/sum(pocet))*100,1)) %>% 
+  mutate(procento = round(pocet/sum(pocet)*100, 1)) %>% 
   arrange(desc(pocet)) %>% 
   ggplot() +
   aes(x = typ, y = delka_prum) +
@@ -342,10 +345,11 @@ sipky %>%
 #| eval: false
 sipky %>% 
   group_by(typ) %>% 
-  summarise(delka_prum = mean(delka),
+  summarise(
+    delka_prum = mean(delka),
     hmotnost_prum = mean(hmotnost),
     pocet = n()) %>%
-  mutate(procento = round((pocet/sum(pocet))*100,1)) %>% 
+  mutate(procento = round(pocet/sum(pocet)*100, 1)) %>% 
   arrange(desc(pocet)) %>% 
   write.csv(here("sipky_result.csv"))
 ```
@@ -356,15 +360,37 @@ sipky %>%
 
 ```{r}
 #| eval: false
-#| code-line-numbers: 1-7|9|
+#| code-line-numbers: 1-8|10|
 sipky_result <- sipky %>% 
   group_by(typ) %>% 
-  summarise(delka_prum = mean(delka),
+  summarise(
+    delka_prum = mean(delka),
     hmotnost_prum = mean(hmotnost),
     pocet = n()) %>%
-  mutate(procento = round((pocet/sum(pocet))*100,1)) %>% 
+  mutate(procento = round(pocet/sum(pocet)*100, 1)) %>% 
   arrange(desc(pocet))
   
 write.csv(sipky_result, here("sipky_result.csv"))
 ```
+:::
+
+
+## Exercise {background-color="#B5E2FF"}
+
+::: {.incremental}
+1. Create new a script in your project folder and save.
+2. Load packages necessary for: (a) loading, (b) transformation, and (c) visualization of data.
+3. Load database `bacups.csv` and save it as an object.
+4. Create a new dataframe having only variables `H`, `RD` and `Phase`.
+5. Try to use pipes `%>%`. 
+6. Rename the variables to `height`, `rimdiameter` and `phase`.
+7. For each phase calculate following summary statistics:  
+   - **mean** and **median** vessel height,  
+   - **standard deviation** of vessel height,
+   - **correlation** between height and rim diameter, and  
+   - **number** of vessels.
+8. Calculate percentage of vessels in each phase.
+9. Arrange the results from highest to lowest mean values.
+10. Save your result as a CSV file
+11. Are height of vessels or rim diameter normally distributed? Why/why not?
 :::

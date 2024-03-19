@@ -17,9 +17,11 @@ execute:
 
 ## Reflection {background-color="#FAF1A4"}
 
+You know how to do the basics:
+
 ::: {.incremental}
-- You know how to do the basics:
 - read data into R,
+- explore the data set,
 - count some statistics,
 - create and interpret basic plots,
 - describe the plots with labels, change the style, save them.
@@ -30,12 +32,12 @@ Some additions...
 
 ::: {.incremental}
 - {{< bi patch-question >}} *Where do I get help?*
-- {{< bi patch-check-fill >}} In [cheat sheets](https://posit.co/resources/cheatsheets/).
+- {{< bi patch-check >}} In [cheat sheets](https://posit.co/resources/cheatsheets/).
 - {{< bi patch-question >}} *What type of graph should I choose?*
-- {{< bi patch-check-fill >}} Look in the [R Graph Gallery](https://r-graph-gallery.com/index.html).
+- {{< bi patch-check >}} Look in [R Graph Gallery](https://r-graph-gallery.com/index.html).
 - {{< bi patch-question >}} *What colors should I use?*
-- {{< bi patch-check-fill >}} Look at the [Color Brewer](https://colorbrewer2.org).
-- See section [Resources](../../resources.qmd) at the website for more...
+- {{< bi patch-check >}} Look at [Color Brewer](https://colorbrewer2.org).
+- See section [Resources](../../resources.qmd) at the website for more details...
 :::
 :::
 
@@ -71,7 +73,7 @@ Some additions...
 ::: {.incremental}
 - Density plot
 - Q-Q plot (quantile-quantile plot)  
-  `qqnorm()` or `ggplot(data) + aes(sample = x) + geom_qq()`
+  `qqnorm()` or `ggplot(data) + aes(sample = x) + stat_qq()`
 :::
 :::
 
@@ -84,3 +86,68 @@ Some additions...
 - Kolmogorov-Smirnov normality test
 :::
 :::
+
+## Q-Q plot 
+
+```{r}
+#| echo: false 
+library(ggplot2)
+library(archdata)
+data("DartPoints")
+dartpoints <- DartPoints
+```
+:::: {.columns}
+::: {.column width=50%}
+```{r}
+ggplot(dartpoints) + aes(x = Length) + geom_density()
+```
+:::
+::: {.column width=50%}
+
+```{r}
+ggplot(dartpoints) + aes(x = Thickness) + geom_density()
+```
+:::
+::::
+
+::: {.fragment}
+:::: {.columns}
+::: {.column width=50%}
+```{r}
+ggplot(dartpoints) + aes(sample = Length) + stat_qq()
+```
+:::
+::: {.column width=50%}
+```{r}
+ggplot(dartpoints) + aes(sample = Thickness) + stat_qq()
+```
+:::
+::::
+:::
+
+## Shapiro-Wilk normality test
+
+::: {.incremental}
+- $H_0$ (null hypothesis): *Values fit normal distribution.*  
+- $H_A$ (alternative hypothesis): *Values do not fit normal distribution.*
+
+- **p-value**: *probability* of the event that observed values fit normal distribution
+- p > 0.05: Fail to reject null hypothesis.
+- *Significance level* = 0.05 – Event occurs in less than 5% of cases
+:::
+
+::: {.fragment}
+```{r}
+shapiro.test(dartpoints$Length)
+```
+:::
+
+::: {.fragment}
+```{r}
+shapiro.test(dartpoints$Thickness)
+```
+:::
+
+## Other shapes of distributions
+
+![](./figs/notnormal.png)
