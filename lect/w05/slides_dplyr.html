@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.550">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>stat4arch - Data manipulation with dplyr</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -734,7 +734,7 @@
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">summarise</span>(sipky_typ, </span>
-<span id="cb31-2"><a></a>    <span class="at">delka_prumer =</span> <span class="fu">round</span>(<span class="fu">mean</span>(delka),<span class="dv">1</span>),</span>
+<span id="cb31-2"><a></a>    <span class="at">delka_prumer =</span> <span class="fu">round</span>(<span class="fu">mean</span>(delka), <span class="dv">1</span>),</span>
 <span id="cb31-3"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 3
@@ -756,7 +756,7 @@
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>sipky_sum <span class="ot">&lt;-</span> <span class="fu">summarise</span>(sipky_typ, </span>
-<span id="cb33-2"><a></a>    <span class="at">delka_prumer =</span> <span class="fu">round</span>(<span class="fu">mean</span>(delka),<span class="dv">1</span>),</span>
+<span id="cb33-2"><a></a>    <span class="at">delka_prumer =</span> <span class="fu">round</span>(<span class="fu">mean</span>(delka), <span class="dv">1</span>),</span>
 <span id="cb33-3"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -772,7 +772,7 @@
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">mutate</span>(sipky_sum,</span>
-<span id="cb34-2"><a></a>   <span class="at">procento =</span> (pocet<span class="sc">/</span><span class="fu">sum</span>(pocet))<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-2"><a></a>   <span class="at">procento =</span> pocet<span class="sc">/</span><span class="fu">sum</span>(pocet)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
   typ        delka_prumer pocet procento
@@ -791,7 +791,7 @@
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">mutate</span>(sipky_sum,</span>
-<span id="cb36-2"><a></a>   <span class="at">procento =</span> <span class="fu">round</span>((pocet<span class="sc">/</span><span class="fu">sum</span>(pocet))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-2"><a></a>   <span class="at">procento =</span> <span class="fu">round</span>(pocet<span class="sc">/</span><span class="fu">sum</span>(pocet)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
   typ        delka_prumer pocet procento
@@ -831,13 +831,14 @@
 <section id="more-complex-summarising-with-dplyr-and-pipe" class="slide level2">
 <h2>More complex summarising with dplyr and pipe</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="1|2|3-5|6|7|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>sipky <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="1|2|3-6|7|8|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>sipky <span class="sc">%&gt;%</span> </span>
 <span id="cb40-2"><a></a>  <span class="fu">group_by</span>(typ) <span class="sc">%&gt;%</span> </span>
-<span id="cb40-3"><a></a>  <span class="fu">summarise</span>(<span class="at">delka_prum =</span> <span class="fu">round</span>(<span class="fu">mean</span>(delka), <span class="dv">1</span>),</span>
-<span id="cb40-4"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">round</span>(<span class="fu">mean</span>(hmotnost), <span class="dv">1</span>),</span>
-<span id="cb40-5"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb40-6"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>((pocet<span class="sc">/</span><span class="fu">sum</span>(pocet))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb40-7"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-3"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb40-4"><a></a>    <span class="at">delka_prum =</span> <span class="fu">round</span>(<span class="fu">mean</span>(delka), <span class="dv">1</span>),</span>
+<span id="cb40-5"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">round</span>(<span class="fu">mean</span>(hmotnost), <span class="dv">1</span>),</span>
+<span id="cb40-6"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb40-7"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>(pocet<span class="sc">/</span><span class="fu">sum</span>(pocet)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-8"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 5
   typ        delka_prum hmotnost_prum pocet procento
@@ -855,11 +856,12 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>sipky <span class="sc">%&gt;%</span> </span>
 <span id="cb42-2"><a></a>  <span class="fu">group_by</span>(typ) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-3"><a></a>  <span class="fu">summarise</span>(<span class="at">delka_prum =</span> <span class="fu">mean</span>(delka),</span>
-<span id="cb42-4"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">mean</span>(hmotnost),</span>
-<span id="cb42-5"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb42-6"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>((pocet<span class="sc">/</span><span class="fu">sum</span>(pocet))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-7"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-3"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb42-4"><a></a>    <span class="at">delka_prum =</span> <span class="fu">mean</span>(delka),</span>
+<span id="cb42-5"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">mean</span>(hmotnost),</span>
+<span id="cb42-6"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb42-7"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>(pocet<span class="sc">/</span><span class="fu">sum</span>(pocet)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb42-8"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 5
   typ        delka_prum hmotnost_prum pocet procento
@@ -875,21 +877,22 @@
 <section id="visualising-your-summaries-1" class="slide level2 auto-animate">
 <h2>Visualising your summaries</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44" data-code-line-numbers="1-7|8-12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>sipky <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb44" data-code-line-numbers="1-8|9-13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>sipky <span class="sc">%&gt;%</span> </span>
 <span id="cb44-2"><a></a>  <span class="fu">group_by</span>(typ) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-3"><a></a>  <span class="fu">summarise</span>(<span class="at">delka_prum =</span> <span class="fu">mean</span>(delka),</span>
-<span id="cb44-4"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">mean</span>(hmotnost),</span>
-<span id="cb44-5"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb44-6"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>((pocet<span class="sc">/</span><span class="fu">sum</span>(pocet))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-7"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet)) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-8"><a></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb44-9"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> typ, <span class="at">y =</span> delka_prum) <span class="sc">+</span></span>
-<span id="cb44-10"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb44-11"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Průměrná délka šipky"</span>) <span class="sc">+</span></span>
-<span id="cb44-12"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-3"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb44-4"><a></a>    <span class="at">delka_prum =</span> <span class="fu">mean</span>(delka),</span>
+<span id="cb44-5"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">mean</span>(hmotnost),</span>
+<span id="cb44-6"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb44-7"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>(pocet<span class="sc">/</span><span class="fu">sum</span>(pocet)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-8"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet)) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-9"><a></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb44-10"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> typ, <span class="at">y =</span> delka_prum) <span class="sc">+</span></span>
+<span id="cb44-11"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb44-12"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Průměrná délka šipky"</span>) <span class="sc">+</span></span>
+<span id="cb44-13"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="dplyr_files/figure-html/unnamed-chunk-25-1.png" width="672" class="r-stretch"></section>
+<img data-src="dplyr_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
 <section id="saving-your-results" class="slide level2">
 <h2>Saving your results</h2>
 <ul>
@@ -898,28 +901,56 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>sipky <span class="sc">%&gt;%</span> </span>
 <span id="cb45-2"><a></a>  <span class="fu">group_by</span>(typ) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-3"><a></a>  <span class="fu">summarise</span>(<span class="at">delka_prum =</span> <span class="fu">mean</span>(delka),</span>
-<span id="cb45-4"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">mean</span>(hmotnost),</span>
-<span id="cb45-5"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb45-6"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>((pocet<span class="sc">/</span><span class="fu">sum</span>(pocet))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-7"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet)) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-8"><a></a>  <span class="fu">write.csv</span>(<span class="fu">here</span>(<span class="st">"sipky_result.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-3"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb45-4"><a></a>    <span class="at">delka_prum =</span> <span class="fu">mean</span>(delka),</span>
+<span id="cb45-5"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">mean</span>(hmotnost),</span>
+<span id="cb45-6"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb45-7"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>(pocet<span class="sc">/</span><span class="fu">sum</span>(pocet)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-8"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet)) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-9"><a></a>  <span class="fu">write.csv</span>(<span class="fu">here</span>(<span class="st">"sipky_result.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <ul>
 <li>or save your summarised data frame as an object and save it later</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="1-7|9|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>sipky_result <span class="ot">&lt;-</span> sipky <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="1-8|10|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>sipky_result <span class="ot">&lt;-</span> sipky <span class="sc">%&gt;%</span> </span>
 <span id="cb46-2"><a></a>  <span class="fu">group_by</span>(typ) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-3"><a></a>  <span class="fu">summarise</span>(<span class="at">delka_prum =</span> <span class="fu">mean</span>(delka),</span>
-<span id="cb46-4"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">mean</span>(hmotnost),</span>
-<span id="cb46-5"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb46-6"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>((pocet<span class="sc">/</span><span class="fu">sum</span>(pocet))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-7"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet))</span>
-<span id="cb46-8"><a></a>  </span>
-<span id="cb46-9"><a></a><span class="fu">write.csv</span>(sipky_result, <span class="fu">here</span>(<span class="st">"sipky_result.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-3"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb46-4"><a></a>    <span class="at">delka_prum =</span> <span class="fu">mean</span>(delka),</span>
+<span id="cb46-5"><a></a>    <span class="at">hmotnost_prum =</span> <span class="fu">mean</span>(hmotnost),</span>
+<span id="cb46-6"><a></a>    <span class="at">pocet =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb46-7"><a></a>  <span class="fu">mutate</span>(<span class="at">procento =</span> <span class="fu">round</span>(pocet<span class="sc">/</span><span class="fu">sum</span>(pocet)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-8"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pocet))</span>
+<span id="cb46-9"><a></a>  </span>
+<span id="cb46-10"><a></a><span class="fu">write.csv</span>(sipky_result, <span class="fu">here</span>(<span class="st">"sipky_result.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</section>
+<section id="exercise" class="slide level2" data-background-color="#B5E2FF">
+<h2>Exercise</h2>
+<div>
+<ol type="1">
+<li class="fragment">Create new a script in your project folder and save.</li>
+<li class="fragment">Load packages necessary for: (a) loading, (b) transformation, and (c) visualization of data.</li>
+<li class="fragment">Load database <code>bacups.csv</code> and save it as an object.</li>
+<li class="fragment">Create a new dataframe having only variables <code>H</code>, <code>RD</code> and <code>Phase</code>.</li>
+<li class="fragment">Try to use pipes <code>%&gt;%</code>.</li>
+<li class="fragment">Rename the variables to <code>height</code>, <code>rimdiameter</code> and <code>phase</code>.</li>
+<li class="fragment">For each phase calculate following summary statistics:
+<ul>
+<li class="fragment"><strong>mean</strong> and <strong>median</strong> vessel height,<br>
+</li>
+<li class="fragment"><strong>standard deviation</strong> of vessel height,</li>
+<li class="fragment"><strong>correlation</strong> between height and rim diameter, and<br>
+</li>
+<li class="fragment"><strong>number</strong> of vessels.</li>
+</ul></li>
+<li class="fragment">Calculate percentage of vessels in each phase.</li>
+<li class="fragment">Arrange the results from highest to lowest mean values.</li>
+<li class="fragment">Save your result as a CSV file</li>
+<li class="fragment">Are height of vessels or rim diameter normally distributed? Why/why not?</li>
+</ol>
 </div>
 
 <div class="quarto-auto-generated-content">
@@ -1140,6 +1171,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -1216,6 +1285,24 @@
         // clear code selection
         e.clearSelection();
       });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1252,7 +1339,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

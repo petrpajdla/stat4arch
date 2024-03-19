@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -68,6 +102,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -243,6 +306,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#visual-aids" id="toc-visual-aids" class="nav-link" data-scroll-target="#visual-aids">Visual aids</a></li>
   <li><a href="#statistical-hypothesis-test" id="toc-statistical-hypothesis-test" class="nav-link" data-scroll-target="#statistical-hypothesis-test">Statistical hypothesis test</a></li>
   </ul></li>
+  <li><a href="#q-q-plot" id="toc-q-q-plot" class="nav-link" data-scroll-target="#q-q-plot">Q-Q plot</a></li>
+  <li><a href="#shapiro-wilk-normality-test" id="toc-shapiro-wilk-normality-test" class="nav-link" data-scroll-target="#shapiro-wilk-normality-test">Shapiro-Wilk normality test</a></li>
+  <li><a href="#other-shapes-of-distributions" id="toc-other-shapes-of-distributions" class="nav-link" data-scroll-target="#other-shapes-of-distributions">Other shapes of distributions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://petrpajdla.github.io/stat4arch/blob/main/lect/w05/norm.qmd" class="toc-action"><i class="bi bi-git"></i>View source</a></li><li><a href="https://petrpajdla.github.io/stat4arch/edit/main/lect/w05/norm.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://petrpajdla.github.io/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_norm.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="norm.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -270,10 +336,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="reflection" class="level2" data-background-color="#FAF1A4">
 <h2 data-background-color="#FAF1A4" class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>You know how to do the basics:</p>
 <div class="incremental">
 <ul class="incremental">
-<li>You know how to do the basics:</li>
 <li>read data into R,</li>
+<li>explore the data set,</li>
 <li>count some statistics,</li>
 <li>create and interpret basic plots,</li>
 <li>describe the plots with labels, change the style, save them.</li>
@@ -284,12 +351,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="incremental">
 <ul class="incremental">
 <li><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>Where do I get help?</em></li>
-<li><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> In <a href="https://posit.co/resources/cheatsheets/">cheat sheets</a>.</li>
+<li><i class="bi-patch-check " style="" role="img" aria-hidden="true"></i> In <a href="https://posit.co/resources/cheatsheets/">cheat sheets</a>.</li>
 <li><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>What type of graph should I choose?</em></li>
-<li><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> Look in the <a href="https://r-graph-gallery.com/index.html">R Graph Gallery</a>.</li>
+<li><i class="bi-patch-check " style="" role="img" aria-hidden="true"></i> Look in <a href="https://r-graph-gallery.com/index.html">R Graph Gallery</a>.</li>
 <li><i class="bi-patch-question " style="" role="img" aria-hidden="true"></i> <em>What colors should I use?</em></li>
-<li><i class="bi-patch-check-fill " style="" role="img" aria-hidden="true"></i> Look at the <a href="https://colorbrewer2.org">Color Brewer</a>.</li>
-<li>See section <a href="../../resources.html">Resources</a> at the website for more…</li>
+<li><i class="bi-patch-check " style="" role="img" aria-hidden="true"></i> Look at <a href="https://colorbrewer2.org">Color Brewer</a>.</li>
+<li>See section <a href="../../resources.html">Resources</a> at the website for more details…</li>
 </ul>
 </div>
 </div>
@@ -329,7 +396,7 @@ ul.task-list li input[type="checkbox"] {
 <ul class="incremental">
 <li>Density plot</li>
 <li>Q-Q plot (quantile-quantile plot)<br>
-<code>qqnorm()</code> or <code>ggplot(data) + aes(sample = x) + geom_qq()</code></li>
+<code>qqnorm()</code> or <code>ggplot(data) + aes(sample = x) + stat_qq()</code></li>
 </ul>
 </div>
 </section>
@@ -346,11 +413,145 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </div>
+</section>
+<section id="q-q-plot" class="level2">
+<h2 class="anchored" data-anchor-id="q-q-plot">Q-Q plot</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> Length) <span class="sc">+</span> <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="norm_files/figure-revealjs/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> Thickness) <span class="sc">+</span> <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="norm_files/figure-revealjs/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">sample =</span> Length) <span class="sc">+</span> <span class="fu">stat_qq</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="norm_files/figure-revealjs/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dartpoints) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">sample =</span> Thickness) <span class="sc">+</span> <span class="fu">stat_qq</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="norm_files/figure-revealjs/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="shapiro-wilk-normality-test" class="level2">
+<h2 class="anchored" data-anchor-id="shapiro-wilk-normality-test">Shapiro-Wilk normality test</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p><span class="math inline">\(H_0\)</span> (null hypothesis): <em>Values fit normal distribution.</em><br>
+</p></li>
+<li><p><span class="math inline">\(H_A\)</span> (alternative hypothesis): <em>Values do not fit normal distribution.</em></p></li>
+<li><p><strong>p-value</strong>: <em>probability</em> of the event that observed values fit normal distribution</p></li>
+<li><p>p &gt; 0.05: Fail to reject null hypothesis.</p></li>
+<li><p><em>Significance level</em> = 0.05 – Event occurs in less than 5% of cases</p></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(dartpoints<span class="sc">$</span>Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  dartpoints$Length
+W = 0.90277, p-value = 4.852e-06</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(dartpoints<span class="sc">$</span>Thickness)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  dartpoints$Thickness
+W = 0.98623, p-value = 0.4559</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="other-shapes-of-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="other-shapes-of-distributions">Other shapes of distributions</h2>
+<p><img src="./figs/notnormal.png" class="img-fluid"></p>
 
 
 </section>
 
 </main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -430,6 +631,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -464,7 +683,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
