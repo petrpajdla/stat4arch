@@ -2059,14 +2059,21 @@
     "href": "lect/w07/slides_space.html#reading-the-data",
     "title": "Considering space",
     "section": "Reading the data",
-    "text": "Reading the data\n\nData is in CSV format, separated by semicolon (;)\nColumns Latitude_WGS84 and Longitude_WGS84\nCoordinate reference system is WGS 84\n\n\n\nlasoles &lt;- read.csv2(\"./data/LASOLES_14C_database.csv\") %&gt;% \n  dplyr::select(ID_Date, Context_type, Contex_dating_AMCR, ends_with(\"WGS84\")) %&gt;%\n  tibble()\nhead(lasoles, 4)\n\n# A tibble: 4 × 5\n  ID_Date  Context_type        Contex_dating_AMCR Latitude_WGS84 Longitude_WGS84\n  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;          \n1 CzArch_1 layer               br.st              49.051887      16.629824      \n2 CzArch_5 layer               bronz              50.052464      14.529859      \n3 CzArch_6 unspecified feature ne.lin             49.776686      16.950669      \n4 CzArch_7 unspecified feature ne.lin             49.776686      16.950669      \n\n\n\n\n\nlasoles_wgs84 &lt;- st_as_sf(lasoles, coords = c(x = \"Longitude_WGS84\", y = \"Latitude_WGS84\"), crs = 4326)\nhead(lasoles_wgs84, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 14.52986 ymin: 49.05189 xmax: 16.95067 ymax: 50.05246\nGeodetic CRS:  WGS 84\n# A tibble: 4 × 4\n  ID_Date  Context_type        Contex_dating_AMCR            geometry\n  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                      &lt;POINT [°]&gt;\n1 CzArch_1 layer               br.st              (16.62982 49.05189)\n2 CzArch_5 layer               bronz              (14.52986 50.05246)\n3 CzArch_6 unspecified feature ne.lin             (16.95067 49.77669)\n4 CzArch_7 unspecified feature ne.lin             (16.95067 49.77669)"
+    "text": "Reading the data\n\nData is in CSV format, separated by semicolon (;)\nColumns Latitude_WGS84 and Longitude_WGS84\nCoordinate reference system is WGS 84\n\n\n\nlasoles &lt;- read.csv(\"./data/LASOLES_14C_database.csv\", sep = \";\")\n\n\n\n# A tibble: 4 × 5\n  ID_Date  Latitude_WGS84 Longitude_WGS84 Site_category_ENG Contex_dating_AMCR\n  &lt;chr&gt;             &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;             \n1 CzArch_1           49.1            16.6 hillfort          br.st             \n2 CzArch_5           50.1            14.5 settlement        bronz             \n3 CzArch_6           49.8            17.0 settlement        ne.lin            \n4 CzArch_7           49.8            17.0 settlement        ne.lin            \n\n\n\n\n\nlasoles_wgs84 &lt;- st_as_sf(lasoles, coords = c(x = \"Longitude_WGS84\", y = \"Latitude_WGS84\"), crs = 4326)\nhead(lasoles_wgs84, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 14.52986 ymin: 49.05189 xmax: 16.95067 ymax: 50.05246\nGeodetic CRS:  WGS 84\n# A tibble: 4 × 4\n  ID_Date  Site_category_ENG Contex_dating_AMCR            geometry\n  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;                      &lt;POINT [°]&gt;\n1 CzArch_1 hillfort          br.st              (16.62982 49.05189)\n2 CzArch_5 settlement        bronz              (14.52986 50.05246)\n3 CzArch_6 settlement        ne.lin             (16.95067 49.77669)\n4 CzArch_7 settlement        ne.lin             (16.95067 49.77669)"
   },
   {
     "objectID": "lect/w07/slides_space.html#reprojecting-crs",
     "href": "lect/w07/slides_space.html#reprojecting-crs",
     "title": "Considering space",
     "section": "Reprojecting CRS",
-    "text": "Reprojecting CRS\nFunction st_transform(x, crs)\nEPSG codes:\n\nWGS 84: 4326\nS-JTSK East-North: 5514\nUTM 33N: 32633\n\n\nlasoles_sjtsk &lt;- st_transform(lasoles_wgs84,  crs = \"EPSG:5514\")\nhead(lasoles_sjtsk, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -735634.8 ymin: -1176759 xmax: -566666.7 ymax: -1047924\nProjected CRS: S-JTSK / Krovak East North\n# A tibble: 4 × 4\n  ID_Date  Context_type        Contex_dating_AMCR             geometry\n  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                       &lt;POINT [m]&gt;\n1 CzArch_1 layer               br.st              (-598287.7 -1176759)\n2 CzArch_5 layer               bronz              (-735634.8 -1047924)\n3 CzArch_6 unspecified feature ne.lin             (-566666.7 -1099048)\n4 CzArch_7 unspecified feature ne.lin             (-566666.7 -1099048)"
+    "text": "Reprojecting CRS\nFunction st_transform(x, crs)\nEPSG codes:\n\nWGS 84: 4326\nS-JTSK East-North: 5514\nUTM 33N: 32633\n\n\nlasoles_sjtsk &lt;- st_transform(lasoles_wgs84,  crs = \"EPSG:5514\")\nhead(lasoles_sjtsk, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -735634.8 ymin: -1176759 xmax: -566666.7 ymax: -1047924\nProjected CRS: S-JTSK / Krovak East North\n# A tibble: 4 × 4\n  ID_Date  Site_category_ENG Contex_dating_AMCR             geometry\n  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;                       &lt;POINT [m]&gt;\n1 CzArch_1 hillfort          br.st              (-598287.7 -1176759)\n2 CzArch_5 settlement        bronz              (-735634.8 -1047924)\n3 CzArch_6 settlement        ne.lin             (-566666.7 -1099048)\n4 CzArch_7 settlement        ne.lin             (-566666.7 -1099048)"
+  },
+  {
+    "objectID": "lect/w07/slides_space.html#sf-object-helper-functions",
+    "href": "lect/w07/slides_space.html#sf-object-helper-functions",
+    "title": "Considering space",
+    "section": "sf Object helper functions",
+    "text": "sf Object helper functions\n\n\n\nst_geometry() – returns only geometry\nst_geometry_type() – returns type of geometry (point, line, polygon…) for each object\nst_drop_geometry() – returns only attributes/fields\nst_coordinates() – returns coordinates as a data frame\nst_crs() – CRS of the layer as a WKT\n\n\nst_geometry_type(lasoles_sjtsk) %&gt;% head()\n\n[1] POINT POINT POINT POINT POINT POINT\n18 Levels: GEOMETRY POINT LINESTRING POLYGON MULTIPOINT ... TRIANGLE\n\n\n\n\nst_crs(lasoles_sjtsk)\n\nCoordinate Reference System:\n  User input: EPSG:5514 \n  wkt:\nPROJCRS[\"S-JTSK / Krovak East North\",\n    BASEGEOGCRS[\"S-JTSK\",\n        DATUM[\"System of the Unified Trigonometrical Cadastral Network\",\n            ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,\n                LENGTHUNIT[\"metre\",1]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        ID[\"EPSG\",4156]],\n    CONVERSION[\"Krovak East North (Greenwich)\",\n        METHOD[\"Krovak (North Orientated)\",\n            ID[\"EPSG\",1041]],\n        PARAMETER[\"Latitude of projection centre\",49.5,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8811]],\n        PARAMETER[\"Longitude of origin\",24.8333333333333,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8833]],\n        PARAMETER[\"Co-latitude of cone axis\",30.2881397527778,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",1036]],\n        PARAMETER[\"Latitude of pseudo standard parallel\",78.5,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8818]],\n        PARAMETER[\"Scale factor on pseudo standard parallel\",0.9999,\n            SCALEUNIT[\"unity\",1],\n            ID[\"EPSG\",8819]],\n        PARAMETER[\"False easting\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8806]],\n        PARAMETER[\"False northing\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8807]]],\n    CS[Cartesian,2],\n        AXIS[\"easting (X)\",east,\n            ORDER[1],\n            LENGTHUNIT[\"metre\",1]],\n        AXIS[\"northing (Y)\",north,\n            ORDER[2],\n            LENGTHUNIT[\"metre\",1]],\n    USAGE[\n        SCOPE[\"GIS.\"],\n        AREA[\"Czechia; Slovakia.\"],\n        BBOX[47.73,12.09,51.06,22.56]],\n    ID[\"EPSG\",5514]]"
   },
   {
     "objectID": "lect/w07/slides_space.html#making-maps-1",
@@ -2101,7 +2108,28 @@
     "href": "lect/w07/slides_space.html#geometry-operations",
     "title": "Considering space",
     "section": "Geometry operations",
-    "text": "Geometry operations\n\ncentroid\nbuffer\nclipping"
+    "text": "Geometry operations\nUnions\nst_union()\n\n\n\nhead(kraje, 2)\n\nSimple feature collection with 2 features and 3 fields\nGeometry type: GEOMETRY\nDimension:     XY\nBounding box:  xmin: -816235.3 ymin: -1109600 xmax: -665628.7 ymax: -989063.4\nProjected CRS: S-JTSK / Krovak East North\n  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry\n1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((-736092 -10...\n2     3026       CZ020   Středočeský kraj POLYGON ((-696420.7 -110267...\n\nrepublika &lt;- st_union(kraje)\nrepublika\n\nGeometry set for 1 feature \nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -904576.9 ymin: -1227293 xmax: -431723.3 ymax: -935236.5\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nrepublika %&gt;% \n  ggplot() +\n   geom_sf() +\n   theme_minimal()"
+  },
+  {
+    "objectID": "lect/w07/slides_space.html#geometry-operations-1",
+    "href": "lect/w07/slides_space.html#geometry-operations-1",
+    "title": "Considering space",
+    "section": "Geometry operations",
+    "text": "Geometry operations\n\n\nCentroids\nst_centroid()\n\nstred &lt;- st_centroid(republika)\nstred\n\nGeometry set for 1 feature \nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -682473.3 ymin: -1089493 xmax: -682473.3 ymax: -1089493\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nggplot() +\n  geom_sf(data = republika) +\n  geom_sf(data = stred, size = 4) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nBuffers\nst_buffer()\n\nbuffer &lt;- st_buffer(stred, 20000)\nbuffer\n\nGeometry set for 1 feature \nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -702473.3 ymin: -1109493 xmax: -662473.3 ymax: -1069493\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nggplot() +\n  geom_sf(data = republika) +\n  geom_sf(data = buffer, fill = \"forestgreen\") +\n  geom_sf(data = stred, size = 4) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "lect/w07/slides_space.html#writingreading-spatial-data",
+    "href": "lect/w07/slides_space.html#writingreading-spatial-data",
+    "title": "Considering space",
+    "section": "Writing/reading spatial data",
+    "text": "Writing/reading spatial data"
+  },
+  {
+    "objectID": "lect/w07/slides_space.html#some-more-mapping",
+    "href": "lect/w07/slides_space.html#some-more-mapping",
+    "title": "Considering space",
+    "section": "Some more mapping",
+    "text": "Some more mapping\n\nggplot() +\n  geom_sf(data = kraje) +\n  geom_sf(data = lasoles_sjtsk, aes(color = Site_category_ENG)) +\n  theme_minimal()"
   },
   {
     "objectID": "lect/w07/slides_space.html#where-to-learn-more",
@@ -2215,7 +2243,7 @@
     "href": "lect/w07/space.html#reading-the-data",
     "title": "Considering space",
     "section": "Reading the data",
-    "text": "Reading the data\n\nData is in CSV format, separated by semicolon (;)\nColumns Latitude_WGS84 and Longitude_WGS84\nCoordinate reference system is WGS 84\n\n\n\nlasoles &lt;- read.csv2(\"./data/LASOLES_14C_database.csv\") %&gt;% \n  dplyr::select(ID_Date, Context_type, Contex_dating_AMCR, ends_with(\"WGS84\")) %&gt;%\n  tibble()\nhead(lasoles, 4)\n\n# A tibble: 4 × 5\n  ID_Date  Context_type        Contex_dating_AMCR Latitude_WGS84 Longitude_WGS84\n  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;          \n1 CzArch_1 layer               br.st              49.051887      16.629824      \n2 CzArch_5 layer               bronz              50.052464      14.529859      \n3 CzArch_6 unspecified feature ne.lin             49.776686      16.950669      \n4 CzArch_7 unspecified feature ne.lin             49.776686      16.950669      \n\n\n\n\n\nlasoles_wgs84 &lt;- st_as_sf(lasoles, coords = c(x = \"Longitude_WGS84\", y = \"Latitude_WGS84\"), crs = 4326)\nhead(lasoles_wgs84, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 14.52986 ymin: 49.05189 xmax: 16.95067 ymax: 50.05246\nGeodetic CRS:  WGS 84\n# A tibble: 4 × 4\n  ID_Date  Context_type        Contex_dating_AMCR            geometry\n  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                      &lt;POINT [°]&gt;\n1 CzArch_1 layer               br.st              (16.62982 49.05189)\n2 CzArch_5 layer               bronz              (14.52986 50.05246)\n3 CzArch_6 unspecified feature ne.lin             (16.95067 49.77669)\n4 CzArch_7 unspecified feature ne.lin             (16.95067 49.77669)",
+    "text": "Reading the data\n\nData is in CSV format, separated by semicolon (;)\nColumns Latitude_WGS84 and Longitude_WGS84\nCoordinate reference system is WGS 84\n\n\n\nlasoles &lt;- read.csv(\"./data/LASOLES_14C_database.csv\", sep = \";\")\n\n\n\n# A tibble: 4 × 5\n  ID_Date  Latitude_WGS84 Longitude_WGS84 Site_category_ENG Contex_dating_AMCR\n  &lt;chr&gt;             &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;             \n1 CzArch_1           49.1            16.6 hillfort          br.st             \n2 CzArch_5           50.1            14.5 settlement        bronz             \n3 CzArch_6           49.8            17.0 settlement        ne.lin            \n4 CzArch_7           49.8            17.0 settlement        ne.lin            \n\n\n\n\n\nlasoles_wgs84 &lt;- st_as_sf(lasoles, coords = c(x = \"Longitude_WGS84\", y = \"Latitude_WGS84\"), crs = 4326)\nhead(lasoles_wgs84, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 14.52986 ymin: 49.05189 xmax: 16.95067 ymax: 50.05246\nGeodetic CRS:  WGS 84\n# A tibble: 4 × 4\n  ID_Date  Site_category_ENG Contex_dating_AMCR            geometry\n  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;                      &lt;POINT [°]&gt;\n1 CzArch_1 hillfort          br.st              (16.62982 49.05189)\n2 CzArch_5 settlement        bronz              (14.52986 50.05246)\n3 CzArch_6 settlement        ne.lin             (16.95067 49.77669)\n4 CzArch_7 settlement        ne.lin             (16.95067 49.77669)",
     "crumbs": [
       "Considering space"
     ]
@@ -2225,7 +2253,17 @@
     "href": "lect/w07/space.html#reprojecting-crs",
     "title": "Considering space",
     "section": "Reprojecting CRS",
-    "text": "Reprojecting CRS\nFunction st_transform(x, crs)\nEPSG codes:\n\nWGS 84: 4326\nS-JTSK East-North: 5514\nUTM 33N: 32633\n\n\nlasoles_sjtsk &lt;- st_transform(lasoles_wgs84,  crs = \"EPSG:5514\")\nhead(lasoles_sjtsk, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -735634.8 ymin: -1176759 xmax: -566666.7 ymax: -1047924\nProjected CRS: S-JTSK / Krovak East North\n# A tibble: 4 × 4\n  ID_Date  Context_type        Contex_dating_AMCR             geometry\n  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                       &lt;POINT [m]&gt;\n1 CzArch_1 layer               br.st              (-598287.7 -1176759)\n2 CzArch_5 layer               bronz              (-735634.8 -1047924)\n3 CzArch_6 unspecified feature ne.lin             (-566666.7 -1099048)\n4 CzArch_7 unspecified feature ne.lin             (-566666.7 -1099048)",
+    "text": "Reprojecting CRS\nFunction st_transform(x, crs)\nEPSG codes:\n\nWGS 84: 4326\nS-JTSK East-North: 5514\nUTM 33N: 32633\n\n\nlasoles_sjtsk &lt;- st_transform(lasoles_wgs84,  crs = \"EPSG:5514\")\nhead(lasoles_sjtsk, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -735634.8 ymin: -1176759 xmax: -566666.7 ymax: -1047924\nProjected CRS: S-JTSK / Krovak East North\n# A tibble: 4 × 4\n  ID_Date  Site_category_ENG Contex_dating_AMCR             geometry\n  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;                       &lt;POINT [m]&gt;\n1 CzArch_1 hillfort          br.st              (-598287.7 -1176759)\n2 CzArch_5 settlement        bronz              (-735634.8 -1047924)\n3 CzArch_6 settlement        ne.lin             (-566666.7 -1099048)\n4 CzArch_7 settlement        ne.lin             (-566666.7 -1099048)",
+    "crumbs": [
+      "Considering space"
+    ]
+  },
+  {
+    "objectID": "lect/w07/space.html#sf-object-helper-functions",
+    "href": "lect/w07/space.html#sf-object-helper-functions",
+    "title": "Considering space",
+    "section": "sf Object helper functions",
+    "text": "sf Object helper functions\n\n\n\nst_geometry() – returns only geometry\nst_geometry_type() – returns type of geometry (point, line, polygon…) for each object\nst_drop_geometry() – returns only attributes/fields\nst_coordinates() – returns coordinates as a data frame\nst_crs() – CRS of the layer as a WKT\n\n\nst_geometry_type(lasoles_sjtsk) %&gt;% head()\n\n[1] POINT POINT POINT POINT POINT POINT\n18 Levels: GEOMETRY POINT LINESTRING POLYGON MULTIPOINT ... TRIANGLE\n\n\n\n\nst_crs(lasoles_sjtsk)\n\nCoordinate Reference System:\n  User input: EPSG:5514 \n  wkt:\nPROJCRS[\"S-JTSK / Krovak East North\",\n    BASEGEOGCRS[\"S-JTSK\",\n        DATUM[\"System of the Unified Trigonometrical Cadastral Network\",\n            ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,\n                LENGTHUNIT[\"metre\",1]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        ID[\"EPSG\",4156]],\n    CONVERSION[\"Krovak East North (Greenwich)\",\n        METHOD[\"Krovak (North Orientated)\",\n            ID[\"EPSG\",1041]],\n        PARAMETER[\"Latitude of projection centre\",49.5,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8811]],\n        PARAMETER[\"Longitude of origin\",24.8333333333333,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8833]],\n        PARAMETER[\"Co-latitude of cone axis\",30.2881397527778,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",1036]],\n        PARAMETER[\"Latitude of pseudo standard parallel\",78.5,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8818]],\n        PARAMETER[\"Scale factor on pseudo standard parallel\",0.9999,\n            SCALEUNIT[\"unity\",1],\n            ID[\"EPSG\",8819]],\n        PARAMETER[\"False easting\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8806]],\n        PARAMETER[\"False northing\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8807]]],\n    CS[Cartesian,2],\n        AXIS[\"easting (X)\",east,\n            ORDER[1],\n            LENGTHUNIT[\"metre\",1]],\n        AXIS[\"northing (Y)\",north,\n            ORDER[2],\n            LENGTHUNIT[\"metre\",1]],\n    USAGE[\n        SCOPE[\"GIS.\"],\n        AREA[\"Czechia; Slovakia.\"],\n        BBOX[47.73,12.09,51.06,22.56]],\n    ID[\"EPSG\",5514]]",
     "crumbs": [
       "Considering space"
     ]
@@ -2275,7 +2313,37 @@
     "href": "lect/w07/space.html#geometry-operations",
     "title": "Considering space",
     "section": "Geometry operations",
-    "text": "Geometry operations\n\ncentroid\nbuffer\nclipping",
+    "text": "Geometry operations\n\nUnions\nst_union()\n\n\n\nhead(kraje, 2)\n\nSimple feature collection with 2 features and 3 fields\nGeometry type: GEOMETRY\nDimension:     XY\nBounding box:  xmin: -816235.3 ymin: -1109600 xmax: -665628.7 ymax: -989063.4\nProjected CRS: S-JTSK / Krovak East North\n  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry\n1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((-736092 -10...\n2     3026       CZ020   Středočeský kraj POLYGON ((-696420.7 -110267...\n\nrepublika &lt;- st_union(kraje)\nrepublika\n\nGeometry set for 1 feature \nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -904576.9 ymin: -1227293 xmax: -431723.3 ymax: -935236.5\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nrepublika %&gt;% \n  ggplot() +\n   geom_sf() +\n   theme_minimal()",
+    "crumbs": [
+      "Considering space"
+    ]
+  },
+  {
+    "objectID": "lect/w07/space.html#geometry-operations-1",
+    "href": "lect/w07/space.html#geometry-operations-1",
+    "title": "Considering space",
+    "section": "Geometry operations",
+    "text": "Geometry operations\n\n\n\nCentroids\nst_centroid()\n\nstred &lt;- st_centroid(republika)\nstred\n\nGeometry set for 1 feature \nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -682473.3 ymin: -1089493 xmax: -682473.3 ymax: -1089493\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nggplot() +\n  geom_sf(data = republika) +\n  geom_sf(data = stred, size = 4) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\nBuffers\nst_buffer()\n\nbuffer &lt;- st_buffer(stred, 20000)\nbuffer\n\nGeometry set for 1 feature \nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -702473.3 ymin: -1109493 xmax: -662473.3 ymax: -1069493\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nggplot() +\n  geom_sf(data = republika) +\n  geom_sf(data = buffer, fill = \"forestgreen\") +\n  geom_sf(data = stred, size = 4) +\n  theme_minimal()",
+    "crumbs": [
+      "Considering space"
+    ]
+  },
+  {
+    "objectID": "lect/w07/space.html#writingreading-spatial-data",
+    "href": "lect/w07/space.html#writingreading-spatial-data",
+    "title": "Considering space",
+    "section": "Writing/reading spatial data",
+    "text": "Writing/reading spatial data",
+    "crumbs": [
+      "Considering space"
+    ]
+  },
+  {
+    "objectID": "lect/w07/space.html#some-more-mapping",
+    "href": "lect/w07/space.html#some-more-mapping",
+    "title": "Considering space",
+    "section": "Some more mapping",
+    "text": "Some more mapping\n\nggplot() +\n  geom_sf(data = kraje) +\n  geom_sf(data = lasoles_sjtsk, aes(color = Site_category_ENG)) +\n  theme_minimal()",
     "crumbs": [
       "Considering space"
     ]

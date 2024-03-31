@@ -597,18 +597,17 @@
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>lasoles <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"./data/LASOLES_14C_database.csv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-2"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ID_Date, Context_type, Contex_dating_AMCR, <span class="fu">ends_with</span>(<span class="st">"WGS84"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a></a>  <span class="fu">tibble</span>()</span>
-<span id="cb1-4"><a></a><span class="fu">head</span>(lasoles, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>lasoles <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/LASOLES_14C_database.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 5
-  ID_Date  Context_type        Contex_dating_AMCR Latitude_WGS84 Longitude_WGS84
-  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;          
-1 CzArch_1 layer               br.st              49.051887      16.629824      
-2 CzArch_5 layer               bronz              50.052464      14.529859      
-3 CzArch_6 unspecified feature ne.lin             49.776686      16.950669      
-4 CzArch_7 unspecified feature ne.lin             49.776686      16.950669      </code></pre>
+  ID_Date  Latitude_WGS84 Longitude_WGS84 Site_category_ENG Contex_dating_AMCR
+  &lt;chr&gt;             &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;             
+1 CzArch_1           49.1            16.6 hillfort          br.st             
+2 CzArch_5           50.1            14.5 settlement        bronz             
+3 CzArch_6           49.8            17.0 settlement        ne.lin            
+4 CzArch_7           49.8            17.0 settlement        ne.lin            </code></pre>
 </div>
 </div>
 </div>
@@ -623,12 +622,12 @@ Dimension:     XY
 Bounding box:  xmin: 14.52986 ymin: 49.05189 xmax: 16.95067 ymax: 50.05246
 Geodetic CRS:  WGS 84
 # A tibble: 4 × 4
-  ID_Date  Context_type        Contex_dating_AMCR            geometry
-  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                      &lt;POINT [°]&gt;
-1 CzArch_1 layer               br.st              (16.62982 49.05189)
-2 CzArch_5 layer               bronz              (14.52986 50.05246)
-3 CzArch_6 unspecified feature ne.lin             (16.95067 49.77669)
-4 CzArch_7 unspecified feature ne.lin             (16.95067 49.77669)</code></pre>
+  ID_Date  Site_category_ENG Contex_dating_AMCR            geometry
+  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;                      &lt;POINT [°]&gt;
+1 CzArch_1 hillfort          br.st              (16.62982 49.05189)
+2 CzArch_5 settlement        bronz              (14.52986 50.05246)
+3 CzArch_6 settlement        ne.lin             (16.95067 49.77669)
+4 CzArch_7 settlement        ne.lin             (16.95067 49.77669)</code></pre>
 </div>
 </div>
 </div>
@@ -652,12 +651,86 @@ Dimension:     XY
 Bounding box:  xmin: -735634.8 ymin: -1176759 xmax: -566666.7 ymax: -1047924
 Projected CRS: S-JTSK / Krovak East North
 # A tibble: 4 × 4
-  ID_Date  Context_type        Contex_dating_AMCR             geometry
-  &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                       &lt;POINT [m]&gt;
-1 CzArch_1 layer               br.st              (-598287.7 -1176759)
-2 CzArch_5 layer               bronz              (-735634.8 -1047924)
-3 CzArch_6 unspecified feature ne.lin             (-566666.7 -1099048)
-4 CzArch_7 unspecified feature ne.lin             (-566666.7 -1099048)</code></pre>
+  ID_Date  Site_category_ENG Contex_dating_AMCR             geometry
+  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;                       &lt;POINT [m]&gt;
+1 CzArch_1 hillfort          br.st              (-598287.7 -1176759)
+2 CzArch_5 settlement        bronz              (-735634.8 -1047924)
+3 CzArch_6 settlement        ne.lin             (-566666.7 -1099048)
+4 CzArch_7 settlement        ne.lin             (-566666.7 -1099048)</code></pre>
+</div>
+</div>
+</section>
+<section id="sf-object-helper-functions" class="slide level2">
+<h2><code>sf</code> Object helper functions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>st_geometry()</code> – returns only geometry</li>
+<li><code>st_geometry_type()</code> – returns type of geometry (point, line, polygon…) for each object</li>
+<li><code>st_drop_geometry()</code> – returns only <em>attributes</em>/<em>fields</em></li>
+<li><code>st_coordinates()</code> – returns coordinates as a data frame</li>
+<li><code>st_crs()</code> – CRS of the layer as a WKT</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">st_geometry_type</span>(lasoles_sjtsk) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] POINT POINT POINT POINT POINT POINT
+18 Levels: GEOMETRY POINT LINESTRING POLYGON MULTIPOINT ... TRIANGLE</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">st_crs</span>(lasoles_sjtsk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coordinate Reference System:
+  User input: EPSG:5514 
+  wkt:
+PROJCRS["S-JTSK / Krovak East North",
+    BASEGEOGCRS["S-JTSK",
+        DATUM["System of the Unified Trigonometrical Cadastral Network",
+            ELLIPSOID["Bessel 1841",6377397.155,299.1528128,
+                LENGTHUNIT["metre",1]]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",4156]],
+    CONVERSION["Krovak East North (Greenwich)",
+        METHOD["Krovak (North Orientated)",
+            ID["EPSG",1041]],
+        PARAMETER["Latitude of projection centre",49.5,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8811]],
+        PARAMETER["Longitude of origin",24.8333333333333,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8833]],
+        PARAMETER["Co-latitude of cone axis",30.2881397527778,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",1036]],
+        PARAMETER["Latitude of pseudo standard parallel",78.5,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8818]],
+        PARAMETER["Scale factor on pseudo standard parallel",0.9999,
+            SCALEUNIT["unity",1],
+            ID["EPSG",8819]],
+        PARAMETER["False easting",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["easting (X)",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["northing (Y)",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    USAGE[
+        SCOPE["GIS."],
+        AREA["Czechia; Slovakia."],
+        BBOX[47.73,12.09,51.06,22.56]],
+    ID["EPSG",5514]]</code></pre>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -665,18 +738,18 @@ Projected CRS: S-JTSK / Krovak East North
 <h2>Making maps</h2>
 <p>Geom <code>geom_sf()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(lasoles_sjtsk) <span class="sc">+</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(lasoles_sjtsk) <span class="sc">+</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="space_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
 <section id="some-background-data" class="slide level2">
 <h2>Some background data…</h2>
 <p>Package <code>RCzechia</code> has spatial data for the Czech republic…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>kraje <span class="ot">&lt;-</span> RCzechia<span class="sc">::</span><span class="fu">kraje</span>()</span>
-<span id="cb8-2"><a></a><span class="fu">head</span>(kraje, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>kraje <span class="ot">&lt;-</span> RCzechia<span class="sc">::</span><span class="fu">kraje</span>()</span>
+<span id="cb12-2"><a></a><span class="fu">head</span>(kraje, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 4 features and 3 fields
 Geometry type: GEOMETRY
@@ -692,8 +765,8 @@ Geodetic CRS:  WGS 84
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>kraje <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(kraje, <span class="at">crs =</span> <span class="st">"EPSG:5514"</span>)</span>
-<span id="cb10-2"><a></a><span class="fu">head</span>(kraje, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>kraje <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(kraje, <span class="at">crs =</span> <span class="st">"EPSG:5514"</span>)</span>
+<span id="cb14-2"><a></a><span class="fu">head</span>(kraje, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 4 features and 3 fields
 Geometry type: GEOMETRY
@@ -712,13 +785,13 @@ Projected CRS: S-JTSK / Krovak East North
 <section id="making-maps-2" class="slide level2">
 <h2>Making maps</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(lasoles_sjtsk) <span class="sc">+</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> kraje) <span class="sc">+</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
-<span id="cb12-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(lasoles_sjtsk) <span class="sc">+</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> kraje) <span class="sc">+</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="space_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
 <section id="spatial-operations" class="slide level2">
 <h2>Spatial operations</h2>
 <ul>
@@ -728,12 +801,128 @@ Projected CRS: S-JTSK / Krovak East North
 </section>
 <section id="geometry-operations" class="slide level2">
 <h2>Geometry operations</h2>
-<ul>
-<li>centroid</li>
-<li>buffer</li>
-<li>clipping</li>
-</ul>
+<h3 id="unions">Unions</h3>
+<p><code>st_union()</code></p>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">head</span>(kraje, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 2 features and 3 fields
+Geometry type: GEOMETRY
+Dimension:     XY
+Bounding box:  xmin: -816235.3 ymin: -1109600 xmax: -665628.7 ymax: -989063.4
+Projected CRS: S-JTSK / Krovak East North
+  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry
+1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((-736092 -10...
+2     3026       CZ020   Středočeský kraj POLYGON ((-696420.7 -110267...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>republika <span class="ot">&lt;-</span> <span class="fu">st_union</span>(kraje)</span>
+<span id="cb19-2"><a></a>republika</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Geometry set for 1 feature 
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: -904576.9 ymin: -1227293 xmax: -431723.3 ymax: -935236.5
+Projected CRS: S-JTSK / Krovak East North</code></pre>
+</div>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>republika <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a></a>   <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a></a>   <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="space_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
+<section id="geometry-operations-1" class="slide level2">
+<h2>Geometry operations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="centroids">Centroids</h3>
+<p><code>st_centroid()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>stred <span class="ot">&lt;-</span> <span class="fu">st_centroid</span>(republika)</span>
+<span id="cb22-2"><a></a>stred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Geometry set for 1 feature 
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: -682473.3 ymin: -1089493 xmax: -682473.3 ymax: -1089493
+Projected CRS: S-JTSK / Krovak East North</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> republika) <span class="sc">+</span></span>
+<span id="cb24-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> stred, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="space_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<!-- -->
+<h3 id="buffers">Buffers</h3>
+<p><code>st_buffer()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>buffer <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(stred, <span class="dv">20000</span>)</span>
+<span id="cb25-2"><a></a>buffer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Geometry set for 1 feature 
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: -702473.3 ymin: -1109493 xmax: -662473.3 ymax: -1069493
+Projected CRS: S-JTSK / Krovak East North</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb27-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> republika) <span class="sc">+</span></span>
+<span id="cb27-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> buffer, <span class="at">fill =</span> <span class="st">"forestgreen"</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> stred, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="space_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="writingreading-spatial-data" class="slide level2">
+<h2>Writing/reading spatial data</h2>
+</section>
+<section id="some-more-mapping" class="slide level2 scrollable">
+<h2>Some more mapping</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> kraje) <span class="sc">+</span></span>
+<span id="cb28-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> lasoles_sjtsk, <span class="fu">aes</span>(<span class="at">color =</span> Site_category_ENG)) <span class="sc">+</span></span>
+<span id="cb28-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="space_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"></section>
 <section id="where-to-learn-more" class="slide level2">
 <h2>Where to learn more…</h2>
 <ul>
