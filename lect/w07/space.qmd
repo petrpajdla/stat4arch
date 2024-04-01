@@ -1,0 +1,494 @@
+---
+title: "Considering space"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_space.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Space](./space.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  pdf: default
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Objectives  
+
+
+
+## What is Earth's shape?
+
+:::: {.columns}
+::: {.column width=20%}
+
+- Spheroid
+- Ellipsoid
+- Geoid
+- Potato
+
+:::
+::: {.column width=80%}
+
+![Geocentric and local geodetic datums shown on top of a geoid (in false color and the vertical exaggeration by 10,000 scale factor). From Lovelace, Nowosad, Muenchow: [Geocomputation with R](https://r.geocompx.org/)](https://r.geocompx.org/figures/02_datum_fig.png)
+
+:::
+::::
+
+
+## 
+
+<!-- - How to transform a curved surface of an ellipsoid into a plane? -->
+
+```{r}
+#| echo: false 
+library(sf)
+library(ggplot2)
+library(tibble)
+
+# data
+w <- giscoR::gisco_get_countries()
+
+# fun
+plotw <- function(data) {
+  data %>% 
+    ggplot() +
+    geom_sf(fill = "forestgreen", color = NA, show.legend = FALSE) +
+    scale_fill_brewer(palette = "Pastel1") +
+    theme_minimal()
+}
+
+# plots
+mercator <- w %>% 
+  dplyr::filter(NAME_ENGL != "Antarctica") %>% 
+  plotw() +
+  coord_sf(crs= "+proj=merc")
+
+robinson <- w %>% 
+  plotw() +
+  coord_sf(crs= "+proj=robin")
+
+albers <- w %>% 
+  dplyr::filter(NAME_ENGL != "Antarctica") %>% 
+  plotw() +
+  coord_sf(crs = "+proj=aea +lat_1=29.5 +lat_2=42.5")
+```
+
+:::: {.columns}
+::: {.column width=20%}
+### Projections 
+
+*How to transform a curved surface of an ellipsoid into a plane?*
+:::
+::: {.column width=30%}
+![](https://gistbok.ucgis.org/sites/default/files/figure2-projections.png)
+:::
+::: {.column width=50%}
+```{r}
+#| echo: false
+#| fig-cap: Mercator (1569)
+mercator
+```
+:::
+::::
+
+:::: {.columns}
+::: {.column width=50%}
+```{r}
+#| echo: false
+#| fig-cap: Robinson (1963)
+robinson
+```
+:::
+::: {.column width=50%}
+```{r}
+#| echo: false
+#| fig-cap: Albers (1805)
+albers
+```
+:::
+::::
+
+
+## Coordinate reference systems 
+
+- CRS defines how spatial data relate to the surface of the Earth.
+
+:::: {.columns}
+::: {.column width=50% .fragment}
+### Geographic
+
+#### WGS 84
+
+- EPSG: 4326
+- latitude: N/S, 0˚ (equator) -- 90˚ (poles)
+- longitude: E/W, 0˚ (prime meridian) -- 180° (*antimeridian*)
+- in degrees, minutes:  
+  `N 49°44.62543', E 15°20.31830'`
+- in decimal degrees:  
+  `49.7437572N, 15.3386383E`
+- [Package `parzer`](https://docs.ropensci.org/parzer/index.html) helps to parse coordinates in weird formats.
+:::
+::: {.column width=50% .fragment}
+### Projected
+
+- Many operations can be done only with projected coordinates!
+
+::: {.fragment}
+#### S-JTSK / Křovák East North
+
+- EPSG: 5514
+- Czech Republic and Slovakia
+- in meters, in negative numbers:  
+  `-682473.3, -1089493`
+:::
+::: {.fragment}
+#### WGS 84 / UTM
+
+- EPSG for zone 33N: 32633
+- Czech Republic is in zone UTM 33N
+:::
+:::
+::::
+
+
+## Czech Republic in WGS 84
+
+```{r}
+#| echo: false
+
+# data
+cz_wgs84 <- RCzechia::republika()
+cz_sjtsk <- st_transform(cz_wgs84, "EPSG:5514")
+cz_utm33n <- st_transform(cz_wgs84, "EPSG:32633")
+
+# fun 
+plotcz <- function(data) {
+  ggplot(data) +
+  geom_sf() +
+  theme_minimal() +
+  ggspatial::annotation_north_arrow(which_north = "true", 
+                                    style = ggspatial::north_arrow_minimal())
+}
+
+# lonlat2UTM = function(lonlat) {
+#   utm = (floor((lonlat[1] + 180) / 6) %% 60) + 1
+#   if (lonlat[2] > 0) {
+#     utm + 32600
+#   } else{
+#     utm + 32700
+#   }
+# }
+
+# lonlat2UTM(st_coordinates(st_centroid(cz_wgs84)))
+
+```
+
+```{r}
+#| echo: false
+plotcz(cz_wgs84)
+```
+
+## Czech Republic in WGS 84 / UTM {auto-animate=true}
+
+```{r}
+#| echo: false
+plotcz(cz_utm33n)
+```
+
+## Czech Republic in S-JTSK / Krovak East North {auto-animate=true}
+
+```{r}
+#| echo: false
+plotcz(cz_sjtsk)
+```
+
+
+## Raster and vector data
+
+![From <https://urstudio.sec.sg/wp-content/uploads/2022/03/featured-3.png>](https://urstudio.sec.sg/wp-content/uploads/2022/03/featured-3.png)
+
+
+## Vector data 
+
+```{r}
+#| echo: false 
+vltava <- RCzechia::reky() %>% 
+  dplyr::filter(NAZEV %in% c("Vltava", "Labe")) %>% 
+  st_transform(5514)
+
+brno <- RCzechia::obce_body() %>% 
+  dplyr::filter(NAZ_OBEC == "Brno") %>% 
+  st_transform(5514)
+
+plotcz(cz_sjtsk) +
+  geom_sf(data = vltava, color = "navy") +
+  geom_sf(data = brno, pch = 4, size = 4, color = "darkred")
+```
+
+Points, lines, polygons...
+
+
+## Packages
+
+:::: {.columns}
+::: {.column width=50%}
+
+### `sf` package
+
+- Vector data, *simple features*
+- <https://r-spatial.github.io/sf/>
+- [Cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/sf.pdf)
+
+![](https://user-images.githubusercontent.com/520851/50280460-e35c1880-044c-11e9-9ed7-cc46754e49db.jpg)
+
+:::
+::: {.column width=50%}
+
+### Raster data
+
+- [`terra` package](https://rspatial.org/pkg/) and its predeccessor, `raster`
+- [`stars` package](https://r-spatial.github.io/stars/) -- spatiotemporal arrays, raster and vector data cubes
+
+### Spatial statistics 
+
+- [`spatstat` package](https://spatstat.org/)
+
+### Making maps
+
+- `ggplot2`
+- [`tmap` package](https://r-tmap.github.io/tmap/) -- thematic maps
+- [`leaflet` package](https://rstudio.github.io/leaflet/) -- interactive maps 
+
+:::
+::::
+
+
+## Dataset 
+
+:::: {.columns}
+::: {.column width=40%}
+
+![](./figs/lasoles_joad.png)
+
+:::
+::: {.column width=60%}
+
+- Dataset from *Journal of Open Archaeology Data* paper
+- Article DOI: [10.5334/joad.85](https://doi.org/10.5334/joad.85)
+- Data DOI: [10.5281/zenodo.5728242](https://doi.org/10.5281/zenodo.5728242)
+- Table [`LASOLES_14C_database.csv`](https://zenodo.org/records/5728242/files/LASOLES_14C_database.csv?download=1)
+
+![(Tkáč, Kolář 2021)](https://storage.googleapis.com/jnl-up-j-joad-files/journals/1/articles/85/submission/proof/85-10-780-1-17-20211210.png){width=80%}
+
+:::
+::::
+
+
+## Reading the data 
+
+- Data is in CSV format, separated by semicolon (`;`)
+- Columns `Latitude_WGS84` and `Longitude_WGS84`
+- Coordinate reference system is WGS 84
+
+::: {.fragment}
+```{r}
+lasoles <- read.csv("./data/LASOLES_14C_database.csv", sep = ";")
+```
+```{r}
+#| echo: false
+lasoles <- lasoles %>% 
+  dplyr::select(ID_Date, ends_with("WGS84"), Site_category_ENG, Contex_dating_AMCR) %>%
+  tibble()
+head(lasoles, 4)
+```
+:::
+
+::: {.fragment}
+```{r}
+lasoles_wgs84 <- st_as_sf(lasoles, coords = c(x = "Longitude_WGS84", y = "Latitude_WGS84"), crs = 4326)
+head(lasoles_wgs84, 4)
+```
+:::
+
+
+## Reprojecting CRS
+
+Function `st_transform(x, crs)`
+
+EPSG codes:
+
+- WGS 84: `4326`
+- S-JTSK East-North: `5514`
+- UTM 33N: `32633`
+
+```{r}
+lasoles_sjtsk <- st_transform(lasoles_wgs84,  crs = "EPSG:5514")
+head(lasoles_sjtsk, 4)
+```
+
+
+## `sf` Object helper functions
+
+:::: {.columns}
+::: {.column width=50%}
+
+- `st_geometry()` -- returns only geometry
+- `st_geometry_type()` -- returns type of geometry (point, line, polygon...) for each object
+- `st_drop_geometry()` -- returns only *attributes*/*fields*
+- `st_coordinates()` -- returns coordinates as a data frame
+- `st_crs()` -- CRS of the layer as a WKT 
+
+```{r}
+st_geometry_type(lasoles_sjtsk) %>% head()
+```
+:::
+::: {.column width=50%}
+```{r}
+st_crs(lasoles_sjtsk)
+```
+:::
+::::
+
+
+## Making maps
+
+Geom `geom_sf()`
+
+```{r}
+ggplot(lasoles_sjtsk) +
+  geom_sf() +
+  theme_minimal()
+```
+
+
+## Some background data...
+
+Package `RCzechia` has spatial data for the Czech republic...
+
+```{r}
+kraje <- RCzechia::kraje()
+head(kraje, 4)
+```
+
+::: {.fragment}
+```{r}
+kraje <- st_transform(kraje, crs = "EPSG:5514")
+head(kraje, 4)
+```
+:::
+
+
+## Making maps
+
+```{r}
+ggplot(lasoles_sjtsk) +
+  geom_sf(data = kraje) +
+  geom_sf() +
+  theme_minimal()
+```
+
+
+## Spatial operations
+
+- subsetting
+- topological relations
+
+## Geometry operations 
+
+### Unions 
+
+`st_union()`
+
+:::: {.columns}
+::: {.column width=50% .fragment}
+```{r}
+head(kraje, 2)
+republika <- st_union(kraje)
+republika
+```
+```{r}
+#| echo: false 
+republika <- republika %>% nngeo::st_remove_holes()
+```
+:::
+::: {.column width=50% .fragment}
+```{r}
+republika %>% 
+  ggplot() +
+   geom_sf() +
+   theme_minimal()
+```
+:::
+::::
+
+## Geometry operations 
+
+:::: {.columns}
+::: {.column width=50%}
+
+### Centroids
+
+`st_centroid()`
+
+```{r}
+stred <- st_centroid(republika)
+stred
+```
+::: {.fragment}
+```{r}
+ggplot() +
+  geom_sf(data = republika) +
+  geom_sf(data = stred, size = 4) +
+  theme_minimal()
+```
+:::
+:::
+::: {.column width=50% .fragment}
+
+### Buffers
+
+`st_buffer()`
+
+```{r}
+buffer <- st_buffer(stred, 20000)
+buffer
+```
+::: {.fragment}
+```{r}
+ggplot() +
+  geom_sf(data = republika) +
+  geom_sf(data = buffer, fill = "forestgreen") +
+  geom_sf(data = stred, size = 4) +
+  theme_minimal()
+```
+:::
+:::
+::::
+
+
+## Writing/reading spatial data
+
+
+## Some more mapping {.scrollable}
+
+```{r}
+ggplot() +
+  geom_sf(data = kraje) +
+  geom_sf(data = lasoles_sjtsk, aes(color = Site_category_ENG)) +
+  theme_minimal()
+```
+
+
+## Where to learn more... 
+
+- CRAN Task View: [Analysis of Spatial Data](https://cran.r-project.org/web/views/Spatial.html)
+- Books:
+
+[![](https://r.geocompx.org/images/cover.png){height=300px}](https://r.geocompx.org/) 
+[![](https://r-spatial.org/book/images/cover.jpg){height=300px}](https://r-spatial.org/book/) 
+![](https://images.routledge.com/common/jackets/amazon/978148221/9781482210200.jpg){height=300px} 
+![](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-319-29538-1?as=webp){height=300px}
