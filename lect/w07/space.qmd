@@ -16,8 +16,12 @@ execute:
   cache: true
 ---
 
-## Objectives  
+## Objectives  {background-color="#FAF1A4"}
 
+- Learn what is spatial data.
+- Learn how spatial data is represented in R.
+- Learn basic operations with vector data.
+- Create basic maps.
 
 
 ## What is Earth's shape?
@@ -48,6 +52,7 @@ execute:
 library(sf)
 library(ggplot2)
 library(tibble)
+library(dplyr)
 
 # data
 w <- giscoR::gisco_get_countries()
@@ -267,6 +272,9 @@ Points, lines, polygons...
 ::::
 
 
+## Code along {background-color="#B5E2FF"}
+
+
 ## Dataset 
 
 :::: {.columns}
@@ -292,7 +300,7 @@ Points, lines, polygons...
 
 - Data is in CSV format, separated by semicolon (`;`)
 - Columns `Latitude_WGS84` and `Longitude_WGS84`
-- Coordinate reference system is WGS 84
+- Coordinate reference system is WGS 84 (EPSG `4326`)
 
 ::: {.fragment}
 ```{r}
@@ -324,6 +332,7 @@ EPSG codes:
 - WGS 84: `4326`
 - S-JTSK East-North: `5514`
 - UTM 33N: `32633`
+- Find more at <https://epsg.io/>
 
 ```{r}
 lasoles_sjtsk <- st_transform(lasoles_wgs84,  crs = "EPSG:5514")
@@ -331,7 +340,7 @@ head(lasoles_sjtsk, 4)
 ```
 
 
-## `sf` Object helper functions
+<!-- ## `sf` Object helper functions
 
 :::: {.columns}
 ::: {.column width=50%}
@@ -351,7 +360,7 @@ st_geometry_type(lasoles_sjtsk) %>% head()
 st_crs(lasoles_sjtsk)
 ```
 :::
-::::
+:::: -->
 
 
 ## Making maps
@@ -367,7 +376,7 @@ ggplot(lasoles_sjtsk) +
 
 ## Some background data...
 
-Package `RCzechia` has spatial data for the Czech republic...
+Package `RCzechia` ([Lacko, 2023](https://rczechia.jla-data.net/)) has spatial data for the Czech republic...
 
 ```{r}
 kraje <- RCzechia::kraje()
@@ -391,11 +400,6 @@ ggplot(lasoles_sjtsk) +
   theme_minimal()
 ```
 
-
-## Spatial operations
-
-- subsetting
-- topological relations
 
 ## Geometry operations 
 
@@ -470,17 +474,116 @@ ggplot() +
 ::::
 
 
+## Spatial operations
+
+### Topological relations 
+
+Many types of raletionships, the most generic one is **intersection**:  
+`st_intersects(x, y)`
+
+:::: {.columns}
+::: {.column width=50%}
+::: {.fragment}
+```{r}
+prunik <- st_intersects(kraje, stred)
+prunik
+```
+:::
+::: {.fragment}
+```{r}
+lengths(prunik)
+```
+:::
+::: {.fragment}
+```{r}
+lengths(prunik) > 0
+```
+:::
+:::
+::: {.column width=50%}
+::: {.fragment}
+```{r}
+kraje %>%
+  dplyr::filter(lengths(prunik) > 0)
+```
+:::
+::: {.fragment}
+```{r}
+#| echo: false
+ggplot() +
+  geom_sf(data = kraje) +
+  geom_sf(data = stred, size = 4) +
+  theme_minimal()
+```
+:::
+:::
+::::
+
+
 ## Writing/reading spatial data
 
+`st_read()` -- reads spatial data from the path (data source name, and layer name)  
+`st_write()` -- writes an object to a specified path (DNS and layer name) 
 
-## Some more mapping {.scrollable}
+The functions detect what *driver* to use by the extension.
+
+- For vector data, use [`OGC GeoPackage`](https://www.geopackage.org/) format (.gpkg)
+- Do not use ESRI Shapefile (.shp) -- it is old and has many limitations (see [here](http://switchfromshapefile.org/) for discussion)
+
+::: {.fragment}
+```{r}
+#| eval: false 
+st_write(republika, here::here("czrep.gpkg"))
+```
+```
+Writing layer `czrep' to data source 
+  `<...>/czrep.gpkg' using driver `GPKG'
+Writing 1 features with 1 fields and geometry type Polygon.
+```
+:::
+
+::: {.fragment}
+```{r}
+#| eval: false 
+republika <- st_read(here::here("czrep.gpkg"))
+```
+```
+Reading layer `czrep' from data source `<...>/czrep.gpkg' using driver `GPKG'
+Simple feature collection with 1 feature and 1 field
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: -904576.9 ymin: -1227293 xmax: -431723.3 ymax: -935236.5
+Projected CRS: S-JTSK / Krovak East North
+```
+:::
+
+
+## Exercise {background-color="#B5E2FF"}
+
+1. Find out how many *radiocarbon dated samples* are located within distance 15 km (or closer) from Brno.  
+
+Brno is this point:  
+    
+```{r}
+#| eval: false
+brno <- st_point(c(16.6078411, 49.2002211)) %>% 
+          st_geometry() %>% 
+          st_set_crs("EPSG:4326")
+```
+
+2. How many of these radiocarbon dates are from hillforts (`Site_category_ENG`)?
+3. Create map of the Czech republic with a point showing Brno.
+4. Create a map of all *radiocarbon dated samples* in *Jihomoravský kraj*.
+
+
+<!-- ## Some more mapping {.scrollable}
 
 ```{r}
 ggplot() +
   geom_sf(data = kraje) +
   geom_sf(data = lasoles_sjtsk, aes(color = Site_category_ENG)) +
   theme_minimal()
-```
+``` -->
 
 
 ## Where to learn more... 
