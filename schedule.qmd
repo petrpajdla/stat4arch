@@ -17,7 +17,7 @@ The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (
 | 6.      | 27. 3. | Presenting data sets for projects & Practice | |
 | 7.      | 3. 4.  | [Considering space](lect/w07/space.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset](lect/w07/data/LASOLES_14C_database.csv) & [{{< bi file-earmark-arrow-down >}} Solution](lect/w07/code/analysis.r) |
 | 8.      | 10. 4. | Considering time | | 
-| -       | 17. 4. | *Reading week* | |
+| -       | 17. 4. | *Reading week* | *Individual consultations of projects* |
 | 9.      | 24. 4. | Multivariate analysis | |
 | -       | 1. 5.  | *Holidays* | |
 | -       | 8. 5.  | *Holidays* | |

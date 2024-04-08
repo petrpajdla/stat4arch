@@ -2,34 +2,35 @@
 title: "Project"
 ---
 
-::: {.callout-warning}
+::: {.callout-note}
 
-Information given here will be updated later in the semestr.
+Last update: 8. 4. 2024.
 
 :::
 
-To pass the course you will have to work on a small project.
-Group/pair cooperation is possible, but each student has to submit their own report on the analysis.
-There are two options, you can choose to work either on your own dataset or use
-an existing published data.
+To pass the course you have to work on a small project.
+Group/pair cooperation is possible, but each student has to submit their own script/report on the analysis.
+There are two options, you can choose to work either on your own dataset or use already published data.
+
 
 ## Get the data
 
-Although the first step in most of the analysis would be creating the research
-question(s), we assume our questions and goals are already set and skip to the step
-where we get the data suitable to answer our questions...
+Although the first step in most of the analysis would be posing the research question(s), our project begins by finding a suitable dataset.
 
 ### Working with your own dataset
+
 - You can choose to use your own data. This is especially useful if you are
   working on your BA/MA/PhD thesis or an article and want to analyze the
   data collected for the given work.
 - This option is easier because you probably know what your dataset contains and
   what each variable means, how it was collected etc.
 
-### Using an existing dataset
+
+### Re-using a published dataset
+
 - Find a suitable dataset online, scrape a website, get it in a book,
   anything that comes to mind, be creative.
-  Bear in mind that the dataset needs to contain a mixture of
+  Bear in mind that the dataset should contain a mixture of
   quantitative and qualitative variables. It can be organized as a table, then
   the work is easier for you. If it is a database, we can give you a hand with
   data preparation etc.
@@ -40,12 +41,48 @@ where we get the data suitable to answer our questions...
 - If you choose to use a dataset you found anywhere else (or web scraped etc.)
   please make sure that it is easily accessible and suitable for the analysis.
 
-## Get to know the data
-- Make sure you know where your data is and how is it stored (format and how to read it into R).
-- Make sure you know what each variable means, what type of data does it contain etc.
-- The dataset should contain at least several quantitative and qualitative variables in order for you to be able to practice creating visualizations.
 
-### Report template
+## Get to know the data
+
+- Make sure you know where your data is and how it is stored (format and how to read it into R).
+- Make sure you know what each variable means, what type of data does it contain etc.
+- The dataset should contain at least several quantitative and qualitative variables in order for you to be able to practice creating visualizations etc.
+
+
+## Contents of the report
+
+As a result of your project, you will submit a *report* on the analysis if your data.
+The *report* should contain following:
+
+- **Abstract**: Short abstract describing what is the dataset about and what you are focusing on in the analysis (one paragraph of text at most).
+- **Keywords**: Include several useful keywords.
+- **Introduction**: Mention what is the goal of your analysis, why did you choose this dataset etc. in a short introduction.
+- **Data**: Briefly introduce your dataset. Where does it come from? What does it contain? What are the variables and observations? How did you get the dataset? Where is it originally published (include citations, links etc.) Try to answer following questions using code: 
+
+    - How many variables are there?
+    - How many rows does the dataset have?
+    - What are the names of the variables?
+    - What data types are there in the data set?
+
+- **Analysis**: Focus on the analysis of your data set. Are there any quantitative and qualitative variables? Show answers to questions like these on graphs and using various numerical summaries or tests: 
+
+    - How are the variables distributed? 
+    - What are their central points and how are they spread? What does it mean?
+    - Is any of the quantitative variables distributed normally? 
+    - What are the relationships between the variables?
+    - If your points, sites etc. have coordinates, show them on a simple map.
+
+- **Summary**: Briefly sum up and interpret what you managed to achieve in your project. Did you learn anything new? Did anything surprise you? 
+
+
+## Reading week consultations 
+
+During the reading week (17. 4.) we are available for consultations! We will be in the [Atrium of the building M](https://www.phil.muni.cz/o-nas/kde-nas-najdete/budova-30).
+
+
+
+
+<!-- ### Report template
 
 RMarkdown template for the project report is [here](https://github.com/petrpajdla/stat4arch/blob/7e6d4d67b6e13a5208512951f92751287f22495e/project/project_template.Rmd).
 Create a new RMarkdown file (`.Rmd`), copy and paste the contents of the template
@@ -56,4 +93,4 @@ Follow the instructions in the template to work on your project.
 
 Feel free to contact us if you need any help or assistance during the work on
 your project. Simply send us both the source `Rmd` file and the `HTML` output
-with your questions and we will address the problem either directly or in class.
+with your questions and we will address the problem either directly or in class. -->

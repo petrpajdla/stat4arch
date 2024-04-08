@@ -89,6 +89,7 @@ the Potato People prohibits this.
 ## R as a GIS and spatial analysis
 
 - [Geocomputation with R](https://geocompr.robinlovelace.net/index.html) book by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow.
+- [Spatial Data Science](https://r-spatial.org/book/) book by Edzer Pebesma and Roger Bivand.
 
 ## Other links and tools
 
