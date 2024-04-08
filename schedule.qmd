@@ -15,7 +15,7 @@ The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (
 | 4.      | 13. 3. | [Visualization and summary of relationships](lect/w04/rels.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset](lect/w04/data/bacups.csv) & [{{< bi file-earmark-arrow-down >}} Script](lect/w04/code/bacups.r) |
 | 5.      | 20. 3. | [Normal distribution](lect/w05/norm.qmd) & [data manpulation with `dplyr`](lect/w05/dplyr.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset](lect/w05/data/dartpoints.csv) |
 | 6.      | 27. 3. | Presenting data sets for projects & Practice | |
-| 7.      | 3. 4.  | [Considering space](lect/w07/space.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset](lect/w07/data/LASOLES_14C_database.csv) |
+| 7.      | 3. 4.  | [Considering space](lect/w07/space.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset](lect/w07/data/LASOLES_14C_database.csv) & [{{< bi file-earmark-arrow-down >}} Solution](lect/w07/code/analysis.r) |
 | 8.      | 10. 4. | Considering time | | 
 | -       | 17. 4. | *Reading week* | |
 | 9.      | 24. 4. | Multivariate analysis | |
