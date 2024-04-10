@@ -18,8 +18,8 @@ The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (
 | 7.      | 3. 4.  | [Considering space](lect/w07/space.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset (lasoles)](lect/w07/data/LASOLES_14C_database.csv) & [{{< bi file-earmark-arrow-down >}} Solution](lect/w07/code/analysis.r) |
 | 8.      | 10. 4. | [Considering time](lect/w08/time.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset (datations)](lect/w08/data/datation_mor.csv) | 
 | -       | 17. 4. | *Reading week* | *Individual consultations of projects* |
-| 9.      | 24. 4. | Multivariate analysis | |
+| 9.      | 24. 4. | Distances and clustering | |
 | -       | 1. 5.  | *Holidays* | |
 | -       | 8. 5.  | *Holidays* | |
-| 10.     | 15. 5. | Practice | |
-| 11.     | 22. 5. |  | |
+| 10.     | 15. 5. | Dimensionality reduction methods (PCA, CA) | |
+| 11.     | 22. 5. | Reproducibility with Quarto & Practice | |
