@@ -41,6 +41,7 @@ website:
         - lect/w05/norm.qmd
         - lect/w05/dplyr.qmd
         - lect/w07/space.qmd
+        - lect/w08/time.qmd
         # - reproducibility.qmd
   
   page-footer: 
