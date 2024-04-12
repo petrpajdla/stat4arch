@@ -1859,224 +1859,320 @@
     "href": "lect/w08/time.html",
     "title": "Considering time",
     "section": "",
-    "text": "methods of temporal analysis\n\ncalibration of radiocarbon data\nworking with temporal uncertainties - introduction to the aoristic method\n\nR\n\njoining 2 tables\ncreating a new variable based on condition in different variable\nsome tips and tricks for your ggplot"
+    "text": "methods of temporal analysis\n\ncalibration of radiocarbon data\nworking with temporal uncertainties - introduction to the aoristic method\n\nR\n\njoining 2 tables\ncreating a new variable based on condition in different variable\nsome tips and tricks for your ggplot",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#goals",
     "href": "lect/w08/time.html#goals",
     "title": "Considering time",
     "section": "",
-    "text": "methods of temporal analysis\n\ncalibration of radiocarbon data\nworking with temporal uncertainties - introduction to the aoristic method\n\nR\n\njoining 2 tables\ncreating a new variable based on condition in different variable\nsome tips and tricks for your ggplot"
+    "text": "methods of temporal analysis\n\ncalibration of radiocarbon data\nworking with temporal uncertainties - introduction to the aoristic method\n\nR\n\njoining 2 tables\ncreating a new variable based on condition in different variable\nsome tips and tricks for your ggplot",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#radiocarbon-dating",
     "href": "lect/w08/time.html#radiocarbon-dating",
     "title": "Considering time",
     "section": "Radiocarbon dating",
-    "text": "Radiocarbon dating"
+    "text": "Radiocarbon dating",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#evocation",
     "href": "lect/w08/time.html#evocation",
     "title": "Considering time",
     "section": "Evocation",
-    "text": "Evocation\n\nWhat’s the difference between absolute dating and relative dating?\nHow the archaeologists estimated absolute dates before invention of the radiocarbon dating?\nCan you tell other methods of absolute dating?"
+    "text": "Evocation\n\nWhat’s the difference between absolute dating and relative dating?\nHow the archaeologists estimated absolute dates before invention of the radiocarbon dating?\nCan you tell other methods of absolute dating?",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#how-rc-dating-works",
     "href": "lect/w08/time.html#how-rc-dating-works",
     "title": "Considering time",
     "section": "How RC dating works",
-    "text": "How RC dating works\n\nA very simple introduction\n\nIt is based on measurement of proportion of radioactive 14C in organic material.\nPlants are absorbing 14C from atmosphere which then continues to animals and humans through food chain.\nAfter the dead of the organism the 14C starts to decay, and by measuring proportion of the 14C still in the body and comparing it with the amount of 14C in atmosphere, we can measure time when the organism died.\nSince the amount of the 14C in atmosphere varies during time, we need to calibrate the results with so called “calibration curve”.\nKeep in mind that we are not dating a date of creation of the archaeological context, but date of the death of the organism, be it human individual, grain, or a tree."
+    "text": "How RC dating works\n\nA very simple introduction\n\nIt is based on measurement of proportion of radioactive 14C in organic material.\nPlants are absorbing 14C from atmosphere which then continues to animals and humans through food chain.\nAfter the dead of the organism the 14C starts to decay, and by measuring proportion of the 14C still in the body and comparing it with the amount of 14C in atmosphere, we can measure time when the organism died.\nSince the amount of the 14C in atmosphere varies during time, we need to calibrate the results with so called “calibration curve”.\nKeep in mind that we are not dating a date of creation of the archaeological context, but date of the death of the organism, be it human individual, grain, or a tree.",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#section",
     "href": "lect/w08/time.html#section",
     "title": "Considering time",
     "section": "",
-    "text": "For more information, see:\n\nBayliss, A, and Marshall, P, 2022 Radiocarbon Dating and Chronological Modelling: Guidelines and Best Practice\nRenfrew, C., & Bahn, P.G. 1998. Archaeology: theories, methods and practice"
+    "text": "For more information, see:\n\nBayliss, A, and Marshall, P, 2022 Radiocarbon Dating and Chronological Modelling: Guidelines and Best Practice\nRenfrew, C., & Bahn, P.G. 1998. Archaeology: theories, methods and practice",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#todays-dataset",
     "href": "lect/w08/time.html#todays-dataset",
     "title": "Considering time",
     "section": "Today’s dataset",
-    "text": "Today’s dataset\n\nLASOLES\nLet’s try to calibrate some radiocarbon data!\nWe will do so with the same data as last time, from the LASOLES radiocarbon database of the Czech Republic.\n\nlibrary(dplyr)\nlibrary(ggplot2)\n\ndf_lasoles &lt;- read.csv(\"./data/LASOLES_14C_database.csv\", sep = \";\")\n\ndf_lasoles$Age14C &lt;- as.numeric(df_lasoles$Age14C)\ndf_lasoles$SD14C &lt;- as.numeric(df_lasoles$SD14C)\n\nhead(df_lasoles[, 1:7], 12)\n\n     ID_Date   Lab_code Laboratory Age14C SD14C    Date_type Delta_13C\n1   CzArch_1  Poz-41673        Poz   3345    30 conv. 14C BP          \n2   CzArch_5      A-215          A   3040    45 conv. 14C BP          \n3   CzArch_6    Bln-102        Bln   6285   100 conv. 14C BP          \n4   CzArch_7   Bln-102a        Bln   6405   100 conv. 14C BP          \n5  CzArch_11   Bln-1165        Bln   4670    80 conv. 14C BP          \n6  CzArch_12   Bln-1166        Bln   4670    80 conv. 14C BP          \n7  CzArch_13   Bln-1167        Bln   2525    80 conv. 14C BP          \n8  CzArch_14 Bln-1167-A        Bln   2440    80 conv. 14C BP          \n9  CzArch_15    Bln-118        Bln    665   100 conv. 14C BP          \n10 CzArch_16   Bln-1244        Bln   4955    80 conv. 14C BP          \n11 CzArch_17   Bln-1396        Bln   4770    60 conv. 14C BP          \n12 CzArch_18 Bln-1396-A        Bln   4775    60 conv. 14C BP"
+    "text": "Today’s dataset\n\nLASOLES\nLet’s try to calibrate some radiocarbon data!\nWe will do so with the same data as last time, from the LASOLES radiocarbon database of the Czech Republic.\n\nlibrary(dplyr)\nlibrary(ggplot2)\n\ndf_lasoles &lt;- read.csv(\"./data/LASOLES_14C_database.csv\", sep = \";\")\n\ndf_lasoles$Age14C &lt;- as.numeric(df_lasoles$Age14C)\ndf_lasoles$SD14C &lt;- as.numeric(df_lasoles$SD14C)\n\nhead(df_lasoles[, 1:7], 12)\n\n     ID_Date   Lab_code Laboratory Age14C SD14C    Date_type Delta_13C\n1   CzArch_1  Poz-41673        Poz   3345    30 conv. 14C BP          \n2   CzArch_5      A-215          A   3040    45 conv. 14C BP          \n3   CzArch_6    Bln-102        Bln   6285   100 conv. 14C BP          \n4   CzArch_7   Bln-102a        Bln   6405   100 conv. 14C BP          \n5  CzArch_11   Bln-1165        Bln   4670    80 conv. 14C BP          \n6  CzArch_12   Bln-1166        Bln   4670    80 conv. 14C BP          \n7  CzArch_13   Bln-1167        Bln   2525    80 conv. 14C BP          \n8  CzArch_14 Bln-1167-A        Bln   2440    80 conv. 14C BP          \n9  CzArch_15    Bln-118        Bln    665   100 conv. 14C BP          \n10 CzArch_16   Bln-1244        Bln   4955    80 conv. 14C BP          \n11 CzArch_17   Bln-1396        Bln   4770    60 conv. 14C BP          \n12 CzArch_18 Bln-1396-A        Bln   4775    60 conv. 14C BP",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#quick-calibration",
     "href": "lect/w08/time.html#quick-calibration",
     "title": "Considering time",
     "section": "Quick calibration",
-    "text": "Quick calibration\n\nWe will use a real radiocarbon date sampled from a Final Eneolihic – Early Bronze Age site Pavlov u Dolních Věstonic, “Horní pole”.\nWe will use package rcarbon and calibration curve IntCal20\n\n\nDetails\n\nuncalibrated date: 3990\nstandart deviation: 54\n\n\nAdditional information\n\nlaboratory code: Erl-4719\ntypochronological datation: Bell Beaker Culture\narchaeological context: grave\nsample: human bone"
+    "text": "Quick calibration\n\nWe will use a real radiocarbon date sampled from a Final Eneolihic – Early Bronze Age site Pavlov u Dolních Věstonic, “Horní pole”.\nWe will use package rcarbon and calibration curve IntCal20\n\n\nDetails\n\nuncalibrated date: 3990\nstandart deviation: 54\n\n\nAdditional information\n\nlaboratory code: Erl-4719\ntypochronological datation: Bell Beaker Culture\narchaeological context: grave\nsample: human bone",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#quick-calibration-1",
     "href": "lect/w08/time.html#quick-calibration-1",
     "title": "Considering time",
     "section": "Quick calibration",
-    "text": "Quick calibration\n\n# install.packages(\"rcarbon\")\nlibrary(rcarbon)\ncal_date &lt;- calibrate(x = 3990, errors = 54, calCurves = \"intcal20\")\n\n\nsummary(cal_date)\n\n  DateID MedianBP OneSigma_BP_1 OneSigma_BP_2 OneSigma_BP_3 TwoSigma_BP_1\n1      1     4464  4565 to 4562  4528 to 4406  4364 to 4360  4783 to 4768\n  TwoSigma_BP_2 TwoSigma_BP_3 TwoSigma_BP_4\n1  4614 to 4596  4583 to 4288  4272 to 4250\n\n\nMedian of the calibrated date is 4464 BP"
+    "text": "Quick calibration\n\n# install.packages(\"rcarbon\")\nlibrary(rcarbon)\ncal_date &lt;- calibrate(x = 3990, errors = 54, calCurves = \"intcal20\")\n\n\nsummary(cal_date)\n\n  DateID MedianBP OneSigma_BP_1 OneSigma_BP_2 OneSigma_BP_3 TwoSigma_BP_1\n1      1     4464  4565 to 4562  4528 to 4406  4364 to 4360  4783 to 4768\n  TwoSigma_BP_2 TwoSigma_BP_3 TwoSigma_BP_4\n1  4614 to 4596  4583 to 4288  4272 to 4250\n\n\nMedian of the calibrated date is 4464 BP",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#quick-plot",
     "href": "lect/w08/time.html#quick-plot",
     "title": "Considering time",
     "section": "Quick plot",
-    "text": "Quick plot\n\nplot(cal_date)"
+    "text": "Quick plot\n\nplot(cal_date)",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#improving-your-plot",
     "href": "lect/w08/time.html#improving-your-plot",
     "title": "Considering time",
     "section": "Improving your plot",
-    "text": "Improving your plot\n\nplot(cal_date, calendar = \"BCAD\", HPD = TRUE)\n\n\n\n\n\n\n\n\n\nargument HPD higlights confidence of the posterior density, by default set to 95% (2 standard deviations)"
+    "text": "Improving your plot\n\nplot(cal_date, calendar = \"BCAD\", HPD = TRUE)\n\n\n\n\n\n\n\n\n\nargument HPD higlights confidence of the posterior density, by default set to 95% (2 standard deviations)",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#why-i-cant-get-single-bce-number",
     "href": "lect/w08/time.html#why-i-cant-get-single-bce-number",
     "title": "Considering time",
     "section": "Why I can’t get single BCE number?",
-    "text": "Why I can’t get single BCE number?"
+    "text": "Why I can’t get single BCE number?",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#plotting-multiple-samples",
     "href": "lect/w08/time.html#plotting-multiple-samples",
     "title": "Considering time",
     "section": "Plotting multiple samples",
-    "text": "Plotting multiple samples\n\nlet’s create a subset with samples from our site, dated to the Final Eneolithic and Early Bronze Age and having no dating errors\ncopy and paste this code from our web:\n\n\ndf_sample_site &lt;- df_lasoles %&gt;% \n  filter(Civil_parish == \"Pavlov u Dolních Věstonic\" & \n         Site_name == \"Horní pole\" & \n         Age14C &gt; 3500 & \n         Age14C &lt; 5000 & \n         Dating_error == \"n\")\n\n\ncal_dates &lt;- calibrate(x = df_sample_site$Age14C, errors = df_sample_site$SD14C, calCurves = \"intcal20\", ids = df_sample_site$Lab_code) \n\n\nhead(summary(cal_dates),4)\n\n    DateID MedianBP OneSigma_BP_1 OneSigma_BP_2 OneSigma_BP_3 OneSigma_BP_4\n1 Erl-4709     4240  4383 to 4374  4352 to 4329  4297 to 4150      NA to NA\n2 Erl-4710     4267  4398 to 4372  4353 to 4328  4299 to 4225  4204 to 4155\n3 Erl-4714     4107  4228 to 4202  4156 to 4067  4046 to 3987      NA to NA\n4 Erl-4715     4125  4232 to 4199  4183 to 4167  4159 to 4080  4037 to 3994\n  OneSigma_BP_5 TwoSigma_BP_1 TwoSigma_BP_2 TwoSigma_BP_3 TwoSigma_BP_4\n1      NA to NA  4411 to 4141  4130 to 4091      NA to NA      NA to NA\n2      NA to NA  4412 to 4148  4116 to 4098      NA to NA      NA to NA\n3      NA to NA  4343 to 4338  4292 to 3960  3950 to 3924      NA to NA\n4      NA to NA  4349 to 4332  4295 to 3970  3944 to 3930      NA to NA"
+    "text": "Plotting multiple samples\n\nlet’s create a subset with samples from our site, dated to the Final Eneolithic and Early Bronze Age and having no dating errors\ncopy and paste this code from our web:\n\n\ndf_sample_site &lt;- df_lasoles %&gt;% \n  filter(Civil_parish == \"Pavlov u Dolních Věstonic\" & \n         Site_name == \"Horní pole\" & \n         Age14C &gt; 3500 & \n         Age14C &lt; 5000 & \n         Dating_error == \"n\")\n\n\ncal_dates &lt;- calibrate(x = df_sample_site$Age14C, errors = df_sample_site$SD14C, calCurves = \"intcal20\", ids = df_sample_site$Lab_code) \n\n\nhead(summary(cal_dates),4)\n\n    DateID MedianBP OneSigma_BP_1 OneSigma_BP_2 OneSigma_BP_3 OneSigma_BP_4\n1 Erl-4709     4240  4383 to 4374  4352 to 4329  4297 to 4150      NA to NA\n2 Erl-4710     4267  4398 to 4372  4353 to 4328  4299 to 4225  4204 to 4155\n3 Erl-4714     4107  4228 to 4202  4156 to 4067  4046 to 3987      NA to NA\n4 Erl-4715     4125  4232 to 4199  4183 to 4167  4159 to 4080  4037 to 3994\n  OneSigma_BP_5 TwoSigma_BP_1 TwoSigma_BP_2 TwoSigma_BP_3 TwoSigma_BP_4\n1      NA to NA  4411 to 4141  4130 to 4091      NA to NA      NA to NA\n2      NA to NA  4412 to 4148  4116 to 4098      NA to NA      NA to NA\n3      NA to NA  4343 to 4338  4292 to 3960  3950 to 3924      NA to NA\n4      NA to NA  4349 to 4332  4295 to 3970  3944 to 3930      NA to NA",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#multiplot",
     "href": "lect/w08/time.html#multiplot",
     "title": "Considering time",
     "section": "Multiplot",
-    "text": "Multiplot\n\nmultiplot(cal_dates, decreasing=TRUE, HPD=TRUE, label.pos=0.9, label.offset=-200,  calendar = \"BCAD\")"
+    "text": "Multiplot\n\nmultiplot(cal_dates, decreasing=TRUE, HPD=TRUE, label.pos=0.9, label.offset=-200,  calendar = \"BCAD\")",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#radiocarbon-dates-as-proxies-for-human-demography",
     "href": "lect/w08/time.html#radiocarbon-dates-as-proxies-for-human-demography",
     "title": "Considering time",
     "section": "Radiocarbon dates as proxies for human demography",
-    "text": "Radiocarbon dates as proxies for human demography\n\nin recent years, radiocarbon data are being widely used for determining relative demography\ndifferent methods, e.g. summed probability distribution (SPD) or kernel density estimation (KDE)\n\n\n\n\nSPD, From Kolář, J., Macek, M., Tkáč, P., Novák, D., & Abraham, V. 2022. Long-term demographic trends and spatio-temporal distribution of past human activity in Central Europe: Comparison of archaeological and palaeoecological proxies. Quaternary Science Reviews 297: p.107834"
+    "text": "Radiocarbon dates as proxies for human demography\n\nin recent years, radiocarbon data are being widely used for determining relative demography\ndifferent methods, e.g. summed probability distribution (SPD) or kernel density estimation (KDE)\n\n\n\n\nSPD, From Kolář, J., Macek, M., Tkáč, P., Novák, D., & Abraham, V. 2022. Long-term demographic trends and spatio-temporal distribution of past human activity in Central Europe: Comparison of archaeological and palaeoecological proxies. Quaternary Science Reviews 297: p.107834",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#rc-dates-as-proxies-for-demography",
     "href": "lect/w08/time.html#rc-dates-as-proxies-for-demography",
     "title": "Considering time",
     "section": "RC Dates as proxies for demography",
-    "text": "RC Dates as proxies for demography\n\n\n\nSPD - model, From Kolář, J., Macek, M., Tkáč, P., Novák, D., & Abraham, V. 2022. Long-term demographic trends and spatio-temporal distribution of past human activity in Central Europe: Comparison of archaeological and palaeoecological proxies. Quaternary Science Reviews 297: p.107834."
+    "text": "RC Dates as proxies for demography\n\n\n\nSPD - model, From Kolář, J., Macek, M., Tkáč, P., Novák, D., & Abraham, V. 2022. Long-term demographic trends and spatio-temporal distribution of past human activity in Central Europe: Comparison of archaeological and palaeoecological proxies. Quaternary Science Reviews 297: p.107834.",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#where-to-find-more-info",
     "href": "lect/w08/time.html#where-to-find-more-info",
     "title": "Considering time",
     "section": "Where to find more info",
-    "text": "Where to find more info\nThis article provides step-by-step instruction for plenty other analyses, e.g. SPD"
+    "text": "Where to find more info\nThis article provides step-by-step instruction for plenty other analyses, e.g. SPD",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#other-packages-for-radiocarbon-data",
     "href": "lect/w08/time.html#other-packages-for-radiocarbon-data",
     "title": "Considering time",
     "section": "Other packages for radiocarbon data",
-    "text": "Other packages for radiocarbon data\n\noxcAAR - R interface for Oxcal\nBchron - for Bayesian modeling\nc14 - package for “tidy” workflow with 14C data (in experimental phase)\nc14bazAAR - archive of different open access radiocarbon databases\nstratigraphr - package for stratigraphy and chronology"
+    "text": "Other packages for radiocarbon data\n\noxcAAR - R interface for Oxcal\nBchron - for Bayesian modeling\nc14 - package for “tidy” workflow with 14C data (in experimental phase)\nc14bazAAR - archive of different open access radiocarbon databases\nstratigraphr - package for stratigraphy and chronology",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#exercise",
     "href": "lect/w08/time.html#exercise",
     "title": "Considering time",
     "section": "Exercise",
-    "text": "Exercise\n\nClean your workspace, create a new script in your project folder, load the database LASOLES.\nCreate a new dataframe with data from burial site Vedrovice - Široká u lesa, dated to Linear Pottery Culture.\nCalibrate all the data and create a multiplot.\n\nHints: ne.lin, filter(), multiplot()"
+    "text": "Exercise\n\nClean your workspace, create a new script in your project folder, load the database LASOLES.\nCreate a new dataframe with data from burial site Vedrovice - Široká u lesa, dated to Linear Pottery Culture.\nCalibrate all the data and create a multiplot.\n\nHints: ne.lin, filter(), multiplot()",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#working-with-temporal-uncertainties",
     "href": "lect/w08/time.html#working-with-temporal-uncertainties",
     "title": "Considering time",
     "section": "Working with temporal uncertainties",
-    "text": "Working with temporal uncertainties"
+    "text": "Working with temporal uncertainties",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#problem",
     "href": "lect/w08/time.html#problem",
     "title": "Considering time",
     "section": "Problem",
-    "text": "Problem\n\nImagine you are trying to model intensity of human occupation in longer time period by quantifing archaeological contexts but you are struggling with the problem how to compare contexts with various accuracy of their dating.\nE.g. some contexts are dated vaguely to “neolithic period” because the only artefact found there was a culturaly insignificant polished axe. And on the contrary, other contexts are dated to shorter periods such as “Stroked Pottery Culture period” (vypíchaná ker.) thanks to finds of recognizable ornamented pottery."
+    "text": "Problem\n\nImagine you are trying to model intensity of human occupation in longer time period by quantifing archaeological contexts but you are struggling with the problem how to compare contexts with various accuracy of their dating.\nE.g. some contexts are dated vaguely to “neolithic period” because the only artefact found there was a culturaly insignificant polished axe. And on the contrary, other contexts are dated to shorter periods such as “Stroked Pottery Culture period” (vypíchaná ker.) thanks to finds of recognizable ornamented pottery.",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#aoristic-method",
     "href": "lect/w08/time.html#aoristic-method",
     "title": "Considering time",
     "section": "Aoristic method",
-    "text": "Aoristic method\n\nwill help us with overcoming difficulties with temporal uncertainties\nsee Crema, E.R. 2012 for more details\nwhat we need:\n\nfor every archaeological context we need a typo-chronological datation and start date and end date of each of these datations, such as in example below:\n\n\n\n\n  context_number context_dating_AMCR date_start date_end\n1           pit1              ne.lin      -5400    -4801\n2           pit2              neolit      -5400    -4301\n3           pit3              ne.lin      -5300    -4801\n4         grave1              ne.lin      -5300    -4801"
+    "text": "Aoristic method\n\nwill help us with overcoming difficulties with temporal uncertainties\nsee Crema, E.R. 2012 for more details\nwhat we need:\n\nfor every archaeological context we need a typo-chronological datation and start date and end date of each of these datations, such as in example below:\n\n\n\n\n  context_number context_dating_AMCR date_start date_end\n1           pit1              ne.lin      -5400    -4801\n2           pit2              neolit      -5400    -4301\n3           pit3              ne.lin      -5300    -4801\n4         grave1              ne.lin      -5300    -4801",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#joining-two-tables-together",
     "href": "lect/w08/time.html#joining-two-tables-together",
     "title": "Considering time",
     "section": "Joining two tables together",
-    "text": "Joining two tables together\n\nfor the sake of the simplicity and for these educational purposes, we will work with LASOLES database as if it does not consists of radiocarbon samples but of contexts of these samples dated typo-chronologicaly to various periods\nbut since LASOLES does not have variables with information about start and end date, we will need to get those information from another datase - datation_mor.csv\n\n\ndf_datations &lt;- read.csv(here(\"datation_mor.csv\"))\n\n\nhead(df_datations,4)\n\n  kultura date_start date_end\n1  mezoli      -9600    -5401\n2  ne.lin      -5400    -4801\n3   ne-en      -5400    -2001\n4  neolit      -5400    -4301\n\n\n\nnow we need to add variables date_start and date_end to dataframe df_lasoles. We will do so by joining the two tables through variables “kultura” and “Contex_dating_AMCR” by command right_join\n\n\ndf_lasoles &lt;- df_lasoles %&gt;% \n  right_join(df_datations, by = c(\"Contex_dating_AMCR\" = \"kultura\"))\n\n\ndf_lasoles$date_start &lt;- as.numeric(df_lasoles$date_start)\ndf_lasoles$date_end &lt;- as.numeric(df_lasoles$date_end)\n\n\nsee documentation for different types of joins"
+    "text": "Joining two tables together\n\nfor the sake of the simplicity and for these educational purposes, we will work with LASOLES database as if it does not consists of radiocarbon samples but of contexts of these samples dated typo-chronologicaly to various periods\nbut since LASOLES does not have variables with information about start and end date, we will need to get those information from another datase - datation_mor.csv\n\n\ndf_datations &lt;- read.csv(here(\"datation_mor.csv\"))\n\n\nhead(df_datations,4)\n\n  kultura date_start date_end\n1  mezoli      -9600    -5401\n2  ne.lin      -5400    -4801\n3   ne-en      -5400    -2001\n4  neolit      -5400    -4301\n\n\n\nnow we need to add variables date_start and date_end to dataframe df_lasoles. We will do so by joining the two tables through variables “kultura” and “Contex_dating_AMCR” by command right_join\n\n\ndf_lasoles &lt;- df_lasoles %&gt;% \n  right_join(df_datations, by = c(\"Contex_dating_AMCR\" = \"kultura\"))\n\n\ndf_lasoles$date_start &lt;- as.numeric(df_lasoles$date_start)\ndf_lasoles$date_end &lt;- as.numeric(df_lasoles$date_end)\n\n\nsee documentation for different types of joins",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#saving-your-new-dataframe",
     "href": "lect/w08/time.html#saving-your-new-dataframe",
     "title": "Considering time",
     "section": "Saving your new dataframe",
-    "text": "Saving your new dataframe\nYou can save your new dataframe now so you don’t need to join the tables again next time:\n\nwrite.csv(df_lasoles, file = here(\"df_lasoles2.csv\"), row.names = FALSE)"
+    "text": "Saving your new dataframe\nYou can save your new dataframe now so you don’t need to join the tables again next time:\n\nwrite.csv(df_lasoles, file = here(\"df_lasoles2.csv\"), row.names = FALSE)",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#calculation-of-the-aoristic-sum",
     "href": "lect/w08/time.html#calculation-of-the-aoristic-sum",
     "title": "Considering time",
     "section": "Calculation of the aoristic sum",
-    "text": "Calculation of the aoristic sum\nPackage - aoristAAR\n\nif(!require('devtools')) install.packages('devtools')\n\nlibrary(devtools)\ninstall_github('ISAAKiel/aoristAAR')\n\nlibrary(aoristAAR)\n\nCalculation:\n\nlibrary(aoristAAR)\n\naori &lt;- aorist(df_lasoles, from = \"date_start\", to = \"date_end\", method = \"period_correction\", stepwidth = 1)\n\nhead(aori, 4)\n\n# A tibble: 4 × 2\n   date    sum\n  &lt;int&gt;  &lt;dbl&gt;\n1 -9600 0.0217\n2 -9599 0.0217\n3 -9598 0.0217\n4 -9597 0.0217"
+    "text": "Calculation of the aoristic sum\nPackage - aoristAAR\n\nif(!require('devtools')) install.packages('devtools')\n\nlibrary(devtools)\ninstall_github('ISAAKiel/aoristAAR')\n\nlibrary(aoristAAR)\n\nCalculation:\n\nlibrary(aoristAAR)\n\naori &lt;- aorist(df_lasoles, from = \"date_start\", to = \"date_end\", method = \"period_correction\", stepwidth = 1)\n\nhead(aori, 4)\n\n# A tibble: 4 × 2\n   date    sum\n  &lt;int&gt;  &lt;dbl&gt;\n1 -9600 0.0217\n2 -9599 0.0217\n3 -9598 0.0217\n4 -9597 0.0217",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#plot",
     "href": "lect/w08/time.html#plot",
     "title": "Considering time",
     "section": "Plot",
-    "text": "Plot\nQuick plot:\n\nggplot()+\n  geom_line(data = aori, aes(x=date, y=sum))"
+    "text": "Plot\nQuick plot:\n\nggplot()+\n  geom_line(data = aori, aes(x=date, y=sum))",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#improving-your-plot-1",
     "href": "lect/w08/time.html#improving-your-plot-1",
     "title": "Considering time",
     "section": "Improving your plot",
-    "text": "Improving your plot\n\ncommand geom_vline adds vertical line on coordinates defined by you\nin this case, we mark -5400 BCE\n\n\nggplot()+\n  geom_line(data = aori, aes(x=date, y=sum))+\n  geom_vline(xintercept = -5400, color = \"red\")"
+    "text": "Improving your plot\n\ncommand geom_vline adds vertical line on coordinates defined by you\nin this case, we mark -5400 BCE\n\n\nggplot()+\n  geom_line(data = aori, aes(x=date, y=sum))+\n  geom_vline(xintercept = -5400, color = \"red\")",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#but-why-stop-here",
     "href": "lect/w08/time.html#but-why-stop-here",
     "title": "Considering time",
     "section": "But why stop here?",
-    "text": "But why stop here?\n\nlets mark the periods in your plot and divide the x-axis by 1000 years!\n\n\nperiods &lt;- c(-9600, -5400, -4300, -2200, -800, -480, -30, 581)\nmarks &lt;- seq(-10000, 1500, by = 1000)\n\nggplot()+\n  geom_vline(xintercept = periods, color = \"red\", linetype = 2)+\n  geom_line(data = aori, aes(x=date, y=sum))+\n  scale_x_continuous(breaks = marks)+ \n  labs(x=\"BCE/AD\", y=\"aoristic sum\")+\n  theme_light()\n\n\n\n\n\n\n\n\n\nnotice that when we’ve changed the order of the lines so the later overlaps the earlier\nfor the sake of simplicity, we will ignore the year “0” which should not exist"
+    "text": "But why stop here?\n\nlets mark the periods in your plot and divide the x-axis by 1000 years!\n\n\nperiods &lt;- c(-9600, -5400, -4300, -2200, -800, -480, -30, 581)\nmarks &lt;- seq(-10000, 1500, by = 1000)\n\nggplot()+\n  geom_vline(xintercept = periods, color = \"red\", linetype = 2)+\n  geom_line(data = aori, aes(x=date, y=sum))+\n  scale_x_continuous(breaks = marks)+ \n  labs(x=\"BCE/AD\", y=\"aoristic sum\")+\n  theme_light()\n\n\n\n\n\n\n\n\n\nnotice that when we’ve changed the order of the lines so the later overlaps the earlier\nfor the sake of simplicity, we will ignore the year “0” which should not exist",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#grouping-areals-into-broader-categories",
     "href": "lect/w08/time.html#grouping-areals-into-broader-categories",
     "title": "Considering time",
     "section": "Grouping areals into broader categories",
-    "text": "Grouping areals into broader categories\nWhat if we want to observe differences in aoristic sum for different site category? For example settlements versus burial sites?\n\nfirst, we can check how many different site categories are being used\n\n\nunique(df_lasoles$Site_category_ENG)\n\n [1] \"hillfort\"                  \"settlement\"               \n [3] \"unpublished\"               \"large circular enclosure\" \n [5] \"burial ground\"             \"settlement-exp\"           \n [7] \"cave or abri\"              \"extraction site\"          \n [9] \"ritual site\"               \"enclosure\"                \n[11] \"tumuli\"                    \"hoard other\"              \n[13] \"secondary find\"            \"hoard of bronze artefacts\"\n[15] \"single find\"               \"military camp\"            \n[17] \"hoard of ceramic vessels\"  NA                         \n\n\nThere are too many areals for any usefull visualisation, so we need to group them to broader categories. For example burial grounds and tumuli will be in one category only.\n\nfirst step is creating vectors of site categories:\n\n\nl_settlements &lt;- c(\"settlement\", \"hillfort\", \"settlement-exp\", \"military camp\", \"large circular enclosure\", \"enclosure\")\nl_burials &lt;- c(\"burial ground\", \"tumuli\")\nl_hoards &lt;- c(\"hoard of a bronze artefacts\", \"hoard other\", \"hoard of ceramic vessels\")\nl_other &lt;- c(\"single find\", \"cave or abri\", \"secondary find\", \"extraction site\", \"unpublished\",\"ritual_site\" )\n\n\nthen with the help of mutate will create a new variable “new_category”\n\n\ndf_lasoles &lt;- df_lasoles %&gt;% \n  mutate(new_category = ifelse(Site_category_ENG %in% l_settlements, \"settlements\",\n                ifelse(Site_category_ENG %in% l_burials, \"burials\",\n                       ifelse(Site_category_ENG %in% l_hoards, \"hoards\",\n                              ifelse(Site_category_ENG %in% l_other, \"other\",\n                                     \"no-data\")))))"
+    "text": "Grouping areals into broader categories\nWhat if we want to observe differences in aoristic sum for different site category? For example settlements versus burial sites?\n\nfirst, we can check how many different site categories are being used\n\n\nunique(df_lasoles$Site_category_ENG)\n\n [1] \"hillfort\"                  \"settlement\"               \n [3] \"unpublished\"               \"large circular enclosure\" \n [5] \"burial ground\"             \"settlement-exp\"           \n [7] \"cave or abri\"              \"extraction site\"          \n [9] \"ritual site\"               \"enclosure\"                \n[11] \"tumuli\"                    \"hoard other\"              \n[13] \"secondary find\"            \"hoard of bronze artefacts\"\n[15] \"single find\"               \"military camp\"            \n[17] \"hoard of ceramic vessels\"  NA                         \n\n\nThere are too many areals for any usefull visualisation, so we need to group them to broader categories. For example burial grounds and tumuli will be in one category only.\n\nfirst step is creating vectors of site categories:\n\n\nl_settlements &lt;- c(\"settlement\", \"hillfort\", \"settlement-exp\", \"military camp\", \"large circular enclosure\", \"enclosure\")\nl_burials &lt;- c(\"burial ground\", \"tumuli\")\nl_hoards &lt;- c(\"hoard of a bronze artefacts\", \"hoard other\", \"hoard of ceramic vessels\")\nl_other &lt;- c(\"single find\", \"cave or abri\", \"secondary find\", \"extraction site\", \"unpublished\",\"ritual_site\" )\n\n\nthen with the help of mutate will create a new variable “new_category”\n\n\ndf_lasoles &lt;- df_lasoles %&gt;% \n  mutate(new_category = ifelse(Site_category_ENG %in% l_settlements, \"settlements\",\n                ifelse(Site_category_ENG %in% l_burials, \"burials\",\n                       ifelse(Site_category_ENG %in% l_hoards, \"hoards\",\n                              ifelse(Site_category_ENG %in% l_other, \"other\",\n                                     \"no-data\")))))",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#aoristic-for-different-categories",
     "href": "lect/w08/time.html#aoristic-for-different-categories",
     "title": "Considering time",
     "section": "Aoristic for different categories",
-    "text": "Aoristic for different categories\nNow we can create aoristic sum for each new site category. Let’s try it for settlements and burials:\n\ndf_settlements &lt;- df_lasoles %&gt;% \n  filter(new_category == \"settlements\")\ndf_burials &lt;- df_lasoles %&gt;% \n  filter(new_category == \"burials\")\n\n\naori_settlements &lt;- aorist(df_settlements, from = \"date_start\", to = \"date_end\", method = \"period_correction\", stepwidth = 1)\naori_burials &lt;- aorist(df_burials, from = \"date_start\", to = \"date_end\", method = \"period_correction\", stepwidth = 1)\n\n\nggplot()+\n  geom_line(data = aori_settlements, aes(x=date, y=sum), color = \"red\")+\n  geom_line(data = aori_burials, aes(x=date, y=sum), color = \"blue\")+\n  scale_x_continuous(breaks = marks)+ \n  theme_light()"
+    "text": "Aoristic for different categories\nNow we can create aoristic sum for each new site category. Let’s try it for settlements and burials:\n\ndf_settlements &lt;- df_lasoles %&gt;% \n  filter(new_category == \"settlements\")\ndf_burials &lt;- df_lasoles %&gt;% \n  filter(new_category == \"burials\")\n\n\naori_settlements &lt;- aorist(df_settlements, from = \"date_start\", to = \"date_end\", method = \"period_correction\", stepwidth = 1)\naori_burials &lt;- aorist(df_burials, from = \"date_start\", to = \"date_end\", method = \"period_correction\", stepwidth = 1)\n\n\nggplot()+\n  geom_line(data = aori_settlements, aes(x=date, y=sum), color = \"red\")+\n  geom_line(data = aori_burials, aes(x=date, y=sum), color = \"blue\")+\n  scale_x_continuous(breaks = marks)+ \n  theme_light()",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#easy-subseting",
     "href": "lect/w08/time.html#easy-subseting",
     "title": "Considering time",
     "section": "Easy subseting",
-    "text": "Easy subseting\n\nyou can create similar subsets without creating a new variable:\n\n\nl_enclosures &lt;- c(\"large circular enclosure\", \"enclosure\")\n\ndf_enclosures &lt;- df_lasoles %&gt;% \n  filter(Site_category_ENG %in% l_enclosures)\n\naori_encl &lt;- aorist(df_enclosures, from = \"date_start\", to = \"date_end\", method = \"period_correction\", stepwidth = 1)\n\nggplot()+\n  geom_line(data = aori_encl, aes(x=date, y=sum))"
+    "text": "Easy subseting\n\nyou can create similar subsets without creating a new variable:\n\n\nl_enclosures &lt;- c(\"large circular enclosure\", \"enclosure\")\n\ndf_enclosures &lt;- df_lasoles %&gt;% \n  filter(Site_category_ENG %in% l_enclosures)\n\naori_encl &lt;- aorist(df_enclosures, from = \"date_start\", to = \"date_end\", method = \"period_correction\", stepwidth = 1)\n\nggplot()+\n  geom_line(data = aori_encl, aes(x=date, y=sum))",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w08/time.html#exercise-1",
     "href": "lect/w08/time.html#exercise-1",
     "title": "Considering time",
     "section": "Exercise",
-    "text": "Exercise\n\nclean your workspace, create new script, load either the new lasoles table (with end and start dates) or the old one, but then join it with datation table\ncreate a dataframe of fortificated areas, consisting of hillforts, elevated settlements (settlement-exp) and military camps\ncalculate an aoristic sum for these fortificated areas and show it in ggplot\nadd marks to your ggplot visualizing the start and the end of the Iron age period (-800 and -21 BCE)\ncreate a map of those fortified areas in the Czech republic (you will need to create a sf file and load “republika” from RCzechia)\ncreate the same map, but only in Olomoucký kraj"
+    "text": "Exercise\n\nclean your workspace, create new script, load either the new lasoles table (with end and start dates) or the old one, but then join it with datation table\ncreate a dataframe of fortificated areas, consisting of hillforts, elevated settlements (settlement-exp) and military camps\ncalculate an aoristic sum for these fortificated areas and show it in ggplot\nadd marks to your ggplot visualizing the start and the end of the Iron age period (-800 and -21 BCE)\ncreate a map of those fortified areas in the Czech republic (you will need to create a sf file and load “republika” from RCzechia)\ncreate the same map, but only in Olomoucký kraj",
+    "crumbs": [
+      "Considering time"
+    ]
   },
   {
     "objectID": "lect/w01/slides_tidy.html#what-is-a-database",
