@@ -45,10 +45,11 @@ website:
         # - reproducibility.qmd
   
   page-footer: 
-    background: "#F2F3F4"
     left: 
        - href: https://quarto.org/
          text: "Build with quarto."
+    center: |
+      Licenses: MIT (code) & CC BY-SA 4.0 Int. (other content).
     right: 
        - icon: github
          href: https://github.com/petrpajdla/stat4arch/
