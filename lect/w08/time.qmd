@@ -5,7 +5,7 @@ format:
   revealjs:
     fontsize: 24px
     output-file: slides_time.html
-    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Space](./space.html)"
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Time](./time.html)"
     chalkboard:
       theme: whiteboard
       chalk-effect: 0.0
