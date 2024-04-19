@@ -42,6 +42,8 @@ website:
         - lect/w05/dplyr.qmd
         - lect/w07/space.qmd
         - lect/w08/time.qmd
+        - lect/w09/dist.qmd
+        - lect/w09/clust.qmd
         # - reproducibility.qmd
   
   page-footer: 
