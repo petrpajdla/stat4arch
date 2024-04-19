@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset &  Script\n\n\n5.\n20. 3.\nNormal distribution & data manpulation with dplyr\n Dataset\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n Dataset (lasoles) &  Solution\n\n\n8.\n10. 4.\nConsidering time\n Dataset (datations)\n\n\n-\n17. 4.\nReading week\nIndividual consultations of projects\n\n\n9.\n24. 4.\nDistances and clustering\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nDimensionality reduction methods (PCA, CA)\n\n\n\n11.\n22. 5.\nReproducibility with Quarto & Practice"
+    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset &  Script\n\n\n5.\n20. 3.\nNormal distribution & data manpulation with dplyr\n Dataset\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n Dataset (lasoles) &  Solution\n\n\n8.\n10. 4.\nConsidering time\n Dataset (datations)\n\n\n-\n17. 4.\nReading week\nIndividual consultations of projects\n\n\n9.\n24. 4.\nDistances & Custering\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nDimensionality reduction methods (PCA, CA)\n\n\n\n11.\n22. 5.\nReproducibility with Quarto & Practice"
   },
   {
     "objectID": "index.html",
@@ -2913,6 +2913,135 @@
     "text": "Where to learn more…\n\nCRAN Task View: Analysis of Spatial Data\nBooks:",
     "crumbs": [
       "Considering space"
+    ]
+  },
+  {
+    "objectID": "lect/w09/slides_clust.html#clustering",
+    "href": "lect/w09/slides_clust.html#clustering",
+    "title": "Clustering",
+    "section": "Clustering",
+    "text": "Clustering\n\n\n\nBroad set of techniques for finding subgroups.\nObservations within groups are quite similar to each other and observations in different groups quite different from each other.\n\nClustering methods\n\nPartitioning: k-means clustering\nAgglomerative/divisive: hierarchical clustering\nModel-based: mixture models"
+  },
+  {
+    "objectID": "lect/w09/slides_clust.html#k-means-clustering",
+    "href": "lect/w09/slides_clust.html#k-means-clustering",
+    "title": "Clustering",
+    "section": "K-means clustering",
+    "text": "K-means clustering\n\nSimple approach to partitioning a data set into K distinct, non-overlapping clusters.\nK is specified beforehand.\n\n\nJames et al. 2013"
+  },
+  {
+    "objectID": "lect/w09/slides_clust.html#k-means-algorithm",
+    "href": "lect/w09/slides_clust.html#k-means-algorithm",
+    "title": "Clustering",
+    "section": "K-means algorithm",
+    "text": "K-means algorithm\n\n\n\n\\(K\\) – number of clusters.\n\n\n\nThe process:\n\n\nRandomly assign each observation to groups 1 to K;\nFor each of K clusters, derive its centroid (midpoint);\nReassign each observation into a cluster whose centroid is the closest;\nIterate until stability in cluster assignments is reached (local vs global optima).\n\n\n\n\n\n\n\nJames et al. 2013"
+  },
+  {
+    "objectID": "lect/w09/slides_clust.html#some-properties-of-k-means-partitioning",
+    "href": "lect/w09/slides_clust.html#some-properties-of-k-means-partitioning",
+    "title": "Clustering",
+    "section": "Some properties of K-means partitioning",
+    "text": "Some properties of K-means partitioning\n\n\n\nStandard algorithm for k-means clustering is using Euclidean distance (distances are calculated using Pythagorean theorem).\nDifferent local optima (stability) can be reached.\n\n\n\n\nNumber of clusters K must be specified in advance\nHow to determine optimal number of clusters?\n\nElbow method,\nSilhouette method"
+  },
+  {
+    "objectID": "lect/w09/slides_clust.html#hierarchical-clustering",
+    "href": "lect/w09/slides_clust.html#hierarchical-clustering",
+    "title": "Clustering",
+    "section": "Hierarchical clustering",
+    "text": "Hierarchical clustering\n\n\n\nThe number of clusters is not specified beforehand.\nOutput is a dendrogram – a hierarchical structure visualizing the cluster growth.\nStarts with a distance matrix.\n\n\n\n\n\n\n\nAgglomerative\n\nBuilds the hierarchy of clusters from bottom-up until a single cluster is reached.\n\n\nPut each object in its own cluster;\nJoin the clusters that are the closest;\nIterate until a single cluster encompassing all objects is reached.\n\n\nDivisive\n\nDivides a single large cluster into individual objects (top-down).\n\n\nPut all objects into a single cluster;\nDivide the cluster into subclusters at a similar distance;\nIterate util all objects are in their own clusters."
+  },
+  {
+    "objectID": "lect/w09/slides_clust.html#hierarchical-clustering-algorithms",
+    "href": "lect/w09/slides_clust.html#hierarchical-clustering-algorithms",
+    "title": "Clustering",
+    "section": "Hierarchical clustering algorithms",
+    "text": "Hierarchical clustering algorithms"
+  },
+  {
+    "objectID": "lect/w09/slides_clust.html#clustering-methods-comparison",
+    "href": "lect/w09/slides_clust.html#clustering-methods-comparison",
+    "title": "Clustering",
+    "section": "Clustering methods comparison",
+    "text": "Clustering methods comparison\n\n\nK-means partitioning\n\nPre-specified number of clusters.\nClusters may vary (different local optima).\nBest when groups in data are (hyper)spheres.\n\n\n\nHierarchical clustering\n\nVariable cluster numbers.\nClusters are stable.\nAny shape of data distribution.\n\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Clustering"
+  },
+  {
+    "objectID": "lect/w09/clust.html",
+    "href": "lect/w09/clust.html",
+    "title": "Clustering",
+    "section": "",
+    "text": "Broad set of techniques for finding subgroups.\nObservations within groups are quite similar to each other and observations in different groups quite different from each other.\n\n\n\n\nPartitioning: k-means clustering\nAgglomerative/divisive: hierarchical clustering\nModel-based: mixture models",
+    "crumbs": [
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w09/clust.html#clustering",
+    "href": "lect/w09/clust.html#clustering",
+    "title": "Clustering",
+    "section": "",
+    "text": "Broad set of techniques for finding subgroups.\nObservations within groups are quite similar to each other and observations in different groups quite different from each other.\n\n\n\n\nPartitioning: k-means clustering\nAgglomerative/divisive: hierarchical clustering\nModel-based: mixture models",
+    "crumbs": [
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w09/clust.html#k-means-clustering",
+    "href": "lect/w09/clust.html#k-means-clustering",
+    "title": "Clustering",
+    "section": "K-means clustering",
+    "text": "K-means clustering\n\nSimple approach to partitioning a data set into K distinct, non-overlapping clusters.\nK is specified beforehand.\n\n\n\n\nJames et al. 2013",
+    "crumbs": [
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w09/clust.html#k-means-algorithm",
+    "href": "lect/w09/clust.html#k-means-algorithm",
+    "title": "Clustering",
+    "section": "K-means algorithm",
+    "text": "K-means algorithm\n\n\n\n\\(K\\) – number of clusters.\n\n\n\nThe process:\n\n\nRandomly assign each observation to groups 1 to K;\nFor each of K clusters, derive its centroid (midpoint);\nReassign each observation into a cluster whose centroid is the closest;\nIterate until stability in cluster assignments is reached (local vs global optima).\n\n\n\n\n\n\n\n\nJames et al. 2013",
+    "crumbs": [
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w09/clust.html#some-properties-of-k-means-partitioning",
+    "href": "lect/w09/clust.html#some-properties-of-k-means-partitioning",
+    "title": "Clustering",
+    "section": "Some properties of K-means partitioning",
+    "text": "Some properties of K-means partitioning\n\n\n\nStandard algorithm for k-means clustering is using Euclidean distance (distances are calculated using Pythagorean theorem).\nDifferent local optima (stability) can be reached.\n\n\n\n\nNumber of clusters K must be specified in advance\nHow to determine optimal number of clusters?\n\nElbow method,\nSilhouette method",
+    "crumbs": [
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w09/clust.html#hierarchical-clustering",
+    "href": "lect/w09/clust.html#hierarchical-clustering",
+    "title": "Clustering",
+    "section": "Hierarchical clustering",
+    "text": "Hierarchical clustering\n\n\n\nThe number of clusters is not specified beforehand.\nOutput is a dendrogram – a hierarchical structure visualizing the cluster growth.\nStarts with a distance matrix.\n\n\n\n\n\n\n\n\nAgglomerative\n\nBuilds the hierarchy of clusters from bottom-up until a single cluster is reached.\n\n\nPut each object in its own cluster;\nJoin the clusters that are the closest;\nIterate until a single cluster encompassing all objects is reached.\n\n\n\n\nDivisive\n\nDivides a single large cluster into individual objects (top-down).\n\n\nPut all objects into a single cluster;\nDivide the cluster into subclusters at a similar distance;\nIterate util all objects are in their own clusters.",
+    "crumbs": [
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w09/clust.html#hierarchical-clustering-algorithms",
+    "href": "lect/w09/clust.html#hierarchical-clustering-algorithms",
+    "title": "Clustering",
+    "section": "Hierarchical clustering algorithms",
+    "text": "Hierarchical clustering algorithms",
+    "crumbs": [
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w09/clust.html#clustering-methods-comparison",
+    "href": "lect/w09/clust.html#clustering-methods-comparison",
+    "title": "Clustering",
+    "section": "Clustering methods comparison",
+    "text": "Clustering methods comparison\n\n\n\nK-means partitioning\n\nPre-specified number of clusters.\nClusters may vary (different local optima).\nBest when groups in data are (hyper)spheres.\n\n\n\n\n\nHierarchical clustering\n\nVariable cluster numbers.\nClusters are stable.\nAny shape of data distribution.",
+    "crumbs": [
+      "Clustering"
     ]
   },
   {
