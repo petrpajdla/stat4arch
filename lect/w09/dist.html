@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>stat4arch - Distances</title>
+<title>stat4arch - Distance and similarity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -67,6 +101,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -141,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../lect/w09/dist.html">
- <span class="dropdown-text">Distances</span></a>
+ <span class="dropdown-text">Distance and similarity</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../lect/w09/clust.html">
@@ -175,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w09/dist.html">Distances</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w09/dist.html">Distance and similarity</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -244,7 +307,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lect/w09/dist.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Distances</span></a>
+ <span class="menu-text">Distance and similarity</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -259,14 +322,32 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_dist.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="dist.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#distance-and-similarity" id="toc-distance-and-similarity" class="nav-link active" data-scroll-target="#distance-and-similarity">Distance and similarity</a></li>
+  <li><a href="#different-distance-measures" id="toc-different-distance-measures" class="nav-link" data-scroll-target="#different-distance-measures">Different distance measures</a></li>
+  <li><a href="#binary-distances" id="toc-binary-distances" class="nav-link" data-scroll-target="#binary-distances">Binary distances</a></li>
+  <li><a href="#distances-between-categorical-data" id="toc-distances-between-categorical-data" class="nav-link" data-scroll-target="#distances-between-categorical-data">Distances between categorical data</a></li>
+  <li><a href="#distance-between-continuous-numeric-data" id="toc-distance-between-continuous-numeric-data" class="nav-link" data-scroll-target="#distance-between-continuous-numeric-data">Distance between (continuous) numeric data</a></li>
+  <li><a href="#euclidean-distance" id="toc-euclidean-distance" class="nav-link" data-scroll-target="#euclidean-distance">Euclidean distance</a>
+  <ul class="collapse">
+  <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r">In R…</a></li>
+  </ul></li>
+  <li><a href="#code-along" id="toc-code-along" class="nav-link" data-scroll-target="#code-along">Code along</a></li>
+  <li><a href="#euclidean-distance-1" id="toc-euclidean-distance-1" class="nav-link" data-scroll-target="#euclidean-distance-1">Euclidean distance</a></li>
+  <li><a href="#distance-matrix" id="toc-distance-matrix" class="nav-link" data-scroll-target="#distance-matrix">Distance matrix</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w09/dist.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w09/dist.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_dist.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="dist.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Distances</h1>
+<h1 class="title">Distance and similarity</h1>
 </div>
 
 
@@ -283,10 +364,214 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="distance-and-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="distance-and-similarity">Distance and similarity</h2>
+<ul>
+<li>Distance and similarity are more or less opposite concepts.</li>
+<li>Distance is a <strong>numerical measure</strong> describing how are two objects (defined by certain variables) different (<em>pairwise distance</em>).</li>
+<li>Different distance measures exist for different data types.</li>
+</ul>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<section id="distance" class="level3">
+<h3 class="anchored" data-anchor-id="distance">Distance</h3>
+<ul>
+<li>Scale 0 – <span class="math inline">\(\infty\)</span></li>
+<li>0 – Two objects with 0 distance between them.</li>
+<li><span class="math inline">\(\infty\)</span> – Two objects with infinite distance.</li>
+<li>In practice, maximum distance is often 1.</li>
+<li>Denoted by <span class="math inline">\(D\)</span> (for distance, or dissimilarity).</li>
+<li><span class="math inline">\(D = 1 - S\)</span></li>
+</ul>
+</section>
+</div><div class="column fragment" style="width:50%;">
+<section id="similarity" class="level3">
+<h3 class="anchored" data-anchor-id="similarity">Similarity</h3>
+<ul>
+<li>Scale 0 – 1</li>
+<li>0 – Two objects completely dissimilar (0%).</li>
+<li>1 – Two objects competely similar (100%).</li>
+<li>Denoted by <span class="math inline">\(S\)</span> (for similarity).</li>
+<li><span class="math inline">\(S = 1 - D\)</span></li>
+</ul>
+</section>
+</div>
+</div>
+</section>
+<section id="different-distance-measures" class="level2">
+<h2 class="anchored" data-anchor-id="different-distance-measures">Different distance measures</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Dichotomous variables
+<ul class="incremental">
+<li>Symmetrical – Simple matching distance</li>
+<li>Asymmetrical – Jaccard index (binary distance)</li>
+</ul></li>
+<li>Categorical variables
+<ul class="incremental">
+<li>Hamming distance</li>
+</ul></li>
+<li>Numeric continuous variables
+<ul class="incremental">
+<li>Euclidean distance</li>
+</ul></li>
+<li>Mixed data sets
+<ul class="incremental">
+<li>Gower’s distance</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="binary-distances" class="level2">
+<h2 class="anchored" data-anchor-id="binary-distances">Binary distances</h2>
+</section>
+<section id="distances-between-categorical-data" class="level2">
+<h2 class="anchored" data-anchor-id="distances-between-categorical-data">Distances between categorical data</h2>
+</section>
+<section id="distance-between-continuous-numeric-data" class="level2">
+<h2 class="anchored" data-anchor-id="distance-between-continuous-numeric-data">Distance between (continuous) numeric data</h2>
+<ul>
+<li>To <strong>remove effects of scale</strong> (different units etc.), variables should be scaled (normalized).</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="normalization" class="level3">
+<h3 class="anchored" data-anchor-id="normalization">Normalization</h3>
+<ul>
+<li><em>z-score</em> or <em>z-transformation</em></li>
+</ul>
+</section>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+z = \frac{x - \mu}{\sigma}
+\]</span></p>
+</div>
+</div>
+<p><img src="figs/z-score.png" class="img-fluid"></p>
+</section>
+<section id="euclidean-distance" class="level2">
+<h2 class="anchored" data-anchor-id="euclidean-distance">Euclidean distance</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Defined for a <strong>Cartesian coordinate space</strong>.</li>
+<li>Uses <strong>Pythagorean theorem</strong>.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}
+\]</span></p>
+</div>
+</div>
+<section id="in-r" class="level3">
+<h3 class="anchored" data-anchor-id="in-r">In R…</h3>
+<ul>
+<li><code>scale(x, center = TRUE, scale = TRUE)</code></li>
+<li><code>dist(x, method = "euclidean")</code></li>
+<li>or using package <a href="https://drostlab.github.io/philentropy/index.html">philentropy</a> <code>distance(x, method = "euclidean")</code></li>
+</ul>
+</section>
+</section>
+<section id="code-along" class="level2">
+<h2 class="anchored" data-anchor-id="code-along">Code along</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/dartpoints_numeric.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary of values</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">select</span>(darts, Length, Width, Thickness, Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Length           Width         Thickness          Weight      
+ Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  
+ 1st Qu.: 40.85   1st Qu.:18.55   1st Qu.: 6.250   1st Qu.: 4.550  
+ Median : 47.10   Median :21.10   Median : 7.200   Median : 6.800  
+ Mean   : 49.33   Mean   :22.08   Mean   : 7.271   Mean   : 7.643  
+ 3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  
+ Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># normalization</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>darts_norm <span class="ot">&lt;-</span> darts <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Length =</span> <span class="fu">scale</span>(Length),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Width =</span> <span class="fu">scale</span>(Width),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Thickness =</span> <span class="fu">scale</span>(Thickness),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Weight =</span> <span class="fu">scale</span>(Weight))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># or this shorthand can be used</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>darts_norm <span class="ot">&lt;-</span> darts <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">"Length"</span>, <span class="st">"Width"</span>, <span class="st">"Thickness"</span>, <span class="st">"Weight"</span>)), scale))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># summary of normalized values</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">select</span>(darts_norm, Length, Width, Thickness, Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Length.V1           Width.V1           Thickness.V1    
+ Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  
+ 1st Qu.:-0.665879   1st Qu.:-0.683998   1st Qu.:-0.6670233  
+ Median :-0.175152   Median :-0.189461   Median :-0.0466450  
+ Mean   : 0.000000   Mean   : 0.000000   Mean   : 0.0000000  
+ 3rd Qu.: 0.507941   3rd Qu.: 0.595981   3rd Qu.: 0.6390363  
+ Max.   : 4.724271   Max.   : 5.279540   Max.   : 2.2389592  
+      Weight.V1     
+ Min.   :-1.269966  
+ 1st Qu.:-0.735154  
+ Median :-0.200342  
+ Mean   : 0.000000  
+ 3rd Qu.: 0.572164  
+ Max.   : 5.028928  </code></pre>
+</div>
+</div>
+</section>
+<section id="euclidean-distance-1" class="level2">
+<h2 class="anchored" data-anchor-id="euclidean-distance-1">Euclidean distance</h2>
+</section>
+<section id="distance-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="distance-matrix">Distance matrix</h2>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<p>For a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al.&nbsp;<a href="https://doi.org/10.5281/zenodo.6325372">DOI: 10.5281/zenodo.6325372</a>. (direct link to a HTML file is <a href="https://gitlab.com/oliver.nakoinz/klassifikator/-/blob/master/5tutorials/tutorial_complete_ENG.Rmd">here</a>)</p>
 
 
+</section>
 
 </main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -710,7 +995,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Licenses: MIT (code) &amp; CC BY-SA 4.0 Int. (other content).</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w09/dist.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w09/dist.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w09/dist.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w09/dist.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

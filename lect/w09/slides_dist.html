@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.553">
 
-  <title>stat4arch - Distances</title>
+  <title>stat4arch - Distance and similarity</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -327,14 +392,171 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Distances</h1>
+  <h1 class="title">Distance and similarity</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section class="slide level2">
+<section id="distance-and-similarity" class="slide level2">
+<h2>Distance and similarity</h2>
+<ul>
+<li>Distance and similarity are more or less opposite concepts.</li>
+<li>Distance is a <strong>numerical measure</strong> describing how are two objects (defined by certain variables) different (<em>pairwise distance</em>).</li>
+<li>Different distance measures exist for different data types.</li>
+</ul>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<!-- -->
+<h3 id="distance">Distance</h3>
+<ul>
+<li>Scale 0 – <span class="math inline">\(\infty\)</span></li>
+<li>0 – Two objects with 0 distance between them.</li>
+<li><span class="math inline">\(\infty\)</span> – Two objects with infinite distance.</li>
+<li>In practice, maximum distance is often 1.</li>
+<li>Denoted by <span class="math inline">\(D\)</span> (for distance, or dissimilarity).</li>
+<li><span class="math inline">\(D = 1 - S\)</span></li>
+</ul>
+</div><div class="column fragment" style="width:50%;">
+<!-- -->
+<h3 id="similarity">Similarity</h3>
+<ul>
+<li>Scale 0 – 1</li>
+<li>0 – Two objects completely dissimilar (0%).</li>
+<li>1 – Two objects competely similar (100%).</li>
+<li>Denoted by <span class="math inline">\(S\)</span> (for similarity).</li>
+<li><span class="math inline">\(S = 1 - D\)</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="different-distance-measures" class="slide level2">
+<h2>Different distance measures</h2>
+<div>
+<ul>
+<li class="fragment">Dichotomous variables
+<ul>
+<li class="fragment">Symmetrical – Simple matching distance</li>
+<li class="fragment">Asymmetrical – Jaccard index (binary distance)</li>
+</ul></li>
+<li class="fragment">Categorical variables
+<ul>
+<li class="fragment">Hamming distance</li>
+</ul></li>
+<li class="fragment">Numeric continuous variables
+<ul>
+<li class="fragment">Euclidean distance</li>
+</ul></li>
+<li class="fragment">Mixed data sets
+<ul>
+<li class="fragment">Gower’s distance</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="binary-distances" class="slide level2">
+<h2>Binary distances</h2>
+</section>
+<section id="distances-between-categorical-data" class="slide level2">
+<h2>Distances between categorical data</h2>
+</section>
+<section id="distance-between-continuous-numeric-data" class="slide level2">
+<h2>Distance between (continuous) numeric data</h2>
+<ul>
+<li>To <strong>remove effects of scale</strong> (different units etc.), variables should be scaled (normalized).</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="normalization">Normalization</h3>
+<ul>
+<li><em>z-score</em> or <em>z-transformation</em></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+z = \frac{x - \mu}{\sigma}
+\]</span></p>
+</div>
+</div>
 
+<img data-src="figs/z-score.png" class="r-stretch"></section>
+<section id="euclidean-distance" class="slide level2">
+<h2>Euclidean distance</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Defined for a <strong>Cartesian coordinate space</strong>.</li>
+<li>Uses <strong>Pythagorean theorem</strong>.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}
+\]</span></p>
+</div>
+</div>
+<h3 id="in-r">In R…</h3>
+<ul>
+<li><code>scale(x, center = TRUE, scale = TRUE)</code></li>
+<li><code>dist(x, method = "euclidean")</code></li>
+<li>or using package <a href="https://drostlab.github.io/philentropy/index.html">philentropy</a> <code>distance(x, method = "euclidean")</code></li>
+</ul>
+</section>
+<section id="code-along" class="slide level2">
+<h2>Code along</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/dartpoints_numeric.csv"</span>)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># summary of values</span></span>
+<span id="cb1-5"><a></a><span class="fu">summary</span>(<span class="fu">select</span>(darts, Length, Width, Thickness, Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Length           Width         Thickness          Weight      
+ Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  
+ 1st Qu.: 40.85   1st Qu.:18.55   1st Qu.: 6.250   1st Qu.: 4.550  
+ Median : 47.10   Median :21.10   Median : 7.200   Median : 6.800  
+ Mean   : 49.33   Mean   :22.08   Mean   : 7.271   Mean   : 7.643  
+ 3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  
+ Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># normalization</span></span>
+<span id="cb3-2"><a></a>darts_norm <span class="ot">&lt;-</span> darts <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">mutate</span>(<span class="at">Length =</span> <span class="fu">scale</span>(Length),</span>
+<span id="cb3-4"><a></a>         <span class="at">Width =</span> <span class="fu">scale</span>(Width),</span>
+<span id="cb3-5"><a></a>         <span class="at">Thickness =</span> <span class="fu">scale</span>(Thickness),</span>
+<span id="cb3-6"><a></a>         <span class="at">Weight =</span> <span class="fu">scale</span>(Weight))</span>
+<span id="cb3-7"><a></a>         </span>
+<span id="cb3-8"><a></a><span class="co"># or this shorthand can be used</span></span>
+<span id="cb3-9"><a></a>darts_norm <span class="ot">&lt;-</span> darts <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">"Length"</span>, <span class="st">"Width"</span>, <span class="st">"Thickness"</span>, <span class="st">"Weight"</span>)), scale))</span>
+<span id="cb3-11"><a></a></span>
+<span id="cb3-12"><a></a><span class="co"># summary of normalized values</span></span>
+<span id="cb3-13"><a></a><span class="fu">summary</span>(<span class="fu">select</span>(darts_norm, Length, Width, Thickness, Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Length.V1           Width.V1           Thickness.V1    
+ Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  
+ 1st Qu.:-0.665879   1st Qu.:-0.683998   1st Qu.:-0.6670233  
+ Median :-0.175152   Median :-0.189461   Median :-0.0466450  
+ Mean   : 0.000000   Mean   : 0.000000   Mean   : 0.0000000  
+ 3rd Qu.: 0.507941   3rd Qu.: 0.595981   3rd Qu.: 0.6390363  
+ Max.   : 4.724271   Max.   : 5.279540   Max.   : 2.2389592  
+      Weight.V1     
+ Min.   :-1.269966  
+ 1st Qu.:-0.735154  
+ Median :-0.200342  
+ Mean   : 0.000000  
+ 3rd Qu.: 0.572164  
+ Max.   : 5.028928  </code></pre>
+</div>
+</div>
+</section>
+<section id="euclidean-distance-1" class="slide level2">
+<h2>Euclidean distance</h2>
+</section>
+<section id="distance-matrix" class="slide level2">
+<h2>Distance matrix</h2>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<p>For a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al.&nbsp;<a href="https://doi.org/10.5281/zenodo.6325372">DOI: 10.5281/zenodo.6325372</a>. (direct link to a HTML file is <a href="https://gitlab.com/oliver.nakoinz/klassifikator/-/blob/master/5tutorials/tutorial_complete_ENG.Rmd">here</a>)</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -554,6 +776,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset &  Script\n\n\n5.\n20. 3.\nNormal distribution & data manpulation with dplyr\n Dataset\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n Dataset (lasoles) &  Solution\n\n\n8.\n10. 4.\nConsidering time\n Dataset (datations)\n\n\n-\n17. 4.\nReading week\nIndividual consultations of projects\n\n\n9.\n24. 4.\nDistances & Custering\n\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nDimensionality reduction methods (PCA, CA)\n\n\n\n11.\n22. 5.\nReproducibility with Quarto & Practice"
+    "text": "The course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset &  Script\n\n\n5.\n20. 3.\nNormal distribution & data manpulation with dplyr\n Dataset\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n Dataset (lasoles) &  Solution\n\n\n8.\n10. 4.\nConsidering time\n Dataset (datations)\n\n\n-\n17. 4.\nReading week\nIndividual consultations of projects\n\n\n9.\n24. 4.\nDistances & Custering\n Dataset (dart points)\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nDimensionality reduction methods (PCA, CA)\n\n\n\n11.\n22. 5.\nReproducibility with Quarto & Practice"
   },
   {
     "objectID": "index.html",
@@ -377,6 +377,186 @@
     "title": "Data manipulation with dplyr",
     "section": "Exercise",
     "text": "Exercise\n\n\nCreate new a script in your project folder and save.\nLoad packages necessary for: (a) loading, (b) transformation, and (c) visualization of data.\nLoad database bacups.csv and save it as an object.\nCreate a new dataframe having only variables H, RD and Phase.\nTry to use pipes %&gt;%.\nRename the variables to height, rimdiameter and phase.\nFor each phase calculate following summary statistics:\n\nmean and median vessel height,\n\nstandard deviation of vessel height,\ncorrelation between height and rim diameter, and\n\nnumber of vessels.\n\nCalculate percentage of vessels in each phase.\nArrange the results from highest to lowest mean values.\nSave your result as a CSV file\nAre height of vessels or rim diameter normally distributed? Why/why not?\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | dplyr"
+  },
+  {
+    "objectID": "lect/w09/dist.html",
+    "href": "lect/w09/dist.html",
+    "title": "Distance and similarity",
+    "section": "",
+    "text": "Distance and similarity are more or less opposite concepts.\nDistance is a numerical measure describing how are two objects (defined by certain variables) different (pairwise distance).\nDifferent distance measures exist for different data types.\n\n\n\n\n\n\nScale 0 – \\(\\infty\\)\n0 – Two objects with 0 distance between them.\n\\(\\infty\\) – Two objects with infinite distance.\nIn practice, maximum distance is often 1.\nDenoted by \\(D\\) (for distance, or dissimilarity).\n\\(D = 1 - S\\)\n\n\n\n\n\n\nScale 0 – 1\n0 – Two objects completely dissimilar (0%).\n1 – Two objects competely similar (100%).\nDenoted by \\(S\\) (for similarity).\n\\(S = 1 - D\\)",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#distance-and-similarity",
+    "href": "lect/w09/dist.html#distance-and-similarity",
+    "title": "Distance and similarity",
+    "section": "",
+    "text": "Distance and similarity are more or less opposite concepts.\nDistance is a numerical measure describing how are two objects (defined by certain variables) different (pairwise distance).\nDifferent distance measures exist for different data types.\n\n\n\n\n\n\nScale 0 – \\(\\infty\\)\n0 – Two objects with 0 distance between them.\n\\(\\infty\\) – Two objects with infinite distance.\nIn practice, maximum distance is often 1.\nDenoted by \\(D\\) (for distance, or dissimilarity).\n\\(D = 1 - S\\)\n\n\n\n\n\n\nScale 0 – 1\n0 – Two objects completely dissimilar (0%).\n1 – Two objects competely similar (100%).\nDenoted by \\(S\\) (for similarity).\n\\(S = 1 - D\\)",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#different-distance-measures",
+    "href": "lect/w09/dist.html#different-distance-measures",
+    "title": "Distance and similarity",
+    "section": "Different distance measures",
+    "text": "Different distance measures\n\n\nDichotomous variables\n\nSymmetrical – Simple matching distance\nAsymmetrical – Jaccard index (binary distance)\n\nCategorical variables\n\nHamming distance\n\nNumeric continuous variables\n\nEuclidean distance\n\nMixed data sets\n\nGower’s distance",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#binary-distances",
+    "href": "lect/w09/dist.html#binary-distances",
+    "title": "Distance and similarity",
+    "section": "Binary distances",
+    "text": "Binary distances",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#distances-between-categorical-data",
+    "href": "lect/w09/dist.html#distances-between-categorical-data",
+    "title": "Distance and similarity",
+    "section": "Distances between categorical data",
+    "text": "Distances between categorical data",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#distance-between-continuous-numeric-data",
+    "href": "lect/w09/dist.html#distance-between-continuous-numeric-data",
+    "title": "Distance and similarity",
+    "section": "Distance between (continuous) numeric data",
+    "text": "Distance between (continuous) numeric data\n\nTo remove effects of scale (different units etc.), variables should be scaled (normalized).\n\n\n\n\nNormalization\n\nz-score or z-transformation\n\n\n\n\\[\nz = \\frac{x - \\mu}{\\sigma}\n\\]",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#euclidean-distance",
+    "href": "lect/w09/dist.html#euclidean-distance",
+    "title": "Distance and similarity",
+    "section": "Euclidean distance",
+    "text": "Euclidean distance\n\n\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem.\n\n\n\\[\nd(p, q) = \\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}\n\\]\n\n\n\nIn R…\n\nscale(x, center = TRUE, scale = TRUE)\ndist(x, method = \"euclidean\")\nor using package philentropy distance(x, method = \"euclidean\")",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#code-along",
+    "href": "lect/w09/dist.html#code-along",
+    "title": "Distance and similarity",
+    "section": "Code along",
+    "text": "Code along\n\nlibrary(dplyr)\ndarts &lt;- read.csv(\"./data/dartpoints_numeric.csv\")\n\n# summary of values\nsummary(select(darts, Length, Width, Thickness, Weight))\n\n     Length           Width         Thickness          Weight      \n Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  \n 1st Qu.: 40.85   1st Qu.:18.55   1st Qu.: 6.250   1st Qu.: 4.550  \n Median : 47.10   Median :21.10   Median : 7.200   Median : 6.800  \n Mean   : 49.33   Mean   :22.08   Mean   : 7.271   Mean   : 7.643  \n 3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  \n Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  \n\n# normalization\ndarts_norm &lt;- darts %&gt;%\n  mutate(Length = scale(Length),\n         Width = scale(Width),\n         Thickness = scale(Thickness),\n         Weight = scale(Weight))\n         \n# or this shorthand can be used\ndarts_norm &lt;- darts %&gt;%\n  mutate(across(all_of(c(\"Length\", \"Width\", \"Thickness\", \"Weight\")), scale))\n\n# summary of normalized values\nsummary(select(darts_norm, Length, Width, Thickness, Weight))\n\n      Length.V1           Width.V1           Thickness.V1    \n Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  \n 1st Qu.:-0.665879   1st Qu.:-0.683998   1st Qu.:-0.6670233  \n Median :-0.175152   Median :-0.189461   Median :-0.0466450  \n Mean   : 0.000000   Mean   : 0.000000   Mean   : 0.0000000  \n 3rd Qu.: 0.507941   3rd Qu.: 0.595981   3rd Qu.: 0.6390363  \n Max.   : 4.724271   Max.   : 5.279540   Max.   : 2.2389592  \n      Weight.V1     \n Min.   :-1.269966  \n 1st Qu.:-0.735154  \n Median :-0.200342  \n Mean   : 0.000000  \n 3rd Qu.: 0.572164  \n Max.   : 5.028928",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#euclidean-distance-1",
+    "href": "lect/w09/dist.html#euclidean-distance-1",
+    "title": "Distance and similarity",
+    "section": "Euclidean distance",
+    "text": "Euclidean distance",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#distance-matrix",
+    "href": "lect/w09/dist.html#distance-matrix",
+    "title": "Distance and similarity",
+    "section": "Distance matrix",
+    "text": "Distance matrix",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/dist.html#resources",
+    "href": "lect/w09/dist.html#resources",
+    "title": "Distance and similarity",
+    "section": "Resources",
+    "text": "Resources\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372. (direct link to a HTML file is here)",
+    "crumbs": [
+      "Distance and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#distance-and-similarity",
+    "href": "lect/w09/slides_dist.html#distance-and-similarity",
+    "title": "Distance and similarity",
+    "section": "Distance and similarity",
+    "text": "Distance and similarity\n\nDistance and similarity are more or less opposite concepts.\nDistance is a numerical measure describing how are two objects (defined by certain variables) different (pairwise distance).\nDifferent distance measures exist for different data types.\n\n\n\n\nDistance\n\nScale 0 – \\(\\infty\\)\n0 – Two objects with 0 distance between them.\n\\(\\infty\\) – Two objects with infinite distance.\nIn practice, maximum distance is often 1.\nDenoted by \\(D\\) (for distance, or dissimilarity).\n\\(D = 1 - S\\)\n\n\n\nSimilarity\n\nScale 0 – 1\n0 – Two objects completely dissimilar (0%).\n1 – Two objects competely similar (100%).\nDenoted by \\(S\\) (for similarity).\n\\(S = 1 - D\\)"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#different-distance-measures",
+    "href": "lect/w09/slides_dist.html#different-distance-measures",
+    "title": "Distance and similarity",
+    "section": "Different distance measures",
+    "text": "Different distance measures\n\n\nDichotomous variables\n\nSymmetrical – Simple matching distance\nAsymmetrical – Jaccard index (binary distance)\n\nCategorical variables\n\nHamming distance\n\nNumeric continuous variables\n\nEuclidean distance\n\nMixed data sets\n\nGower’s distance"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#binary-distances",
+    "href": "lect/w09/slides_dist.html#binary-distances",
+    "title": "Distance and similarity",
+    "section": "Binary distances",
+    "text": "Binary distances"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#distances-between-categorical-data",
+    "href": "lect/w09/slides_dist.html#distances-between-categorical-data",
+    "title": "Distance and similarity",
+    "section": "Distances between categorical data",
+    "text": "Distances between categorical data"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#distance-between-continuous-numeric-data",
+    "href": "lect/w09/slides_dist.html#distance-between-continuous-numeric-data",
+    "title": "Distance and similarity",
+    "section": "Distance between (continuous) numeric data",
+    "text": "Distance between (continuous) numeric data\n\nTo remove effects of scale (different units etc.), variables should be scaled (normalized).\n\n\n\nNormalization\n\nz-score or z-transformation\n\n\n\\[\nz = \\frac{x - \\mu}{\\sigma}\n\\]"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#euclidean-distance",
+    "href": "lect/w09/slides_dist.html#euclidean-distance",
+    "title": "Distance and similarity",
+    "section": "Euclidean distance",
+    "text": "Euclidean distance\n\n\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem.\n\n\n\\[\nd(p, q) = \\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}\n\\]\n\n\nIn R…\n\nscale(x, center = TRUE, scale = TRUE)\ndist(x, method = \"euclidean\")\nor using package philentropy distance(x, method = \"euclidean\")"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#code-along",
+    "href": "lect/w09/slides_dist.html#code-along",
+    "title": "Distance and similarity",
+    "section": "Code along",
+    "text": "Code along\n\nlibrary(dplyr)\ndarts &lt;- read.csv(\"./data/dartpoints_numeric.csv\")\n\n# summary of values\nsummary(select(darts, Length, Width, Thickness, Weight))\n\n     Length           Width         Thickness          Weight      \n Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  \n 1st Qu.: 40.85   1st Qu.:18.55   1st Qu.: 6.250   1st Qu.: 4.550  \n Median : 47.10   Median :21.10   Median : 7.200   Median : 6.800  \n Mean   : 49.33   Mean   :22.08   Mean   : 7.271   Mean   : 7.643  \n 3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  \n Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  \n\n# normalization\ndarts_norm &lt;- darts %&gt;%\n  mutate(Length = scale(Length),\n         Width = scale(Width),\n         Thickness = scale(Thickness),\n         Weight = scale(Weight))\n         \n# or this shorthand can be used\ndarts_norm &lt;- darts %&gt;%\n  mutate(across(all_of(c(\"Length\", \"Width\", \"Thickness\", \"Weight\")), scale))\n\n# summary of normalized values\nsummary(select(darts_norm, Length, Width, Thickness, Weight))\n\n      Length.V1           Width.V1           Thickness.V1    \n Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  \n 1st Qu.:-0.665879   1st Qu.:-0.683998   1st Qu.:-0.6670233  \n Median :-0.175152   Median :-0.189461   Median :-0.0466450  \n Mean   : 0.000000   Mean   : 0.000000   Mean   : 0.0000000  \n 3rd Qu.: 0.507941   3rd Qu.: 0.595981   3rd Qu.: 0.6390363  \n Max.   : 4.724271   Max.   : 5.279540   Max.   : 2.2389592  \n      Weight.V1     \n Min.   :-1.269966  \n 1st Qu.:-0.735154  \n Median :-0.200342  \n Mean   : 0.000000  \n 3rd Qu.: 0.572164  \n Max.   : 5.028928"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#euclidean-distance-1",
+    "href": "lect/w09/slides_dist.html#euclidean-distance-1",
+    "title": "Distance and similarity",
+    "section": "Euclidean distance",
+    "text": "Euclidean distance"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#distance-matrix",
+    "href": "lect/w09/slides_dist.html#distance-matrix",
+    "title": "Distance and similarity",
+    "section": "Distance matrix",
+    "text": "Distance matrix"
+  },
+  {
+    "objectID": "lect/w09/slides_dist.html#resources",
+    "href": "lect/w09/slides_dist.html#resources",
+    "title": "Distance and similarity",
+    "section": "Resources",
+    "text": "Resources\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372. (direct link to a HTML file is here)\n\n\n\nAES_707 Statistics seminar for archaeologists | Disctances"
   },
   {
     "objectID": "lect/w04/rels.html#objectives",
