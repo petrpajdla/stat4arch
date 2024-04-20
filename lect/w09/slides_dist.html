@@ -446,6 +446,7 @@
 <li class="fragment">Numeric continuous variables
 <ul>
 <li class="fragment">Euclidean distance</li>
+<li class="fragment">Mahalanobis distance</li>
 </ul></li>
 <li class="fragment">Mixed data sets
 <ul>
@@ -456,9 +457,35 @@
 </section>
 <section id="binary-distances" class="slide level2">
 <h2>Binary distances</h2>
-</section>
-<section id="distances-between-categorical-data" class="slide level2">
-<h2>Distances between categorical data</h2>
+<ul>
+<li>For <code>TRUE</code>/<code>FALSE</code>, <code>1</code>/<code>0</code>, <code>presence</code>/<code>absence</code> (etc.) data</li>
+</ul>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<!-- -->
+<h3 id="symmetrical">Symmetrical</h3>
+<ul>
+<li>Two <strong>presences</strong> as <strong>match</strong>.</li>
+<li>Two <strong>absences</strong> as <strong>match</strong>.</li>
+</ul>
+<p>If a trait is present, two objects are more similar. If a trait is absent, two objects are more similar. For example if <em>biological sex</em> is encoded in one variable with <code>0</code> for <em>male</em> and <code>1</code> for <em>female</em>, it is symmetrical.</p>
+<ul>
+<li><strong>Simple maching distance</strong></li>
+</ul>
+</div><div class="column fragment" style="width:50%;">
+<!-- -->
+<h3 id="asymmetrical">Asymmetrical</h3>
+<ul>
+<li>Two <strong>presences</strong> as <strong>match</strong>.</li>
+<li>Two <strong>absences</strong> as <strong>mismatch</strong>.</li>
+</ul>
+<p>If a trait is present, two objects are more similar. If a trait is <strong>absent</strong> in both cases, e.g.&nbsp;<strong>undetermined</strong>, <strong>missing</strong> etc., this does not affect similarity. This is more practical in archaeology.</p>
+<ul>
+<li><strong>Jaccard index</strong>, i.e.&nbsp;<strong>binary distance</strong></li>
+</ul>
+<p><code>dist(x, method = "binary")</code></p>
+</div>
+</div>
 </section>
 <section id="distance-between-continuous-numeric-data" class="slide level2">
 <h2>Distance between (continuous) numeric data</h2>
@@ -494,20 +521,23 @@ d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}
 </div>
 </div>
 <h3 id="in-r">In R…</h3>
-<ul>
-<li><code>scale(x, center = TRUE, scale = TRUE)</code></li>
-<li><code>dist(x, method = "euclidean")</code></li>
-<li>or using package <a href="https://drostlab.github.io/philentropy/index.html">philentropy</a> <code>distance(x, method = "euclidean")</code></li>
-</ul>
+<p>Normalization:<br>
+<code>scale(x, center = TRUE, scale = TRUE)</code></p>
+<p>Euclidean distance:<br>
+<code>dist(x, method = "euclidean")</code> <!-- - or using package [philentropy](https://drostlab.github.io/philentropy/index.html) `distance(x, method = "euclidean")` --></p>
 </section>
 <section id="code-along" class="slide level2">
 <h2>Code along</h2>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/dartpoints_numeric.csv"</span>)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a><span class="co"># summary of values</span></span>
-<span id="cb1-5"><a></a><span class="fu">summary</span>(<span class="fu">select</span>(darts, Length, Width, Thickness, Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a></a>darts <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://petrpajdla.github.io/stat4arch/lect/w09/data/dartpoints_numeric.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># summary of values</span></span>
+<span id="cb2-2"><a></a><span class="fu">summary</span>(<span class="fu">select</span>(darts, Length, Width, Thickness, Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Length           Width         Thickness          Weight      
  Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  
@@ -517,19 +547,24 @@ d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}
  3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  
  Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># normalization</span></span>
-<span id="cb3-2"><a></a>darts_norm <span class="ot">&lt;-</span> darts <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">mutate</span>(<span class="at">Length =</span> <span class="fu">scale</span>(Length),</span>
-<span id="cb3-4"><a></a>         <span class="at">Width =</span> <span class="fu">scale</span>(Width),</span>
-<span id="cb3-5"><a></a>         <span class="at">Thickness =</span> <span class="fu">scale</span>(Thickness),</span>
-<span id="cb3-6"><a></a>         <span class="at">Weight =</span> <span class="fu">scale</span>(Weight))</span>
-<span id="cb3-7"><a></a>         </span>
-<span id="cb3-8"><a></a><span class="co"># or this shorthand can be used</span></span>
-<span id="cb3-9"><a></a>darts_norm <span class="ot">&lt;-</span> darts <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">"Length"</span>, <span class="st">"Width"</span>, <span class="st">"Thickness"</span>, <span class="st">"Weight"</span>)), scale))</span>
-<span id="cb3-11"><a></a></span>
-<span id="cb3-12"><a></a><span class="co"># summary of normalized values</span></span>
-<span id="cb3-13"><a></a><span class="fu">summary</span>(<span class="fu">select</span>(darts_norm, Length, Width, Thickness, Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># normalization</span></span>
+<span id="cb4-2"><a></a>darts_norm <span class="ot">&lt;-</span> darts <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">mutate</span>(<span class="at">Length =</span> <span class="fu">scale</span>(Length), <span class="at">Width =</span> <span class="fu">scale</span>(Width),</span>
+<span id="cb4-4"><a></a>         <span class="at">Thickness =</span> <span class="fu">scale</span>(Thickness), <span class="at">Weight =</span> <span class="fu">scale</span>(Weight))</span>
+<span id="cb4-5"><a></a>         </span>
+<span id="cb4-6"><a></a><span class="co"># or this shorthand can be used</span></span>
+<span id="cb4-7"><a></a>darts_norm <span class="ot">&lt;-</span> darts <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">"Length"</span>, <span class="st">"Width"</span>, <span class="st">"Thickness"</span>, <span class="st">"Weight"</span>)), scale))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># summary of normalized values</span></span>
+<span id="cb5-2"><a></a><span class="fu">summary</span>(<span class="fu">select</span>(darts_norm, Length, Width, Thickness, Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Length.V1           Width.V1           Thickness.V1    
  Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  
@@ -547,16 +582,58 @@ d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}
  Max.   : 5.028928  </code></pre>
 </div>
 </div>
+</div>
 </section>
-<section id="euclidean-distance-1" class="slide level2">
-<h2>Euclidean distance</h2>
+<section id="code-along-1" class="slide level2">
+<h2>Code along</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># subset of Travis and Darl types of dart points</span></span>
+<span id="cb7-2"><a></a>darts_subset <span class="ot">&lt;-</span> <span class="fu">filter</span>(darts_norm, Name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Travis"</span>, <span class="st">"Darl"</span>)) </span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="co"># matrix with numerical variables only</span></span>
+<span id="cb7-5"><a></a>darts_mx <span class="ot">&lt;-</span> darts_subset <span class="sc">%&gt;%</span> </span>
+<span id="cb7-6"><a></a>  <span class="fu">select</span>(Length, Width, Thickness, Weight) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-7"><a></a>  <span class="fu">as.matrix</span>()</span>
+<span id="cb7-8"><a></a>  </span>
+<span id="cb7-9"><a></a><span class="co"># add row names to the matrix</span></span>
+<span id="cb7-10"><a></a><span class="fu">rownames</span>(darts_mx) <span class="ot">&lt;-</span> darts_subset<span class="sc">$</span>Name</span>
+<span id="cb7-11"><a></a></span>
+<span id="cb7-12"><a></a><span class="co"># count Euclidean distance </span></span>
+<span id="cb7-13"><a></a>darts_d <span class="ot">&lt;-</span> <span class="fu">dist</span>(darts_mx, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">diag =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-14"><a></a></span>
+<span id="cb7-15"><a></a><span class="fu">round</span>(<span class="fu">as.matrix</span>(darts_d)[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Darl Darl Darl Darl Darl Darl
+Darl 0.00 0.42 0.47 0.40 1.57 1.14
+Darl 0.42 0.00 0.43 0.43 1.50 1.18
+Darl 0.47 0.43 0.00 0.28 1.51 1.36
+Darl 0.40 0.43 0.28 0.00 1.74 1.47
+Darl 1.57 1.50 1.51 1.74 0.00 0.90
+Darl 1.14 1.18 1.36 1.47 0.90 0.00</code></pre>
+</div>
+</div>
+<ul>
+<li>Result is a <strong>distance matrix</strong>.</li>
+<li>It is <strong>symmetrical</strong>. <strong>Lower triangular</strong> is the same as <strong>upper triangular</strong>.</li>
+<li>On the <strong>diagonal</strong>, there is distance of the given object to itself, i.e.&nbsp;0.</li>
+</ul>
 </section>
-<section id="distance-matrix" class="slide level2">
-<h2>Distance matrix</h2>
-</section>
+<section id="visualizing-distance-matrix" class="slide level2">
+<h2>Visualizing distance matrix</h2>
+<ul>
+<li>Package <code>corrplot</code> has a nice way of plotting heatmaps.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a><span class="co"># arg. is.corr set to FALSE, because we are not visualizing correlation matrix</span></span>
+<span id="cb9-4"><a></a><span class="fu">corrplot</span>(<span class="fu">as.matrix</span>(darts_d), <span class="at">is.corr =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="dist_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
-<p>For a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al.&nbsp;<a href="https://doi.org/10.5281/zenodo.6325372">DOI: 10.5281/zenodo.6325372</a>. (direct link to a HTML file is <a href="https://gitlab.com/oliver.nakoinz/klassifikator/-/blob/master/5tutorials/tutorial_complete_ENG.Rmd">here</a>)</p>
+<p>For a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al.&nbsp;<a href="https://doi.org/10.5281/zenodo.6325372">DOI: 10.5281/zenodo.6325372</a> (direct link to a HTML file is <a href="https://gitlab.com/oliver.nakoinz/klassifikator/-/blob/master/5tutorials/tutorial_complete_ENG.Rmd">here</a>).</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

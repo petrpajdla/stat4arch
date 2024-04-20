@@ -403,7 +403,7 @@
     "href": "lect/w09/dist.html#different-distance-measures",
     "title": "Distance and similarity",
     "section": "Different distance measures",
-    "text": "Different distance measures\n\n\nDichotomous variables\n\nSymmetrical – Simple matching distance\nAsymmetrical – Jaccard index (binary distance)\n\nCategorical variables\n\nHamming distance\n\nNumeric continuous variables\n\nEuclidean distance\n\nMixed data sets\n\nGower’s distance",
+    "text": "Different distance measures\n\n\nDichotomous variables\n\nSymmetrical – Simple matching distance\nAsymmetrical – Jaccard index (binary distance)\n\nCategorical variables\n\nHamming distance\n\nNumeric continuous variables\n\nEuclidean distance\nMahalanobis distance\n\nMixed data sets\n\nGower’s distance",
     "crumbs": [
       "Distance and similarity"
     ]
@@ -413,17 +413,7 @@
     "href": "lect/w09/dist.html#binary-distances",
     "title": "Distance and similarity",
     "section": "Binary distances",
-    "text": "Binary distances",
-    "crumbs": [
-      "Distance and similarity"
-    ]
-  },
-  {
-    "objectID": "lect/w09/dist.html#distances-between-categorical-data",
-    "href": "lect/w09/dist.html#distances-between-categorical-data",
-    "title": "Distance and similarity",
-    "section": "Distances between categorical data",
-    "text": "Distances between categorical data",
+    "text": "Binary distances\n\nFor TRUE/FALSE, 1/0, presence/absence (etc.) data\n\n\n\n\nSymmetrical\n\nTwo presences as match.\nTwo absences as match.\n\nIf a trait is present, two objects are more similar. If a trait is absent, two objects are more similar. For example if biological sex is encoded in one variable with 0 for male and 1 for female, it is symmetrical.\n\nSimple maching distance\n\n\n\n\nAsymmetrical\n\nTwo presences as match.\nTwo absences as mismatch.\n\nIf a trait is present, two objects are more similar. If a trait is absent in both cases, e.g. undetermined, missing etc., this does not affect similarity. This is more practical in archaeology.\n\nJaccard index, i.e. binary distance\n\ndist(x, method = \"binary\")",
     "crumbs": [
       "Distance and similarity"
     ]
@@ -443,7 +433,7 @@
     "href": "lect/w09/dist.html#euclidean-distance",
     "title": "Distance and similarity",
     "section": "Euclidean distance",
-    "text": "Euclidean distance\n\n\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem.\n\n\n\\[\nd(p, q) = \\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}\n\\]\n\n\n\nIn R…\n\nscale(x, center = TRUE, scale = TRUE)\ndist(x, method = \"euclidean\")\nor using package philentropy distance(x, method = \"euclidean\")",
+    "text": "Euclidean distance\n\n\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem.\n\n\n\\[\nd(p, q) = \\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}\n\\]\n\n\n\nIn R…\nNormalization:\nscale(x, center = TRUE, scale = TRUE)\nEuclidean distance:\ndist(x, method = \"euclidean\")",
     "crumbs": [
       "Distance and similarity"
     ]
@@ -453,27 +443,27 @@
     "href": "lect/w09/dist.html#code-along",
     "title": "Distance and similarity",
     "section": "Code along",
-    "text": "Code along\n\nlibrary(dplyr)\ndarts &lt;- read.csv(\"./data/dartpoints_numeric.csv\")\n\n# summary of values\nsummary(select(darts, Length, Width, Thickness, Weight))\n\n     Length           Width         Thickness          Weight      \n Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  \n 1st Qu.: 40.85   1st Qu.:18.55   1st Qu.: 6.250   1st Qu.: 4.550  \n Median : 47.10   Median :21.10   Median : 7.200   Median : 6.800  \n Mean   : 49.33   Mean   :22.08   Mean   : 7.271   Mean   : 7.643  \n 3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  \n Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  \n\n# normalization\ndarts_norm &lt;- darts %&gt;%\n  mutate(Length = scale(Length),\n         Width = scale(Width),\n         Thickness = scale(Thickness),\n         Weight = scale(Weight))\n         \n# or this shorthand can be used\ndarts_norm &lt;- darts %&gt;%\n  mutate(across(all_of(c(\"Length\", \"Width\", \"Thickness\", \"Weight\")), scale))\n\n# summary of normalized values\nsummary(select(darts_norm, Length, Width, Thickness, Weight))\n\n      Length.V1           Width.V1           Thickness.V1    \n Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  \n 1st Qu.:-0.665879   1st Qu.:-0.683998   1st Qu.:-0.6670233  \n Median :-0.175152   Median :-0.189461   Median :-0.0466450  \n Mean   : 0.000000   Mean   : 0.000000   Mean   : 0.0000000  \n 3rd Qu.: 0.507941   3rd Qu.: 0.595981   3rd Qu.: 0.6390363  \n Max.   : 4.724271   Max.   : 5.279540   Max.   : 2.2389592  \n      Weight.V1     \n Min.   :-1.269966  \n 1st Qu.:-0.735154  \n Median :-0.200342  \n Mean   : 0.000000  \n 3rd Qu.: 0.572164  \n Max.   : 5.028928",
+    "text": "Code along\n\n\nlibrary(dplyr)\ndarts &lt;- read.csv(\"https://petrpajdla.github.io/stat4arch/lect/w09/data/dartpoints_numeric.csv\")\n\n\n\n\n# summary of values\nsummary(select(darts, Length, Width, Thickness, Weight))\n\n     Length           Width         Thickness          Weight      \n Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  \n 1st Qu.: 40.85   1st Qu.:18.55   1st Qu.: 6.250   1st Qu.: 4.550  \n Median : 47.10   Median :21.10   Median : 7.200   Median : 6.800  \n Mean   : 49.33   Mean   :22.08   Mean   : 7.271   Mean   : 7.643  \n 3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  \n Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  \n\n\n\n\n\n# normalization\ndarts_norm &lt;- darts %&gt;%\n  mutate(Length = scale(Length), Width = scale(Width),\n         Thickness = scale(Thickness), Weight = scale(Weight))\n         \n# or this shorthand can be used\ndarts_norm &lt;- darts %&gt;%\n  mutate(across(all_of(c(\"Length\", \"Width\", \"Thickness\", \"Weight\")), scale))\n\n\n\n\n# summary of normalized values\nsummary(select(darts_norm, Length, Width, Thickness, Weight))\n\n      Length.V1           Width.V1           Thickness.V1    \n Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  \n 1st Qu.:-0.665879   1st Qu.:-0.683998   1st Qu.:-0.6670233  \n Median :-0.175152   Median :-0.189461   Median :-0.0466450  \n Mean   : 0.000000   Mean   : 0.000000   Mean   : 0.0000000  \n 3rd Qu.: 0.507941   3rd Qu.: 0.595981   3rd Qu.: 0.6390363  \n Max.   : 4.724271   Max.   : 5.279540   Max.   : 2.2389592  \n      Weight.V1     \n Min.   :-1.269966  \n 1st Qu.:-0.735154  \n Median :-0.200342  \n Mean   : 0.000000  \n 3rd Qu.: 0.572164  \n Max.   : 5.028928",
     "crumbs": [
       "Distance and similarity"
     ]
   },
   {
-    "objectID": "lect/w09/dist.html#euclidean-distance-1",
-    "href": "lect/w09/dist.html#euclidean-distance-1",
+    "objectID": "lect/w09/dist.html#code-along-1",
+    "href": "lect/w09/dist.html#code-along-1",
     "title": "Distance and similarity",
-    "section": "Euclidean distance",
-    "text": "Euclidean distance",
+    "section": "Code along",
+    "text": "Code along\n\n# subset of Travis and Darl types of dart points\ndarts_subset &lt;- filter(darts_norm, Name %in% c(\"Travis\", \"Darl\")) \n\n# matrix with numerical variables only\ndarts_mx &lt;- darts_subset %&gt;% \n  select(Length, Width, Thickness, Weight) %&gt;% \n  as.matrix()\n  \n# add row names to the matrix\nrownames(darts_mx) &lt;- darts_subset$Name\n\n# count Euclidean distance \ndarts_d &lt;- dist(darts_mx, method = \"euclidean\", diag = TRUE)\n\nround(as.matrix(darts_d)[1:6, 1:6], 2)\n\n     Darl Darl Darl Darl Darl Darl\nDarl 0.00 0.42 0.47 0.40 1.57 1.14\nDarl 0.42 0.00 0.43 0.43 1.50 1.18\nDarl 0.47 0.43 0.00 0.28 1.51 1.36\nDarl 0.40 0.43 0.28 0.00 1.74 1.47\nDarl 1.57 1.50 1.51 1.74 0.00 0.90\nDarl 1.14 1.18 1.36 1.47 0.90 0.00\n\n\n\nResult is a distance matrix.\nIt is symmetrical. Lower triangular is the same as upper triangular.\nOn the diagonal, there is distance of the given object to itself, i.e. 0.",
     "crumbs": [
       "Distance and similarity"
     ]
   },
   {
-    "objectID": "lect/w09/dist.html#distance-matrix",
-    "href": "lect/w09/dist.html#distance-matrix",
+    "objectID": "lect/w09/dist.html#visualizing-distance-matrix",
+    "href": "lect/w09/dist.html#visualizing-distance-matrix",
     "title": "Distance and similarity",
-    "section": "Distance matrix",
-    "text": "Distance matrix",
+    "section": "Visualizing distance matrix",
+    "text": "Visualizing distance matrix\n\nPackage corrplot has a nice way of plotting heatmaps.\n\n\nlibrary(corrplot)\n\n# arg. is.corr set to FALSE, because we are not visualizing correlation matrix\ncorrplot(as.matrix(darts_d), is.corr = FALSE)",
     "crumbs": [
       "Distance and similarity"
     ]
@@ -483,7 +473,7 @@
     "href": "lect/w09/dist.html#resources",
     "title": "Distance and similarity",
     "section": "Resources",
-    "text": "Resources\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372. (direct link to a HTML file is here)",
+    "text": "Resources\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372 (direct link to a HTML file is here).",
     "crumbs": [
       "Distance and similarity"
     ]
@@ -500,21 +490,14 @@
     "href": "lect/w09/slides_dist.html#different-distance-measures",
     "title": "Distance and similarity",
     "section": "Different distance measures",
-    "text": "Different distance measures\n\n\nDichotomous variables\n\nSymmetrical – Simple matching distance\nAsymmetrical – Jaccard index (binary distance)\n\nCategorical variables\n\nHamming distance\n\nNumeric continuous variables\n\nEuclidean distance\n\nMixed data sets\n\nGower’s distance"
+    "text": "Different distance measures\n\n\nDichotomous variables\n\nSymmetrical – Simple matching distance\nAsymmetrical – Jaccard index (binary distance)\n\nCategorical variables\n\nHamming distance\n\nNumeric continuous variables\n\nEuclidean distance\nMahalanobis distance\n\nMixed data sets\n\nGower’s distance"
   },
   {
     "objectID": "lect/w09/slides_dist.html#binary-distances",
     "href": "lect/w09/slides_dist.html#binary-distances",
     "title": "Distance and similarity",
     "section": "Binary distances",
-    "text": "Binary distances"
-  },
-  {
-    "objectID": "lect/w09/slides_dist.html#distances-between-categorical-data",
-    "href": "lect/w09/slides_dist.html#distances-between-categorical-data",
-    "title": "Distance and similarity",
-    "section": "Distances between categorical data",
-    "text": "Distances between categorical data"
+    "text": "Binary distances\n\nFor TRUE/FALSE, 1/0, presence/absence (etc.) data\n\n\n\n\nSymmetrical\n\nTwo presences as match.\nTwo absences as match.\n\nIf a trait is present, two objects are more similar. If a trait is absent, two objects are more similar. For example if biological sex is encoded in one variable with 0 for male and 1 for female, it is symmetrical.\n\nSimple maching distance\n\n\n\nAsymmetrical\n\nTwo presences as match.\nTwo absences as mismatch.\n\nIf a trait is present, two objects are more similar. If a trait is absent in both cases, e.g. undetermined, missing etc., this does not affect similarity. This is more practical in archaeology.\n\nJaccard index, i.e. binary distance\n\ndist(x, method = \"binary\")"
   },
   {
     "objectID": "lect/w09/slides_dist.html#distance-between-continuous-numeric-data",
@@ -528,35 +511,35 @@
     "href": "lect/w09/slides_dist.html#euclidean-distance",
     "title": "Distance and similarity",
     "section": "Euclidean distance",
-    "text": "Euclidean distance\n\n\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem.\n\n\n\\[\nd(p, q) = \\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}\n\\]\n\n\nIn R…\n\nscale(x, center = TRUE, scale = TRUE)\ndist(x, method = \"euclidean\")\nor using package philentropy distance(x, method = \"euclidean\")"
+    "text": "Euclidean distance\n\n\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem.\n\n\n\\[\nd(p, q) = \\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}\n\\]\n\n\nIn R…\nNormalization:\nscale(x, center = TRUE, scale = TRUE)\nEuclidean distance:\ndist(x, method = \"euclidean\")"
   },
   {
     "objectID": "lect/w09/slides_dist.html#code-along",
     "href": "lect/w09/slides_dist.html#code-along",
     "title": "Distance and similarity",
     "section": "Code along",
-    "text": "Code along\n\nlibrary(dplyr)\ndarts &lt;- read.csv(\"./data/dartpoints_numeric.csv\")\n\n# summary of values\nsummary(select(darts, Length, Width, Thickness, Weight))\n\n     Length           Width         Thickness          Weight      \n Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  \n 1st Qu.: 40.85   1st Qu.:18.55   1st Qu.: 6.250   1st Qu.: 4.550  \n Median : 47.10   Median :21.10   Median : 7.200   Median : 6.800  \n Mean   : 49.33   Mean   :22.08   Mean   : 7.271   Mean   : 7.643  \n 3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  \n Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  \n\n# normalization\ndarts_norm &lt;- darts %&gt;%\n  mutate(Length = scale(Length),\n         Width = scale(Width),\n         Thickness = scale(Thickness),\n         Weight = scale(Weight))\n         \n# or this shorthand can be used\ndarts_norm &lt;- darts %&gt;%\n  mutate(across(all_of(c(\"Length\", \"Width\", \"Thickness\", \"Weight\")), scale))\n\n# summary of normalized values\nsummary(select(darts_norm, Length, Width, Thickness, Weight))\n\n      Length.V1           Width.V1           Thickness.V1    \n Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  \n 1st Qu.:-0.665879   1st Qu.:-0.683998   1st Qu.:-0.6670233  \n Median :-0.175152   Median :-0.189461   Median :-0.0466450  \n Mean   : 0.000000   Mean   : 0.000000   Mean   : 0.0000000  \n 3rd Qu.: 0.507941   3rd Qu.: 0.595981   3rd Qu.: 0.6390363  \n Max.   : 4.724271   Max.   : 5.279540   Max.   : 2.2389592  \n      Weight.V1     \n Min.   :-1.269966  \n 1st Qu.:-0.735154  \n Median :-0.200342  \n Mean   : 0.000000  \n 3rd Qu.: 0.572164  \n Max.   : 5.028928"
+    "text": "Code along\n\n\nlibrary(dplyr)\ndarts &lt;- read.csv(\"https://petrpajdla.github.io/stat4arch/lect/w09/data/dartpoints_numeric.csv\")\n\n\n\n\n# summary of values\nsummary(select(darts, Length, Width, Thickness, Weight))\n\n     Length           Width         Thickness          Weight      \n Min.   : 30.60   Min.   :14.50   Min.   : 4.000   Min.   : 2.300  \n 1st Qu.: 40.85   1st Qu.:18.55   1st Qu.: 6.250   1st Qu.: 4.550  \n Median : 47.10   Median :21.10   Median : 7.200   Median : 6.800  \n Mean   : 49.33   Mean   :22.08   Mean   : 7.271   Mean   : 7.643  \n 3rd Qu.: 55.80   3rd Qu.:25.15   3rd Qu.: 8.250   3rd Qu.:10.050  \n Max.   :109.50   Max.   :49.30   Max.   :10.700   Max.   :28.800  \n\n\n\n\n\n# normalization\ndarts_norm &lt;- darts %&gt;%\n  mutate(Length = scale(Length), Width = scale(Width),\n         Thickness = scale(Thickness), Weight = scale(Weight))\n         \n# or this shorthand can be used\ndarts_norm &lt;- darts %&gt;%\n  mutate(across(all_of(c(\"Length\", \"Width\", \"Thickness\", \"Weight\")), scale))\n\n\n\n\n# summary of normalized values\nsummary(select(darts_norm, Length, Width, Thickness, Weight))\n\n      Length.V1           Width.V1           Thickness.V1    \n Min.   :-1.470673   Min.   :-1.469440   Min.   :-2.1363403  \n 1st Qu.:-0.665879   1st Qu.:-0.683998   1st Qu.:-0.6670233  \n Median :-0.175152   Median :-0.189461   Median :-0.0466450  \n Mean   : 0.000000   Mean   : 0.000000   Mean   : 0.0000000  \n 3rd Qu.: 0.507941   3rd Qu.: 0.595981   3rd Qu.: 0.6390363  \n Max.   : 4.724271   Max.   : 5.279540   Max.   : 2.2389592  \n      Weight.V1     \n Min.   :-1.269966  \n 1st Qu.:-0.735154  \n Median :-0.200342  \n Mean   : 0.000000  \n 3rd Qu.: 0.572164  \n Max.   : 5.028928"
   },
   {
-    "objectID": "lect/w09/slides_dist.html#euclidean-distance-1",
-    "href": "lect/w09/slides_dist.html#euclidean-distance-1",
+    "objectID": "lect/w09/slides_dist.html#code-along-1",
+    "href": "lect/w09/slides_dist.html#code-along-1",
     "title": "Distance and similarity",
-    "section": "Euclidean distance",
-    "text": "Euclidean distance"
+    "section": "Code along",
+    "text": "Code along\n\n# subset of Travis and Darl types of dart points\ndarts_subset &lt;- filter(darts_norm, Name %in% c(\"Travis\", \"Darl\")) \n\n# matrix with numerical variables only\ndarts_mx &lt;- darts_subset %&gt;% \n  select(Length, Width, Thickness, Weight) %&gt;% \n  as.matrix()\n  \n# add row names to the matrix\nrownames(darts_mx) &lt;- darts_subset$Name\n\n# count Euclidean distance \ndarts_d &lt;- dist(darts_mx, method = \"euclidean\", diag = TRUE)\n\nround(as.matrix(darts_d)[1:6, 1:6], 2)\n\n     Darl Darl Darl Darl Darl Darl\nDarl 0.00 0.42 0.47 0.40 1.57 1.14\nDarl 0.42 0.00 0.43 0.43 1.50 1.18\nDarl 0.47 0.43 0.00 0.28 1.51 1.36\nDarl 0.40 0.43 0.28 0.00 1.74 1.47\nDarl 1.57 1.50 1.51 1.74 0.00 0.90\nDarl 1.14 1.18 1.36 1.47 0.90 0.00\n\n\n\nResult is a distance matrix.\nIt is symmetrical. Lower triangular is the same as upper triangular.\nOn the diagonal, there is distance of the given object to itself, i.e. 0."
   },
   {
-    "objectID": "lect/w09/slides_dist.html#distance-matrix",
-    "href": "lect/w09/slides_dist.html#distance-matrix",
+    "objectID": "lect/w09/slides_dist.html#visualizing-distance-matrix",
+    "href": "lect/w09/slides_dist.html#visualizing-distance-matrix",
     "title": "Distance and similarity",
-    "section": "Distance matrix",
-    "text": "Distance matrix"
+    "section": "Visualizing distance matrix",
+    "text": "Visualizing distance matrix\n\nPackage corrplot has a nice way of plotting heatmaps.\n\n\nlibrary(corrplot)\n\n# arg. is.corr set to FALSE, because we are not visualizing correlation matrix\ncorrplot(as.matrix(darts_d), is.corr = FALSE)"
   },
   {
     "objectID": "lect/w09/slides_dist.html#resources",
     "href": "lect/w09/slides_dist.html#resources",
     "title": "Distance and similarity",
     "section": "Resources",
-    "text": "Resources\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372. (direct link to a HTML file is here)\n\n\n\nAES_707 Statistics seminar for archaeologists | Disctances"
+    "text": "Resources\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372 (direct link to a HTML file is here).\n\n\n\nAES_707 Statistics seminar for archaeologists | Disctances"
   },
   {
     "objectID": "lect/w04/rels.html#objectives",
