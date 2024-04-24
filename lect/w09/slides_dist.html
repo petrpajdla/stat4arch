@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.553">
 
-  <title>stat4arch - Distance and similarity</title>
+  <title>stat4arch - Distances and similarity</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,14 +392,14 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Distance and similarity</h1>
+  <h1 class="title">Distances and similarity</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="distance-and-similarity" class="slide level2">
-<h2>Distance and similarity</h2>
+<section id="distances-and-similarity" class="slide level2">
+<h2>Distances and similarity</h2>
 <ul>
 <li>Distance and similarity are more or less opposite concepts.</li>
 <li>Distance is a <strong>numerical measure</strong> describing how are two objects (defined by certain variables) different (<em>pairwise distance</em>).</li>
@@ -630,7 +630,7 @@ Darl 1.14 1.18 1.36 1.47 0.90 0.00</code></pre>
 <span id="cb9-4"><a></a><span class="fu">corrplot</span>(<span class="fu">as.matrix</span>(darts_d), <span class="at">is.corr =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="dist_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="dist_files/figure-html/unnamed-chunk-6-1.png" width="672" class="r-stretch"></section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
 <p>For a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al.&nbsp;<a href="https://doi.org/10.5281/zenodo.6325372">DOI: 10.5281/zenodo.6325372</a> (direct link to a HTML file is <a href="https://gitlab.com/oliver.nakoinz/klassifikator/-/blob/master/5tutorials/tutorial_complete_ENG.Rmd">here</a>).</p>
@@ -853,44 +853,6 @@ Darl 1.14 1.18 1.36 1.47 0.90 0.00</code></pre>
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

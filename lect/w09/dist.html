@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>stat4arch - Distance and similarity</title>
+<title>stat4arch - Distances and similarity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -204,7 +204,7 @@ window.Quarto = {
   </li>  
         <li>
     <a class="dropdown-item" href="../../lect/w09/dist.html">
- <span class="dropdown-text">Distance and similarity</span></a>
+ <span class="dropdown-text">Distances and similarity</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../lect/w09/clust.html">
@@ -238,7 +238,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w09/dist.html">Distance and similarity</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w09/dist.html">Distances and similarity</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -307,7 +307,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lect/w09/dist.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Distance and similarity</span></a>
+ <span class="menu-text">Distances and similarity</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -326,7 +326,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#distance-and-similarity" id="toc-distance-and-similarity" class="nav-link active" data-scroll-target="#distance-and-similarity">Distance and similarity</a></li>
+  <li><a href="#distances-and-similarity" id="toc-distances-and-similarity" class="nav-link active" data-scroll-target="#distances-and-similarity">Distances and similarity</a></li>
   <li><a href="#different-distance-measures" id="toc-different-distance-measures" class="nav-link" data-scroll-target="#different-distance-measures">Different distance measures</a></li>
   <li><a href="#binary-distances" id="toc-binary-distances" class="nav-link" data-scroll-target="#binary-distances">Binary distances</a></li>
   <li><a href="#distance-between-continuous-numeric-data" id="toc-distance-between-continuous-numeric-data" class="nav-link" data-scroll-target="#distance-between-continuous-numeric-data">Distance between (continuous) numeric data</a></li>
@@ -346,7 +346,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Distance and similarity</h1>
+<h1 class="title">Distances and similarity</h1>
 </div>
 
 
@@ -363,8 +363,8 @@ window.Quarto = {
 </header>
 
 
-<section id="distance-and-similarity" class="level2">
-<h2 class="anchored" data-anchor-id="distance-and-similarity">Distance and similarity</h2>
+<section id="distances-and-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="distances-and-similarity">Distances and similarity</h2>
 <ul>
 <li>Distance and similarity are more or less opposite concepts.</li>
 <li>Distance is a <strong>numerical measure</strong> describing how are two objects (defined by certain variables) different (<em>pairwise distance</em>).</li>
@@ -604,7 +604,7 @@ Darl 1.14 1.18 1.36 1.47 0.90 0.00</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="dist_files/figure-revealjs/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="dist_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -618,44 +618,6 @@ Darl 1.14 1.18 1.36 1.47 0.90 0.00</code></pre>
 </section>
 
 </main> <!-- /main -->
-
-<script>
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-  // slide changes (different for each slide format).
-  (function () {
-    // dispatch for htmlwidgets
-    function fireSlideEnter() {
-      const event = window.document.createEvent("Event");
-      event.initEvent("slideenter", true, true);
-      window.document.dispatchEvent(event);
-    }
-
-    function fireSlideChanged(previousSlide, currentSlide) {
-      fireSlideEnter();
-
-      // dispatch for shiny
-      if (window.jQuery) {
-        if (previousSlide) {
-          window.jQuery(previousSlide).trigger("hidden");
-        }
-        if (currentSlide) {
-          window.jQuery(currentSlide).trigger("shown");
-        }
-      }
-    }
-
-    // hookup for slidy
-    if (window.w3c_slidy) {
-      window.w3c_slidy.add_observer(function (slide_num) {
-        // slide_num starts at position 1
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-      });
-    }
-
-  })();
-</script>
-
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
