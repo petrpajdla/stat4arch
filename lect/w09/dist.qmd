@@ -1,5 +1,5 @@
 ---
-title: "Distance and similarity"
+title: "Distances and similarity"
 format:
   html: default
   revealjs:
@@ -16,7 +16,7 @@ execute:
   cache: true
 ---
 
-## Distance and similarity
+## Distances and similarity
 
 - Distance and similarity are more or less opposite concepts.
 - Distance is a **numerical measure** describing how are two objects (defined by certain variables) different (*pairwise distance*). 
