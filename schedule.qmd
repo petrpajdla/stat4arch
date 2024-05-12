@@ -21,5 +21,5 @@ The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (
 | 9.      | 24. 4. | [Distances](lect/w09/dist.qmd) & [Custering](lect/w09/clust.qmd) | [{{< bi file-earmark-arrow-down >}} Dataset (dart points)](lect/w09/data/dartpoints_numeric.csv) |
 | -       | 1. 5.  | *Holidays* | |
 | -       | 8. 5.  | *Holidays* | |
-| 10.     | 15. 5. | Dimensionality reduction methods (PCA, CA) | |
-| 11.     | 22. 5. | Reproducibility with Quarto & Practice | |
+| 10.     | 15. 5. | [Dimensionality reduction](lect/w10/dims.qmd) | |
+| 11.     | 22. 5. | [Reproducibility with Quarto](lect/w11/repro.qmd) & Practice | |

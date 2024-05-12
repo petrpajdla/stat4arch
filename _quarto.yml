@@ -44,7 +44,8 @@ website:
         - lect/w08/time.qmd
         - lect/w09/dist.qmd
         - lect/w09/clust.qmd
-        # - reproducibility.qmd
+        - lect/w10/dims.qmd
+        - lect/w11/repro.qmd
   
   page-footer: 
     left: 
