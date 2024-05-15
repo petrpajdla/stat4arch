@@ -1,0 +1,443 @@
+---
+title: "Correspondence analysis"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_ca.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Correspondence analysis](./ca.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  pdf: default
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Goals
+
+- new ways of data manipulation
+  - combining vectors into dataframe
+  - columns, rows and values selection
+  - mathematical operations in rows
+- some fancy stuff to make your ggplot look better
+- introduction to the correspondence analysis in R
+
+## Data Manipulation {background-color="steelblue"}
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(here)
+library(ca)
+library(archdata)
+```
+
+## Vectors
+- you already know __vector__ - a combination of several values stored in a single object
+
+::: {.incremental}
+```{r}
+cisla <- c(1:10)
+cisla
+```
+```{r}
+stovky <- c(101:110)
+stovky
+```
+```{r}
+pismena <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+pismena
+```
+:::
+
+## Combining different vectors with rbind and cbind
+
+- you can combine different vectors into __matrixes__ or __dataframes__
+- `rbind()` combine vectors into **R**ows, `cbind()` into **C**olumns
+- the vectors have to be of the same length!
+
+- `cbind`
+
+```{r}
+sloupce <- cbind(cisla, stovky, pismena)
+head(sloupce, 5)
+```
+
+- `rbind`
+```{r}
+radky <- rbind(cisla, stovky, pismena)
+radky
+```
+
+## Dataframe
+
+You can then very simply create a dataframe:
+```{r}
+tabulka <- data.frame(sloupce)
+```
+But you have to check whether the numbers are really numbers
+```{r}
+str(tabulka)
+```
+
+Whoa! The numbers are not numbers but characters. You will have to fix it by `as.numeric()` if you want to do mathematical operations. It is also a good practice to always check the structure of your dataframe before carrying out any operations.
+
+
+```{r}
+tabulka$cisla <- as.numeric(tabulka$cisla)
+tabulka$stovky <- as.numeric(tabulka$stovky)
+str(tabulka)
+```
+
+## Square brackets
+
+```{r}
+#| echo: false
+head(tabulka,4)
+```
+- with square brackets `[]` you can easily select specific columns, rows or cells
+- `your_dataframe[row number, column number]`
+
+- 1st row:
+```{r}
+tabulka[1,]
+```
+
+- 1st column:
+```{r}
+tabulka[,1]
+```
+
+- value in the 1st row and 2nd column:
+```{r}
+tabulka[1,2]
+```
+
+## Mathematics in dataframes
+
+Now you can make some mathematical operations by selecting specific cells with square brackets:
+```{r}
+tabulka[1,2] + tabulka[2,2]
+```
+
+You can even create a new column with the results:
+```{r}
+tabulka$novy_sloupec <-tabulka[,1] + 10
+head(tabulka, 4)
+```
+
+- or alternatilevy use `mutate()` function from `dplyr` package
+```{r}
+library(dplyr)
+tabulka<-mutate(tabulka, este_jeden_sloupec = tabulka[,1] + 100)
+head(tabulka,4)
+```
+
+## rowSums
+
+- you can calculate sums of specific columuns in each row by `rowSums()`
+
+```{r}
+tabulka_1 <- tabulka
+tabulka_1$sucet <- rowSums(tabulka_1[,1:2])
+head(tabulka_1, 4)
+```
+
+- altenative solution in `dplyr`:
+```{r}
+tabulka <- tabulka %>% 
+  mutate(sucet = cisla + stovky)
+head(tabulka,4)
+```
+
+
+## colnames {.scrollable}
+
+- sometimes you will need to select names of the columns to rename them or create specific vector from them
+- you can manipulate with column names with function `colnames()`
+
+
+```{r}
+nazvy_sloupcu <- colnames(tabulka)
+nazvy_sloupcu
+```
+
+Let's have a look on table `radky`, the colnames look bit strange
+```{r}
+data.frame(radky)
+```
+Let's say we will name the columns after the values in `pismena` row
+
+```{r}
+colnames(radky)<- radky[3,]
+head(radky, 4)
+```
+
+You can also remove row used for column names:
+```{r}
+radky <- radky[-3,]
+radky<-data.frame(radky)
+radky
+```
+
+
+## Exercise {background-color="steelblue"}
+
+## Exercise
+
+1. copy, paste and run this chunk code from our website:
+```{r}
+datace <- c("ne.lin", "ne.lin", "en.zvo", "ne.lin", "en.zvo", "en.zvo")
+nadoby <- c(4, 3, 7, 2, 4, 3)
+sipy <- c(0,1,3,0, 2, 4)
+cu_dycka <- c(0,0,3,0, 4,2)
+spondyl <- c(5,2,0,4, 0, 0)
+kopytovity_klin <- c(4,5,0,4, 0, 0)
+desticka <- c(0,0,2,0,1, 3)
+zrnoterka <- c(1, 0, 0, 1, 0, 0)
+
+pohrebiste <- data.frame(datace, nadoby, sipy, cu_dycka, spondyl, kopytovity_klin, desticka, zrnoterka)
+```
+
+```{r}
+pohrebiste
+```
+
+2. create a new column with the sum of the artefacts found in each grave
+3. create a new column called "ID" where each grave has an unique number
+
+
+## Solution
+
+2. create a new column with the sum of the artefacts found in each grave
+
+```{r}
+pohrebiste_2 <- pohrebiste
+pohrebiste_2$pocet_artefaktu <- rowSums(pohrebiste[, 2:8])
+pohrebiste_2$ID <- c(1:6)
+pohrebiste_2
+```
+
+- alternative solution with package `dplyr`:
+
+```{r}
+pohrebiste <- pohrebiste %>% 
+  mutate(pocet_artefaktu= rowSums(pohrebiste[,2:8]),
+         ID = c(1:6))
+
+head(pohrebiste, 3)
+```
+
+
+## Correspondence analysis (CA) {background-color="steelblue"}
+
+
+## A bit of theory
+
+- one of the multivatiate statistical methods
+- suitable for __contingency tables__ (_kontingenční tabulka_) where you have __counts__ of two or more categorical variables
+- one type of variable are stored in rows, other in columns 
+- typicaly, you can visualise result of CA with scatterplots
+
+## A simple contingency table
+
+- now, have a look at this simple contingency table of an fictional Bell Beaker burial site: one variable is sex of buried individuals (columns), second the position of their bodies (rows)
+```{r}
+#| echo: false
+
+library(knitr)
+
+male <- c(10, 2)
+female <- c(1, 12)
+tab<- data.frame(cbind(male, female))
+rownames(tab) <- c("left side", "right side")
+
+knitr::kable(tab)
+```
+- already from the first sight it is obvious that females were predominantly buried on their right site and male on their left site
+- correspondence analysis will help you when your contingency table have much more variables and the relations between variables are then much harder to observe
+
+## Use of CA
+
+- typical archaeological uses of CA:
+  - seriation
+  - counts of different types of artefacts (eg. artefacts in burial sites, types of chipped stone industry,...)
+  - presence or absence of different features in archaeological collections (e.g.presence or absence of construction elements in graves)
+- it works only with __discrete numbers__ (_celá čísla_) - i.e. counts, or __dichotomies__ (presence / absence, 1/0)
+
+
+## Quick correspondence analysis
+
+- imagine we have a burial site and want to observe relation between numbers of different types of artefacts found in the graves and between datations of the graves
+
+
+### Research questions
+
+- are there certain types of artefacts related to certain datations?
+- are there differencies within the different datations?
+
+### Materials and methods
+
+- we will use the fictional data from the last exercise, the dataframe "pohrebiste" 
+- TASKS:
+  - clean your workplace and load the "pohrebiste" data from our webpage again
+  - install and load package `ca`
+
+```{r}
+#| echo: false
+head(pohrebiste[,1:8], 6)
+```
+
+
+## Results
+
+```{r}
+library(ca)
+ca_vysledek <- ca(pohrebiste[,2:8])
+plot(ca_vysledek)
+```
+- notice we are running the analysis only with columns which represent number of artefacts (2nd to 8th)
+- also notice there are two types of points in the plot:
+  - blue circles represent row values, which are in this case graves
+  - red triangles represent column values - numbers of specific artefacts
+
+
+## Interpretation
+
+```{r}
+#| echo: false
+library(ca)
+plot(ca_vysledek)
+```
+
+- there are two clearly distinct groups of graves with distinct types of artefacts
+- on the other hand number of vessels seems to be indifferent to the groups - both grave groups share similar number of ceramic vessels
+- the x axis explains 82 % of the difference between graves and artefacts, y axis only 9 %. This mean that the difference between those two groups is bigger then within them. In other words, the difference between e.g. copper dagger (cu_dycka) and spondylus is much much greater then between the copper dagger and arrow heads (sipy)
+ 
+ 
+## Now let's have a closer look
+
+```{r}
+ca_vysledek
+```
+-  you can see that this is not a dataframe, but a so called "list" with much complicated structure. Even so, it is possible to extract coordinates of the points (we will show it later) and use them for other analysis or visualisation in ggplot.
+
+
+## The structure of the CA result
+
+-  this looks even more complicated, but don't worry!
+```{r}
+str(ca_vysledek)
+```
+ 
+
+## Visualising CA in ggplot
+
+- in order to visualize data in ggplot, they have to be in dataframe format
+- so the first step will be extracting coordinates from the CA result
+- in this case we will extract them from first two dimensions only
+
+
+```{r}
+x1 <- ca_vysledek$rowcoord[,1]
+x2 <- ca_vysledek$rowcoord[,2]
+y1 <- ca_vysledek$colcoord[,1]
+y2 <- ca_vysledek$colcoord[,2]
+```
+
+- x1 and x2 represent coordinates of row values (graves), y1 and y2 represent column values (artefacts)
+
+- quick check:
+```{r}
+plot(x1,x2)
+```
+
+
+## Creating dataframes
+
+- now we need to create dataframes with for both row values and column values
+
+- row values (graves):
+  - in this step, we can combine various variables describing your objects with row values. We have added "id" and "datace"
+
+```{r}
+datace <- data.frame(pohrebiste$datace)
+id <- data.frame(pohrebiste$ID)
+coord_datace <- data.frame(cbind(datace, x1,x2, id))
+colnames(coord_datace) <- c("Datace", "X1", "X2", "ID")
+head(coord_datace, 4)
+```
+
+
+- column values (artefacts):
+```{r}
+artefakty <- data.frame(colnames(pohrebiste[,2:8]))
+coord_artefakty <- data.frame(cbind(y1, y2))
+coord_artefakty$artefakty <- rownames(coord_artefakty)
+colnames(coord_artefakty) <- c("Y1", "Y2","Artefakty")
+rownames(coord_artefakty) <- c(1:7)
+head(coord_artefakty, 4)
+```
+
+
+## A very simple ggplot
+
+- lets have a quick ggplot
+```{r}
+ggplot()+
+  geom_point(data = coord_datace, aes(X1, X2, color = Datace))+
+  geom_point(data = coord_artefakty, aes(Y1, Y2), shape = 17)
+```
+- notice there are 2 types of values in 2 dataframes, so you need to call `geom_point()` two times
+- in ggplot we can also easily distinguish different datations by color
+
+
+## Advanced ggplot
+
+- now you can play more with adjusting the plot
+
+```{r}
+#| echo: false
+labels_artefacts <- c("nádoba", "hrot šípu", "mědená dýčka", "spondylus", "kopytovitý klin", "nátepní destička", "zrnotěrka")
+ggplot()+
+  geom_vline(xintercept = 0, color="gray80", linewidth = 0.75, linetype = "dashed")+
+  geom_hline(yintercept = 0, color="gray80", linewidth = 0.75, linetype = "dashed")+
+  geom_point(data = coord_datace, aes(X1, X2, colour = Datace), size = 2)+
+  geom_point(data = coord_artefakty, aes(Y1, Y2), shape = 17, size = 2)+
+  geom_text(data = coord_artefakty, aes(label = labels_artefacts, x=Y1, y=Y2), vjust = -1.5)+
+  geom_text(data = coord_datace, aes(label = ID, x=X1, y=X2), vjust = 1.75)+
+  xlim(-1.5, 1.6)+
+  ylim(-1.75, 2)+
+  labs(x="Dimenze 1 - 82,3 %", y="Dimenze 2 - 8,6 %",
+       title = "Korespondenční analýza fiktivního pohřebiště")+
+  theme_light()
+```
+
+
+## Solution
+
+- you can add text to your ggplot by `geom_text()`
+- you can also rename plot labels without the need to rename variables in your original dataframe. To do so, create a vector with label names and then specify it in `geom_text(...,aes(label=your_vector))`
+- for more tips how to adjust text see [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org/reference/geom_text.html)
+
+```{r}
+labels_artefacts <- c("nádoba", "hrot šípu", "mědená dýčka", "spondylus", "kopytovitý klin", "nátepní destička", "zrnotěrka")
+```
+
+```{r}
+ggplot()+
+  geom_vline(xintercept = 0, color="gray80", linewidth = 0.75, linetype = "dashed")+
+  geom_hline(yintercept = 0, color="gray80", linewidth = 0.75, linetype = "dashed")+
+  geom_point(data = coord_datace, aes(X1, X2, colour = Datace), size = 2)+
+  geom_point(data = coord_artefakty, aes(Y1, Y2), shape = 17, size = 2)+
+  geom_text(data = coord_artefakty, aes(label = labels_artefacts, x=Y1, y=Y2), vjust = -1.5)+
+  geom_text(data = coord_datace, aes(label = ID, x=X1, y=X2), vjust = 1.75)+
+  xlim(-1.5, 1.6)+
+  ylim(-1.75, 2)+
+  labs(x="Dimenze 1 - 82,3 %", y="Dimenze 2 - 8,6 %",
+       title = "Korespondenční analýza fiktivního pohřebiště")+
+  theme_light()
+```
