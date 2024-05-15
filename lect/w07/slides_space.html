@@ -8,7 +8,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+  <meta name="generator" content="quarto-1.4.550">
 
   <title>stat4arch - Considering space</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -441,7 +441,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
 <figcaption>Mercator (1569)</figcaption>
 </figure>
 </div>
@@ -455,7 +455,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
 <figcaption>Robinson (1963)</figcaption>
 </figure>
 </div>
@@ -466,7 +466,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
 <figcaption>Albers (1805)</figcaption>
 </figure>
 </div>
@@ -525,15 +525,15 @@
 <section id="czech-republic-in-wgs-84" class="slide level2">
 <h2>Czech Republic in WGS 84</h2>
 
-<img data-src="space_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-6-1.png" width="672" class="r-stretch"></section>
 <section id="czech-republic-in-wgs-84-utm" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Czech Republic in WGS 84 / UTM</h2>
 
-<img data-src="space_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-7-1.png" width="672" class="r-stretch"></section>
 <section id="czech-republic-in-s-jtsk-krovak-east-north" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Czech Republic in S-JTSK / Krovak East North</h2>
 
-<img data-src="space_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-8-1.png" width="672" class="r-stretch"></section>
 <section id="raster-and-vector-data" class="slide level2">
 <h2>Raster and vector data</h2>
 
@@ -541,7 +541,7 @@
 <section id="vector-data" class="slide level2">
 <h2>Vector data</h2>
 
-<img data-src="space_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><p>Points, lines, polygons…</p>
+<img data-src="space_files/figure-html/unnamed-chunk-9-1.png" width="672" class="r-stretch"><p>Points, lines, polygons…</p>
 </section>
 <section id="packages" class="slide level2">
 <h2>Packages</h2>
@@ -681,7 +681,6 @@ Projected CRS: S-JTSK / Krovak East North
 - `st_crs()` -- CRS of the layer as a WKT 
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -699,10 +698,8 @@ st_geometry_type(lasoles_sjtsk) %>% head()
 :::
 :::
 
-
 :::
 ::: {.column width=50%}
-
 
 ::: {.cell}
 
@@ -766,7 +763,6 @@ PROJCRS["S-JTSK / Krovak East North",
 :::
 :::
 
-
 :::
 :::: -->
 </section>
@@ -779,7 +775,7 @@ PROJCRS["S-JTSK / Krovak East North",
 <span id="cb7-3"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="space_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-16-1.png" width="672" class="r-stretch"></section>
 <section id="some-background-data" class="slide level2">
 <h2>Some background data…</h2>
 <p>Package <code>RCzechia</code> (<a href="https://rczechia.jla-data.net/">Lacko, 2023</a>) has spatial data for the Czech republic…</p>
@@ -827,7 +823,7 @@ Projected CRS: S-JTSK / Krovak East North
 <span id="cb12-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="space_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-19-1.png" width="672" class="r-stretch"></section>
 <section id="geometry-operations" class="slide level2">
 <h2>Geometry operations</h2>
 <h3 id="unions">Unions</h3>
@@ -852,7 +848,7 @@ Projected CRS: S-JTSK / Krovak East North
 <pre><code>Geometry set for 1 feature 
 Geometry type: POLYGON
 Dimension:     XY
-Bounding box:  xmin: -904576.9 ymin: -1227293 xmax: -431723.3 ymax: -935236.5
+Bounding box:  xmin: -904576.9 ymin: -1227293 xmax: -431722.5 ymax: -935236.5
 Projected CRS: S-JTSK / Krovak East North</code></pre>
 </div>
 </div>
@@ -865,7 +861,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-22-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -886,7 +882,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <pre><code>Geometry set for 1 feature 
 Geometry type: POINT
 Dimension:     XY
-Bounding box:  xmin: -682473.3 ymin: -1089493 xmax: -682473.3 ymax: -1089493
+Bounding box:  xmin: -682473.1 ymin: -1089493 xmax: -682473.1 ymax: -1089493
 Projected CRS: S-JTSK / Krovak East North</code></pre>
 </div>
 </div>
@@ -899,7 +895,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-24-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -916,7 +912,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <pre><code>Geometry set for 1 feature 
 Geometry type: POLYGON
 Dimension:     XY
-Bounding box:  xmin: -702473.3 ymin: -1109493 xmax: -662473.3 ymax: -1069493
+Bounding box:  xmin: -702473.1 ymin: -1109493 xmax: -662473.1 ymax: -1069493
 Projected CRS: S-JTSK / Krovak East North</code></pre>
 </div>
 </div>
@@ -930,7 +926,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-26-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1005,7 +1001,7 @@ Projected CRS: S-JTSK / Krovak East North
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-31-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1294,44 +1290,6 @@ ggplot() +
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -1408,24 +1366,6 @@ ggplot() +
         // clear code selection
         e.clearSelection();
       });
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1462,11 +1402,7 @@ ggplot() +
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {
