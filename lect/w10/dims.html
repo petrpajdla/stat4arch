@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -151,6 +151,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../lect/w10/ca.html">
  <span class="dropdown-text">Correspondence analysis</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w11/repro.html">
+ <span class="dropdown-text">Reproducibility</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w11/pivoting.html">
+ <span class="dropdown-text">Long table and wide table transformations</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -184,17 +192,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#multivariate-data" id="toc-multivariate-data" class="nav-link active" data-scroll-target="#multivariate-data">Multivariate data</a>
+  <li><a href="#types-of-statistical-analysis" id="toc-types-of-statistical-analysis" class="nav-link active" data-scroll-target="#types-of-statistical-analysis">Types of statistical analysis</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#dimensionality-reduction-techniques" id="toc-dimensionality-reduction-techniques" class="nav-link" data-scroll-target="#dimensionality-reduction-techniques">Dimensionality reduction techniques</a>
   <ul class="collapse">
-  <li><a href="#univariate" id="toc-univariate" class="nav-link" data-scroll-target="#univariate">Univariate</a></li>
-  <li><a href="#bivariate" id="toc-bivariate" class="nav-link" data-scroll-target="#bivariate">Bivariate</a></li>
-  <li><a href="#multivariate" id="toc-multivariate" class="nav-link" data-scroll-target="#multivariate">Multivariate</a></li>
+  <li><a href="#principal-component-analysis-pca" id="toc-principal-component-analysis-pca" class="nav-link" data-scroll-target="#principal-component-analysis-pca">Principal component analysis (PCA)</a></li>
+  <li><a href="#correspondence-analysis-ca" id="toc-correspondence-analysis-ca" class="nav-link" data-scroll-target="#correspondence-analysis-ca">Correspondence analysis (CA)</a></li>
   </ul></li>
-  <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link" data-scroll-target="#dimensionality-reduction">Dimensionality reduction</a>
-  <ul class="collapse">
-  <li><a href="#the-curse-of-higher-dimensions" id="toc-the-curse-of-higher-dimensions" class="nav-link" data-scroll-target="#the-curse-of-higher-dimensions">The <em>curse</em> of higher dimensions</a></li>
-  </ul></li>
-  <li><a href="#principal-components-analysis" id="toc-principal-components-analysis" class="nav-link" data-scroll-target="#principal-components-analysis">Principal components analysis</a></li>
+  <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis">Principal component analysis</a></li>
   <li><a href="#biplot" id="toc-biplot" class="nav-link" data-scroll-target="#biplot">Biplot</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w10/dims.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w10/dims.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_dims.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="dims.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -221,8 +226,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="multivariate-data" class="level2">
-<h2 class="anchored" data-anchor-id="multivariate-data">Multivariate data</h2>
+<section id="types-of-statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-statistical-analysis">Types of statistical analysis</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
 <section id="univariate" class="level3">
 <h3 class="anchored" data-anchor-id="univariate">Univariate</h3>
 <ul>
@@ -232,19 +239,27 @@ ul.task-list li input[type="checkbox"] {
 <section id="bivariate" class="level3">
 <h3 class="anchored" data-anchor-id="bivariate">Bivariate</h3>
 <ul>
-<li>Two variables</li>
+<li>Two variables (<em>x</em> and <em>y</em>)</li>
 </ul>
 </section>
 <section id="multivariate" class="level3">
 <h3 class="anchored" data-anchor-id="multivariate">Multivariate</h3>
+<p>also <strong>multidimensional</strong></p>
 <ul>
 <li>Many variables</li>
-<li>Also multidimensinal</li>
 </ul>
 </section>
+</div><div class="column" style="width:60%;">
+<p><img src="figs/mvn.png" class="img-fluid"></p>
+</div>
+</div>
 </section>
-<section id="dimensionality-reduction" class="level2">
-<h2 class="anchored" data-anchor-id="dimensionality-reduction">Dimensionality reduction</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><img src="figs/curse.png" class="img-fluid" style="width:100.0%"></p>
+</div><div class="column" style="width:30%;">
 <section id="the-curse-of-higher-dimensions" class="level3">
 <h3 class="anchored" data-anchor-id="the-curse-of-higher-dimensions">The <em>curse</em> of higher dimensions</h3>
 <ul>
@@ -253,15 +268,34 @@ ul.task-list li input[type="checkbox"] {
 <li>Problematic visualization, human brain does not easily cope with more than 3D.</li>
 <li>Difficult interpretation.</li>
 </ul>
+<p>→ Dimensionality reduction</p>
 </section>
+</div>
+</div>
 </section>
-<section id="principal-components-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="principal-components-analysis">Principal components analysis</h2>
-<p><strong>Goal</strong>: Find low-dimensional representation of the observations that explain a good fraction of the variation.</p>
+<section id="dimensionality-reduction-techniques" class="level2">
+<h2 class="anchored" data-anchor-id="dimensionality-reduction-techniques">Dimensionality reduction techniques</h2>
+<section id="principal-component-analysis-pca" class="level3">
+<h3 class="anchored" data-anchor-id="principal-component-analysis-pca">Principal component analysis (PCA)</h3>
 <ul>
-<li>First principal component is a direction that maximizes the variance of the projected data.</li>
-<li>Second PC is orthogonal to the previous one.</li>
+<li>Numeric (continuous) data.</li>
 </ul>
+</section>
+<section id="correspondence-analysis-ca" class="level3">
+<h3 class="anchored" data-anchor-id="correspondence-analysis-ca">Correspondence analysis (CA)</h3>
+<ul>
+<li>Categorical data.</li>
+</ul>
+</section>
+</section>
+<section id="principal-component-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="principal-component-analysis">Principal component analysis</h2>
+<p>The goal of PCA is to find <strong>low-dimensional representation</strong> of the observations that explain a good fraction of the original variation.</p>
+<ul>
+<li>First principal component is a <strong>direction</strong> that <strong>maximizes the variance</strong> of the projected data.</li>
+<li>Second PC is <strong>orthogonal</strong> to the previous one.</li>
+</ul>
+<p><img src="figs/pca.png" class="img-fluid"></p>
 </section>
 <section id="biplot" class="level2">
 <h2 class="anchored" data-anchor-id="biplot">Biplot</h2>
@@ -349,6 +383,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -383,7 +435,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

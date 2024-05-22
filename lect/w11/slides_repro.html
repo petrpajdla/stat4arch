@@ -8,9 +8,9 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.550">
+  <meta name="generator" content="quarto-1.4.554">
 
-  <title>stat4arch - Reproducibility with Quarto</title>
+  <title>stat4arch - Reproducibility</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -327,14 +327,62 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Reproducibility with Quarto</h1>
+  <h1 class="title">Reproducibility</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section class="slide level2">
+<section id="reproducibility" class="slide level2">
+<h2>Reproducibility</h2>
+<ul>
+<li>Allow other people to build up on your work…</li>
+</ul>
+<p><em>For the findings of a study to be reproducible means that results obtained (…) in a</em> <strong>statistical analysis of a data set</strong> <em>should be achieved again with a high degree of reliability when the study is replicated.</em><br>
+<a href="https://en.wikipedia.org/wiki/Reproducibility" class="uri">https://en.wikipedia.org/wiki/Reproducibility</a></p>
 
+<img data-src="figs/repro_spectra.png" class="r-stretch"><p>(Marwick et al.&nbsp;2017; Marwick et al.&nbsp;2018; <a href="https://faculty.washington.edu/bmarwick/" class="uri">https://faculty.washington.edu/bmarwick/</a>)</p>
+</section>
+<section id="in-your-articlethesisproject-do" class="slide level2">
+<h2>In your article/thesis/project do:</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Deposit the data in a <strong>repository</strong>. <a href="https://zenodo.org/">Zenodo</a>, <a href="https://figshare.com/">Figshare</a> etc.<br>
+see <a href="https://www.re3data.org/" class="uri">https://www.re3data.org/</a></li>
+<li>Include the <strong>data</strong> and <strong>code</strong> under an <strong>open and permissive license</strong>.<br>
+<a href="https://creativecommons.org/" class="uri">https://creativecommons.org/</a><br>
+<a href="https://choosealicense.com/" class="uri">https://choosealicense.com/</a></li>
+<li>Include the <strong>code</strong> for the analysis.<br>
+Document your analysis in an Rmarkdown document or in individual scripts.</li>
+<li>Document what you are doing and <strong>what things mean</strong>, create rich <strong>metadata</strong>.</li>
+<li>Use <strong>version control</strong> systems (git).<br>
+<a href="https://github.com/git-guides" class="uri">https://github.com/git-guides</a></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="figs/reproducibility.jpg"></p>
+<p><a href="https://doi.org/10.5281/zenodo.3332807" class="uri">https://doi.org/10.5281/zenodo.3332807</a></p>
+</div>
+</div>
+</section>
+<section id="guides" class="slide level2">
+<h2>Guides</h2>
+<div class="columns">
+<div class="column" style="width:80%;">
+<h3 id="kieran-healy">Kieran Healy</h3>
+<p>The Plain Person’s Guide to Plain Text Social Science<br>
+<a href="http://plain-text.co/" class="uri">http://plain-text.co/</a></p>
+<h3 id="ben-marwick">Ben Marwick</h3>
+<ul>
+<li>Marwick, B. 2017: Computational Reproducibility in Archaeological Research: Basic Principles and a Case Study of Their Implementation. Journal of Archaeological Method and Theory 24(2): 424–450. DOI: <a href="https://doi.org/10.1007/s10816-015-9272-9">10.1007/s10816-015-9272-9</a>.</li>
+<li>Marwick, B., Boettiger, C. and Mullen, L. 2018: Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician 72(1): 80–88. DOI: <a href="https://doi.org/10.1080/00031305.2017.1375986">10.1080/00031305.2017.1375986</a>.</li>
+</ul>
+<h3 id="british-ecological-society">British Ecological Society</h3>
+<p><a href="https://www.britishecologicalsociety.org/publications/guides-to/">Guides to better science</a>: guide on <a href="https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Reproducible-Code-2019.pdf?utm_source=web&amp;utm_medium=web&amp;utm_campaign=better_science">reproducible code</a> and <a href="https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Data-Management-2019.pdf?utm_source=web&amp;utm_medium=web&amp;utm_campaign=better_science">data management</a>.</p>
+</div><div class="column" style="width:20%;">
+<p><img data-src="figs/plain.png"></p>
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -630,6 +678,24 @@
         // clear code selection
         e.clearSelection();
       });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -666,7 +732,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

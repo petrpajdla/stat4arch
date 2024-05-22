@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>stat4arch - Reproducibility with Quarto</title>
+<title>stat4arch - Reproducibility</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -151,6 +151,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../lect/w10/ca.html">
  <span class="dropdown-text">Correspondence analysis</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w11/repro.html">
+ <span class="dropdown-text">Reproducibility</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w11/pivoting.html">
+ <span class="dropdown-text">Long table and wide table transformations</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -174,20 +182,129 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w11/repro.html">Reproducibility</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidy data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/intro2r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/distribs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summaries and visualization of distributions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w04/rels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summaries and visualization of relationships</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w05/norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Normal distribution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w05/dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data manipulation with dplyr</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w07/space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considering space</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w08/time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considering time</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w09/dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distances and similarity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w09/clust.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clustering</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w10/ca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Correspondence analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w11/repro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Reproducibility</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w11/pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Long table and wide table transformations</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_repro.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="repro.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link active" data-scroll-target="#reproducibility">Reproducibility</a></li>
+  <li><a href="#in-your-articlethesisproject-do" id="toc-in-your-articlethesisproject-do" class="nav-link" data-scroll-target="#in-your-articlethesisproject-do">In your article/thesis/project do:</a></li>
+  <li><a href="#guides" id="toc-guides" class="nav-link" data-scroll-target="#guides">Guides</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w11/repro.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w11/repro.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_repro.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="repro.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Reproducibility with Quarto</h1>
+<h1 class="title">Reproducibility</h1>
 </div>
 
 
@@ -204,8 +321,65 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
+<ul>
+<li>Allow other people to build up on your work…</li>
+</ul>
+<p><em>For the findings of a study to be reproducible means that results obtained (…) in a</em> <strong>statistical analysis of a data set</strong> <em>should be achieved again with a high degree of reliability when the study is replicated.</em><br>
+<a href="https://en.wikipedia.org/wiki/Reproducibility" class="uri">https://en.wikipedia.org/wiki/Reproducibility</a></p>
+<p><img src="figs/repro_spectra.png" class="img-fluid"></p>
+<p>(Marwick et al.&nbsp;2017; Marwick et al.&nbsp;2018; <a href="https://faculty.washington.edu/bmarwick/" class="uri">https://faculty.washington.edu/bmarwick/</a>)</p>
+</section>
+<section id="in-your-articlethesisproject-do" class="level2">
+<h2 class="anchored" data-anchor-id="in-your-articlethesisproject-do">In your article/thesis/project do:</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Deposit the data in a <strong>repository</strong>. <a href="https://zenodo.org/">Zenodo</a>, <a href="https://figshare.com/">Figshare</a> etc.<br>
+see <a href="https://www.re3data.org/" class="uri">https://www.re3data.org/</a></li>
+<li>Include the <strong>data</strong> and <strong>code</strong> under an <strong>open and permissive license</strong>.<br>
+<a href="https://creativecommons.org/" class="uri">https://creativecommons.org/</a><br>
+<a href="https://choosealicense.com/" class="uri">https://choosealicense.com/</a></li>
+<li>Include the <strong>code</strong> for the analysis.<br>
+Document your analysis in an Rmarkdown document or in individual scripts.</li>
+<li>Document what you are doing and <strong>what things mean</strong>, create rich <strong>metadata</strong>.</li>
+<li>Use <strong>version control</strong> systems (git).<br>
+<a href="https://github.com/git-guides" class="uri">https://github.com/git-guides</a></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img src="figs/reproducibility.jpg" class="img-fluid"></p>
+<p><a href="https://doi.org/10.5281/zenodo.3332807" class="uri">https://doi.org/10.5281/zenodo.3332807</a></p>
+</div>
+</div>
+</section>
+<section id="guides" class="level2">
+<h2 class="anchored" data-anchor-id="guides">Guides</h2>
+<div class="columns">
+<div class="column" style="width:80%;">
+<section id="kieran-healy" class="level3">
+<h3 class="anchored" data-anchor-id="kieran-healy">Kieran Healy</h3>
+<p>The Plain Person’s Guide to Plain Text Social Science<br>
+<a href="http://plain-text.co/" class="uri">http://plain-text.co/</a></p>
+</section>
+<section id="ben-marwick" class="level3">
+<h3 class="anchored" data-anchor-id="ben-marwick">Ben Marwick</h3>
+<ul>
+<li>Marwick, B. 2017: Computational Reproducibility in Archaeological Research: Basic Principles and a Case Study of Their Implementation. Journal of Archaeological Method and Theory 24(2): 424–450. DOI: <a href="https://doi.org/10.1007/s10816-015-9272-9">10.1007/s10816-015-9272-9</a>.</li>
+<li>Marwick, B., Boettiger, C. and Mullen, L. 2018: Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician 72(1): 80–88. DOI: <a href="https://doi.org/10.1080/00031305.2017.1375986">10.1080/00031305.2017.1375986</a>.</li>
+</ul>
+</section>
+<section id="british-ecological-society" class="level3">
+<h3 class="anchored" data-anchor-id="british-ecological-society">British Ecological Society</h3>
+<p><a href="https://www.britishecologicalsociety.org/publications/guides-to/">Guides to better science</a>: guide on <a href="https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Reproducible-Code-2019.pdf?utm_source=web&amp;utm_medium=web&amp;utm_campaign=better_science">reproducible code</a> and <a href="https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Data-Management-2019.pdf?utm_source=web&amp;utm_medium=web&amp;utm_campaign=better_science">data management</a>.</p>
+</section>
+</div><div class="column" style="width:20%;">
+<p><img src="figs/plain.png" class="img-fluid"></p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -287,6 +461,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -321,7 +513,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -609,7 +805,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Licenses: MIT (code) &amp; CC BY-SA 4.0 Int. (other content).</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w11/repro.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w11/repro.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w11/repro.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w11/repro.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
