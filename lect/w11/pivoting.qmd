@@ -1,0 +1,165 @@
+---
+title: "Long table and wide table transformations"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_pivoting.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Pivoting](./pivoting.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  pdf: default
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(here)
+```
+
+
+
+You probably still remember the fictional burial site we have been analysing last class with correspondence analysis. Here we have it back again, with two more variables, ID and sex:
+```{r}
+#| echo: false
+datace <- c("ne.lin", "ne.lin", "en.zvo", "ne.lin", "en.zvo", "en.zvo")
+ID <- c(1:6)
+pohlavi <- c("F", "M", "F", "F", "M", "M")
+nadoby <- c(4, 3, 7, 2, 4, 3)
+sipy <- c(0,1,3,0, 2, 4)
+cu_dycka <- c(0,0,3,0, 4,2)
+spondyl <- c(5,2,0,4, 0, 0)
+kopytovity_klin <- c(4,5,0,4, 0, 0)
+desticka <- c(0,0,2,0,1, 3)
+zrnoterka <- c(1, 0, 0, 1, 0, 0)
+
+pohrebiste <- data.frame(datace, ID, pohlavi, nadoby, sipy, cu_dycka, spondyl, kopytovity_klin, desticka, zrnoterka)
+knitr::kable(head(pohrebiste,4))
+```
+
+You can see that there are three variables describing the grave itself (datace, ID, pohlavi) and rest of the columns are __combining two variables in one cell__. One variable is the __type__ of a artefakt and other the __number__ of these artefacts.
+
+And if you remember tidy data principles - one object in one in one row, one variable in one column and one value in one cell - you can already feel that we have a problem here.
+  
+![](./figs/tidy-1.png)
+
+## Wide table
+
+```{r}
+#| echo: false
+knitr::kable(head(pohrebiste,4))
+```
+
+This type of dataframe is sometimes called __wide table__ - it has plenty of variables in one row. 
+
+It is useful for some analysis such as _correspondence analysis_, but for others it is not. For example, without major manipulations with columns, it is impossible to plot the number of each artefakt in ggplot, because we don't have one single variable to plot on x axis.
+
+In order to do so, you have to transform wide table to a __long table__ in a way that in one cell there will be only one value of only one variable.
+
+
+## Long table - basic principles {.scrollable}
+
+![](./figs/long_table_1.png)
+![](./figs/long_table_2.png)
+![](./figs/long_table_3.png)
+
+## Long table - how to do it in R
+
+Package:
+
+```{r}
+library(dplyr)
+```
+
+Function: `pivot_longer`
+
+```{r}
+pohrebiste_long <- pohrebiste %>% 
+  pivot_longer(
+    cols = c("nadoby", "sipy", "cu_dycka", "spondyl", "kopytovity_klin", "desticka", "zrnoterka"),
+    names_to = "artefakt",
+    values_to = "pocet"
+  )
+head(pohrebiste_long, 10)
+```
+
+
+
+
+## Quick plot
+Now you know what to plot on x axis (artefakt) and what to plot on y axis (pocet) so let's have one very basic plot:
+
+```{r}
+ggplot(pohrebiste_long, aes(x=artefakt, y=pocet))+
+  geom_col()
+```
+## More fancy
+And now do it more fancier and add more variables:
+
+
+
+
+```{r}
+ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
+  geom_col()+
+  labs(x="typ artefaktu", y="počet")+
+  scale_x_discrete(guide = guide_axis(n.dodge = 2))+
+  theme_light()
+```
+
+
+## Oh my, relative values!
+
+```{r}
+ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
+  geom_col(position = "fill")+
+  labs(x="typ artefaktu", y="počet")+
+  scale_x_discrete(guide = guide_axis(angle = 30))+
+  theme_light()
+```
+
+## OMG, even two plots!
+
+
+```{r}
+ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
+  geom_col()+
+  facet_wrap(~pohlavi)+
+  labs(x="typ artefaktu", y="počet")+
+  scale_x_discrete(     guide = guide_axis(angle = 30))+
+  theme_light()
+```
+
+
+## But what if I want to see the numbers for each bar?
+Well, it is possible, but we will need some coding:
+
+- first, we need to calculate sum values for each sex and artefakt and to do so, we will use good old dplyr functions:
+
+```{r}
+sum_artefakt <- pohrebiste_long %>% 
+  group_by(artefakt, pohlavi) %>% 
+  summarise(pocet_artefaktu=sum(pocet))
+head(sum_artefakt, 6)
+```
+
+## Then
+
+Then we can make the same plot as earlier but now we can add there a new layer with text from the summary table we just created:
+
+```{r}
+ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
+  geom_bar(stat="identity")+
+  geom_text(data=sum_artefakt, aes(label = pocet_artefaktu, x = artefakt, y=pocet_artefaktu), position = position_stack(vjust = 0.5), color = "white")+
+  scale_x_discrete(guide = guide_axis(n.dodge = 2))+
+  labs(x="typ artefaktu", y="počet")+
+  theme_light()
+  
+```
+
+Notice that we are here working with two different (but related) data frames. One is for bar plots and second for text values.
