@@ -18,13 +18,13 @@ execute:
 
 ```{r}
 #| echo: false
-library(tidyverse)
+library(dplyr)
+library(tidyr)
 library(here)
 ```
 
-
-
 You probably still remember the fictional burial site we have been analysing last class with correspondence analysis. Here we have it back again, with two more variables, ID and sex:
+
 ```{r}
 #| echo: false
 datace <- c("ne.lin", "ne.lin", "en.zvo", "ne.lin", "en.zvo", "en.zvo")
@@ -46,13 +46,13 @@ You can see that there are three variables describing the grave itself (datace, 
 
 And if you remember tidy data principles - one object in one in one row, one variable in one column and one value in one cell - you can already feel that we have a problem here.
   
-![](./figs/tidy-1.png)
+![](figs/tidy-1.png)
 
 ## Wide table
 
 ```{r}
 #| echo: false
-knitr::kable(head(pohrebiste,4))
+knitr::kable(head(pohrebiste, 4))
 ```
 
 This type of dataframe is sometimes called __wide table__ - it has plenty of variables in one row. 
@@ -64,21 +64,23 @@ In order to do so, you have to transform wide table to a __long table__ in a way
 
 ## Long table - basic principles {.scrollable}
 
-![](./figs/long_table_1.png)
-![](./figs/long_table_2.png)
-![](./figs/long_table_3.png)
+![](figs/long_table_1.png)
+![](figs/long_table_2.png)
+![](figs/long_table_3.png)
 
 ## Long table - how to do it in R
 
 Package:
 
 ```{r}
+#| eval: false
 library(dplyr)
 ```
 
 Function: `pivot_longer`
 
 ```{r}
+#| label: pivoting
 pohrebiste_long <- pohrebiste %>% 
   pivot_longer(
     cols = c("nadoby", "sipy", "cu_dycka", "spondyl", "kopytovity_klin", "desticka", "zrnoterka"),
@@ -95,6 +97,7 @@ head(pohrebiste_long, 10)
 Now you know what to plot on x axis (artefakt) and what to plot on y axis (pocet) so let's have one very basic plot:
 
 ```{r}
+#| label: g1
 ggplot(pohrebiste_long, aes(x=artefakt, y=pocet))+
   geom_col()
 ```
@@ -105,6 +108,7 @@ And now do it more fancier and add more variables:
 
 
 ```{r}
+#| label: g2
 ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
   geom_col()+
   labs(x="typ artefaktu", y="počet")+
@@ -116,6 +120,7 @@ ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
 ## Oh my, relative values!
 
 ```{r}
+#| label: g3
 ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
   geom_col(position = "fill")+
   labs(x="typ artefaktu", y="počet")+
@@ -127,6 +132,7 @@ ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
 
 
 ```{r}
+#| label: g4
 ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
   geom_col()+
   facet_wrap(~pohlavi)+
@@ -142,6 +148,7 @@ Well, it is possible, but we will need some coding:
 - first, we need to calculate sum values for each sex and artefakt and to do so, we will use good old dplyr functions:
 
 ```{r}
+#| label: sums
 sum_artefakt <- pohrebiste_long %>% 
   group_by(artefakt, pohlavi) %>% 
   summarise(pocet_artefaktu=sum(pocet))
@@ -153,6 +160,7 @@ head(sum_artefakt, 6)
 Then we can make the same plot as earlier but now we can add there a new layer with text from the summary table we just created:
 
 ```{r}
+#| label: g6
 ggplot(pohrebiste_long, aes(x=artefakt, y=pocet, fill = pohlavi))+
   geom_bar(stat="identity")+
   geom_text(data=sum_artefakt, aes(label = pocet_artefaktu, x = artefakt, y=pocet_artefaktu), position = position_stack(vjust = 0.5), color = "white")+
