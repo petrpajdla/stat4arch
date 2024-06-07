@@ -1,6 +1,9 @@
 project:
   type: website
-  
+  render:
+    - "*.qmd"
+    - "!project/template.qmd"
+
 execute:
   freeze: auto 
 

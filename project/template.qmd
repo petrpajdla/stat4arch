@@ -1,0 +1,107 @@
+---
+title: "Title of your project"
+author: "Your Name"
+date: today
+abstract: fuu 
+format: html
+---
+
+This is a Quarto document. 
+You can combine text and code here.
+Write **bold** and *emphasized* text like this.
+Include [links](https://petrpajdla.github.io/stat4arch) like this.
+To create a new paragraph, leave a line empty.
+
+Include code blocks like this:
+
+```{r}
+#| label: code-block-title
+
+# with single hash symbol, include comments 
+# in the code blocks as you are used to from scripts
+1 + 1
+```
+
+Next is a template for your own project report...
+
+
+## Abstract
+
+Short abstract describing what is the data set about and what you are focusing on in the analysis (one paragraph of text at most).
+
+**Keywords**
+
+Include several useful keywords.
+
+
+## Introduction
+
+Mention what is the goal of your analysis, why did you choose this data set etc. in a short introduction.
+Do not forget to include some research questions.
+
+Load your libraries here.
+
+```{r}
+#| label: libs
+
+# some examples are here:
+# library(dplyr)
+# library(here)
+# library(ggplot2)
+```
+
+## Data
+
+Briefly introduce your dataset. 
+Where does it come from? What does it contain? 
+What are the variables and observations? 
+How did you get the dataset? 
+Where is it originally published (include citations, links etc.) 
+
+Read your data in the next code block:
+
+```{r}
+#| label: data
+
+# example:
+# my_dataset <- read.csv(here("path/to/your/dataset.csv"))
+```
+
+Explore the data set and try to answer following questions using code:
+
+- How many variables are there?
+- How many rows does the data set have?
+- What are the names of the variables?
+- What data types are there in the data set?
+
+```{r}
+#| label: data-exploration
+
+# ncol(my_dataset)
+# nrow(my_dataset)
+# and so on, you know the basic functions...
+```
+
+
+## Analysis
+
+Focus on the analysis of your data set. 
+Are there any quantitative and qualitative variables? 
+Show answers to questions like these on graphs and using various numerical summaries or tests:
+
+- How are the variables distributed?
+- What are their central points and how are they spread? What does it mean?
+- Is any of the quantitative variables distributed normally?
+- What are the relationships between the variables?
+- If your points, sites etc. have coordinates, show them on a simple map.
+
+You know how to create code blocks now, so go for it!
+**Warning** if you copy the code blocks, always change their labels, or omit them completely, because code block labels must be unique throughout the document!
+For more help and options, have a look here: <https://quarto.org>.
+
+
+## Summary
+
+Briefly sum up and interpret what you managed to achieve in your project. 
+Did you learn anything new? Did anything surprise you?
+
