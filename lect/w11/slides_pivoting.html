@@ -8,7 +8,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.554">
+  <meta name="generator" content="quarto-1.4.555">
 
   <title>stat4arch - Long table and wide table transformations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -403,7 +403,7 @@
 <p>You probably still remember the fictional burial site we have been analysing last class with correspondence analysis. Here we have it back again, with two more variables, ID and sex:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table>
+<table class="caption-top">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 3%">
@@ -486,12 +486,12 @@
 <p>You can see that there are three variables describing the grave itself (datace, ID, pohlavi) and rest of the columns are <strong>combining two variables in one cell</strong>. One variable is the <strong>type</strong> of a artefakt and other the <strong>number</strong> of these artefacts.</p>
 <p>And if you remember tidy data principles - one object in one in one row, one variable in one column and one value in one cell - you can already feel that we have a problem here.</p>
 
-<img data-src="./figs/tidy-1.png" class="r-stretch"></section>
+<img data-src="figs/tidy-1.png" class="r-stretch"></section>
 <section id="wide-table" class="slide level2">
 <h2>Wide table</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table>
+<table class="caption-top">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 3%">
@@ -577,7 +577,7 @@
 </section>
 <section id="long-table---basic-principles" class="slide level2 scrollable">
 <h2>Long table - basic principles</h2>
-<p><img data-src="./figs/long_table_1.png"> <img data-src="./figs/long_table_2.png"> <img data-src="./figs/long_table_3.png"></p>
+<p><img data-src="figs/long_table_1.png"> <img data-src="figs/long_table_2.png"> <img data-src="figs/long_table_3.png"></p>
 </section>
 <section id="long-table---how-to-do-it-in-r" class="slide level2">
 <h2>Long table - how to do it in R</h2>
@@ -619,7 +619,7 @@
 <span id="cb4-2"><a></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/unnamed-chunk-6-1.png" width="672" class="r-stretch"></section>
+<img data-src="pivoting_files/figure-html/g1-1.png" width="672" class="r-stretch"></section>
 <section id="more-fancy" class="slide level2">
 <h2>More fancy</h2>
 <p>And now do it more fancier and add more variables:</p>
@@ -631,7 +631,7 @@
 <span id="cb5-5"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/unnamed-chunk-7-1.png" width="672" class="r-stretch"></section>
+<img data-src="pivoting_files/figure-html/g2-1.png" width="672" class="r-stretch"></section>
 <section id="oh-my-relative-values" class="slide level2">
 <h2>Oh my, relative values!</h2>
 <div class="cell">
@@ -642,7 +642,7 @@
 <span id="cb6-5"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/unnamed-chunk-8-1.png" width="672" class="r-stretch"></section>
+<img data-src="pivoting_files/figure-html/g3-1.png" width="672" class="r-stretch"></section>
 <section id="omg-even-two-plots" class="slide level2">
 <h2>OMG, even two plots!</h2>
 <div class="cell">
@@ -654,7 +654,7 @@
 <span id="cb7-6"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/unnamed-chunk-9-1.png" width="672" class="r-stretch"></section>
+<img data-src="pivoting_files/figure-html/g4-1.png" width="672" class="r-stretch"></section>
 <section id="but-what-if-i-want-to-see-the-numbers-for-each-bar" class="slide level2">
 <h2>But what if I want to see the numbers for each bar?</h2>
 <p>Well, it is possible, but we will need some coding:</p>
@@ -692,7 +692,7 @@
 <span id="cb10-6"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/unnamed-chunk-11-1.png" width="672" class="r-stretch"><p>Notice that we are here working with two different (but related) data frames. One is for bar plots and second for text values.</p>
+<img data-src="pivoting_files/figure-html/g6-1.png" width="672" class="r-stretch"><p>Notice that we are here working with two different (but related) data frames. One is for bar plots and second for text values.</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
