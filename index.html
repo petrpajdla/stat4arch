@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -229,9 +229,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Welcome to <a href="https://is.muni.cz/predmet/phil/AES_707">AES_707</a> Statistics seminar for archaeology students at the <a href="https://archeo-muzeo.phil.muni.cz/">Department of Archaeology and Museology</a>, Masaryk University. The course is taught by <strong>Petr Pajdla</strong> and <strong>Peter Tkáč</strong>.</p>
-<p>Information given here applies to spring semester 2024, the page will be continuously updated throughout the semester. The course was taught also in 2022 and 2020.</p>
+<p>Information given here applies to autumn semester 2025, the page will be continuously updated throughout the semester. The course was taught also in 2024, 2022 and 2020.</p>
 <ul>
-<li>Each Wednesday, 12:00 – 13:40.</li>
+<li>Each odd Wednesday, 12:00 – 15:40.</li>
 <li>Room <a href="https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397">L11</a> (computers are provided in the room, you can use your own laptop though).</li>
 <li>3 ECTS credits, i.e.&nbsp;approx. 75 h. of workload, seminars take up approx. 25 h.</li>
 </ul>
@@ -326,24 +326,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/petrpajdla\.github\.io\/stat4arch\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -378,11 +360,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
