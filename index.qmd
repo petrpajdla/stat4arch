@@ -12,11 +12,10 @@ Welcome to [AES_707](https://is.muni.cz/predmet/phil/AES_707) Statistics seminar
 for archaeology students at the [Department of Archaeology and Museology](https://archeo-muzeo.phil.muni.cz/), Masaryk University.
 The course is taught by **Petr Pajdla** and **Peter Tkáč**.
 
-Information given here applies to spring semester 2024, the page will be
-continuously updated throughout the semester.
-The course was taught also in 2022 and 2020.
+Information given here applies to autumn semester 2025, the page will be continuously updated throughout the semester.
+The course was taught also in 2024, 2022 and 2020.
 
-- Each Wednesday, 12:00 -- 13:40.
+- Each odd Wednesday, 12:00 -- 15:40.
 - Room [L11](https://www.phil.muni.cz/o-nas/kde-nas-najdete/kancelar-28397)
   (computers are provided in the room, you can use your own laptop though).
 - 3 ECTS credits, i.e.  approx. 75 h. of workload, seminars take up approx. 25 h.
