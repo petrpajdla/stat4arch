@@ -1,0 +1,829 @@
+---
+title: "Intro to coding"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_intro2coding.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Intro to coding](./intro2coding.html)"
+  pdf: default
+# title-slide-attributes:
+#   data-auto-animate: false
+# title-slide: false
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Objectives
+
+
+1.) Introduction
+
+- orientation in RStudio
+
+- execution command, basic operators
+
+- assigning operator
+
+- vectors
+
+- comments
+
+
+2.) Syntax and basic functions
+
+- functions, objects, values, syntax
+
+- dataframes and vectors
+
+
+## Basic operators
+
+::: fragment
+```{r}
+5+5
+```
+:::
+
+::: fragment
+```{r}
+2*2
+```
+:::
+
+::: fragment
+```{r}
+10/2
+```
+:::
+
+::: fragment
+```{r}
+3**2
+```
+:::
+
+::: fragment
+```{r}
+sqrt(9)
+```
+:::
+
+::: fragment
+```{r}
+3==3
+```
+:::
+
+::: fragment
+```{r}
+3==4
+```
+:::
+
+::: fragment
+```{r}
+10>5
+```
+:::
+
+::: fragment
+```{r}
+10<5
+```
+:::
+
+::: fragment
+```{r}
+10:20
+```
+:::
+
+## Assigning operator
+Syntax:
+`object <- value`
+
+Human reading: the assigning operator `<-` assigns value of the result from the operation on the right to the object on the left
+
+- it's a kind of a "save as" function
+
+::: fragment
+```{r}
+new_object <- 5+5
+```
+:::
+
+::: fragment
+```{r}
+new_object
+```
+:::
+::: fragment
+```{r}
+my_number <- 20
+my_number
+```
+:::
+
+::: fragment
+```{r}
+my_number+5
+```
+:::
+
+::: fragment
+```{r}
+my_other_number <- 200
+my_number + my_other_number
+```
+:::
+
+::: fragment
+```{r}
+my_number == 20
+```
+:::
+
+::: fragment
+```{r}
+my_number < my_other_number
+```
+:::
+
+## Creating vectors
+
+::: fragment
+```{r}
+my_vector <- c(1, 2, 3, 4, 5)
+my_vector
+```
+:::
+
+::: fragment
+```{r}
+my_vector + 10
+```
+:::
+
+::: fragment
+```{r}
+my_other_vector <- c(6:10)
+my_other_vector
+```
+:::
+
+::: fragment
+```{r}
+my_other_vector + my_vector
+```
+:::
+
+::: fragment
+```{r}
+my_other_vector[2]
+```
+:::
+
+## Adding comments
+
+-   any code in the line after the symbol `#` will not run
+-   this is usefull for adding comments to your code or for "switching off" parts of the code that you don't want to run at the moment (e.g. drafts, unfinished chunks,...)
+
+::: fragment
+```{r eval=FALSE}
+# this is an important comment
+# the code bellow will not run:
+# 10 / 2 
+```
+:::
+
+::: fragment
+```{r}
+# the code bellow will run, because it's placed before the # sign and not after
+10 / 2 # this code divides 10 by 2
+```
+:::
+
+## Exercise {background-color="pink"}
+
+## Task:
+
+1.) create one vector which contains 10 numbers from 51 to 60
+
+2.) create another vector which contains 10 numbers from 101 to 110
+
+3.) save the first vector as “vect_1” and second as “vect_2”
+
+4.) subtract (*odečti*) vect_1 from vect_2 and save the results as “vect_sub”
+
+## Solution
+
+::: fragment
+```{r}
+vect_1 <- c(51:60)
+vect_2 <- c(101:110)
+
+vect_sub <- vect_2 - vect_1
+vect_sub
+```
+:::
+
+## Basic functions and their syntax
+
+-   functions always go with parentheses `()` (*závorky*)
+-   functions are doing stuff
+-   syntax:
+
+`function_name(argument1 = value1, argument2 = value2, ...)`
+
+### Examples of simple functions:
+
+::: fragment
+`mean()`
+
+```{r}
+mean(5:10) # mean = aritmetický průměr
+```
+:::
+
+::: fragment
+```{r}
+a <- mean(1:10)
+a
+```
+:::
+
+::: fragment
+`summary()`
+
+```{r}
+summary(1:10)
+```
+:::
+
+::: fragment
+`seq()`
+
+```{r}
+my_sequence <- seq(from = 1000,  to = 2000, by = 10)
+my_sequence
+```
+:::
+
+::: fragment
+`lenght()`
+
+```{r}
+length(my_sequence)
+```
+:::
+
+::: fragment
+`sum()`
+```{r}
+sum(my_sequence)
+```
+:::
+
+::: fragment
+`range()`
+
+```{r}
+range(my_sequence)
+```
+:::
+
+## Important - how R behaves
+::: fragment
+### Case sensitivity
+
+- R is case sensitive
+```{r}
+new_object <- 5
+NEW_OBJECT <- 10
+```
+```{r}
+NEW_OBJECT == new_object
+```
+:::
+
+::: fragment
+
+### Different ways of how to write the code
+
+- there are different ways how to write your code, which are all correct. All depends on your taste. Just be sure all your brackets are closed and you didn't forget the comma - `,`
+- have a look at these three ways, all have the same results:
+
+```{r}
+my_sequence <- seq(from = 10,  to = 20, by = 2)
+my_sequence
+```
+
+
+
+```{r}
+my_sequence <- seq(
+  from = 10,  
+  to = 20, 
+  by = 2
+  )
+
+my_sequence
+```
+
+In some functions, you don´t need to specify the parameters, but we recommend you to do so, at least at the beginning.
+
+```{r}
+my_sequence <- seq(10, 20, 2)
+my_sequence
+```
+:::
+
+## How R behaves 2
+::: fragment
+### Be carefull with the assigning operator
+:::
+::: fragment
+This chunk of code will show the result, but will not save it (assign it)
+
+```{r}
+sum(1:10)
+```
+:::
+::: fragment
+This chunk, on the other hand, will save your result, but will not show it.
+```{r}
+my_result <- sum(1:10)
+```
+:::
+
+::: fragment
+To show the result, you need to run the object in which you assigned it:
+
+```{r}
+my_result
+```
+:::
+
+::: fragment
+This will overwrite your original result:
+
+```{r}
+my_result <- 100
+my_result
+```
+:::
+::: fragment
+You should therfore use unique object names for each operations:
+
+
+```{r}
+my_result <- sum(1:10)
+
+my_new_result <- 100
+```
+```{r}
+my_result
+
+my_new_result
+```
+
+:::
+
+
+
+## Objects and values
+
+-   there are different types of objects and values in R, each type allows you to do different operations
+
+### Objects
+
+-   for now, it is enough to introduce the concepts of **vectors** and **dataframes**
+    -   **vector**
+        -   a list of items of the same type that are always shown (and manipulated) in the same order
+    -   **dataframe**
+        -   a table
+        -   has rows and columns
+        -   rectangular, ie. it has identical number of rows in each column.
+
+### Values
+
+-   similarly, there are many types of values - characters, numbers, factors.
+-   for now, all you need to know now is that if you want to do mathematic operations, you always have to check whether your numbers are really a numbers and not something else, such as characters
+-   function `str()` will quickly tell you what kind of object with what kind of values you have
+
+## Vectors
+
+::: fragment
+-   use `c()` for creating simple vectors
+
+```{r}
+cisla <- c(1, 2, 3, 4, 5)
+cisla
+```
+:::
+
+::: fragment
+```{r}
+stovky <- c(101:105)
+stovky
+```
+:::
+
+::: fragment
+-   characters must be in quotation marks (*uvozovky*)
+
+```{r}
+artefacts <- c("pottery", "dagger", "fibula", "spondylus", "dartpoint")
+artefacts
+```
+:::
+
+::: fragment
+Note the difference between numbers and characters:
+
+```{r}
+str(cisla)
+```
+
+-   __num__ = numbers
+
+```{r}
+str(artefacts)
+```
+
+- __chr__ = characters (*znaky*)
+:::
+
+::: fragment
+Note: If the vector combines numbers and words, the numbers will automatically be saved as characters. It will then not be possible to perform mathematical operations on them.
+
+```{r}
+divny_vector <- c("pottery", 1, 5, 12, 110)
+str(divny_vector)
+```
+:::
+
+## Dataframes
+
+-   you can create dataframes by binding (*vázání*) the of the same length (!!!) together
+-   the columns can be of different data types
+-   function `cbind()` binds vectors into columns (*sloupce*) and then function `as.data.frame()` change them into **dataframe**
+
+::: fragment
+```{r}
+df <- as.data.frame(cbind(cisla, stovky, artefacts))
+df
+```
+:::
+
+::: fragment
+- note that the function `cbind()` was nested into function `as.data.frame()`
+- nesting functions inside another demands less lines of code, but perhaps makes your code more complicated
+- this is another way how to write the code with same result:
+
+```{r}
+x <- cbind(cisla, stovky, artefacts) 
+df_2 <- as.data.frame(x)
+```
+
+```{r}
+df_2
+```
+
+:::
+
+## Dataframe - structure and types of values
+
+Get the basic information about the dataframe with `str()`
+
+```{r}
+str(df)
+```
+
+We can see that columns *cisla* and *stovky* are not numbers, but characters. To be able for us to do mathematic operations, we need to change the values into numbers by function `as.numeric()`
+
+Note we are use `$` to define column we need to change. We will talk about the `$` more in the next slide.
+
+```{r}
+df$cisla <- as.numeric(df$cisla)
+```
+
+```{r}
+df$stovky <- as.numeric(df$stovky)
+```
+
+```{r}
+str(df)
+```
+
+## Subseting data
+
+### Square brackets `[,]`
+
+-   usefull for chosing data based on their position in dataframe or vector (number of row or column)
+-   impress your friends with new new English words: column = *sloupec*, row = *řádek*, square brackets = *hranaté závorky*, subseting = *vytváření podskupin, podmnožin*
+
+Syntax: `name_of_your_dataframe[row_number, column_number]`
+
+::: fragment
+-   subseting first row:
+
+```{r}
+df[1,]
+```
+:::
+
+::: fragment
+-   subseting first column:
+
+```{r}
+df[,1]
+```
+:::
+
+::: fragment
+-   applying functions on the subsets:
+
+```{r}
+sum(df[,2])
+```
+:::
+
+::: fragment
+You can even "save" subset with the help of assigning marker `<-`
+
+```{r}
+druhy_riadok <- df[2,]
+druhy_riadok
+```
+:::
+
+## Subseting data
+
+### Subsetting with `$`
+
+-   you can use names of columns, so you don't need to remember their positions
+
+Syntax: `name_of_your_dataframe$name_of_the_column`
+
+```{r}
+df$artefacts
+```
+
+```{r}
+mean(df$stovky)
+```
+
+## Now some "fun" with a fake burial ground
+
+Copy and paste this huge piece of code, or open the script "fake_graves.R"
+
+```{r}
+grave_number <- 800:819
+
+dating <- c(
+  "ne.lin","ne.lin","en.zvo","en.zvo","en.snu","br.une","br.une","br.une","la.a","rstred",
+  "ne.lin","br.une","en.zvo","en.snu","la.a","br.une","rstred","ne.lin","en.zvo","br.une"
+)
+
+sex <- c(
+  "male","male","male","female","male","female","female","female","male","female",
+  "male","female","male","female","male","male","female","female","female","male"
+)
+
+age <- c(
+  "31-40","21-30","<11","31-40",">50","31-40",">50","41-50","31-40","<11",
+  "<11","31-40","21-30",">50","41-50","31-40","21-30","31-40","<11",">50"
+)
+
+
+pottery <- c(
+  3,4,3,2,5,4,5,3,2,1,
+  1,6,4,7,3,5,2,5,1,6
+)
+
+bronze <- c(
+  0,0,0,0,0,5,1,2,0,0,
+  0,3,0,0,0,2,0,0,0,4    
+)
+
+stone_chipped <- c(
+  1,1,0,0,2,1,0,0,0,0,
+  0,1,0,2,0,2,0,1,0,1   
+)
+
+stone_polished <- c(
+  2,1,0,0,1,0,0,0,0,0,
+  0,0,0,1,0,0,0,1,0,0    
+)
+
+
+grave_length <- c(
+  210,160,180,250,300,200,225,250,150,100,
+  90,230,200,260,210,240,180,220,100,270
+)
+
+grave_depth <- c(
+  50, 40, 70,200,250,100, 80, 70, 40, 30,
+  25,120, 90,180,100,150, 80,120, 30,200
+)
+
+
+df_grave <- as.data.frame(cbind(grave_number, dating, sex, age, pottery, bronze, stone_chipped, stone_polished, grave_length, grave_depth))
+
+
+df_grave$pottery <- as.numeric(df_grave$pottery)
+df_grave$bronze <- as.numeric(df_grave$bronze)
+df_grave$stone_chipped <- as.numeric(df_grave$stone_chipped)
+df_grave$stone_polished <- as.numeric(df_grave$stone_polished)
+df_grave$grave_length <- as.numeric(df_grave$grave_length)
+df_grave$grave_depth <- as.numeric(df_grave$grave_depth)
+```
+
+There are more elegant ways to prepare such a table. But for now, this is enough.
+
+```{r}
+str(df_grave)
+```
+
+## Let's play!
+
+::: fragment
+### What's the dating of the graves?
+:::
+
+::: fragment
+
+```{r}
+df_grave$dating
+```
+:::
+
+::: fragment
+This is bit messy, so let's use `unique()` to just get a list of dating categories present:
+
+```{r}
+unique(df_grave$dating) # returns each **unique** value
+```
+:::
+
+
+::: fragment
+### Which dating group is the most represented?
+:::
+
+::: fragment
+-   `table()` returns frequency of each value, or in other words, one-way contingency table (*kontingenční tabulka s jednou proměnnou*)
+
+```{r}
+table(df_grave$dating)
+```
+:::
+
+## Let´s play a bit 2
+
+::: fragment
+### How do the graves dated to "ne.lin" look like?
+
+In other words, we want to subset rows with graves dated to "ne.lin" (AKA *kultura s lineární keramikou*)
+::: 
+
+::: fragment
+```{r}
+df_grave_lin <- df_grave[df_grave$dating=="ne.lin",]
+df_grave_lin
+```
+
+Don't worry — we'll soon learn a more intuitive way to filter and subset data.
+:::
+
+::: fragment
+### How many chipped stone artefacts were found?
+:::
+
+::: fragment
+```{r}
+sum(df_grave$stone_chipped)
+```
+:::
+
+::: fragment
+### How many pottery pieces were found in each archaeological culture?
+:::
+
+::: fragment
+This looks complicated at the first sight, but don't panic:
+
+```{r}
+aggregate(pottery ~ dating, data = df_grave, FUN = sum) 
+```
+
+Human reading: "Take the variable **pottery** and compute its **sum** for each value of **dating** in the dataframe **df_grave**."
+::::
+
+## Let´s play a bit 2
+
+::: fragment
+### What is the average length of a grave?
+:::
+
+::: fragment
+```{r}
+mean(df_grave$grave_length)
+```
+:::
+
+::: fragment
+### Is there difference between grave length in dating categories?
+:::
+
+::: fragment
+```{r}
+aggregate(grave_length ~ dating, data = df_grave, FUN = mean)
+```
+:::
+
+
+## Excercise {background-color="pink"}
+
+## Task:
+
+1. save your work, clean your workspace and open "fake_graves.R" script
+
+2. run the code to create the dataframe "df_grave"
+
+Answer the following questions:
+
+3. which age group is the most represented? 
+
+4. Which category has the longest graves on average?
+
+5. How many bronze artefacts were found?
+
+6. which culture (dating group) had the most bronze tools?
+
+7. subset all female graves and create "df_female_graves" object
+
+8. what is the average number of pottery in female graves?
+
+## Results:
+
+
+::: fragment
+3. which age group is the most represented?
+:::
+::: fragment
+```{r}
+table(df_grave$age)
+```
+:::
+
+::: fragment
+4. Which age group has the longest graves on average?
+:::
+::: fragment
+```{r}
+aggregate(grave_length ~ age, data = df_grave, FUN = mean)
+```
+:::
+
+
+::: fragment
+5. How many bronze artefacts were found?
+:::
+::: fragment
+```{r}
+sum(df_grave$bronze)
+```
+:::
+::: fragment
+6. Which culture (dating group) had the most bronze artefacts?
+:::
+::: fragment
+```{r}
+aggregate(bronze ~ dating, data = df_grave, FUN = sum)
+```
+:::
+::: fragment
+7. subset all female graves and create "df_female_grave" object
+:::
+
+::: fragment
+```{r}
+df_female_grave <- df_grave[df_grave$sex == "female",]
+```
+:::
+::: fragment
+8. what is the average number of pottery in female graves?
+:::
+::: fragment
+```{r}
+mean(df_female_grave$pottery)
+```
+
+:::

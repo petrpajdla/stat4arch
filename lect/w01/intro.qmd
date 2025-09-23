@@ -12,7 +12,7 @@ format:
 
 ## Basic information
 
-- Lectures/seminars each **Wednesday, 12:00 -- 13:40**, room **L11**.
+- Lectures/seminars each odd **Wednesday, 12:00 -- 15:40**, room **L11**.
 - Try not to miss the seminars/lectures please.
 - *Hybrid* teaching or recording the lectures is not planned.
 - Be active and curious, the lectures are mere introductions and most of the work is up to you.
