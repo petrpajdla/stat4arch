@@ -50,6 +50,10 @@ lectures/seminar2/data/
 # auto generated figures and files
 lectures/seminar*/seminar*_files/
 lectures/seminar*/seminar*-figure/
+lect/w*/*/figure-pdf/
+lect/w*/*/figure-html/
+lect/w*/*/figure-revealjs/
+lect/w*/*/mediabag/
 
 # backups
 *.bckp
@@ -57,3 +61,8 @@ lectures/seminar*/seminar*-figure/
 
 # site
 /_site/*
+
+**/*.quarto_ipynb
+
+# freeze
+_freeze/
