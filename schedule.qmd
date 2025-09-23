@@ -11,18 +11,18 @@ The course takes place once in two weeks, on **odd Wednesdays 12:00 -- 15:40** (
 
 | Lecture | Date    | Topics | Notes |
 |---------|---------|--------|-------|
-| 1.      | 24. 9.  |  |  |
+| 1.      | 24. 9.  | [Introduction](lect/w01/intro.qmd), [*Tidy data*](lect/w01/tidy.qmd) and [Intro to coding in R](lect/w01/intro2coding.qmd)| [{{< bi file-earmark-arrow-down >}} fake_graves.R](lect/w01/code/fake_graves.R) |
 | 2.      | 8. 10.  |  |  |
 | 3.      | 22. 10. |  |  |
 | 4.      | 5. 11.  |  |  |
 | -       | 19. 11. | *Reading week* |  |
-| 6.      | 3. 12.  |  |  |
-| 7.      | 17. 12. |  |  |
+| 5.      | 3. 12.  |  |  |
+| 6.      | 17. 12. |  |  |
 
 
-::: {.callout-note collapse='true'}
+## Archive 
 
-## Schedule of the course in 2024
+### Spring 2024
 
 The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays). 
 
@@ -42,5 +42,3 @@ The course takes place each **Wednesday 12:00 -- 13:40 in L11**, except 17. 4. (
 | -       | 8. 5.  | *Holidays* | |
 | 10.     | 15. 5. | Dimensionality reduction: [Correspondence analysis](lect/w10/ca.qmd) | |
 | 11.     | 22. 5. | [Reproducibility](lect/w11/repro.qmd) & [Table transformations](lect/w11/pivoting.qmd) | |
-
-:::

@@ -5,7 +5,7 @@ project:
     - "!project/template.qmd"
 
 execute:
-  freeze: auto 
+  freeze: true 
 
 website:
   title: "stat4arch"
@@ -35,21 +35,26 @@ website:
     - title: "Home"
     - id: topics
       title: "Topics"
+      collapse-level: 1
       contents:
         - lect/w01/intro.qmd
         - lect/w01/tidy.qmd
-        - lect/w02/intro2r.qmd
-        - lect/w03/distribs.qmd
-        - lect/w04/rels.qmd
-        - lect/w05/norm.qmd
-        - lect/w05/dplyr.qmd
-        - lect/w07/space.qmd
-        - lect/w08/time.qmd
-        - lect/w09/dist.qmd
-        - lect/w09/clust.qmd
-        - lect/w10/ca.qmd
-        - lect/w11/repro.qmd
-        - lect/w11/pivoting.qmd
+        - lect/w01/intro2coding.qmd
+        - text: ---
+        - section: Archive
+          contents: 
+            - lect/w02/intro2r.qmd
+            - lect/w03/distribs.qmd
+            - lect/w04/rels.qmd
+            - lect/w05/norm.qmd
+            - lect/w05/dplyr.qmd
+            - lect/w07/space.qmd
+            - lect/w08/time.qmd
+            - lect/w09/dist.qmd
+            - lect/w09/clust.qmd
+            - lect/w10/ca.qmd
+            - lect/w11/repro.qmd
+            - lect/w11/pivoting.qmd
   
   page-footer: 
     left: 
