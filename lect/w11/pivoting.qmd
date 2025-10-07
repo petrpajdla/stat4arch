@@ -9,7 +9,7 @@ format:
     chalkboard:
       theme: whiteboard
       chalk-effect: 0.0
-  pdf: default
+  # pdf: default
 execute:
   echo: true
   warning: false
@@ -20,6 +20,7 @@ execute:
 #| echo: false
 library(dplyr)
 library(tidyr)
+library(ggplot2)
 library(here)
 ```
 

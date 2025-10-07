@@ -6,7 +6,7 @@ format:
     fontsize: 24px
     output-file: slides_intro2r.html
     footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Coding in R](./intro2r.html)"
-  pdf: default
+  # pdf: default
 execute:
   echo: true
 ---

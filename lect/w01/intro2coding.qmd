@@ -8,7 +8,7 @@ format:
     embed-resources: true 
     output-file: slides_intro2coding.html
     footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Intro to coding](./intro2coding.html)"
-  pdf: default
+  # pdf: default
 # title-slide-attributes:
 #   data-auto-animate: false
 # title-slide: false
