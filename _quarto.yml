@@ -37,9 +37,18 @@ website:
       title: "Topics"
       collapse-level: 1
       contents:
-        - lect/w01/intro.qmd
-        - lect/w01/tidy.qmd
-        - lect/w01/intro2coding.qmd
+        - section: Week 1
+          contents:
+            - lect/w01/intro.qmd
+            - lect/w01/tidy.qmd
+            - lect/w01/intro2coding.qmd
+        - section: Week 2
+          contents:
+            - lect/w02/basics.qmd
+            - lect/w02/ggplot.qmd
+            - lect/w02/describing.qmd
+            - lect/w02/visualizing.qmd
+            - lect/w02/relations.qmd
         - text: ---
         - section: Archive
           contents: 

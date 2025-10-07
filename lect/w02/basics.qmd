@@ -1,0 +1,254 @@
+---
+title: "Basic workflows"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_basics.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Basic workflows](./basics.html)"
+  # pdf: default
+# title-slide-attributes:
+#   data-auto-animate: false
+# title-slide: false
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Today, you will learn how to:
+- do basic worklow by
+  - organising your work with script and project 
+  - using additional packages
+  - importing your data
+  - observing the structure of your data
+
+- describe your data
+  - visually (plots)
+  - numericaly (Descriptive statistics)
+
+- observe the relations between 2 variables
+
+## Warm up!
+
+::: fragment
+- explain what does this image want to say:
+![](./figs/tidy_data.png)
+:::
+
+::: fragment
+
+- what does this mark do? - `<-` 
+:::
+
+::: fragment
+- and this? - `$`
+:::
+
+::: fragment
+- can you explain what's going on here?
+
+```{r}
+#| eval: false
+my_object <- aggregate(grave_length ~ dating, data = df_grave, FUN = mean)
+```
+:::
+
+
+## Introduction
+- the general workflow of data analysis looks like this:
+![](./figs/base.png)
+
+```{r}
+#| include: false
+library(here)
+df_dartpoints <- read.csv(here("lect/w02/data/dartpoints.csv"))
+```
+
+## Organize your work in scripts
+- create a new script with *Ctrl + Shift + n*
+- put some basic info on what are you doing at the top.
+- use `#` to comment your code
+- comment on the **why**, not the **what**.
+- divide the code into sections with *Ctrl + Shift + r*
+
+    `# Section name ----`
+
+- arrange your codes in the order in which you will run them (so packages first, then importing data, then transformations, analyses, ... and finally exporting of the results)
+- RStudio will give you hints, hit *Tab* to autocomplete function calls.
+- execute the current line with *Ctrl + Enter*
+- run the whole script with *Ctrl + Shift + Enter*
+
+## Script example:
+
+```{r}
+#| eval: false
+# Practice script for "AES_707: Statistics seminar for archaeology students"
+# Author: Peter Tkáč
+# Date: 2025-10-03
+# Update: 2025-10-05
+
+# Packages ----------------------------
+library(here)
+library(dplyr)
+library(ggplot2)
+
+# Data Import --------------------------
+df_dartpoints <- read.csv(here("data/dartpoints.csv"))
+
+# Structure overview -----------------
+
+# for quick overview of the data structure
+
+str(df_dartpoints)
+nrow(df_dartpoints) # number of dartpoints / rows
+table(df_dartpoints$Name) # number of types of the dartpoints
+
+# Transformation ---------------------------------
+
+sum_dartpoints <- df_dartpoints %>% 
+  group_by(Name) %>% 
+  summarise(
+    mean_length = mean(Length),
+    sd_length = sd(Length),
+    mean_width = mean(Width),
+    sd_width = sd(Width)
+  )
+
+sum_dartpoints
+
+# Data Visualisation ---------------------
+
+# for a quick overview of the distribution of the variable Length
+
+plot_1 <- ggplot(df_dartpoints, aes(x=Length))+
+  geom_histogram()+
+  theme_light()
+
+plot_1
+
+# Results saving -------------------------------
+
+ggsave(plot_1, filename = "very_important_plot.png")
+```
+
+## Projects
+- `.Rproj` file is a kind of a “storage” for all your project related scripts, datasets, figures…
+- we recomend you to store each project in a separate directory (folder) and different parts of your project into subdirectories
+- this organisation of scripts and data will be used throughout the whole course
+
+![](./figs/project_folder.png){height=80%}
+
+## Packages
+- by installing additional packages, you can expand the amount of things you can do in R
+- there are plenty of packages with different functions and aims
+- we will introduce basic principles with package  `here`
+
+```{r}
+#install.packages("here") # installs the package
+library(here) # loads the package
+here() # runs a function from the package
+```
+
+- you only need to install the package once by  `install.packages("name_of_the_package")`, but it needs to be loaded every time you start a new script or after you have cleaned up your workspace by `library(name_of_the_package)`
+
+
+## Importing data into R
+
+### Paths
+
+**Absolute** file path - The file path is specific to a given user.
+
+`C:/Documents/MyProject/data/dartpoints.csv`
+
+**Relative** file path starts with the folder where your project is stored:
+
+`./data/dartpoints.csv`
+
+Package `here`
+
+- Package `here` is here to save the day!
+- Function `here()` will know where the top directory is, so you do not need to write whole URL adress
+
+Try running `here()` to see where your project is stored
+
+```{r}
+here()
+```
+
+
+## Importing Data into R - 2
+
+- example of importing data with a relative path:
+- NOTE that in this case, your data have to be in the subfolder “data” which is located in the same folder as your project
+
+```{r}
+#| eval: false
+df_dartpoints <- read.csv(here("data/dartpoints.csv"))
+```
+
+- function `read.csv()` imports .csv files (AKA **comma**-separated values file) into your R (comma = *čárka*)
+- if your data use different way of separating values, you will have to adjust. For example, in the case of semicolom - **;** (*středník*), you need to use argument `sep=";"`
+
+```{r}
+#| eval: false
+df_dartpoints <- read.csv(here("data/dartpoints.csv"), sep = ";")
+```
+
+- you can check how the values are separated when you open your .csv file in Notepad (*Poznámkový blok / Textový editor*) or by function *View File* in the RStudio
+
+![](./figs/view_data.png)
+
+## Before we continue - the Dartpoints ddata
+- download the data `dartpoints.csv`
+- find out how the values in the file are separated and proceed accordingly
+- create a new project and copy paste the dartpoints.csv into "data" subfolder
+- create a new script and save it into "scripts" subfolder
+- install and load package `here()`
+- import data `dartpoints.csv` and save them as a "df_dartpoints"
+
+![](./figs/dartpoints.png)
+
+## Structure of your data
+
+- we already know function `str()` which reveals the basic structure of any object
+
+::: fragment
+```{r}
+str(df_dartpoints)
+```
+:::
+
+::: fragment
+- `head(), tail()`
+
+```{r}
+head(df_dartpoints, 4)
+```
+
+```{r}
+tail(df_dartpoints, 2)
+```
+:::
+
+::: fragment
+`ncol(), nrows()`
+
+```{r}
+ncol(df_dartpoints)
+```
+
+```{r}
+nrow(df_dartpoints)
+```
+:::
+
+::: fragment
+- `names()`
+```{r}
+names(df_dartpoints)
+```
+
+:::

@@ -1,0 +1,191 @@
+---
+title: "Data visualization"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_visualizing.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Data viz](./visualizing.html)"
+  # pdf: default
+# title-slide-attributes:
+#   data-auto-animate: false
+# title-slide: false
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+## Brainstorming {background-color="#FAF1A4"}
+
+```{r}
+#| include: false
+library(here)
+library(ggplot2)
+df_dartpoints <- read.csv(here("lect/w02/data/dartpoints.csv"))
+```
+
+- Why do we visualize data?
+- What elements does a *good* graph contain?
+- How are these elements called?
+
+![Boxplots from Carlson 2017](./figs/boxplot_carlson-rmbg.png)
+
+## Basic ggplot() syntax
+
+
+```{r}
+#| eval: false 
+ggplot(data = <your data frame>, mapping = aes(x = <variable to be mapped to axis x>)) + 
+   geom_<geometry>() 
+```
+
+1. Function `ggplot()` takes the data frame as an argument.  
+2. argument `aes()` serves to **map aesthetics** (axis x and y, colors etc.) to different variables from your data frame.  
+3. Functions with `geom_` prefix are **geometries**, ie. types of plots to draw. You can **set** specific arguments such as the color or shape here.     
+4. Note the `+` after each layer of the ggplot
+
+::: {.fragment}
+Geoms for one variable:
+
+- `geom_histogram()`
+- `geom_density()`
+- `geom_bar()`
+:::
+
+
+## Plots for one variable {background-color="#B5E2FF"}
+
+## Histogram
+
+- **Distribution** of values of a **quantitative** variable.
+
+Distribution of dart point weights.
+
+```{r}
+ggplot(data = df_dartpoints, mapping =  aes(x = Length)) +
+   geom_histogram()
+```
+
+## Histogram {auto-animate=true}
+- note that you don't need to write arguments `data = ` and `mapping = ` 
+```{r}
+ggplot(df_dartpoints, aes(x = Length)) +
+  geom_histogram(binwidth = 5)
+```
+
+## Histogram {auto-animate=true}
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length))+
+  geom_histogram(binwidth = 5, color = "black")
+```
+
+## Histogram {auto-animate=true}
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length)) +
+  geom_histogram(binwidth = 5, color = "black", fill = "white")
+```
+
+## Labels {auto-animate=true}
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length)) +
+  geom_histogram(binwidth = 5, color = "black", fill = "white") +
+  labs(x = "Length (cm)", y = "Count")
+```
+
+## Labels {auto-animate=true}
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length)) +
+  geom_histogram(binwidth = 5, color = "black", fill = "white") +
+  labs(x = "Length (cm)", y = "Count",
+       title = "Histogram of dart point lengths")
+```
+
+## Labels {auto-animate=true}
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length))+
+  geom_histogram(binwidth = 5, color = "black", fill = "white") +
+  labs(x = "Length (cm)", y = "Count",
+       title = "Histogram of dart point lengths", 
+       caption = "Data adapted from archdata R package, Carlson 2017")
+```
+
+## Density plot
+
+- **Distribution** of values of a **quantitative** variable.
+
+Distribution of dart point weights.
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length)) +
+  geom_density()
+```
+## Density plot - setting the color
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length)) +
+  geom_density(color = "red")
+```
+
+## Density plot - mapping variables by color {auto-animate=true}
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length, color = Name)) +
+  geom_density()
+```
+
+## Density plot {auto-animate=true}
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length, color = Name, fill = Name)) +
+  geom_density()
+```
+
+## Density plot {auto-animate=true}
+
+```{r}
+ggplot(df_dartpoints, aes(x = Length, color = Name, fill = Name)) + 
+  geom_density(alpha = 0.4)
+```
+
+
+
+
+## Bar chart
+
+- **Distribution** of values of a **qualitative** variable.
+
+Distribution of types of dart points. 
+
+
+```{r}
+ggplot(data = df_dartpoints, aes(x = Name)) + 
+  geom_bar()
+```
+
+## Bar chart {auto-animate=true}
+
+```{r}
+ggplot(data = df_dartpoints, aes(x = Name, color = Name)) + 
+  geom_bar()
+```
+
+## Bar chart {auto-animate=true}
+
+```{r}
+ggplot(data = df_dartpoints, aes(x = Name, color = Name, fill = Name)) +
+  geom_bar()
+```
+
+## Bar chart {auto-animate=true}
+- notice here the difference between **setting** color of our choice and **mapping** color based on one variable
+```{r}
+ggplot(data = df_dartpoints, aes(x = Name, fill = Name)) + 
+  geom_bar(color = "black")
+```

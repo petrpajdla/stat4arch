@@ -1,0 +1,141 @@
+---
+title: "ggplot2"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_ggplot.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [ggplot2](./ggplot.html)"
+  # pdf: default
+# title-slide-attributes:
+#   data-auto-animate: false
+# title-slide: false
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+
+
+## Visualisation of data
+- why visualise data?
+- can you name any types of graphs?
+- can you name any bad examples?
+
+
+## Making plots with ggplot()
+- package `ggplot2` - you need to install and load it first!
+- when working with `ggplot()` we will need three layers - **data**, **aesthetics / mapping** and **geometry**
+
+```{r}
+#| include: false
+library(here)
+library(ggplot2)
+df_dartpoints <- read.csv(here("lect/w02/data/dartpoints.csv"))
+```
+
+::: fragment
+Data:
+```{r}
+ggplot(data = df_dartpoints)
+```
+:::
+
+::: fragment
+- aesthetics:
+```{r}
+ggplot(data = df_dartpoints, mapping = aes(x = Length, y = Weight))
+```
+:::
+
+::: fragment
+- geometry:
+```{r}
+ggplot(data = df_dartpoints, mapping = aes(x = Length, y = Weight))+
+  geom_point()
+```
+:::
+
+
+## Adusting plot
+
+::: fragment
+
+```{r}
+ggplot(data = df_dartpoints, mapping = aes(x = Length, y = Weight))+
+  geom_point(color = "red", alpha = 0.5, size = 3)+ # setting of the points
+  labs(title = "Dartpoints", x = "length (mm)", y = "weight (mm)") + # adds title and changes x and y axis text
+  theme_light() # sets specific theme (visual style)
+```
+:::
+
+::: fragment
+Task: change the shape of the points to squares by  by setting "shape = 15" in geom_point(). Try also other shapes.
+:::
+
+
+
+## Adding more variables
+
+```{r}
+ggplot(data = df_dartpoints, mapping = aes(x = Length, y = Weight, color = Name))+
+  geom_point()+ # note that in this case, we are leaving settings here empty 
+  labs(title = "Dartpoints", x = "length (mm)", y = "weight (mm)") +
+  theme_light()
+```
+
+::: fragment
+- NOTE that when we want the color to be depended on particular variable, we need to specify it in `mapping = aes()`, but when we want to set the color regardless of any variable (e.i. we want that all points have the same color specified by us), we need to set it in the `geom_point()` 
+
+- If we want to have color and shape of the points to be based on specific variable, but also want to make them all bigger, we can combine mapping and setting:
+
+```{r}
+ggplot(data = df_dartpoints, mapping = aes(x = Length, y = Weight, color = Name))+
+  geom_point(size =  3, alpha = 0.5)+  
+  labs(title = "Dartpoints", x = "length (mm)", y = "weight (mm)", color = "Dart type") +
+  theme_light()
+```
+:::
+
+## Saving and exporting yoour plot
+
+- you can use `<-` to save your plot as an object in R enviromnent
+
+::: fragment
+```{r}
+my_plot <- ggplot(data = df_dartpoints, mapping = aes(x = Length, y = Weight, color = Name))+
+  geom_point(size =  3, alpha = 0.5)+  
+  labs(title = "Dartpoints", x = "length (mm)", y = "weight (mm)", color = "Dart type") +
+  theme_light()
+```
+:::
+
+::: fragment
+- once it's saved, you can view it by simply running the name of your plot as a code:
+
+```{r}
+my_plot
+```
+:::
+::: fragment
+- you can also export your plot with `ggsave()`
+- notice that in this case, you have to have a "figs" subfolder in your project folder
+```{r}
+#| eval: false
+ggsave(filename = here("figs/my_very_first_plot.png"), plot = my_plot)
+```
+:::
+
+::: fragment
+
+- `ggsave()` will defaultly save your last created plot, so you don't need to save your plot before
+
+```{r}
+#| eval: false
+ggsave(filename = here("figs/same_plot.png"))
+```
+
+:::

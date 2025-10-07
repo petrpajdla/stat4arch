@@ -1,0 +1,183 @@
+---
+title: "Descriptive statistics"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_describing.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Descriptive stats](./describing.html)"
+  # pdf: default
+# title-slide-attributes:
+#   data-auto-animate: false
+# title-slide: false
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Descriptive Statistics {background-color="#B5E2FF"}
+
+## Brainstorming
+
+```{r}
+#| include: false
+library(here)
+library(ggplot2)
+df_dartpoints <- read.csv(here("lect/w02/data/dartpoints.csv"))
+```
+
+::: fragment
+Run this code:
+```{r}
+#| eval: false
+ggplot(data = df_dartpoints, mapping = aes(x=Length))+
+  geom_histogram()
+```
+:::
+
+::: fragment
+```{r}
+#| echo: false
+ggplot(data = df_dartpoints, mapping = aes(x=Length))+
+  geom_histogram()
+```
+:::
+::: fragment
+- what do you think this plot shows?
+:::
+::: fragment
+- which lengths are more represented?
+:::
+::: fragment
+ - do you see any extreme values?
+:::
+
+
+## Characterizing centrality
+::: fragment
+### Mean (*aritmetický průměr*)
+- mean, or average, is the sum of all values divided by the number of values
+- we already know function `mean()` for arithmetic mean: 
+
+```{r}
+mean(df_dartpoints$Length)
+```
+:::
+::: fragment
+### Median (*medián*)
+- medians is the value separating data into lower half and an upper half, i.e. 50 % of the values are less than or equal to the median and 50 % are greater than or equal to the median    
+- median is more **robust** and minimizes influence of outliers
+
+- use function `median()`
+```{r}
+median(df_dartpoints$Length)
+```
+:::
+::: fragment
+```{r}
+#| include: false
+val_mean <- mean(df_dartpoints$Length)
+val_median <- median(df_dartpoints$Length)
+```
+
+```{r}
+#| echo: false
+ggplot(data = df_dartpoints, mapping = aes(x=Length))+
+  geom_histogram()+
+  geom_vline(xintercept = val_mean, color = "red")+
+  geom_vline(xintercept = val_median, color = "blue")+
+  scale_x_continuous(breaks = seq(0, 150, by = 5))
+```
+:::
+
+::: fragment
+### What are outliers? (*odlehlé hodnoty*)
+- **Outliers** are data points that significantly differ from other observations. 
+- May indicate a measurement error, an exceptional observation, etc.
+:::
+
+
+## Characterizing dispersion and/or spread
+### Range (*rozpětí*)  
+`max()`, `min()` or `range()`
+
+
+```{r}
+max(df_dartpoints$Length)
+```
+
+```{r}
+range(df_dartpoints$Length)
+```
+
+::: fragment
+### Variance and Standard deviation (*rozptyl* a *směrodatná odchylka*)
+`sd()`  
+
+```{r}
+sd(df_dartpoints$Length)
+```
+:::
+::: fragment
+- perhaps you can argue that one value does not tell us too much about our dataset, we will touch this problem soon
+:::
+
+::: {.fragment}
+### Interquartile range (midspread, IQR, *kvantil*, *mezikvartilové rozpětí*)
+`IQR()`  
+- **Robust**, minimizes influence of outliers.
+:::
+
+## Summary
+- centrality and dispersion explained visually:
+
+![Various plots of a normal distribution](./figs/normal_distribution.png)
+
+## Exercise
+::: fragment
+### Task
+Use the dataset **dartpoints.csv** and:
+
+1) count mean and median **weight**, how do they differ?
+
+2) what is the range of the weights?
+
+calculate 3) the mean value and 4) the standard deviation of **length**, BUT do it for each type (variable "Name") of the dartpoint (use the function `aggregate()`) 
+
+5) find out which type ("Name") of dartpoints have the highest standard deviations and try to explain what does it say about this type of dartpoints
+:::
+::: fragment
+### Solution
+:::
+
+::: fragment
+1)
+```{r}
+mean(df_dartpoints$Weight)
+median(df_dartpoints$Weight)
+```
+:::
+
+::: fragment
+2)
+```{r}
+range(df_dartpoints$Weight)
+```
+:::
+
+::: fragment
+3)
+```{r}
+aggregate(Length ~ Name, data = df_dartpoints, FUN = mean)
+```
+:::
+
+::: fragment
+4)
+```{r}
+aggregate(Length ~ Name, data = df_dartpoints, FUN = sd)
+```
+:::
