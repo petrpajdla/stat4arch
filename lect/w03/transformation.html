@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>stat4arch - Data transformation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">stat4arch</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Course overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html"> <i class="bi bi-calendar4" role="img">
+</i> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Topics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-topics">    
+        <li class="dropdown-header">Week 1</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w01/intro.html">
+ <span class="dropdown-text">Course introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w01/tidy.html">
+ <span class="dropdown-text">Tidy data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w01/intro2coding.html">
+ <span class="dropdown-text">Intro to coding</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Week 2</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/basics.html">
+ <span class="dropdown-text">Basic workflows</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/ggplot.html">
+ <span class="dropdown-text">ggplot2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/describing.html">
+ <span class="dropdown-text">Descriptive statistics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/visualizing.html">
+ <span class="dropdown-text">Data visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/relations.html">
+ <span class="dropdown-text">Relationships</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Week 3</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/intro.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/tidy_data.html">
+ <span class="dropdown-text">Tidy data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/transformation.html">
+ <span class="dropdown-text">Data transformation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/exc.html">
+ <span class="dropdown-text">Exercise</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Archive</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/intro2r.html">
+ <span class="dropdown-text">Coding in R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/distribs.html">
+ <span class="dropdown-text">Summaries and visualization of distributions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w04/rels.html">
+ <span class="dropdown-text">Summaries and visualization of relationships</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w05/norm.html">
+ <span class="dropdown-text">Normal distribution</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w05/dplyr.html">
+ <span class="dropdown-text">Data manipulation with dplyr</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w07/space.html">
+ <span class="dropdown-text">Considering space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w08/time.html">
+ <span class="dropdown-text">Considering time</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w09/dist.html">
+ <span class="dropdown-text">Distances and similarity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w09/clust.html">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w10/ca.html">
+ <span class="dropdown-text">Correspondence analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w11/repro.html">
+ <span class="dropdown-text">Reproducibility</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w11/pivoting.html">
+ <span class="dropdown-text">Long table and wide table transformations</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../project.html"> <i class="bi bi-file-earmark-code" role="img">
+</i> 
+<span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html"> <i class="bi bi-gear" role="img">
+</i> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../kit.html"> <i class="bi bi-patch-question" role="img">
+</i> 
+<span class="menu-text">Survival kit</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w03/intro.html">Week 3</a></li><li class="breadcrumb-item"><a href="../../lect/w03/transformation.html">Data transformation</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Week 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidy data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/intro2coding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to coding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Week 2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic workflows</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ggplot2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/describing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptive statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/visualizing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Relationships</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Week 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/tidy_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidy data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/transformation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/exc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Archive</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/intro2r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/distribs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summaries and visualization of distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w04/rels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summaries and visualization of relationships</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w05/norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Normal distribution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w05/dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data manipulation with dplyr</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w07/space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considering space</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w08/time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considering time</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w09/dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distances and similarity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w09/clust.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clustering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w10/ca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Correspondence analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w11/repro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducibility</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w11/pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Long table and wide table transformations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a>
+  <ul class="collapse">
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages:</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data:</a></li>
+  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start">Start:</a></li>
+  <li><a href="#hints" id="toc-hints" class="nav-link" data-scroll-target="#hints">Hints:</a></li>
+  </ul></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link" data-scroll-target="#course-overview">Course overview</a></li>
+  <li><a href="#package-dplyr" id="toc-package-dplyr" class="nav-link" data-scroll-target="#package-dplyr">package <code>dplyr</code></a></li>
+  <li><a href="#pipe-operator--" id="toc-pipe-operator--" class="nav-link" data-scroll-target="#pipe-operator--">pipe operator - <code>|&gt;</code></a></li>
+  <li><a href="#select---more-details" id="toc-select---more-details" class="nav-link" data-scroll-target="#select---more-details"><code>select()</code> - more details</a></li>
+  <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename"><code>rename()</code></a></li>
+  <li><a href="#relocate" id="toc-relocate" class="nav-link" data-scroll-target="#relocate"><code>relocate()</code></a></li>
+  <li><a href="#before-we-continue" id="toc-before-we-continue" class="nav-link" data-scroll-target="#before-we-continue">Before we continue:</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><code>mutate()</code></a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter()</code></a></li>
+  <li><a href="#filtering-based-on-a-vector" id="toc-filtering-based-on-a-vector" class="nav-link" data-scroll-target="#filtering-based-on-a-vector">Filtering based on a vector</a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><code>arrange()</code></a></li>
+  <li><a href="#distinct-and-count" id="toc-distinct-and-count" class="nav-link" data-scroll-target="#distinct-and-count"><code>distinct()</code> and <code>count()</code></a></li>
+  <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise"><code>summarise()</code></a></li>
+  <li><a href="#group_by" id="toc-group_by" class="nav-link" data-scroll-target="#group_by"><code>group_by()</code></a></li>
+  <li><a href="#back-to-mutate" id="toc-back-to-mutate" class="nav-link" data-scroll-target="#back-to-mutate">back to <code>mutate()</code></a>
+  <ul class="collapse">
+  <li><a href="#creating-new-values-based-on-different-conditions" id="toc-creating-new-values-based-on-different-conditions" class="nav-link" data-scroll-target="#creating-new-values-based-on-different-conditions">creating new values based on different conditions</a></li>
+  </ul></li>
+  <li><a href="#back-to-mutate-1" id="toc-back-to-mutate-1" class="nav-link" data-scroll-target="#back-to-mutate-1">back to <code>mutate()</code></a>
+  <ul class="collapse">
+  <li><a href="#changing-existing-values-based-on-combination-of-two-conditions" id="toc-changing-existing-values-based-on-combination-of-two-conditions" class="nav-link" data-scroll-target="#changing-existing-values-based-on-combination-of-two-conditions">changing existing values based on combination of two conditions</a></li>
+  </ul></li>
+  <li><a href="#combining-plenty-of-functions-into-one-huge-code-chunk" id="toc-combining-plenty-of-functions-into-one-huge-code-chunk" class="nav-link" data-scroll-target="#combining-plenty-of-functions-into-one-huge-code-chunk">Combining plenty of functions into one huge code chunk:</a></li>
+  <li><a href="#saving-your-result" id="toc-saving-your-result" class="nav-link" data-scroll-target="#saving-your-result">Saving your result</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w03/transformation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w03/transformation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_transformation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w03/intro.html">Week 3</a></li><li class="breadcrumb-item"><a href="../../lect/w03/transformation.html">Data transformation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Data transformation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<section id="packages" class="level3">
+<h3 class="anchored" data-anchor-id="packages">Packages:</h3>
+<ul>
+<li><code>here</code></li>
+<li><code>dplyr</code></li>
+</ul>
+</section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data:</h3>
+<ul>
+<li>dartpoints.csv</li>
+</ul>
+</section>
+<section id="start" class="level3">
+<h3 class="anchored" data-anchor-id="start">Start:</h3>
+<ul>
+<li>open your R Project, create a new script file</li>
+<li>load library <code>here</code>, install and load library <code>dplyr</code></li>
+<li>import data “dartpoints.csv</li>
+</ul>
+</section>
+<div class="fragment">
+<section id="hints" class="level3">
+<h3 class="anchored" data-anchor-id="hints">Hints:</h3>
+<ul>
+<li><code>install.packages()</code>, <code>library()</code>, <code>here()</code>, <code>read.csv()</code></li>
+</ul>
+</section>
+</div>
+</section>
+<section id="course-overview" class="level2">
+<h2 class="anchored" data-anchor-id="course-overview">Course overview</h2>
+<p>In this course, you will learn how to:</p>
+<ul>
+<li>select specific columns or remove them – <code>select()</code></li>
+<li>rename your columns or change their position – <code>rename()</code>, <code>relocate()</code></li>
+<li>create new columns and change the values based on different conditions – <code>mutate()</code>, <code>case_when()</code></li>
+<li>filter specific rows based on various conditions – <code>filter()</code></li>
+<li>order your rows from lowest to highest values (or vice versa) – <code>arrange()</code></li>
+<li>group your data and calculate different summary statistics – <code>summarise()</code>, <code>group_by()</code></li>
+<li>work with different functions more effectively with the pipe operator – <code>|&gt;</code></li>
+</ul>
+<div class="fragment">
+<p>At the end, you will be able to create and understand such a crazy code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_length =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_length =</span> <span class="fu">round</span>(<span class="fu">median</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_length =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_name =</span> <span class="fu">n</span>()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">percent_name =</span> <span class="fu">round</span>(n_name<span class="sc">/</span><span class="fu">sum</span>(n_name)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">y =</span> sd_length)<span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>)<span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="package-dplyr" class="level2">
+<h2 class="anchored" data-anchor-id="package-dplyr">package <code>dplyr</code></h2>
+<ul>
+<li>we will work with the package <code>dplyr</code> which uses tidy data logic (one variable = one column, one observation = one row,…)</li>
+<li>a big advantage of this package is that it has more intuitive and human readable syntax</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>let’s say we want to analyse only those dartpoints that have name “Travis”</li>
+<li>in R base, the code to select only dartpoints of that type, would look like this:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints[df_dartpoints<span class="sc">$</span>Name <span class="sc">==</span> <span class="st">"Travis"</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>This is a solution with the function <code>filter()</code> from the <code>dplyr</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df_dartpoints, Name <span class="sc">==</span> <span class="st">"Travis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Similarly, you can also select different columns by their name:</p>
+<p>R base solution:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints[, <span class="fu">c</span>(<span class="st">"Name"</span>, <span class="st">"Length"</span>, <span class="st">"Width"</span>, <span class="st">"Weight"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>and this is the <code>dplyr</code> solution with function <code>select()</code>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(df_dartpoints, Name, Length, Width, Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="pipe-operator--" class="level2">
+<h2 class="anchored" data-anchor-id="pipe-operator--">pipe operator - <code>|&gt;</code></h2>
+<ul>
+<li><p><code>|&gt;</code> allows you to combine various functions into one code chunks, which makes your code shorter and easier to read</p></li>
+<li><p>syntax:</p></li>
+</ul>
+<p><code>dataframe |&gt; function_1(variable, condition) |&gt; function_2(variable, condition)</code></p>
+<div class="fragmnent">
+<p>So you can combine functions <code>select()</code>, <code>filter()</code> and <code>head()</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Name, Length, Width, Weight) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Name <span class="sc">==</span> <span class="st">"Travis"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Name Length Width Weight
+1 Travis   56.5  21.1    9.5
+2 Travis   54.6  22.4   10.4
+3 Travis   46.3  21.3    7.5
+4 Travis   57.6  18.9    8.7</code></pre>
+</div>
+</div>
+<ul>
+<li>notice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”</li>
+</ul>
+</div>
+</section>
+<section id="select---more-details" class="level2">
+<h2 class="anchored" data-anchor-id="select---more-details"><code>select()</code> - more details</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Name, Length, Width, Weight, Blade.Sh) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Name Length Width Weight Blade.Sh
+1 Darl   42.8  15.8    3.6        S
+2 Darl   40.5  17.4    4.5        S
+3 Darl   37.5  16.3    3.6        S
+4 Darl   40.3  16.1    4.0        S</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Name, Length<span class="sc">:</span>Weight) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Name Length Width Thickness B.Width J.Width H.Length Weight
+1 Darl   42.8  15.8       5.8    11.3    10.6     11.6    3.6
+2 Darl   40.5  17.4       5.8      NA    13.7     12.9    4.5
+3 Darl   37.5  16.3       6.1    12.1    11.3      8.2    3.6
+4 Darl   40.3  16.1       6.3    13.5    11.7      8.3    4.0</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>You can exclude specific columns by <code>!</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span>Name) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length Weight
+1 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6    3.6
+2 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9    4.5
+3 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2    3.6
+4 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3    4.0
+  Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or
+1        S       I         S         T       S       E
+2        S       I         S         T       S       E
+3        S       I         S         T       S       E
+4        S       I         S         T       S       E</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span>Name<span class="sc">:</span>Quad) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Length Width Thickness B.Width J.Width H.Length Weight Blade.Sh Base.Sh
+1   42.8  15.8       5.8    11.3    10.6     11.6    3.6        S       I
+2   40.5  17.4       5.8      NA    13.7     12.9    4.5        S       I
+3   37.5  16.3       6.1    12.1    11.3      8.2    3.6        S       I
+4   40.3  16.1       6.3    13.5    11.7      8.3    4.0        S       I
+  Should.Sh Should.Or Haft.Sh Haft.Or
+1         S         T       S       E
+2         S         T       S       E
+3         S         T       S       E
+4         S         T       S       E</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>selecting columns with numeric variables:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Length Width Thickness B.Width J.Width H.Length Weight
+1   42.8  15.8       5.8    11.3    10.6     11.6    3.6
+2   40.5  17.4       5.8      NA    13.7     12.9    4.5
+3   37.5  16.3       6.1    12.1    11.3      8.2    3.6
+4   40.3  16.1       6.3    13.5    11.7      8.3    4.0</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="rename" class="level2">
+<h2 class="anchored" data-anchor-id="rename"><code>rename()</code></h2>
+<ul>
+<li><p>you can change the names of your columns by <code>rename()</code> function</p></li>
+<li><p>syntax:</p>
+<p><code>rename(new_name = old_name)</code></p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">typ_sipky =</span> Name,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">delka_sipky =</span> Length,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sirka_sipky =</span> Width</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  typ_sipky Catalog     TARL  Quad delka_sipky sirka_sipky Thickness B.Width
+1      Darl 41-0322 41CV0536 26/59        42.8        15.8       5.8    11.3
+2      Darl 35-2946 41CV0235 21/63        40.5        17.4       5.8      NA
+3      Darl 35-2921 41CV0132 20/63        37.5        16.3       6.1    12.1
+4      Darl 36-3487 41CV0594 10/54        40.3        16.1       6.3    13.5
+  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or
+1    10.6     11.6    3.6        S       I         S         T       S       E
+2    13.7     12.9    4.5        S       I         S         T       S       E
+3    11.3      8.2    3.6        S       I         S         T       S       E
+4    11.7      8.3    4.0        S       I         S         T       S       E</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="relocate" class="level2">
+<h2 class="anchored" data-anchor-id="relocate"><code>relocate()</code></h2>
+<ul>
+<li><code>relocate()</code> will defautly move your chosen column to the front:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">typ_sipky =</span> Name,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">delka_sipky =</span> Length,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sirka_sipky =</span> Width</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(delka_sipky, sirka_sipky) <span class="sc">|&gt;</span> </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  delka_sipky sirka_sipky typ_sipky Catalog     TARL  Quad Thickness B.Width
+1        42.8        15.8      Darl 41-0322 41CV0536 26/59       5.8    11.3
+2        40.5        17.4      Darl 35-2946 41CV0235 21/63       5.8      NA
+3        37.5        16.3      Darl 35-2921 41CV0132 20/63       6.1    12.1
+4        40.3        16.1      Darl 36-3487 41CV0594 10/54       6.3    13.5
+  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or
+1    10.6     11.6    3.6        S       I         S         T       S       E
+2    13.7     12.9    4.5        S       I         S         T       S       E
+3    11.3      8.2    3.6        S       I         S         T       S       E
+4    11.7      8.3    4.0        S       I         S         T       S       E</code></pre>
+</div>
+</div>
+<ul>
+<li>note that you must already be working with the new variable names.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>you can manualy specify the position of relocated columns by aruments <code>.before =</code> or <code>.after =</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">typ_sipky =</span> Name,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">delka_sipky =</span> Length,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sirka_sipky =</span> Width</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    delka_sipky, sirka_sipky, <span class="at">.after =</span>  typ_sipky</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  typ_sipky delka_sipky sirka_sipky Catalog     TARL  Quad Thickness B.Width
+1      Darl        42.8        15.8 41-0322 41CV0536 26/59       5.8    11.3
+2      Darl        40.5        17.4 35-2946 41CV0235 21/63       5.8      NA
+3      Darl        37.5        16.3 35-2921 41CV0132 20/63       6.1    12.1
+4      Darl        40.3        16.1 36-3487 41CV0594 10/54       6.3    13.5
+  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or
+1    10.6     11.6    3.6        S       I         S         T       S       E
+2    13.7     12.9    4.5        S       I         S         T       S       E
+3    11.3      8.2    3.6        S       I         S         T       S       E
+4    11.7      8.3    4.0        S       I         S         T       S       E</code></pre>
+</div>
+</div>
+<ul>
+<li>note the dot before arguments <code>.after</code> and <code>.before</code> - it indicates to R that those are not objects or variables, but arguments of a function</li>
+</ul>
+</div>
+</section>
+<section id="before-we-continue" class="level2">
+<h2 class="anchored" data-anchor-id="before-we-continue">Before we continue:</h2>
+<ul>
+<li>you can also create a new object from your selection with <code>&lt;-</code>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="ot">&lt;-</span> df_dartpoints <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Name, Length, Width, Weight, Base.Sh)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_sample, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Name Length Width Weight Base.Sh
+1 Darl   42.8  15.8    3.6       I
+2 Darl   40.5  17.4    4.5       I
+3 Darl   37.5  16.3    3.6       I
+4 Darl   40.3  16.1    4.0       I</code></pre>
+</div>
+</div>
+<p>From now on, we will continue with this dataframe, in order to reduce the number of the columns.</p>
+</section>
+<section id="mutate" class="level2">
+<h2 class="anchored" data-anchor-id="mutate"><code>mutate()</code></h2>
+<ul>
+<li><p>this function creates new columns that are calculated from existing ones (i.e.&nbsp;the new columns are functions of existing variables).</p></li>
+<li><p>syntax: <code>dataframe |&gt; mutate(variable_name = function())</code></p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>here is an example of creating a new column whose values are the multiplication of length by width</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">square_size =</span> Length<span class="sc">*</span>Width</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Name Length Width Weight Base.Sh square_size
+1 Darl   42.8  15.8    3.6       I      676.24
+2 Darl   40.5  17.4    4.5       I      704.70
+3 Darl   37.5  16.3    3.6       I      611.25
+4 Darl   40.3  16.1    4.0       I      648.83</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>note what argument <code>.keep = "used"</code> does:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">square_size =</span> Length<span class="sc">*</span>Width,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.keep =</span> <span class="st">"used"</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Length Width square_size
+1   42.8  15.8      676.24
+2   40.5  17.4      704.70
+3   37.5  16.3      611.25
+4   40.3  16.1      648.83</code></pre>
+</div>
+</div>
+<ul>
+<li>we will explore the function <code>mutate()</code> in more detail later</li>
+</ul>
+</div>
+</section>
+<section id="filter" class="level2">
+<h2 class="anchored" data-anchor-id="filter"><code>filter()</code></h2>
+<ul>
+<li>for specifying conditions for filtering, <code>dplyr</code> uses the following logical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &amp;, |, %in%, etc (use <code>?dplyr::filter</code> for more details)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>here, we will use the symbol <code>&gt;</code> to filter out dart points with a length greater than 80 mm</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Length <span class="sc">&gt;</span> <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Name Length Width Weight Base.Sh
+1 Pedernales  109.5  49.3   28.8       I
+2 Pedernales   84.0  21.2    9.3       I</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>and here we use <code>==</code> to choose only those dartpoints which are of type “Travis”</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Name <span class="sc">==</span> <span class="st">"Travis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Name Length Width Weight Base.Sh
+1  Travis   56.5  21.1    9.5       S
+2  Travis   54.6  22.4   10.4       S
+3  Travis   46.3  21.3    7.5       S
+4  Travis   57.6  18.9    8.7       S
+5  Travis   49.1  21.4    6.9       S
+6  Travis   64.6  21.5   15.0       I
+7  Travis   69.0  20.9   11.4       E
+8  Travis   40.1  18.4    6.3       S
+9  Travis   41.5  19.2    7.5       S
+10 Travis   46.3  17.9    5.9       S
+11 Travis   39.6  21.5    5.4       S</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>alternatively, you can exclude all points of a type “Travis” by negation <code>!=</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Name <span class="sc">!=</span> <span class="st">"Travis"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Name Length Width Weight Base.Sh
+1 Darl   42.8  15.8    3.6       I
+2 Darl   40.5  17.4    4.5       I
+3 Darl   37.5  16.3    3.6       I
+4 Darl   40.3  16.1    4.0       I</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>add <code>&amp;</code> if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” <strong>AND</strong> are heavier than 10 grams</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Name <span class="sc">==</span> <span class="st">"Wells"</span> <span class="sc">&amp;</span> Weight <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Name Length Width Weight Base.Sh
+1 Wells   65.4  25.1   12.6       S
+2 Wells   58.9  24.4   10.5       I
+3 Wells   63.1  24.7   16.3       E</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><i class="bi-wrench-adjustable " style="" role="img" aria-hidden="true"></i> Task: instead of <code>&amp;</code> try the operator <code>|</code> (<strong>OR</strong>) and see how the result differs</li>
+</ul>
+</div>
+</section>
+<section id="filtering-based-on-a-vector" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-based-on-a-vector">Filtering based on a vector</h2>
+<ul>
+<li>you can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator <code>%in%</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>two_types <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Pedernales"</span>, <span class="st">"Ensor"</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Name <span class="sc">%in%</span> two_types) <span class="sc">|&gt;</span> </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Name Length Width Weight Base.Sh
+1 Ensor   43.5  20.1    4.6       S
+2 Ensor   42.1  20.8    5.4       S
+3 Ensor   42.1  25.1    5.9       S
+4 Ensor   43.1  20.0    5.1       S</code></pre>
+</div>
+</div>
+</section>
+<section id="arrange" class="level2">
+<h2 class="anchored" data-anchor-id="arrange"><code>arrange()</code></h2>
+<ul>
+<li>this function will order your observations from the lowest to highest (or vice versa)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Length) <span class="sc">|&gt;</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Name Length Width Weight Base.Sh
+1 Darl   30.6  17.1    2.3       I
+2 Darl   31.2  15.6    2.5       I
+3 Darl   32.0  16.0    3.3       E
+4 Darl   32.4  14.5    2.5       I</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Length)) <span class="sc">|&gt;</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Name Length Width Weight Base.Sh
+1 Pedernales  109.5  49.3   28.8       I
+2 Pedernales   84.0  21.2    9.3       I
+3 Pedernales   78.3  28.1   14.8       I
+4 Pedernales   70.4  30.4   13.1       I</code></pre>
+</div>
+</div>
+</section>
+<section id="distinct-and-count" class="level2">
+<h2 class="anchored" data-anchor-id="distinct-and-count"><code>distinct()</code> and <code>count()</code></h2>
+<ul>
+<li>try to find out what these functions are doing:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(Name, Base.Sh) <span class="sc">|&gt;</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Name Base.Sh
+1        Darl       I
+2        Darl       E
+3        Darl       S
+4        Darl       R
+5        Darl    &lt;NA&gt;
+6       Ensor       S
+7       Ensor       R
+8       Ensor       I
+9       Ensor    &lt;NA&gt;
+10 Pedernales       I</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Name, Base.Sh, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Name Base.Sh  n
+1 Pedernales       I 32
+2       Darl       I 18
+3     Travis       S  9
+4       Darl       S  6</code></pre>
+</div>
+</div>
+</section>
+<section id="summarise" class="level2">
+<h2 class="anchored" data-anchor-id="summarise"><code>summarise()</code></h2>
+<ul>
+<li>this function is used for calculating basic summary stastics from the existing variables</li>
+<li>syntax: <code>summarise(new_variable = function(variable))</code></li>
+<li>in this case, the mean and sd values are calculated for whole dataframe:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_lenght =</span> <span class="fu">mean</span>(Length),</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_length =</span> <span class="fu">sd</span>(Length)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  mean_lenght sd_length
+1    49.33077  12.73619</code></pre>
+</div>
+</div>
+</section>
+<section id="group_by" class="level2">
+<h2 class="anchored" data-anchor-id="group_by"><code>group_by()</code></h2>
+<ul>
+<li>if you want to calculate summary statistic for each dartpoint type, you have to use function <code>group_by</code> which will create groups of rows based on chosen variable, in this case “Name”</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span> </span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_lenght =</span> <span class="fu">mean</span>(Length),</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_length =</span> <span class="fu">sd</span>(Length),</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  Name       mean_lenght sd_length     n
+  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;
+1 Pedernales        57.9     14.1     32
+2 Darl              39.8      6.18    28
+3 Travis            51.4      9.90    11
+4 Ensor             42.7      5.79    10
+5 Wells             53.1      7.94    10</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name, Base.Sh) <span class="sc">|&gt;</span> </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_lenght =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Length),<span class="dv">2</span>),</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_length =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Length),<span class="dv">2</span>),</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Name) <span class="sc">|&gt;</span> </span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 5
+# Groups:   Name [2]
+  Name  Base.Sh mean_lenght sd_length     n
+  &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;
+1 Darl  E              36.9      6.93     2
+2 Darl  I              39.5      6.59    18
+3 Darl  R              44.2     NA        1
+4 Darl  S              40.6      6.36     6
+5 Darl  &lt;NA&gt;           40       NA        1
+6 Ensor I              34.9     NA        1
+7 Ensor R              39.3      2.75     3</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="back-to-mutate" class="level2">
+<h2 class="anchored" data-anchor-id="back-to-mutate">back to <code>mutate()</code></h2>
+<section id="creating-new-values-based-on-different-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="creating-new-values-based-on-different-conditions">creating new values based on different conditions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">size_cathegory =</span> <span class="fu">case_when</span>(</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>      Length <span class="sc">&gt;</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"big_stone"</span>,</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>      Length <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"small_stone"</span>,</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">.default =</span> <span class="st">"ok_stone"</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Length)) <span class="sc">|&gt;</span> </span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Name Length Width Weight Base.Sh size_cathegory
+1  Pedernales  109.5  49.3   28.8       I      big_stone
+2  Pedernales   84.0  21.2    9.3       I      big_stone
+3  Pedernales   78.3  28.1   14.8       I      big_stone
+4  Pedernales   70.4  30.4   13.1       I      big_stone
+5      Travis   69.0  20.9   11.4       E       ok_stone
+6  Pedernales   67.2  27.1   15.3       I       ok_stone
+7  Pedernales   66.0  27.2   12.5       I       ok_stone
+8       Wells   65.4  25.1   12.6       S       ok_stone
+9  Pedernales   65.0  31.6    4.6       I       ok_stone
+10     Travis   64.6  21.5   15.0       I       ok_stone</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="back-to-mutate-1" class="level2">
+<h2 class="anchored" data-anchor-id="back-to-mutate-1">back to <code>mutate()</code></h2>
+<section id="changing-existing-values-based-on-combination-of-two-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="changing-existing-values-based-on-combination-of-two-conditions">changing existing values based on combination of two conditions</h3>
+<ul>
+<li>imagine we want to create a new type of dartpoints from the Pedernales that are longer than 80 mm</li>
+<li>we don’t need to create a new column, but only change the values in the existing one:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Name =</span> <span class="fu">case_when</span>(</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>      Name <span class="sc">==</span> <span class="st">"Pedernales"</span> <span class="sc">&amp;</span> Length <span class="sc">&gt;</span> <span class="dv">80</span> <span class="sc">~</span> <span class="st">"Big_Pedernales"</span>,</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">.default =</span> Name</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Length)) <span class="sc">|&gt;</span> </span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Name Length Width Weight Base.Sh
+1 Big_Pedernales  109.5  49.3   28.8       I
+2 Big_Pedernales   84.0  21.2    9.3       I
+3     Pedernales   78.3  28.1   14.8       I
+4     Pedernales   70.4  30.4   13.1       I</code></pre>
+</div>
+</div>
+<ul>
+<li>note that if we want to leave the other values of the variable “Name” unchanged, we do so by specifying <code>.default = Name</code></li>
+</ul>
+</section>
+</section>
+<section id="combining-plenty-of-functions-into-one-huge-code-chunk" class="level2">
+<h2 class="anchored" data-anchor-id="combining-plenty-of-functions-into-one-huge-code-chunk">Combining plenty of functions into one huge code chunk:</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span> </span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_length =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_length =</span> <span class="fu">round</span>(<span class="fu">median</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_length =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_name =</span> <span class="fu">n</span>()</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">percent_name =</span> <span class="fu">round</span>(n_name<span class="sc">/</span><span class="fu">sum</span>(n_name)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 6
+  Name       mean_length median_length sd_length n_name percent_name
+  &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;  &lt;int&gt;        &lt;dbl&gt;
+1 Pedernales        57.9          55.8      14.1     32         35.2
+2 Darl              39.8          40.1       6.2     28         30.8
+3 Travis            51.4          49.1       9.9     11         12.1
+4 Ensor             42.7          42.3       5.8     10         11  
+5 Wells             53.1          53.7       7.9     10         11  </code></pre>
+</div>
+</div>
+<p>::: fragment - we can even include <code>ggplot()</code> into the pipeline:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span> </span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_length =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_length =</span> <span class="fu">round</span>(<span class="fu">median</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_length =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_name =</span> <span class="fu">n</span>()</span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">percent_name =</span> <span class="fu">round</span>(n_name<span class="sc">/</span><span class="fu">sum</span>(n_name)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">y =</span> sd_length)<span class="sc">+</span></span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>)<span class="sc">+</span></span>
+<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="transformation_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-your-result" class="level2">
+<h2 class="anchored" data-anchor-id="saving-your-result">Saving your result</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>df_result <span class="ot">&lt;-</span> df_sample <span class="sc">|&gt;</span> </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span> </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_length =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_length =</span> <span class="fu">round</span>(<span class="fu">median</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_length =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Length),<span class="dv">1</span>),</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_name =</span> <span class="fu">n</span>()</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">percent_name =</span> <span class="fu">round</span>(n_name<span class="sc">/</span><span class="fu">sum</span>(n_name)<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df_result, <span class="fu">here</span>(<span class="st">"results/dartpoints_result.csv"</span>), <span class="at">row.names =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Build with quarto.</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+<p>Licenses: MIT (code) &amp; CC BY-SA 4.0 Int. (other content).</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w03/transformation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w03/transformation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/petrpajdla/stat4arch/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

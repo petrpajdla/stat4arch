@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -138,6 +138,24 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./lect/w02/relations.html">
  <span class="dropdown-text">Relationships</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Week 3</li>
+        <li>
+    <a class="dropdown-item" href="./lect/w03/intro.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lect/w03/tidy_data.html">
+ <span class="dropdown-text">Tidy data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lect/w03/transformation.html">
+ <span class="dropdown-text">Data transformation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lect/w03/exc.html">
+ <span class="dropdown-text">Exercise</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Archive</li>
@@ -216,9 +234,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -229,9 +246,13 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/schedule.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/schedule.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="schedule.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -252,13 +273,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="section" class="level2">
+<section id="section" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="section">2025</h2>
 <p>The course takes place once in two weeks, on <strong>odd Wednesdays 12:00 – 15:40</strong> (except 19. 11. – <em>Reading week</em>).</p>
+<div class="column-page-right">
 <table class="table">
 <thead>
 <tr class="header">
-<th>Lecture</th>
+<th>#</th>
 <th>Date</th>
 <th>Topics</th>
 <th>Notes</th>
@@ -274,14 +296,14 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>2.</td>
 <td>8. 10.</td>
-<td><a href="./lect/w02/basics.html">Basic workflows</a>, <a href="lect/w02/ggplot.amd">plotting with <code>qqplot2</code></a>, <a href="./lect/w02/describing.html">Descriptive stats</a>, <br> <a href="./lect/w02/visualizing.html">Data viz</a> and <a href="./lect/w02/relations.html">Relationships</a></td>
+<td><a href="./lect/w02/basics.html">Basic workflows</a>, <a href="lect/w02/ggplot.amd">plotting with <code>qqplot2</code></a>, <a href="./lect/w02/describing.html">Descriptive stats</a>, <a href="./lect/w02/visualizing.html">Data viz</a> and <a href="./lect/w02/relations.html">Relationships</a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>3.</td>
 <td>22. 10.</td>
-<td></td>
-<td></td>
+<td><a href="./lect/w03/intro.html">Intro</a>, <a href="./lect/w03/tidy_data.html">Tidy data</a> &amp; <a href="./lect/w03/transformation.html">Transformations</a></td>
+<td>Synthetic BA burial ground <a href="./lect/w03/exc.html">exercise</a>: <br> <a href="lect/w03/data/graves.csv"><i class="bi-file-earmark-arrow-down " style="" role="img" aria-hidden="true"></i> graves.csv</a> &amp; <a href="lect/w03/data/artefacts.csv"><i class="bi-file-earmark-arrow-down " style="" role="img" aria-hidden="true"></i> artefacts.csv</a></td>
 </tr>
 <tr class="even">
 <td>4.</td>
@@ -309,12 +331,14 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
 </section>
-<section id="archive" class="level2">
+<section id="archive" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="archive">Archive</h2>
-<section id="spring-2024" class="level3">
+<section id="spring-2024" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="spring-2024">Spring 2024</h3>
 <p>The course takes place each <strong>Wednesday 12:00 – 13:40 in L11</strong>, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).</p>
+<div class="column-page-right">
 <table class="table">
 <thead>
 <tr class="header">
@@ -411,6 +435,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
 
 
 </section>

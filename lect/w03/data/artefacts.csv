@@ -1,0 +1,562 @@
+artefact_id,grave_id,artefact_type,material,preservation_state,weight_g,length_mm,position_relative_to_body
+A-0001,NA,Buckle,Copper,poor,69,51.4,missing
+A-0002,G-034,Axe,Bronze,fair,97.8,199.6,by feet
+A-0003,G-146,Dagger,Copper,fair,69.7,347.9,NA
+A-0004,NA,Needle,Bronze,good,7.2,63.3,NA
+A-0005,NA,Bracelet,Bronze,poor,51.8,102.2,
+A-0006,NA,Pottery sherd,Ceramic,fair,41.2,140,NA
+A-0007,G-068,Dagger,Copper,fair,69.2,300.1,on pelvis
+A-0008,G-214,Needle,Bone,poor,7,61.3,NA
+A-0009,G-034,Bead,Stone,fair,3.2,16.1,near arm
+A-0010,NA,Pottery sherd,Ceramic,excellent,43.8,96.1,NA
+A-0011,G-232,Brooch,Bronze,good,18.9,44.5,left side
+A-0012,G-145,Axe,Stone,fair,575.4,111.8,by head
+A-0013,G-085,Quern stone,Stone,fair,1741.3,244.4,on pelvis
+A-0014,G-072,Spearhead,Copper,good,44.1,153,left side
+A-0015,NA,Quern stone,Stone,poor,1353.9,239.2,NA
+A-0016,G-179,Quern stone,Stone,excellent,886,254,right side
+A-0017,G-081,Whetstone,Stone,good,295.5,110.4,right side
+A-0018,G-007,Bead,Bronze,fair,2.5,14.6,under head
+A-0019,G-079,Bracelet,Silver,good,41.2,84.9,NA
+A-0020,G-131,Belt fitting,Copper,fair,28,39.7,on pelvis
+A-0021,G-058,Spearhead,Bronze,fair,67,121.8,on pelvis
+A-0022,G-093,Bracelet,Gold,poor,50.6,83,near arm
+A-0023,G-212,Belt fitting,Copper,poor,15.3,40.4,by feet
+A-0024,G-206,Bead,Stone,fair,6.1,13.3,on pelvis
+A-0025,G-216,Bracelet,Copper,poor,96.3,65.4,left side
+A-0026,G-187,Belt fitting,Bronze,good,21.5,31.2,near arm
+A-0027,G-235,Sword,Bronze,poor,602.9,621.1,unknown
+A-0028,G-059,Pin,Bronze,good,2.5,69.8,on chest
+A-0029,G-025,Bead,Stone,poor,4.6,11.7,right side
+A-0030,G-043,Bracelet,Silver,good,39.6,86.7,on pelvis
+A-0031,G-043,Dagger,Bronze,fair,220.8,306.2,unknown
+A-0032,G-050,Pin,Bronze,good,8.5,35.7,beside body
+A-0033,G-045,Quern stone,Stone,good,1779,333.6,under head
+A-0034,G-088,Needle,Bone,poor,9.6,38.3,by head
+A-0035,G-009,Spearhead,Copper,good,92,258,under head
+A-0036,NA,Whetstone,Stone,excellent,244.7,111.7,NA
+A-0037,G-106,Belt fitting,Copper,poor,28.5,44,beside body
+A-0038,G-124,Pottery sherd,Ceramic,poor,40,73.4,on pelvis
+A-0039,G-214,Axe,Stone,good,497.9,206.7,under head
+A-0040,G-003,Ring,Bronze,poor,15.9,16.1,NA
+A-0041,G-176,Quern stone,Stone,good,2938.5,364.6,left side
+A-0042,G-186,Arrowhead,Bronze,fair,11.4,64.8,left side
+A-0043,G-207,Bracelet,Copper,fair,65.6,87.8,on chest
+A-0044,G-047,Pin,Copper,fair,10,91.6,beside body
+A-0045,G-032,Needle,Antler,fair,9.7,32.1,near arm
+A-0046,NA,Belt fitting,Copper,fair,18.9,43.2,not recorded
+A-0047,G-081,Brooch,Copper,poor,16.7,38,by feet
+A-0048,G-186,Ring,Silver,poor,10,16.2,under head
+A-0049,G-199,Whetstone,Gold,poor,115,159.8,by head
+A-0050,G-200,Bracelet,Silver,good,59.6,99.8,by head
+A-0051,G-042,Needle,Bone,fair,2.1,72.9,left side
+A-0052,G-095,Belt fitting,Bronze,poor,13.2,60.9,near arm
+A-0053,G-108,Belt fitting,Copper,good,29,49.9,beside body
+A-0054,G-153,Whetstone,Stone,fair,375.2,72.7,NA
+A-0055,G-005,Ring,Copper,excellent,15.1,19.7,by feet
+A-0056,G-125,Dagger,Bronze,good,288.6,195.5,near arm
+A-0057,G-131,Whetstone,Stone,fair,118.5,186.5,left side
+A-0058,G-110,Sword,Bronze,good,725.7,578.2,not recorded
+A-0059,G-235,Quern stone,Stone,fair,2880.8,166.8,by head
+A-0060,G-099,Spearhead,Bronze,fair,48.9,75.5,left side
+A-0061,G-246,Axe,Stone,poor,63.3,315.2,under head
+A-0062,G-142,Ring,Silver,fair,8.5,19.7,left side
+A-0063,G-083,Ring,Antler,excellent,14.9,20.1,on pelvis
+A-0064,G-033,Bracelet,Gold,poor,67.1,53.2,under head
+A-0065,G-167,Buckle,Copper,good,63.1,95.8,near arm
+A-0066,G-187,Quern stone,Stone,poor,708.7,234.3,under head
+A-0067,G-084,Buckle,Bronze,fair,28.1,59.3,beside body
+A-0068,G-085,Bead,Ceramic,poor,9,8.9,not recorded
+A-0069,G-005,Sword,Ceramic,fair,476.1,750.7,beside body
+A-0070,G-150,Axe,Stone,poor,310.1,310,NA
+A-0071,G-026,Brooch,Gold,fair,19.1,54.7,on chest
+A-0072,NA,Spearhead,Bronze,fair,172.9,241.9,N/A
+A-0073,G-026,Needle,Bone,poor,1.1,41.2,on chest
+A-0074,G-182,Arrowhead,Bronze,fair,2,35.7,left side
+A-0075,G-173,Axe,Stone,good,478,455.5,near arm
+A-0076,G-001,Whetstone,Stone,fair,387.5,195,right side
+A-0077,G-180,Needle,Bronze,good,5.1,79.1,near arm
+A-0078,G-136,Bracelet,Bronze,good,37.3,66.3,beside body
+A-0079,G-147,Needle,Bone,fair,5.4,59.7,by feet
+A-0080,G-084,Dagger,Ceramic,fair,93.2,294,by feet
+A-0081,G-189,Quern stone,Stone,poor,1002.5,319.2,left side
+A-0082,G-167,Pin,Copper,poor,2.5,69.7,NA
+A-0083,G-005,Belt fitting,Copper,poor,35.5,35.3,under head
+A-0084,G-239,Spearhead,Bronze,good,118.7,223.7,near arm
+A-0085,G-233,Dagger,Bronze,fair,72.1,262.9,near arm
+A-0086,G-035,Pottery sherd,Ceramic,fair,45.9,143.9,near arm
+A-0087,G-066,Pottery sherd,Ceramic,fair,69.7,90.3,on pelvis
+A-0088,G-213,Sword,Copper,fair,243.9,287.5,beside body
+A-0089,G-166,Ring,Gold,good,3.5,18.6,under head
+A-0090,G-147,Dagger,Copper,good,179.5,309,right side
+A-0091,G-077,Bead,Bone,fair,7.1,16.9,beside body
+A-0092,G-176,Sword,Copper,poor,221.8,256.6,on pelvis
+A-0093,G-235,Sword,Copper,fair,120.6,389.3,near arm
+A-0094,G-025,Bead,Bronze,good,7,13.9,on pelvis
+A-0095,G-229,Quern stone,Stone,fair,1246.7,212,beside body
+A-0096,G-067,Pin,Bronze,fair,14.4,34.6,on pelvis
+A-0097,G-215,Dagger,Copper,poor,176.9,113.2,on pelvis
+A-0098,G-145,Needle,Bronze,good,8.7,31.8,under head
+A-0099,NA,Whetstone,Stone,fair,279.7,51.8,missing
+A-0100,G-242,Pottery sherd,Ceramic,good,49.4,53.7,by feet
+A-0101,G-042,Quern stone,Stone,fair,2683.3,239.2,NA
+A-0102,G-174,Sword,Bronze,fair,619.5,211.1,on chest
+A-0103,G-046,Axe,Bronze,good,314.2,349.7,under head
+A-0104,G-127,Brooch,Copper,excellent,26.6,27.8,NA
+A-0105,G-016,Dagger,Copper,excellent,281.2,220.3,left side
+A-0106,G-018,Arrowhead,Stone,good,12.8,16.2,on pelvis
+A-0107,G-080,Arrowhead,Bronze,poor,16.7,28.8,right side
+A-0108,G-167,Buckle,Copper,fair,23.5,20,left side
+A-0109,G-191,Bracelet,Copper,poor,80.8,68.9,right side
+A-0110,G-232,Bracelet,Silver,fair,63.8,80.4,by head
+A-0111,G-056,Spearhead,Bronze,fair,184.2,132,NA
+A-0112,G-132,Dagger,Copper,poor,175.9,282,left side
+A-0113,G-126,Spearhead,Bronze,fair,110.8,295.7,by feet
+A-0114,G-081,Dagger,Copper,fair,56.4,111.5,left side
+A-0115,G-125,Ring,Gold,excellent,16,22.9,N/A
+A-0116,G-004,Dagger,Bronze,fair,218.9,151.9,beside body
+A-0117,G-139,Whetstone,Stone,fair,236.8,66.4,NA
+A-0118,NA,Belt fitting,Bronze,excellent,31.6,51.9,
+A-0119,G-154,Axe,Bronze,fair,284.7,495,left side
+A-0120,G-043,Buckle,Copper,good,45.1,51.1,beside body
+A-0121,G-158,Belt fitting,Copper,fair,41.6,79.2,beside body
+A-0122,G-045,Buckle,Silver,fair,67.8,46.9,by head
+A-0123,NA,Arrowhead,Bronze,poor,4.8,63.3,NA
+A-0124,G-244,Dagger,Copper,poor,63.8,320.7,by head
+A-0125,G-130,Needle,Bronze,poor,7.4,74.4,beside body
+A-0126,G-209,Quern stone,Stone,fair,807.9,374.7,NA
+A-0127,G-156,Sword,Copper,fair,436.3,492.2,on chest
+A-0128,G-158,Spearhead,Bronze,excellent,135,156.3,on chest
+A-0129,G-228,Needle,Bronze,poor,7.2,77.9,by head
+A-0130,G-151,Spearhead,Bronze,good,133.7,230.8,left side
+A-0131,G-081,Pottery sherd,Ceramic,poor,55.5,74.6,right side
+A-0132,G-059,Needle,Bone,poor,7.3,43.5,by feet
+A-0133,G-056,Buckle,Copper,good,71.3,80.8,by feet
+A-0134,G-084,Buckle,Bronze,poor,48.2,64.6,by feet
+A-0135,G-001,Arrowhead,Bronze,fair,13.7,63.1,left side
+A-0136,G-235,Pin,Bronze,fair,9.2,48.3,near arm
+A-0137,G-028,Bead,Glass,good,9.1,10.4,by feet
+A-0138,G-016,Arrowhead,Stone,fair,18.5,22.5,under head
+A-0139,G-156,Needle,Bronze,poor,3.2,72.5,NA
+A-0140,G-175,Ring,Copper,fair,19.5,24.4,on chest
+A-0141,G-088,Brooch,Bronze,good,25.7,21.7,by feet
+A-0142,G-060,Bead,Glass,good,4.5,18.1,left side
+A-0143,G-244,Buckle,Bronze,poor,19.6,74.5,on pelvis
+A-0144,G-202,Whetstone,Stone,fair,261.7,155.9,by head
+A-0145,G-156,Belt fitting,Copper,fair,48.9,57,on pelvis
+A-0146,G-179,Brooch,Gold,fair,19.3,10.6,near arm
+A-0147,G-010,Bracelet,Copper,good,34.5,88.5,on chest
+A-0148,G-093,Sword,Bronze,good,563.2,371.7,not recorded
+A-0149,G-065,Pottery sherd,Ceramic,fair,32,80.8,beside body
+A-0150,G-142,Bracelet,Bronze,fair,39.1,57.3,under head
+A-0151,G-091,Spearhead,Copper,good,89.3,240.8,under head
+A-0152,G-054,Spearhead,Bronze,fair,183.6,235.1,left side
+A-0153,G-099,Whetstone,Stone,poor,121.5,126.4,on chest
+A-0154,G-048,Dagger,Bronze,good,94.8,274,on pelvis
+A-0155,G-167,Quern stone,Stone,good,2950.6,331.6,by feet
+A-0156,G-186,Buckle,Copper,good,51.5,41.1,under head
+A-0157,G-128,Whetstone,Stone,poor,256,106.7,left side
+A-0158,G-103,Pottery sherd,Ceramic,good,31,130.7,on pelvis
+A-0159,G-007,Buckle,Bronze,good,32,75.2,left side
+A-0160,G-086,Bead,Ceramic,good,1.9,16.5,right side
+A-0161,NA,Belt fitting,Bronze,good,41.2,22.7,missing
+A-0162,G-103,Whetstone,Stone,fair,355.5,76.9,under head
+A-0163,G-010,Brooch,Copper,poor,17.8,43.7,near arm
+A-0164,G-174,Quern stone,Stone,fair,2688,243.8,right side
+A-0165,G-047,Dagger,Copper,good,201.9,266,beside body
+A-0166,NA,Needle,Bone,poor,4.6,48.6,NA
+A-0167,G-056,Bead,Bronze,fair,1.5,4.9,under head
+A-0168,G-062,Buckle,Copper,good,72.6,44.3,on chest
+A-0169,G-235,Dagger,Copper,fair,73.2,172.2,on pelvis
+A-0170,G-062,Quern stone,Stone,good,2370.1,171.3,under head
+A-0171,G-162,Buckle,Bronze,good,41.5,58.3,near arm
+A-0172,G-215,Pin,Bronze,good,6.5,75.8,beside body
+A-0173,G-084,Bead,Bronze,excellent,2.3,6.3,by feet
+A-0174,G-143,Pottery sherd,Ceramic,good,19.3,137.5,under head
+A-0175,G-200,Needle,Bone,good,4.4,26.1,right side
+A-0176,G-121,Spearhead,Copper,poor,77.7,209.1,under head
+A-0177,G-135,Axe,Stone,poor,431.5,382,NA
+A-0178,G-083,Belt fitting,Bronze,poor,40.9,67.9,on chest
+A-0179,G-086,Needle,Bone,good,5.2,33.5,by feet
+A-0180,G-191,Bracelet,Silver,fair,98.4,62.2,left side
+A-0181,G-003,Needle,Bronze,good,3.3,60.8,left side
+A-0182,G-093,Arrowhead,Bronze,good,4.6,22,beside body
+A-0183,G-112,Ring,Bronze,poor,12,15.9,left side
+A-0184,G-017,Sword,Copper,good,689.7,595.9,by head
+A-0185,G-114,Dagger,Copper,fair,82.6,332.5,near arm
+A-0186,G-044,Axe,Stone,fair,448.7,174.2,on chest
+A-0187,G-002,Quern stone,Stone,good,2144.3,210.9,on chest
+A-0188,G-100,Belt fitting,Copper,fair,15.5,51.7,by feet
+A-0189,G-147,Arrowhead,Bronze,poor,16.8,67.4,on chest
+A-0190,NA,Arrowhead,Stone,fair,6,20.2,NA
+A-0191,G-049,Whetstone,Stone,fair,204.5,193.1,NA
+A-0192,G-228,Buckle,Copper,fair,53.7,47.9,under head
+A-0193,G-228,Pottery sherd,Ceramic,fair,97.5,24.9,NA
+A-0194,G-206,Needle,Silver,good,1.7,28.1,not recorded
+A-0195,G-247,Pin,Bronze,fair,2.8,57.3,by head
+A-0196,G-170,Needle,Bronze,excellent,1.5,45.7,by head
+A-0197,G-075,Pin,Bronze,good,3.3,82.1,by feet
+A-0198,G-192,Whetstone,Stone,poor,208.8,91.7,right side
+A-0199,G-192,Pin,Bronze,good,3.7,44.2,by head
+A-0200,G-061,Bracelet,Bronze,fair,30.2,110.1,by feet
+A-0201,G-182,Needle,Bronze,good,9.3,26.2,right side
+A-0202,G-073,Brooch,Bronze,poor,12.6,42.9,by feet
+A-0203,G-068,Bracelet,Gold,poor,60.6,97.4,right side
+A-0204,G-093,Buckle,Copper,poor,55.5,60.1,by feet
+A-0205,G-235,Pin,Copper,fair,1.8,92.6,near arm
+A-0206,G-101,Bead,Glass,poor,0.5,5.7,right side
+A-0207,G-090,Pin,Bronze,good,11.8,31.8,on chest
+A-0208,NA,Bracelet,Copper,good,13.9,98,NA
+A-0209,G-052,Axe,Stone,fair,448.7,490,near arm
+A-0210,G-014,Whetstone,Stone,fair,255.5,147,on pelvis
+A-0211,G-013,Axe,Bronze,good,337.7,247.5,by feet
+A-0212,G-058,Needle,Bronze,poor,5,36.4,by head
+A-0213,G-003,Brooch,Copper,good,27.7,35.2,on pelvis
+A-0214,G-112,Pin,Copper,fair,6.5,94.5,beside body
+A-0215,G-244,Needle,Bronze,poor,6.9,21.5,by head
+A-0216,G-201,Pin,Copper,fair,7.5,79.8,right side
+A-0217,G-042,Whetstone,Stone,good,302.6,62.1,right side
+A-0218,G-020,Needle,Bronze,good,4.3,70.2,beside body
+A-0219,G-104,Pottery sherd,Ceramic,good,28.7,37.9,left side
+A-0220,NA,Belt fitting,Bronze,fair,47.4,33.1,NA
+A-0221,G-125,Dagger,Copper,good,232,83.1,under head
+A-0222,G-073,Spearhead,Bronze,good,35.9,256.5,left side
+A-0223,G-063,Pottery sherd,Ceramic,poor,19,90.1,right side
+A-0224,G-078,Buckle,Bronze,poor,46.9,57.9,under head
+A-0225,G-103,Spearhead,Copper,fair,57.7,193.8,right side
+A-0226,G-072,Spearhead,Bronze,fair,90.1,149.9,by head
+A-0227,G-005,Brooch,Silver,poor,26.7,51.5,right side
+A-0228,G-132,Arrowhead,Stone,poor,7.3,23.5,beside body
+A-0229,G-009,Whetstone,Stone,good,189.1,196.6,NA
+A-0230,G-029,Arrowhead,Stone,good,11.9,11,beside body
+A-0231,G-049,Needle,Bone,poor,1.7,51.5,beside body
+A-0232,G-113,Whetstone,Stone,fair,141.4,77,left side
+A-0233,G-043,Quern stone,Stone,excellent,2160.1,166,right side
+A-0234,G-075,Ring,Silver,fair,7.2,19,near arm
+A-0235,NA,Ring,Silver,poor,7,24.5,NA
+A-0236,G-049,Belt fitting,Bronze,fair,14.9,70.8,on chest
+A-0237,G-136,Dagger,Bronze,fair,71.2,324.1,under head
+A-0238,G-170,Spearhead,Bronze,good,121.2,206.4,under head
+A-0239,G-037,Pottery sherd,Ceramic,poor,59.4,115,right side
+A-0240,G-152,Ring,Silver,fair,13.3,20.5,left side
+A-0241,G-214,Needle,Bone,good,8.3,23.9,on pelvis
+A-0242,G-213,Bracelet,Copper,fair,39.4,88,on pelvis
+A-0243,G-053,Brooch,Bronze,fair,2.7,12.5,beside body
+A-0244,G-142,Spearhead,Bronze,fair,148.2,201.4,on chest
+A-0245,G-201,Belt fitting,Copper,poor,30.2,71.6,beside body
+A-0246,G-173,Belt fitting,Bronze,poor,22.6,50.5,near arm
+A-0247,G-013,Needle,Bone,fair,8.6,22.4,not recorded
+A-0248,G-083,Arrowhead,Bronze,poor,2.6,22.5,right side
+A-0249,G-212,Needle,Bronze,fair,6.4,55.5,by feet
+A-0250,G-187,Spearhead,Copper,fair,140.7,276.8,on chest
+A-0251,G-054,Pottery sherd,Ceramic,poor,92.3,104.2,beside body
+A-0252,G-140,Pottery sherd,Ceramic,fair,99.3,68,near arm
+A-0253,G-132,Pottery sherd,Ceramic,poor,91.3,146.8,by feet
+A-0254,G-192,Needle,Bronze,fair,5.6,76.1,by head
+A-0255,G-100,Dagger,Bronze,poor,224.2,294.6,on chest
+A-0256,G-009,Brooch,Bronze,poor,28.9,15.1,by head
+A-0257,G-211,Ring,Silver,good,6.7,21.3,near arm
+A-0258,G-105,Brooch,Bronze,fair,12.9,24,on pelvis
+A-0259,G-226,Pottery sherd,Ceramic,fair,14.5,139.4,left side
+A-0260,G-148,Buckle,Bronze,fair,17.8,30.4,on pelvis
+A-0261,G-136,Needle,Bone,fair,2.9,79.7,near arm
+A-0262,G-032,Ring,Gold,fair,2.4,20,near arm
+A-0263,NA,Whetstone,Stone,good,251.8,154.7,
+A-0264,G-068,Quern stone,Stone,poor,2820.4,242.4,left side
+A-0265,G-099,Spearhead,Bronze,poor,42.6,133.3,by feet
+A-0266,G-246,Spearhead,Copper,poor,22.9,229.6,by head
+A-0267,G-200,Pottery sherd,Ceramic,fair,66.6,86,under head
+A-0268,G-180,Arrowhead,Bronze,fair,4.3,60.7,under head
+A-0269,G-112,Buckle,Bronze,good,16.1,82.3,NA
+A-0270,NA,Axe,Bronze,fair,286.2,314.8,NA
+A-0271,G-015,Spearhead,Bronze,fair,165.8,143.4,by head
+A-0272,NA,Sword,Bronze,good,180.3,757.7,NA
+A-0273,G-024,Ring,Copper,good,7.4,15.9,by head
+A-0274,G-072,Needle,Antler,poor,6.3,64.7,left side
+A-0275,G-101,Whetstone,Stone,poor,265.8,58.7,near arm
+A-0276,G-177,Bracelet,Copper,fair,30.6,59.4,beside body
+A-0277,G-108,Needle,Bronze,excellent,4.3,38,on chest
+A-0278,NA,Sword,Bronze,poor,586.6,539.2,NA
+A-0279,G-026,Arrowhead,Bronze,good,16,65.9,right side
+A-0280,G-248,Arrowhead,Stone,excellent,5.5,66.5,right side
+A-0281,G-094,Bracelet,Bronze,fair,27.1,99.7,beside body
+A-0282,G-087,Bracelet,Bronze,poor,43.3,74.6,by head
+A-0283,G-187,Belt fitting,Copper,good,14.1,70.1,on pelvis
+A-0284,G-112,Belt fitting,Copper,poor,49.3,23.4,by feet
+A-0285,G-181,Arrowhead,Bronze,excellent,20,29.1,beside body
+A-0286,G-213,Axe,Bronze,poor,304.6,464,on chest
+A-0287,G-061,Arrowhead,Stone,good,2.7,11.9,on chest
+A-0288,G-085,Dagger,Copper,fair,249.9,179.2,on chest
+A-0289,G-078,Dagger,Copper,poor,117.9,327.5,on pelvis
+A-0290,NA,Bead,Bronze,good,2.3,7.2,NA
+A-0291,G-046,Axe,Bronze,good,130.2,371.8,by head
+A-0292,G-155,Pin,Bronze,poor,11.9,61.6,right side
+A-0293,G-120,Whetstone,Stone,good,82.2,69.2,by head
+A-0294,G-020,Arrowhead,Stone,good,1.8,36.6,left side
+A-0295,NA,Whetstone,Stone,fair,163.6,168,
+A-0296,G-180,Buckle,Bronze,fair,46.7,81.6,beside body
+A-0297,NA,Axe,Bronze,fair,478.8,267.2,NA
+A-0298,G-070,Quern stone,Stone,fair,2839.1,301.7,by feet
+A-0299,G-185,Belt fitting,Copper,fair,30.5,26.1,NA
+A-0300,G-045,Pottery sherd,Ceramic,good,13,136,NA
+A-0301,G-089,Whetstone,Stone,fair,276.8,79.4,on chest
+A-0302,G-207,Needle,Bone,fair,8.7,47.1,left side
+A-0303,G-117,Ring,Bronze,excellent,5.1,18.8,beside body
+A-0304,NA,Quern stone,Stone,fair,972,266,NA
+A-0305,G-175,Needle,Bronze,poor,5.4,71,on pelvis
+A-0306,G-020,Dagger,Bronze,poor,283.3,159.6,NA
+A-0307,G-237,Whetstone,Stone,good,283.2,199.3,left side
+A-0308,G-110,Quern stone,Stone,poor,2394.2,320.8,on pelvis
+A-0309,G-176,Bracelet,Bronze,poor,17.7,75.8,near arm
+A-0310,G-053,Arrowhead,Stone,poor,17.7,18.5,by head
+A-0311,G-185,Spearhead,Copper,good,52.8,134.9,right side
+A-0312,G-164,Bracelet,Copper,fair,48.7,84.7,right side
+A-0313,G-081,Pottery sherd,Ceramic,good,29.3,99.4,on chest
+A-0314,G-151,Axe,Stone,fair,236.5,360.5,beside body
+A-0315,G-213,Pin,Bronze,fair,3.9,89.9,right side
+A-0316,G-196,Ring,Silver,fair,16.4,22.6,by feet
+A-0317,G-078,Dagger,Copper,poor,125.2,195.5,under head
+A-0318,G-016,Arrowhead,Bronze,good,3.8,28.3,on chest
+A-0319,G-051,Whetstone,Stone,good,399.2,181.2,beside body
+A-0320,G-164,Ring,Copper,poor,13.9,18.7,right side
+A-0321,G-090,Needle,Gold,fair,6.9,20.2,by head
+A-0322,G-203,Dagger,Bronze,good,46.5,163,not recorded
+A-0323,G-169,Whetstone,Stone,fair,313.1,196.9,missing
+A-0324,G-108,Needle,Bronze,poor,8.2,65.5,near arm
+A-0325,G-017,Quern stone,Stone,fair,1774.8,109.9,on chest
+A-0326,G-022,Dagger,Bronze,poor,39.9,291.2,by feet
+A-0327,G-109,Needle,Bone,good,8.8,56.1,under head
+A-0328,G-056,Arrowhead,Bronze,good,19.6,35.5,beside body
+A-0329,G-130,Brooch,Bronze,good,15.2,18.5,under head
+A-0330,G-160,Quern stone,Stone,good,1326.6,181,near arm
+A-0331,G-159,Bracelet,Copper,fair,56.2,82.6,under head
+A-0332,G-069,Brooch,Bronze,fair,28.8,29.5,NA
+A-0333,G-168,Needle,Bronze,fair,2.6,62.4,beside body
+A-0334,G-217,Axe,Bronze,fair,489.8,120.4,right side
+A-0335,NA,Pottery sherd,Ceramic,excellent,8.5,22.5,NA
+A-0336,G-129,Ring,Bronze,good,4.3,15.6,by head
+A-0337,G-185,Needle,Bone,good,1.4,56.3,beside body
+A-0338,G-064,Arrowhead,Stone,fair,12.2,16.9,on chest
+A-0339,G-203,Bead,Ceramic,poor,2.1,18.4,beside body
+A-0340,G-118,Needle,Bronze,fair,2.3,71.6,beside body
+A-0341,G-242,Bracelet,Bronze,fair,26.6,51,on chest
+A-0342,G-121,Ring,Silver,fair,6.6,22.8,by head
+A-0343,G-146,Ring,Bronze,poor,9.2,21.3,by feet
+A-0344,G-077,Belt fitting,Copper,fair,47.8,27.1,left side
+A-0345,G-210,Bracelet,Bronze,good,90.7,97.9,beside body
+A-0346,G-179,Brooch,Silver,poor,11.8,47.1,beside body
+A-0347,G-248,Dagger,Bronze,excellent,236.2,82.9,beside body
+A-0348,G-163,Arrowhead,Stone,good,11.3,37.8,under head
+A-0349,G-116,Needle,Bone,excellent,4,33.7,left side
+A-0350,G-074,Bead,Bone,excellent,6.9,13.9,left side
+A-0351,G-087,Dagger,Copper,fair,178.2,300.6,right side
+A-0352,G-238,Dagger,Copper,fair,234.5,319.3,by head
+A-0353,G-142,Belt fitting,Copper,good,21.8,40,on pelvis
+A-0354,G-065,Whetstone,Stone,poor,167.7,138.2,left side
+A-0355,G-075,Pottery sherd,Ceramic,poor,34.8,149.2,under head
+A-0356,G-163,Bead,Bronze,fair,7.6,16.2,on pelvis
+A-0357,G-142,Belt fitting,Bronze,poor,35.1,71.5,on chest
+A-0358,G-216,Whetstone,Stone,fair,324.7,167.4,by feet
+A-0359,G-218,Bracelet,Copper,fair,34.3,88.6,left side
+A-0360,G-165,Arrowhead,Stone,good,7.2,72.7,NA
+A-0361,G-221,Dagger,Copper,good,59.9,115.6,near arm
+A-0362,G-019,Axe,Stone,fair,88.8,433,on chest
+A-0363,G-093,Needle,Bronze,fair,7.6,78.1,beside body
+A-0364,G-017,Arrowhead,Stone,poor,2.4,69.7,beside body
+A-0365,G-071,Buckle,Bronze,good,33.9,44.9,under head
+A-0366,G-217,Axe,Bone,fair,332.4,219.3,under head
+A-0367,G-184,Needle,Bronze,fair,2.2,41.1,beside body
+A-0368,G-065,Arrowhead,Stone,fair,19.6,38.7,by feet
+A-0369,G-087,Sword,Copper,poor,493.2,522.4,by head
+A-0370,G-192,Brooch,Gold,excellent,18.3,47.9,near arm
+A-0371,G-152,Bracelet,Gold,fair,68.5,58,on pelvis
+A-0372,G-220,Bead,Glass,fair,4.5,9.9,near arm
+A-0373,G-159,Arrowhead,Bronze,good,2.1,57.6,left side
+A-0374,G-232,Ring,Gold,excellent,12,22.9,beside body
+A-0375,G-240,Dagger,Copper,fair,49.8,117.1,on pelvis
+A-0376,NA,Bead,Stone,good,7.1,9.3,NA
+A-0377,G-052,Bracelet,Bronze,fair,51.2,97.4,on chest
+A-0378,G-043,Dagger,Copper,fair,199.8,282.8,NA
+A-0379,G-112,Needle,Bronze,poor,2.6,67.8,by head
+A-0380,NA,Belt fitting,Bronze,fair,28.9,18.1,NA
+A-0381,G-118,Sword,Copper,good,339.2,481.6,right side
+A-0382,G-196,Whetstone,Stone,fair,287.4,101,by head
+A-0383,G-132,Bracelet,Bronze,poor,46.8,54.3,by feet
+A-0384,G-051,Axe,Stone,good,325.3,340.3,by head
+A-0385,G-142,Axe,Stone,poor,224.1,215.4,left side
+A-0386,G-244,Pin,Copper,good,2.3,99.3,on pelvis
+A-0387,NA,Bead,Bronze,poor,5.2,4,NA
+A-0388,NA,Brooch,Copper,poor,15.9,24.2,NA
+A-0389,G-087,Pottery sherd,Ceramic,good,52.8,42.7,right side
+A-0390,G-199,Needle,Bone,poor,2.1,62.9,on pelvis
+A-0391,G-212,Pin,Copper,excellent,12.7,34.6,by head
+A-0392,G-059,Brooch,Silver,good,22.5,55.3,by feet
+A-0393,G-069,Needle,Bone,fair,4.6,37.2,right side
+A-0394,G-247,Quern stone,Stone,fair,2322.7,166.8,by feet
+A-0395,G-236,Sword,Copper,poor,152.3,791.1,by head
+A-0396,G-076,Arrowhead,Bronze,fair,1.2,14.2,right side
+A-0397,G-178,Buckle,Copper,good,53.4,63.6,
+A-0398,G-039,Spearhead,Copper,poor,189.9,129.1,on chest
+A-0399,G-052,Pottery sherd,Ceramic,fair,31.3,48,under head
+A-0400,G-082,Axe,Bronze,fair,344.6,382.8,under head
+A-0401,G-062,Buckle,Copper,excellent,62,57.4,near arm
+A-0402,G-209,Belt fitting,Bronze,good,42.4,26.5,beside body
+A-0403,G-059,Needle,Bone,fair,1.7,23.6,under head
+A-0404,G-062,Needle,Bronze,fair,5.5,34.4,NA
+A-0405,G-139,Pin,Copper,good,3.1,47.7,not recorded
+A-0406,G-048,Buckle,Copper,good,38.2,80.9,left side
+A-0407,G-070,Brooch,Copper,good,8.6,10.9,under head
+A-0408,G-129,Ring,Silver,poor,9.1,19.9,NA
+A-0409,G-103,Belt fitting,Bronze,poor,22.1,28.8,on chest
+A-0410,G-184,Pin,Bronze,fair,2.5,92.4,NA
+A-0411,G-227,Bracelet,Silver,fair,41.8,102.7,on pelvis
+A-0412,G-208,Pin,Copper,fair,12.3,32.3,under head
+A-0413,G-083,Dagger,Bronze,poor,140,215.1,right side
+A-0414,G-062,Axe,Stone,poor,117.9,312,on pelvis
+A-0415,G-210,Sword,Bronze,excellent,457.6,311.8,beside body
+A-0416,G-162,Brooch,Bronze,poor,3.9,35.3,NA
+A-0417,NA,Arrowhead,Bronze,fair,4.9,60.3,NA
+A-0418,G-172,Quern stone,Stone,fair,1516.6,329.9,by feet
+A-0419,G-059,Bead,Stone,fair,2.2,3,right side
+A-0420,G-146,Pin,Bronze,excellent,6.3,93.3,by head
+A-0421,G-147,Pin,Copper,poor,13.3,82.2,on pelvis
+A-0422,G-064,Axe,Silver,fair,66.8,415.6,NA
+A-0423,G-020,Brooch,Gold,fair,2.8,18.4,right side
+A-0424,G-037,Spearhead,Copper,poor,111,120.4,right side
+A-0425,G-038,Bead,Bone,fair,3.8,13.1,by feet
+A-0426,NA,Bracelet,Gold,poor,48.9,95.1,not recorded
+A-0427,G-237,Whetstone,Stone,fair,289.1,52.2,under head
+A-0428,NA,Dagger,Copper,good,260.1,344.3,not recorded
+A-0429,NA,Needle,Bone,good,4.3,40.6,NA
+A-0430,G-228,Ring,Gold,good,16.8,18.2,on pelvis
+A-0431,G-161,Whetstone,Stone,fair,383.3,110.4,by head
+A-0432,G-077,Buckle,Bronze,poor,19.7,40.4,left side
+A-0433,G-133,Buckle,Bronze,good,70.5,73.2,beside body
+A-0434,G-062,Belt fitting,Bronze,good,48.1,59.5,by head
+A-0435,G-204,Axe,Stone,poor,486.9,451.3,by head
+A-0436,G-079,Needle,Bronze,good,8.3,79.5,by feet
+A-0437,G-154,Whetstone,Stone,fair,104.5,55.4,on chest
+A-0438,G-018,Dagger,Copper,fair,184.5,88.1,on chest
+A-0439,G-029,Sword,Copper,poor,552.1,531.9,right side
+A-0440,G-012,Sword,Bronze,fair,389.8,271.3,under head
+A-0441,G-092,Needle,Bone,good,2.9,60.4,near arm
+A-0442,G-018,Spearhead,Bronze,fair,125.1,139.1,near arm
+A-0443,G-059,Sword,Copper,fair,233.2,213.7,on chest
+A-0444,G-115,Sword,Copper,poor,730.3,326.1,right side
+A-0445,G-214,Whetstone,Stone,good,381.5,108,on chest
+A-0446,NA,Bracelet,Bronze,good,61.4,111.7,N/A
+A-0447,G-190,Buckle,Bronze,fair,14.3,64.5,left side
+A-0448,G-063,Quern stone,Stone,good,2580.9,203.4,beside body
+A-0449,G-106,Sword,Bronze,fair,233.2,791,near arm
+A-0450,NA,Dagger,Copper,good,258.6,338.8,NA
+A-0451,G-212,Brooch,Copper,excellent,28.8,21.3,by head
+A-0452,G-197,Bead,Bronze,poor,6.5,3.7,not recorded
+A-0453,NA,Axe,Stone,poor,447.6,460,NA
+A-0454,G-011,Sword,Copper,excellent,435.1,484.5,beside body
+A-0455,G-245,Bracelet,Bronze,fair,37.9,84.1,NA
+A-0456,NA,Spearhead,Bronze,fair,53.9,163.9,NA
+A-0457,G-118,Whetstone,Stone,fair,208.7,115.7,under head
+A-0458,G-014,Buckle,Bronze,fair,74.2,91.5,left side
+A-0459,G-118,Spearhead,Copper,good,156.5,261.6,by head
+A-0460,G-174,Bracelet,Copper,fair,47.7,62.3,on chest
+A-0461,G-025,Buckle,Copper,fair,20.6,31.9,right side
+A-0462,G-071,Whetstone,Stone,fair,180.1,104,near arm
+A-0463,G-096,Ring,Gold,fair,4.6,15.7,on chest
+A-0464,G-164,Bead,Bone,fair,7.7,14.6,NA
+A-0465,G-229,Belt fitting,Bronze,fair,9.1,28.6,by head
+A-0466,G-178,Sword,Copper,fair,496.9,385.7,by head
+A-0467,G-118,Needle,Bone,poor,8.9,65,beside body
+A-0468,G-165,Arrowhead,Stone,fair,14.6,68.7,by head
+A-0469,G-195,Pottery sherd,Ceramic,fair,42.6,32.3,on pelvis
+A-0470,G-202,Spearhead,Bronze,good,172.9,211.9,by feet
+A-0471,G-081,Whetstone,Stone,good,394.2,172.4,right side
+A-0472,G-148,Sword,Bronze,good,447.7,618.5,left side
+A-0473,G-061,Quern stone,Stone,fair,991.1,287.4,under head
+A-0474,G-083,Needle,Copper,fair,4.3,52,by head
+A-0475,G-196,Arrowhead,Bronze,fair,17.6,75.6,under head
+A-0476,G-135,Buckle,Bronze,fair,76.5,84,on chest
+A-0477,G-042,Brooch,Copper,good,13.2,30,right side
+A-0478,G-187,Dagger,Bone,poor,124.2,342.9,left side
+A-0479,NA,Arrowhead,Bronze,poor,7.8,52.7,NA
+A-0480,G-156,Spearhead,Copper,poor,35.8,191.1,on chest
+A-0481,G-068,Needle,Bronze,fair,6.4,58.2,by head
+A-0482,G-215,Belt fitting,Bronze,poor,40.4,38,on pelvis
+A-0483,G-119,Pin,Bronze,poor,7.6,81.8,near arm
+A-0484,NA,Buckle,Bronze,poor,71,60.3,not recorded
+A-0485,G-184,Whetstone,Copper,fair,283,140.4,beside body
+A-0486,G-134,Pottery sherd,Ceramic,good,65.4,97.6,on pelvis
+A-0487,G-200,Brooch,Gold,fair,22.8,28.6,NA
+A-0488,G-223,Spearhead,Bronze,fair,136.3,174.4,beside body
+A-0489,G-122,Whetstone,Stone,fair,132.6,89.6,on chest
+A-0490,G-030,Bracelet,Copper,excellent,94.4,117.9,by feet
+A-0491,G-197,Arrowhead,Gold,poor,5.3,53.3,on pelvis
+A-0492,G-140,Pottery sherd,Ceramic,fair,12.9,94.2,right side
+A-0493,G-141,Bead,Glass,fair,3.3,16.2,left side
+A-0494,G-137,Pin,Bronze,fair,9.1,69.4,by head
+A-0495,NA,Axe,Stone,good,131.8,177.9,NA
+A-0496,G-132,Ring,Gold,poor,17.3,24.8,by feet
+A-0497,G-106,Needle,Bone,fair,6.3,39.6,under head
+A-0498,G-104,Belt fitting,Bronze,good,11.6,43.5,under head
+A-0499,G-073,Pin,Bronze,fair,14.6,64.9,under head
+A-0500,G-141,Bead,Bronze,good,5.3,12.6,on chest
+A-0501,G-087,Axe,Bronze,fair,116.4,153.1,by head
+A-0502,G-053,Spearhead,Bronze,poor,120.9,260.2,left side
+A-0503,G-115,Dagger,Bronze,good,292,310.5,left side
+A-0504,G-156,Axe,Bronze,good,161.5,315.9,near arm
+A-0505,G-013,Dagger,Ceramic,poor,48.9,109.7,beside body
+A-0506,G-147,Pottery sherd,Ceramic,poor,33.3,74.5,NA
+A-0507,G-207,Dagger,Bronze,fair,209.9,83.6,right side
+A-0508,G-048,Axe,Bronze,poor,260.4,231.4,near arm
+A-0509,G-156,Buckle,Bronze,fair,55.6,33.2,left side
+A-0510,G-082,Ring,Copper,good,5.6,17.2,on pelvis
+A-0511,G-062,Needle,Bone,fair,7,60.5,beside body
+A-0512,G-150,Pin,Copper,fair,10.5,89.7,beside body
+A-0513,G-188,Sword,Copper,poor,415.5,724.5,left side
+A-0514,G-077,Whetstone,Stone,good,261.1,68.9,by feet
+A-0515,G-117,Sword,Bronze,poor,523.3,435.4,under head
+A-0516,G-172,Belt fitting,Copper,excellent,34.8,51,beside body
+A-0517,G-114,Sword,Copper,poor,740.2,605.8,on chest
+A-0518,G-199,Bead,Glass,poor,8.7,8.8,on chest
+A-0519,NA,Arrowhead,Bronze,fair,19.6,51.9,NA
+A-0520,G-178,Pin,Copper,good,14.8,35.4,on chest
+A-0521,G-087,Buckle,Copper,fair,39.1,83.6,near arm
+A-0522,G-101,Pottery sherd,Ceramic,good,56.7,77.3,near arm
+A-0523,G-110,Bracelet,Bronze,fair,24,74.4,under head
+A-0524,G-143,Buckle,Copper,fair,12.8,87.7,by feet
+A-0525,G-095,Bracelet,Copper,fair,86.5,75.3,left side
+A-0526,G-182,Sword,Bronze,fair,553,593.4,on pelvis
+A-0527,G-171,Bracelet,Gold,poor,100,92.9,on pelvis
+A-0528,G-104,Belt fitting,Copper,poor,28.6,29.4,on pelvis
+A-0529,G-079,Dagger,Copper,fair,142.2,283.3,near arm
+A-0530,G-040,Brooch,Copper,good,24.1,46.6,on chest
+A-0531,G-105,Ring,Copper,fair,2.1,19.3,by head
+A-0532,G-049,Axe,Bronze,poor,162.6,362.8,near arm
+A-0533,G-244,Arrowhead,Bronze,poor,17.3,17.8,left side
+A-0534,G-198,Sword,Copper,fair,518.2,524.6,near arm
+A-0535,G-174,Bead,Bronze,excellent,6.5,7.8,on pelvis
+A-0536,G-016,Sword,Bronze,poor,481.4,570.7,beside body
+A-0537,G-248,Pottery sherd,Ceramic,fair,15.5,143.1,on pelvis
+A-0538,G-213,Pottery sherd,Ceramic,good,8.6,58.3,by head
+A-0539,G-117,Quern stone,Stone,fair,619.7,326.9,under head
+A-0540,G-231,Arrowhead,Bronze,good,15.7,27,right side
+A-0541,G-242,Belt fitting,Copper,excellent,26.7,33.2,unknown
+A-0542,G-142,Needle,Bone,fair,5.3,21.9,by head
+A-0543,G-023,Axe,Bronze,fair,502.3,474.5,by feet
+A-0544,G-047,Ring,Bronze,fair,17.8,17.1,by feet
+A-0545,G-225,Pin,Copper,poor,2.2,35.5,on pelvis
+A-0546,G-028,Sword,Bronze,poor,579.8,537.3,by feet
+A-0547,G-054,Pottery sherd,Ceramic,good,95,83.2,near arm
+A-0548,G-228,Quern stone,Stone,poor,2886.5,252.6,on chest
+A-0549,G-228,Brooch,Silver,good,16,41.9,near arm
+A-0550,G-180,Dagger,Copper,fair,252.3,260,left side
+A-0551,NA,Arrowhead,Bronze,fair,15.6,24.3,
+A-0552,G-184,Spearhead,Copper,good,193,72,right side
+A-0553,G-009,Brooch,Bronze,fair,28.9,22.2,by feet
+A-0554,G-100,Axe,Stone,fair,142.5,252.3,by head
+A-0555,NA,Ring,Gold,good,5.1,20.6,N/A
+A-0556,G-097,Spearhead,Copper,poor,196.6,177.3,left side
+A-0557,G-054,Dagger,Bronze,fair,211.5,187.7,by feet
+A-0558,G-046,Dagger,Copper,fair,121.3,137.9,not recorded
+A-0559,G-135,Buckle,Bronze,good,60.2,67.4,beside body
+A-0560,G-041,Bracelet,Copper,fair,42.6,109.7,near arm
+A-0561,G-085,Whetstone,Stone,good,314.7,117,beside body

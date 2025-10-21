@@ -4,21 +4,21 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place once in two weeks, on odd Wednesdays 12:00 – 15:40 (except 19. 11. – Reading week).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n24. 9.\nIntroduction, Tidy data and Intro to coding in R\n fake_graves.R\n\n\n2.\n8. 10.\nBasic workflows, plotting with qqplot2, Descriptive stats,  Data viz and Relationships\n\n\n\n3.\n22. 10.\n\n\n\n\n4.\n5. 11.\n\n\n\n\n-\n19. 11.\nReading week\n\n\n\n5.\n3. 12.\n\n\n\n\n6.\n17. 12."
+    "text": "The course takes place once in two weeks, on odd Wednesdays 12:00 – 15:40 (except 19. 11. – Reading week).\n\n\n\n\n#\nDate\nTopics\nNotes\n\n\n\n\n1.\n24. 9.\nIntroduction, Tidy data and Intro to coding in R\n fake_graves.R\n\n\n2.\n8. 10.\nBasic workflows, plotting with qqplot2, Descriptive stats, Data viz and Relationships\n\n\n\n3.\n22. 10.\nIntro, Tidy data & Transformations\nSynthetic BA burial ground exercise:   graves.csv &  artefacts.csv\n\n\n4.\n5. 11.\n\n\n\n\n-\n19. 11.\nReading week\n\n\n\n5.\n3. 12.\n\n\n\n\n6.\n17. 12."
   },
   {
     "objectID": "schedule.html#section",
     "href": "schedule.html#section",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place once in two weeks, on odd Wednesdays 12:00 – 15:40 (except 19. 11. – Reading week).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n24. 9.\nIntroduction, Tidy data and Intro to coding in R\n fake_graves.R\n\n\n2.\n8. 10.\nBasic workflows, plotting with qqplot2, Descriptive stats,  Data viz and Relationships\n\n\n\n3.\n22. 10.\n\n\n\n\n4.\n5. 11.\n\n\n\n\n-\n19. 11.\nReading week\n\n\n\n5.\n3. 12.\n\n\n\n\n6.\n17. 12."
+    "text": "The course takes place once in two weeks, on odd Wednesdays 12:00 – 15:40 (except 19. 11. – Reading week).\n\n\n\n\n#\nDate\nTopics\nNotes\n\n\n\n\n1.\n24. 9.\nIntroduction, Tidy data and Intro to coding in R\n fake_graves.R\n\n\n2.\n8. 10.\nBasic workflows, plotting with qqplot2, Descriptive stats, Data viz and Relationships\n\n\n\n3.\n22. 10.\nIntro, Tidy data & Transformations\nSynthetic BA burial ground exercise:   graves.csv &  artefacts.csv\n\n\n4.\n5. 11.\n\n\n\n\n-\n19. 11.\nReading week\n\n\n\n5.\n3. 12.\n\n\n\n\n6.\n17. 12."
   },
   {
     "objectID": "schedule.html#archive",
     "href": "schedule.html#archive",
     "title": "Schedule",
     "section": "Archive",
-    "text": "Archive\n\nSpring 2024\nThe course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset &  Script\n\n\n5.\n20. 3.\nNormal distribution & data manpulation with dplyr\n Dataset\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n Dataset (lasoles) &  Solution\n\n\n8.\n10. 4.\nConsidering time\n Dataset (datations)\n\n\n-\n17. 4.\nReading week\nIndividual consultations of projects\n\n\n9.\n24. 4.\nDistances & Custering\n Dataset (dart points)\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nDimensionality reduction: Correspondence analysis\n\n\n\n11.\n22. 5.\nReproducibility & Table transformations"
+    "text": "Archive\n\nSpring 2024\nThe course takes place each Wednesday 12:00 – 13:40 in L11, except 17. 4. (reading week), 1. 5. and 8. 5. (holidays).\n\n\n\n\nLecture\nDate\nTopics\nNotes\n\n\n\n\n1.\n21. 2.\nIntroduction and Tidy data\n Example script\n\n\n2.\n28. 2.\nBasic coding in R\n Dataset\n\n\n3.\n6. 3.\nVisualization and summary of distributions\n Dataset\n\n\n4.\n13. 3.\nVisualization and summary of relationships\n Dataset &  Script\n\n\n5.\n20. 3.\nNormal distribution & data manpulation with dplyr\n Dataset\n\n\n6.\n27. 3.\nPresenting data sets for projects & Practice\n\n\n\n7.\n3. 4.\nConsidering space\n Dataset (lasoles) &  Solution\n\n\n8.\n10. 4.\nConsidering time\n Dataset (datations)\n\n\n-\n17. 4.\nReading week\nIndividual consultations of projects\n\n\n9.\n24. 4.\nDistances & Custering\n Dataset (dart points)\n\n\n-\n1. 5.\nHolidays\n\n\n\n-\n8. 5.\nHolidays\n\n\n\n10.\n15. 5.\nDimensionality reduction: Correspondence analysis\n\n\n\n11.\n22. 5.\nReproducibility & Table transformations"
   },
   {
     "objectID": "project.html",
@@ -1617,6 +1617,388 @@
     "title": "Data manipulation with dplyr",
     "section": "Exercise",
     "text": "Exercise\n\n\nCreate new a script in your project folder and save.\nLoad packages necessary for: (a) loading, (b) transformation, and (c) visualization of data.\nLoad database bacups.csv and save it as an object.\nCreate a new dataframe having only variables H, RD and Phase.\nTry to use pipes %&gt;%.\nRename the variables to height, rimdiameter and phase.\nFor each phase calculate following summary statistics:\n\nmean and median vessel height,\n\nstandard deviation of vessel height,\ncorrelation between height and rim diameter, and\n\nnumber of vessels.\n\nCalculate percentage of vessels in each phase.\nArrange the results from highest to lowest mean values.\nSave your result as a CSV file\nAre height of vessels or rim diameter normally distributed? Why/why not?\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | dplyr"
+  },
+  {
+    "objectID": "lect/w03/transformation.html",
+    "href": "lect/w03/transformation.html",
+    "title": "Data transformation",
+    "section": "",
+    "text": "here\ndplyr\n\n\n\n\n\ndartpoints.csv\n\n\n\n\n\nopen your R Project, create a new script file\nload library here, install and load library dplyr\nimport data “dartpoints.csv\n\n\n\n\n\n\ninstall.packages(), library(), here(), read.csv()",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#prerequisites",
+    "href": "lect/w03/transformation.html#prerequisites",
+    "title": "Data transformation",
+    "section": "",
+    "text": "here\ndplyr\n\n\n\n\n\ndartpoints.csv\n\n\n\n\n\nopen your R Project, create a new script file\nload library here, install and load library dplyr\nimport data “dartpoints.csv\n\n\n\n\n\n\ninstall.packages(), library(), here(), read.csv()",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#course-overview",
+    "href": "lect/w03/transformation.html#course-overview",
+    "title": "Data transformation",
+    "section": "Course overview",
+    "text": "Course overview\nIn this course, you will learn how to:\n\nselect specific columns or remove them – select()\nrename your columns or change their position – rename(), relocate()\ncreate new columns and change the values based on different conditions – mutate(), case_when()\nfilter specific rows based on various conditions – filter()\norder your rows from lowest to highest values (or vice versa) – arrange()\ngroup your data and calculate different summary statistics – summarise(), group_by()\nwork with different functions more effectively with the pipe operator – |&gt;\n\n\nAt the end, you will be able to create and understand such a crazy code:\n\ndf_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_length = round(mean(Length),1),\n    median_length = round(median(Length),1),\n    sd_length = round(sd(Length),1),\n    n_name = n()\n  ) |&gt; \n  mutate(\n  percent_name = round(n_name/sum(n_name)*100, 1)\n  ) |&gt; \n  ggplot()+\n  aes(x = Name, y = sd_length)+\n  geom_col(fill = \"steelblue\")+\n  theme_light()",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#package-dplyr",
+    "href": "lect/w03/transformation.html#package-dplyr",
+    "title": "Data transformation",
+    "section": "package dplyr",
+    "text": "package dplyr\n\nwe will work with the package dplyr which uses tidy data logic (one variable = one column, one observation = one row,…)\na big advantage of this package is that it has more intuitive and human readable syntax\n\n\n\nlet’s say we want to analyse only those dartpoints that have name “Travis”\nin R base, the code to select only dartpoints of that type, would look like this:\n\n\n\n\ndf_dartpoints[df_dartpoints$Name == \"Travis\",]\n\n\n\nThis is a solution with the function filter() from the dplyr package:\n\nfilter(df_dartpoints, Name == \"Travis\")\n\n\n\nSimilarly, you can also select different columns by their name:\nR base solution:\n\ndf_dartpoints[, c(\"Name\", \"Length\", \"Width\", \"Weight\")]\n\n\n\n\nand this is the dplyr solution with function select():\n\n\nselect(df_dartpoints, Name, Length, Width, Weight)",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#pipe-operator--",
+    "href": "lect/w03/transformation.html#pipe-operator--",
+    "title": "Data transformation",
+    "section": "pipe operator - |>",
+    "text": "pipe operator - |&gt;\n\n|&gt; allows you to combine various functions into one code chunks, which makes your code shorter and easier to read\nsyntax:\n\ndataframe |&gt; function_1(variable, condition) |&gt; function_2(variable, condition)\n\nSo you can combine functions select(), filter() and head() :\n\ndf_dartpoints |&gt; \n  select(Name, Length, Width, Weight) |&gt; \n  filter(Name == \"Travis\") |&gt; \n  head(4)\n\n    Name Length Width Weight\n1 Travis   56.5  21.1    9.5\n2 Travis   54.6  22.4   10.4\n3 Travis   46.3  21.3    7.5\n4 Travis   57.6  18.9    8.7\n\n\n\nnotice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#select---more-details",
+    "href": "lect/w03/transformation.html#select---more-details",
+    "title": "Data transformation",
+    "section": "select() - more details",
+    "text": "select() - more details\n\ndf_dartpoints |&gt; \n  select(Name, Length, Width, Weight, Blade.Sh) |&gt; \n  head(4)\n\n  Name Length Width Weight Blade.Sh\n1 Darl   42.8  15.8    3.6        S\n2 Darl   40.5  17.4    4.5        S\n3 Darl   37.5  16.3    3.6        S\n4 Darl   40.3  16.1    4.0        S\n\n\n\n\ndf_dartpoints |&gt; \n  select(Name, Length:Weight) |&gt; \n  head(4)\n\n  Name Length Width Thickness B.Width J.Width H.Length Weight\n1 Darl   42.8  15.8       5.8    11.3    10.6     11.6    3.6\n2 Darl   40.5  17.4       5.8      NA    13.7     12.9    4.5\n3 Darl   37.5  16.3       6.1    12.1    11.3      8.2    3.6\n4 Darl   40.3  16.1       6.3    13.5    11.7      8.3    4.0\n\n\n\n\nYou can exclude specific columns by !\n\ndf_dartpoints |&gt; \n  select(!Name) |&gt; \n  head(4)\n\n  Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length Weight\n1 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6    3.6\n2 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9    4.5\n3 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2    3.6\n4 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3    4.0\n  Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1        S       I         S         T       S       E\n2        S       I         S         T       S       E\n3        S       I         S         T       S       E\n4        S       I         S         T       S       E\n\n\n\n\n\ndf_dartpoints |&gt; \n  select(!Name:Quad) |&gt; \n  head(4)\n\n  Length Width Thickness B.Width J.Width H.Length Weight Blade.Sh Base.Sh\n1   42.8  15.8       5.8    11.3    10.6     11.6    3.6        S       I\n2   40.5  17.4       5.8      NA    13.7     12.9    4.5        S       I\n3   37.5  16.3       6.1    12.1    11.3      8.2    3.6        S       I\n4   40.3  16.1       6.3    13.5    11.7      8.3    4.0        S       I\n  Should.Sh Should.Or Haft.Sh Haft.Or\n1         S         T       S       E\n2         S         T       S       E\n3         S         T       S       E\n4         S         T       S       E\n\n\n\n\n\nselecting columns with numeric variables:\n\n\ndf_dartpoints |&gt; \n  select(where(is.numeric)) |&gt; \n  head(4)\n\n  Length Width Thickness B.Width J.Width H.Length Weight\n1   42.8  15.8       5.8    11.3    10.6     11.6    3.6\n2   40.5  17.4       5.8      NA    13.7     12.9    4.5\n3   37.5  16.3       6.1    12.1    11.3      8.2    3.6\n4   40.3  16.1       6.3    13.5    11.7      8.3    4.0",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#rename",
+    "href": "lect/w03/transformation.html#rename",
+    "title": "Data transformation",
+    "section": "rename()",
+    "text": "rename()\n\nyou can change the names of your columns by rename() function\nsyntax:\nrename(new_name = old_name)\n\n\n\ndf_dartpoints |&gt; \n  rename(\n    typ_sipky = Name,\n    delka_sipky = Length,\n    sirka_sipky = Width\n  ) |&gt; \n  head(4)\n\n  typ_sipky Catalog     TARL  Quad delka_sipky sirka_sipky Thickness B.Width\n1      Darl 41-0322 41CV0536 26/59        42.8        15.8       5.8    11.3\n2      Darl 35-2946 41CV0235 21/63        40.5        17.4       5.8      NA\n3      Darl 35-2921 41CV0132 20/63        37.5        16.3       6.1    12.1\n4      Darl 36-3487 41CV0594 10/54        40.3        16.1       6.3    13.5\n  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    10.6     11.6    3.6        S       I         S         T       S       E\n2    13.7     12.9    4.5        S       I         S         T       S       E\n3    11.3      8.2    3.6        S       I         S         T       S       E\n4    11.7      8.3    4.0        S       I         S         T       S       E",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#relocate",
+    "href": "lect/w03/transformation.html#relocate",
+    "title": "Data transformation",
+    "section": "relocate()",
+    "text": "relocate()\n\nrelocate() will defautly move your chosen column to the front:\n\n\ndf_dartpoints |&gt; \n  rename(\n    typ_sipky = Name,\n    delka_sipky = Length,\n    sirka_sipky = Width\n  ) |&gt; \n  relocate(delka_sipky, sirka_sipky) |&gt; \n  head(4)\n\n  delka_sipky sirka_sipky typ_sipky Catalog     TARL  Quad Thickness B.Width\n1        42.8        15.8      Darl 41-0322 41CV0536 26/59       5.8    11.3\n2        40.5        17.4      Darl 35-2946 41CV0235 21/63       5.8      NA\n3        37.5        16.3      Darl 35-2921 41CV0132 20/63       6.1    12.1\n4        40.3        16.1      Darl 36-3487 41CV0594 10/54       6.3    13.5\n  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    10.6     11.6    3.6        S       I         S         T       S       E\n2    13.7     12.9    4.5        S       I         S         T       S       E\n3    11.3      8.2    3.6        S       I         S         T       S       E\n4    11.7      8.3    4.0        S       I         S         T       S       E\n\n\n\nnote that you must already be working with the new variable names.\n\n\n\nyou can manualy specify the position of relocated columns by aruments .before = or .after =\n\n\ndf_dartpoints |&gt; \n  rename(\n    typ_sipky = Name,\n    delka_sipky = Length,\n    sirka_sipky = Width\n  ) |&gt; \n  relocate(\n    delka_sipky, sirka_sipky, .after =  typ_sipky\n    ) |&gt; \n  head(4)\n\n  typ_sipky delka_sipky sirka_sipky Catalog     TARL  Quad Thickness B.Width\n1      Darl        42.8        15.8 41-0322 41CV0536 26/59       5.8    11.3\n2      Darl        40.5        17.4 35-2946 41CV0235 21/63       5.8      NA\n3      Darl        37.5        16.3 35-2921 41CV0132 20/63       6.1    12.1\n4      Darl        40.3        16.1 36-3487 41CV0594 10/54       6.3    13.5\n  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    10.6     11.6    3.6        S       I         S         T       S       E\n2    13.7     12.9    4.5        S       I         S         T       S       E\n3    11.3      8.2    3.6        S       I         S         T       S       E\n4    11.7      8.3    4.0        S       I         S         T       S       E\n\n\n\nnote the dot before arguments .after and .before - it indicates to R that those are not objects or variables, but arguments of a function",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#before-we-continue",
+    "href": "lect/w03/transformation.html#before-we-continue",
+    "title": "Data transformation",
+    "section": "Before we continue:",
+    "text": "Before we continue:\n\nyou can also create a new object from your selection with &lt;-:\n\n\ndf_sample &lt;- df_dartpoints |&gt; \n  select(Name, Length, Width, Weight, Base.Sh)\nhead(df_sample, 4)\n\n  Name Length Width Weight Base.Sh\n1 Darl   42.8  15.8    3.6       I\n2 Darl   40.5  17.4    4.5       I\n3 Darl   37.5  16.3    3.6       I\n4 Darl   40.3  16.1    4.0       I\n\n\nFrom now on, we will continue with this dataframe, in order to reduce the number of the columns.",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#mutate",
+    "href": "lect/w03/transformation.html#mutate",
+    "title": "Data transformation",
+    "section": "mutate()",
+    "text": "mutate()\n\nthis function creates new columns that are calculated from existing ones (i.e. the new columns are functions of existing variables).\nsyntax: dataframe |&gt; mutate(variable_name = function())\n\n\n\nhere is an example of creating a new column whose values are the multiplication of length by width\n\n\ndf_sample |&gt; \n  mutate(\n    square_size = Length*Width\n    ) |&gt; \n  head(4)\n\n  Name Length Width Weight Base.Sh square_size\n1 Darl   42.8  15.8    3.6       I      676.24\n2 Darl   40.5  17.4    4.5       I      704.70\n3 Darl   37.5  16.3    3.6       I      611.25\n4 Darl   40.3  16.1    4.0       I      648.83\n\n\n\n\n\nnote what argument .keep = \"used\" does:\n\n\ndf_sample |&gt; \n  mutate(\n    square_size = Length*Width,\n    .keep = \"used\"\n    ) |&gt; \n  head(4)\n\n  Length Width square_size\n1   42.8  15.8      676.24\n2   40.5  17.4      704.70\n3   37.5  16.3      611.25\n4   40.3  16.1      648.83\n\n\n\nwe will explore the function mutate() in more detail later",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#filter",
+    "href": "lect/w03/transformation.html#filter",
+    "title": "Data transformation",
+    "section": "filter()",
+    "text": "filter()\n\nfor specifying conditions for filtering, dplyr uses the following logical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &, |, %in%, etc (use ?dplyr::filter for more details)\n\n\n\nhere, we will use the symbol &gt; to filter out dart points with a length greater than 80 mm\n\n\ndf_sample |&gt; \n  filter(Length &gt; 80)\n\n        Name Length Width Weight Base.Sh\n1 Pedernales  109.5  49.3   28.8       I\n2 Pedernales   84.0  21.2    9.3       I\n\n\n\n\n\nand here we use == to choose only those dartpoints which are of type “Travis”\n\n\ndf_sample |&gt; \n  filter(Name == \"Travis\")\n\n     Name Length Width Weight Base.Sh\n1  Travis   56.5  21.1    9.5       S\n2  Travis   54.6  22.4   10.4       S\n3  Travis   46.3  21.3    7.5       S\n4  Travis   57.6  18.9    8.7       S\n5  Travis   49.1  21.4    6.9       S\n6  Travis   64.6  21.5   15.0       I\n7  Travis   69.0  20.9   11.4       E\n8  Travis   40.1  18.4    6.3       S\n9  Travis   41.5  19.2    7.5       S\n10 Travis   46.3  17.9    5.9       S\n11 Travis   39.6  21.5    5.4       S\n\n\n\n\n\nalternatively, you can exclude all points of a type “Travis” by negation !=\n\n\ndf_sample |&gt; \n  filter(Name != \"Travis\") |&gt; \n  head(4)\n\n  Name Length Width Weight Base.Sh\n1 Darl   42.8  15.8    3.6       I\n2 Darl   40.5  17.4    4.5       I\n3 Darl   37.5  16.3    3.6       I\n4 Darl   40.3  16.1    4.0       I\n\n\n\n\n\nadd & if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” AND are heavier than 10 grams\n\n\ndf_sample |&gt; \n  filter(Name == \"Wells\" & Weight &gt; 10)\n\n   Name Length Width Weight Base.Sh\n1 Wells   65.4  25.1   12.6       S\n2 Wells   58.9  24.4   10.5       I\n3 Wells   63.1  24.7   16.3       E\n\n\n\n\n\n Task: instead of & try the operator | (OR) and see how the result differs",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#filtering-based-on-a-vector",
+    "href": "lect/w03/transformation.html#filtering-based-on-a-vector",
+    "title": "Data transformation",
+    "section": "Filtering based on a vector",
+    "text": "Filtering based on a vector\n\nyou can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator %in%\n\n\ntwo_types &lt;- c(\"Pedernales\", \"Ensor\")\n\ndf_sample |&gt; \n  filter(Name %in% two_types) |&gt; \n  head(4)\n\n   Name Length Width Weight Base.Sh\n1 Ensor   43.5  20.1    4.6       S\n2 Ensor   42.1  20.8    5.4       S\n3 Ensor   42.1  25.1    5.9       S\n4 Ensor   43.1  20.0    5.1       S",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#arrange",
+    "href": "lect/w03/transformation.html#arrange",
+    "title": "Data transformation",
+    "section": "arrange()",
+    "text": "arrange()\n\nthis function will order your observations from the lowest to highest (or vice versa)\n\n\ndf_sample |&gt; \n  arrange(Length) |&gt; \n  head(4)\n\n  Name Length Width Weight Base.Sh\n1 Darl   30.6  17.1    2.3       I\n2 Darl   31.2  15.6    2.5       I\n3 Darl   32.0  16.0    3.3       E\n4 Darl   32.4  14.5    2.5       I\n\n\n\ndf_sample |&gt; \n  arrange(desc(Length)) |&gt; \n  head(4)\n\n        Name Length Width Weight Base.Sh\n1 Pedernales  109.5  49.3   28.8       I\n2 Pedernales   84.0  21.2    9.3       I\n3 Pedernales   78.3  28.1   14.8       I\n4 Pedernales   70.4  30.4   13.1       I",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#distinct-and-count",
+    "href": "lect/w03/transformation.html#distinct-and-count",
+    "title": "Data transformation",
+    "section": "distinct() and count()",
+    "text": "distinct() and count()\n\ntry to find out what these functions are doing:\n\n\ndf_sample |&gt; \n  distinct(Name, Base.Sh) |&gt; \n  head(10)\n\n         Name Base.Sh\n1        Darl       I\n2        Darl       E\n3        Darl       S\n4        Darl       R\n5        Darl    &lt;NA&gt;\n6       Ensor       S\n7       Ensor       R\n8       Ensor       I\n9       Ensor    &lt;NA&gt;\n10 Pedernales       I\n\n\n\ndf_sample |&gt; \n  count(Name, Base.Sh, sort = TRUE) |&gt; \n  head(4)\n\n        Name Base.Sh  n\n1 Pedernales       I 32\n2       Darl       I 18\n3     Travis       S  9\n4       Darl       S  6",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#summarise",
+    "href": "lect/w03/transformation.html#summarise",
+    "title": "Data transformation",
+    "section": "summarise()",
+    "text": "summarise()\n\nthis function is used for calculating basic summary stastics from the existing variables\nsyntax: summarise(new_variable = function(variable))\nin this case, the mean and sd values are calculated for whole dataframe:\n\n\ndf_sample |&gt; \n  summarise(\n    mean_lenght = mean(Length),\n    sd_length = sd(Length)\n  )\n\n  mean_lenght sd_length\n1    49.33077  12.73619",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#group_by",
+    "href": "lect/w03/transformation.html#group_by",
+    "title": "Data transformation",
+    "section": "group_by()",
+    "text": "group_by()\n\nif you want to calculate summary statistic for each dartpoint type, you have to use function group_by which will create groups of rows based on chosen variable, in this case “Name”\n\n\ndf_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_lenght = mean(Length),\n    sd_length = sd(Length),\n    n = n()\n  ) |&gt; \n  arrange(desc(n))\n\n# A tibble: 5 × 4\n  Name       mean_lenght sd_length     n\n  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;\n1 Pedernales        57.9     14.1     32\n2 Darl              39.8      6.18    28\n3 Travis            51.4      9.90    11\n4 Ensor             42.7      5.79    10\n5 Wells             53.1      7.94    10\n\n\n\n\ndf_sample |&gt; \n  group_by(Name, Base.Sh) |&gt; \n  summarise(\n    mean_lenght = round(mean(Length),2),\n    sd_length = round(sd(Length),2),\n    n = n()\n  ) |&gt; \n  arrange(Name) |&gt; \n  head(7)\n\n# A tibble: 7 × 5\n# Groups:   Name [2]\n  Name  Base.Sh mean_lenght sd_length     n\n  &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;\n1 Darl  E              36.9      6.93     2\n2 Darl  I              39.5      6.59    18\n3 Darl  R              44.2     NA        1\n4 Darl  S              40.6      6.36     6\n5 Darl  &lt;NA&gt;           40       NA        1\n6 Ensor I              34.9     NA        1\n7 Ensor R              39.3      2.75     3",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#back-to-mutate",
+    "href": "lect/w03/transformation.html#back-to-mutate",
+    "title": "Data transformation",
+    "section": "back to mutate()",
+    "text": "back to mutate()\n\ncreating new values based on different conditions\n\ndf_sample |&gt; \n  mutate(\n    size_cathegory = case_when(\n      Length &gt; 70 ~ \"big_stone\",\n      Length &lt; 30 ~ \"small_stone\",\n      .default = \"ok_stone\"\n    )\n  ) |&gt; \n  arrange(desc(Length)) |&gt; \n  head(10)\n\n         Name Length Width Weight Base.Sh size_cathegory\n1  Pedernales  109.5  49.3   28.8       I      big_stone\n2  Pedernales   84.0  21.2    9.3       I      big_stone\n3  Pedernales   78.3  28.1   14.8       I      big_stone\n4  Pedernales   70.4  30.4   13.1       I      big_stone\n5      Travis   69.0  20.9   11.4       E       ok_stone\n6  Pedernales   67.2  27.1   15.3       I       ok_stone\n7  Pedernales   66.0  27.2   12.5       I       ok_stone\n8       Wells   65.4  25.1   12.6       S       ok_stone\n9  Pedernales   65.0  31.6    4.6       I       ok_stone\n10     Travis   64.6  21.5   15.0       I       ok_stone",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#back-to-mutate-1",
+    "href": "lect/w03/transformation.html#back-to-mutate-1",
+    "title": "Data transformation",
+    "section": "back to mutate()",
+    "text": "back to mutate()\n\nchanging existing values based on combination of two conditions\n\nimagine we want to create a new type of dartpoints from the Pedernales that are longer than 80 mm\nwe don’t need to create a new column, but only change the values in the existing one:\n\n\ndf_sample |&gt; \n  mutate(\n    Name = case_when(\n      Name == \"Pedernales\" & Length &gt; 80 ~ \"Big_Pedernales\",\n      .default = Name\n    )\n  ) |&gt; \n  arrange(desc(Length)) |&gt; \n  head(4)\n\n            Name Length Width Weight Base.Sh\n1 Big_Pedernales  109.5  49.3   28.8       I\n2 Big_Pedernales   84.0  21.2    9.3       I\n3     Pedernales   78.3  28.1   14.8       I\n4     Pedernales   70.4  30.4   13.1       I\n\n\n\nnote that if we want to leave the other values of the variable “Name” unchanged, we do so by specifying .default = Name",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#combining-plenty-of-functions-into-one-huge-code-chunk",
+    "href": "lect/w03/transformation.html#combining-plenty-of-functions-into-one-huge-code-chunk",
+    "title": "Data transformation",
+    "section": "Combining plenty of functions into one huge code chunk:",
+    "text": "Combining plenty of functions into one huge code chunk:\n\ndf_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_length = round(mean(Length),1),\n    median_length = round(median(Length),1),\n    sd_length = round(sd(Length),1),\n    n_name = n()\n  ) |&gt; \n  mutate(\n  percent_name = round(n_name/sum(n_name)*100, 1)\n  ) |&gt; \n  arrange(desc(n_name))\n\n# A tibble: 5 × 6\n  Name       mean_length median_length sd_length n_name percent_name\n  &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;  &lt;int&gt;        &lt;dbl&gt;\n1 Pedernales        57.9          55.8      14.1     32         35.2\n2 Darl              39.8          40.1       6.2     28         30.8\n3 Travis            51.4          49.1       9.9     11         12.1\n4 Ensor             42.7          42.3       5.8     10         11  \n5 Wells             53.1          53.7       7.9     10         11  \n\n\n::: fragment - we can even include ggplot() into the pipeline:\n\ndf_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_length = round(mean(Length),1),\n    median_length = round(median(Length),1),\n    sd_length = round(sd(Length),1),\n    n_name = n()\n  ) |&gt; \n  mutate(\n  percent_name = round(n_name/sum(n_name)*100, 1)\n  ) |&gt; \n  ggplot()+\n  aes(x = Name, y = sd_length)+\n  geom_col(fill = \"steelblue\")+\n  theme_light()",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/transformation.html#saving-your-result",
+    "href": "lect/w03/transformation.html#saving-your-result",
+    "title": "Data transformation",
+    "section": "Saving your result",
+    "text": "Saving your result\n\ndf_result &lt;- df_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_length = round(mean(Length),1),\n    median_length = round(median(Length),1),\n    sd_length = round(sd(Length),1),\n    n_name = n()\n  ) |&gt; \n  mutate(\n  percent_name = round(n_name/sum(n_name)*100, 1)\n  ) |&gt; \n  arrange(desc(n_name))\n\n\nwrite.csv(df_result, here(\"results/dartpoints_result.csv\"), row.names = F)",
+    "crumbs": [
+      "Week 3",
+      "Data transformation"
+    ]
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#prerequisites",
+    "href": "lect/w03/slides_transformation.html#prerequisites",
+    "title": "Data transformation",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nPackages:\n\nhere\ndplyr\n\nData:\n\ndartpoints.csv\n\nStart:\n\nopen your R Project, create a new script file\nload library here, install and load library dplyr\nimport data “dartpoints.csv\n\n\n\nHints:\n\ninstall.packages(), library(), here(), read.csv()"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#course-overview",
+    "href": "lect/w03/slides_transformation.html#course-overview",
+    "title": "Data transformation",
+    "section": "Course overview",
+    "text": "Course overview\nIn this course, you will learn how to:\n\nselect specific columns or remove them – select()\nrename your columns or change their position – rename(), relocate()\ncreate new columns and change the values based on different conditions – mutate(), case_when()\nfilter specific rows based on various conditions – filter()\norder your rows from lowest to highest values (or vice versa) – arrange()\ngroup your data and calculate different summary statistics – summarise(), group_by()\nwork with different functions more effectively with the pipe operator – |&gt;\n\n\nAt the end, you will be able to create and understand such a crazy code:\n\ndf_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_length = round(mean(Length),1),\n    median_length = round(median(Length),1),\n    sd_length = round(sd(Length),1),\n    n_name = n()\n  ) |&gt; \n  mutate(\n  percent_name = round(n_name/sum(n_name)*100, 1)\n  ) |&gt; \n  ggplot()+\n  aes(x = Name, y = sd_length)+\n  geom_col(fill = \"steelblue\")+\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#package-dplyr",
+    "href": "lect/w03/slides_transformation.html#package-dplyr",
+    "title": "Data transformation",
+    "section": "package dplyr",
+    "text": "package dplyr\n\nwe will work with the package dplyr which uses tidy data logic (one variable = one column, one observation = one row,…)\na big advantage of this package is that it has more intuitive and human readable syntax\n\n\n\nlet’s say we want to analyse only those dartpoints that have name “Travis”\nin R base, the code to select only dartpoints of that type, would look like this:\n\n\n\n\ndf_dartpoints[df_dartpoints$Name == \"Travis\",]\n\n\n\nThis is a solution with the function filter() from the dplyr package:\n\nfilter(df_dartpoints, Name == \"Travis\")\n\n\n\nSimilarly, you can also select different columns by their name:\nR base solution:\n\ndf_dartpoints[, c(\"Name\", \"Length\", \"Width\", \"Weight\")]\n\n\n\n\nand this is the dplyr solution with function select():\n\n\nselect(df_dartpoints, Name, Length, Width, Weight)"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#pipe-operator--",
+    "href": "lect/w03/slides_transformation.html#pipe-operator--",
+    "title": "Data transformation",
+    "section": "pipe operator - |>",
+    "text": "pipe operator - |&gt;\n\n|&gt; allows you to combine various functions into one code chunks, which makes your code shorter and easier to read\nsyntax:\n\ndataframe |&gt; function_1(variable, condition) |&gt; function_2(variable, condition)\n\nSo you can combine functions select(), filter() and head() :\n\ndf_dartpoints |&gt; \n  select(Name, Length, Width, Weight) |&gt; \n  filter(Name == \"Travis\") |&gt; \n  head(4)\n\n    Name Length Width Weight\n1 Travis   56.5  21.1    9.5\n2 Travis   54.6  22.4   10.4\n3 Travis   46.3  21.3    7.5\n4 Travis   57.6  18.9    8.7\n\n\n\nnotice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the “pipe”"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#select---more-details",
+    "href": "lect/w03/slides_transformation.html#select---more-details",
+    "title": "Data transformation",
+    "section": "select() - more details",
+    "text": "select() - more details\n\ndf_dartpoints |&gt; \n  select(Name, Length, Width, Weight, Blade.Sh) |&gt; \n  head(4)\n\n  Name Length Width Weight Blade.Sh\n1 Darl   42.8  15.8    3.6        S\n2 Darl   40.5  17.4    4.5        S\n3 Darl   37.5  16.3    3.6        S\n4 Darl   40.3  16.1    4.0        S\n\n\n\n\ndf_dartpoints |&gt; \n  select(Name, Length:Weight) |&gt; \n  head(4)\n\n  Name Length Width Thickness B.Width J.Width H.Length Weight\n1 Darl   42.8  15.8       5.8    11.3    10.6     11.6    3.6\n2 Darl   40.5  17.4       5.8      NA    13.7     12.9    4.5\n3 Darl   37.5  16.3       6.1    12.1    11.3      8.2    3.6\n4 Darl   40.3  16.1       6.3    13.5    11.7      8.3    4.0\n\n\n\n\nYou can exclude specific columns by !\n\ndf_dartpoints |&gt; \n  select(!Name) |&gt; \n  head(4)\n\n  Catalog     TARL  Quad Length Width Thickness B.Width J.Width H.Length Weight\n1 41-0322 41CV0536 26/59   42.8  15.8       5.8    11.3    10.6     11.6    3.6\n2 35-2946 41CV0235 21/63   40.5  17.4       5.8      NA    13.7     12.9    4.5\n3 35-2921 41CV0132 20/63   37.5  16.3       6.1    12.1    11.3      8.2    3.6\n4 36-3487 41CV0594 10/54   40.3  16.1       6.3    13.5    11.7      8.3    4.0\n  Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1        S       I         S         T       S       E\n2        S       I         S         T       S       E\n3        S       I         S         T       S       E\n4        S       I         S         T       S       E\n\n\n\n\n\ndf_dartpoints |&gt; \n  select(!Name:Quad) |&gt; \n  head(4)\n\n  Length Width Thickness B.Width J.Width H.Length Weight Blade.Sh Base.Sh\n1   42.8  15.8       5.8    11.3    10.6     11.6    3.6        S       I\n2   40.5  17.4       5.8      NA    13.7     12.9    4.5        S       I\n3   37.5  16.3       6.1    12.1    11.3      8.2    3.6        S       I\n4   40.3  16.1       6.3    13.5    11.7      8.3    4.0        S       I\n  Should.Sh Should.Or Haft.Sh Haft.Or\n1         S         T       S       E\n2         S         T       S       E\n3         S         T       S       E\n4         S         T       S       E\n\n\n\n\n\nselecting columns with numeric variables:\n\n\ndf_dartpoints |&gt; \n  select(where(is.numeric)) |&gt; \n  head(4)\n\n  Length Width Thickness B.Width J.Width H.Length Weight\n1   42.8  15.8       5.8    11.3    10.6     11.6    3.6\n2   40.5  17.4       5.8      NA    13.7     12.9    4.5\n3   37.5  16.3       6.1    12.1    11.3      8.2    3.6\n4   40.3  16.1       6.3    13.5    11.7      8.3    4.0"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#rename",
+    "href": "lect/w03/slides_transformation.html#rename",
+    "title": "Data transformation",
+    "section": "rename()",
+    "text": "rename()\n\nyou can change the names of your columns by rename() function\nsyntax:\nrename(new_name = old_name)\n\n\n\ndf_dartpoints |&gt; \n  rename(\n    typ_sipky = Name,\n    delka_sipky = Length,\n    sirka_sipky = Width\n  ) |&gt; \n  head(4)\n\n  typ_sipky Catalog     TARL  Quad delka_sipky sirka_sipky Thickness B.Width\n1      Darl 41-0322 41CV0536 26/59        42.8        15.8       5.8    11.3\n2      Darl 35-2946 41CV0235 21/63        40.5        17.4       5.8      NA\n3      Darl 35-2921 41CV0132 20/63        37.5        16.3       6.1    12.1\n4      Darl 36-3487 41CV0594 10/54        40.3        16.1       6.3    13.5\n  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    10.6     11.6    3.6        S       I         S         T       S       E\n2    13.7     12.9    4.5        S       I         S         T       S       E\n3    11.3      8.2    3.6        S       I         S         T       S       E\n4    11.7      8.3    4.0        S       I         S         T       S       E"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#relocate",
+    "href": "lect/w03/slides_transformation.html#relocate",
+    "title": "Data transformation",
+    "section": "relocate()",
+    "text": "relocate()\n\nrelocate() will defautly move your chosen column to the front:\n\n\ndf_dartpoints |&gt; \n  rename(\n    typ_sipky = Name,\n    delka_sipky = Length,\n    sirka_sipky = Width\n  ) |&gt; \n  relocate(delka_sipky, sirka_sipky) |&gt; \n  head(4)\n\n  delka_sipky sirka_sipky typ_sipky Catalog     TARL  Quad Thickness B.Width\n1        42.8        15.8      Darl 41-0322 41CV0536 26/59       5.8    11.3\n2        40.5        17.4      Darl 35-2946 41CV0235 21/63       5.8      NA\n3        37.5        16.3      Darl 35-2921 41CV0132 20/63       6.1    12.1\n4        40.3        16.1      Darl 36-3487 41CV0594 10/54       6.3    13.5\n  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    10.6     11.6    3.6        S       I         S         T       S       E\n2    13.7     12.9    4.5        S       I         S         T       S       E\n3    11.3      8.2    3.6        S       I         S         T       S       E\n4    11.7      8.3    4.0        S       I         S         T       S       E\n\n\n\nnote that you must already be working with the new variable names.\n\n\n\nyou can manualy specify the position of relocated columns by aruments .before = or .after =\n\n\ndf_dartpoints |&gt; \n  rename(\n    typ_sipky = Name,\n    delka_sipky = Length,\n    sirka_sipky = Width\n  ) |&gt; \n  relocate(\n    delka_sipky, sirka_sipky, .after =  typ_sipky\n    ) |&gt; \n  head(4)\n\n  typ_sipky delka_sipky sirka_sipky Catalog     TARL  Quad Thickness B.Width\n1      Darl        42.8        15.8 41-0322 41CV0536 26/59       5.8    11.3\n2      Darl        40.5        17.4 35-2946 41CV0235 21/63       5.8      NA\n3      Darl        37.5        16.3 35-2921 41CV0132 20/63       6.1    12.1\n4      Darl        40.3        16.1 36-3487 41CV0594 10/54       6.3    13.5\n  J.Width H.Length Weight Blade.Sh Base.Sh Should.Sh Should.Or Haft.Sh Haft.Or\n1    10.6     11.6    3.6        S       I         S         T       S       E\n2    13.7     12.9    4.5        S       I         S         T       S       E\n3    11.3      8.2    3.6        S       I         S         T       S       E\n4    11.7      8.3    4.0        S       I         S         T       S       E\n\n\n\nnote the dot before arguments .after and .before - it indicates to R that those are not objects or variables, but arguments of a function"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#before-we-continue",
+    "href": "lect/w03/slides_transformation.html#before-we-continue",
+    "title": "Data transformation",
+    "section": "Before we continue:",
+    "text": "Before we continue:\n\nyou can also create a new object from your selection with &lt;-:\n\n\ndf_sample &lt;- df_dartpoints |&gt; \n  select(Name, Length, Width, Weight, Base.Sh)\nhead(df_sample, 4)\n\n  Name Length Width Weight Base.Sh\n1 Darl   42.8  15.8    3.6       I\n2 Darl   40.5  17.4    4.5       I\n3 Darl   37.5  16.3    3.6       I\n4 Darl   40.3  16.1    4.0       I\n\n\nFrom now on, we will continue with this dataframe, in order to reduce the number of the columns."
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#mutate",
+    "href": "lect/w03/slides_transformation.html#mutate",
+    "title": "Data transformation",
+    "section": "mutate()",
+    "text": "mutate()\n\nthis function creates new columns that are calculated from existing ones (i.e. the new columns are functions of existing variables).\nsyntax: dataframe |&gt; mutate(variable_name = function())\n\n\n\nhere is an example of creating a new column whose values are the multiplication of length by width\n\n\ndf_sample |&gt; \n  mutate(\n    square_size = Length*Width\n    ) |&gt; \n  head(4)\n\n  Name Length Width Weight Base.Sh square_size\n1 Darl   42.8  15.8    3.6       I      676.24\n2 Darl   40.5  17.4    4.5       I      704.70\n3 Darl   37.5  16.3    3.6       I      611.25\n4 Darl   40.3  16.1    4.0       I      648.83\n\n\n\n\n\nnote what argument .keep = \"used\" does:\n\n\ndf_sample |&gt; \n  mutate(\n    square_size = Length*Width,\n    .keep = \"used\"\n    ) |&gt; \n  head(4)\n\n  Length Width square_size\n1   42.8  15.8      676.24\n2   40.5  17.4      704.70\n3   37.5  16.3      611.25\n4   40.3  16.1      648.83\n\n\n\nwe will explore the function mutate() in more detail later"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#filter",
+    "href": "lect/w03/slides_transformation.html#filter",
+    "title": "Data transformation",
+    "section": "filter()",
+    "text": "filter()\n\nfor specifying conditions for filtering, dplyr uses the following logical and mathematical operators: ==, !=, &lt;, &gt;, &gt;=, &lt;=, &, |, %in%, etc (use ?dplyr::filter for more details)\n\n\n\nhere, we will use the symbol &gt; to filter out dart points with a length greater than 80 mm\n\n\ndf_sample |&gt; \n  filter(Length &gt; 80)\n\n        Name Length Width Weight Base.Sh\n1 Pedernales  109.5  49.3   28.8       I\n2 Pedernales   84.0  21.2    9.3       I\n\n\n\n\n\nand here we use == to choose only those dartpoints which are of type “Travis”\n\n\ndf_sample |&gt; \n  filter(Name == \"Travis\")\n\n     Name Length Width Weight Base.Sh\n1  Travis   56.5  21.1    9.5       S\n2  Travis   54.6  22.4   10.4       S\n3  Travis   46.3  21.3    7.5       S\n4  Travis   57.6  18.9    8.7       S\n5  Travis   49.1  21.4    6.9       S\n6  Travis   64.6  21.5   15.0       I\n7  Travis   69.0  20.9   11.4       E\n8  Travis   40.1  18.4    6.3       S\n9  Travis   41.5  19.2    7.5       S\n10 Travis   46.3  17.9    5.9       S\n11 Travis   39.6  21.5    5.4       S\n\n\n\n\n\nalternatively, you can exclude all points of a type “Travis” by negation !=\n\n\ndf_sample |&gt; \n  filter(Name != \"Travis\") |&gt; \n  head(4)\n\n  Name Length Width Weight Base.Sh\n1 Darl   42.8  15.8    3.6       I\n2 Darl   40.5  17.4    4.5       I\n3 Darl   37.5  16.3    3.6       I\n4 Darl   40.3  16.1    4.0       I\n\n\n\n\n\nadd & if you want to filter with more than one condition, for example here we will filter all points which are type “Wells” AND are heavier than 10 grams\n\n\ndf_sample |&gt; \n  filter(Name == \"Wells\" & Weight &gt; 10)\n\n   Name Length Width Weight Base.Sh\n1 Wells   65.4  25.1   12.6       S\n2 Wells   58.9  24.4   10.5       I\n3 Wells   63.1  24.7   16.3       E\n\n\n\n\n\n Task: instead of & try the operator | (OR) and see how the result differs"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#filtering-based-on-a-vector",
+    "href": "lect/w03/slides_transformation.html#filtering-based-on-a-vector",
+    "title": "Data transformation",
+    "section": "Filtering based on a vector",
+    "text": "Filtering based on a vector\n\nyou can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator %in%\n\n\ntwo_types &lt;- c(\"Pedernales\", \"Ensor\")\n\ndf_sample |&gt; \n  filter(Name %in% two_types) |&gt; \n  head(4)\n\n   Name Length Width Weight Base.Sh\n1 Ensor   43.5  20.1    4.6       S\n2 Ensor   42.1  20.8    5.4       S\n3 Ensor   42.1  25.1    5.9       S\n4 Ensor   43.1  20.0    5.1       S"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#arrange",
+    "href": "lect/w03/slides_transformation.html#arrange",
+    "title": "Data transformation",
+    "section": "arrange()",
+    "text": "arrange()\n\nthis function will order your observations from the lowest to highest (or vice versa)\n\n\ndf_sample |&gt; \n  arrange(Length) |&gt; \n  head(4)\n\n  Name Length Width Weight Base.Sh\n1 Darl   30.6  17.1    2.3       I\n2 Darl   31.2  15.6    2.5       I\n3 Darl   32.0  16.0    3.3       E\n4 Darl   32.4  14.5    2.5       I\n\n\n\ndf_sample |&gt; \n  arrange(desc(Length)) |&gt; \n  head(4)\n\n        Name Length Width Weight Base.Sh\n1 Pedernales  109.5  49.3   28.8       I\n2 Pedernales   84.0  21.2    9.3       I\n3 Pedernales   78.3  28.1   14.8       I\n4 Pedernales   70.4  30.4   13.1       I"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#distinct-and-count",
+    "href": "lect/w03/slides_transformation.html#distinct-and-count",
+    "title": "Data transformation",
+    "section": "distinct() and count()",
+    "text": "distinct() and count()\n\ntry to find out what these functions are doing:\n\n\ndf_sample |&gt; \n  distinct(Name, Base.Sh) |&gt; \n  head(10)\n\n         Name Base.Sh\n1        Darl       I\n2        Darl       E\n3        Darl       S\n4        Darl       R\n5        Darl    &lt;NA&gt;\n6       Ensor       S\n7       Ensor       R\n8       Ensor       I\n9       Ensor    &lt;NA&gt;\n10 Pedernales       I\n\n\n\ndf_sample |&gt; \n  count(Name, Base.Sh, sort = TRUE) |&gt; \n  head(4)\n\n        Name Base.Sh  n\n1 Pedernales       I 32\n2       Darl       I 18\n3     Travis       S  9\n4       Darl       S  6"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#summarise",
+    "href": "lect/w03/slides_transformation.html#summarise",
+    "title": "Data transformation",
+    "section": "summarise()",
+    "text": "summarise()\n\nthis function is used for calculating basic summary stastics from the existing variables\nsyntax: summarise(new_variable = function(variable))\nin this case, the mean and sd values are calculated for whole dataframe:\n\n\ndf_sample |&gt; \n  summarise(\n    mean_lenght = mean(Length),\n    sd_length = sd(Length)\n  )\n\n  mean_lenght sd_length\n1    49.33077  12.73619"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#group_by",
+    "href": "lect/w03/slides_transformation.html#group_by",
+    "title": "Data transformation",
+    "section": "group_by()",
+    "text": "group_by()\n\nif you want to calculate summary statistic for each dartpoint type, you have to use function group_by which will create groups of rows based on chosen variable, in this case “Name”\n\n\ndf_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_lenght = mean(Length),\n    sd_length = sd(Length),\n    n = n()\n  ) |&gt; \n  arrange(desc(n))\n\n# A tibble: 5 × 4\n  Name       mean_lenght sd_length     n\n  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;\n1 Pedernales        57.9     14.1     32\n2 Darl              39.8      6.18    28\n3 Travis            51.4      9.90    11\n4 Ensor             42.7      5.79    10\n5 Wells             53.1      7.94    10\n\n\n\n\ndf_sample |&gt; \n  group_by(Name, Base.Sh) |&gt; \n  summarise(\n    mean_lenght = round(mean(Length),2),\n    sd_length = round(sd(Length),2),\n    n = n()\n  ) |&gt; \n  arrange(Name) |&gt; \n  head(7)\n\n# A tibble: 7 × 5\n# Groups:   Name [2]\n  Name  Base.Sh mean_lenght sd_length     n\n  &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;\n1 Darl  E              36.9      6.93     2\n2 Darl  I              39.5      6.59    18\n3 Darl  R              44.2     NA        1\n4 Darl  S              40.6      6.36     6\n5 Darl  &lt;NA&gt;           40       NA        1\n6 Ensor I              34.9     NA        1\n7 Ensor R              39.3      2.75     3"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#back-to-mutate",
+    "href": "lect/w03/slides_transformation.html#back-to-mutate",
+    "title": "Data transformation",
+    "section": "back to mutate()",
+    "text": "back to mutate()\ncreating new values based on different conditions\n\ndf_sample |&gt; \n  mutate(\n    size_cathegory = case_when(\n      Length &gt; 70 ~ \"big_stone\",\n      Length &lt; 30 ~ \"small_stone\",\n      .default = \"ok_stone\"\n    )\n  ) |&gt; \n  arrange(desc(Length)) |&gt; \n  head(10)\n\n         Name Length Width Weight Base.Sh size_cathegory\n1  Pedernales  109.5  49.3   28.8       I      big_stone\n2  Pedernales   84.0  21.2    9.3       I      big_stone\n3  Pedernales   78.3  28.1   14.8       I      big_stone\n4  Pedernales   70.4  30.4   13.1       I      big_stone\n5      Travis   69.0  20.9   11.4       E       ok_stone\n6  Pedernales   67.2  27.1   15.3       I       ok_stone\n7  Pedernales   66.0  27.2   12.5       I       ok_stone\n8       Wells   65.4  25.1   12.6       S       ok_stone\n9  Pedernales   65.0  31.6    4.6       I       ok_stone\n10     Travis   64.6  21.5   15.0       I       ok_stone"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#back-to-mutate-1",
+    "href": "lect/w03/slides_transformation.html#back-to-mutate-1",
+    "title": "Data transformation",
+    "section": "back to mutate()",
+    "text": "back to mutate()\nchanging existing values based on combination of two conditions\n\nimagine we want to create a new type of dartpoints from the Pedernales that are longer than 80 mm\nwe don’t need to create a new column, but only change the values in the existing one:\n\n\ndf_sample |&gt; \n  mutate(\n    Name = case_when(\n      Name == \"Pedernales\" & Length &gt; 80 ~ \"Big_Pedernales\",\n      .default = Name\n    )\n  ) |&gt; \n  arrange(desc(Length)) |&gt; \n  head(4)\n\n            Name Length Width Weight Base.Sh\n1 Big_Pedernales  109.5  49.3   28.8       I\n2 Big_Pedernales   84.0  21.2    9.3       I\n3     Pedernales   78.3  28.1   14.8       I\n4     Pedernales   70.4  30.4   13.1       I\n\n\n\nnote that if we want to leave the other values of the variable “Name” unchanged, we do so by specifying .default = Name"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#combining-plenty-of-functions-into-one-huge-code-chunk",
+    "href": "lect/w03/slides_transformation.html#combining-plenty-of-functions-into-one-huge-code-chunk",
+    "title": "Data transformation",
+    "section": "Combining plenty of functions into one huge code chunk:",
+    "text": "Combining plenty of functions into one huge code chunk:\n\ndf_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_length = round(mean(Length),1),\n    median_length = round(median(Length),1),\n    sd_length = round(sd(Length),1),\n    n_name = n()\n  ) |&gt; \n  mutate(\n  percent_name = round(n_name/sum(n_name)*100, 1)\n  ) |&gt; \n  arrange(desc(n_name))\n\n# A tibble: 5 × 6\n  Name       mean_length median_length sd_length n_name percent_name\n  &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;  &lt;int&gt;        &lt;dbl&gt;\n1 Pedernales        57.9          55.8      14.1     32         35.2\n2 Darl              39.8          40.1       6.2     28         30.8\n3 Travis            51.4          49.1       9.9     11         12.1\n4 Ensor             42.7          42.3       5.8     10         11  \n5 Wells             53.1          53.7       7.9     10         11  \n\n\n::: fragment - we can even include ggplot() into the pipeline:\n\ndf_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_length = round(mean(Length),1),\n    median_length = round(median(Length),1),\n    sd_length = round(sd(Length),1),\n    n_name = n()\n  ) |&gt; \n  mutate(\n  percent_name = round(n_name/sum(n_name)*100, 1)\n  ) |&gt; \n  ggplot()+\n  aes(x = Name, y = sd_length)+\n  geom_col(fill = \"steelblue\")+\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w03/slides_transformation.html#saving-your-result",
+    "href": "lect/w03/slides_transformation.html#saving-your-result",
+    "title": "Data transformation",
+    "section": "Saving your result",
+    "text": "Saving your result\n\ndf_result &lt;- df_sample |&gt; \n  group_by(Name) |&gt; \n  summarise(\n    mean_length = round(mean(Length),1),\n    median_length = round(median(Length),1),\n    sd_length = round(sd(Length),1),\n    n_name = n()\n  ) |&gt; \n  mutate(\n  percent_name = round(n_name/sum(n_name)*100, 1)\n  ) |&gt; \n  arrange(desc(n_name))\n\n\nwrite.csv(df_result, here(\"results/dartpoints_result.csv\"), row.names = F)\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Data transformations"
+  },
+  {
+    "objectID": "lect/w03/intro.html",
+    "href": "lect/w03/intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "have a look on some most common mistakes in coding\nlearn different ways how to transform your data\nlearn how to transform your data from the wide table to long table format\ndo some nice big exercise",
+    "crumbs": [
+      "Week 3",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w03/intro.html#today-we-will",
+    "href": "lect/w03/intro.html#today-we-will",
+    "title": "Introduction",
+    "section": "",
+    "text": "have a look on some most common mistakes in coding\nlearn different ways how to transform your data\nlearn how to transform your data from the wide table to long table format\ndo some nice big exercise",
+    "crumbs": [
+      "Week 3",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "lect/w03/slides_intro.html#today-we-will",
+    "href": "lect/w03/slides_intro.html#today-we-will",
+    "title": "Introduction",
+    "section": "Today we will:",
+    "text": "Today we will:\n\nhave a look on some most common mistakes in coding\nlearn different ways how to transform your data\nlearn how to transform your data from the wide table to long table format\ndo some nice big exercise\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Intro"
   },
   {
     "objectID": "lect/w03/distribs.html#objectives",
@@ -4452,6 +4834,388 @@
     "crumbs": [
       "Week 2",
       "Data visualization"
+    ]
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#dataset-overview",
+    "href": "lect/w03/slides_exc.html#dataset-overview",
+    "title": "Exercise",
+    "section": "Dataset Overview",
+    "text": "Dataset Overview\nThe dataset consists of 3 related CSV files:\n\n graves.csv – grave information and grave features, human remains information;\n artefacts.csv – artefact records with materials, weights, preservation etc."
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#brainstorming",
+    "href": "lect/w03/slides_exc.html#brainstorming",
+    "title": "Exercise",
+    "section": "Brainstorming",
+    "text": "Brainstorming\nLet’s formulate research questions to guide the analysis…"
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#tips-for-success",
+    "href": "lect/w03/slides_exc.html#tips-for-success",
+    "title": "Exercise",
+    "section": "Tips for Success",
+    "text": "Tips for Success\n\nStart simple: Begin with basic exploration before complex analysis.\nHandle missing data: Archaeological datasets always have missing values – plan for them.\nDocument your findings: Add comments explaining what each analysis reveals.\nVisualize early: Charts help identify patterns and outliers."
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#download-and-explore-the-data",
+    "href": "lect/w03/slides_exc.html#download-and-explore-the-data",
+    "title": "Exercise",
+    "section": "Download and explore the data…",
+    "text": "Download and explore the data…\n\nSave the data as CSVs to your project folder.\n\n.../data/burials.csv\n.../data/artefacts.csv\n\nExplore the CSVs.\nAre there missing values?\nHow are missing values encoded?\nWhy are there missing values?"
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#load-and-explore-the-data",
+    "href": "lect/w03/slides_exc.html#load-and-explore-the-data",
+    "title": "Exercise",
+    "section": "Load and explore the data",
+    "text": "Load and explore the data\n\nLoad the data set to R.\nExplore the structure of the data set.\nHow many graves and artefacts are there?\nHow many columns does each table have?\nWhat is the structure?"
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#clean-the-data",
+    "href": "lect/w03/slides_exc.html#clean-the-data",
+    "title": "Exercise",
+    "section": "Clean the data",
+    "text": "Clean the data\n\nIdentify errors in encoding of the information etc.\nCheck lecture on Tidy data if needed.\nWhat datatypes are there in each table?\nWhat are the primary keys?\nHow do the tables relate one to the other?"
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#basic-stats",
+    "href": "lect/w03/slides_exc.html#basic-stats",
+    "title": "Exercise",
+    "section": "Basic stats",
+    "text": "Basic stats\n\nCalculate descriptive statistics for numerical variables.\n\nQuestions to investigate\n\nWhat is the average height of people buried in the cemetery?\nWhat age categories are most common?\nWhat is the mean and range of grave depths and mound diameters?\nWhat is the average weight of bronze artefacts?\nHow many artefact types are represented?\nWhat are the artefacts made of?"
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#data-visualizations",
+    "href": "lect/w03/slides_exc.html#data-visualizations",
+    "title": "Exercise",
+    "section": "Data Visualizations",
+    "text": "Data Visualizations\nCreate visual representations of your archaeological data.\nVisualization tasks\n\nBar chart of artefact types.\nHistogram of artefact weights by material.\nBoxplot of estimated heights by sex.\nScatterplot of grave depth vs mound diameter."
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#data-manipulation",
+    "href": "lect/w03/slides_exc.html#data-manipulation",
+    "title": "Exercise",
+    "section": "Data Manipulation",
+    "text": "Data Manipulation\nTransform and combine your tables to answer further research questions.\nData manipulation tasks\n\nFilter for well-preserved bronze weapons.\nCreate age groups from age categories.\nCalculate artefact amount per grave.\n\nHint: Use left_join() to combine tables.\nHint: Use case_when() for complex conditional logic when creating new variables."
+  },
+  {
+    "objectID": "lect/w03/slides_exc.html#grouped-analysis",
+    "href": "lect/w03/slides_exc.html#grouped-analysis",
+    "title": "Exercise",
+    "section": "Grouped Analysis",
+    "text": "Grouped Analysis\nPerform analyses grouped by categorical variables.\nGrouped analysis tasks\n\nAverage artefact weight by type and material.\nNumber of artefacts per burial type.\nHow does height differ across sexes and age groups?\nPreservation state distribution by artefact type.\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Exercise"
+  },
+  {
+    "objectID": "lect/w03/exc.html",
+    "href": "lect/w03/exc.html",
+    "title": "Exercise",
+    "section": "",
+    "text": "This is an exercise where you will load the data to R, do some cleaning, transformations and plotting!\nThe exercise simulates real-world archaeological research where you need to explore burial patterns, artefact distributions, and relationships between different aspects of the site…\nThe data set is an export from a fabricated database of an excavation of a Bronze Age cemetery.",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#dataset-overview",
+    "href": "lect/w03/exc.html#dataset-overview",
+    "title": "Exercise",
+    "section": "Dataset Overview",
+    "text": "Dataset Overview\nThe dataset consists of 3 related CSV files:\n\n graves.csv – grave information and grave features, human remains information;\n artefacts.csv – artefact records with materials, weights, preservation etc.",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#brainstorming",
+    "href": "lect/w03/exc.html#brainstorming",
+    "title": "Exercise",
+    "section": "Brainstorming",
+    "text": "Brainstorming\nLet’s formulate research questions to guide the analysis…",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#tips-for-success",
+    "href": "lect/w03/exc.html#tips-for-success",
+    "title": "Exercise",
+    "section": "Tips for Success",
+    "text": "Tips for Success\n\nStart simple: Begin with basic exploration before complex analysis.\nHandle missing data: Archaeological datasets always have missing values – plan for them.\nDocument your findings: Add comments explaining what each analysis reveals.\nVisualize early: Charts help identify patterns and outliers.",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#download-and-explore-the-data",
+    "href": "lect/w03/exc.html#download-and-explore-the-data",
+    "title": "Exercise",
+    "section": "Download and explore the data…",
+    "text": "Download and explore the data…\n\nSave the data as CSVs to your project folder.\n\n.../data/burials.csv\n.../data/artefacts.csv\n\nExplore the CSVs.\nAre there missing values?\nHow are missing values encoded?\nWhy are there missing values?",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#load-and-explore-the-data",
+    "href": "lect/w03/exc.html#load-and-explore-the-data",
+    "title": "Exercise",
+    "section": "Load and explore the data",
+    "text": "Load and explore the data\n\nLoad the data set to R.\nExplore the structure of the data set.\nHow many graves and artefacts are there?\nHow many columns does each table have?\nWhat is the structure?",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#clean-the-data",
+    "href": "lect/w03/exc.html#clean-the-data",
+    "title": "Exercise",
+    "section": "Clean the data",
+    "text": "Clean the data\n\nIdentify errors in encoding of the information etc.\nCheck lecture on Tidy data if needed.\nWhat datatypes are there in each table?\nWhat are the primary keys?\nHow do the tables relate one to the other?",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#basic-stats",
+    "href": "lect/w03/exc.html#basic-stats",
+    "title": "Exercise",
+    "section": "Basic stats",
+    "text": "Basic stats\n\nCalculate descriptive statistics for numerical variables.\n\n\nQuestions to investigate\n\nWhat is the average height of people buried in the cemetery?\nWhat age categories are most common?\nWhat is the mean and range of grave depths and mound diameters?\nWhat is the average weight of bronze artefacts?\nHow many artefact types are represented?\nWhat are the artefacts made of?",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#data-visualizations",
+    "href": "lect/w03/exc.html#data-visualizations",
+    "title": "Exercise",
+    "section": "Data Visualizations",
+    "text": "Data Visualizations\nCreate visual representations of your archaeological data.\n\nVisualization tasks\n\nBar chart of artefact types.\nHistogram of artefact weights by material.\nBoxplot of estimated heights by sex.\nScatterplot of grave depth vs mound diameter.",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#data-manipulation",
+    "href": "lect/w03/exc.html#data-manipulation",
+    "title": "Exercise",
+    "section": "Data Manipulation",
+    "text": "Data Manipulation\nTransform and combine your tables to answer further research questions.\n\nData manipulation tasks\n\nFilter for well-preserved bronze weapons.\nCreate age groups from age categories.\nCalculate artefact amount per grave.\n\nHint: Use left_join() to combine tables.\nHint: Use case_when() for complex conditional logic when creating new variables.",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/exc.html#grouped-analysis",
+    "href": "lect/w03/exc.html#grouped-analysis",
+    "title": "Exercise",
+    "section": "Grouped Analysis",
+    "text": "Grouped Analysis\nPerform analyses grouped by categorical variables.\n\nGrouped analysis tasks\n\nAverage artefact weight by type and material.\nNumber of artefacts per burial type.\nHow does height differ across sexes and age groups?\nPreservation state distribution by artefact type.",
+    "crumbs": [
+      "Week 3",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#prerequisites",
+    "href": "lect/w03/slides_tidy_data.html#prerequisites",
+    "title": "Tidy data",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nPackages:\n\nhere\ndplyr\ntidyr\nggplot2\n\nData:\n\nfake_graves.csv - download here\n\nStart:\n\nopen your R Project, create a new script file\nload libraries here,dplyr and ggplot2, install and load library dplyr\nimport data “fake_graves.csv”\n\n\n\nHints:\n\ninstall.packages(), library(), here(), read.csv()"
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#the-problem",
+    "href": "lect/w03/slides_tidy_data.html#the-problem",
+    "title": "Tidy data",
+    "section": "The problem",
+    "text": "The problem\nHave a look at df_graves:\n\nhead(df_graves, 2)\n\n  grave_number dating  sex   age pottery bronze stone_chipped stone_polished\n1          800 ne.lin male 31-40       3      0             1              2\n2          801 ne.lin male 21-30       4      0             1              1\n  grave_length grave_depth\n1          210          50\n2          160          40\n\n\n\n\nQuestions:\n\nwhat is one observation? What are the variables?\n\n\n\nImagine we want to visualise the relationship between types of artefact, sex, and dating of graves. This can only be achieved by visualising each artefact separately, since they are separated into their own columns, and the argument aes(x = , y = ) of the ggplot() only allows one variable to be visualised in either x or y.\n\n\nHere is an example with the artefact type “pottery”\n\nggplot(df_graves, aes(x = dating, y = pottery, fill = sex))+\n  geom_bar(stat = \"identity\")\n\n\n\n\n\n\n\n\nNote that we had to add stat = identity argument to geom_bar(). We will explain this later."
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#solution",
+    "href": "lect/w03/slides_tidy_data.html#solution",
+    "title": "Tidy data",
+    "section": "Solution",
+    "text": "Solution\nIdeally, we would like all artefacts to be in one variable/column, with their count in another. To achieve this, we will create a “long” table using the tidyr::pivot_longer() function.\n\n\ncols = - defines which columns will be transformed into one\nnames_to - sets the name for the column in which other columns will be transformed (their names will be transformed to values)\nvalues_to - sets the name for the column in which values of the transformed columns will be stored\n\n\ndf_long &lt;- df_graves |&gt; \n  pivot_longer(\n    cols = c(pottery, bronze, stone_chipped, stone_polished),\n    names_to = \"artefact\",\n    values_to = \"n_artefact\"\n  )\n\nhead(df_long, 6)\n\n# A tibble: 6 × 8\n  grave_number dating sex   age   grave_length grave_depth artefact   n_artefact\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;\n1          800 ne.lin male  31-40          210          50 pottery             3\n2          800 ne.lin male  31-40          210          50 bronze              0\n3          800 ne.lin male  31-40          210          50 stone_chi…          1\n4          800 ne.lin male  31-40          210          50 stone_pol…          2\n5          801 ne.lin male  21-30          160          40 pottery             4\n6          801 ne.lin male  21-30          160          40 bronze              0\n\n\n\n\n\nQuestions:\n\nwhat is one now the observation?\ncould you describe the variable “artefact”?\ndid all variables change?"
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#the-logic-of-long-table-1",
+    "href": "lect/w03/slides_tidy_data.html#the-logic-of-long-table-1",
+    "title": "Tidy data",
+    "section": "The logic of long table 1",
+    "text": "The logic of long table 1\n\noriginal observations are being distributed into more rows"
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#the-logic-of-long-table-2",
+    "href": "lect/w03/slides_tidy_data.html#the-logic-of-long-table-2",
+    "title": "Tidy data",
+    "section": "The logic of long table 2",
+    "text": "The logic of long table 2\n\nvarious variables are being moved into one column"
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#the-logic-of-long-table-3",
+    "href": "lect/w03/slides_tidy_data.html#the-logic-of-long-table-3",
+    "title": "Tidy data",
+    "section": "The logic of long table 3",
+    "text": "The logic of long table 3\n\nvalues from different rows and columns are being moved into just one column"
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#plots-with-a-longtable",
+    "href": "lect/w03/slides_tidy_data.html#plots-with-a-longtable",
+    "title": "Tidy data",
+    "section": "Plots with a longtable",
+    "text": "Plots with a longtable\nNow we can play with ggplot():\n\nggplot(df_long, aes(x=dating, y = n_artefact, fill = artefact))+\n  geom_bar(stat = \"identity\")+\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#plots-with-a-longtable-1",
+    "href": "lect/w03/slides_tidy_data.html#plots-with-a-longtable-1",
+    "title": "Tidy data",
+    "section": "Plots with a longtable",
+    "text": "Plots with a longtable\n\nggplot(df_long, aes(x=dating, y = n_artefact, fill = artefact))+\n  geom_bar(stat = \"identity\")+\n  facet_wrap(~sex)+\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#mini-task",
+    "href": "lect/w03/slides_tidy_data.html#mini-task",
+    "title": "Tidy data",
+    "section": "Mini task!",
+    "text": "Mini task!\nNote that there are rows with value = 0 and also columns we are not using.\n\nhead(df_long, 2)\n\n# A tibble: 2 × 8\n  grave_number dating sex   age   grave_length grave_depth artefact n_artefact\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;       &lt;int&gt; &lt;chr&gt;         &lt;int&gt;\n1          800 ne.lin male  31-40          210          50 pottery           3\n2          800 ne.lin male  31-40          210          50 bronze            0\n\n\n\nModify this code so it will exclude rows with 0 at “n_artefact” and remove columns with variables “grave_length” and “grave_depth”\n\ndf_long &lt;- df_graves |&gt; \n  pivot_longer(\n    cols = c(pottery, bronze, stone_chipped, stone_polished),\n    names_to = \"artefact\",\n    values_to = \"n_artefact\"\n  )\n\n\n\nSolution:\n\ndf_long &lt;- df_graves |&gt; \n  pivot_longer(\n    cols = c(pottery, bronze, stone_chipped, stone_polished),\n    names_to = \"artefact\",\n    values_to = \"n_artefact\"\n  ) |&gt; \n  select(!c(grave_length, grave_depth)) |&gt; \n  filter(n_artefact != 0)\n\nhead(df_long, 4)\n\n# A tibble: 4 × 6\n  grave_number dating sex   age   artefact       n_artefact\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;               &lt;int&gt;\n1          800 ne.lin male  31-40 pottery                 3\n2          800 ne.lin male  31-40 stone_chipped           1\n3          800 ne.lin male  31-40 stone_polished          2\n4          801 ne.lin male  21-30 pottery                 4"
+  },
+  {
+    "objectID": "lect/w03/slides_tidy_data.html#be-carefull",
+    "href": "lect/w03/slides_tidy_data.html#be-carefull",
+    "title": "Tidy data",
+    "section": "Be carefull!",
+    "text": "Be carefull!\n\nbear in mind that the observations (i.e. the contents of each row) in the original wide table are different from the observations in the new long table.\nthat is why, if we want to calculate the number of sexes in the long table, the function table() will return incorrect numbers because its calculation is based on rows.\n\n\ntable(df_long$sex)\n\n\nfemale   male \n    20     20 \n\n\n\nYou have to either use the original table:\n\ntable(df_graves$sex)\n\n\nfemale   male \n    10     10 \n\n\n\n\n…or do some extra dplyr coding with the long table\n\ndf_long |&gt; \n  distinct(grave_number, sex) |&gt; \n  count(sex, name = \"n_graves\")\n\n# A tibble: 2 × 2\n  sex    n_graves\n  &lt;chr&gt;     &lt;int&gt;\n1 female       10\n2 male         10\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Tidy data"
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html",
+    "href": "lect/w03/tidy_data.html",
+    "title": "Tidy data",
+    "section": "",
+    "text": "here\ndplyr\ntidyr\nggplot2\n\n\n\n\n\nfake_graves.csv - download here\n\n\n\n\n\nopen your R Project, create a new script file\nload libraries here,dplyr and ggplot2, install and load library dplyr\nimport data “fake_graves.csv”\n\n\n\n\n\n\ninstall.packages(), library(), here(), read.csv()",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#prerequisites",
+    "href": "lect/w03/tidy_data.html#prerequisites",
+    "title": "Tidy data",
+    "section": "",
+    "text": "here\ndplyr\ntidyr\nggplot2\n\n\n\n\n\nfake_graves.csv - download here\n\n\n\n\n\nopen your R Project, create a new script file\nload libraries here,dplyr and ggplot2, install and load library dplyr\nimport data “fake_graves.csv”\n\n\n\n\n\n\ninstall.packages(), library(), here(), read.csv()",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#the-problem",
+    "href": "lect/w03/tidy_data.html#the-problem",
+    "title": "Tidy data",
+    "section": "The problem",
+    "text": "The problem\nHave a look at df_graves:\n\nhead(df_graves, 2)\n\n  grave_number dating  sex   age pottery bronze stone_chipped stone_polished\n1          800 ne.lin male 31-40       3      0             1              2\n2          801 ne.lin male 21-30       4      0             1              1\n  grave_length grave_depth\n1          210          50\n2          160          40\n\n\n\n\nQuestions:\n\nwhat is one observation? What are the variables?\n\n\n\n\nImagine we want to visualise the relationship between types of artefact, sex, and dating of graves. This can only be achieved by visualising each artefact separately, since they are separated into their own columns, and the argument aes(x = , y = ) of the ggplot() only allows one variable to be visualised in either x or y.\n\n\nHere is an example with the artefact type “pottery”\n\nggplot(df_graves, aes(x = dating, y = pottery, fill = sex))+\n  geom_bar(stat = \"identity\")\n\n\n\n\n\n\n\n\nNote that we had to add stat = identity argument to geom_bar(). We will explain this later.",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#solution",
+    "href": "lect/w03/tidy_data.html#solution",
+    "title": "Tidy data",
+    "section": "Solution",
+    "text": "Solution\nIdeally, we would like all artefacts to be in one variable/column, with their count in another. To achieve this, we will create a “long” table using the tidyr::pivot_longer() function.\n\n\ncols = - defines which columns will be transformed into one\nnames_to - sets the name for the column in which other columns will be transformed (their names will be transformed to values)\nvalues_to - sets the name for the column in which values of the transformed columns will be stored\n\n\ndf_long &lt;- df_graves |&gt; \n  pivot_longer(\n    cols = c(pottery, bronze, stone_chipped, stone_polished),\n    names_to = \"artefact\",\n    values_to = \"n_artefact\"\n  )\n\nhead(df_long, 6)\n\n# A tibble: 6 × 8\n  grave_number dating sex   age   grave_length grave_depth artefact   n_artefact\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;\n1          800 ne.lin male  31-40          210          50 pottery             3\n2          800 ne.lin male  31-40          210          50 bronze              0\n3          800 ne.lin male  31-40          210          50 stone_chi…          1\n4          800 ne.lin male  31-40          210          50 stone_pol…          2\n5          801 ne.lin male  21-30          160          40 pottery             4\n6          801 ne.lin male  21-30          160          40 bronze              0\n\n\n\n\n\nQuestions:\n\nwhat is one now the observation?\ncould you describe the variable “artefact”?\ndid all variables change?",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#the-logic-of-long-table-1",
+    "href": "lect/w03/tidy_data.html#the-logic-of-long-table-1",
+    "title": "Tidy data",
+    "section": "The logic of long table 1",
+    "text": "The logic of long table 1\n\noriginal observations are being distributed into more rows",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#the-logic-of-long-table-2",
+    "href": "lect/w03/tidy_data.html#the-logic-of-long-table-2",
+    "title": "Tidy data",
+    "section": "The logic of long table 2",
+    "text": "The logic of long table 2\n\nvarious variables are being moved into one column",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#the-logic-of-long-table-3",
+    "href": "lect/w03/tidy_data.html#the-logic-of-long-table-3",
+    "title": "Tidy data",
+    "section": "The logic of long table 3",
+    "text": "The logic of long table 3\n\nvalues from different rows and columns are being moved into just one column",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#plots-with-a-longtable",
+    "href": "lect/w03/tidy_data.html#plots-with-a-longtable",
+    "title": "Tidy data",
+    "section": "Plots with a longtable",
+    "text": "Plots with a longtable\nNow we can play with ggplot():\n\nggplot(df_long, aes(x=dating, y = n_artefact, fill = artefact))+\n  geom_bar(stat = \"identity\")+\n  theme_light()",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#plots-with-a-longtable-1",
+    "href": "lect/w03/tidy_data.html#plots-with-a-longtable-1",
+    "title": "Tidy data",
+    "section": "Plots with a longtable",
+    "text": "Plots with a longtable\n\nggplot(df_long, aes(x=dating, y = n_artefact, fill = artefact))+\n  geom_bar(stat = \"identity\")+\n  facet_wrap(~sex)+\n  theme_light()",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#mini-task",
+    "href": "lect/w03/tidy_data.html#mini-task",
+    "title": "Tidy data",
+    "section": "Mini task!",
+    "text": "Mini task!\nNote that there are rows with value = 0 and also columns we are not using.\n\nhead(df_long, 2)\n\n# A tibble: 2 × 8\n  grave_number dating sex   age   grave_length grave_depth artefact n_artefact\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;       &lt;int&gt; &lt;chr&gt;         &lt;int&gt;\n1          800 ne.lin male  31-40          210          50 pottery           3\n2          800 ne.lin male  31-40          210          50 bronze            0\n\n\n\nModify this code so it will exclude rows with 0 at “n_artefact” and remove columns with variables “grave_length” and “grave_depth”\n\ndf_long &lt;- df_graves |&gt; \n  pivot_longer(\n    cols = c(pottery, bronze, stone_chipped, stone_polished),\n    names_to = \"artefact\",\n    values_to = \"n_artefact\"\n  )\n\n\n\nSolution:\n\ndf_long &lt;- df_graves |&gt; \n  pivot_longer(\n    cols = c(pottery, bronze, stone_chipped, stone_polished),\n    names_to = \"artefact\",\n    values_to = \"n_artefact\"\n  ) |&gt; \n  select(!c(grave_length, grave_depth)) |&gt; \n  filter(n_artefact != 0)\n\nhead(df_long, 4)\n\n# A tibble: 4 × 6\n  grave_number dating sex   age   artefact       n_artefact\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;               &lt;int&gt;\n1          800 ne.lin male  31-40 pottery                 3\n2          800 ne.lin male  31-40 stone_chipped           1\n3          800 ne.lin male  31-40 stone_polished          2\n4          801 ne.lin male  21-30 pottery                 4",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w03/tidy_data.html#be-carefull",
+    "href": "lect/w03/tidy_data.html#be-carefull",
+    "title": "Tidy data",
+    "section": "Be carefull!",
+    "text": "Be carefull!\n\nbear in mind that the observations (i.e. the contents of each row) in the original wide table are different from the observations in the new long table.\nthat is why, if we want to calculate the number of sexes in the long table, the function table() will return incorrect numbers because its calculation is based on rows.\n\n\ntable(df_long$sex)\n\n\nfemale   male \n    20     20 \n\n\n\nYou have to either use the original table:\n\ntable(df_graves$sex)\n\n\nfemale   male \n    10     10 \n\n\n\n\n…or do some extra dplyr coding with the long table\n\ndf_long |&gt; \n  distinct(grave_number, sex) |&gt; \n  count(sex, name = \"n_graves\")\n\n# A tibble: 2 × 2\n  sex    n_graves\n  &lt;chr&gt;     &lt;int&gt;\n1 female       10\n2 male         10",
+    "crumbs": [
+      "Week 3",
+      "Tidy data"
     ]
   },
   {

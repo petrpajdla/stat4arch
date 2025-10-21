@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/schedule.html</loc>
-    <lastmod>2025-10-07T17:53:32.632Z</lastmod>
+    <lastmod>2025-10-21T15:33:29.981Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/project.html</loc>
@@ -49,6 +49,22 @@
     <lastmod>2025-10-07T18:24:00.846Z</lastmod>
   </url>
   <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w03/transformation.html</loc>
+    <lastmod>2025-10-21T15:22:03.010Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w03/slides_transformation.html</loc>
+    <lastmod>2025-10-21T15:22:03.010Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w03/intro.html</loc>
+    <lastmod>2025-10-21T15:21:26.456Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w03/slides_intro.html</loc>
+    <lastmod>2025-10-21T15:21:26.456Z</lastmod>
+  </url>
+  <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w03/distribs.html</loc>
     <lastmod>2025-10-07T18:23:33.533Z</lastmod>
   </url>
@@ -74,11 +90,11 @@
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w02/basics.html</loc>
-    <lastmod>2025-10-07T18:21:45.448Z</lastmod>
+    <lastmod>2025-10-21T13:40:50.486Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w02/slides_basics.html</loc>
-    <lastmod>2025-10-07T18:21:45.448Z</lastmod>
+    <lastmod>2025-10-21T13:40:50.486Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w01/intro2coding.html</loc>
@@ -137,6 +153,22 @@
     <lastmod>2025-10-07T18:33:25.346Z</lastmod>
   </url>
   <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w03/slides_exc.html</loc>
+    <lastmod>2025-10-21T15:17:34.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w03/exc.html</loc>
+    <lastmod>2025-10-21T15:17:34.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w03/slides_tidy_data.html</loc>
+    <lastmod>2025-10-21T15:21:33.306Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w03/tidy_data.html</loc>
+    <lastmod>2025-10-21T15:21:33.306Z</lastmod>
+  </url>
+  <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w04/slides_rels.html</loc>
     <lastmod>2025-10-07T18:23:50.604Z</lastmod>
   </url>
@@ -154,11 +186,11 @@
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w08/slides_time.html</loc>
-    <lastmod>2025-10-07T18:35:25.820Z</lastmod>
+    <lastmod>2025-10-08T07:59:52.393Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w08/time.html</loc>
-    <lastmod>2025-10-07T18:35:25.820Z</lastmod>
+    <lastmod>2025-10-08T07:59:52.393Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w09/slides_dist.html</loc>
