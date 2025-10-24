@@ -1,0 +1,199 @@
+---
+title: "Tidy data"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_tidy_data.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Tidy data](./tidy_data.html)"
+execute:  
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Prerequisites
+```{r}
+#| include: false
+library(dplyr)
+library(here)
+library(ggplot2)
+library(tidyr)
+df_graves <- read.csv(here("lect/w01/data/fake_graves.csv"))
+```
+### Packages:
+- `here`
+- `dplyr`
+- `tidyr`
+- `ggplot2`
+
+### Data:
+- fake_graves.csv - download [here](https://petrpajdla.github.io/stat4arch/lect/w01/data/fake_graves.csv)
+
+### Start:
+ - open your R Project, create a new script file
+ - load libraries `here`,`dplyr` and `ggplot2`, install and load library `dplyr`
+ - import data "fake_graves.csv"
+
+::: fragment
+### Hints:
+- `install.packages()`, `library()`, `here()`, `read.csv()`
+:::
+
+
+## The problem
+
+Have a look at df_graves:
+
+```{r}
+head(df_graves, 2)
+```
+::: fragment
+
+### Questions:
+- what is one observation? What are the variables?
+:::
+
+
+::: fragment
+
+Imagine we want to visualise the relationship between types of artefact, sex, and dating of graves. This can only be achieved by visualising each artefact separately, since they are separated into their own columns, and the argument `aes(x = , y = )` of the `ggplot()` only allows one variable to be visualised in either x or y.
+:::
+::: fragment
+Here is an example with the artefact type "pottery"
+```{r}
+ggplot(df_graves, aes(x = dating, y = pottery, fill = sex))+
+  geom_bar(stat = "identity")
+```
+Note that we had to add `stat = identity` argument to `geom_bar()`. We will explain this later.
+:::
+
+## Solution
+
+Ideally, we would like all artefacts to be in one variable/column, with their count in another. To achieve this, we will create a "long" table using the `tidyr::pivot_longer()` function.
+
+::: fragment
+- `cols = ` - defines which columns will be transformed into one
+- `names_to` - sets the name for the column in which other columns will be transformed (their names will be transformed to values)
+- `values_to` - sets the name for the column in which values of the transformed columns will be stored
+```{r}
+df_long <- df_graves |> 
+  pivot_longer(
+    cols = c(pottery, bronze, stone_chipped, stone_polished),
+    names_to = "artefact",
+    values_to = "n_artefact"
+  )
+
+head(df_long, 6)
+```
+:::
+
+::: fragment
+
+### Questions:
+- what is one now the observation? 
+- could you describe the variable "artefact"?
+- did all variables change?
+:::
+
+## The logic of long table 1
+
+- original observations are being distributed into more rows
+![](./figs/long_table_1.png)
+
+## The logic of long table 2
+
+- various variables are being moved into one column
+![](./figs/long_table_2.png)
+
+## The logic of long table 3
+- values from different rows and columns are being moved into just one column
+![](./figs/long_table_3.png)
+
+## Plots with a longtable
+Now we can play with `ggplot()`:
+
+```{r}
+ggplot(df_long, aes(x=dating, y = n_artefact, fill = artefact))+
+  geom_bar(stat = "identity")+
+  theme_light()
+```
+
+## Plots with a longtable
+
+```{r}
+ggplot(df_long, aes(x=dating, y = n_artefact, fill = artefact))+
+  geom_bar(stat = "identity")+
+  facet_wrap(~sex)+
+  theme_light()
+```
+
+
+
+## Mini task!
+Note that there are rows with value = 0 and also columns we are not using.
+
+```{r}
+head(df_long, 2)
+```
+::: fragment
+
+Modify this code so it will exclude rows with 0 at "n_artefact" and remove columns with variables "grave_length" and "grave_depth"
+
+
+```{r}
+df_long <- df_graves |> 
+  pivot_longer(
+    cols = c(pottery, bronze, stone_chipped, stone_polished),
+    names_to = "artefact",
+    values_to = "n_artefact"
+  )
+```
+
+:::
+
+::: fragment
+
+Solution:
+```{r}
+df_long <- df_graves |> 
+  pivot_longer(
+    cols = c(pottery, bronze, stone_chipped, stone_polished),
+    names_to = "artefact",
+    values_to = "n_artefact"
+  ) |> 
+  select(!c(grave_length, grave_depth)) |> 
+  filter(n_artefact != 0)
+
+head(df_long, 4)
+```
+
+:::
+
+## Be carefull!
+
+- bear in mind that the observations (i.e. the contents of each row) in the original wide table are different from the observations in the new long table.
+- that is why, if we want to calculate the number of sexes in the long table, the function `table()` will return incorrect numbers because its calculation is based on rows.  
+
+
+```{r}
+table(df_long$sex)
+```
+::: fragment
+You have to either use the original table:
+```{r}
+table(df_graves$sex)
+```
+:::
+::: fragment
+...or do some extra `dplyr` coding with the long table
+
+```{r}
+df_long |> 
+  distinct(grave_number, sex) |> 
+  count(sex, name = "n_graves")
+```
+
+:::

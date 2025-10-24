@@ -1,0 +1,135 @@
+---
+title: "Exercise"
+subtitle: "Fabricated Bronze Age Cemetery"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true
+    output-file: slides_exc.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Exercise](./exc.html)"
+  # pdf: default
+# title-slide-attributes:
+#   data-auto-animate: false
+# title-slide: false
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+This is an exercise where you will **load the data** to R, do some **cleaning**, **transformations** and **plotting**!
+
+The exercise **simulates** *real-world archaeological research* where you need to **explore** burial patterns, artefact distributions, and relationships between different aspects of the site...
+
+The data set is an *export* from a **fabricated database** of an excavation of a Bronze Age cemetery.
+
+
+> *Caution! The data set is purely synthetic and fabricated for didactic purposes.*
+
+## Dataset Overview
+
+The dataset consists of 3 related CSV files:
+
+- [{{< bi file-earmark-arrow-down >}} `graves.csv`](lect/w03/data/graves.csv) -- grave information and grave features, human remains information;
+- [{{< bi file-earmark-arrow-down >}} `artefacts.csv`](lect/w03/data/artefacts.csv) -- artefact records with materials, weights, preservation etc.
+
+
+## Brainstorming
+
+Let's formulate **research questions** to guide the analysis...
+
+![](figs/base.png)
+
+
+## Tips for Success
+
+- **Start simple**: Begin with basic exploration before complex analysis.
+- **Handle missing data**: Archaeological datasets always have missing values -- plan for them.
+- **Document your findings**: Add comments explaining what each analysis reveals.
+- **Visualize early**: Charts help identify patterns and outliers.
+
+
+## Download and explore the data...
+
+- Save the data as CSVs to your project folder.
+
+`.../data/burials.csv`  
+`.../data/artefacts.csv`
+
+- Explore the CSVs.
+- Are there missing values?
+- How are missing values encoded?
+- Why are there missing values?
+
+
+## Load and explore the data
+
+- Load the data set to R.
+- Explore the structure of the data set.
+- How many graves and artefacts are there?
+- How many columns does each table have?
+- What is the structure?
+
+## Clean the data
+
+- Identify errors in encoding of the information etc.
+- Check lecture on [Tidy data](/lect/w01/tidy.qmd) if needed.
+- What datatypes are there in each table?
+- What are the primary keys?
+- How do the tables relate one to the other?
+
+## Basic stats
+
+- Calculate descriptive statistics for numerical variables.
+
+### Questions to investigate
+
+- What is the average height of people buried in the cemetery?
+- What age categories are most common?
+- What is the mean and range of grave depths and mound diameters?
+- What is the average weight of bronze artefacts?
+- How many artefact types are represented?
+- What are the artefacts made of?
+
+
+## Data Visualizations
+
+Create visual representations of your archaeological data.
+
+### Visualization tasks
+
+- Bar chart of artefact types.
+- Histogram of artefact weights by material.
+- Boxplot of estimated heights by sex.
+- Scatterplot of grave depth vs mound diameter.
+
+
+## Data Manipulation
+
+Transform and combine your tables to answer further research questions.
+
+### Data manipulation tasks
+
+- Filter for well-preserved bronze weapons.
+- Create age groups from age categories.
+- Calculate artefact amount per grave.
+
+*Hint: Use `left_join()` to combine tables.*  
+*Hint: Use `case_when()` for complex conditional logic when creating new variables.*
+
+---
+
+## Grouped Analysis
+
+Perform analyses grouped by categorical variables.
+
+### Grouped analysis tasks
+
+- Average artefact weight by type and material.
+- Number of artefacts per burial type.
+- How does height differ across sexes and age groups?
+- Preservation state distribution by artefact type.
+
+

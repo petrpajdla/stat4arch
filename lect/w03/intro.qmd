@@ -1,0 +1,25 @@
+---
+title: "Introduction"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_intro.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Intro](./intro.html)"
+execute:  
+  echo: true
+  warning: false
+  cache: true
+---
+
+
+## Today we will:
+
+- have a look on some most common mistakes in coding
+- learn different ways how to transform your data
+- learn how to transform your data from the wide table to long table format
+- do some nice big exercise
+
+![](./figs/base.png)

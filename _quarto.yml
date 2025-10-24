@@ -5,13 +5,13 @@ project:
     - "!project/template.qmd"
 
 execute:
-  freeze: true 
+  freeze: true
 
 website:
   title: "stat4arch"
   repo-url: "https://github.com/petrpajdla/stat4arch/"
   repo-actions: [source, edit, issue]
-  
+
   navbar:
     left:
       - file: index.qmd
@@ -30,12 +30,14 @@ website:
       - file: kit.qmd
         text: "Survival kit"
         icon: patch-question
-        
+
   sidebar:
     - title: "Home"
+      style: "docked"
     - id: topics
       title: "Topics"
       collapse-level: 1
+      style: "docked"
       contents:
         - section: Week 1
           contents:
@@ -49,9 +51,15 @@ website:
             - lect/w02/describing.qmd
             - lect/w02/visualizing.qmd
             - lect/w02/relations.qmd
+        - section: Week 3
+          contents:
+            - lect/w03/intro.qmd
+            - lect/w03/tidy_data.qmd
+            - lect/w03/transformation.qmd
+            - lect/w03/exc.qmd
         - text: ---
         - section: Archive
-          contents: 
+          contents:
             - lect/w02/intro2r.qmd
             - lect/w03/distribs.qmd
             - lect/w04/rels.qmd
@@ -64,14 +72,14 @@ website:
             - lect/w10/ca.qmd
             - lect/w11/repro.qmd
             - lect/w11/pivoting.qmd
-  
-  page-footer: 
-    left: 
+
+  page-footer:
+    left:
        - href: https://quarto.org/
          text: "Build with quarto."
     center: |
       Licenses: MIT (code) & CC BY-SA 4.0 Int. (other content).
-    right: 
+    right:
        - icon: github
          href: https://github.com/petrpajdla/stat4arch/
 
@@ -81,3 +89,4 @@ format:
     css: styles.css
     toc: true
     highlight-style: arrow
+    toc-location: left

@@ -1,0 +1,512 @@
+---
+title: "Data transformation"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_transformation.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Data transformations](./transformation.html)"
+execute:  
+  echo: true
+  warning: false
+  cache: true
+---
+
+```{r}
+#| include: false
+library(dplyr)
+library(here)
+library(ggplot2)
+df_dartpoints <- read.csv(here("lect/w02/data/dartpoints.csv"))
+df_sample <- df_dartpoints |> 
+  select(Name, Length, Width, Weight, Base.Sh)
+```
+
+
+## Prerequisites
+
+### Packages:
+- `here`
+- `dplyr`
+
+### Data:
+- dartpoints.csv
+
+### Start:
+ - open your R Project, create a new script file
+ - load library `here`, install and load library `dplyr`
+ - import data "dartpoints.csv
+
+::: fragment
+### Hints:
+- `install.packages()`, `library()`, `here()`, `read.csv()`
+:::
+
+## Course overview
+
+In this course, you will learn how to:
+
+- select specific columns or remove them -- `select()`
+- rename your columns or change their position -- `rename()`, `relocate()`
+- create new columns and change the values based on different conditions -- `mutate()`, `case_when()`
+- filter specific rows based on various conditions -- `filter()`
+- order your rows from lowest to highest values (or vice versa) -- `arrange()`
+- group your data and calculate different summary statistics -- `summarise()`, `group_by()`
+- work with different functions more effectively with the pipe operator -- `|>`
+
+::: fragment
+At the end, you will be able to create and understand such a crazy code:
+
+```{r}
+#| eval: FALSE
+df_sample |> 
+  group_by(Name) |> 
+  summarise(
+    mean_length = round(mean(Length),1),
+    median_length = round(median(Length),1),
+    sd_length = round(sd(Length),1),
+    n_name = n()
+  ) |> 
+  mutate(
+  percent_name = round(n_name/sum(n_name)*100, 1)
+  ) |> 
+  ggplot()+
+  aes(x = Name, y = sd_length)+
+  geom_col(fill = "steelblue")+
+  theme_light()
+```
+:::
+## package `dplyr`
+- we will work with the package `dplyr` which uses tidy data logic (one variable = one column, one observation = one row,...)
+- a big advantage of this package is that it has more intuitive and human readable syntax
+
+::: fragment
+- let's say we want to analyse only those dartpoints that have name "Travis"
+- in R base, the code to select only dartpoints of that type, would look like this:
+:::
+
+
+::: fragment
+```{r}
+#| eval: false
+df_dartpoints[df_dartpoints$Name == "Travis",]
+```
+
+:::
+
+::: fragment
+
+This is a solution with the function `filter()` from the `dplyr` package:
+
+```{r}
+#| eval: false
+filter(df_dartpoints, Name == "Travis")
+```
+:::
+::: fragment
+Similarly, you can also select different columns by their name:
+
+R base solution:
+
+```{r}
+#| eval: false
+df_dartpoints[, c("Name", "Length", "Width", "Weight")]
+```
+:::
+::: fragment
+- and this is the `dplyr` solution with function `select()`:
+
+```{r}
+#| eval: false
+select(df_dartpoints, Name, Length, Width, Weight)
+```
+:::
+
+
+## pipe operator - `|>`
+- `|>` allows you to combine various functions into one code chunks, which makes your code shorter and easier to read
+
+- syntax:
+
+`dataframe |> function_1(variable, condition) |> function_2(variable, condition)`
+
+::: fragmnent
+So you can combine functions `select()`, `filter()` and `head()` :
+
+```{r}
+df_dartpoints |> 
+  select(Name, Length, Width, Weight) |> 
+  filter(Name == "Travis") |> 
+  head(4)
+```
+
+- notice you don´t need to repeat the name of the dataframe into every function arguments, since you already specified it in the begining of the "pipe"
+:::
+
+
+## `select()` - more details
+
+```{r}
+df_dartpoints |> 
+  select(Name, Length, Width, Weight, Blade.Sh) |> 
+  head(4)
+  
+```
+::: fragment
+```{r}
+df_dartpoints |> 
+  select(Name, Length:Weight) |> 
+  head(4)
+```
+:::
+::: fragment
+ 
+You can exclude specific columns by `!`
+
+```{r}
+df_dartpoints |> 
+  select(!Name) |> 
+  head(4)
+```
+::: 
+::: fragment
+
+```{r}
+df_dartpoints |> 
+  select(!Name:Quad) |> 
+  head(4)
+```
+:::
+::: fragment
+- selecting columns with numeric variables:
+
+```{r}
+df_dartpoints |> 
+  select(where(is.numeric)) |> 
+  head(4)
+```
+:::
+
+## `rename()`
+- you can change the names of your columns by `rename()` function
+- syntax:
+
+  `rename(new_name = old_name)`
+
+::: fragment
+```{r}
+df_dartpoints |> 
+  rename(
+    typ_sipky = Name,
+    delka_sipky = Length,
+    sirka_sipky = Width
+  ) |> 
+  head(4)
+```
+
+
+:::
+
+## `relocate()`
+- `relocate()` will defautly move your chosen column to the front:
+```{r}
+df_dartpoints |> 
+  rename(
+    typ_sipky = Name,
+    delka_sipky = Length,
+    sirka_sipky = Width
+  ) |> 
+  relocate(delka_sipky, sirka_sipky) |> 
+  head(4)
+```
+- note that you must already be working with the new variable names.
+
+::: fragment
+- you can manualy specify the position of relocated columns by aruments `.before = ` or `.after = `
+```{r}
+df_dartpoints |> 
+  rename(
+    typ_sipky = Name,
+    delka_sipky = Length,
+    sirka_sipky = Width
+  ) |> 
+  relocate(
+    delka_sipky, sirka_sipky, .after =  typ_sipky
+    ) |> 
+  head(4)
+```
+- note the dot before arguments `.after` and `.before` - it indicates to R that those are not objects or variables, but arguments of a function
+
+:::
+
+## Before we continue:
+- you can also create a new object from your selection with `<-`:
+
+```{r}
+df_sample <- df_dartpoints |> 
+  select(Name, Length, Width, Weight, Base.Sh)
+head(df_sample, 4)
+```
+
+From now on, we will continue with this dataframe, in order to reduce the number of the columns.
+
+## `mutate()`
+- this function creates new columns that are calculated from existing ones (i.e. the new columns are functions of existing variables).
+
+- syntax:
+`dataframe |> mutate(variable_name = function())`
+
+::: fragment
+- here is an example of creating a new column whose values are the multiplication of length by width
+```{r}
+df_sample |> 
+  mutate(
+    square_size = Length*Width
+    ) |> 
+  head(4)
+```
+:::
+::: fragment
+
+- note what argument `.keep = "used"` does:
+```{r}
+df_sample |> 
+  mutate(
+    square_size = Length*Width,
+    .keep = "used"
+    ) |> 
+  head(4)
+```
+- we will explore the function `mutate()` in more detail later
+
+:::
+
+## `filter()`
+
+- for specifying conditions for filtering, `dplyr` uses the following logical and mathematical operators: ==, !=, \<, \>, \>=, \<=, &, \|, \%in%,  etc (use `?dplyr::filter` for more details)
+
+::: fragment
+- here, we will use the symbol `>` to filter out dart points with a length greater than 80 mm
+
+```{r}
+df_sample |> 
+  filter(Length > 80)
+```
+:::
+
+::: fragment
+- and here we use `==` to choose only those dartpoints which are of type "Travis"
+
+```{r}
+df_sample |> 
+  filter(Name == "Travis")
+```
+:::
+
+::: fragment
+- alternatively, you can exclude all points of a type "Travis" by negation `!=`
+
+```{r}
+df_sample |> 
+  filter(Name != "Travis") |> 
+  head(4)
+```
+:::
+
+::: fragment
+- add `&` if you want to filter with more than one condition, for example here we will filter all points which are type "Wells" **AND** are heavier than 10 grams
+
+```{r}
+df_sample |> 
+  filter(Name == "Wells" & Weight > 10)
+```
+:::
+
+::: fragment
+- {{< bi wrench-adjustable >}} Task: instead of `&` try the operator `|` (**OR**) and see how the result differs
+:::
+
+## Filtering based on a vector
+- you can make your code less complicated when you create vector from desired values and then filter all observations which fall into that vector by using operator `%in%`
+
+```{r}
+two_types <- c("Pedernales", "Ensor")
+
+df_sample |> 
+  filter(Name %in% two_types) |> 
+  head(4)
+```
+
+## `arrange()`
+
+- this function will order your observations from the lowest to highest (or vice versa)
+
+```{r}
+df_sample |> 
+  arrange(Length) |> 
+  head(4)
+```
+
+
+```{r}
+df_sample |> 
+  arrange(desc(Length)) |> 
+  head(4)
+```
+
+## `distinct()` and `count()`
+- try to find out what these functions are doing:
+
+```{r}
+df_sample |> 
+  distinct(Name, Base.Sh) |> 
+  head(10)
+```
+
+```{r}
+df_sample |> 
+  count(Name, Base.Sh, sort = TRUE) |> 
+  head(4)
+```
+
+## `summarise()`
+- this function is used for calculating basic summary stastics from the existing variables
+- syntax:
+ ` summarise(new_variable = function(variable))`
+ - in this case, the mean and sd values are calculated for whole dataframe:
+```{r}
+df_sample |> 
+  summarise(
+    mean_lenght = mean(Length),
+    sd_length = sd(Length)
+  )
+```
+
+## `group_by()`
+- if you want to calculate summary statistic for each dartpoint type, you have to use function `group_by` which will create groups of rows based on chosen variable, in this case "Name"
+```{r}
+df_sample |> 
+  group_by(Name) |> 
+  summarise(
+    mean_lenght = mean(Length),
+    sd_length = sd(Length),
+    n = n()
+  ) |> 
+  arrange(desc(n))
+```
+
+::: fragment
+```{r}
+df_sample |> 
+  group_by(Name, Base.Sh) |> 
+  summarise(
+    mean_lenght = round(mean(Length),2),
+    sd_length = round(sd(Length),2),
+    n = n()
+  ) |> 
+  arrange(Name) |> 
+  head(7)
+```
+:::
+
+## back to `mutate()`
+
+### creating new values based on different conditions
+
+
+```{r}
+df_sample |> 
+  mutate(
+    size_cathegory = case_when(
+      Length > 70 ~ "big_stone",
+      Length < 30 ~ "small_stone",
+      .default = "ok_stone"
+    )
+  ) |> 
+  arrange(desc(Length)) |> 
+  head(10)
+```
+
+## back to `mutate()`
+### changing existing values based on combination of two conditions
+- imagine we want to create a new type of dartpoints from the Pedernales that are longer than 80 mm
+- we don't need to create a new column, but only change the values in the existing one:
+
+```{r}
+df_sample |> 
+  mutate(
+    Name = case_when(
+      Name == "Pedernales" & Length > 80 ~ "Big_Pedernales",
+      .default = Name
+    )
+  ) |> 
+  arrange(desc(Length)) |> 
+  head(4)
+```
+
+- note that if we want to leave the other values of the variable "Name" unchanged, we do so by specifying `.default = Name`
+
+## Combining plenty of functions into one huge code chunk: 
+
+```{r}
+df_sample |> 
+  group_by(Name) |> 
+  summarise(
+    mean_length = round(mean(Length),1),
+    median_length = round(median(Length),1),
+    sd_length = round(sd(Length),1),
+    n_name = n()
+  ) |> 
+  mutate(
+  percent_name = round(n_name/sum(n_name)*100, 1)
+  ) |> 
+  arrange(desc(n_name))
+  
+```
+
+::: fragment
+- we can even include `ggplot()` into the pipeline:
+
+```{r}
+df_sample |> 
+  group_by(Name) |> 
+  summarise(
+    mean_length = round(mean(Length),1),
+    median_length = round(median(Length),1),
+    sd_length = round(sd(Length),1),
+    n_name = n()
+  ) |> 
+  mutate(
+  percent_name = round(n_name/sum(n_name)*100, 1)
+  ) |> 
+  ggplot()+
+  aes(x = Name, y = sd_length)+
+  geom_col(fill = "steelblue")+
+  theme_light()
+```
+
+## Saving your result
+
+```{r}
+df_result <- df_sample |> 
+  group_by(Name) |> 
+  summarise(
+    mean_length = round(mean(Length),1),
+    median_length = round(median(Length),1),
+    sd_length = round(sd(Length),1),
+    n_name = n()
+  ) |> 
+  mutate(
+  percent_name = round(n_name/sum(n_name)*100, 1)
+  ) |> 
+  arrange(desc(n_name))
+```
+
+
+```{r}
+#| eval: false
+write.csv(df_result, here("results/dartpoints_result.csv"), row.names = F)
+```
+

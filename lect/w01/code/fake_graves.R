@@ -3,7 +3,7 @@
 ## This script is designed to create a fictional cemetery database for teaching purposes.
 ## date: 2025-09-24
 ## author: Peter Tkáč
-# ========================================== # 
+# ========================================== #
 
 
 ## Vectors ---------------
@@ -33,17 +33,17 @@ pottery <- c(
 
 bronze <- c(
   0,0,0,0,0,5,1,2,0,0,
-  0,3,0,0,0,2,0,0,0,4    
+  0,3,0,0,0,2,0,0,0,4
 )
 
 stone_chipped <- c(
   1,1,0,0,2,1,0,0,0,0,
-  0,1,0,2,0,2,0,1,0,1   
+  0,1,0,2,0,2,0,1,0,1
 )
 
 stone_polished <- c(
   2,1,0,0,1,0,0,0,0,0,
-  0,0,0,1,0,0,0,1,0,0    
+  0,0,0,1,0,0,0,1,0,0
 )
 
 
@@ -79,4 +79,4 @@ str(df_grave)
 
 ## Continue here with the exercises: ------------
 
-
+# df_grave %>% write_csv(here::here("lect/w01/data/fake_graves.csv"))
