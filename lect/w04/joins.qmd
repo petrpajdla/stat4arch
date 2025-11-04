@@ -1,0 +1,114 @@
+---
+title: "Intro & Joining tables"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_joins.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Joins](./joins.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  # pdf: default
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Today we will...
+
+- learn basics of the correspondence analysis
+- explore distances, similarity and correlation
+- transform your data from the long-table to wide-table format
+- finish the exercise from the last lesson
+
+![](figs/base.png)
+
+## Joining tables
+
+> *It’s rare that a data analysis involves only a single data frame. Typically you have many data frames, and you must join them together to answer the questions that you’re interested in.*
+
+(Hadley Wickham, R for Data Science, <https://r4ds.hadley.nz/joins.html#introduction>)
+
+![](figs/setup.png) 
+
+## Joins
+
+![](figs/venn.png)
+
+<!-- ## Joins -->
+
+<!-- ![](figs/setup2.png) -->
+
+## Inner join
+
+- Only the rows that have a common key in both *x* and *y* tables.
+
+![](figs/inner.png)
+
+## Full join
+
+- All the rows in tables *x* and *y*.
+- Missing values (`NA`) where keys do not match in *x* or *y*.
+
+![](figs/full.png)
+
+## Left join
+
+- All rows from *x*.
+- Missing values (`NA`) where key from *x* does not match any key in *y*.
+
+![](figs/left.png)
+
+## Example 
+
+```{r}
+#| include: false
+library(dplyr)
+
+graves <- read.csv(here::here("lect/w03/data/graves.csv")) |>
+  tidyr::as_tibble() |>
+  dplyr::select(grave_id, burial, mound_present) |>
+  dplyr::slice(1:3)
+  
+artefacts <- read.csv(here::here("lect/w03/data/artefacts.csv")) |>
+  tidyr::as_tibble() |>
+  dplyr::select(artefact_id, grave_id, artefact_type) |>
+  dplyr::arrange(grave_id) |>
+  dplyr::slice(1:3, 7, 550)
+```
+
+```{r}
+graves
+```
+
+```{r}
+artefacts
+```
+
+## Inner join
+
+```{r}
+inner_join(graves, artefacts, join_by(grave_id))
+```
+
+## Full join
+
+```{r}
+full_join(graves, artefacts)
+```
+
+## Left join graves -> artefacts
+
+```{r}
+graves |> 
+  left_join(artefacts)
+```
+
+## Left join artefacts -> graves
+
+```{r}
+artefacts |> 
+  left_join(graves)
+```

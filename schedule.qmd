@@ -16,7 +16,7 @@ The course takes place once in two weeks, on **odd Wednesdays 12:00 -- 15:40** (
 | 1.      | 24. 9.  | [Introduction](lect/w01/intro.qmd), [*Tidy data*](lect/w01/tidy.qmd) and [Intro to coding in R](lect/w01/intro2coding.qmd)| [{{< bi file-earmark-arrow-down >}} fake_graves.R](lect/w01/code/fake_graves.R) |
 | 2.      | 8. 10.  | [Basic workflows](lect/w02/basics.qmd), [plotting with `qqplot2`](lect/w02/ggplot.amd), [Descriptive stats](lect/w02/describing.qmd), [Data viz](lect/w02/visualizing.qmd) and [Relationships](lect/w02/relations.qmd)  |  |
 | 3.      | 22. 10. | [Intro](lect/w03/intro.qmd), [Tidy data](lect/w03/tidy_data.qmd) & [Transformations](lect/w03/transformation.qmd)  | Synthetic BA burial ground [exercise](lect/w03/exc.qmd): <br> [{{< bi file-earmark-arrow-down >}} graves.csv](lect/w03/data/graves.csv) & [{{< bi file-earmark-arrow-down >}} artefacts.csv](lect/w03/data/artefacts.csv) |
-| 4.      | 5. 11.  |  |  |
+| 4.      | 5. 11.  | [Joins](lect/w04/joins.qmd), [Correspondence analysis](lect/w04/ca.qmd), [Distances & similarity](lect/w04/dist.qmd) and [Clustering](lect/w04/clust.qmd) | Eneolithic/BA burials data ([{{< bi file-earmark-arrow-down >}} burials.csv](lect/w04/data/burials.csv)) |
 | -       | 19. 11. | *Reading week* |  |
 | 5.      | 3. 12.  |  |  |
 | 6.      | 17. 12. |  |  |

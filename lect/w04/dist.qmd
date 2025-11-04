@@ -1,0 +1,225 @@
+---
+title: "Distances and similarity"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_dist.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Disctances](./dist.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  # pdf: default
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Distances and similarity
+
+- Distance and similarity are more or less opposite concepts.
+- Distance is a **numerical measure** describing how are two objects (defined by certain variables) different (*pairwise distance*). 
+- Different distance measures exist for different data types.
+ 
+:::: {.columns}
+::: {.column width=50% .fragment}
+### Distance
+
+- Scale 0 -- $\infty$
+- 0 -- Two objects with 0 distance between them. 
+- $\infty$ -- Two objects with infinite distance. 
+- In practice, maximum distance is often 1.
+- Denoted by $D$ (for distance, or dissimilarity).
+- $D = 1 - S$
+:::
+::: {.column width=50% .fragment}
+### Similarity 
+
+- Scale 0 -- 1
+- 0 -- Two objects completely dissimilar (0%).
+- 1 -- Two objects competely similar (100%).
+- Denoted by $S$ (for similarity).
+- $S = 1 - D$
+:::
+::::
+
+
+## Different distance measures 
+
+::: {.incremental}
+- Dichotomous variables
+  - Symmetrical -- Simple matching distance 
+  - Asymmetrical -- Jaccard index (binary distance)
+- Categorical variables 
+  - Hamming distance 
+- Numeric continuous variables
+  - Euclidean distance 
+  - Mahalanobis distance 
+- Mixed data sets 
+  - Gower's distance 
+:::
+
+
+## Binary distances 
+
+- For `TRUE`/`FALSE`, `1`/`0`, `presence`/`absence` (etc.) data
+
+:::: {.columns}
+::: {.column width=50% .fragment}
+### Symmetrical
+
+- Two **presences** as **match**.
+- Two **absences** as **match**.
+
+If a trait is present, two objects are more similar.
+If a trait is absent, two objects are more similar.
+For example if *biological sex* is encoded in one variable with `0` for *male* and `1` for *female*, it is symmetrical.
+
+- **Simple maching distance**
+:::
+::: {.column width=50% .fragment}
+### Asymmetrical
+
+- Two **presences** as **match**.
+- Two **absences** as **mismatch**.
+
+If a trait is present, two objects are more similar. 
+If a trait is **absent** in both cases, e.g. **undetermined**, **missing** etc., this does not affect similarity.
+This is more practical in archaeology.
+
+- **Jaccard index**, i.e. **binary distance**
+
+`dist(x, method = "binary")`
+:::
+::::
+
+
+## Distance between (continuous) numeric data 
+
+- To **remove effects of scale** (different units etc.), variables should be scaled (normalized).
+
+:::: {.columns}
+::: {.column width=50%}
+### Normalization
+
+- *z-score* or *z-transformation*
+:::
+::: {.column width=50%}
+$$
+z = \frac{x - \mu}{\sigma}
+$$
+:::
+::::
+
+![](figs/z-score.png)
+
+
+## Euclidean distance 
+
+:::: {.columns}
+::: {.column width=50%}
+- Defined for a **Cartesian coordinate space**.
+- Uses **Pythagorean theorem**.
+:::
+::: {.column width=50%}
+$$ 
+d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2} 
+$$
+:::
+::::
+
+### In R...
+
+Normalization:  
+`scale(x, center = TRUE, scale = TRUE)`  
+
+Euclidean distance:  
+`dist(x, method = "euclidean")`
+<!-- - or using package [philentropy](https://drostlab.github.io/philentropy/index.html) `distance(x, method = "euclidean")` -->
+
+## Example – Binary distance
+
+Exercise with the Eneolithic/BA burial ground ([{{< bi file-earmark-arrow-down >}} burials.csv](data/burials.csv)).
+
+::: {.fragment}
+```{r}
+#| include: false
+
+library(dplyr)
+graves0 <- read.csv(here::here("lect/w04/data/burials.csv"))
+```
+:::
+::: {.fragment}
+```{r}
+head(graves0)
+```
+:::
+::: {.fragment}
+```{r}
+# artefact counts to presence (TRUE/FALSE)
+graves <- graves0 |> 
+  mutate(artefact_presence = artefact_count >= 1)
+head(graves)
+```
+:::
+
+## Table transformation
+
+::: {.fragment}
+```{r}
+# long table -> wide table
+graves_artefacts <- graves |> 
+  tidyr::pivot_wider(
+    id_cols = c("grave_number"), 
+    names_from = "artefact_type", 
+    values_from = "artefact_presence", 
+    values_fill = FALSE # fill in missing values with FALSE
+  )
+head(graves_artefacts)
+```
+:::
+
+## Count distance
+
+::: {.fragment}
+```{r}
+# matrix with logical variables only
+artefacts <- graves_artefacts |> 
+  select(where(is.logical)) |> 
+  as.matrix()
+
+# add row names to the matrix
+rownames(artefacts) <- graves_artefacts$grave_number
+artefacts[1:6, 1:6]
+```
+:::
+::: {.fragment}
+```{r}
+# count Jaccard (binary) distance
+d <- dist(artefacts, method = "binary", diag = TRUE)
+
+as.matrix(d)[1:6, 1:6]
+```
+:::
+::: {.fragment}
+- Result is a **distance matrix**.
+- It is **symmetrical**. **Lower triangular** is the same as **upper triangular**.
+- On the **diagonal**, there is distance of the given object to itself, i.e. 0.
+:::
+
+## Visualizing distance matrix
+
+- Package `corrplot` has a nice way of plotting heat maps.
+
+```{r}
+library(corrplot)
+
+# arg. is.corr set to FALSE, because we are not visualizing correlation matrix
+corrplot::corrplot(as.matrix(d), is.corr = FALSE, type = "upper")
+```
+
+## Resources
+
+For a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. [DOI: 10.5281/zenodo.6325372](https://doi.org/10.5281/zenodo.6325372)
+(direct link to a HTML file is [here](https://gitlab.com/oliver.nakoinz/klassifikator/-/blob/master/5tutorials/tutorial_complete_ENG.Rmd)).

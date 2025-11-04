@@ -32,8 +32,8 @@ The data set is an *export* from a **fabricated database** of an excavation of a
 
 The dataset consists of 3 related CSV files:
 
-- [{{< bi file-earmark-arrow-down >}} `graves.csv`](lect/w03/data/graves.csv) -- grave information and grave features, human remains information;
-- [{{< bi file-earmark-arrow-down >}} `artefacts.csv`](lect/w03/data/artefacts.csv) -- artefact records with materials, weights, preservation etc.
+- [{{< bi file-earmark-arrow-down >}} `graves.csv`](data/graves.csv) -- grave information and grave features, human remains information;
+- [{{< bi file-earmark-arrow-down >}} `artefacts.csv`](data/artefacts.csv) -- artefact records with materials, weights, preservation etc.
 
 
 ## Brainstorming
@@ -131,5 +131,3 @@ Perform analyses grouped by categorical variables.
 - Number of artefacts per burial type.
 - How does height differ across sexes and age groups?
 - Preservation state distribution by artefact type.
-
-

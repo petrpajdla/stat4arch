@@ -1,0 +1,472 @@
+---
+title: "Correspondence analysis"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    scrollable: true
+    embed-resources: true 
+    output-file: slides_ca.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Correspondence analysis](ca.html)"
+execute:  
+  echo: true
+  warning: false
+  cache: true
+---
+
+## Introduction
+In this course, you will learn how to:
+
+- do quick correspondence analysis in R
+- transform your data from long format to wide format
+- replace NAs with 0
+- create "tibble" type of tables from vectors
+- visualize the results of the correspondence analysis in `ggplot()`
+
+## Correspondence analysis (CA) - what is it?
+- one of the multivariate statistical methods
+- helps you to explore __similarities__ in your data
+
+::: fragment
+
+![image from: https://cainarchaeology.weebly.com/](./figs/ca_example.png){width=75%}
+
+:::
+
+::: fragment
+- the above example shows how the __biplot__ can be used to identify the similarities between different archaeological sites, based on the proportion of different ceramic types found there
+- note that there are two groups of data: archaeological sites and ceramic types
+- "similarities are based on proportion..." means that we have counts of ceramic types for each site
+:::
+
+## Correspondence analysis (CA) - what do I need?
+- data in the form of a __contingency table__ with the  __counts__ of two or more __categorical variables__
+- __two groups__ of data:  one group in the rows, second in the columns
+- examples: graves in the rows and counts of their artefacts in the columns, sites and counts of ceramic types, archaeological layers and counts of the chipped stone industry,...
+- "presence / absence " variables are also suitable but their values have to be replaced by 1 and 0
+- NAs have to be replaced by 0
+
+
+## Contingency table
+- an example of a contingency table:
+
+::: fragment
+
+![image from: Nikita 2020: INTRODUCTION TO STATISTICS USING R (for archaeologists)](./figs/contingency_table.png){width=75%}
+
+:::
+
+::: fragment
+
+- and the biplot showing the result of the CA
+
+![image from: Nikita 2020: INTRODUCTION TO STATISTICS USING R (for archaeologists)](./figs/ca_example_2.png){width=50%}
+:::
+
+## Doing CA on artificial archaeological data
+### Prerequisites
+#### Packages:
+- `here`, `dplyr`, `tidyr`, `ca`,`tibble`, `ggplot2`
+
+#### Data:
+- database "eneol_bronze_burials.csv"
+
+#### Start:
+ - open your R Project, create a new script file
+ - load packages `here`, `dplyr`, `tidyr`, `ggplot2`
+ - install and load packages `ca` and `tibble`
+ - import the data "eneol_bronze_burials.csv" into R
+ - observe data - what is in rows? what are the variables?
+ 
+## CA  - start
+
+- install new packages
+
+:::fragment
+
+```{r}
+#| eval: false
+install.packages("ca")
+install.packages("tibble")
+```
+
+:::
+
+::: fragment
+
+- load the packages
+:::
+
+::: fragment
+
+```{r}
+library(here)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(ggplot2)
+library(ca)
+```
+
+:::
+
+::: fragment
+
+- import the data
+:::
+
+::: fragment
+
+```{r}
+df_graves <- read.csv(here("lect/w04/data/burials.csv"))
+```
+:::
+
+::: fragment
+
+- observe the data:
+
+:::
+::: fragment
+```{r}
+df_graves |> 
+  arrange(grave_number) |> head(8)
+```
+
+:::
+
+::: fragment
+
+```{r}
+str(df_graves)
+```
+:::
+
+
+## Research questions
+- are there differences between artefacts in different dating periods?
+- are there differences between the sexes? 
+- are there any similar groups of graves?
+
+::: fragment
+
+- to answer the question, we will use correspondence analysis to observe similarities between graves (first group of data) based on similarities in proportion of their artefacts (second group of data)
+
+:::
+
+::: fragment
+- keep in mind that this database is artificial and for teaching purposes only. Although it might, to some extent, resemble real archaeological data, some aspect were purposely modified to better illustrate the logic of the correspondence analysis
+:::
+
+## Tidying data
+- we see that all artefacts are stored in the variable "artefact_type" and their count in "artefact_count"
+- this table is a type of "long table", which we were discussing in the last lecture
+- to do a correspondence analysis, we need to transform this table into so called "wide table", where one observation will be one grave, and each type of artefact will be one variable
+- in other words, we need to have a table where:
+  - one group of data is in __rows__ - in this case graves
+  - second group of data is in __columns__ - in this case the counts of artefact types
+
+## widening data with `tidyr::pivot_wider()`
+- remember the function `pivot_longer()` from the `tidyr` package? Now we will use its reverse sister `pivot_wider()`
+
+- syntax within the pipeline:
+
+- `df |> pivot_wider(names_from = , values_from = )`
+
+- `names_from` -  defines the column from which the new variables will be created (e.i. the values in this column will become variables)
+- `values_from` -  defines from which column the count values will be taken
+
+:::fragment
+
+```{r}
+df_graves_wide <- df_graves |> 
+   select(-artefact_material) |> 
+   pivot_wider(
+    names_from = artefact_type,
+    values_from = artefact_count
+  )
+```
+
+- note that we have removed the variable "artefact_material"
+
+:::
+
+::: fragment
+
+```{r}
+head(df_graves_wide)
+```
+:::
+
+
+## Dealing with NAs
+
+- now we have to deal with the NAs and turn them into 0
+- we will use function `dplyr::mutate()` because we want to change specific values based on specific conditions
+
+::: fragment
+```{r}
+df_graves_wide <- df_graves_wide |> 
+  mutate(
+    across(beaker:spear, ~ replace_na(.x, 0))
+  )
+
+head(df_graves_wide)
+```
+:::
+
+## Calculating CA with the function `ca()`
+
+- we can conduct the correspondence analysis with the function `ca::ca()`
+- NOTE that the CA can be done only on columns with integer data
+- to proceed, we first need to select the columns with artefact counts, and then run the `ca()` function
+- we will incorporate the `ca()` into the pipe
+- in this stage it is usefull to use `colnames()` function to see the column names
+- in order to CA to work, the sum of each row and column must be greater than zero
+
+```{r}
+colnames(df_graves_wide)
+```
+
+::: fragment
+
+- now we will define which columns to keep for analysis, incorporate the `ca()` function into the pipe and store the result as "ca_result"
+
+```{r}
+ca_result <- df_graves_wide |> 
+  select(beaker:spear) |> 
+  ca()
+```
+
+:::
+
+## visualising CA result with `plot()`
+
+ - to quickly visualize the result, we will use the R base function `plot()` and create the so called __biplot__:
+
+::: fragment
+
+```{r}
+plot(ca_result)
+```
+
+:::
+
+::: fragment
+
+- this biplot is basicaly a scatterplot 
+- first group of data - graves -  are represented as blue dots, second group - artefacts - are represented as red triangles 
+- each grave and each artefact has it's own coordinates
+- the closer the graves or artefacts are to each other, the more similar they are
+
+:::
+
+## Observing the results structure
+- at this stage, we cannot use our beloved `ggplot2()` function because it works only with dataframes or tables, and the result of the CA is not a dataframe but a list:
+
+```{r}
+str(ca_result)
+```
+-  you can see that this is not a dataframe, but a so called "list" with much complicated structure
+
+## Observing the results structure 2
+
+And it looks like this:
+
+```{r}
+ca_result
+```
+
+- note that there are two types of data: rows and columns. Can you tell which group of data they represent?
+
+## Visualising CA result with `ggplot()`
+
+- `ggplot()` works only with data in table format, so we need to do some preparations first
+- for each group of data (graves and artefacts), we need a separate table with coordinates
+- luckily for us, we can easily extract coordinates in the form of a vector from the CA result
+
+### Procedure:
+  1. extract the coordinates of both graves and artefacts from the CA result and store them in a vector
+  2. create two tables, one for graves and the other for artefacts, both of which should include coordinates and identifiers (e.g. ID, grave name, artefact name). Other variables could be added as well 
+  3. plot each table in `ggplot()` in its own `geom_point()` layer
+
+## 1. Extracting coordinates:
+- since the graves are stored in the rows of the original table, their coordinates are stored in `rowcoord` of the CA result
+- similarly, the coordinates of artifacts (columns) are stored in `colcoord`
+- with `[,1]` and `[,2]` we can subset the coordinates in the first and second dimension, respectively
+
+::: fragment
+
+```{r}
+coord_grave_1 <- ca_result$rowcoord[,1]
+coord_grave_2 <- ca_result$rowcoord[,2]
+coord_artefact_1 <- ca_result$colcoord[,1]
+coord_artefact_2 <- ca_result$colcoord[,2]
+```
+
+:::
+## 2.1 Table with graves
+- we can adjust existing table "df_grave_wide", which is already a table with graves, by adding coordinates and then by selecting only those variables we need 
+ - with `mutate()` we can add external vectors into the existing table. Just keep in mind the vectors must have same number of objects as the table has rows
+ - with `select()` we can select variables we need: coordinates, identifier, sex and dating
+
+::: fragment
+
+```{r}
+table_graves <- df_graves_wide %>% 
+  mutate(coord_grave_1,
+         coord_grave_2) %>% 
+  select(dating, sex, coord_grave_1, coord_grave_2, grave_number)
+```
+
+:::
+
+::: fragment
+```{r}
+#| echo: false
+head(table_graves, 4)
+```
+
+:::
+
+::: fragment
+
+### Quick plot:
+
+```{r}
+library(ggplot2)
+ggplot()+
+  geom_point(data = table_graves, aes(x = coord_grave_1, y = coord_grave_2))
+```
+
+:::
+
+## 2.2 Table with artefacts - function `tidyr::tibble()`
+- now it is little bit more complicated, because we need to create a new table for the artefacts. Each row will be one type of artefact and the variables will be their coordinates
+- `tidyr::tibble()` creates a "tibble" which is a type of dataframe and works well with tidy data
+
+::: fragment
+
+- here, `tibble()` binds together 2 vectors with the coordinates together with the third vector "artefact", that consists of artefact names. These names are extracted by `colnames()` from the names of the columns defined by `select()`
+
+```{r}
+table_artefacts <- tibble(
+  coord_artefact_1,
+  coord_artefact_2,
+  artefact = df_graves_wide |> 
+    select(beaker:spear) |> 
+    colnames()
+)
+```
+
+:::
+::: fragment
+
+```{r}
+head(table_artefacts, 6)
+```
+
+:::
+
+::: fragment
+
+### quick plot
+```{r}
+ggplot()+
+  geom_point(data = table_artefacts, aes(x=coord_artefact_1, y = coord_artefact_2))
+```
+
+:::
+
+## 3. and finaly - the `ggplot()`
+
+- here, we are visualising each table in a separate `geom_point()`
+
+```{r}
+ggplot()+
+  geom_point(data = table_graves, 
+             aes(x = coord_grave_1, y = coord_grave_2, color = dating), 
+             shape = 16, size = 2)+
+  geom_point(data = table_artefacts, 
+             aes(x = coord_artefact_1, y = coord_artefact_2), 
+             shape = 17, size = 2)+
+  theme_light()
+```
+
+## Adjusting the plot
+- try to identify what is happening in each layer of the `ggplot()` and play a bit with the settings:
+  
+```{r}
+eigenvalue_1 <- 38.58
+eigenvalue_2 <- 23.2
+```
+```{r}
+ggplot()+
+  geom_hline(yintercept = 0,
+             color = "gray50",
+             linetype = "dashed",
+             linewidth = 0.5)+
+  geom_vline(xintercept = 0,
+             color = "gray50", 
+             linetype = "dashed",
+             linewidth = 0.5)+
+  geom_point(data = table_graves, 
+             aes(x = coord_grave_1, y = coord_grave_2, color = dating, fill = dating, shape = sex), 
+             alpha = 0.5, 
+             size = 2)+
+  geom_point(data = table_artefacts, 
+             aes(x = coord_artefact_1, y = coord_artefact_2), 
+             shape = 4, 
+             size = 2)+
+  geom_text(data = table_artefacts,
+            aes(label = artefact, x=coord_artefact_1, y=coord_artefact_2), 
+            vjust = -1.5,
+            size = 3)+
+  scale_shape_manual(values = c("male" = 22, "female" = 25, "child" = 21))+
+  xlim(-1.55, 2.4)+
+  ylim(-2.6, 2.6)+
+  labs(x = paste0("dimension 1 (", eigenvalue_1," %)"),
+       y = paste0("dimension 2 (", eigenvalue_2," %)"),
+       title = "Correspondence analysis")+
+  theme_light()
+```
+  
+## Interpretation
+
+```{r}
+#| echo: false
+ggplot()+
+  geom_hline(yintercept = 0,
+             color = "gray50",
+             linetype = "dashed",
+             linewidth = 0.5)+
+  geom_vline(xintercept = 0,
+             color = "gray50", 
+             linetype = "dashed",
+             linewidth = 0.5)+
+  geom_point(data = table_graves, 
+             aes(x = coord_grave_1, y = coord_grave_2, color = dating, fill = dating, shape = sex), 
+             alpha = 0.5, 
+             size = 2)+
+  geom_point(data = table_artefacts, 
+             aes(x = coord_artefact_1, y = coord_artefact_2), 
+             shape = 4, 
+             size = 2)+
+  geom_text(data = table_artefacts,
+            aes(label = artefact, x=coord_artefact_1, y=coord_artefact_2), 
+            vjust = -1.5,
+            size = 3)+
+  scale_shape_manual(values = c("male" = 22, "female" = 25, "child" = 21))+
+  xlim(-1.55, 2.4)+
+  ylim(-2.6, 2.6)+
+  labs(x = paste0("dimension 1 (", eigenvalue_1," %)"),
+       y = paste0("dimension 2 (", eigenvalue_2," %)"),
+       title = "Correspondence analysis")+
+  theme_light()
+```
+  
+  - let's have a look at the plot again and try to answer the research questions:
+    
+    - are there differences between artefacts in different dating periods?
+    - are there differences between sexes? 
+    - are there any similar groups of graves?

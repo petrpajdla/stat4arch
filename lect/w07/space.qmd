@@ -503,8 +503,8 @@ lengths(prunik) > 0
 ::: {.column width=50%}
 ::: {.fragment}
 ```{r}
-kraje %>%
-  dplyr::filter(lengths(prunik) > 0)
+# kraje %>%
+#   dplyr::filter(lengths(prunik) > 0)
 ```
 :::
 ::: {.fragment}
