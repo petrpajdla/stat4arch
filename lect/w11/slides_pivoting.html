@@ -619,7 +619,7 @@
 <span id="cb4-2"><a></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/g1-1.png" width="672" class="r-stretch"></section>
+<img data-src="pivoting_files/figure-revealjs/g1-1.png" width="960" class="r-stretch"></section>
 <section id="more-fancy" class="slide level2">
 <h2>More fancy</h2>
 <p>And now do it more fancier and add more variables:</p>
@@ -631,7 +631,7 @@
 <span id="cb5-5"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/g2-1.png" width="672" class="r-stretch"></section>
+<img data-src="pivoting_files/figure-revealjs/g2-1.png" width="960" class="r-stretch"></section>
 <section id="oh-my-relative-values" class="slide level2">
 <h2>Oh my, relative values!</h2>
 <div class="cell">
@@ -642,7 +642,7 @@
 <span id="cb6-5"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/g3-1.png" width="672" class="r-stretch"></section>
+<img data-src="pivoting_files/figure-revealjs/g3-1.png" width="960" class="r-stretch"></section>
 <section id="omg-even-two-plots" class="slide level2">
 <h2>OMG, even two plots!</h2>
 <div class="cell">
@@ -654,7 +654,7 @@
 <span id="cb7-6"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/g4-1.png" width="672" class="r-stretch"></section>
+<img data-src="pivoting_files/figure-revealjs/g4-1.png" width="960" class="r-stretch"></section>
 <section id="but-what-if-i-want-to-see-the-numbers-for-each-bar" class="slide level2">
 <h2>But what if I want to see the numbers for each bar?</h2>
 <p>Well, it is possible, but we will need some coding:</p>
@@ -692,7 +692,7 @@
 <span id="cb10-6"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="pivoting_files/figure-html/g6-1.png" width="672" class="r-stretch"><p>Notice that we are here working with two different (but related) data frames. One is for bar plots and second for text values.</p>
+<img data-src="pivoting_files/figure-revealjs/g6-1.png" width="960" class="r-stretch"><p>Notice that we are here working with two different (but related) data frames. One is for bar plots and second for text values.</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -912,6 +912,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

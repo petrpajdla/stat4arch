@@ -520,21 +520,21 @@
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">plot</span>(cal_date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="time_files/figure-html/unnamed-chunk-8-1.png" width="672" class="r-stretch"></section>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
 <section id="improving-your-plot" class="slide level2">
 <h2>Improving your plot</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">plot</span>(cal_date, <span class="at">calendar =</span> <span class="st">"BCAD"</span>, <span class="at">HPD =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="time_files/figure-html/unnamed-chunk-9-1.png" width="672" class="r-stretch"><ul>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><ul>
 <li>argument <code>HPD</code> higlights confidence of the posterior density, by default set to 95% (2 standard deviations)</li>
 </ul>
 </section>
 <section id="why-i-cant-get-single-bce-number" class="slide level2">
 <h2>Why I can’t get single BCE number?</h2>
 
-<img data-src="time_files/figure-html/unnamed-chunk-10-1.png" width="672" class="r-stretch"></section>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
 <section id="plotting-multiple-samples" class="slide level2 scrollable">
 <h2>Plotting multiple samples</h2>
 <ul>
@@ -574,7 +574,7 @@
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">multiplot</span>(cal_dates, <span class="at">decreasing=</span><span class="cn">TRUE</span>, <span class="at">HPD=</span><span class="cn">TRUE</span>, <span class="at">label.pos=</span><span class="fl">0.9</span>, <span class="at">label.offset=</span><span class="sc">-</span><span class="dv">200</span>,  <span class="at">calendar =</span> <span class="st">"BCAD"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="time_files/figure-html/unnamed-chunk-14-1.png" width="672" class="r-stretch"></section>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
 <section id="radiocarbon-dates-as-proxies-for-human-demography" class="slide level2">
 <h2>Radiocarbon dates as proxies for human demography</h2>
 <ul>
@@ -628,7 +628,7 @@
 <section id="section-2" class="slide level2">
 <h2></h2>
 
-<img data-src="time_files/figure-html/unnamed-chunk-16-1.png" width="672" class="r-stretch"></section>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
 <section id="aoristic-method" class="slide level2">
 <h2>Aoristic method</h2>
 <ul>
@@ -727,7 +727,7 @@
 <span id="cb23-2"><a></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> aori, <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="time_files/figure-html/unnamed-chunk-26-1.png" width="672" class="r-stretch"></section>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"></section>
 <section id="improving-your-plot-1" class="slide level2">
 <h2>Improving your plot</h2>
 <ul>
@@ -740,7 +740,7 @@
 <span id="cb24-3"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="sc">-</span><span class="dv">5400</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="time_files/figure-html/unnamed-chunk-27-1.png" width="672" class="r-stretch"></section>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"></section>
 <section id="but-why-stop-here" class="slide level2">
 <h2>But why stop here?</h2>
 <ul>
@@ -758,7 +758,7 @@
 <span id="cb25-9"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="time_files/figure-html/unnamed-chunk-28-1.png" width="672" class="r-stretch"><ul>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"><ul>
 <li>notice that when we’ve changed the order of the lines so the later overlaps the earlier</li>
 <li>for the sake of simplicity, we will ignore the year “0” which should not exist</li>
 </ul>
@@ -826,7 +826,7 @@
 <span id="cb32-5"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="time_files/figure-html/unnamed-chunk-34-1.png" width="672" class="r-stretch"></section>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"></section>
 <section id="easy-subseting" class="slide level2">
 <h2>Easy subseting</h2>
 <ul>
@@ -844,7 +844,7 @@
 <span id="cb33-9"><a></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> aori_encl, <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="time_files/figure-html/unnamed-chunk-35-1.png" width="672" class="r-stretch"></section>
+<img data-src="time_files/figure-revealjs/unnamed-chunk-35-1.png" width="960" class="r-stretch"></section>
 <section id="exercise-1" class="slide level2">
 <h2>Exercise</h2>
 <ol type="1">
@@ -1074,6 +1074,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

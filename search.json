@@ -4,14 +4,14 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place once in two weeks, on odd Wednesdays 12:00 – 15:40 (except 19. 11. – Reading week).\n\n\n\n\n#\nDate\nTopics\nNotes\n\n\n\n\n1.\n24. 9.\nIntroduction, Tidy data and Intro to coding in R\n fake_graves.R\n\n\n2.\n8. 10.\nBasic workflows, plotting with qqplot2, Descriptive stats, Data viz and Relationships\n\n\n\n3.\n22. 10.\nIntro, Tidy data & Transformations\nSynthetic BA burial ground exercise:   graves.csv &  artefacts.csv\n\n\n4.\n5. 11.\n\n\n\n\n-\n19. 11.\nReading week\n\n\n\n5.\n3. 12.\n\n\n\n\n6.\n17. 12."
+    "text": "The course takes place once in two weeks, on odd Wednesdays 12:00 – 15:40 (except 19. 11. – Reading week).\n\n\n\n\n#\nDate\nTopics\nNotes\n\n\n\n\n1.\n24. 9.\nIntroduction, Tidy data and Intro to coding in R\n fake_graves.R\n\n\n2.\n8. 10.\nBasic workflows, plotting with qqplot2, Descriptive stats, Data viz and Relationships\n\n\n\n3.\n22. 10.\nIntro, Tidy data & Transformations\nSynthetic BA burial ground exercise:   graves.csv &  artefacts.csv\n\n\n4.\n5. 11.\nJoins, Correspondence analysis, Distances & similarity and Clustering\nEneolithic/BA burials data ( burials.csv)\n\n\n-\n19. 11.\nReading week\n\n\n\n5.\n3. 12.\n\n\n\n\n6.\n17. 12."
   },
   {
     "objectID": "schedule.html#section",
     "href": "schedule.html#section",
     "title": "Schedule",
     "section": "",
-    "text": "The course takes place once in two weeks, on odd Wednesdays 12:00 – 15:40 (except 19. 11. – Reading week).\n\n\n\n\n#\nDate\nTopics\nNotes\n\n\n\n\n1.\n24. 9.\nIntroduction, Tidy data and Intro to coding in R\n fake_graves.R\n\n\n2.\n8. 10.\nBasic workflows, plotting with qqplot2, Descriptive stats, Data viz and Relationships\n\n\n\n3.\n22. 10.\nIntro, Tidy data & Transformations\nSynthetic BA burial ground exercise:   graves.csv &  artefacts.csv\n\n\n4.\n5. 11.\n\n\n\n\n-\n19. 11.\nReading week\n\n\n\n5.\n3. 12.\n\n\n\n\n6.\n17. 12."
+    "text": "The course takes place once in two weeks, on odd Wednesdays 12:00 – 15:40 (except 19. 11. – Reading week).\n\n\n\n\n#\nDate\nTopics\nNotes\n\n\n\n\n1.\n24. 9.\nIntroduction, Tidy data and Intro to coding in R\n fake_graves.R\n\n\n2.\n8. 10.\nBasic workflows, plotting with qqplot2, Descriptive stats, Data viz and Relationships\n\n\n\n3.\n22. 10.\nIntro, Tidy data & Transformations\nSynthetic BA burial ground exercise:   graves.csv &  artefacts.csv\n\n\n4.\n5. 11.\nJoins, Correspondence analysis, Distances & similarity and Clustering\nEneolithic/BA burials data ( burials.csv)\n\n\n-\n19. 11.\nReading week\n\n\n\n5.\n3. 12.\n\n\n\n\n6.\n17. 12."
   },
   {
     "objectID": "schedule.html#archive",
@@ -1083,7 +1083,7 @@
     "href": "lect/w07/space.html#spatial-operations",
     "title": "Considering space",
     "section": "Spatial operations",
-    "text": "Spatial operations\n\nTopological relations\nMany types of raletionships, the most generic one is intersection:\nst_intersects(x, y)\n\n\n\n\nprunik &lt;- st_intersects(kraje, stred)\nprunik\n\nSparse geometry binary predicate list of length 14, where the predicate\nwas `intersects'\nfirst 10 elements:\n 1: (empty)\n 2: (empty)\n 3: (empty)\n 4: (empty)\n 5: (empty)\n 6: (empty)\n 7: (empty)\n 8: (empty)\n 9: (empty)\n 10: 1\n\n\n\n\n\nlengths(prunik)\n\n [1] 0 0 0 0 0 0 0 0 0 1 0 0 0 0\n\n\n\n\n\nlengths(prunik) &gt; 0\n\n [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE\n[13] FALSE FALSE\n\n\n\n\n\n\nkraje %&gt;%\n  dplyr::filter(lengths(prunik) &gt; 0)\n\nSimple feature collection with 1 feature and 3 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -719989.4 ymin: -1181194 xmax: -607864.3 ymax: -1077931\nProjected CRS: S-JTSK / Krovak East North\n  KOD_KRAJ KOD_CZNUTS3   NAZ_CZNUTS3                       geometry\n1     3107       CZ063 Kraj Vysočina MULTIPOLYGON (((-711377.1 -...",
+    "text": "Spatial operations\n\nTopological relations\nMany types of raletionships, the most generic one is intersection:\nst_intersects(x, y)\n\n\n\n\nprunik &lt;- st_intersects(kraje, stred)\nprunik\n\nSparse geometry binary predicate list of length 14, where the predicate\nwas `intersects'\nfirst 10 elements:\n 1: (empty)\n 2: (empty)\n 3: (empty)\n 4: (empty)\n 5: (empty)\n 6: (empty)\n 7: (empty)\n 8: (empty)\n 9: (empty)\n 10: 1\n\n\n\n\n\nlengths(prunik)\n\n [1] 0 0 0 0 0 0 0 0 0 1 0 0 0 0\n\n\n\n\n\nlengths(prunik) &gt; 0\n\n [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE\n[13] FALSE FALSE\n\n\n\n\n\n\n# kraje %&gt;%\n#   dplyr::filter(lengths(prunik) &gt; 0)",
     "crumbs": [
       "Archive",
       "Considering space"
@@ -1232,7 +1232,7 @@
     "href": "lect/w07/slides_space.html#some-background-data",
     "title": "Considering space",
     "section": "Some background data…",
-    "text": "Some background data…\nPackage RCzechia (Lacko, 2023) has spatial data for the Czech republic…\n\nkraje &lt;- RCzechia::kraje()\nhead(kraje, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: GEOMETRY\nDimension:     XY\nBounding box:  xmin: 12.40056 ymin: 48.55189 xmax: 15.60422 ymax: 50.61901\nGeodetic CRS:  WGS 84\n  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry\n1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((14.49806 50...\n2     3026       CZ020   Středočeský kraj POLYGON ((15.16973 49.61046...\n3     3034       CZ031     Jihočeský kraj MULTIPOLYGON (((15.4962 48....\n4     3042       CZ032      Plzeňský kraj MULTIPOLYGON (((13.60536 49...\n\n\n\n\nkraje &lt;- st_transform(kraje, crs = \"EPSG:5514\")\nhead(kraje, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: GEOMETRY\nDimension:     XY\nBounding box:  xmin: -891822.3 ymin: -1211576 xmax: -665628.7 ymax: -989063.4\nProjected CRS: S-JTSK / Krovak East North\n  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry\n1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((-736092 -10...\n2     3026       CZ020   Středočeský kraj POLYGON ((-696420.7 -110267...\n3     3034       CZ031     Jihočeský kraj MULTIPOLYGON (((-681445.6 -...\n4     3042       CZ032      Plzeňský kraj MULTIPOLYGON (((-817386.4 -..."
+    "text": "Some background data…\nPackage RCzechia (Lacko, 2023) has spatial data for the Czech republic…\n\nkraje &lt;- RCzechia::kraje()\nhead(kraje, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 12.4005 ymin: 48.55181 xmax: 15.6042 ymax: 50.61895\nGeodetic CRS:  WGS 84\n# A tibble: 4 × 4\n# Groups:   KOD_KRAJ, KOD_CZNUTS3 [4]\n  KOD_KRAJ KOD_CZNUTS3 NAZ_CZNUTS3                                      geometry\n  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                       &lt;POLYGON [°]&gt;\n1 3018     CZ010       Hlavní město Praha ((14.49219 50.17235, 14.47952 50.1722…\n2 3026     CZ020       Středočeský kraj   ((15.14068 50.52093, 15.14296 50.5198…\n3 3034     CZ031       Jihočeský kraj     ((14.84258 49.58029, 14.84104 49.5821…\n4 3042     CZ032       Plzeňský kraj      ((12.56222 49.6091, 12.56244 49.60745…\n\n\n\n\nkraje &lt;- st_transform(kraje, crs = \"EPSG:5514\")\nhead(kraje, 4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -891828.6 ymin: -1211584 xmax: -665633.8 ymax: -989069.4\nProjected CRS: S-JTSK / Krovak East North\n# A tibble: 4 × 4\n# Groups:   KOD_KRAJ, KOD_CZNUTS3 [4]\n  KOD_KRAJ KOD_CZNUTS3 NAZ_CZNUTS3                                      geometry\n  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                       &lt;POLYGON [m]&gt;\n1 3018     CZ010       Hlavní město Praha ((-736502.6 -1034348, -737399.8 -1034…\n2 3026     CZ020       Středočeský kraj   ((-685662.1 -1001961, -685517.2 -1002…\n3 3034     CZ031       Jihočeský kraj     ((-720305.4 -1102961, -720389.4 -1102…\n4 3042     CZ032       Plzeňský kraj      ((-882922.6 -1075750, -882936.8 -1075…"
   },
   {
     "objectID": "lect/w07/slides_space.html#making-maps-2",
@@ -1246,21 +1246,21 @@
     "href": "lect/w07/slides_space.html#geometry-operations",
     "title": "Considering space",
     "section": "Geometry operations",
-    "text": "Geometry operations\nUnions\nst_union()\n\n\n\nhead(kraje, 2)\n\nSimple feature collection with 2 features and 3 fields\nGeometry type: GEOMETRY\nDimension:     XY\nBounding box:  xmin: -816235.3 ymin: -1109600 xmax: -665628.7 ymax: -989063.4\nProjected CRS: S-JTSK / Krovak East North\n  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry\n1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((-736092 -10...\n2     3026       CZ020   Středočeský kraj POLYGON ((-696420.7 -110267...\n\nrepublika &lt;- st_union(kraje)\nrepublika\n\nGeometry set for 1 feature \nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -904576.9 ymin: -1227293 xmax: -431722.5 ymax: -935236.5\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nrepublika %&gt;% \n  ggplot() +\n   geom_sf() +\n   theme_minimal()"
+    "text": "Geometry operations\nUnions\nst_union()\n\n\n\nhead(kraje, 2)\n\nSimple feature collection with 2 features and 3 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -816242 ymin: -1109608 xmax: -665633.8 ymax: -989069.4\nProjected CRS: S-JTSK / Krovak East North\n# A tibble: 2 × 4\n# Groups:   KOD_KRAJ, KOD_CZNUTS3 [2]\n  KOD_KRAJ KOD_CZNUTS3 NAZ_CZNUTS3                                      geometry\n  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                       &lt;POLYGON [m]&gt;\n1 3018     CZ010       Hlavní město Praha ((-736502.6 -1034348, -737399.8 -1034…\n2 3026     CZ020       Středočeský kraj   ((-685662.1 -1001961, -685517.2 -1002…\n\nrepublika &lt;- st_union(kraje)\nrepublika\n\nGeometry set for 1 feature \nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -904585.3 ymin: -1227296 xmax: -431724.3 ymax: -935243.5\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nrepublika %&gt;% \n  ggplot() +\n   geom_sf() +\n   theme_minimal()"
   },
   {
     "objectID": "lect/w07/slides_space.html#geometry-operations-1",
     "href": "lect/w07/slides_space.html#geometry-operations-1",
     "title": "Considering space",
     "section": "Geometry operations",
-    "text": "Geometry operations\n\n\nCentroids\nst_centroid()\n\nstred &lt;- st_centroid(republika)\nstred\n\nGeometry set for 1 feature \nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -682473.1 ymin: -1089493 xmax: -682473.1 ymax: -1089493\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nggplot() +\n  geom_sf(data = republika) +\n  geom_sf(data = stred, size = 4) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nBuffers\nst_buffer()\n\nbuffer &lt;- st_buffer(stred, 20000)\nbuffer\n\nGeometry set for 1 feature \nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -702473.1 ymin: -1109493 xmax: -662473.1 ymax: -1069493\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nggplot() +\n  geom_sf(data = republika) +\n  geom_sf(data = buffer, fill = \"forestgreen\") +\n  geom_sf(data = stred, size = 4) +\n  theme_minimal()"
+    "text": "Geometry operations\n\n\nCentroids\nst_centroid()\n\nstred &lt;- st_centroid(republika)\nstred\n\nGeometry set for 1 feature \nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -682477.4 ymin: -1089499 xmax: -682477.4 ymax: -1089499\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nggplot() +\n  geom_sf(data = republika) +\n  geom_sf(data = stred, size = 4) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nBuffers\nst_buffer()\n\nbuffer &lt;- st_buffer(stred, 20000)\nbuffer\n\nGeometry set for 1 feature \nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: -702477.4 ymin: -1109499 xmax: -662477.4 ymax: -1069499\nProjected CRS: S-JTSK / Krovak East North\n\n\n\n\nggplot() +\n  geom_sf(data = republika) +\n  geom_sf(data = buffer, fill = \"forestgreen\") +\n  geom_sf(data = stred, size = 4) +\n  theme_minimal()"
   },
   {
     "objectID": "lect/w07/slides_space.html#spatial-operations",
     "href": "lect/w07/slides_space.html#spatial-operations",
     "title": "Considering space",
     "section": "Spatial operations",
-    "text": "Spatial operations\nTopological relations\nMany types of raletionships, the most generic one is intersection:\nst_intersects(x, y)\n\n\n\n\nprunik &lt;- st_intersects(kraje, stred)\nprunik\n\nSparse geometry binary predicate list of length 14, where the predicate\nwas `intersects'\nfirst 10 elements:\n 1: (empty)\n 2: (empty)\n 3: (empty)\n 4: (empty)\n 5: (empty)\n 6: (empty)\n 7: (empty)\n 8: (empty)\n 9: (empty)\n 10: 1\n\n\n\n\n\nlengths(prunik)\n\n [1] 0 0 0 0 0 0 0 0 0 1 0 0 0 0\n\n\n\n\n\nlengths(prunik) &gt; 0\n\n [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE\n[13] FALSE FALSE\n\n\n\n\n\n\nkraje %&gt;%\n  dplyr::filter(lengths(prunik) &gt; 0)\n\nSimple feature collection with 1 feature and 3 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -719989.4 ymin: -1181194 xmax: -607864.3 ymax: -1077931\nProjected CRS: S-JTSK / Krovak East North\n  KOD_KRAJ KOD_CZNUTS3   NAZ_CZNUTS3                       geometry\n1     3107       CZ063 Kraj Vysočina MULTIPOLYGON (((-711377.1 -..."
+    "text": "Spatial operations\nTopological relations\nMany types of raletionships, the most generic one is intersection:\nst_intersects(x, y)\n\n\n\n\nprunik &lt;- st_intersects(kraje, stred)\nprunik\n\nSparse geometry binary predicate list of length 14, where the predicate\nwas `intersects'\nfirst 10 elements:\n 1: (empty)\n 2: (empty)\n 3: (empty)\n 4: (empty)\n 5: (empty)\n 6: (empty)\n 7: (empty)\n 8: (empty)\n 9: (empty)\n 10: 1\n\n\n\n\n\nlengths(prunik)\n\n [1] 0 0 0 0 0 0 0 0 0 1 0 0 0 0\n\n\n\n\n\nlengths(prunik) &gt; 0\n\n [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE\n[13] FALSE FALSE\n\n\n\n\n\n\n# kraje %&gt;%\n#   dplyr::filter(lengths(prunik) &gt; 0)"
   },
   {
     "objectID": "lect/w07/slides_space.html#writingreading-spatial-data",
@@ -1617,6 +1617,352 @@
     "title": "Data manipulation with dplyr",
     "section": "Exercise",
     "text": "Exercise\n\n\nCreate new a script in your project folder and save.\nLoad packages necessary for: (a) loading, (b) transformation, and (c) visualization of data.\nLoad database bacups.csv and save it as an object.\nCreate a new dataframe having only variables H, RD and Phase.\nTry to use pipes %&gt;%.\nRename the variables to height, rimdiameter and phase.\nFor each phase calculate following summary statistics:\n\nmean and median vessel height,\n\nstandard deviation of vessel height,\ncorrelation between height and rim diameter, and\n\nnumber of vessels.\n\nCalculate percentage of vessels in each phase.\nArrange the results from highest to lowest mean values.\nSave your result as a CSV file\nAre height of vessels or rim diameter normally distributed? Why/why not?\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | dplyr"
+  },
+  {
+    "objectID": "lect/w04/joins.html",
+    "href": "lect/w04/joins.html",
+    "title": "Intro & Joining tables",
+    "section": "",
+    "text": "learn basics of the correspondence analysis\nexplore distances, similarity and correlation\ntransform your data from the long-table to wide-table format\nfinish the exercise from the last lesson",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#today-we-will",
+    "href": "lect/w04/joins.html#today-we-will",
+    "title": "Intro & Joining tables",
+    "section": "",
+    "text": "learn basics of the correspondence analysis\nexplore distances, similarity and correlation\ntransform your data from the long-table to wide-table format\nfinish the exercise from the last lesson",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#joining-tables",
+    "href": "lect/w04/joins.html#joining-tables",
+    "title": "Intro & Joining tables",
+    "section": "Joining tables",
+    "text": "Joining tables\n\nIt’s rare that a data analysis involves only a single data frame. Typically you have many data frames, and you must join them together to answer the questions that you’re interested in.\n\n(Hadley Wickham, R for Data Science, https://r4ds.hadley.nz/joins.html#introduction)",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#joins",
+    "href": "lect/w04/joins.html#joins",
+    "title": "Intro & Joining tables",
+    "section": "Joins",
+    "text": "Joins",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#inner-join",
+    "href": "lect/w04/joins.html#inner-join",
+    "title": "Intro & Joining tables",
+    "section": "Inner join",
+    "text": "Inner join\n\nOnly the rows that have a common key in both x and y tables.",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#full-join",
+    "href": "lect/w04/joins.html#full-join",
+    "title": "Intro & Joining tables",
+    "section": "Full join",
+    "text": "Full join\n\nAll the rows in tables x and y.\nMissing values (NA) where keys do not match in x or y.",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#left-join",
+    "href": "lect/w04/joins.html#left-join",
+    "title": "Intro & Joining tables",
+    "section": "Left join",
+    "text": "Left join\n\nAll rows from x.\nMissing values (NA) where key from x does not match any key in y.",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#example",
+    "href": "lect/w04/joins.html#example",
+    "title": "Intro & Joining tables",
+    "section": "Example",
+    "text": "Example\n\ngraves\n\n# A tibble: 5 × 3\n  grave_id burial     mound_present\n  &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;        \n1 G-001    missing    FALSE        \n2 G-002    inhumation FALSE        \n3 G-003    inhumation TRUE         \n4 G-004    cremation  FALSE        \n5 G-005    cremation  FALSE        \n\n\n\nartefacts\n\n# A tibble: 10 × 3\n   artefact_id grave_id artefact_type\n   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;        \n 1 A-0076      G-001    Whetstone    \n 2 A-0135      G-001    Arrowhead    \n 3 A-0187      G-002    Quern stone  \n 4 A-0040      G-003    Ring         \n 5 A-0181      G-003    Needle       \n 6 A-0213      G-003    Brooch       \n 7 A-0116      G-004    Dagger       \n 8 A-0055      G-005    Ring         \n 9 A-0069      G-005    Sword        \n10 A-0083      G-005    Belt fitting",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#inner-join-1",
+    "href": "lect/w04/joins.html#inner-join-1",
+    "title": "Intro & Joining tables",
+    "section": "Inner join",
+    "text": "Inner join\n\ninner_join(graves, artefacts, join_by(grave_id))\n\n# A tibble: 10 × 5\n   grave_id burial     mound_present artefact_id artefact_type\n   &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        \n 1 G-001    missing    FALSE         A-0076      Whetstone    \n 2 G-001    missing    FALSE         A-0135      Arrowhead    \n 3 G-002    inhumation FALSE         A-0187      Quern stone  \n 4 G-003    inhumation TRUE          A-0040      Ring         \n 5 G-003    inhumation TRUE          A-0181      Needle       \n 6 G-003    inhumation TRUE          A-0213      Brooch       \n 7 G-004    cremation  FALSE         A-0116      Dagger       \n 8 G-005    cremation  FALSE         A-0055      Ring         \n 9 G-005    cremation  FALSE         A-0069      Sword        \n10 G-005    cremation  FALSE         A-0083      Belt fitting",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#full-join-1",
+    "href": "lect/w04/joins.html#full-join-1",
+    "title": "Intro & Joining tables",
+    "section": "Full join",
+    "text": "Full join\n\nfull_join(graves, artefacts)\n\n# A tibble: 10 × 5\n   grave_id burial     mound_present artefact_id artefact_type\n   &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        \n 1 G-001    missing    FALSE         A-0076      Whetstone    \n 2 G-001    missing    FALSE         A-0135      Arrowhead    \n 3 G-002    inhumation FALSE         A-0187      Quern stone  \n 4 G-003    inhumation TRUE          A-0040      Ring         \n 5 G-003    inhumation TRUE          A-0181      Needle       \n 6 G-003    inhumation TRUE          A-0213      Brooch       \n 7 G-004    cremation  FALSE         A-0116      Dagger       \n 8 G-005    cremation  FALSE         A-0055      Ring         \n 9 G-005    cremation  FALSE         A-0069      Sword        \n10 G-005    cremation  FALSE         A-0083      Belt fitting",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#left-join-graves---artefacts",
+    "href": "lect/w04/joins.html#left-join-graves---artefacts",
+    "title": "Intro & Joining tables",
+    "section": "Left join graves -> artefacts",
+    "text": "Left join graves -&gt; artefacts\n\ngraves |&gt; \n  left_join(artefacts)\n\n# A tibble: 10 × 5\n   grave_id burial     mound_present artefact_id artefact_type\n   &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        \n 1 G-001    missing    FALSE         A-0076      Whetstone    \n 2 G-001    missing    FALSE         A-0135      Arrowhead    \n 3 G-002    inhumation FALSE         A-0187      Quern stone  \n 4 G-003    inhumation TRUE          A-0040      Ring         \n 5 G-003    inhumation TRUE          A-0181      Needle       \n 6 G-003    inhumation TRUE          A-0213      Brooch       \n 7 G-004    cremation  FALSE         A-0116      Dagger       \n 8 G-005    cremation  FALSE         A-0055      Ring         \n 9 G-005    cremation  FALSE         A-0069      Sword        \n10 G-005    cremation  FALSE         A-0083      Belt fitting",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/joins.html#left-join-artefacts---graves",
+    "href": "lect/w04/joins.html#left-join-artefacts---graves",
+    "title": "Intro & Joining tables",
+    "section": "Left join artefacts -> graves",
+    "text": "Left join artefacts -&gt; graves\n\nartefacts |&gt; \n  left_join(graves)\n\n# A tibble: 10 × 5\n   artefact_id grave_id artefact_type burial     mound_present\n   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;lgl&gt;        \n 1 A-0076      G-001    Whetstone     missing    FALSE        \n 2 A-0135      G-001    Arrowhead     missing    FALSE        \n 3 A-0187      G-002    Quern stone   inhumation FALSE        \n 4 A-0040      G-003    Ring          inhumation TRUE         \n 5 A-0181      G-003    Needle        inhumation TRUE         \n 6 A-0213      G-003    Brooch        inhumation TRUE         \n 7 A-0116      G-004    Dagger        cremation  FALSE        \n 8 A-0055      G-005    Ring          cremation  FALSE        \n 9 A-0428      &lt;NA&gt;     Dagger        &lt;NA&gt;       NA           \n10 A-0429      &lt;NA&gt;     Needle        &lt;NA&gt;       NA",
+    "crumbs": [
+      "Week 4",
+      "Intro & Joining tables"
+    ]
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#today-we-will",
+    "href": "lect/w04/slides_joins.html#today-we-will",
+    "title": "Intro & Joining tables",
+    "section": "Today we will…",
+    "text": "Today we will…\n\nlearn basics of the correspondence analysis\nexplore distances, similarity and correlation\ntransform your data from the long-table to wide-table format\nfinish the exercise from the last lesson"
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#joining-tables",
+    "href": "lect/w04/slides_joins.html#joining-tables",
+    "title": "Intro & Joining tables",
+    "section": "Joining tables",
+    "text": "Joining tables\n\nIt’s rare that a data analysis involves only a single data frame. Typically you have many data frames, and you must join them together to answer the questions that you’re interested in.\n\n(Hadley Wickham, R for Data Science, https://r4ds.hadley.nz/joins.html#introduction)"
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#joins",
+    "href": "lect/w04/slides_joins.html#joins",
+    "title": "Intro & Joining tables",
+    "section": "Joins",
+    "text": "Joins"
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#inner-join",
+    "href": "lect/w04/slides_joins.html#inner-join",
+    "title": "Intro & Joining tables",
+    "section": "Inner join",
+    "text": "Inner join\n\nOnly the rows that have a common key in both x and y tables."
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#full-join",
+    "href": "lect/w04/slides_joins.html#full-join",
+    "title": "Intro & Joining tables",
+    "section": "Full join",
+    "text": "Full join\n\nAll the rows in tables x and y.\nMissing values (NA) where keys do not match in x or y."
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#left-join",
+    "href": "lect/w04/slides_joins.html#left-join",
+    "title": "Intro & Joining tables",
+    "section": "Left join",
+    "text": "Left join\n\nAll rows from x.\nMissing values (NA) where key from x does not match any key in y."
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#example",
+    "href": "lect/w04/slides_joins.html#example",
+    "title": "Intro & Joining tables",
+    "section": "Example",
+    "text": "Example\n\ngraves\n\n# A tibble: 6 × 3\n  grave_id burial     mound_present\n  &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;        \n1 G-001    missing    FALSE        \n2 G-002    inhumation FALSE        \n3 G-003    inhumation TRUE         \n4 G-004    cremation  FALSE        \n5 G-005    cremation  FALSE        \n6 G-006    inhumation FALSE        \n\n\n\nartefacts\n\n# A tibble: 10 × 3\n   artefact_id grave_id artefact_type\n   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;        \n 1 A-0076      G-001    Whetstone    \n 2 A-0135      G-001    Arrowhead    \n 3 A-0187      G-002    Quern stone  \n 4 A-0040      G-003    Ring         \n 5 A-0181      G-003    Needle       \n 6 A-0213      G-003    Brooch       \n 7 A-0116      G-004    Dagger       \n 8 A-0055      G-005    Ring         \n 9 A-0428      &lt;NA&gt;     Dagger       \n10 A-0429      &lt;NA&gt;     Needle"
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#inner-join-1",
+    "href": "lect/w04/slides_joins.html#inner-join-1",
+    "title": "Intro & Joining tables",
+    "section": "Inner join",
+    "text": "Inner join\n\ninner_join(graves, artefacts, join_by(grave_id))\n\n# A tibble: 8 × 5\n  grave_id burial     mound_present artefact_id artefact_type\n  &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        \n1 G-001    missing    FALSE         A-0076      Whetstone    \n2 G-001    missing    FALSE         A-0135      Arrowhead    \n3 G-002    inhumation FALSE         A-0187      Quern stone  \n4 G-003    inhumation TRUE          A-0040      Ring         \n5 G-003    inhumation TRUE          A-0181      Needle       \n6 G-003    inhumation TRUE          A-0213      Brooch       \n7 G-004    cremation  FALSE         A-0116      Dagger       \n8 G-005    cremation  FALSE         A-0055      Ring"
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#full-join-1",
+    "href": "lect/w04/slides_joins.html#full-join-1",
+    "title": "Intro & Joining tables",
+    "section": "Full join",
+    "text": "Full join\n\nfull_join(graves, artefacts)\n\n# A tibble: 11 × 5\n   grave_id burial     mound_present artefact_id artefact_type\n   &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        \n 1 G-001    missing    FALSE         A-0076      Whetstone    \n 2 G-001    missing    FALSE         A-0135      Arrowhead    \n 3 G-002    inhumation FALSE         A-0187      Quern stone  \n 4 G-003    inhumation TRUE          A-0040      Ring         \n 5 G-003    inhumation TRUE          A-0181      Needle       \n 6 G-003    inhumation TRUE          A-0213      Brooch       \n 7 G-004    cremation  FALSE         A-0116      Dagger       \n 8 G-005    cremation  FALSE         A-0055      Ring         \n 9 G-006    inhumation FALSE         &lt;NA&gt;        &lt;NA&gt;         \n10 &lt;NA&gt;     &lt;NA&gt;       NA            A-0428      Dagger       \n11 &lt;NA&gt;     &lt;NA&gt;       NA            A-0429      Needle"
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#left-join-graves---artefacts",
+    "href": "lect/w04/slides_joins.html#left-join-graves---artefacts",
+    "title": "Intro & Joining tables",
+    "section": "Left join graves -> artefacts",
+    "text": "Left join graves -&gt; artefacts\n\ngraves |&gt; \n  left_join(artefacts)\n\n# A tibble: 9 × 5\n  grave_id burial     mound_present artefact_id artefact_type\n  &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        \n1 G-001    missing    FALSE         A-0076      Whetstone    \n2 G-001    missing    FALSE         A-0135      Arrowhead    \n3 G-002    inhumation FALSE         A-0187      Quern stone  \n4 G-003    inhumation TRUE          A-0040      Ring         \n5 G-003    inhumation TRUE          A-0181      Needle       \n6 G-003    inhumation TRUE          A-0213      Brooch       \n7 G-004    cremation  FALSE         A-0116      Dagger       \n8 G-005    cremation  FALSE         A-0055      Ring         \n9 G-006    inhumation FALSE         &lt;NA&gt;        &lt;NA&gt;"
+  },
+  {
+    "objectID": "lect/w04/slides_joins.html#left-join-artefacts---graves",
+    "href": "lect/w04/slides_joins.html#left-join-artefacts---graves",
+    "title": "Intro & Joining tables",
+    "section": "Left join artefacts -> graves",
+    "text": "Left join artefacts -&gt; graves\n\nartefacts |&gt; \n  left_join(graves)\n\n# A tibble: 10 × 5\n   artefact_id grave_id artefact_type burial     mound_present\n   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;lgl&gt;        \n 1 A-0076      G-001    Whetstone     missing    FALSE        \n 2 A-0135      G-001    Arrowhead     missing    FALSE        \n 3 A-0187      G-002    Quern stone   inhumation FALSE        \n 4 A-0040      G-003    Ring          inhumation TRUE         \n 5 A-0181      G-003    Needle        inhumation TRUE         \n 6 A-0213      G-003    Brooch        inhumation TRUE         \n 7 A-0116      G-004    Dagger        cremation  FALSE        \n 8 A-0055      G-005    Ring          cremation  FALSE        \n 9 A-0428      &lt;NA&gt;     Dagger        &lt;NA&gt;       NA           \n10 A-0429      &lt;NA&gt;     Needle        &lt;NA&gt;       NA           \n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Joins"
+  },
+  {
+    "objectID": "lect/w04/clust.html",
+    "href": "lect/w04/clust.html",
+    "title": "Clustering",
+    "section": "",
+    "text": "Broad set of techniques for finding subgroups.\nObservations within groups are quite similar to each other and observations in different groups quite different from each other.\n\n\n\n\nPartitioning: k-means clustering\nAgglomerative/divisive: hierarchical clustering\nModel-based: mixture models",
+    "crumbs": [
+      "Week 4",
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w04/clust.html#clustering",
+    "href": "lect/w04/clust.html#clustering",
+    "title": "Clustering",
+    "section": "",
+    "text": "Broad set of techniques for finding subgroups.\nObservations within groups are quite similar to each other and observations in different groups quite different from each other.\n\n\n\n\nPartitioning: k-means clustering\nAgglomerative/divisive: hierarchical clustering\nModel-based: mixture models",
+    "crumbs": [
+      "Week 4",
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w04/clust.html#k-means-clustering",
+    "href": "lect/w04/clust.html#k-means-clustering",
+    "title": "Clustering",
+    "section": "K-means clustering",
+    "text": "K-means clustering\n\nSimple approach to partitioning a data set into K distinct, non-overlapping clusters.\nK is specified beforehand.\n\n\n\n\nJames et al. 2013",
+    "crumbs": [
+      "Week 4",
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w04/clust.html#k-means-algorithm",
+    "href": "lect/w04/clust.html#k-means-algorithm",
+    "title": "Clustering",
+    "section": "K-means algorithm",
+    "text": "K-means algorithm\n\n\n\n\\(K\\) – number of clusters.\n\n\n\nThe process:\n\n\nRandomly assign each observation to groups 1 to K;\nFor each of K clusters, derive its centroid (midpoint);\nReassign each observation into a cluster whose centroid is the closest;\nIterate until stability in cluster assignments is reached (local vs global optima).\n\n\n\n\n\n\n\n\nJames et al. 2013",
+    "crumbs": [
+      "Week 4",
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w04/clust.html#some-properties-of-k-means-partitioning",
+    "href": "lect/w04/clust.html#some-properties-of-k-means-partitioning",
+    "title": "Clustering",
+    "section": "Some properties of K-means partitioning",
+    "text": "Some properties of K-means partitioning\n\n\n\nStandard algorithm for k-means clustering is using Euclidean distance (distances are calculated using Pythagorean theorem).\nDifferent local optima (stability) can be reached.\n\n\n\n\nNumber of clusters K must be specified in advance\nHow to determine optimal number of clusters?\n\nElbow method,\nSilhouette method",
+    "crumbs": [
+      "Week 4",
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w04/clust.html#hierarchical-clustering",
+    "href": "lect/w04/clust.html#hierarchical-clustering",
+    "title": "Clustering",
+    "section": "Hierarchical clustering",
+    "text": "Hierarchical clustering\n\n\n\nThe number of clusters is not specified beforehand.\nOutput is a dendrogram – a hierarchical structure visualizing the cluster growth.\nStarts with a distance matrix.\n\n\n\n\n\n\n\n\nAgglomerative\n\nBuilds the hierarchy of clusters from bottom-up until a single cluster is reached.\n\n\nPut each object in its own cluster;\nJoin the clusters that are the closest;\nIterate until a single cluster encompassing all objects is reached.\n\n\n\n\nDivisive\n\nDivides a single large cluster into individual objects (top-down).\n\n\nPut all objects into a single cluster;\nDivide the cluster into subclusters at a similar distance;\nIterate util all objects are in their own clusters.",
+    "crumbs": [
+      "Week 4",
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w04/clust.html#hierarchical-clustering-algorithms",
+    "href": "lect/w04/clust.html#hierarchical-clustering-algorithms",
+    "title": "Clustering",
+    "section": "Hierarchical clustering algorithms",
+    "text": "Hierarchical clustering algorithms",
+    "crumbs": [
+      "Week 4",
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w04/clust.html#clustering-methods-comparison",
+    "href": "lect/w04/clust.html#clustering-methods-comparison",
+    "title": "Clustering",
+    "section": "Clustering methods comparison",
+    "text": "Clustering methods comparison\n\n\n\nK-means partitioning\n\nPre-specified number of clusters.\nClusters may vary (different local optima).\nBest when groups in data are (hyper)spheres.\n\n\n\n\n\nHierarchical clustering\n\nVariable cluster numbers.\nClusters are stable.\nAny shape of data distribution.",
+    "crumbs": [
+      "Week 4",
+      "Clustering"
+    ]
+  },
+  {
+    "objectID": "lect/w04/slides_clust.html#clustering",
+    "href": "lect/w04/slides_clust.html#clustering",
+    "title": "Clustering",
+    "section": "Clustering",
+    "text": "Clustering\n\n\n\nBroad set of techniques for finding subgroups.\nObservations within groups are quite similar to each other and observations in different groups quite different from each other.\n\nClustering methods\n\nPartitioning: k-means clustering\nAgglomerative/divisive: hierarchical clustering\nModel-based: mixture models"
+  },
+  {
+    "objectID": "lect/w04/slides_clust.html#k-means-clustering",
+    "href": "lect/w04/slides_clust.html#k-means-clustering",
+    "title": "Clustering",
+    "section": "K-means clustering",
+    "text": "K-means clustering\n\nSimple approach to partitioning a data set into K distinct, non-overlapping clusters.\nK is specified beforehand.\n\n\nJames et al. 2013"
+  },
+  {
+    "objectID": "lect/w04/slides_clust.html#k-means-algorithm",
+    "href": "lect/w04/slides_clust.html#k-means-algorithm",
+    "title": "Clustering",
+    "section": "K-means algorithm",
+    "text": "K-means algorithm\n\n\n\n\\(K\\) – number of clusters.\n\n\n\nThe process:\n\n\nRandomly assign each observation to groups 1 to K;\nFor each of K clusters, derive its centroid (midpoint);\nReassign each observation into a cluster whose centroid is the closest;\nIterate until stability in cluster assignments is reached (local vs global optima).\n\n\n\n\n\n\n\nJames et al. 2013"
+  },
+  {
+    "objectID": "lect/w04/slides_clust.html#some-properties-of-k-means-partitioning",
+    "href": "lect/w04/slides_clust.html#some-properties-of-k-means-partitioning",
+    "title": "Clustering",
+    "section": "Some properties of K-means partitioning",
+    "text": "Some properties of K-means partitioning\n\n\n\nStandard algorithm for k-means clustering is using Euclidean distance (distances are calculated using Pythagorean theorem).\nDifferent local optima (stability) can be reached.\n\n\n\n\nNumber of clusters K must be specified in advance\nHow to determine optimal number of clusters?\n\nElbow method,\nSilhouette method"
+  },
+  {
+    "objectID": "lect/w04/slides_clust.html#hierarchical-clustering",
+    "href": "lect/w04/slides_clust.html#hierarchical-clustering",
+    "title": "Clustering",
+    "section": "Hierarchical clustering",
+    "text": "Hierarchical clustering\n\n\n\nThe number of clusters is not specified beforehand.\nOutput is a dendrogram – a hierarchical structure visualizing the cluster growth.\nStarts with a distance matrix.\n\n\n\n\n\n\n\nAgglomerative\n\nBuilds the hierarchy of clusters from bottom-up until a single cluster is reached.\n\n\nPut each object in its own cluster;\nJoin the clusters that are the closest;\nIterate until a single cluster encompassing all objects is reached.\n\n\nDivisive\n\nDivides a single large cluster into individual objects (top-down).\n\n\nPut all objects into a single cluster;\nDivide the cluster into subclusters at a similar distance;\nIterate util all objects are in their own clusters."
+  },
+  {
+    "objectID": "lect/w04/slides_clust.html#hierarchical-clustering-algorithms",
+    "href": "lect/w04/slides_clust.html#hierarchical-clustering-algorithms",
+    "title": "Clustering",
+    "section": "Hierarchical clustering algorithms",
+    "text": "Hierarchical clustering algorithms"
+  },
+  {
+    "objectID": "lect/w04/slides_clust.html#clustering-methods-comparison",
+    "href": "lect/w04/slides_clust.html#clustering-methods-comparison",
+    "title": "Clustering",
+    "section": "Clustering methods comparison",
+    "text": "Clustering methods comparison\n\n\nK-means partitioning\n\nPre-specified number of clusters.\nClusters may vary (different local optima).\nBest when groups in data are (hyper)spheres.\n\n\n\nHierarchical clustering\n\nVariable cluster numbers.\nClusters are stable.\nAny shape of data distribution.\n\n\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Clustering"
   },
   {
     "objectID": "lect/w03/transformation.html",
@@ -5216,6 +5562,586 @@
     "crumbs": [
       "Week 3",
       "Tidy data"
+    ]
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#introduction",
+    "href": "lect/w04/slides_ca.html#introduction",
+    "title": "Correspondence analysis",
+    "section": "Introduction",
+    "text": "Introduction\nIn this course, you will learn how to:\n\ndo quick correspondence analysis in R\ntransform your data from long format to wide format\nreplace NAs with 0\ncreate “tibble” type of tables from vectors\nvisualize the results of the correspondence analysis in ggplot()"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#correspondence-analysis-ca---what-is-it",
+    "href": "lect/w04/slides_ca.html#correspondence-analysis-ca---what-is-it",
+    "title": "Correspondence analysis",
+    "section": "Correspondence analysis (CA) - what is it?",
+    "text": "Correspondence analysis (CA) - what is it?\n\none of the multivariate statistical methods\nhelps you to explore similarities in your data\n\n\n\n\n\nimage from: https://cainarchaeology.weebly.com/\n\n\n\n\n\nthe above example shows how the biplot can be used to identify the similarities between different archaeological sites, based on the proportion of different ceramic types found there\nnote that there are two groups of data: archaeological sites and ceramic types\n“similarities are based on proportion…” means that we have counts of ceramic types for each site"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#correspondence-analysis-ca---what-do-i-need",
+    "href": "lect/w04/slides_ca.html#correspondence-analysis-ca---what-do-i-need",
+    "title": "Correspondence analysis",
+    "section": "Correspondence analysis (CA) - what do I need?",
+    "text": "Correspondence analysis (CA) - what do I need?\n\ndata in the form of a contingency table with the counts of two or more categorical variables\ntwo groups of data: one group in the rows, second in the columns\nexamples: graves in the rows and counts of their artefacts in the columns, sites and counts of ceramic types, archaeological layers and counts of the chipped stone industry,…\n“presence / absence” variables are also suitable but their values have to be replaced by 1 and 0\nNAs have to be replaced by 0"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#contingency-table",
+    "href": "lect/w04/slides_ca.html#contingency-table",
+    "title": "Correspondence analysis",
+    "section": "Contingency table",
+    "text": "Contingency table\n\nan example of a contingency table:\n\n\n\n\n\nimage from: Nikita 2020: INTRODUCTION TO STATISTICS USING R (for archaeologists)\n\n\n\n\n\nand the biplot showing the result of the CA\n\n\n\n\nimage from: Nikita 2020: INTRODUCTION TO STATISTICS USING R (for archaeologists)"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#doing-ca-on-artificial-archaeological-data",
+    "href": "lect/w04/slides_ca.html#doing-ca-on-artificial-archaeological-data",
+    "title": "Correspondence analysis",
+    "section": "Doing CA on artificial archaeological data",
+    "text": "Doing CA on artificial archaeological data\nPrerequisites\nPackages:\n\nhere, dplyr, tidyr, ca,tibble, ggplot2\n\nData:\n\ndatabase “eneol_bronze_burials.csv”\n\nStart:\n\nopen your R Project, create a new script file\nload packages here, dplyr, tidyr, ggplot2\ninstall and load packages ca and tibble\nimport the data “eneol_bronze_burials.csv” into R\nobserve data - what is in rows? what are the variables?"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#ca---start",
+    "href": "lect/w04/slides_ca.html#ca---start",
+    "title": "Correspondence analysis",
+    "section": "CA - start",
+    "text": "CA - start\n\ninstall new packages\n\n\n\ninstall.packages(\"ca\")\ninstall.packages(\"tibble\")\n\n\n\n\nload the packages\n\n\n\n\nlibrary(here)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(tibble)\nlibrary(ggplot2)\nlibrary(ca)\n\n\n\n\nimport the data\n\n\n\n\ndf_graves &lt;- read.csv(here(\"lect/w04/data/burials.csv\"))\n\n\n\n\nobserve the data:\n\n\n\n\ndf_graves |&gt; \n  arrange(grave_number) |&gt; head(8)\n\n  grave_number dating    sex artefact_type artefact_count artefact_material\n1          900 en.zvo   male        beaker              3          ceramics\n2          900 en.zvo   male     dartpoint              5           lithics\n3          900 en.zvo   male    wristguard              1           lithics\n4          900 en.zvo   male        dagger              1            copper\n5          900 en.zvo   male           axe              1            copper\n6          900 en.zvo   male          bowl              1          ceramics\n7          901 en.zvo female        beaker              1          ceramics\n8          901 en.zvo female     dartpoint              2           lithics\n\n\n\n\n\nstr(df_graves)\n\n'data.frame':   230 obs. of  6 variables:\n $ grave_number     : int  900 901 902 903 904 905 906 907 908 909 ...\n $ dating           : chr  \"en.zvo\" \"en.zvo\" \"en.zvo\" \"en.zvo\" ...\n $ sex              : chr  \"male\" \"female\" \"male\" \"female\" ...\n $ artefact_type    : chr  \"beaker\" \"beaker\" \"beaker\" \"beaker\" ...\n $ artefact_count   : int  3 1 1 1 1 1 1 2 1 1 ...\n $ artefact_material: chr  \"ceramics\" \"ceramics\" \"ceramics\" \"ceramics\" ..."
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#research-questions",
+    "href": "lect/w04/slides_ca.html#research-questions",
+    "title": "Correspondence analysis",
+    "section": "Research questions",
+    "text": "Research questions\n\nare there differences between artefacts in different dating periods?\nare there differences between the sexes?\nare there any similar groups of graves?\n\n\n\nto answer the question, we will use correspondence analysis to observe similarities between graves (first group of data) based on similarities in proportion of their artefacts (second group of data)\n\n\n\n\nkeep in mind that this database is artificial and for teaching purposes only. Although it might, to some extent, resemble real archaeological data, some aspect were purposely modified to better illustrate the logic of the correspondence analysis"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#tidying-data",
+    "href": "lect/w04/slides_ca.html#tidying-data",
+    "title": "Correspondence analysis",
+    "section": "Tidying data",
+    "text": "Tidying data\n\nwe see that all artefacts are stored in the variable “artefact_type” and their count in “artefact_count”\nthis table is a type of “long table”, which we were discussing in the last lecture\nto do a correspondence analysis, we need to transform this table into so called “wide table”, where one observation will be one grave, and each type of artefact will be one variable\nin other words, we need to have a table where:\n\none group of data is in rows - in this case graves\nsecond group of data is in columns - in this case the counts of artefact types"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#widening-data-with-tidyrpivot_wider",
+    "href": "lect/w04/slides_ca.html#widening-data-with-tidyrpivot_wider",
+    "title": "Correspondence analysis",
+    "section": "widening data with tidyr::pivot_wider()",
+    "text": "widening data with tidyr::pivot_wider()\n\nremember the function pivot_longer() from the tidyr package? Now we will use its reverse sister pivot_wider()\nsyntax within the pipeline:\ndf |&gt; pivot_wider(names_from = , values_from = )\nnames_from - defines the column from which the new variables will be created (e.i. the values in this column will become variables)\nvalues_from - defines from which column the count values will be taken\n\n\n\ndf_graves_wide &lt;- df_graves |&gt; \n   select(-artefact_material) |&gt; \n   pivot_wider(\n    names_from = artefact_type,\n    values_from = artefact_count\n  )\n\n\nnote that we have removed the variable “artefact_material”\n\n\n\n\nhead(df_graves_wide)\n\n# A tibble: 6 × 15\n  grave_number dating sex   beaker dartpoint wristguard dagger   axe  bowl  beam\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;     &lt;int&gt;      &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n1          900 en.zvo male       3         5          1      1     1     1    NA\n2          901 en.zvo fema…      1         2          1     NA    NA     1     2\n3          902 en.zvo male       1         2          1     NA    NA     1    NA\n4          903 en.zvo fema…      1         2          1     NA    NA     1     2\n5          904 en.zvo male       1         2          1     NA    NA     1    NA\n6          905 en.zvo fema…      1         2          1     NA    NA     1     3\n# ℹ 5 more variables: beam_amber &lt;int&gt;, koflik &lt;int&gt;, bracelet_bronze &lt;int&gt;,\n#   needle &lt;int&gt;, spear &lt;int&gt;"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#dealing-with-nas",
+    "href": "lect/w04/slides_ca.html#dealing-with-nas",
+    "title": "Correspondence analysis",
+    "section": "Dealing with NAs",
+    "text": "Dealing with NAs\n\nnow we have to deal with the NAs and turn them into 0\nwe will use function dplyr::mutate() because we want to change specific values based on specific conditions\n\n\n\ndf_graves_wide &lt;- df_graves_wide |&gt; \n  mutate(\n    across(beaker:spear, ~ replace_na(.x, 0))\n  )\n\nhead(df_graves_wide)\n\n# A tibble: 6 × 15\n  grave_number dating sex   beaker dartpoint wristguard dagger   axe  bowl  beam\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;     &lt;int&gt;      &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n1          900 en.zvo male       3         5          1      1     1     1     0\n2          901 en.zvo fema…      1         2          1      0     0     1     2\n3          902 en.zvo male       1         2          1      0     0     1     0\n4          903 en.zvo fema…      1         2          1      0     0     1     2\n5          904 en.zvo male       1         2          1      0     0     1     0\n6          905 en.zvo fema…      1         2          1      0     0     1     3\n# ℹ 5 more variables: beam_amber &lt;int&gt;, koflik &lt;int&gt;, bracelet_bronze &lt;int&gt;,\n#   needle &lt;int&gt;, spear &lt;int&gt;"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#calculating-ca-with-the-function-ca",
+    "href": "lect/w04/slides_ca.html#calculating-ca-with-the-function-ca",
+    "title": "Correspondence analysis",
+    "section": "Calculating CA with the function ca()",
+    "text": "Calculating CA with the function ca()\n\nwe can conduct the correspondence analysis with the function ca::ca()\nNOTE that the CA can be done only on columns with integer data\nto proceed, we first need to select the columns with artefact counts, and then run the ca() function\nwe will incorporate the ca() into the pipe\nin this stage it is usefull to use colnames() function to see the column names\nin order to CA to work, the sum of each row and column must be greater than zero\n\n\ncolnames(df_graves_wide)\n\n [1] \"grave_number\"    \"dating\"          \"sex\"             \"beaker\"         \n [5] \"dartpoint\"       \"wristguard\"      \"dagger\"          \"axe\"            \n [9] \"bowl\"            \"beam\"            \"beam_amber\"      \"koflik\"         \n[13] \"bracelet_bronze\" \"needle\"          \"spear\"          \n\n\n\n\nnow we will define which columns to keep for analysis, incorporate the ca() function into the pipe and store the result as “ca_result”\n\n\nca_result &lt;- df_graves_wide |&gt; \n  select(beaker:spear) |&gt; \n  ca()"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#visualising-ca-result-with-plot",
+    "href": "lect/w04/slides_ca.html#visualising-ca-result-with-plot",
+    "title": "Correspondence analysis",
+    "section": "visualising CA result with plot()",
+    "text": "visualising CA result with plot()\n\nto quickly visualize the result, we will use the R base function plot() and create the so called biplot:\n\n\n\nplot(ca_result)\n\n\n\n\n\n\n\n\n\n\n\nthis biplot is basicaly a scatterplot\nfirst group of data - graves - are represented as blue dots, second group - artefacts - are represented as red triangles\neach grave and each artefact has it’s own coordinates\nthe closer the graves or artefacts are to each other, the more similar they are"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#observing-the-results-structure",
+    "href": "lect/w04/slides_ca.html#observing-the-results-structure",
+    "title": "Correspondence analysis",
+    "section": "Observing the results structure",
+    "text": "Observing the results structure\n\nat this stage, we cannot use our beloved ggplot2() function because it works only with dataframes or tables, and the result of the CA is not a dataframe but a list:\n\n\nstr(ca_result)\n\nList of 16\n $ sv        : num [1:11] 0.715 0.555 0.426 0.302 0.28 ...\n $ nd        : logi NA\n $ rownames  : NULL\n $ rowmass   : num [1:50] 0.0345 0.023 0.0144 0.0201 0.0144 ...\n $ rowdist   : num [1:50] 1.04 0.795 0.811 0.811 0.811 ...\n $ rowinertia: num [1:50] 0.03727 0.01451 0.00944 0.01322 0.00944 ...\n $ rowcoord  : num [1:50, 1:11] -0.594 -0.582 -0.565 -0.997 -0.565 ...\n  ..- attr(*, \"dimnames\")=List of 2\n  .. ..$ : NULL\n  .. ..$ : chr [1:11] \"Dim1\" \"Dim2\" \"Dim3\" \"Dim4\" ...\n $ rowsup    : logi(0) \n $ colnames  : chr [1:12] \"beaker\" \"dartpoint\" \"wristguard\" \"dagger\" ...\n $ colmass   : num [1:12] 0.0948 0.2989 0.1063 0.0115 0.0603 ...\n $ coldist   : num [1:12] 1.03 0.405 0.712 2.42 1.336 ...\n $ colinertia: num [1:12] 0.1006 0.0491 0.0539 0.0673 0.1077 ...\n $ colcoord  : num [1:12, 1:11] -1.127 -0.211 -0.578 -0.954 0.761 ...\n  ..- attr(*, \"dimnames\")=List of 2\n  .. ..$ : chr [1:12] \"beaker\" \"dartpoint\" \"wristguard\" \"dagger\" ...\n  .. ..$ : chr [1:11] \"Dim1\" \"Dim2\" \"Dim3\" \"Dim4\" ...\n $ colsup    : logi(0) \n $ N         : int [1:50, 1:12] 3 1 1 1 1 1 1 2 1 1 ...\n $ call      : language ca.matrix(obj = as.matrix(obj))\n - attr(*, \"class\")= chr \"ca\"\n\n\n\nyou can see that this is not a dataframe, but a so called “list” with much complicated structure"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#observing-the-results-structure-2",
+    "href": "lect/w04/slides_ca.html#observing-the-results-structure-2",
+    "title": "Correspondence analysis",
+    "section": "Observing the results structure 2",
+    "text": "Observing the results structure 2\nAnd it looks like this:\n\nca_result\n\n\n Principal inertias (eigenvalues):\n           1        2        3        4        5        6        7       \nValue      0.511633 0.307624 0.181845 0.091006 0.078339 0.059623 0.033804\nPercentage 38.58%   23.2%    13.71%   6.86%    5.91%    4.5%     2.55%   \n           8        9        10       11      \nValue      0.027614 0.022635 0.010099 0.001813\nPercentage 2.08%    1.71%    0.76%    0.14%   \n\n\n Rows:\n             [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]\nMass     0.034483  0.022989  0.014368  0.020115  0.014368  0.022989  0.008621\nChiDist  1.039607  0.794512  0.810642  0.810643  0.810642  1.022514  1.260380\nInertia  0.037268  0.014511  0.009442  0.013218  0.009442  0.024035  0.013694\nDim. 1  -0.594280 -0.582023 -0.565171 -0.997440 -0.565171 -1.132524 -0.892933\nDim. 2  -0.618500  0.882143 -0.269234  0.480842 -0.269234  0.715240 -0.386827\n             [,8]      [,9]     [,10]     [,11]     [,12]     [,13]     [,14]\nMass     0.031609  0.017241  0.014368  0.025862  0.014368  0.008621  0.020115\nChiDist  1.020069  0.653439  0.810642  1.214695  0.810642  1.260380  0.810643\nInertia  0.032891  0.007362  0.009442  0.038159  0.009442  0.013694  0.013218\nDim. 1  -0.505019 -0.817328 -0.565171 -1.237589 -0.565171 -0.892933 -0.997440\nDim. 2  -0.684581  0.168310 -0.269234  0.897550 -0.269234 -0.386827  0.480842\n            [,15]     [,16]     [,17]     [,18]     [,19]     [,20]     [,21]\nMass     0.031609  0.057471  0.022989  0.022989  0.008621  0.014368  0.022989\nChiDist  1.020069  1.164693  1.022514  1.022514  1.260380  0.810642  0.805052\nInertia  0.032891  0.077960  0.024035  0.024035  0.013694  0.009442  0.014899\nDim. 1  -0.505019 -1.124728 -1.132524 -1.132524 -0.892933 -0.565171 -0.854313\nDim. 2  -0.684581  0.926668  0.715240  0.715240 -0.386827 -0.269234  0.481463\n            [,22]     [,23]     [,24]     [,25]     [,26]     [,27]     [,28]\nMass     0.014368  0.022989  0.014368  0.008621  0.020115  0.008621  0.045977\nChiDist  0.810642  1.022514  0.810642  1.260380  0.810643  1.260380  1.528425\nInertia  0.009442  0.024035  0.009442  0.013694  0.013218  0.013694  0.107406\nDim. 1  -0.565171 -1.132524 -0.565171 -0.892933 -0.997440 -0.892933  1.013292\nDim. 2  -0.269234  0.715240 -0.269234 -0.386827  0.480842 -0.386827 -1.436801\n           [,29]     [,30]     [,31]    [,32]     [,33]    [,34]     [,35]\nMass    0.020115  0.031609  0.002874 0.014368  0.017241 0.017241  0.043103\nChiDist 1.720234  1.029241  1.531716 1.286873  0.814505 1.567031  1.127401\nInertia 0.059524  0.033485  0.006742 0.023794  0.011438 0.042338  0.054786\nDim. 1  1.754818  0.539908 -0.294629 1.401986  0.282946 1.659640  0.762122\nDim. 2  1.958447 -1.253150 -0.671498 1.213833 -1.042592 1.669647 -1.452072\n           [,36]     [,37]     [,38]    [,39]    [,40]    [,41]    [,42]\nMass    0.017241  0.002874  0.034483 0.022989 0.028736 0.020115 0.025862\nChiDist 1.567031  1.531716  0.999467 1.748814 1.140247 2.130126 0.990176\nInertia 0.042338  0.006742  0.034446 0.070307 0.037361 0.091270 0.025356\nDim. 1  1.659640 -0.294629  0.673294 1.880786 1.224527 1.524143 1.102153\nDim. 2  1.669647 -0.671498 -1.359819 1.429176 0.902438 0.106477 0.592570\n            [,43]     [,44]    [,45]     [,46]     [,47]     [,48]    [,49]\nMass     0.002874  0.017241 0.020115  0.037356  0.002874  0.017241 0.014368\nChiDist  1.531716  0.814505 1.426285  1.092480  1.531716  0.814505 1.286873\nInertia  0.006742  0.011438 0.040920  0.044585  0.006742  0.011438 0.023794\nDim. 1  -0.294629  0.282946 1.443630  0.703363 -0.294629  0.282946 1.401986\nDim. 2  -0.671498 -1.042592 1.500527 -1.517977 -0.671498 -1.042592 1.213833\n            [,50]\nMass     0.002874\nChiDist  1.531716\nInertia  0.006742\nDim. 1  -0.294629\nDim. 2  -0.671498\n\n\n Columns:\n           beaker dartpoint wristguard    dagger       axe     bowl      beam\nMass     0.094828  0.298851   0.106322  0.011494  0.060345 0.123563  0.100575\nChiDist  1.030170  0.405361   0.712256  2.419617  1.335676 0.483134  1.584578\nInertia  0.100636  0.049106   0.053938  0.067294  0.107657 0.028842  0.252532\nDim. 1  -1.127400 -0.210744  -0.577961 -0.953831  0.761197 0.105557 -1.486444\nDim. 2   0.060119 -0.372439  -0.331328 -0.478237 -1.894577 0.269450  1.306746\n        beam_amber    koflik bracelet_bronze   needle     spear\nMass      0.051724  0.080460        0.025862 0.043103  0.002874\nChiDist   2.066809  1.185859        2.213668 1.837746  4.555217\nInertia   0.220950  0.113148        0.126733 0.145574  0.059626\nDim. 1    2.108594  1.347019        1.531099 1.663676  1.416626\nDim. 2    2.190109 -0.768237       -1.405001 2.047311 -2.590517\n\n\n\nnote that there are two types of data: rows and columns. Can you tell which group of data they represent?"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#visualising-ca-result-with-ggplot",
+    "href": "lect/w04/slides_ca.html#visualising-ca-result-with-ggplot",
+    "title": "Correspondence analysis",
+    "section": "Visualising CA result with ggplot()",
+    "text": "Visualising CA result with ggplot()\n\nggplot() works only with data in table format, so we need to do some preparations first\nfor each group of data (graves and artefacts), we need a separate table with coordinates\nluckily for us, we can easily extract coordinates in the form of a vector from the CA result\n\nProcedure:\n\nextract the coordinates of both graves and artefacts from the CA result and store them in a vector\ncreate two tables, one for graves and the other for artefacts, both of which should include coordinates and identifiers (e.g. ID, grave name, artefact name). Other variables could be added as well\nplot each table in ggplot() in its own geom_point() layer"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#extracting-coordinates",
+    "href": "lect/w04/slides_ca.html#extracting-coordinates",
+    "title": "Correspondence analysis",
+    "section": "1. Extracting coordinates:",
+    "text": "1. Extracting coordinates:\n\nsince the graves are stored in the rows of the original table, their coordinates are stored in rowcoord of the CA result\nsimilarly, the coordinates of artifacts (columns) are stored in colcoord\nwith [,1] and [,2] we can subset the coordinates in the first and second dimension, respectively\n\n\n\ncoord_grave_1 &lt;- ca_result$rowcoord[,1]\ncoord_grave_2 &lt;- ca_result$rowcoord[,2]\ncoord_artefact_1 &lt;- ca_result$colcoord[,1]\ncoord_artefact_2 &lt;- ca_result$colcoord[,2]"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#table-with-graves",
+    "href": "lect/w04/slides_ca.html#table-with-graves",
+    "title": "Correspondence analysis",
+    "section": "2.1 Table with graves",
+    "text": "2.1 Table with graves\n\nwe can adjust existing table “df_grave_wide”, which is already a table with graves, by adding coordinates and then by selecting only those variables we need\nwith mutate() we can add external vectors into the existing table. Just keep in mind the vectors must have same number of objects as the table has rows\nwith select() we can select variables we need: coordinates, identifier, sex and dating\n\n\n\ntable_graves &lt;- df_graves_wide %&gt;% \n  mutate(coord_grave_1,\n         coord_grave_2) %&gt;% \n  select(dating, sex, coord_grave_1, coord_grave_2, grave_number)\n\n\n\n\n\n# A tibble: 4 × 5\n  dating sex    coord_grave_1 coord_grave_2 grave_number\n  &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;\n1 en.zvo male          -0.594        -0.619          900\n2 en.zvo female        -0.582         0.882          901\n3 en.zvo male          -0.565        -0.269          902\n4 en.zvo female        -0.997         0.481          903\n\n\n\n\n\nQuick plot:\n\nlibrary(ggplot2)\nggplot()+\n  geom_point(data = table_graves, aes(x = coord_grave_1, y = coord_grave_2))"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#table-with-artefacts---function-tidyrtibble",
+    "href": "lect/w04/slides_ca.html#table-with-artefacts---function-tidyrtibble",
+    "title": "Correspondence analysis",
+    "section": "2.2 Table with artefacts - function tidyr::tibble()",
+    "text": "2.2 Table with artefacts - function tidyr::tibble()\n\nnow it is little bit more complicated, because we need to create a new table for the artefacts. Each row will be one type of artefact and the variables will be their coordinates\ntidyr::tibble() creates a “tibble” which is a type of dataframe and works well with tidy data\n\n\n\nhere, tibble() binds together 2 vectors with the coordinates together with the third vector “artefact”, that consists of artefact names. These names are extracted by colnames() from the names of the columns defined by select()\n\n\ntable_artefacts &lt;- tibble(\n  coord_artefact_1,\n  coord_artefact_2,\n  artefact = df_graves_wide |&gt; \n    select(beaker:spear) |&gt; \n    colnames()\n)\n\n\n\n\nhead(table_artefacts, 6)\n\n# A tibble: 6 × 3\n  coord_artefact_1 coord_artefact_2 artefact  \n             &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;     \n1           -1.13            0.0601 beaker    \n2           -0.211          -0.372  dartpoint \n3           -0.578          -0.331  wristguard\n4           -0.954          -0.478  dagger    \n5            0.761          -1.89   axe       \n6            0.106           0.269  bowl      \n\n\n\n\n\nquick plot\n\nggplot()+\n  geom_point(data = table_artefacts, aes(x=coord_artefact_1, y = coord_artefact_2))"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#and-finaly---the-ggplot",
+    "href": "lect/w04/slides_ca.html#and-finaly---the-ggplot",
+    "title": "Correspondence analysis",
+    "section": "3. and finaly - the ggplot()",
+    "text": "3. and finaly - the ggplot()\n\nhere, we are visualising each table in a separate geom_point()\n\n\nggplot()+\n  geom_point(data = table_graves, \n             aes(x = coord_grave_1, y = coord_grave_2, color = dating), \n             shape = 16, size = 2)+\n  geom_point(data = table_artefacts, \n             aes(x = coord_artefact_1, y = coord_artefact_2), \n             shape = 17, size = 2)+\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#adjusting-the-plot",
+    "href": "lect/w04/slides_ca.html#adjusting-the-plot",
+    "title": "Correspondence analysis",
+    "section": "Adjusting the plot",
+    "text": "Adjusting the plot\n\ntry to identify what is happening in each layer of the ggplot() and play a bit with the settings:\n\n\neigenvalue_1 &lt;- 38.58\neigenvalue_2 &lt;- 23.2\n\n\nggplot()+\n  geom_hline(yintercept = 0,\n             color = \"gray50\",\n             linetype = \"dashed\",\n             linewidth = 0.5)+\n  geom_vline(xintercept = 0,\n             color = \"gray50\", \n             linetype = \"dashed\",\n             linewidth = 0.5)+\n  geom_point(data = table_graves, \n             aes(x = coord_grave_1, y = coord_grave_2, color = dating, fill = dating, shape = sex), \n             alpha = 0.5, \n             size = 2)+\n  geom_point(data = table_artefacts, \n             aes(x = coord_artefact_1, y = coord_artefact_2), \n             shape = 4, \n             size = 2)+\n  geom_text(data = table_artefacts,\n            aes(label = artefact, x=coord_artefact_1, y=coord_artefact_2), \n            vjust = -1.5,\n            size = 3)+\n  scale_shape_manual(values = c(\"male\" = 22, \"female\" = 25, \"child\" = 21))+\n  xlim(-1.55, 2.4)+\n  ylim(-2.6, 2.6)+\n  labs(x = paste0(\"dimension 1 (\", eigenvalue_1,\" %)\"),\n       y = paste0(\"dimension 2 (\", eigenvalue_2,\" %)\"),\n       title = \"Correspondence analysis\")+\n  theme_light()"
+  },
+  {
+    "objectID": "lect/w04/slides_ca.html#interpretation",
+    "href": "lect/w04/slides_ca.html#interpretation",
+    "title": "Correspondence analysis",
+    "section": "Interpretation",
+    "text": "Interpretation\n\n\nlet’s have a look at the plot again and try to answer the research questions:\n\nare there differences between artefacts in different dating periods?\nare there differences between sexes?\nare there any similar groups of graves?\n\n\n\n\n\nAES_707 Statistics seminar for archaeologists | Correspondence analysis"
+  },
+  {
+    "objectID": "lect/w04/ca.html",
+    "href": "lect/w04/ca.html",
+    "title": "Correspondence analysis",
+    "section": "",
+    "text": "In this course, you will learn how to:\n\ndo quick correspondence analysis in R\ntransform your data from long format to wide format\nreplace NAs with 0\ncreate “tibble” type of tables from vectors\nvisualize the results of the correspondence analysis in ggplot()",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#introduction",
+    "href": "lect/w04/ca.html#introduction",
+    "title": "Correspondence analysis",
+    "section": "",
+    "text": "In this course, you will learn how to:\n\ndo quick correspondence analysis in R\ntransform your data from long format to wide format\nreplace NAs with 0\ncreate “tibble” type of tables from vectors\nvisualize the results of the correspondence analysis in ggplot()",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#correspondence-analysis-ca---what-is-it",
+    "href": "lect/w04/ca.html#correspondence-analysis-ca---what-is-it",
+    "title": "Correspondence analysis",
+    "section": "Correspondence analysis (CA) - what is it?",
+    "text": "Correspondence analysis (CA) - what is it?\n\none of the multivariate statistical methods\nhelps you to explore similarities in your data\n\n\n\n\n\nimage from: https://cainarchaeology.weebly.com/\n\n\n\n\n\nthe above example shows how the biplot can be used to identify the similarities between different archaeological sites, based on the proportion of different ceramic types found there\nnote that there are two groups of data: archaeological sites and ceramic types\n“similarities are based on proportion…” means that we have counts of ceramic types for each site",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#correspondence-analysis-ca---what-do-i-need",
+    "href": "lect/w04/ca.html#correspondence-analysis-ca---what-do-i-need",
+    "title": "Correspondence analysis",
+    "section": "Correspondence analysis (CA) - what do I need?",
+    "text": "Correspondence analysis (CA) - what do I need?\n\ndata in the form of a contingency table with the counts of two or more categorical variables\ntwo groups of data: one group in the rows, second in the columns\nexamples: graves in the rows and counts of their artefacts in the columns, sites and counts of ceramic types, archaeological layers and counts of the chipped stone industry,…\n“presence / absence” variables are also suitable but their values have to be replaced by 1 and 0\nNAs have to be replaced by 0",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#contingency-table",
+    "href": "lect/w04/ca.html#contingency-table",
+    "title": "Correspondence analysis",
+    "section": "Contingency table",
+    "text": "Contingency table\n\nan example of a contingency table:\n\n\n\n\n\nimage from: Nikita 2020: INTRODUCTION TO STATISTICS USING R (for archaeologists)\n\n\n\n\n\nand the biplot showing the result of the CA\n\n\n\n\nimage from: Nikita 2020: INTRODUCTION TO STATISTICS USING R (for archaeologists)",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#doing-ca-on-artificial-archaeological-data",
+    "href": "lect/w04/ca.html#doing-ca-on-artificial-archaeological-data",
+    "title": "Correspondence analysis",
+    "section": "Doing CA on artificial archaeological data",
+    "text": "Doing CA on artificial archaeological data\n\nPrerequisites\n\nPackages:\n\nhere, dplyr, tidyr, ca,tibble, ggplot2\n\n\n\nData:\n\ndatabase “eneol_bronze_burials.csv”\n\n\n\nStart:\n\nopen your R Project, create a new script file\nload packages here, dplyr, tidyr, ggplot2\ninstall and load packages ca and tibble\nimport the data “eneol_bronze_burials.csv” into R\nobserve data - what is in rows? what are the variables?",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#ca---start",
+    "href": "lect/w04/ca.html#ca---start",
+    "title": "Correspondence analysis",
+    "section": "CA - start",
+    "text": "CA - start\n\ninstall new packages\n\n\n\ninstall.packages(\"ca\")\ninstall.packages(\"tibble\")\n\n\n\n\nload the packages\n\n\n\n\nlibrary(here)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(tibble)\nlibrary(ggplot2)\nlibrary(ca)\n\n\n\n\nimport the data\n\n\n\n\ndf_graves &lt;- read.csv(here(\"lect/w04/data/burials.csv\"))\n\n\n\n\nobserve the data:\n\n\n\n\ndf_graves |&gt; \n  arrange(grave_number) |&gt; head(8)\n\n  grave_number dating    sex artefact_type artefact_count artefact_material\n1          900 en.zvo   male        beaker              3          ceramics\n2          900 en.zvo   male     dartpoint              5           lithics\n3          900 en.zvo   male    wristguard              1           lithics\n4          900 en.zvo   male        dagger              1            copper\n5          900 en.zvo   male           axe              1            copper\n6          900 en.zvo   male          bowl              1          ceramics\n7          901 en.zvo female        beaker              1          ceramics\n8          901 en.zvo female     dartpoint              2           lithics\n\n\n\n\n\nstr(df_graves)\n\n'data.frame':   230 obs. of  6 variables:\n $ grave_number     : int  900 901 902 903 904 905 906 907 908 909 ...\n $ dating           : chr  \"en.zvo\" \"en.zvo\" \"en.zvo\" \"en.zvo\" ...\n $ sex              : chr  \"male\" \"female\" \"male\" \"female\" ...\n $ artefact_type    : chr  \"beaker\" \"beaker\" \"beaker\" \"beaker\" ...\n $ artefact_count   : int  3 1 1 1 1 1 1 2 1 1 ...\n $ artefact_material: chr  \"ceramics\" \"ceramics\" \"ceramics\" \"ceramics\" ...",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#research-questions",
+    "href": "lect/w04/ca.html#research-questions",
+    "title": "Correspondence analysis",
+    "section": "Research questions",
+    "text": "Research questions\n\nare there differences between artefacts in different dating periods?\nare there differences between the sexes?\nare there any similar groups of graves?\n\n\n\nto answer the question, we will use correspondence analysis to observe similarities between graves (first group of data) based on similarities in proportion of their artefacts (second group of data)\n\n\n\n\nkeep in mind that this database is artificial and for teaching purposes only. Although it might, to some extent, resemble real archaeological data, some aspect were purposely modified to better illustrate the logic of the correspondence analysis",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#tidying-data",
+    "href": "lect/w04/ca.html#tidying-data",
+    "title": "Correspondence analysis",
+    "section": "Tidying data",
+    "text": "Tidying data\n\nwe see that all artefacts are stored in the variable “artefact_type” and their count in “artefact_count”\nthis table is a type of “long table”, which we were discussing in the last lecture\nto do a correspondence analysis, we need to transform this table into so called “wide table”, where one observation will be one grave, and each type of artefact will be one variable\nin other words, we need to have a table where:\n\none group of data is in rows - in this case graves\nsecond group of data is in columns - in this case the counts of artefact types",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#widening-data-with-tidyrpivot_wider",
+    "href": "lect/w04/ca.html#widening-data-with-tidyrpivot_wider",
+    "title": "Correspondence analysis",
+    "section": "widening data with tidyr::pivot_wider()",
+    "text": "widening data with tidyr::pivot_wider()\n\nremember the function pivot_longer() from the tidyr package? Now we will use its reverse sister pivot_wider()\nsyntax within the pipeline:\ndf |&gt; pivot_wider(names_from = , values_from = )\nnames_from - defines the column from which the new variables will be created (e.i. the values in this column will become variables)\nvalues_from - defines from which column the count values will be taken\n\n\n\ndf_graves_wide &lt;- df_graves |&gt; \n   select(-artefact_material) |&gt; \n   pivot_wider(\n    names_from = artefact_type,\n    values_from = artefact_count\n  )\n\n\nnote that we have removed the variable “artefact_material”\n\n\n\n\nhead(df_graves_wide)\n\n# A tibble: 6 × 15\n  grave_number dating sex   beaker dartpoint wristguard dagger   axe  bowl  beam\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;     &lt;int&gt;      &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n1          900 en.zvo male       3         5          1      1     1     1    NA\n2          901 en.zvo fema…      1         2          1     NA    NA     1     2\n3          902 en.zvo male       1         2          1     NA    NA     1    NA\n4          903 en.zvo fema…      1         2          1     NA    NA     1     2\n5          904 en.zvo male       1         2          1     NA    NA     1    NA\n6          905 en.zvo fema…      1         2          1     NA    NA     1     3\n# ℹ 5 more variables: beam_amber &lt;int&gt;, koflik &lt;int&gt;, bracelet_bronze &lt;int&gt;,\n#   needle &lt;int&gt;, spear &lt;int&gt;",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#dealing-with-nas",
+    "href": "lect/w04/ca.html#dealing-with-nas",
+    "title": "Correspondence analysis",
+    "section": "Dealing with NAs",
+    "text": "Dealing with NAs\n\nnow we have to deal with the NAs and turn them into 0\nwe will use function dplyr::mutate() because we want to change specific values based on specific conditions\n\n\n\ndf_graves_wide &lt;- df_graves_wide |&gt; \n  mutate(\n    across(beaker:spear, ~ replace_na(.x, 0))\n  )\n\nhead(df_graves_wide)\n\n# A tibble: 6 × 15\n  grave_number dating sex   beaker dartpoint wristguard dagger   axe  bowl  beam\n         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;     &lt;int&gt;      &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n1          900 en.zvo male       3         5          1      1     1     1     0\n2          901 en.zvo fema…      1         2          1      0     0     1     2\n3          902 en.zvo male       1         2          1      0     0     1     0\n4          903 en.zvo fema…      1         2          1      0     0     1     2\n5          904 en.zvo male       1         2          1      0     0     1     0\n6          905 en.zvo fema…      1         2          1      0     0     1     3\n# ℹ 5 more variables: beam_amber &lt;int&gt;, koflik &lt;int&gt;, bracelet_bronze &lt;int&gt;,\n#   needle &lt;int&gt;, spear &lt;int&gt;",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#calculating-ca-with-the-function-ca",
+    "href": "lect/w04/ca.html#calculating-ca-with-the-function-ca",
+    "title": "Correspondence analysis",
+    "section": "Calculating CA with the function ca()",
+    "text": "Calculating CA with the function ca()\n\nwe can conduct the correspondence analysis with the function ca::ca()\nNOTE that the CA can be done only on columns with integer data\nto proceed, we first need to select the columns with artefact counts, and then run the ca() function\nwe will incorporate the ca() into the pipe\nin this stage it is usefull to use colnames() function to see the column names\nin order to CA to work, the sum of each row and column must be greater than zero\n\n\ncolnames(df_graves_wide)\n\n [1] \"grave_number\"    \"dating\"          \"sex\"             \"beaker\"         \n [5] \"dartpoint\"       \"wristguard\"      \"dagger\"          \"axe\"            \n [9] \"bowl\"            \"beam\"            \"beam_amber\"      \"koflik\"         \n[13] \"bracelet_bronze\" \"needle\"          \"spear\"          \n\n\n\n\nnow we will define which columns to keep for analysis, incorporate the ca() function into the pipe and store the result as “ca_result”\n\n\nca_result &lt;- df_graves_wide |&gt; \n  select(beaker:spear) |&gt; \n  ca()",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#visualising-ca-result-with-plot",
+    "href": "lect/w04/ca.html#visualising-ca-result-with-plot",
+    "title": "Correspondence analysis",
+    "section": "visualising CA result with plot()",
+    "text": "visualising CA result with plot()\n\nto quickly visualize the result, we will use the R base function plot() and create the so called biplot:\n\n\n\nplot(ca_result)\n\n\n\n\n\n\n\n\n\n\n\nthis biplot is basicaly a scatterplot\nfirst group of data - graves - are represented as blue dots, second group - artefacts - are represented as red triangles\neach grave and each artefact has it’s own coordinates\nthe closer the graves or artefacts are to each other, the more similar they are",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#observing-the-results-structure",
+    "href": "lect/w04/ca.html#observing-the-results-structure",
+    "title": "Correspondence analysis",
+    "section": "Observing the results structure",
+    "text": "Observing the results structure\n\nat this stage, we cannot use our beloved ggplot2() function because it works only with dataframes or tables, and the result of the CA is not a dataframe but a list:\n\n\nstr(ca_result)\n\nList of 16\n $ sv        : num [1:11] 0.715 0.555 0.426 0.302 0.28 ...\n $ nd        : logi NA\n $ rownames  : NULL\n $ rowmass   : num [1:50] 0.0345 0.023 0.0144 0.0201 0.0144 ...\n $ rowdist   : num [1:50] 1.04 0.795 0.811 0.811 0.811 ...\n $ rowinertia: num [1:50] 0.03727 0.01451 0.00944 0.01322 0.00944 ...\n $ rowcoord  : num [1:50, 1:11] -0.594 -0.582 -0.565 -0.997 -0.565 ...\n  ..- attr(*, \"dimnames\")=List of 2\n  .. ..$ : NULL\n  .. ..$ : chr [1:11] \"Dim1\" \"Dim2\" \"Dim3\" \"Dim4\" ...\n $ rowsup    : logi(0) \n $ colnames  : chr [1:12] \"beaker\" \"dartpoint\" \"wristguard\" \"dagger\" ...\n $ colmass   : num [1:12] 0.0948 0.2989 0.1063 0.0115 0.0603 ...\n $ coldist   : num [1:12] 1.03 0.405 0.712 2.42 1.336 ...\n $ colinertia: num [1:12] 0.1006 0.0491 0.0539 0.0673 0.1077 ...\n $ colcoord  : num [1:12, 1:11] -1.127 -0.211 -0.578 -0.954 0.761 ...\n  ..- attr(*, \"dimnames\")=List of 2\n  .. ..$ : chr [1:12] \"beaker\" \"dartpoint\" \"wristguard\" \"dagger\" ...\n  .. ..$ : chr [1:11] \"Dim1\" \"Dim2\" \"Dim3\" \"Dim4\" ...\n $ colsup    : logi(0) \n $ N         : int [1:50, 1:12] 3 1 1 1 1 1 1 2 1 1 ...\n $ call      : language ca.matrix(obj = as.matrix(obj))\n - attr(*, \"class\")= chr \"ca\"\n\n\n\nyou can see that this is not a dataframe, but a so called “list” with much complicated structure",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#observing-the-results-structure-2",
+    "href": "lect/w04/ca.html#observing-the-results-structure-2",
+    "title": "Correspondence analysis",
+    "section": "Observing the results structure 2",
+    "text": "Observing the results structure 2\nAnd it looks like this:\n\nca_result\n\n\n Principal inertias (eigenvalues):\n           1        2        3        4        5        6        7       \nValue      0.511633 0.307624 0.181845 0.091006 0.078339 0.059623 0.033804\nPercentage 38.58%   23.2%    13.71%   6.86%    5.91%    4.5%     2.55%   \n           8        9        10       11      \nValue      0.027614 0.022635 0.010099 0.001813\nPercentage 2.08%    1.71%    0.76%    0.14%   \n\n\n Rows:\n             [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]\nMass     0.034483  0.022989  0.014368  0.020115  0.014368  0.022989  0.008621\nChiDist  1.039607  0.794512  0.810642  0.810643  0.810642  1.022514  1.260380\nInertia  0.037268  0.014511  0.009442  0.013218  0.009442  0.024035  0.013694\nDim. 1  -0.594280 -0.582023 -0.565171 -0.997440 -0.565171 -1.132524 -0.892933\nDim. 2  -0.618500  0.882143 -0.269234  0.480842 -0.269234  0.715240 -0.386827\n             [,8]      [,9]     [,10]     [,11]     [,12]     [,13]     [,14]\nMass     0.031609  0.017241  0.014368  0.025862  0.014368  0.008621  0.020115\nChiDist  1.020069  0.653439  0.810642  1.214695  0.810642  1.260380  0.810643\nInertia  0.032891  0.007362  0.009442  0.038159  0.009442  0.013694  0.013218\nDim. 1  -0.505019 -0.817328 -0.565171 -1.237589 -0.565171 -0.892933 -0.997440\nDim. 2  -0.684581  0.168310 -0.269234  0.897550 -0.269234 -0.386827  0.480842\n            [,15]     [,16]     [,17]     [,18]     [,19]     [,20]     [,21]\nMass     0.031609  0.057471  0.022989  0.022989  0.008621  0.014368  0.022989\nChiDist  1.020069  1.164693  1.022514  1.022514  1.260380  0.810642  0.805052\nInertia  0.032891  0.077960  0.024035  0.024035  0.013694  0.009442  0.014899\nDim. 1  -0.505019 -1.124728 -1.132524 -1.132524 -0.892933 -0.565171 -0.854313\nDim. 2  -0.684581  0.926668  0.715240  0.715240 -0.386827 -0.269234  0.481463\n            [,22]     [,23]     [,24]     [,25]     [,26]     [,27]     [,28]\nMass     0.014368  0.022989  0.014368  0.008621  0.020115  0.008621  0.045977\nChiDist  0.810642  1.022514  0.810642  1.260380  0.810643  1.260380  1.528425\nInertia  0.009442  0.024035  0.009442  0.013694  0.013218  0.013694  0.107406\nDim. 1  -0.565171 -1.132524 -0.565171 -0.892933 -0.997440 -0.892933  1.013292\nDim. 2  -0.269234  0.715240 -0.269234 -0.386827  0.480842 -0.386827 -1.436801\n           [,29]     [,30]     [,31]    [,32]     [,33]    [,34]     [,35]\nMass    0.020115  0.031609  0.002874 0.014368  0.017241 0.017241  0.043103\nChiDist 1.720234  1.029241  1.531716 1.286873  0.814505 1.567031  1.127401\nInertia 0.059524  0.033485  0.006742 0.023794  0.011438 0.042338  0.054786\nDim. 1  1.754818  0.539908 -0.294629 1.401986  0.282946 1.659640  0.762122\nDim. 2  1.958447 -1.253150 -0.671498 1.213833 -1.042592 1.669647 -1.452072\n           [,36]     [,37]     [,38]    [,39]    [,40]    [,41]    [,42]\nMass    0.017241  0.002874  0.034483 0.022989 0.028736 0.020115 0.025862\nChiDist 1.567031  1.531716  0.999467 1.748814 1.140247 2.130126 0.990176\nInertia 0.042338  0.006742  0.034446 0.070307 0.037361 0.091270 0.025356\nDim. 1  1.659640 -0.294629  0.673294 1.880786 1.224527 1.524143 1.102153\nDim. 2  1.669647 -0.671498 -1.359819 1.429176 0.902438 0.106477 0.592570\n            [,43]     [,44]    [,45]     [,46]     [,47]     [,48]    [,49]\nMass     0.002874  0.017241 0.020115  0.037356  0.002874  0.017241 0.014368\nChiDist  1.531716  0.814505 1.426285  1.092480  1.531716  0.814505 1.286873\nInertia  0.006742  0.011438 0.040920  0.044585  0.006742  0.011438 0.023794\nDim. 1  -0.294629  0.282946 1.443630  0.703363 -0.294629  0.282946 1.401986\nDim. 2  -0.671498 -1.042592 1.500527 -1.517977 -0.671498 -1.042592 1.213833\n            [,50]\nMass     0.002874\nChiDist  1.531716\nInertia  0.006742\nDim. 1  -0.294629\nDim. 2  -0.671498\n\n\n Columns:\n           beaker dartpoint wristguard    dagger       axe     bowl      beam\nMass     0.094828  0.298851   0.106322  0.011494  0.060345 0.123563  0.100575\nChiDist  1.030170  0.405361   0.712256  2.419617  1.335676 0.483134  1.584578\nInertia  0.100636  0.049106   0.053938  0.067294  0.107657 0.028842  0.252532\nDim. 1  -1.127400 -0.210744  -0.577961 -0.953831  0.761197 0.105557 -1.486444\nDim. 2   0.060119 -0.372439  -0.331328 -0.478237 -1.894577 0.269450  1.306746\n        beam_amber    koflik bracelet_bronze   needle     spear\nMass      0.051724  0.080460        0.025862 0.043103  0.002874\nChiDist   2.066809  1.185859        2.213668 1.837746  4.555217\nInertia   0.220950  0.113148        0.126733 0.145574  0.059626\nDim. 1    2.108594  1.347019        1.531099 1.663676  1.416626\nDim. 2    2.190109 -0.768237       -1.405001 2.047311 -2.590517\n\n\n\nnote that there are two types of data: rows and columns. Can you tell which group of data they represent?",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#visualising-ca-result-with-ggplot",
+    "href": "lect/w04/ca.html#visualising-ca-result-with-ggplot",
+    "title": "Correspondence analysis",
+    "section": "Visualising CA result with ggplot()",
+    "text": "Visualising CA result with ggplot()\n\nggplot() works only with data in table format, so we need to do some preparations first\nfor each group of data (graves and artefacts), we need a separate table with coordinates\nluckily for us, we can easily extract coordinates in the form of a vector from the CA result\n\n\nProcedure:\n\nextract the coordinates of both graves and artefacts from the CA result and store them in a vector\ncreate two tables, one for graves and the other for artefacts, both of which should include coordinates and identifiers (e.g. ID, grave name, artefact name). Other variables could be added as well\nplot each table in ggplot() in its own geom_point() layer",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#extracting-coordinates",
+    "href": "lect/w04/ca.html#extracting-coordinates",
+    "title": "Correspondence analysis",
+    "section": "1. Extracting coordinates:",
+    "text": "1. Extracting coordinates:\n\nsince the graves are stored in the rows of the original table, their coordinates are stored in rowcoord of the CA result\nsimilarly, the coordinates of artifacts (columns) are stored in colcoord\nwith [,1] and [,2] we can subset the coordinates in the first and second dimension, respectively\n\n\n\ncoord_grave_1 &lt;- ca_result$rowcoord[,1]\ncoord_grave_2 &lt;- ca_result$rowcoord[,2]\ncoord_artefact_1 &lt;- ca_result$colcoord[,1]\ncoord_artefact_2 &lt;- ca_result$colcoord[,2]",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#table-with-graves",
+    "href": "lect/w04/ca.html#table-with-graves",
+    "title": "Correspondence analysis",
+    "section": "2.1 Table with graves",
+    "text": "2.1 Table with graves\n\nwe can adjust existing table “df_grave_wide”, which is already a table with graves, by adding coordinates and then by selecting only those variables we need\nwith mutate() we can add external vectors into the existing table. Just keep in mind the vectors must have same number of objects as the table has rows\nwith select() we can select variables we need: coordinates, identifier, sex and dating\n\n\n\ntable_graves &lt;- df_graves_wide %&gt;% \n  mutate(coord_grave_1,\n         coord_grave_2) %&gt;% \n  select(dating, sex, coord_grave_1, coord_grave_2, grave_number)\n\n\n\n\n\n# A tibble: 4 × 5\n  dating sex    coord_grave_1 coord_grave_2 grave_number\n  &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;\n1 en.zvo male          -0.594        -0.619          900\n2 en.zvo female        -0.582         0.882          901\n3 en.zvo male          -0.565        -0.269          902\n4 en.zvo female        -0.997         0.481          903\n\n\n\n\n\nQuick plot:\n\nlibrary(ggplot2)\nggplot()+\n  geom_point(data = table_graves, aes(x = coord_grave_1, y = coord_grave_2))",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#table-with-artefacts---function-tidyrtibble",
+    "href": "lect/w04/ca.html#table-with-artefacts---function-tidyrtibble",
+    "title": "Correspondence analysis",
+    "section": "2.2 Table with artefacts - function tidyr::tibble()",
+    "text": "2.2 Table with artefacts - function tidyr::tibble()\n\nnow it is little bit more complicated, because we need to create a new table for the artefacts. Each row will be one type of artefact and the variables will be their coordinates\ntidyr::tibble() creates a “tibble” which is a type of dataframe and works well with tidy data\n\n\n\nhere, tibble() binds together 2 vectors with the coordinates together with the third vector “artefact”, that consists of artefact names. These names are extracted by colnames() from the names of the columns defined by select()\n\n\ntable_artefacts &lt;- tibble(\n  coord_artefact_1,\n  coord_artefact_2,\n  artefact = df_graves_wide |&gt; \n    select(beaker:spear) |&gt; \n    colnames()\n)\n\n\n\n\nhead(table_artefacts, 6)\n\n# A tibble: 6 × 3\n  coord_artefact_1 coord_artefact_2 artefact  \n             &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;     \n1           -1.13            0.0601 beaker    \n2           -0.211          -0.372  dartpoint \n3           -0.578          -0.331  wristguard\n4           -0.954          -0.478  dagger    \n5            0.761          -1.89   axe       \n6            0.106           0.269  bowl      \n\n\n\n\n\nquick plot\n\nggplot()+\n  geom_point(data = table_artefacts, aes(x=coord_artefact_1, y = coord_artefact_2))",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#and-finaly---the-ggplot",
+    "href": "lect/w04/ca.html#and-finaly---the-ggplot",
+    "title": "Correspondence analysis",
+    "section": "3. and finaly - the ggplot()",
+    "text": "3. and finaly - the ggplot()\n\nhere, we are visualising each table in a separate geom_point()\n\n\nggplot()+\n  geom_point(data = table_graves, \n             aes(x = coord_grave_1, y = coord_grave_2, color = dating), \n             shape = 16, size = 2)+\n  geom_point(data = table_artefacts, \n             aes(x = coord_artefact_1, y = coord_artefact_2), \n             shape = 17, size = 2)+\n  theme_light()",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#adjusting-the-plot",
+    "href": "lect/w04/ca.html#adjusting-the-plot",
+    "title": "Correspondence analysis",
+    "section": "Adjusting the plot",
+    "text": "Adjusting the plot\n\ntry to identify what is happening in each layer of the ggplot() and play a bit with the settings:\n\n\neigenvalue_1 &lt;- 38.58\neigenvalue_2 &lt;- 23.2\n\n\nggplot()+\n  geom_hline(yintercept = 0,\n             color = \"gray50\",\n             linetype = \"dashed\",\n             linewidth = 0.5)+\n  geom_vline(xintercept = 0,\n             color = \"gray50\", \n             linetype = \"dashed\",\n             linewidth = 0.5)+\n  geom_point(data = table_graves, \n             aes(x = coord_grave_1, y = coord_grave_2, color = dating, fill = dating, shape = sex), \n             alpha = 0.5, \n             size = 2)+\n  geom_point(data = table_artefacts, \n             aes(x = coord_artefact_1, y = coord_artefact_2), \n             shape = 4, \n             size = 2)+\n  geom_text(data = table_artefacts,\n            aes(label = artefact, x=coord_artefact_1, y=coord_artefact_2), \n            vjust = -1.5,\n            size = 3)+\n  scale_shape_manual(values = c(\"male\" = 22, \"female\" = 25, \"child\" = 21))+\n  xlim(-1.55, 2.4)+\n  ylim(-2.6, 2.6)+\n  labs(x = paste0(\"dimension 1 (\", eigenvalue_1,\" %)\"),\n       y = paste0(\"dimension 2 (\", eigenvalue_2,\" %)\"),\n       title = \"Correspondence analysis\")+\n  theme_light()",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/ca.html#interpretation",
+    "href": "lect/w04/ca.html#interpretation",
+    "title": "Correspondence analysis",
+    "section": "Interpretation",
+    "text": "Interpretation\n\n\n\n\n\n\n\n\n\n\nlet’s have a look at the plot again and try to answer the research questions:\n\nare there differences between artefacts in different dating periods?\nare there differences between sexes?\nare there any similar groups of graves?",
+    "crumbs": [
+      "Week 4",
+      "Correspondence analysis"
+    ]
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#distances-and-similarity",
+    "href": "lect/w04/slides_dist.html#distances-and-similarity",
+    "title": "Distances and similarity",
+    "section": "Distances and similarity",
+    "text": "Distances and similarity\n\nDistance and similarity are more or less opposite concepts.\nDistance is a numerical measure describing how are two objects (defined by certain variables) different (pairwise distance).\nDifferent distance measures exist for different data types.\n\n\n\n\nDistance\n\nScale 0 – \\(\\infty\\)\n0 – Two objects with 0 distance between them.\n\\(\\infty\\) – Two objects with infinite distance.\nIn practice, maximum distance is often 1.\nDenoted by \\(D\\) (for distance, or dissimilarity).\n\\(D = 1 - S\\)\n\n\n\nSimilarity\n\nScale 0 – 1\n0 – Two objects completely dissimilar (0%).\n1 – Two objects competely similar (100%).\nDenoted by \\(S\\) (for similarity).\n\\(S = 1 - D\\)"
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#different-distance-measures",
+    "href": "lect/w04/slides_dist.html#different-distance-measures",
+    "title": "Distances and similarity",
+    "section": "Different distance measures",
+    "text": "Different distance measures\n\n\nDichotomous variables\n\nSymmetrical – Simple matching distance\nAsymmetrical – Jaccard index (binary distance)\n\nCategorical variables\n\nHamming distance\n\nNumeric continuous variables\n\nEuclidean distance\nMahalanobis distance\n\nMixed data sets\n\nGower’s distance"
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#binary-distances",
+    "href": "lect/w04/slides_dist.html#binary-distances",
+    "title": "Distances and similarity",
+    "section": "Binary distances",
+    "text": "Binary distances\n\nFor TRUE/FALSE, 1/0, presence/absence (etc.) data\n\n\n\n\nSymmetrical\n\nTwo presences as match.\nTwo absences as match.\n\nIf a trait is present, two objects are more similar. If a trait is absent, two objects are more similar. For example if biological sex is encoded in one variable with 0 for male and 1 for female, it is symmetrical.\n\nSimple maching distance\n\n\n\nAsymmetrical\n\nTwo presences as match.\nTwo absences as mismatch.\n\nIf a trait is present, two objects are more similar. If a trait is absent in both cases, e.g. undetermined, missing etc., this does not affect similarity. This is more practical in archaeology.\n\nJaccard index, i.e. binary distance\n\ndist(x, method = \"binary\")"
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#distance-between-continuous-numeric-data",
+    "href": "lect/w04/slides_dist.html#distance-between-continuous-numeric-data",
+    "title": "Distances and similarity",
+    "section": "Distance between (continuous) numeric data",
+    "text": "Distance between (continuous) numeric data\n\nTo remove effects of scale (different units etc.), variables should be scaled (normalized).\n\n\n\nNormalization\n\nz-score or z-transformation\n\n\n\\[\nz = \\frac{x - \\mu}{\\sigma}\n\\]"
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#euclidean-distance",
+    "href": "lect/w04/slides_dist.html#euclidean-distance",
+    "title": "Distances and similarity",
+    "section": "Euclidean distance",
+    "text": "Euclidean distance\n\n\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem.\n\n\n\\[\nd(p, q) = \\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}\n\\]\n\n\nIn R…\nNormalization:\nscale(x, center = TRUE, scale = TRUE)\nEuclidean distance:\ndist(x, method = \"euclidean\")"
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#example-binary-distance",
+    "href": "lect/w04/slides_dist.html#example-binary-distance",
+    "title": "Distances and similarity",
+    "section": "Example – Binary distance",
+    "text": "Example – Binary distance\nExercise with the Eneolithic/BA burial ground ( burials.csv).\n\n\n\n\n\nhead(graves0)\n\n  grave_number dating    sex artefact_type artefact_count artefact_material\n1          900 en.zvo   male        beaker              3          ceramics\n2          901 en.zvo female        beaker              1          ceramics\n3          902 en.zvo   male        beaker              1          ceramics\n4          903 en.zvo female        beaker              1          ceramics\n5          904 en.zvo   male        beaker              1          ceramics\n6          905 en.zvo female        beaker              1          ceramics\n\n\n\n\n\n# artefact counts to presence (TRUE/FALSE)\ngraves &lt;- graves0 |&gt; \n  mutate(artefact_presence = artefact_count &gt;= 1)\nhead(graves)\n\n  grave_number dating    sex artefact_type artefact_count artefact_material\n1          900 en.zvo   male        beaker              3          ceramics\n2          901 en.zvo female        beaker              1          ceramics\n3          902 en.zvo   male        beaker              1          ceramics\n4          903 en.zvo female        beaker              1          ceramics\n5          904 en.zvo   male        beaker              1          ceramics\n6          905 en.zvo female        beaker              1          ceramics\n  artefact_presence\n1              TRUE\n2              TRUE\n3              TRUE\n4              TRUE\n5              TRUE\n6              TRUE"
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#table-transformation",
+    "href": "lect/w04/slides_dist.html#table-transformation",
+    "title": "Distances and similarity",
+    "section": "Table transformation",
+    "text": "Table transformation\n\n\n# long table -&gt; wide table\ngraves_artefacts &lt;- graves |&gt; \n  tidyr::pivot_wider(\n    id_cols = c(\"grave_number\"), \n    names_from = \"artefact_type\", \n    values_from = \"artefact_presence\", \n    values_fill = FALSE # fill in missing values with FALSE\n  )\nhead(graves_artefacts)\n\n# A tibble: 6 × 13\n  grave_number beaker dartpoint wristguard dagger axe   bowl  beam  beam_amber\n         &lt;int&gt; &lt;lgl&gt;  &lt;lgl&gt;     &lt;lgl&gt;      &lt;lgl&gt;  &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;     \n1          900 TRUE   TRUE      TRUE       TRUE   TRUE  TRUE  FALSE FALSE     \n2          901 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  TRUE  FALSE     \n3          902 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  FALSE FALSE     \n4          903 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  TRUE  FALSE     \n5          904 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  FALSE FALSE     \n6          905 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  TRUE  FALSE     \n# ℹ 4 more variables: koflik &lt;lgl&gt;, bracelet_bronze &lt;lgl&gt;, needle &lt;lgl&gt;,\n#   spear &lt;lgl&gt;"
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#count-distance",
+    "href": "lect/w04/slides_dist.html#count-distance",
+    "title": "Distances and similarity",
+    "section": "Count distance",
+    "text": "Count distance\n\n\n# matrix with logical variables only\nartefacts &lt;- graves_artefacts |&gt; \n  select(where(is.logical)) |&gt; \n  as.matrix()\n\n# add row names to the matrix\nrownames(artefacts) &lt;- graves_artefacts$grave_number\nartefacts[1:6, 1:6]\n\n    beaker dartpoint wristguard dagger   axe bowl\n900   TRUE      TRUE       TRUE   TRUE  TRUE TRUE\n901   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n902   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n903   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n904   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n905   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n\n\n\n\n\n# count Jaccard (binary) distance\nd &lt;- dist(artefacts, method = \"binary\", diag = TRUE)\n\nas.matrix(d)[1:6, 1:6]\n\n          900       901       902       903       904       905\n900 0.0000000 0.5000000 0.3333333 0.4285714 0.3333333 0.4285714\n901 0.5000000 0.0000000 0.3333333 0.1666667 0.3333333 0.1666667\n902 0.3333333 0.3333333 0.0000000 0.2000000 0.0000000 0.2000000\n903 0.4285714 0.1666667 0.2000000 0.0000000 0.2000000 0.0000000\n904 0.3333333 0.3333333 0.0000000 0.2000000 0.0000000 0.2000000\n905 0.4285714 0.1666667 0.2000000 0.0000000 0.2000000 0.0000000\n\n\n\n\n\nResult is a distance matrix.\nIt is symmetrical. Lower triangular is the same as upper triangular.\nOn the diagonal, there is distance of the given object to itself, i.e. 0."
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#visualizing-distance-matrix",
+    "href": "lect/w04/slides_dist.html#visualizing-distance-matrix",
+    "title": "Distances and similarity",
+    "section": "Visualizing distance matrix",
+    "text": "Visualizing distance matrix\n\nPackage corrplot has a nice way of plotting heat maps.\n\n\nlibrary(corrplot)\n\n# arg. is.corr set to FALSE, because we are not visualizing correlation matrix\ncorrplot::corrplot(as.matrix(d), is.corr = FALSE, type = \"upper\")"
+  },
+  {
+    "objectID": "lect/w04/slides_dist.html#resources",
+    "href": "lect/w04/slides_dist.html#resources",
+    "title": "Distances and similarity",
+    "section": "Resources",
+    "text": "Resources\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372 (direct link to a HTML file is here).\n\n\n\nAES_707 Statistics seminar for archaeologists | Disctances"
+  },
+  {
+    "objectID": "lect/w04/dist.html",
+    "href": "lect/w04/dist.html",
+    "title": "Distances and similarity",
+    "section": "",
+    "text": "Distance and similarity are more or less opposite concepts.\nDistance is a numerical measure describing how are two objects (defined by certain variables) different (pairwise distance).\nDifferent distance measures exist for different data types.\n\n\n\n\n\n\nScale 0 – \\(\\infty\\)\n0 – Two objects with 0 distance between them.\n\\(\\infty\\) – Two objects with infinite distance.\nIn practice, maximum distance is often 1.\nDenoted by \\(D\\) (for distance, or dissimilarity).\n\\(D = 1 - S\\)\n\n\n\n\n\n\nScale 0 – 1\n0 – Two objects completely dissimilar (0%).\n1 – Two objects competely similar (100%).\nDenoted by \\(S\\) (for similarity).\n\\(S = 1 - D\\)",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#distances-and-similarity",
+    "href": "lect/w04/dist.html#distances-and-similarity",
+    "title": "Distances and similarity",
+    "section": "",
+    "text": "Distance and similarity are more or less opposite concepts.\nDistance is a numerical measure describing how are two objects (defined by certain variables) different (pairwise distance).\nDifferent distance measures exist for different data types.\n\n\n\n\n\n\nScale 0 – \\(\\infty\\)\n0 – Two objects with 0 distance between them.\n\\(\\infty\\) – Two objects with infinite distance.\nIn practice, maximum distance is often 1.\nDenoted by \\(D\\) (for distance, or dissimilarity).\n\\(D = 1 - S\\)\n\n\n\n\n\n\nScale 0 – 1\n0 – Two objects completely dissimilar (0%).\n1 – Two objects competely similar (100%).\nDenoted by \\(S\\) (for similarity).\n\\(S = 1 - D\\)",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#different-distance-measures",
+    "href": "lect/w04/dist.html#different-distance-measures",
+    "title": "Distances and similarity",
+    "section": "Different distance measures",
+    "text": "Different distance measures\n\n\nDichotomous variables\n\nSymmetrical – Simple matching distance\nAsymmetrical – Jaccard index (binary distance)\n\nCategorical variables\n\nHamming distance\n\nNumeric continuous variables\n\nEuclidean distance\nMahalanobis distance\n\nMixed data sets\n\nGower’s distance",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#binary-distances",
+    "href": "lect/w04/dist.html#binary-distances",
+    "title": "Distances and similarity",
+    "section": "Binary distances",
+    "text": "Binary distances\n\nFor TRUE/FALSE, 1/0, presence/absence (etc.) data\n\n\n\n\nSymmetrical\n\nTwo presences as match.\nTwo absences as match.\n\nIf a trait is present, two objects are more similar. If a trait is absent, two objects are more similar. For example if biological sex is encoded in one variable with 0 for male and 1 for female, it is symmetrical.\n\nSimple maching distance\n\n\n\n\nAsymmetrical\n\nTwo presences as match.\nTwo absences as mismatch.\n\nIf a trait is present, two objects are more similar. If a trait is absent in both cases, e.g. undetermined, missing etc., this does not affect similarity. This is more practical in archaeology.\n\nJaccard index, i.e. binary distance\n\ndist(x, method = \"binary\")",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#distance-between-continuous-numeric-data",
+    "href": "lect/w04/dist.html#distance-between-continuous-numeric-data",
+    "title": "Distances and similarity",
+    "section": "Distance between (continuous) numeric data",
+    "text": "Distance between (continuous) numeric data\n\nTo remove effects of scale (different units etc.), variables should be scaled (normalized).\n\n\n\n\nNormalization\n\nz-score or z-transformation\n\n\n\n\\[\nz = \\frac{x - \\mu}{\\sigma}\n\\]",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#euclidean-distance",
+    "href": "lect/w04/dist.html#euclidean-distance",
+    "title": "Distances and similarity",
+    "section": "Euclidean distance",
+    "text": "Euclidean distance\n\n\n\nDefined for a Cartesian coordinate space.\nUses Pythagorean theorem.\n\n\n\\[\nd(p, q) = \\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}\n\\]\n\n\n\nIn R…\nNormalization:\nscale(x, center = TRUE, scale = TRUE)\nEuclidean distance:\ndist(x, method = \"euclidean\")",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#example-binary-distance",
+    "href": "lect/w04/dist.html#example-binary-distance",
+    "title": "Distances and similarity",
+    "section": "Example – Binary distance",
+    "text": "Example – Binary distance\nExercise with the Eneolithic/BA burial ground ( burials.csv).\n\n\n\n\n\nhead(graves0)\n\n  grave_number dating    sex artefact_type artefact_count artefact_material\n1          900 en.zvo   male        beaker              3          ceramics\n2          901 en.zvo female        beaker              1          ceramics\n3          902 en.zvo   male        beaker              1          ceramics\n4          903 en.zvo female        beaker              1          ceramics\n5          904 en.zvo   male        beaker              1          ceramics\n6          905 en.zvo female        beaker              1          ceramics\n\n\n\n\n\n# artefact counts to presence (TRUE/FALSE)\ngraves &lt;- graves0 |&gt; \n  mutate(artefact_presence = artefact_count &gt;= 1)\nhead(graves)\n\n  grave_number dating    sex artefact_type artefact_count artefact_material\n1          900 en.zvo   male        beaker              3          ceramics\n2          901 en.zvo female        beaker              1          ceramics\n3          902 en.zvo   male        beaker              1          ceramics\n4          903 en.zvo female        beaker              1          ceramics\n5          904 en.zvo   male        beaker              1          ceramics\n6          905 en.zvo female        beaker              1          ceramics\n  artefact_presence\n1              TRUE\n2              TRUE\n3              TRUE\n4              TRUE\n5              TRUE\n6              TRUE",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#table-transformation",
+    "href": "lect/w04/dist.html#table-transformation",
+    "title": "Distances and similarity",
+    "section": "Table transformation",
+    "text": "Table transformation\n\n\n# long table -&gt; wide table\ngraves_artefacts &lt;- graves |&gt; \n  tidyr::pivot_wider(\n    id_cols = c(\"grave_number\"), \n    names_from = \"artefact_type\", \n    values_from = \"artefact_presence\", \n    values_fill = FALSE # fill in missing values with FALSE\n  )\nhead(graves_artefacts)\n\n# A tibble: 6 × 13\n  grave_number beaker dartpoint wristguard dagger axe   bowl  beam  beam_amber\n         &lt;int&gt; &lt;lgl&gt;  &lt;lgl&gt;     &lt;lgl&gt;      &lt;lgl&gt;  &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;     \n1          900 TRUE   TRUE      TRUE       TRUE   TRUE  TRUE  FALSE FALSE     \n2          901 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  TRUE  FALSE     \n3          902 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  FALSE FALSE     \n4          903 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  TRUE  FALSE     \n5          904 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  FALSE FALSE     \n6          905 TRUE   TRUE      TRUE       FALSE  FALSE TRUE  TRUE  FALSE     \n# ℹ 4 more variables: koflik &lt;lgl&gt;, bracelet_bronze &lt;lgl&gt;, needle &lt;lgl&gt;,\n#   spear &lt;lgl&gt;",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#count-distance",
+    "href": "lect/w04/dist.html#count-distance",
+    "title": "Distances and similarity",
+    "section": "Count distance",
+    "text": "Count distance\n\n\n# matrix with logical variables only\nartefacts &lt;- graves_artefacts |&gt; \n  select(where(is.logical)) |&gt; \n  as.matrix()\n\n# add row names to the matrix\nrownames(artefacts) &lt;- graves_artefacts$grave_number\nartefacts[1:6, 1:6]\n\n    beaker dartpoint wristguard dagger   axe bowl\n900   TRUE      TRUE       TRUE   TRUE  TRUE TRUE\n901   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n902   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n903   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n904   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n905   TRUE      TRUE       TRUE  FALSE FALSE TRUE\n\n\n\n\n\n# count Jaccard (binary) distance\nd &lt;- dist(artefacts, method = \"binary\", diag = TRUE)\n\nas.matrix(d)[1:6, 1:6]\n\n          900       901       902       903       904       905\n900 0.0000000 0.5000000 0.3333333 0.4285714 0.3333333 0.4285714\n901 0.5000000 0.0000000 0.3333333 0.1666667 0.3333333 0.1666667\n902 0.3333333 0.3333333 0.0000000 0.2000000 0.0000000 0.2000000\n903 0.4285714 0.1666667 0.2000000 0.0000000 0.2000000 0.0000000\n904 0.3333333 0.3333333 0.0000000 0.2000000 0.0000000 0.2000000\n905 0.4285714 0.1666667 0.2000000 0.0000000 0.2000000 0.0000000\n\n\n\n\n\nResult is a distance matrix.\nIt is symmetrical. Lower triangular is the same as upper triangular.\nOn the diagonal, there is distance of the given object to itself, i.e. 0.",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#visualizing-distance-matrix",
+    "href": "lect/w04/dist.html#visualizing-distance-matrix",
+    "title": "Distances and similarity",
+    "section": "Visualizing distance matrix",
+    "text": "Visualizing distance matrix\n\nPackage corrplot has a nice way of plotting heat maps.\n\n\nlibrary(corrplot)\n\n# arg. is.corr set to FALSE, because we are not visualizing correlation matrix\ncorrplot::corrplot(as.matrix(d), is.corr = FALSE, type = \"upper\")",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
+    ]
+  },
+  {
+    "objectID": "lect/w04/dist.html#resources",
+    "href": "lect/w04/dist.html#resources",
+    "title": "Distances and similarity",
+    "section": "Resources",
+    "text": "Resources\nFor a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al. DOI: 10.5281/zenodo.6325372 (direct link to a HTML file is here).",
+    "crumbs": [
+      "Week 4",
+      "Distances and similarity"
     ]
   },
   {

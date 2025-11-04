@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>stat4arch - Correspondence analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">stat4arch</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Course overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html"> <i class="bi bi-calendar4" role="img">
+</i> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Topics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-topics">    
+        <li class="dropdown-header">Week 1</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w01/intro.html">
+ <span class="dropdown-text">Course introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w01/tidy.html">
+ <span class="dropdown-text">Tidy data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w01/intro2coding.html">
+ <span class="dropdown-text">Intro to coding</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Week 2</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/basics.html">
+ <span class="dropdown-text">Basic workflows</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/ggplot.html">
+ <span class="dropdown-text">ggplot2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/describing.html">
+ <span class="dropdown-text">Descriptive statistics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/visualizing.html">
+ <span class="dropdown-text">Data visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/relations.html">
+ <span class="dropdown-text">Relationships</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Week 3</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/intro.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/tidy_data.html">
+ <span class="dropdown-text">Tidy data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/transformation.html">
+ <span class="dropdown-text">Data transformation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/exc.html">
+ <span class="dropdown-text">Exercise</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Week 4</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w04/joins.html">
+ <span class="dropdown-text">Intro &amp; Joining tables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w04/ca.html">
+ <span class="dropdown-text">Correspondence analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w04/dist.html">
+ <span class="dropdown-text">Distances and similarity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w04/clust.html">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Archive</li>
+        <li>
+    <a class="dropdown-item" href="../../lect/w02/intro2r.html">
+ <span class="dropdown-text">Coding in R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w03/distribs.html">
+ <span class="dropdown-text">Summaries and visualization of distributions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w04/rels.html">
+ <span class="dropdown-text">Summaries and visualization of relationships</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w05/norm.html">
+ <span class="dropdown-text">Normal distribution</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w05/dplyr.html">
+ <span class="dropdown-text">Data manipulation with dplyr</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w07/space.html">
+ <span class="dropdown-text">Considering space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w08/time.html">
+ <span class="dropdown-text">Considering time</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w09/dist.html">
+ <span class="dropdown-text">Distances and similarity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w09/clust.html">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w10/ca.html">
+ <span class="dropdown-text">Correspondence analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w11/repro.html">
+ <span class="dropdown-text">Reproducibility</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lect/w11/pivoting.html">
+ <span class="dropdown-text">Long table and wide table transformations</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../project.html"> <i class="bi bi-file-earmark-code" role="img">
+</i> 
+<span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html"> <i class="bi bi-gear" role="img">
+</i> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../kit.html"> <i class="bi bi-patch-question" role="img">
+</i> 
+<span class="menu-text">Survival kit</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w04/joins.html">Week 4</a></li><li class="breadcrumb-item"><a href="../../lect/w04/ca.html">Correspondence analysis</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Week 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidy data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w01/intro2coding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to coding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Week 2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic workflows</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ggplot2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/describing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptive statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/visualizing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Relationships</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Week 3</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/tidy_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidy data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/transformation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/exc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Week 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w04/joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro &amp; Joining tables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w04/ca.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Correspondence analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w04/dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distances and similarity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w04/clust.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clustering</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Archive</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w02/intro2r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w03/distribs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summaries and visualization of distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w04/rels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summaries and visualization of relationships</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w05/norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Normal distribution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w05/dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data manipulation with dplyr</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w07/space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considering space</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w08/time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considering time</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w09/dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distances and similarity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w09/clust.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clustering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w10/ca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Correspondence analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w11/repro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducibility</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lect/w11/pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Long table and wide table transformations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#correspondence-analysis-ca---what-is-it" id="toc-correspondence-analysis-ca---what-is-it" class="nav-link" data-scroll-target="#correspondence-analysis-ca---what-is-it">Correspondence analysis (CA) - what is it?</a></li>
+  <li><a href="#correspondence-analysis-ca---what-do-i-need" id="toc-correspondence-analysis-ca---what-do-i-need" class="nav-link" data-scroll-target="#correspondence-analysis-ca---what-do-i-need">Correspondence analysis (CA) - what do I need?</a></li>
+  <li><a href="#contingency-table" id="toc-contingency-table" class="nav-link" data-scroll-target="#contingency-table">Contingency table</a></li>
+  <li><a href="#doing-ca-on-artificial-archaeological-data" id="toc-doing-ca-on-artificial-archaeological-data" class="nav-link" data-scroll-target="#doing-ca-on-artificial-archaeological-data">Doing CA on artificial archaeological data</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#ca---start" id="toc-ca---start" class="nav-link" data-scroll-target="#ca---start">CA - start</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research questions</a></li>
+  <li><a href="#tidying-data" id="toc-tidying-data" class="nav-link" data-scroll-target="#tidying-data">Tidying data</a></li>
+  <li><a href="#widening-data-with-tidyrpivot_wider" id="toc-widening-data-with-tidyrpivot_wider" class="nav-link" data-scroll-target="#widening-data-with-tidyrpivot_wider">widening data with <code>tidyr::pivot_wider()</code></a></li>
+  <li><a href="#dealing-with-nas" id="toc-dealing-with-nas" class="nav-link" data-scroll-target="#dealing-with-nas">Dealing with NAs</a></li>
+  <li><a href="#calculating-ca-with-the-function-ca" id="toc-calculating-ca-with-the-function-ca" class="nav-link" data-scroll-target="#calculating-ca-with-the-function-ca">Calculating CA with the function <code>ca()</code></a></li>
+  <li><a href="#visualising-ca-result-with-plot" id="toc-visualising-ca-result-with-plot" class="nav-link" data-scroll-target="#visualising-ca-result-with-plot">visualising CA result with <code>plot()</code></a></li>
+  <li><a href="#observing-the-results-structure" id="toc-observing-the-results-structure" class="nav-link" data-scroll-target="#observing-the-results-structure">Observing the results structure</a></li>
+  <li><a href="#observing-the-results-structure-2" id="toc-observing-the-results-structure-2" class="nav-link" data-scroll-target="#observing-the-results-structure-2">Observing the results structure 2</a></li>
+  <li><a href="#visualising-ca-result-with-ggplot" id="toc-visualising-ca-result-with-ggplot" class="nav-link" data-scroll-target="#visualising-ca-result-with-ggplot">Visualising CA result with <code>ggplot()</code></a>
+  <ul class="collapse">
+  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure">Procedure:</a></li>
+  </ul></li>
+  <li><a href="#extracting-coordinates" id="toc-extracting-coordinates" class="nav-link" data-scroll-target="#extracting-coordinates">1. Extracting coordinates:</a></li>
+  <li><a href="#table-with-graves" id="toc-table-with-graves" class="nav-link" data-scroll-target="#table-with-graves">2.1 Table with graves</a>
+  <ul class="collapse">
+  <li><a href="#quick-plot" id="toc-quick-plot" class="nav-link" data-scroll-target="#quick-plot">Quick plot:</a></li>
+  </ul></li>
+  <li><a href="#table-with-artefacts---function-tidyrtibble" id="toc-table-with-artefacts---function-tidyrtibble" class="nav-link" data-scroll-target="#table-with-artefacts---function-tidyrtibble">2.2 Table with artefacts - function <code>tidyr::tibble()</code></a>
+  <ul class="collapse">
+  <li><a href="#quick-plot-1" id="toc-quick-plot-1" class="nav-link" data-scroll-target="#quick-plot-1">quick plot</a></li>
+  </ul></li>
+  <li><a href="#and-finaly---the-ggplot" id="toc-and-finaly---the-ggplot" class="nav-link" data-scroll-target="#and-finaly---the-ggplot">3. and finaly - the <code>ggplot()</code></a></li>
+  <li><a href="#adjusting-the-plot" id="toc-adjusting-the-plot" class="nav-link" data-scroll-target="#adjusting-the-plot">Adjusting the plot</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w04/ca.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w04/ca.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_ca.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lect/w04/joins.html">Week 4</a></li><li class="breadcrumb-item"><a href="../../lect/w04/ca.html">Correspondence analysis</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Correspondence analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this course, you will learn how to:</p>
+<ul>
+<li>do quick correspondence analysis in R</li>
+<li>transform your data from long format to wide format</li>
+<li>replace NAs with 0</li>
+<li>create “tibble” type of tables from vectors</li>
+<li>visualize the results of the correspondence analysis in <code>ggplot()</code></li>
+</ul>
+</section>
+<section id="correspondence-analysis-ca---what-is-it" class="level2">
+<h2 class="anchored" data-anchor-id="correspondence-analysis-ca---what-is-it">Correspondence analysis (CA) - what is it?</h2>
+<ul>
+<li>one of the multivariate statistical methods</li>
+<li>helps you to explore <strong>similarities</strong> in your data</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figs/ca_example.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>image from: https://cainarchaeology.weebly.com/</figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>the above example shows how the <strong>biplot</strong> can be used to identify the similarities between different archaeological sites, based on the proportion of different ceramic types found there</li>
+<li>note that there are two groups of data: archaeological sites and ceramic types</li>
+<li>“similarities are based on proportion…” means that we have counts of ceramic types for each site</li>
+</ul>
+</div>
+</section>
+<section id="correspondence-analysis-ca---what-do-i-need" class="level2">
+<h2 class="anchored" data-anchor-id="correspondence-analysis-ca---what-do-i-need">Correspondence analysis (CA) - what do I need?</h2>
+<ul>
+<li>data in the form of a <strong>contingency table</strong> with the <strong>counts</strong> of two or more <strong>categorical variables</strong></li>
+<li><strong>two groups</strong> of data: one group in the rows, second in the columns</li>
+<li>examples: graves in the rows and counts of their artefacts in the columns, sites and counts of ceramic types, archaeological layers and counts of the chipped stone industry,…</li>
+<li>“presence / absence” variables are also suitable but their values have to be replaced by 1 and 0</li>
+<li>NAs have to be replaced by 0</li>
+</ul>
+</section>
+<section id="contingency-table" class="level2">
+<h2 class="anchored" data-anchor-id="contingency-table">Contingency table</h2>
+<ul>
+<li>an example of a contingency table:</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figs/contingency_table.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>image from: Nikita 2020: INTRODUCTION TO STATISTICS USING R (for archaeologists)</figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>and the biplot showing the result of the CA</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figs/ca_example_2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>image from: Nikita 2020: INTRODUCTION TO STATISTICS USING R (for archaeologists)</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="doing-ca-on-artificial-archaeological-data" class="level2">
+<h2 class="anchored" data-anchor-id="doing-ca-on-artificial-archaeological-data">Doing CA on artificial archaeological data</h2>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<section id="packages" class="level4">
+<h4 class="anchored" data-anchor-id="packages">Packages:</h4>
+<ul>
+<li><code>here</code>, <code>dplyr</code>, <code>tidyr</code>, <code>ca</code>,<code>tibble</code>, <code>ggplot2</code></li>
+</ul>
+</section>
+<section id="data" class="level4">
+<h4 class="anchored" data-anchor-id="data">Data:</h4>
+<ul>
+<li>database “eneol_bronze_burials.csv”</li>
+</ul>
+</section>
+<section id="start" class="level4">
+<h4 class="anchored" data-anchor-id="start">Start:</h4>
+<ul>
+<li>open your R Project, create a new script file</li>
+<li>load packages <code>here</code>, <code>dplyr</code>, <code>tidyr</code>, <code>ggplot2</code></li>
+<li>install and load packages <code>ca</code> and <code>tibble</code></li>
+<li>import the data “eneol_bronze_burials.csv” into R</li>
+<li>observe data - what is in rows? what are the variables?</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="ca---start" class="level2">
+<h2 class="anchored" data-anchor-id="ca---start">CA - start</h2>
+<ul>
+<li>install new packages</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ca"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>load the packages</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>import the data</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_graves <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"lect/w04/data/burials.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>observe the data:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_graves <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(grave_number) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  grave_number dating    sex artefact_type artefact_count artefact_material
+1          900 en.zvo   male        beaker              3          ceramics
+2          900 en.zvo   male     dartpoint              5           lithics
+3          900 en.zvo   male    wristguard              1           lithics
+4          900 en.zvo   male        dagger              1            copper
+5          900 en.zvo   male           axe              1            copper
+6          900 en.zvo   male          bowl              1          ceramics
+7          901 en.zvo female        beaker              1          ceramics
+8          901 en.zvo female     dartpoint              2           lithics</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df_graves)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   230 obs. of  6 variables:
+ $ grave_number     : int  900 901 902 903 904 905 906 907 908 909 ...
+ $ dating           : chr  "en.zvo" "en.zvo" "en.zvo" "en.zvo" ...
+ $ sex              : chr  "male" "female" "male" "female" ...
+ $ artefact_type    : chr  "beaker" "beaker" "beaker" "beaker" ...
+ $ artefact_count   : int  3 1 1 1 1 1 1 2 1 1 ...
+ $ artefact_material: chr  "ceramics" "ceramics" "ceramics" "ceramics" ...</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="research-questions">Research questions</h2>
+<ul>
+<li>are there differences between artefacts in different dating periods?</li>
+<li>are there differences between the sexes?</li>
+<li>are there any similar groups of graves?</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>to answer the question, we will use correspondence analysis to observe similarities between graves (first group of data) based on similarities in proportion of their artefacts (second group of data)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>keep in mind that this database is artificial and for teaching purposes only. Although it might, to some extent, resemble real archaeological data, some aspect were purposely modified to better illustrate the logic of the correspondence analysis</li>
+</ul>
+</div>
+</section>
+<section id="tidying-data" class="level2">
+<h2 class="anchored" data-anchor-id="tidying-data">Tidying data</h2>
+<ul>
+<li>we see that all artefacts are stored in the variable “artefact_type” and their count in “artefact_count”</li>
+<li>this table is a type of “long table”, which we were discussing in the last lecture</li>
+<li>to do a correspondence analysis, we need to transform this table into so called “wide table”, where one observation will be one grave, and each type of artefact will be one variable</li>
+<li>in other words, we need to have a table where:
+<ul>
+<li>one group of data is in <strong>rows</strong> - in this case graves</li>
+<li>second group of data is in <strong>columns</strong> - in this case the counts of artefact types</li>
+</ul></li>
+</ul>
+</section>
+<section id="widening-data-with-tidyrpivot_wider" class="level2">
+<h2 class="anchored" data-anchor-id="widening-data-with-tidyrpivot_wider">widening data with <code>tidyr::pivot_wider()</code></h2>
+<ul>
+<li><p>remember the function <code>pivot_longer()</code> from the <code>tidyr</code> package? Now we will use its reverse sister <code>pivot_wider()</code></p></li>
+<li><p>syntax within the pipeline:</p></li>
+<li><p><code>df |&gt; pivot_wider(names_from = , values_from = )</code></p></li>
+<li><p><code>names_from</code> - defines the column from which the new variables will be created (e.i. the values in this column will become variables)</p></li>
+<li><p><code>values_from</code> - defines from which column the count values will be taken</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_graves_wide <span class="ot">&lt;-</span> df_graves <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(<span class="sc">-</span>artefact_material) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">pivot_wider</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> artefact_type,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> artefact_count</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>note that we have removed the variable “artefact_material”</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_graves_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 15
+  grave_number dating sex   beaker dartpoint wristguard dagger   axe  bowl  beam
+         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;     &lt;int&gt;      &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+1          900 en.zvo male       3         5          1      1     1     1    NA
+2          901 en.zvo fema…      1         2          1     NA    NA     1     2
+3          902 en.zvo male       1         2          1     NA    NA     1    NA
+4          903 en.zvo fema…      1         2          1     NA    NA     1     2
+5          904 en.zvo male       1         2          1     NA    NA     1    NA
+6          905 en.zvo fema…      1         2          1     NA    NA     1     3
+# ℹ 5 more variables: beam_amber &lt;int&gt;, koflik &lt;int&gt;, bracelet_bronze &lt;int&gt;,
+#   needle &lt;int&gt;, spear &lt;int&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="dealing-with-nas" class="level2">
+<h2 class="anchored" data-anchor-id="dealing-with-nas">Dealing with NAs</h2>
+<ul>
+<li>now we have to deal with the NAs and turn them into 0</li>
+<li>we will use function <code>dplyr::mutate()</code> because we want to change specific values based on specific conditions</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_graves_wide <span class="ot">&lt;-</span> df_graves_wide <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(beaker<span class="sc">:</span>spear, <span class="sc">~</span> <span class="fu">replace_na</span>(.x, <span class="dv">0</span>))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_graves_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 15
+  grave_number dating sex   beaker dartpoint wristguard dagger   axe  bowl  beam
+         &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;     &lt;int&gt;      &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+1          900 en.zvo male       3         5          1      1     1     1     0
+2          901 en.zvo fema…      1         2          1      0     0     1     2
+3          902 en.zvo male       1         2          1      0     0     1     0
+4          903 en.zvo fema…      1         2          1      0     0     1     2
+5          904 en.zvo male       1         2          1      0     0     1     0
+6          905 en.zvo fema…      1         2          1      0     0     1     3
+# ℹ 5 more variables: beam_amber &lt;int&gt;, koflik &lt;int&gt;, bracelet_bronze &lt;int&gt;,
+#   needle &lt;int&gt;, spear &lt;int&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-ca-with-the-function-ca" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-ca-with-the-function-ca">Calculating CA with the function <code>ca()</code></h2>
+<ul>
+<li>we can conduct the correspondence analysis with the function <code>ca::ca()</code></li>
+<li>NOTE that the CA can be done only on columns with integer data</li>
+<li>to proceed, we first need to select the columns with artefact counts, and then run the <code>ca()</code> function</li>
+<li>we will incorporate the <code>ca()</code> into the pipe</li>
+<li>in this stage it is usefull to use <code>colnames()</code> function to see the column names</li>
+<li>in order to CA to work, the sum of each row and column must be greater than zero</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_graves_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "grave_number"    "dating"          "sex"             "beaker"         
+ [5] "dartpoint"       "wristguard"      "dagger"          "axe"            
+ [9] "bowl"            "beam"            "beam_amber"      "koflik"         
+[13] "bracelet_bronze" "needle"          "spear"          </code></pre>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>now we will define which columns to keep for analysis, incorporate the <code>ca()</code> function into the pipe and store the result as “ca_result”</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ca_result <span class="ot">&lt;-</span> df_graves_wide <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(beaker<span class="sc">:</span>spear) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ca</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="visualising-ca-result-with-plot" class="level2">
+<h2 class="anchored" data-anchor-id="visualising-ca-result-with-plot">visualising CA result with <code>plot()</code></h2>
+<ul>
+<li>to quickly visualize the result, we will use the R base function <code>plot()</code> and create the so called <strong>biplot</strong>:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ca_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ca_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>this biplot is basicaly a scatterplot</li>
+<li>first group of data - graves - are represented as blue dots, second group - artefacts - are represented as red triangles</li>
+<li>each grave and each artefact has it’s own coordinates</li>
+<li>the closer the graves or artefacts are to each other, the more similar they are</li>
+</ul>
+</div>
+</section>
+<section id="observing-the-results-structure" class="level2">
+<h2 class="anchored" data-anchor-id="observing-the-results-structure">Observing the results structure</h2>
+<ul>
+<li>at this stage, we cannot use our beloved <code>ggplot2()</code> function because it works only with dataframes or tables, and the result of the CA is not a dataframe but a list:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ca_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 16
+ $ sv        : num [1:11] 0.715 0.555 0.426 0.302 0.28 ...
+ $ nd        : logi NA
+ $ rownames  : NULL
+ $ rowmass   : num [1:50] 0.0345 0.023 0.0144 0.0201 0.0144 ...
+ $ rowdist   : num [1:50] 1.04 0.795 0.811 0.811 0.811 ...
+ $ rowinertia: num [1:50] 0.03727 0.01451 0.00944 0.01322 0.00944 ...
+ $ rowcoord  : num [1:50, 1:11] -0.594 -0.582 -0.565 -0.997 -0.565 ...
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : NULL
+  .. ..$ : chr [1:11] "Dim1" "Dim2" "Dim3" "Dim4" ...
+ $ rowsup    : logi(0) 
+ $ colnames  : chr [1:12] "beaker" "dartpoint" "wristguard" "dagger" ...
+ $ colmass   : num [1:12] 0.0948 0.2989 0.1063 0.0115 0.0603 ...
+ $ coldist   : num [1:12] 1.03 0.405 0.712 2.42 1.336 ...
+ $ colinertia: num [1:12] 0.1006 0.0491 0.0539 0.0673 0.1077 ...
+ $ colcoord  : num [1:12, 1:11] -1.127 -0.211 -0.578 -0.954 0.761 ...
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : chr [1:12] "beaker" "dartpoint" "wristguard" "dagger" ...
+  .. ..$ : chr [1:11] "Dim1" "Dim2" "Dim3" "Dim4" ...
+ $ colsup    : logi(0) 
+ $ N         : int [1:50, 1:12] 3 1 1 1 1 1 1 2 1 1 ...
+ $ call      : language ca.matrix(obj = as.matrix(obj))
+ - attr(*, "class")= chr "ca"</code></pre>
+</div>
+</div>
+<ul>
+<li>you can see that this is not a dataframe, but a so called “list” with much complicated structure</li>
+</ul>
+</section>
+<section id="observing-the-results-structure-2" class="level2">
+<h2 class="anchored" data-anchor-id="observing-the-results-structure-2">Observing the results structure 2</h2>
+<p>And it looks like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ca_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Principal inertias (eigenvalues):
+           1        2        3        4        5        6        7       
+Value      0.511633 0.307624 0.181845 0.091006 0.078339 0.059623 0.033804
+Percentage 38.58%   23.2%    13.71%   6.86%    5.91%    4.5%     2.55%   
+           8        9        10       11      
+Value      0.027614 0.022635 0.010099 0.001813
+Percentage 2.08%    1.71%    0.76%    0.14%   
+
+
+ Rows:
+             [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+Mass     0.034483  0.022989  0.014368  0.020115  0.014368  0.022989  0.008621
+ChiDist  1.039607  0.794512  0.810642  0.810643  0.810642  1.022514  1.260380
+Inertia  0.037268  0.014511  0.009442  0.013218  0.009442  0.024035  0.013694
+Dim. 1  -0.594280 -0.582023 -0.565171 -0.997440 -0.565171 -1.132524 -0.892933
+Dim. 2  -0.618500  0.882143 -0.269234  0.480842 -0.269234  0.715240 -0.386827
+             [,8]      [,9]     [,10]     [,11]     [,12]     [,13]     [,14]
+Mass     0.031609  0.017241  0.014368  0.025862  0.014368  0.008621  0.020115
+ChiDist  1.020069  0.653439  0.810642  1.214695  0.810642  1.260380  0.810643
+Inertia  0.032891  0.007362  0.009442  0.038159  0.009442  0.013694  0.013218
+Dim. 1  -0.505019 -0.817328 -0.565171 -1.237589 -0.565171 -0.892933 -0.997440
+Dim. 2  -0.684581  0.168310 -0.269234  0.897550 -0.269234 -0.386827  0.480842
+            [,15]     [,16]     [,17]     [,18]     [,19]     [,20]     [,21]
+Mass     0.031609  0.057471  0.022989  0.022989  0.008621  0.014368  0.022989
+ChiDist  1.020069  1.164693  1.022514  1.022514  1.260380  0.810642  0.805052
+Inertia  0.032891  0.077960  0.024035  0.024035  0.013694  0.009442  0.014899
+Dim. 1  -0.505019 -1.124728 -1.132524 -1.132524 -0.892933 -0.565171 -0.854313
+Dim. 2  -0.684581  0.926668  0.715240  0.715240 -0.386827 -0.269234  0.481463
+            [,22]     [,23]     [,24]     [,25]     [,26]     [,27]     [,28]
+Mass     0.014368  0.022989  0.014368  0.008621  0.020115  0.008621  0.045977
+ChiDist  0.810642  1.022514  0.810642  1.260380  0.810643  1.260380  1.528425
+Inertia  0.009442  0.024035  0.009442  0.013694  0.013218  0.013694  0.107406
+Dim. 1  -0.565171 -1.132524 -0.565171 -0.892933 -0.997440 -0.892933  1.013292
+Dim. 2  -0.269234  0.715240 -0.269234 -0.386827  0.480842 -0.386827 -1.436801
+           [,29]     [,30]     [,31]    [,32]     [,33]    [,34]     [,35]
+Mass    0.020115  0.031609  0.002874 0.014368  0.017241 0.017241  0.043103
+ChiDist 1.720234  1.029241  1.531716 1.286873  0.814505 1.567031  1.127401
+Inertia 0.059524  0.033485  0.006742 0.023794  0.011438 0.042338  0.054786
+Dim. 1  1.754818  0.539908 -0.294629 1.401986  0.282946 1.659640  0.762122
+Dim. 2  1.958447 -1.253150 -0.671498 1.213833 -1.042592 1.669647 -1.452072
+           [,36]     [,37]     [,38]    [,39]    [,40]    [,41]    [,42]
+Mass    0.017241  0.002874  0.034483 0.022989 0.028736 0.020115 0.025862
+ChiDist 1.567031  1.531716  0.999467 1.748814 1.140247 2.130126 0.990176
+Inertia 0.042338  0.006742  0.034446 0.070307 0.037361 0.091270 0.025356
+Dim. 1  1.659640 -0.294629  0.673294 1.880786 1.224527 1.524143 1.102153
+Dim. 2  1.669647 -0.671498 -1.359819 1.429176 0.902438 0.106477 0.592570
+            [,43]     [,44]    [,45]     [,46]     [,47]     [,48]    [,49]
+Mass     0.002874  0.017241 0.020115  0.037356  0.002874  0.017241 0.014368
+ChiDist  1.531716  0.814505 1.426285  1.092480  1.531716  0.814505 1.286873
+Inertia  0.006742  0.011438 0.040920  0.044585  0.006742  0.011438 0.023794
+Dim. 1  -0.294629  0.282946 1.443630  0.703363 -0.294629  0.282946 1.401986
+Dim. 2  -0.671498 -1.042592 1.500527 -1.517977 -0.671498 -1.042592 1.213833
+            [,50]
+Mass     0.002874
+ChiDist  1.531716
+Inertia  0.006742
+Dim. 1  -0.294629
+Dim. 2  -0.671498
+
+
+ Columns:
+           beaker dartpoint wristguard    dagger       axe     bowl      beam
+Mass     0.094828  0.298851   0.106322  0.011494  0.060345 0.123563  0.100575
+ChiDist  1.030170  0.405361   0.712256  2.419617  1.335676 0.483134  1.584578
+Inertia  0.100636  0.049106   0.053938  0.067294  0.107657 0.028842  0.252532
+Dim. 1  -1.127400 -0.210744  -0.577961 -0.953831  0.761197 0.105557 -1.486444
+Dim. 2   0.060119 -0.372439  -0.331328 -0.478237 -1.894577 0.269450  1.306746
+        beam_amber    koflik bracelet_bronze   needle     spear
+Mass      0.051724  0.080460        0.025862 0.043103  0.002874
+ChiDist   2.066809  1.185859        2.213668 1.837746  4.555217
+Inertia   0.220950  0.113148        0.126733 0.145574  0.059626
+Dim. 1    2.108594  1.347019        1.531099 1.663676  1.416626
+Dim. 2    2.190109 -0.768237       -1.405001 2.047311 -2.590517</code></pre>
+</div>
+</div>
+<ul>
+<li>note that there are two types of data: rows and columns. Can you tell which group of data they represent?</li>
+</ul>
+</section>
+<section id="visualising-ca-result-with-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="visualising-ca-result-with-ggplot">Visualising CA result with <code>ggplot()</code></h2>
+<ul>
+<li><code>ggplot()</code> works only with data in table format, so we need to do some preparations first</li>
+<li>for each group of data (graves and artefacts), we need a separate table with coordinates</li>
+<li>luckily for us, we can easily extract coordinates in the form of a vector from the CA result</li>
+</ul>
+<section id="procedure" class="level3">
+<h3 class="anchored" data-anchor-id="procedure">Procedure:</h3>
+<ol type="1">
+<li>extract the coordinates of both graves and artefacts from the CA result and store them in a vector</li>
+<li>create two tables, one for graves and the other for artefacts, both of which should include coordinates and identifiers (e.g.&nbsp;ID, grave name, artefact name). Other variables could be added as well</li>
+<li>plot each table in <code>ggplot()</code> in its own <code>geom_point()</code> layer</li>
+</ol>
+</section>
+</section>
+<section id="extracting-coordinates" class="level2">
+<h2 class="anchored" data-anchor-id="extracting-coordinates">1. Extracting coordinates:</h2>
+<ul>
+<li>since the graves are stored in the rows of the original table, their coordinates are stored in <code>rowcoord</code> of the CA result</li>
+<li>similarly, the coordinates of artifacts (columns) are stored in <code>colcoord</code></li>
+<li>with <code>[,1]</code> and <code>[,2]</code> we can subset the coordinates in the first and second dimension, respectively</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>coord_grave_1 <span class="ot">&lt;-</span> ca_result<span class="sc">$</span>rowcoord[,<span class="dv">1</span>]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>coord_grave_2 <span class="ot">&lt;-</span> ca_result<span class="sc">$</span>rowcoord[,<span class="dv">2</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>coord_artefact_1 <span class="ot">&lt;-</span> ca_result<span class="sc">$</span>colcoord[,<span class="dv">1</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>coord_artefact_2 <span class="ot">&lt;-</span> ca_result<span class="sc">$</span>colcoord[,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="table-with-graves" class="level2">
+<h2 class="anchored" data-anchor-id="table-with-graves">2.1 Table with graves</h2>
+<ul>
+<li>we can adjust existing table “df_grave_wide”, which is already a table with graves, by adding coordinates and then by selecting only those variables we need</li>
+<li>with <code>mutate()</code> we can add external vectors into the existing table. Just keep in mind the vectors must have same number of objects as the table has rows</li>
+<li>with <code>select()</code> we can select variables we need: coordinates, identifier, sex and dating</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>table_graves <span class="ot">&lt;-</span> df_graves_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(coord_grave_1,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>         coord_grave_2) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dating, sex, coord_grave_1, coord_grave_2, grave_number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 5
+  dating sex    coord_grave_1 coord_grave_2 grave_number
+  &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;
+1 en.zvo male          -0.594        -0.619          900
+2 en.zvo female        -0.582         0.882          901
+3 en.zvo male          -0.565        -0.269          902
+4 en.zvo female        -0.997         0.481          903</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<section id="quick-plot" class="level3">
+<h3 class="anchored" data-anchor-id="quick-plot">Quick plot:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> table_graves, <span class="fu">aes</span>(<span class="at">x =</span> coord_grave_1, <span class="at">y =</span> coord_grave_2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ca_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="table-with-artefacts---function-tidyrtibble" class="level2">
+<h2 class="anchored" data-anchor-id="table-with-artefacts---function-tidyrtibble">2.2 Table with artefacts - function <code>tidyr::tibble()</code></h2>
+<ul>
+<li>now it is little bit more complicated, because we need to create a new table for the artefacts. Each row will be one type of artefact and the variables will be their coordinates</li>
+<li><code>tidyr::tibble()</code> creates a “tibble” which is a type of dataframe and works well with tidy data</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>here, <code>tibble()</code> binds together 2 vectors with the coordinates together with the third vector “artefact”, that consists of artefact names. These names are extracted by <code>colnames()</code> from the names of the columns defined by <code>select()</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>table_artefacts <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  coord_artefact_1,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  coord_artefact_2,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">artefact =</span> df_graves_wide <span class="sc">|&gt;</span> </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(beaker<span class="sc">:</span>spear) <span class="sc">|&gt;</span> </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>()</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(table_artefacts, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  coord_artefact_1 coord_artefact_2 artefact  
+             &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;     
+1           -1.13            0.0601 beaker    
+2           -0.211          -0.372  dartpoint 
+3           -0.578          -0.331  wristguard
+4           -0.954          -0.478  dagger    
+5            0.761          -1.89   axe       
+6            0.106           0.269  bowl      </code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<section id="quick-plot-1" class="level3">
+<h3 class="anchored" data-anchor-id="quick-plot-1">quick plot</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> table_artefacts, <span class="fu">aes</span>(<span class="at">x=</span>coord_artefact_1, <span class="at">y =</span> coord_artefact_2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ca_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="and-finaly---the-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="and-finaly---the-ggplot">3. and finaly - the <code>ggplot()</code></h2>
+<ul>
+<li>here, we are visualising each table in a separate <code>geom_point()</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> table_graves, </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> coord_grave_1, <span class="at">y =</span> coord_grave_2, <span class="at">color =</span> dating), </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">16</span>, <span class="at">size =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> table_artefacts, </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> coord_artefact_1, <span class="at">y =</span> coord_artefact_2), </span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">17</span>, <span class="at">size =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ca_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="adjusting-the-plot" class="level2">
+<h2 class="anchored" data-anchor-id="adjusting-the-plot">Adjusting the plot</h2>
+<ul>
+<li>try to identify what is happening in each layer of the <code>ggplot()</code> and play a bit with the settings:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>eigenvalue_1 <span class="ot">&lt;-</span> <span class="fl">38.58</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>eigenvalue_2 <span class="ot">&lt;-</span> <span class="fl">23.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"gray50"</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"gray50"</span>, </span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> table_graves, </span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> coord_grave_1, <span class="at">y =</span> coord_grave_2, <span class="at">color =</span> dating, <span class="at">fill =</span> dating, <span class="at">shape =</span> sex), </span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> table_artefacts, </span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> coord_artefact_1, <span class="at">y =</span> coord_artefact_2), </span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">4</span>, </span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> table_artefacts,</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label =</span> artefact, <span class="at">x=</span>coord_artefact_1, <span class="at">y=</span>coord_artefact_2), </span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.5</span>,</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"male"</span> <span class="ot">=</span> <span class="dv">22</span>, <span class="st">"female"</span> <span class="ot">=</span> <span class="dv">25</span>, <span class="st">"child"</span> <span class="ot">=</span> <span class="dv">21</span>))<span class="sc">+</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">1.55</span>, <span class="fl">2.4</span>)<span class="sc">+</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">2.6</span>, <span class="fl">2.6</span>)<span class="sc">+</span></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">paste0</span>(<span class="st">"dimension 1 ("</span>, eigenvalue_1,<span class="st">" %)"</span>),</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">paste0</span>(<span class="st">"dimension 2 ("</span>, eigenvalue_2,<span class="st">" %)"</span>),</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Correspondence analysis"</span>)<span class="sc">+</span></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ca_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation">Interpretation</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ca_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>let’s have a look at the plot again and try to answer the research questions:</p>
+<ul>
+<li>are there differences between artefacts in different dating periods?</li>
+<li>are there differences between sexes?</li>
+<li>are there any similar groups of graves?</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Build with quarto.</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+<p>Licenses: MIT (code) &amp; CC BY-SA 4.0 Int. (other content).</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/petrpajdla/stat4arch/blob/main/lect/w04/ca.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/petrpajdla/stat4arch/edit/main/lect/w04/ca.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/petrpajdla/stat4arch/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/petrpajdla/stat4arch/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

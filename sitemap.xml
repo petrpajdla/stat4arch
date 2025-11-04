@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/schedule.html</loc>
-    <lastmod>2025-10-21T15:33:29.981Z</lastmod>
+    <lastmod>2025-11-04T15:27:03.550Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/project.html</loc>
@@ -34,11 +34,11 @@
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w07/space.html</loc>
-    <lastmod>2025-10-07T18:33:18.290Z</lastmod>
+    <lastmod>2025-11-04T13:19:55.924Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w07/slides_space.html</loc>
-    <lastmod>2025-10-07T18:33:18.290Z</lastmod>
+    <lastmod>2025-11-04T13:19:55.924Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w05/dplyr.html</loc>
@@ -47,6 +47,22 @@
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w05/slides_dplyr.html</loc>
     <lastmod>2025-10-07T18:24:00.846Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w04/joins.html</loc>
+    <lastmod>2025-11-04T15:26:42.624Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w04/slides_joins.html</loc>
+    <lastmod>2025-11-04T15:26:42.624Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w04/clust.html</loc>
+    <lastmod>2025-11-04T10:08:21.151Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w04/slides_clust.html</loc>
+    <lastmod>2025-11-04T10:08:21.151Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w03/transformation.html</loc>
@@ -154,11 +170,11 @@
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w03/slides_exc.html</loc>
-    <lastmod>2025-10-21T15:17:34.780Z</lastmod>
+    <lastmod>2025-11-04T10:14:37.235Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w03/exc.html</loc>
-    <lastmod>2025-10-21T15:17:34.780Z</lastmod>
+    <lastmod>2025-11-04T10:14:37.235Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w03/slides_tidy_data.html</loc>
@@ -167,6 +183,22 @@
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w03/tidy_data.html</loc>
     <lastmod>2025-10-21T15:21:33.306Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w04/slides_ca.html</loc>
+    <lastmod>2025-11-04T15:31:14.822Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w04/ca.html</loc>
+    <lastmod>2025-11-04T15:31:14.822Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w04/slides_dist.html</loc>
+    <lastmod>2025-11-04T15:21:47.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://petrpajdla.github.io/stat4arch/lect/w04/dist.html</loc>
+    <lastmod>2025-11-04T15:21:47.472Z</lastmod>
   </url>
   <url>
     <loc>https://petrpajdla.github.io/stat4arch/lect/w04/slides_rels.html</loc>
