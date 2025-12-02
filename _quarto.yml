@@ -5,7 +5,7 @@ project:
     - "!project/template.qmd"
 
 execute:
-  freeze: false
+  freeze: true
 
 website:
   title: "stat4arch"
@@ -62,7 +62,10 @@ website:
             - lect/w04/joins.qmd
             - lect/w04/ca.qmd
             - lect/w04/dist.qmd
-            - lect/w04/clust.qmd
+        - section: Week 5
+          contents:
+            - lect/w05/pca.qmd
+            - lect/w05/clust.qmd
         - text: ---
         - section: Archive
           contents:

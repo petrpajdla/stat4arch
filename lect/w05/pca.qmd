@@ -1,0 +1,17 @@
+---
+title: "Principal component analysis (PCA)"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_pca.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [PCA](./pca.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  # pdf: default
+execute:
+  echo: true
+  warning: false
+  cache: true
+---

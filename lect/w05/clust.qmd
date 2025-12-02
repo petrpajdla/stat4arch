@@ -1,0 +1,414 @@
+---
+title: "Clustering"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_clust.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Clustering](./clust.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+  # pdf: default
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+
+## Clustering
+
+:::: {.columns}
+::: {.column width=60%}
+- Broad set of techniques for finding **subgroups**.
+- Observations **within groups are quite similar to each other** and observations in **different groups quite different from each other**.
+
+### Clustering methods
+
+- Partitioning: **k-means** clustering
+- Agglomerative/divisive: **hierarchical** clustering
+- Model-based: mixture models
+:::
+::: {.column width=40%}
+![](figs/kmeans.jpeg){width=60%}
+
+![](figs/hierarchical_clust.png){width=60%}
+:::
+::::
+
+
+
+
+## K-means clustering
+
+- Simple approach to partitioning a data set into **K distinct, non-overlapping clusters**.
+- **K is specified beforehand**.
+
+![James et al. 2013](figs/kmeans_nr_K.png)
+
+
+## K-means algorithm
+
+:::: {.columns}
+::: {.column width=40%}
+- $K$ -- number of clusters.
+
+::: {.fragment}
+### The process:
+
+:::{.incremental}
+1. **Randomly** assign each observation to groups **1 to K**;
+1. For each of K clusters, derive its **centroid** (midpoint);
+1. **Reassign** each observation into a cluster whose centroid is the **closest**;
+1. **Iterate** until stability in cluster assignments is reached (local vs global optima).
+:::
+:::
+:::
+::: {.column width=60%}
+![James et al. 2013](figs/kmeans_algorithm.png)
+:::
+::::
+
+
+## Some properties of K-means partitioning
+
+:::: {.columns}
+::: {.column width=50%}
+- Standard algorithm for k-means clustering is using **Euclidean distance** (distances are calculated using *Pythagorean theorem*).
+- Different **local optima** (stability) can be reached.
+
+![](figs/kmeans_optima.png)
+:::
+::: {.column width=50% .fragment}
+- **Number of clusters *K*** must be specified in advance 
+- How to determine **optimal** number of clusters?
+    
+    - Elbow method,
+    -  Silhouette method
+
+![](figs/elbow.png){width=60%}
+:::
+::::
+
+
+## PCA
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
+::: fragment
+```{r}
+# Data preparation ----
+# Read data on dart points
+dartpoints <- read.csv("data/dartpoints.csv")
+```
+:::
+::: fragment
+```{r}
+# Filter to two types of dart points, select numeric columns
+# and remove rows with missing values
+dp <- dartpoints |> 
+  filter(Name %in% c("Darl", "Pedernales")) |> 
+  select(Name, where(is.numeric)) |> 
+  drop_na()
+```
+:::
+::: fragment
+```{r}
+head(dp, 4)
+tail(dp, 4)
+```
+:::
+
+## Scatterplot 
+
+```{r}
+# Scatter plot of Length vs Weight colored by Name
+dp |> 
+  ggplot(aes(x = Length, y = Weight, color = Name)) +
+  geom_point() +
+  theme_minimal()
+```
+
+## Reduce dimensions using PCA 
+
+```{r}
+# PCA analysis ----
+# Prepare data matrix for PCA
+dp_matrix <- dp |> 
+  select(where(is.numeric)) |> 
+  as.matrix()
+```
+
+::: fragment
+```{r}
+rownames(dp_matrix) <- dp |> pull(Name) # add rownames
+```
+:::
+::: fragment
+```{r}
+# Scale data to remove effects of different units and magnitudes
+scaled <- scale(dp_matrix, center = TRUE, scale = TRUE)
+```
+:::
+::: fragment
+```{r}
+# PCA analysis
+pca <- prcomp(scaled)
+# alternatively prcomp(dp_matrix, center = TRUE, scale. = TRUE))
+```
+:::
+::: fragment
+```{r}
+# Summary of PCA results
+summary(pca)
+```
+:::
+
+## Biplot 
+
+```{r}
+# Biplot with color mapped to Name
+biplot(pca)
+```
+
+## ggplot2 biplot 
+
+```{r}
+# ggplot2 'biplot' visualization
+pca_scores <- as.data.frame(pca$x)
+
+# Add variation to biplot axis labels
+var_explained <- round(100 * (pca$sdev^2) / sum(pca$sdev^2), 1)
+```
+::: fragment
+```{r}
+#| output-location: column
+pca_scores |> 
+  ggplot() +
+  aes(x = PC1, y = PC2, color = dp$Name) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  coord_fixed() +
+  labs(title = "PCA Biplot of Dart Points",
+       x = paste0("PC1 (", var_explained[1], "%)"),
+       y = paste0("PC2 (", var_explained[2], "%)"),
+       color = "Dart point type")
+```
+:::
+
+## How many clusters?
+
+```{r}
+# K-means clustering ----
+# Set seed (random number generator) for reproducibility
+set.seed(42)
+```
+::: fragment
+```{r}
+# Elbow method to determine optimal number of clusters
+factoextra::fviz_nbclust(pca_scores[, 1:2], kmeans, method = "wss")
+```
+:::
+
+## K-means 
+
+```{r}
+# Caculate K-means
+kmeans_result <- kmeans(pca_scores, centers = 2, nstart = 25)
+
+kmeans_result
+```
+
+## Plot
+
+```{r}
+#| output-location: column
+# Plot
+pca_scores |> 
+  ggplot() +
+  aes(x = PC1, y = PC2, color = factor(kmeans_result$cluster)) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "K-means Clustering on PCA Results",
+       x = "PC 1",
+       y = "PC 2",
+       color = "Cluster")
+```
+
+## Compare clusters with Names 
+
+```{r}
+# Table of clusters vs original names
+table(kmeans_result$cluster, dp$Name)
+```
+::: fragment
+```{r}
+#| output-location: column
+# Compare clusters to original names, i.e., dart point types
+pca_scores |> 
+  ggplot() +
+  aes(
+    x = PC1, y = PC2, 
+    color = dp$Name, 
+    shape = factor(kmeans_result$cluster)
+  ) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "K-means Clustering on PCA Results",
+       x = "PC 1",
+       y = "PC 2",
+       color = "Type of dartpoint",
+       shape = "Cluster")
+```
+:::
+
+
+
+## Hierarchical clustering 
+
+:::: {.columns}
+::: {.column width=50%}
+- The number of clusters is **not specified beforehand**.
+- Output is a **dendrogram** -- a hierarchical structure visualizing the cluster growth.
+- Starts with a **distance matrix**.
+:::
+::: {.column width=50%}
+![](figs/hierarchical_clust2.png){width=80%}
+:::
+::::
+
+:::: {.columns .fragment}
+::: {.column width=50%}
+### Agglomerative
+
+- Builds the hierarchy of clusters from **bottom-up** until a **single cluster is reached**.
+
+1. Put each object in its own cluster;
+1. Join the clusters that are the closest;
+1. Iterate until a single cluster encompassing all objects is reached.
+:::
+::: {.column width=50%}
+### Divisive
+
+- **Divides** a single large cluster into **individual objects** (top-down).
+
+1. Put all objects into a single cluster;
+2. Divide the cluster into subclusters at a similar distance;
+3. Iterate util all objects are in their own clusters.
+:::
+::::
+
+## Hierarchical clustering algorithms
+
+![](figs/hierarchical_algorithm.png)
+
+## Distance matrix
+
+```{r}
+pca_scores[1:5, 1:5]
+```
+::: fragment
+```{r}
+# Hierarchical clustering ----
+
+# Calculate distance matrix
+dist_matrix <- dist(pca_scores)
+```
+:::
+::: fragment
+```{r}
+as.matrix(dist_matrix)[1:5, 1:5]
+```
+:::
+
+## Dendrogram
+
+```{r}
+# Hierarchical clustering using complete linkage
+hc <- hclust(dist_matrix, method = "ward.D2")
+```
+::: fragment
+```{r}
+# Plot dendrogram
+plot(hc, labels = dp$Name, main = "Hierarchical Clustering Dendrogram")
+```
+:::
+
+## Clusters 
+
+- Different options where to cut the dendrogram…
+- function `cutree(x, k, h)`
+- specify `k` -- number of clusters or
+- `h` -- height where to *cut* the dendrogram
+
+```{r}
+#| echo: false
+plot(hc, labels = dp$Name, main = "Hierarchical Clustering Dendrogram")
+abline(h = 10, col = "green")
+abline(h = 7.5, col = "red")
+```
+
+## Cluster assignments
+
+```{r}
+# Cut tree into 2 clusters
+hc_clusters <- cutree(hc, k = 2)
+unname(hc_clusters)
+```
+
+::: fragment
+```{r}
+table(hc_clusters, dp$Name)
+```
+:::
+
+## Sidenote: Cluster linkage methods 
+
+**Complete (maximum) linkage**
+
+- Largest distance between clusters.
+- `method = "complete"`
+
+**Single (minimum) linkage**
+
+- Smallest distance between clusters.
+- `method = "single"`
+
+**Mean (average) linkage**
+
+- Mean distance between clusters.
+- `method = "average"`
+
+**Wards method**
+
+- Minimizes total within cluster variance.
+- `method = "ward.D2"`
+
+
+## Clustering methods comparison
+
+:::: {.columns}
+::: {.column width=50%}
+### K-means partitioning 
+
+- Pre-specified number of clusters.
+- Clusters may vary (different local optima).
+- Best when groups in data are (hyper)spheres.
+
+![](figs/kmeans.jpeg){width=80%}
+:::
+::: {.column width=50%}
+### Hierarchical clustering 
+
+- Variable cluster numbers.
+- Clusters are stable.
+- Any shape of data distribution.
+
+![](figs/hierarchical_clust.png){width=80%}
+:::
+::::
