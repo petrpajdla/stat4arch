@@ -441,7 +441,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
 <figcaption>Mercator (1569)</figcaption>
 </figure>
 </div>
@@ -455,7 +455,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
 <figcaption>Robinson (1963)</figcaption>
 </figure>
 </div>
@@ -466,7 +466,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
 <figcaption>Albers (1805)</figcaption>
 </figure>
 </div>
@@ -525,15 +525,15 @@
 <section id="czech-republic-in-wgs-84" class="slide level2">
 <h2>Czech Republic in WGS 84</h2>
 
-<img data-src="space_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-6-1.png" width="672" class="r-stretch"></section>
 <section id="czech-republic-in-wgs-84-utm" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Czech Republic in WGS 84 / UTM</h2>
 
-<img data-src="space_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-7-1.png" width="672" class="r-stretch"></section>
 <section id="czech-republic-in-s-jtsk-krovak-east-north" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Czech Republic in S-JTSK / Krovak East North</h2>
 
-<img data-src="space_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-8-1.png" width="672" class="r-stretch"></section>
 <section id="raster-and-vector-data" class="slide level2">
 <h2>Raster and vector data</h2>
 
@@ -541,7 +541,7 @@
 <section id="vector-data" class="slide level2">
 <h2>Vector data</h2>
 
-<img data-src="space_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><p>Points, lines, polygons…</p>
+<img data-src="space_files/figure-html/unnamed-chunk-9-1.png" width="672" class="r-stretch"><p>Points, lines, polygons…</p>
 </section>
 <section id="packages" class="slide level2">
 <h2>Packages</h2>
@@ -681,7 +681,6 @@ Projected CRS: S-JTSK / Krovak East North
 - `st_crs()` -- CRS of the layer as a WKT 
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -699,10 +698,8 @@ st_geometry_type(lasoles_sjtsk) %>% head()
 :::
 :::
 
-
 :::
 ::: {.column width=50%}
-
 
 ::: {.cell}
 
@@ -766,7 +763,6 @@ PROJCRS["S-JTSK / Krovak East North",
 :::
 :::
 
-
 :::
 :::: -->
 </section>
@@ -779,7 +775,7 @@ PROJCRS["S-JTSK / Krovak East North",
 <span id="cb7-3"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="space_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-16-1.png" width="672" class="r-stretch"></section>
 <section id="some-background-data" class="slide level2">
 <h2>Some background data…</h2>
 <p>Package <code>RCzechia</code> (<a href="https://rczechia.jla-data.net/">Lacko, 2023</a>) has spatial data for the Czech republic…</p>
@@ -788,18 +784,15 @@ PROJCRS["S-JTSK / Krovak East North",
 <span id="cb8-2"><a></a><span class="fu">head</span>(kraje, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 4 features and 3 fields
-Geometry type: POLYGON
+Geometry type: GEOMETRY
 Dimension:     XY
-Bounding box:  xmin: 12.4005 ymin: 48.55181 xmax: 15.6042 ymax: 50.61895
+Bounding box:  xmin: 12.40056 ymin: 48.55189 xmax: 15.60422 ymax: 50.61901
 Geodetic CRS:  WGS 84
-# A tibble: 4 × 4
-# Groups:   KOD_KRAJ, KOD_CZNUTS3 [4]
-  KOD_KRAJ KOD_CZNUTS3 NAZ_CZNUTS3                                      geometry
-  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                       &lt;POLYGON [°]&gt;
-1 3018     CZ010       Hlavní město Praha ((14.49219 50.17235, 14.47952 50.1722…
-2 3026     CZ020       Středočeský kraj   ((15.14068 50.52093, 15.14296 50.5198…
-3 3034     CZ031       Jihočeský kraj     ((14.84258 49.58029, 14.84104 49.5821…
-4 3042     CZ032       Plzeňský kraj      ((12.56222 49.6091, 12.56244 49.60745…</code></pre>
+  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry
+1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((14.49806 50...
+2     3026       CZ020   Středočeský kraj POLYGON ((15.16973 49.61046...
+3     3034       CZ031     Jihočeský kraj MULTIPOLYGON (((15.4962 48....
+4     3042       CZ032      Plzeňský kraj MULTIPOLYGON (((13.60536 49...</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -808,18 +801,15 @@ Geodetic CRS:  WGS 84
 <span id="cb10-2"><a></a><span class="fu">head</span>(kraje, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 4 features and 3 fields
-Geometry type: POLYGON
+Geometry type: GEOMETRY
 Dimension:     XY
-Bounding box:  xmin: -891828.6 ymin: -1211584 xmax: -665633.8 ymax: -989069.4
+Bounding box:  xmin: -891822.3 ymin: -1211576 xmax: -665628.7 ymax: -989063.4
 Projected CRS: S-JTSK / Krovak East North
-# A tibble: 4 × 4
-# Groups:   KOD_KRAJ, KOD_CZNUTS3 [4]
-  KOD_KRAJ KOD_CZNUTS3 NAZ_CZNUTS3                                      geometry
-  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                       &lt;POLYGON [m]&gt;
-1 3018     CZ010       Hlavní město Praha ((-736502.6 -1034348, -737399.8 -1034…
-2 3026     CZ020       Středočeský kraj   ((-685662.1 -1001961, -685517.2 -1002…
-3 3034     CZ031       Jihočeský kraj     ((-720305.4 -1102961, -720389.4 -1102…
-4 3042     CZ032       Plzeňský kraj      ((-882922.6 -1075750, -882936.8 -1075…</code></pre>
+  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry
+1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((-736092 -10...
+2     3026       CZ020   Středočeský kraj POLYGON ((-696420.7 -110267...
+3     3034       CZ031     Jihočeský kraj MULTIPOLYGON (((-681445.6 -...
+4     3042       CZ032      Plzeňský kraj MULTIPOLYGON (((-817386.4 -...</code></pre>
 </div>
 </div>
 </div>
@@ -833,7 +823,7 @@ Projected CRS: S-JTSK / Krovak East North
 <span id="cb12-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="space_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<img data-src="space_files/figure-html/unnamed-chunk-19-1.png" width="672" class="r-stretch"></section>
 <section id="geometry-operations" class="slide level2">
 <h2>Geometry operations</h2>
 <h3 id="unions">Unions</h3>
@@ -844,16 +834,13 @@ Projected CRS: S-JTSK / Krovak East North
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">head</span>(kraje, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 2 features and 3 fields
-Geometry type: POLYGON
+Geometry type: GEOMETRY
 Dimension:     XY
-Bounding box:  xmin: -816242 ymin: -1109608 xmax: -665633.8 ymax: -989069.4
+Bounding box:  xmin: -816235.3 ymin: -1109600 xmax: -665628.7 ymax: -989063.4
 Projected CRS: S-JTSK / Krovak East North
-# A tibble: 2 × 4
-# Groups:   KOD_KRAJ, KOD_CZNUTS3 [2]
-  KOD_KRAJ KOD_CZNUTS3 NAZ_CZNUTS3                                      geometry
-  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;                                       &lt;POLYGON [m]&gt;
-1 3018     CZ010       Hlavní město Praha ((-736502.6 -1034348, -737399.8 -1034…
-2 3026     CZ020       Středočeský kraj   ((-685662.1 -1001961, -685517.2 -1002…</code></pre>
+  KOD_KRAJ KOD_CZNUTS3        NAZ_CZNUTS3                       geometry
+1     3018       CZ010 Hlavní město Praha MULTIPOLYGON (((-736092 -10...
+2     3026       CZ020   Středočeský kraj POLYGON ((-696420.7 -110267...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>republika <span class="ot">&lt;-</span> <span class="fu">st_union</span>(kraje)</span>
 <span id="cb15-2"><a></a>republika</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -861,7 +848,7 @@ Projected CRS: S-JTSK / Krovak East North
 <pre><code>Geometry set for 1 feature 
 Geometry type: POLYGON
 Dimension:     XY
-Bounding box:  xmin: -904585.3 ymin: -1227296 xmax: -431724.3 ymax: -935243.5
+Bounding box:  xmin: -904576.9 ymin: -1227293 xmax: -431722.5 ymax: -935236.5
 Projected CRS: S-JTSK / Krovak East North</code></pre>
 </div>
 </div>
@@ -874,7 +861,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-22-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -895,7 +882,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <pre><code>Geometry set for 1 feature 
 Geometry type: POINT
 Dimension:     XY
-Bounding box:  xmin: -682477.4 ymin: -1089499 xmax: -682477.4 ymax: -1089499
+Bounding box:  xmin: -682473.1 ymin: -1089493 xmax: -682473.1 ymax: -1089493
 Projected CRS: S-JTSK / Krovak East North</code></pre>
 </div>
 </div>
@@ -908,7 +895,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-24-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -925,7 +912,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <pre><code>Geometry set for 1 feature 
 Geometry type: POLYGON
 Dimension:     XY
-Bounding box:  xmin: -702477.4 ymin: -1109499 xmax: -662477.4 ymax: -1069499
+Bounding box:  xmin: -702473.1 ymin: -1109493 xmax: -662473.1 ymax: -1069493
 Projected CRS: S-JTSK / Krovak East North</code></pre>
 </div>
 </div>
@@ -939,7 +926,7 @@ Projected CRS: S-JTSK / Krovak East North</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-26-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1005,7 +992,7 @@ first 10 elements:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="space_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
+<p><img data-src="space_files/figure-html/unnamed-chunk-31-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1294,44 +1281,6 @@ ggplot() +
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

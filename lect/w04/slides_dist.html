@@ -661,7 +661,7 @@ d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}
 <span id="cb11-4"><a></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="fu">as.matrix</span>(d), <span class="at">is.corr =</span> <span class="cn">FALSE</span>, <span class="at">type =</span> <span class="st">"upper"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="dist_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="dist_files/figure-html/unnamed-chunk-7-1.png" width="672" class="r-stretch"></section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
 <p>For a much more detailed overview of distance methods, see the tutorial on classification by Schmidt, S. C. et al.&nbsp;<a href="https://doi.org/10.5281/zenodo.6325372">DOI: 10.5281/zenodo.6325372</a> (direct link to a HTML file is <a href="https://gitlab.com/oliver.nakoinz/klassifikator/-/blob/master/5tutorials/tutorial_complete_ENG.Rmd">here</a>).</p>
@@ -884,44 +884,6 @@ d(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

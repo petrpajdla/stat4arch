@@ -848,7 +848,7 @@ stovky 101 102 103 104 105 106 107 108 109 110</code></pre>
 <span id="cb49-3"><a></a><span class="fu">plot</span>(ca_vysledek)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="ca_files/figure-revealjs/unnamed-chunk-29-1.png" width="960" class="r-stretch"><ul>
+<img data-src="ca_files/figure-html/unnamed-chunk-29-1.png" width="672" class="r-stretch"><ul>
 <li>notice we are running the analysis only with columns which represent number of artefacts (2nd to 8th)</li>
 <li>also notice there are two types of points in the plot:
 <ul>
@@ -860,7 +860,7 @@ stovky 101 102 103 104 105 106 107 108 109 110</code></pre>
 <section id="interpretation" class="slide level2">
 <h2>Interpretation</h2>
 
-<img data-src="ca_files/figure-revealjs/unnamed-chunk-30-1.png" width="960" class="r-stretch"><ul>
+<img data-src="ca_files/figure-html/unnamed-chunk-30-1.png" width="672" class="r-stretch"><ul>
 <li>there are two clearly distinct groups of graves with distinct types of artefacts</li>
 <li>on the other hand number of vessels seems to be indifferent to the groups - both grave groups share similar number of ceramic vessels</li>
 <li>the x axis explains 82 % of the difference between graves and artefacts, y axis only 9 %. This mean that the difference between those two groups is bigger then within them. In other words, the difference between e.g.&nbsp;copper dagger (cu_dycka) and spondylus is much much greater then between the copper dagger and arrow heads (sipy)</li>
@@ -962,7 +962,7 @@ Dim. 2   1.106622</code></pre>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">plot</span>(x1,x2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="ca_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"></section>
+<img data-src="ca_files/figure-html/unnamed-chunk-34-1.png" width="672" class="r-stretch"></section>
 <section id="creating-dataframes" class="slide level2">
 <h2>Creating dataframes</h2>
 <ul>
@@ -1016,7 +1016,7 @@ Dim. 2   1.106622</code></pre>
 <span id="cb60-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord_artefakty, <span class="fu">aes</span>(Y1, Y2), <span class="at">shape =</span> <span class="dv">17</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="ca_files/figure-revealjs/unnamed-chunk-37-1.png" width="960" class="r-stretch"><ul>
+<img data-src="ca_files/figure-html/unnamed-chunk-37-1.png" width="672" class="r-stretch"><ul>
 <li>notice there are 2 types of values in 2 dataframes, so you need to call <code>geom_point()</code> two times</li>
 <li>in ggplot we can also easily distinguish different datations by color</li>
 </ul>
@@ -1027,7 +1027,7 @@ Dim. 2   1.106622</code></pre>
 <li>now you can play more with adjusting the plot</li>
 </ul>
 
-<img data-src="ca_files/figure-revealjs/unnamed-chunk-38-1.png" width="960" class="r-stretch"></section>
+<img data-src="ca_files/figure-html/unnamed-chunk-38-1.png" width="672" class="r-stretch"></section>
 <section id="solution-1" class="slide level2">
 <h2>Solution</h2>
 <ul>
@@ -1054,7 +1054,7 @@ Dim. 2   1.106622</code></pre>
 
 </div>
 
-<img data-src="ca_files/figure-revealjs/unnamed-chunk-40-1.png" width="960" class="r-stretch"><div class="quarto-auto-generated-content">
+<img data-src="ca_files/figure-html/unnamed-chunk-40-1.png" width="672" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://petrpajdla.github.io/stat4arch/">AES_707</a> <em>Statistics seminar for archaeologists</em> | <a href="./ca.html">Correspondence analysis</a></p>
 </div>
@@ -1272,44 +1272,6 @@ Dim. 2   1.106622</code></pre>
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

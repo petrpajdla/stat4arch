@@ -450,15 +450,14 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>graves</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
+<pre><code># A tibble: 5 × 3
   grave_id burial     mound_present
   &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;        
 1 G-001    missing    FALSE        
 2 G-002    inhumation FALSE        
 3 G-003    inhumation TRUE         
 4 G-004    cremation  FALSE        
-5 G-005    cremation  FALSE        
-6 G-006    inhumation FALSE        </code></pre>
+5 G-005    cremation  FALSE        </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -475,8 +474,8 @@
  6 A-0213      G-003    Brooch       
  7 A-0116      G-004    Dagger       
  8 A-0055      G-005    Ring         
- 9 A-0428      &lt;NA&gt;     Dagger       
-10 A-0429      &lt;NA&gt;     Needle       </code></pre>
+ 9 A-0069      G-005    Sword        
+10 A-0083      G-005    Belt fitting </code></pre>
 </div>
 </div>
 </section>
@@ -485,26 +484,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">inner_join</span>(graves, artefacts, <span class="fu">join_by</span>(grave_id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 5
-  grave_id burial     mound_present artefact_id artefact_type
-  &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        
-1 G-001    missing    FALSE         A-0076      Whetstone    
-2 G-001    missing    FALSE         A-0135      Arrowhead    
-3 G-002    inhumation FALSE         A-0187      Quern stone  
-4 G-003    inhumation TRUE          A-0040      Ring         
-5 G-003    inhumation TRUE          A-0181      Needle       
-6 G-003    inhumation TRUE          A-0213      Brooch       
-7 G-004    cremation  FALSE         A-0116      Dagger       
-8 G-005    cremation  FALSE         A-0055      Ring         </code></pre>
-</div>
-</div>
-</section>
-<section id="full-join-1" class="slide level2">
-<h2>Full join</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">full_join</span>(graves, artefacts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 11 × 5
+<pre><code># A tibble: 10 × 5
    grave_id burial     mound_present artefact_id artefact_type
    &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        
  1 G-001    missing    FALSE         A-0076      Whetstone    
@@ -515,9 +495,29 @@
  6 G-003    inhumation TRUE          A-0213      Brooch       
  7 G-004    cremation  FALSE         A-0116      Dagger       
  8 G-005    cremation  FALSE         A-0055      Ring         
- 9 G-006    inhumation FALSE         &lt;NA&gt;        &lt;NA&gt;         
-10 &lt;NA&gt;     &lt;NA&gt;       NA            A-0428      Dagger       
-11 &lt;NA&gt;     &lt;NA&gt;       NA            A-0429      Needle       </code></pre>
+ 9 G-005    cremation  FALSE         A-0069      Sword        
+10 G-005    cremation  FALSE         A-0083      Belt fitting </code></pre>
+</div>
+</div>
+</section>
+<section id="full-join-1" class="slide level2">
+<h2>Full join</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">full_join</span>(graves, artefacts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+   grave_id burial     mound_present artefact_id artefact_type
+   &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        
+ 1 G-001    missing    FALSE         A-0076      Whetstone    
+ 2 G-001    missing    FALSE         A-0135      Arrowhead    
+ 3 G-002    inhumation FALSE         A-0187      Quern stone  
+ 4 G-003    inhumation TRUE          A-0040      Ring         
+ 5 G-003    inhumation TRUE          A-0181      Needle       
+ 6 G-003    inhumation TRUE          A-0213      Brooch       
+ 7 G-004    cremation  FALSE         A-0116      Dagger       
+ 8 G-005    cremation  FALSE         A-0055      Ring         
+ 9 G-005    cremation  FALSE         A-0069      Sword        
+10 G-005    cremation  FALSE         A-0083      Belt fitting </code></pre>
 </div>
 </div>
 </section>
@@ -527,18 +527,19 @@
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>graves <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a></a>  <span class="fu">left_join</span>(artefacts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 5
-  grave_id burial     mound_present artefact_id artefact_type
-  &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        
-1 G-001    missing    FALSE         A-0076      Whetstone    
-2 G-001    missing    FALSE         A-0135      Arrowhead    
-3 G-002    inhumation FALSE         A-0187      Quern stone  
-4 G-003    inhumation TRUE          A-0040      Ring         
-5 G-003    inhumation TRUE          A-0181      Needle       
-6 G-003    inhumation TRUE          A-0213      Brooch       
-7 G-004    cremation  FALSE         A-0116      Dagger       
-8 G-005    cremation  FALSE         A-0055      Ring         
-9 G-006    inhumation FALSE         &lt;NA&gt;        &lt;NA&gt;         </code></pre>
+<pre><code># A tibble: 10 × 5
+   grave_id burial     mound_present artefact_id artefact_type
+   &lt;chr&gt;    &lt;chr&gt;      &lt;lgl&gt;         &lt;chr&gt;       &lt;chr&gt;        
+ 1 G-001    missing    FALSE         A-0076      Whetstone    
+ 2 G-001    missing    FALSE         A-0135      Arrowhead    
+ 3 G-002    inhumation FALSE         A-0187      Quern stone  
+ 4 G-003    inhumation TRUE          A-0040      Ring         
+ 5 G-003    inhumation TRUE          A-0181      Needle       
+ 6 G-003    inhumation TRUE          A-0213      Brooch       
+ 7 G-004    cremation  FALSE         A-0116      Dagger       
+ 8 G-005    cremation  FALSE         A-0055      Ring         
+ 9 G-005    cremation  FALSE         A-0069      Sword        
+10 G-005    cremation  FALSE         A-0083      Belt fitting </code></pre>
 </div>
 </div>
 </section>
@@ -782,44 +783,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
