@@ -18,7 +18,7 @@ The course takes place once in two weeks, on **odd Wednesdays 12:00 -- 15:40** (
 | 3.      | 22. 10. | [Intro](lect/w03/intro.qmd), [Tidy data](lect/w03/tidy_data.qmd) & [Transformations](lect/w03/transformation.qmd)  | Synthetic BA burial ground [exercise](lect/w03/exc.qmd): <br> [{{< bi file-earmark-arrow-down >}} graves.csv](lect/w03/data/graves.csv) & [{{< bi file-earmark-arrow-down >}} artefacts.csv](lect/w03/data/artefacts.csv) |
 | 4.      | 5. 11.  | [Joins](lect/w04/joins.qmd), [Correspondence analysis](lect/w04/ca.qmd) and [Distances & similarity](lect/w04/dist.qmd) | Eneolithic/BA burials data ([{{< bi file-earmark-arrow-down >}} burials.csv](lect/w04/data/burials.csv)) |
 | -       | 19. 11. | *Reading week* |  |
-| 5.      | 3. 12.  | [Clustering](lect/w05/clust.qmd) |  |
+| 5.      | 3. 12.  | [Clustering](lect/w05/clust.qmd) | [PCA exercise](lect/w05/exc.qmd): [{{< bi file-earmark-arrow-down >}} artefacts.csv](lect/w05/data/artefacts.csv) and<br> [{{< bi file-earmark-arrow-down >}} bronze_composition.xlsx](lect/w05/data/bronze_composition.xlsx)|
 | 6.      | 17. 12. |  |  |
 
 :::

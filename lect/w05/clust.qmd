@@ -211,7 +211,7 @@ set.seed(42)
 ::: fragment
 ```{r}
 # Elbow method to determine optimal number of clusters
-factoextra::fviz_nbclust(pca_scores[, 1:2], kmeans, method = "wss")
+# factoextra::fviz_nbclust(pca_scores[, 1:2], kmeans, method = "wss")
 ```
 :::
 

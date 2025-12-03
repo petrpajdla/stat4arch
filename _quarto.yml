@@ -64,8 +64,8 @@ website:
             - lect/w04/dist.qmd
         - section: Week 5
           contents:
-            - lect/w05/pca.qmd
             - lect/w05/clust.qmd
+            - lect/w05/exc.qmd
         - text: ---
         - section: Archive
           contents:
