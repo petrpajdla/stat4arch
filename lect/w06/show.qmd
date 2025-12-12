@@ -1,0 +1,118 @@
+---
+title: "Showcase of our R projects"
+format:
+  html: default
+  revealjs:
+    fontsize: 24px
+    output-file: slides_show.html
+    footer: "[AES_707](https://petrpajdla.github.io/stat4arch/) *Statistics seminar for archaeologists* | [Showcase](./show.html)"
+    chalkboard:
+      theme: whiteboard
+      chalk-effect: 0.0
+    css: /styles.css
+  # pdf: default
+execute:
+  echo: true
+  warning: false
+  cache: true
+---
+
+## The Duchcov hoard
+
+:::: {.columns}
+::: {.column width="40%"}
+![](figs/pp_jas00.png){.shadow}
+:::
+::: {.column}
+Danielisová, A., **Pajdla, P.**, Bursák, D., Strnad, L., Trubač, J. and Kmošek, J. **2021**:
+
+**Claiming the land or protecting the goods? The Duchcov hoard in Bohemia as a proxy for ‘Celtic migrations’ in Europe in the 4th century BCE**
+
+*Journal of Archaeological Science* 127
+
+DOI: [10.1016/j.jas.2020.105314](https://doi.org/10.1016/j.jas.2020.105314), fultext at [Sci-Hub](https://sci-hub.se/10.1016/j.jas.2020.105314)
+:::
+::::
+
+##
+
+:::: {.columns }
+::: {.column width="33%"}
+![](figs/pp_duchcov01.png)
+:::
+::: {.column width="33%"}
+![](figs/pp_duchcov02.png)
+:::
+::: {.column width="33%"}
+![](figs/pp_jas01.png)
+:::
+:::: 
+
+Comix available for download [here...](https://www.arup.cas.cz/komiks-o-duchcovskem-pokladu/)
+
+## Element compositions
+
+![PCA and clustering (`ggplot2` package)](figs/pp_jas02.png)
+
+## Comparison with ore sources based on Pb isotopes
+
+![Scatterplots and linear models in Pb isotope space (`ggplot2` package)](figs/pp_jas03.png)
+
+## Distance between Duchcov clusters and ore sources
+
+![Mahalanobis distance (`ggplot2` package)](figs/pp_jas04.png)
+
+
+## AMCR-PAS & metal detecting 
+
+:::: {.columns}
+::: {.column}
+![](figs/pp_intarch00.png){.shadow}
+:::
+::: {.column}
+**Pajdla, P.**, Lečbychová, O., Novák, D., Antal, R., Komoróczy, B., Chlup, T. and Mařík, J. **2023**:
+
+**Recording Data from Metal-Detecting Activities in the Czech Republic: The Portal of Amateur Collaborators and Register of Individual Finds (AMCR-PAS)** 
+
+*Internet Archaeology* 64
+
+DOI: [10.11141/ia.64.13](https://doi.org/10.11141/ia.64.13)
+:::
+::::
+
+## Authorised Archaeological Organizations (OAO)
+
+![Number of authorised archaeological organizations active in the Czech Republic, see <https://oao.aisc.cz> (`sf` package)](figs/pp_intarch01.png)
+
+## Cooperation
+
+![Network of cooperations (`igraph` package)](figs/pp_intarch02.png)
+
+## Types of finds
+
+![Treemap chart of artefact types (`treemap` and `RColorBrewer` packages)](figs/pp_intarch04.png)
+
+## Spatial distribution of finds
+
+![Spatial distribution of finds (`sf` package)](figs/pp_intarch03.png)
+
+## Temporal distribution of finds
+
+![Aoristic analysis (`aoristAAR` package)](figs/pp_intarch05.png)
+
+<!-- 
+:::: {.columns}
+::: {.column width="33%"}
+
+:::
+::: {.column}
+
+:::
+:::: 
+-->
+
+
+
+
+
+

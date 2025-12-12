@@ -66,6 +66,9 @@ website:
           contents:
             - lect/w05/clust.qmd
             - lect/w05/exc.qmd
+        - section: Week 6
+          contents: 
+            - lect/w06/show.qmd
         - text: ---
         - section: Archive
           contents:
